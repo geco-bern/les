@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Book Title",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "basicr.html",
+    "href": "basicr.html",
+    "title": "2  Basic R",
+    "section": "",
+    "text": "2.0.1 Basic expressions\nAn expression is a set of commands that returns a value.\nClick Run Code to run the following R code.\nExecute this simple calculation.\n\n50 * 2.2\n\n[1] 110\n\n\nShow the first rows of a table.\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n\n\n\n\n\n\n\nExercise\n\n\n\nShow the last rows of the mtcars table.\n\n# Add you code here\n\nYour result should look like the plot below\n\n\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2"
+  },
+  {
+    "objectID": "ggplot.html",
+    "href": "ggplot.html",
+    "title": "3  ggplot demo",
+    "section": "",
+    "text": "library(ggplot2)\n\nggplot(data = mtcars, mapping = aes(x = mpg, y = hp)) + \n  geom_point()"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  }
+]
