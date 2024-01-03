@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: _book
+
+execute:
+  freeze: auto
+
+book:
+  title: "Book Title"
+  subtitle: "Subtitle"
+  author: "Koen Hufkens"
+  date: "2023/01/01"
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - basicr.qmd
+    - ggplot.qmd
+    - references.qmd
+  favicon: "figures/favicon.ico"
+  twitter-card: true
+  search: true
+  repo-url: https://github.com/geco-bern/R_book_template/
+  sharing: [twitter, facebook]
+  navbar:
+    title: " "
+    logo: "images/logo.png"
+    background: "#3A3A3A"
+    search: true
+    right:
+      - text: "Home"
+        file: index.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+      light: [cosmo, theme-light.scss]
+      dark: [cosmo, theme-dark.scss]
