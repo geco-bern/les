@@ -6,6 +6,19 @@ The terrestrial biosphere - land - is at the core of the Earth system. It connec
 
 This book focuses on the terrestrial biosphere, how its structure and functioning are shaped by climate, and how it affects atmospheric CO2 and climate change. The following set of phenomena and observations of current global environmental change impacts are an expression of the key role of the land in the Earth system. Over the course of this book, we will revisit these phenomena and observations and introduce the underlying processes and principles for understanding them. 
 
+## Annual swings in atmospheric CO2
+
+The longest-running record of direct measurements of atmospheric CO2 is from the Mauna Loa Observatory, atop a volcano on Hawaii. This record has become iconic for documenting the rapid rise of atmospheric CO2 - a greenhouse gas - since the great economic acceleration after the Second World War. This has provided a basis for understanding the relationship between emissions of anthropogenic CO2 and its accumulation in the atmosphere and for estimating the climate impact of this important greenhouse gas.
+
+```{r echo=FALSE}
+#| label: fig-mauna-loa-co2
+#| fig-cap: "Atmospheric CO2 from Mauna Loa Observatory, Hawaii. The red curve represents monthly mean values. The black curve represents the same after removing an average seasonal cycle. Source: NOAA https://gml.noaa.gov/ccgg/trends/"
+#| out-width: 80%
+knitr::include_graphics("images/co2_data_mlo.png")
+```
+
+The time series in @fig-mauna-loa-co2 shows not only the accelerating rise in atmospheric CO2 over the past decades, but also its regular annual swings - the "breathing of the Earth". This is the result of the seasonal cycles in CO2 uptake and release by terrestrial ecosystems. CO2 uptake peaks in early early summer in the northern extratropics - driven by the high light availability and high photosynthetic rates of young leaves in the early summer months. CO2 release by respiring plants and soil microbes has a shifted seasonality and tends to have a smaller amplitude, compared to CO2 uptake. The net of the two drives changes in atmospheric CO2 which are measured here in the free atmosphere - unaffected by local anthropogenic sources - atop a volcano on Hawaii.
+
 
 <!-- This is a book created from markdown and executable code.
 
