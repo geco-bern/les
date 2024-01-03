@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Book Title",
+    "title": "Land in the Earth System I",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   },
@@ -11,27 +11,20 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "The Earth system can be regarded as a coupled system in which its elements (atmosphere, ocean, cryosphere, biosphere, pedosphere, lithosphere) are interacting on various time scales. A primary goal of Earth System research is to understand the interactions occurring on time scales that are relevant for society in the context of anthropogenic climate change. It is now established with overwhelming evidence that anthropogenic CO2 emissions from the combustion of fossil fuels have caused a rise in atmospheric CO2 concentrations beyond levels reached over the past 800,000 years, and that this concentration increase is the dominant driver of climate change as observed over the last decades.\nThe terrestrial biosphere - land - is at the core of the Earth system. It connects all spheres. Atmospheric humidity and near-surface heating of the atmosphere are determined by how much water vegetation transpires and how much radiation it reflects or absorbs. Its carbon balance determines the accumulation of anthropogenic CO2 in the atmosphere and thus affects the CO2 gas exchange between the ocean and the atmosphere. The activity of plants is the driver for processes in the soil, the weathering of rocks. Any projection of climate change and climate impacts for the coming decades, centuries and millennia relies on an understanding of how the terrestrial biosphere responds and feeds back to climate and the Earth system. The carbon cycle of the terrestrial biosphere has a strong influence on how fast anthropogenic CO2 emissions will accumulate in the atmosphere. And it is through land ecosystems - both natural and agricultural - that climate impacts will be most clearly expressed. Understanding how climate influences the terrestrial biosphere is thus key to understanding climate impacts and projecting Earth system change.\nThis book focuses on the terrestrial biosphere, how its structure and functioning are shaped by climate, and how it affects atmospheric CO2 and climate change. The following set of phenomena and observations of current global environmental change impacts are an expression of the key role of the land in the Earth system. Over the course of this book, we will revisit these phenomena and observations and introduce the underlying processes and principles for understanding them."
   },
   {
     "objectID": "basicr.html",
     "href": "basicr.html",
-    "title": "2  Basic R",
+    "title": "3  Basic R",
     "section": "",
-    "text": "2.0.1 Basic expressions\nAn expression is a set of commands that returns a value.\nClick Run Code to run the following R code.\nExecute this simple calculation.\n\n50 * 2.2\n\n[1] 110\n\n\nShow the first rows of a table.\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n\n\n\n\n\n\n\nExercise\n\n\n\nShow the last rows of the mtcars table.\n\n# Add you code here\n\nYour result should look like the plot below\n\n\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2"
+    "text": "3.0.1 Basic expressions\nAn expression is a set of commands that returns a value.\nClick Run Code to run the following R code.\nExecute this simple calculation.\n\n50 * 2.2\n\n[1] 110\n\n\nShow the first rows of a table.\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n\n\n\n\n\n\n\nExercise\n\n\n\nShow the last rows of the mtcars table.\n\n# Add you code here\n\nYour result should look like the plot below\n\n\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2"
   },
   {
     "objectID": "ggplot.html",
     "href": "ggplot.html",
-    "title": "3  ggplot demo",
+    "title": "4  ggplot demo",
     "section": "",
     "text": "library(ggplot2)\n\nggplot(data = mtcars, mapping = aes(x = mpg, y = hp)) + \n  geom_point()"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]
