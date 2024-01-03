@@ -6,14 +6,15 @@ execute:
   freeze: auto
 
 book:
-  title: "Book Title"
-  subtitle: "Subtitle"
-  author: "Koen Hufkens"
-  date: "2023/01/01"
+  title: "Land in the Earth System I"
+  subtitle: "Introducing global patterns, processes, and underlying principles for how climate shapes the terrestrial biosphere and how land feeds back to Earth system dynamics."
+  author: "Benjamin Stocker"
+  date: "2024/01/03"
   page-navigation: true
   chapters:
     - index.qmd
     - intro.qmd
+    - biogeography.qmd
     - basicr.qmd
     - ggplot.qmd
     - references.qmd
