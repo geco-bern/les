@@ -20,7 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,9 +118,13 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="Land in the Earth System I - 2&nbsp; Biogeography">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="images/humboldt_biogeography_small.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -186,7 +243,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-global-view-of-vegetation" id="toc-a-global-view-of-vegetation" class="nav-link active" data-scroll-target="#a-global-view-of-vegetation"><span class="header-section-number">2.1</span> A global view of vegetation</a></li>
+  <li><a href="#biomes" id="toc-biomes" class="nav-link" data-scroll-target="#biomes"><span class="header-section-number">2.2</span> Biomes</a>
+  <ul class="collapse">
+  <li><a href="#biomes-in-climate-space" id="toc-biomes-in-climate-space" class="nav-link" data-scroll-target="#biomes-in-climate-space"><span class="header-section-number">2.2.1</span> Biomes in climate space</a></li>
+  </ul></li>
+  <li><a href="#plant-functional-types" id="toc-plant-functional-types" class="nav-link" data-scroll-target="#plant-functional-types"><span class="header-section-number">2.3</span> Plant functional types</a></li>
+  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">2.4</span> Traits</a></li>
+  <li><a href="#vegetation-types" id="toc-vegetation-types" class="nav-link" data-scroll-target="#vegetation-types"><span class="header-section-number">2.5</span> Vegetation types</a></li>
+  <li><a href="#climate-zones" id="toc-climate-zones" class="nav-link" data-scroll-target="#climate-zones"><span class="header-section-number">2.6</span> Climate zones</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -208,28 +279,350 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="a-global-view-of-vegetation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="a-global-view-of-vegetation"><span class="header-section-number">2.1</span> A global view of vegetation</h2>
+<p>We start with the observation that the global distribution of plants and characteristic assemblies of different plant species is not random, but relates to climate. Around the beginning of the 19th century, Alexander von Humboldt pursued expeditions to different places on Earth and connected the multitude of his local observations into a global view of biogeography. He was the first to realise that vegetation zones along elevational gradients were shifted across different mountain ranges on different continents and located on different latitudes, and that the elevational and latitudinal patterns in vegetation were related to climate - in much the same way across the earth. This finding is visualised by the schematic scientific drawing in <a href="#fig-humboldt">Figure&nbsp;<span>2.1</span></a>. The figure illustrates, for example, that the treeline increases from the high northern latitudes of Lapland at 68<span class="math inline">\(^\circ\)</span>N to the Alps and Pyrenees at 42-46<span class="math inline">\(^\circ\)</span>N and to the Himalaya at 29-32<span class="math inline">\(^\circ\)</span>N. Or that the elevation at which <em>Betula alba</em> (birch) grows varies from 1000-2000 ft in Lapland, to 4000-5000 ft in the Alps, and about 15,000 ft in the Himalaya. <a href="#fig-humboldt">Figure&nbsp;<span>2.1</span></a> also illustrates that the treeline doesn’t increase monotonically with decreasing latitude. Although not spelled out in the figure, this is a hint at the importance of water, along with temperature, for controlling vegetation. We’ll revisit this observation later in this book. Humboldt’s integration of globally distributed observations into his global view of climate as a driver of vegetation was pioneering and forms the basis of our modern approach to understanding and modelling global vegetation patterns and how they are influenced by climate change.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-humboldt" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/humboldt_biogeography_small.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Vegetation zones along elevation and latitude. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/9/96/Alexander_von_Humboldt_-_1850_-_Geographical_Distribution_of_Plants_-_Crop.jpg">Wikimedia</a>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="biomes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="biomes"><span class="header-section-number">2.2</span> Biomes</h2>
+<p>Global patterns in the distribution of vegetation become apparent when grouping plants and <em>plant functional types</em> (see XXX) into <em>biomes</em> or broad vegetation classes. A global map of biomes following the definition and global delineation by <span class="citation" data-cites="olson01biosci">Olson et al. (<a href="references.html#ref-olson01biosci" role="doc-biblioref">2001</a>)</span> is given in <a href="#fig-biomes_olson">Figure&nbsp;<span>2.2</span></a>. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-biomes_olson" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/biomes_olson.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Fourteen biomes and eight biogeographic realms. Figure from <span class="citation" data-cites="olson01biosci">Olson et al. (<a href="references.html#ref-olson01biosci" role="doc-biblioref">2001</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Each biome is characterised by the types of dominant plants (plant functional types), their characteristics (traits), ecosystem structural and functional properties, and landscape processes (e.g., fire). Underlying all of this is the characteristic climate. The following biome classification (based on <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span> and slightly deviating from <span class="citation" data-cites="olson01biosci">Olson et al. (<a href="references.html#ref-olson01biosci" role="doc-biblioref">2001</a>)</span>) can be made.</p>
+<ul>
+<li>Tropical moist broadleaved (evergreen) forest
+<ul>
+<li>warm year-round</li>
+<li>no or little precipitation seasonality</li>
+<li>tall vegetation height, high productivity, high total leaf area per unit ground area (leaf area index, LAI), fast decomposition</li>
+<li>large, thin leaves</li>
+</ul></li>
+<li>Tropical deciduous forest (xeric woodland)
+<ul>
+<li>warm year-round</li>
+<li>dry season</li>
+<li>leaves are (partly) shed during the dry season as a water saving strategy</li>
+<li>shorter stature, lower LAI than tropical moist broadleaved (evergreen) forests</li>
+<li>small, thick leaves</li>
+</ul></li>
+<li>Tropical savannah
+<ul>
+<li>warm year-round</li>
+<li>pronounced dry season</li>
+<li>widely spaced trees, mixed with grasses</li>
+<li>low plant biomass, deep roots</li>
+<li>regular fires</li>
+</ul></li>
+<li>Grasslands
+<ul>
+<li>tropical and temperate dry climates</li>
+<li>C<sub>3</sub> and C<sub>4</sub> grasses (see below), distribution governed by temperature</li>
+<li>temperate grasslands in dry, seasonally hot, semiarid climates with annual precipitation less than about 1000 mm</li>
+<li>transitional between forests and desert</li>
+</ul></li>
+<li>Shrublands and deserts
+<ul>
+<li>less than 250 mm annual precipitation</li>
+<li>short, widely spaced desert scrub and shrubland</li>
+<li>germination after intense rain, leaf shedding during dry period</li>
+<li>cacti and succulents store water and use the CAM photosnthetic pathway to minimize water loss during photosynthesis</li>
+</ul></li>
+<li>Temperate forests
+<ul>
+<li>more than 1000 mm annual precipitation</li>
+<li>deciduous and evergreen trees, sometimes mixed</li>
+<li>low winter light and temperature limits productivity</li>
+<li>tall trees</li>
+</ul></li>
+<li>Mediterranean forests
+<ul>
+<li>additional productivity limitation in summer due to water, but less limited by temperature and light in winter than temperate forests</li>
+<li>mild and moist winters</li>
+<li>short stature trees, dense shrubs</li>
+<li>thick, waxy leaves</li>
+</ul></li>
+<li>Boreal forests
+<ul>
+<li>very cold winters, cool summers</li>
+<li>winter light and temperature limits productivity</li>
+<li>mostly needle-leaved evergreen</li>
+<li>shorter and more open than temperate forests</li>
+<li>in Siberia: extreme winter low temperatures favour deciduousness of larch (<em>larix decidua</em>)</li>
+</ul></li>
+<li>Tundra
+<ul>
+<li>tree-less, grass-like sedges, dwarf shrubs, lichens, and mosses</li>
+<li>very short vegetation period</li>
+<li>frozen ground, seasonal thawing of top ~50 cm (permafrost)</li>
+</ul></li>
+</ul>
+<section id="biomes-in-climate-space" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="biomes-in-climate-space"><span class="header-section-number">2.2.1</span> Biomes in climate space</h3>
+<p><a href="#fig-biomes_olson">Figure&nbsp;<span>2.2</span></a> shows biomes in geographical space - as a global map. Acknowledging their intricate relationship between with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(devtools)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("valentinitnelav/plotbiomes")</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotbiomes)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plotbiomes<span class="sc">::</span><span class="fu">whittaker_base_plot</span>() <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="biogeography_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="plant-functional-types" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="plant-functional-types"><span class="header-section-number">2.3</span> Plant functional types</h2>
+<p>Each biome is characterised by a typical assembly of <em>plant functional types</em> (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C<sub>3</sub> vs.&nbsp;the C<sub>4</sub> photosynthetic pathway (see Chapter XXX). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:</p>
+<ol type="1">
+<li>needle-leaved evergreen trees</li>
+<li>broadleaved evergreen trees</li>
+<li>needle-leaved deciduous trees</li>
+<li>broadleaved deciduous trees</li>
+<li>broadleaved annuals (herbs)</li>
+<li>C<sub>3</sub> grasses</li>
+<li>C<sub>4</sub> grasses</li>
+</ol>
+<p>Global vegetation models use PFTs as their basic unit of distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant (“N-fixing plants”, see also Chapter XXX). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.</p>
+<p>Plants can also be distinguished into the botanical classification of <em>angiosperms</em> (flowering plants) and <em>gymnnosperms</em> (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates, and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.</p>
+</section>
+<section id="traits" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="traits"><span class="header-section-number">2.4</span> Traits</h2>
+<p>The physiological, morphological, and life history characteristics that distinguish PFTs determine their productivity and competitiveness in a given climate. Such characteristics are referred to as <em>plant functional traits</em>, or often just <em>traits</em>. Plant species can be described by a set of traits and a set of certain traits yields the distinction into PFTs described above: leaf habit (deciduous vs.&nbsp;evergreen), leaf form (needle-leaved vs.&nbsp;broadleaved), and the life history strategy distinguising annual vs.&nbsp;perennial. A range of additional traits are commonly described and investigated scientifically. Here, we will not consider additional ones. The concept of a plant functional trait is that it describes a largely immutable characteristic of a plant species that determines metabolic rates (photosynthesis, respiration) and their relationship to the abiotic environment (e.g., temperature), nutrient and water demand, and ultimately its demographic rates (growth, fecundity, mortality) and thus competitiveness.</p>
+<p>Today’s global distribution of species and biomes (assuming no intervention by human land use and forest management) is the outcome of competition and thus reflects the combination of plant functional traits that optimises competitiveness of a species under the present-day climate. The distribution of biomes and PFTs is thus a direct reflection of the climate.</p>
+<p>For example, whether a region is dominated by deciduous or by evergreen trees and forests is determined by the benefits and costs for a plant of maintaining leaves year-round. Evergreen trees benefit from the ability to photosynthesise and gain carbon around the year. For example, in Mediterranean regions, although light levels are lower in winter than in summer, ample moisture and non-negligible light enables evergreen trees to assimilate carbon also during winter months. However, leaves and needles of evergreen plants have to be built for lasting several years. Such leaves are typically much thicker than those of deciduous trees and thus require more carbon per unit leaf area for their construction. The leaf mass per unit leaf area is commonly referred to as the leaf mass per area, LMA, and is an important additional plant trait as it is directly linked to a plant’s carbon balance. Over the leaf lifespan, the initial high construction costs of high-LMA leaves are outweighed by the additional carbon assimilation during periods when deciduous trees shed their leaves.</p>
+<p>Leaf-shedding of deciduous trees, in contrast, is a strategy to avoid having to build costly long-lasting leaves and maintaining them year-round (which also incurs an additional respiration cost, also in the form of carbon). Leaves are shed during periods when the climate is unfavourable for photosynthesis - during cold and dark winter months, or during excessively dry periods.</p>
+<p>Note that plant functional traits are often not entirely immutable. Instead, traits may vary also within a species and these variations are often driven by the environment. This is called <em>acclimation</em>. Such variations can even arise over the course of a season. For example, photosynthetic traits can rapidly acclimate to the large changes in light availability over the course of a year. Some traits are more plastic than others. For example, a tree is either needle-leaved or broadleaved. There is no continuum between the two leaf forms. In contrast, the nitrogen content per unit leaf mass is relatively plastic within a species.</p>
+<p>A changing environment changes the competitiveness of a given species, i.e., of a given trait combination. As a result, some traits may acclimate to some extent within a weeks to years. Over longer time scales, the altered demographic rates in a new climate affect the competitiveness of a species (even after some of its traits may have acclimated to a new climate) and ultimately shift demographic rates and the community composition. In grasslands, where the demographic cycle is short, such community composition changes may unfold over time scales of a few years. In forests, the longevity of an individual tree is on the order of decades to centuries and community composition changes unfold on correspondingly long time scale.</p>
+</section>
+<section id="vegetation-types" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.5</span> Vegetation types</h2>
+<p>Note that the categorisation of vegetation into biomes is different from the categorisation of vegetation into <em>vegetation types</em> or land cover classes. A widely used distinction of vegetation types/land cover classes is that of the International Geosphere Biosphere Programme (IGBP). Vegetation types distinguish what can be seen from space and are thus amenable to remote-sensing based land cover classification. However, for example, different types of evergreen broadleaved forests are not distinguished (e.g., moist tropical, Mediterranean, and temperate evergreen broadleaved forests).</p>
+<div id="tbl-vegtype" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https://fluxnet.org/data/badm-data-templates/igbp-classification/">https://fluxnet.org/data/badm-data-templates/igbp-classification/</a></caption>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BSV</td>
+<td>Barren Sparse Vegetation</td>
+<td>Lands exposed soil, sand, or rocks and has less than 10% vegetative cover during any time of the year.</td>
+</tr>
+<tr class="even">
+<td>CRO</td>
+<td>Croplands</td>
+<td>Lands covered with temporary crops followed by harvest and a bare soil period (e.g., single and multiple cropping systems). Note that perennial woody crops will be classified as the appropriate forest or shrub land cover type.</td>
+</tr>
+<tr class="odd">
+<td>CSH</td>
+<td>Closed Shrublands</td>
+<td>Lands with woody vegetation less than 2 meters tall and with shrub canopy cover &gt;60%. The shrub foliage can be either evergreen or deciduous.</td>
+</tr>
+<tr class="even">
+<td>CVM</td>
+<td>Cropland/Natural Vegetation Mosaics</td>
+<td>Lands with a mosaic of croplands, forest, shrublands, and grasslands in which no one component comprises more than 60% of the landscape.</td>
+</tr>
+<tr class="odd">
+<td>DBF</td>
+<td>Deciduous Broadleaf Forests</td>
+<td>Lands dominated by woody vegetation with a percent cover &gt;60% and height exceeding 2 meters. Consists of broadleaf tree communities with an annual cycle of leaf-on and leaf-off periods.</td>
+</tr>
+<tr class="even">
+<td>DNF</td>
+<td>Deciduous Needleleaf Forests</td>
+<td>Lands dominated by woody vegetation with a percent cover &gt;60% and height exceeding 2 meters. Consists of seasonal needleleaf tree communities with an annual cycle of leaf-on and leaf-off periods.</td>
+</tr>
+<tr class="odd">
+<td>EBF</td>
+<td>Evergreen Broadleaf Forests</td>
+<td>Lands dominated by woody vegetation with a percent cover &gt;60% and height exceeding 2 meters. Almost all trees and shrubs remain green year round. Canopy is never without green foliage.</td>
+</tr>
+<tr class="even">
+<td>ENF</td>
+<td>Evergreen Needleleaf Forests</td>
+<td>Lands dominated by woody vegetation with a percent cover &gt;60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.</td>
+</tr>
+<tr class="odd">
+<td>GRA</td>
+<td>Grasslands</td>
+<td>Lands with herbaceous types of cover. Tree and shrub cover is less than 10%. Permanent wetlands lands with a permanent mixture of water and herbaceous or woody vegetation. The vegetation can be present in either salt, brackish, or fresh water.</td>
+</tr>
+<tr class="even">
+<td>MF</td>
+<td>Mixed Forests</td>
+<td>Lands dominated by trees with a percent cover &gt;60% and height exceeding 2 meters. Consists of tree communities with interspersed mixtures or mosaics of the other four forest types. None of the forest types exceeds 60% of landscape.</td>
+</tr>
+<tr class="odd">
+<td>OSH</td>
+<td>Open Shrublands</td>
+<td>Lands with woody vegetation less than 2 meters tall and with shrub canopy cover between 10-60%. The shrub foliage can be either evergreen or deciduous.</td>
+</tr>
+<tr class="even">
+<td>SAV</td>
+<td>Savannas</td>
+<td>Lands with herbaceous and other understory systems, and with forest canopy cover between 10-30%. The forest cover height exceeds 2 meters.</td>
+</tr>
+<tr class="odd">
+<td>SNO</td>
+<td>Snow and Ice</td>
+<td>Lands under snow/ice cover most of the year.</td>
+</tr>
+<tr class="even">
+<td>URB</td>
+<td>Urban and Built-Up Lands</td>
+<td>Land covered by buildings and other man-made structures.</td>
+</tr>
+<tr class="odd">
+<td>WAT</td>
+<td>Water Bodies.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WET</td>
+<td>Permanent Wetlands</td>
+<td>Lands with a permanent mixture of water and herbaceous or woody vegetation that cover extensive areas. The vegetation can be present in either salt, brackish, or fresh water.</td>
+</tr>
+<tr class="odd">
+<td>WSA</td>
+<td>Woody Savannas</td>
+<td>Lands with herbaceous and other understory systems, and with forest canopy cover between 30-60%. The forest cover height exceeds 2 meters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># raster_vegtype &lt;- terra::rast(</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   "~/data/landcover/modis_landcover__LPDAAC__v5.1__0.05deg__2010.nc"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) |&gt; </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::subset("landcover") |&gt; </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::aggregate(fact = 10, fun = "modal") |&gt; </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   tidyterra::mutate(landcover = as.factor(landcover))</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># terra::writeRaster(</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   raster_vegtype, </span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.5deg__2010.nc")</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>raster_vegtype <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/modis_landcover__LPDAAC__v5.1__0.5deg__2010.nc"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Band1 =</span> <span class="fu">as.factor</span>(Band1)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">rename</span>(<span class="at">landcover =</span> Band1)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>coast <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="dv">110</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># To have some more flexibility, we can plot this in the ggplot-style as such:</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">geom_spatraster</span>(<span class="at">data =</span> raster_vegtype) <span class="sc">+</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> coast,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">'black'</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"azure"</span>, <span class="co"># worldgrids_pal$IGBP["Water " ] , #"water" ;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"dodgerblue4"</span> , <span class="co">#"evergreen needleleaf forest" ;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span> , <span class="co">#"evergreen broadleaf forest" ;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"#9ED003"</span>, <span class="co"># worldgrids_pal$IGBP["Deciduous Needleleaf forest "] , #"deciduous needleleaf forest" ;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span>  <span class="st">"springgreen3"</span> , <span class="co">#"deciduous broadleaf forest" ;</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span>  <span class="st">"#31A278"</span>, <span class="co"># worldgrids_pal$IGBP["Mixed forest "] #"mixed forest" ;</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span>  <span class="st">"#A84974"</span>, <span class="co">#worldgrids_pal$IGBP["Closed shrublands " ] , #"closed shrublands" ;</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span>  <span class="st">"#FFD3A0"</span> , <span class="co">#"open shrublands" ;</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span>  <span class="st">"#CAFE8F"</span>, <span class="co">#worldgrids_pal$IGBP["Woody savannas "] , #"woody savannas" ;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"#F7D600"</span>, <span class="co">#worldgrids_pal$IGBP["Savannas " ] , # "savannas" ;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"khaki3"</span> , <span class="co"># "grasslands" ;</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"violetred"</span> , <span class="co"># "permanent wetlands" ;</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"#FAFE03"</span>, <span class="co"># worldgrids_pal$IGBP["Croplands " ] , # "croplands" ;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"#FF2A00"</span>, <span class="co">#worldgrids_pal$IGBP["Urban and built-up "] , # "urban and built-up" ;</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"#8A9000"</span> , <span class="co">#worldgrids_pal$IGBP["Cropland/Natural vegetation mosaic "] , # "cropland (natural vegetation mosaic)" ;</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"#FFFFFF"</span>, <span class="co">#worldgrids_pal$IGBP["Snow and ice "] , # "snow and ice" ;</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"#AAAAAA"</span>, <span class="co"># worldgrids_pal$IGBP["Barren or sparsely vegetated "] , # "barren or sparsely vegetated" ;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"#424242"</span> <span class="co"># worldgrids_pal$IGBP["Unclassified "] # "unclassified or fill values" ;      </span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"water"</span>,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"evergreen needleleaf forest"</span>,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"evergreen broadleaf forest"</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"deciduous needleleaf forest"</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"deciduous broadleaf forest"</span>,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"mixed forest"</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"closed shrublands"</span>,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"open shrublands"</span>,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span> <span class="st">"woody savannas"</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"savannas"</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"grasslands"</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"permanent wetlands"</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"croplands"</span>,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"urban and built-up"</span>,</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"cropland (natural vegetation mosaic)"</span>,</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"snow and ice"</span>,</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"barren or sparsely vegetated"</span>,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"unclassified or fill values"</span>      </span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># avoid gap between plotting area and axis</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vegetation types"</span>) <span class="sc">+</span> </span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="biogeography_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="climate-zones" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="climate-zones"><span class="header-section-number">2.6</span> Climate zones</h2>
 
-<!-- This is a book created from markdown and executable code.
 
-See @knuth84 for additional discussion of literate programming.
-
-
-::: {.cell}
-
-```{.r .cell-code}
-1 + 1
-```
-
-::: {.cell-output .cell-output-stdout}
-```
-[1] 2
-```
-:::
-:::
-
- -->
-
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bonan" class="csl-entry" role="listitem">
+Bonan, Gordon. 2015. <em>Ecological Climatology: Concepts and Applications</em>. 3rd ed. Cambridge University Press.
+</div>
+<div id="ref-olson01biosci" class="csl-entry" role="listitem">
+Olson, David M., Eric Dinerstein, Eric D. Wikramanayake, Neil D. Burgess, George V. N. Powell, Emma C. Underwood, Jennifer A. D’amico, et al. 2001. <span>“Terrestrial <span>Ecoregions</span> of the <span>World</span>: <span>A</span> <span>New</span> <span>Map</span> of <span>Life</span> on <span>Earth</span>: <span>A</span> New Global Map of Terrestrial Ecoregions Provides an Innovative Tool for Conserving Biodiversity.”</span> <em>BioScience</em> 51 (11): 933–38. <a href="https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2">https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
