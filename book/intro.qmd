@@ -48,3 +48,11 @@ knitr::include_graphics("images/dansgaardoeschger_arneth10natgeo.png")
 ```
 
 These variations in land-mediated greenhouse gases, dust, and fire are attest to the large and hemisphere-scale changes in terrestrial biosphere functioning in response to climate variations. Of course, greenhouse gases, dust, and fire-related emissions of CO~2~ and aerosols are radiative forcing agents themselves and thus affect the climate. These changes during Dansgaard-Oescher events thus demonstrate the important role of the land biosphere in mediating Earth system changes.
+
+## Positive feedbacks and tipping points
+
+
+
+
+
+
