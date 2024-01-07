@@ -24,54 +24,198 @@ knitr::include_graphics("images/biomes_olson.png")
 
 Each biome is characterised by the types of dominant plants (plant functional types), their characteristics (traits), ecosystem structural and functional properties, and landscape processes (e.g., fire). Underlying all of this is the characteristic climate. The following biome classification (based on @bonan and slightly deviating from @olson01biosci) can be made.
 
-- Tropical moist broadleaved (evergreen) forest
-    - warm year-round
-    - no or little precipitation seasonality
-    - tall vegetation height, high productivity, high total leaf area per unit ground area (leaf area index, LAI), fast decomposition
-    - large, thin leaves
-- Tropical deciduous forest (xeric woodland)
-    - warm year-round
-    - dry season
-    - leaves are (partly) shed during the dry season as a water saving strategy
-    - shorter stature and lower LAI than tropical moist broadleaved (evergreen) forests
-    - small, thick leaves
-- Tropical savannah
-    - warm year-round
-    - pronounced dry season
-    - widely spaced trees, mixed with grasses
-    - low plant biomass, deep roots
-    - regular fires
-- Grasslands
-    - tropical and temperate dry climates
-    - C~3~ and C~4~ grasses (see below), distribution governed by temperature
-    - temperate grasslands in dry, seasonally hot, semiarid climates with annual precipitation less than about 1000 mm
-    - transitional between forests and desert
-- Shrublands and deserts
-    - less than 250 mm annual precipitation
-    - short, widely spaced desert scrub and shrubland
-    - germination after intense rain, leaf shedding during dry period
-    - cacti and succulents store water and use the CAM photosnthetic pathway to minimize water loss during photosynthesis
-- Temperate forests
-    - more than 1000 mm annual precipitation
-    - deciduous and evergreen trees, sometimes mixed
-    - low winter light and temperature limits productivity
-    - tall trees
-- Mediterranean forests
-    - additional productivity limitation in summer due to water limitation
-    - less limited productivity by temperature and light in winter than temperate forests
-    - mild and moist winters
-    - short stature trees, dense shrubs
-    - thick, waxy leaves
-- Boreal forests
-    - very cold winters, cool summers
-    - winter light and temperature limits productivity
-    - mostly needle-leaved evergreen
-    - shorter and more open than temperate forests
-    - in Siberia: extreme winter low temperatures favour deciduousness of larch (*larix decidua*)
-- Tundra
-    - tree-less, grass-like sedges, dwarf shrubs, lichens, and mosses
-    - very short vegetation period
-    - frozen ground, seasonal thawing of top ~50 cm (permafrost)
+::: {.callout-note}
+Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map below.
+
+Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.
+:::
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
+
+library(ggplot2)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggrepel)
+library(readr)
+
+coast <- rnaturalearth::ne_coastline(scale = 110, returnclass = "sf")
+sites <- read_rds(here::here("data/df_sites_sub.rds")) |> 
+  sf::st_as_sf(coords = c("lon", "lat"), crs = sf::st_crs(coast))
+
+ggplot() +
+  geom_sf(data = coast,
+          colour = 'black',
+          size = 0.05) + 
+  geom_sf(data = sites, col = "red") +
+  ggrepel::geom_text_repel(data = sites, 
+                           aes(label = sitename, geometry = geometry),
+                           stat = "sf_coordinates",
+                           min.segment.length = 0,
+                           segment.size = 0.1,
+                           size = 2,
+                           seed = 42,
+                           box.padding = 0.5,
+                           color = "red") +
+  
+  # set extent in longitude and latitude
+  coord_sf(ylim = c(-60, 85),
+           expand = FALSE   # to draw map strictly bounded by the specified extent
+  ) +
+
+  # some layout modifications
+  xlab('') +
+  ylab('') +
+  theme_bw() +
+  theme(axis.ticks.y.right = element_line(),
+        axis.ticks.x.top = element_line(),
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "grey70"),
+        plot.background = element_rect(fill = "white")
+  )
+
+ggsave(here::here("book/images/map_sites.png"), width = 10, height = 5)
+```
+
+::: {.panel-tabset}
+
+#### Tropical moist broadleaved (evergreen) forest {-}
+
+- warm year-round
+- no or little precipitation seasonality
+- tall vegetation height, high productivity, high total leaf area per unit ground area (leaf area index, LAI), fast decomposition
+- large, thin leaves
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_tropical_moist
+#| fig-cap: "Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_MY-PSO.png")
+```
+
+#### Tropical deciduous forest (xeric woodland) {-}
+
+- warm year-round
+- dry season
+- leaves are (partly) shed during the dry season as a water saving strategy
+- shorter stature and lower LAI than tropical moist broadleaved (evergreen) forests
+- small, thick leaves
+
+<!-- ```{r echo=FALSE}
+#| label: fig-climate_biome_tropical_dry
+#| fig-cap: "Climate diagram of the site GL-ZaH, located in the biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_")
+``` -->
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_tropical_dry
+#| fig-cap: "Climate diagram of the site ZM-Mon, located in the Tropical deciduous forest biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_ZM-Mon.png")
+```
+
+#### Tropical savannah {-}
+
+- warm year-round
+- pronounced dry season
+- widely spaced trees, mixed with grasses
+- low plant biomass, deep roots
+- regular fires
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_savannah
+#| fig-cap: "Climate diagram of the site AU-How, located in the Tropical savannah biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_AU-How.png")
+```
+
+#### Grasslands {-}
+
+- tropical and temperate dry climates
+- C~3~ and C~4~ grasses (see below), distribution governed by temperature
+- temperate grasslands in dry, seasonally hot, semiarid climates with annual precipitation less than about 1000 mm
+- transitional between forests and desert
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_grassland
+#| fig-cap: "Climate diagram of the site US-Tw1, located in the Grasslands biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_US-Tw1.png")
+```
+
+#### Shrublands and deserts {-}
+
+- less than 250 mm annual precipitation
+- short, widely spaced desert scrub and shrubland
+- germination after intense rain, leaf shedding during dry period
+- cacti and succulents store water and use the CAM photosnthetic pathway to minimize water loss during photosynthesis
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_desert
+#| fig-cap: "Climate diagram of the site US-SRM, located in the Shrublands and deserts biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_US-SRM.png")
+```
+
+#### Temperate forests {-}
+
+- more than 1000 mm annual precipitation
+- deciduous and evergreen trees, sometimes mixed
+- low winter light and temperature limits productivity
+- tall trees
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_temperate
+#| fig-cap: "Climate diagram of the site DE-Hai, located in the Temperate forests biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_DE-Hai.png")
+```
+
+#### Mediterranean forests {-}
+
+- additional productivity limitation in summer due to water limitation
+- less limited productivity by temperature and light in winter than temperate forests
+- mild and moist winters
+- short stature trees, dense shrubs
+- thick, waxy leaves
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_mediterranean
+#| fig-cap: "Climate diagram of the site FR-Pue, located in the Mediterranean forests biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_FR-Pue.png")
+```
+
+#### Boreal forests {-}
+
+- very cold winters, cool summers
+- winter light and temperature limits productivity
+- mostly needle-leaved evergreen
+- shorter and more open than temperate forests
+- in Siberia: extreme winter low temperatures favour deciduousness of larch (*larix decidua*)
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_boreal
+#| fig-cap: "Climate diagram of the site FI-Hyy, located in the Boreal forests biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_FI-Hyy.png")
+```
+
+#### Tundra {-}
+
+- tree-less, grass-like sedges, dwarf shrubs, lichens, and mosses
+- very short vegetation period
+- frozen ground, seasonal thawing of top ~50 cm (permafrost)
+
+```{r echo=FALSE}
+#| label: fig-climate_biome_tundra
+#| fig-cap: "Climate diagram of the site GL-ZaH, located in the Tundra biome."
+#| out-width: 80%
+knitr::include_graphics("images/diagram_GL-ZaH.png")
+```
+
+:::
 
 ### Biomes in climate space
 
