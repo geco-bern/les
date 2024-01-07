@@ -13,7 +13,7 @@ knitr::include_graphics("images/humboldt_biogeography_small.png")
 
 ## Biomes
 
-Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see XXX) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_olson. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
+Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see XXX) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_olson. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
 
 ```{r echo=FALSE}
 #| label: fig-biomes_olson
@@ -33,7 +33,7 @@ Each biome is characterised by the types of dominant plants (plant functional ty
     - warm year-round
     - dry season
     - leaves are (partly) shed during the dry season as a water saving strategy
-    - shorter stature, lower LAI than tropical moist broadleaved (evergreen) forests
+    - shorter stature and lower LAI than tropical moist broadleaved (evergreen) forests
     - small, thick leaves
 - Tropical savannah
     - warm year-round
@@ -57,7 +57,8 @@ Each biome is characterised by the types of dominant plants (plant functional ty
     - low winter light and temperature limits productivity
     - tall trees
 - Mediterranean forests
-    - additional productivity limitation in summer due to water, but less limited by temperature and light in winter than temperate forests
+    - additional productivity limitation in summer due to water limitation
+    - less limited productivity by temperature and light in winter than temperate forests
     - mild and moist winters
     - short stature trees, dense shrubs
     - thick, waxy leaves
@@ -74,10 +75,13 @@ Each biome is characterised by the types of dominant plants (plant functional ty
 
 ### Biomes in climate space
 
-@fig-biomes_olson shows biomes in geographical space - as a global map. Acknowledging their intricate relationship between with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. 
+@fig-biomes_olson shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following @whittaker75. Note that the biome definition shown in @fig-biomes_whittaker does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the "Whittaker-plot". This is because their characteristic climate is not distinguished by annual means, but by the *seasonality* of temperature, solar radiation, and precipitation.
 
 ```{r message=FALSE}
 #| code-fold: true
+#| label: fig-biomes_whittaker
+#| fig-cap: Biomes in climate space, defined by mean annual temperature and precipitation, following @whittaker75.
+
 library(ggplot2)
 # library(devtools)
 # devtools::install_github("valentinitnelav/plotbiomes")
@@ -86,7 +90,7 @@ plotbiomes::whittaker_base_plot() +
   theme_classic()
 ```
 
-## Plant functional types
+### Plant functional types
 
 Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see Chapter XXX). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:
 
@@ -102,7 +106,7 @@ Global vegetation models use PFTs as their basic unit of distinguishing plants. 
 
 Plants can also be distinguished into the botanical classification of *angiosperms* (flowering plants) and *gymnnosperms* (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates, and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.
 
-## Traits
+### Traits
 
 The physiological, morphological, and life history characteristics that distinguish PFTs determine their productivity and competitiveness in a given climate. Such characteristics are referred to as *plant functional traits*, or often just *traits*. Plant species can be described by a set of traits and a set of certain traits yields the distinction into PFTs described above: leaf habit (deciduous vs. evergreen), leaf form (needle-leaved vs. broadleaved), and the life history strategy distinguising annual vs. perennial. A range of additional traits are commonly described and investigated scientifically. Here, we will not consider additional ones. The concept of a plant functional trait is that it describes a largely immutable characteristic of a plant species that determines metabolic rates (photosynthesis, respiration) and their relationship to the abiotic environment (e.g., temperature), nutrient and water demand, and ultimately its demographic rates (growth, fecundity, mortality) and thus competitiveness.
 
@@ -151,28 +155,28 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 
 # load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda
-# 
+
 # raster_vegtype <- terra::rast(
 #   "~/data/landcover/modis_landcover__LPDAAC__v5.1__0.05deg__2010.nc"
-#   ) |> 
-#   terra::subset("landcover") |> 
-#   terra::aggregate(fact = 10, fun = "modal") |> 
+#   ) |>
+#   terra::subset("landcover") |>
+#   terra::aggregate(fact = 5, fun = "modal") |>
 #   tidyterra::mutate(landcover = as.factor(landcover))
 # 
 # terra::writeRaster(
-#   raster_vegtype, 
-#   filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.5deg__2010.nc")
+#   raster_vegtype,
+#   filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc"),
+#   overwrite = TRUE
 #   )
 
 raster_vegtype <- terra::rast(
-  here::here("data/modis_landcover__LPDAAC__v5.1__0.5deg__2010.nc")
+  here::here("data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc")
   ) |> 
   tidyterra::mutate(Band1 = as.factor(Band1)) |> 
   tidyterra::rename(landcover = Band1)
   
 coast <- rnaturalearth::ne_coastline(scale = 110, returnclass = "sf")
 
-# To have some more flexibility, we can plot this in the ggplot-style as such:
 ggplot() +
   tidyterra::geom_spatraster(data = raster_vegtype) +
   geom_sf(data = coast,
@@ -229,4 +233,38 @@ ggplot() +
 ```
 
 ## Climate zones
+
+While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish *climate zones* that largely align with the major biomes. The Köppen-Geiger climate classification [@koppen1884] is based on a hierarchical classification that separates climate based on values and the seasonality of monthly air temperature and precipitation. Water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation.
+
+```{r echo=FALSE}
+#| label: fig-table_beck
+#| fig-cap: "Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from @beck18scidat and adapted from @peel07hess. Variable definitions: MAT = mean annual air temperature (°C); $T_{cold} =$ the air temperature of the coldest month (°C); $T_{hot} =$ the air temperature of the warmest month (°C); $T_{mon10} =$ the number of months with air temperature >10 °C (unitless); MAP = mean annual precipitation (mm y$^{−1}$); $P_{dry} =$ precipitation in the driest month (mm month$^{−1}$); $P_{sdry} =$ precipitation in the driest month in summer (mm month$^{−1}$); Pwdry = precipitation in the driest month in winter (mm month$^{−1}$); $P_{swet} =$ precipitation in the wettest month in summer (mm month$^{−1}$); $P_{wwet} =$ precipitation in the wettest month in winter (mm month$^{−1}$); $P_{threshold}$ = 2×MAT if >70% of precipitation falls in winter, $P_{threshold}$ = 2×MAT+28 if >70% of precipitation falls in summer, otherwise $P_{threshold}$ = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March."
+#| out-width: 100%
+knitr::include_graphics("images/kgclimate_beck.png")
+```
+
+Based on the classification scheme described in @fig-table_beck and data of monthly climatologies, the climate zones can be mapped across the globe (@fig-climate_zones).
+
+```{r echo=FALSE}
+#| label: fig-climate_zones
+#| fig-cap: "Köppen-Geiger climate zones for a present-day climate (1980-2016). See @fig-table_beck for a definition of the codes (names). Figure from @beck18scidat."
+#| out-width: 80%
+knitr::include_graphics("images/map_kgclimate.png")
+```
+
+## Hillslope-scale heterogeneity
+
+Topography shapes microclimates and drives small-scale variations in hydrology. In mountain regions, vegetation may thus vary strongly along small spatial scales - on the order of 10-10^3^ m. This scale - from the river channel to the ridge - is referred to as the *hillslope scale*. In much the same way as climate drives vegetation across biomes, so it does across the hillslope scale. The incident solar radiation and - as a consequence of that - near-surface air temperatures are affected by the local slope, aspect, and shading by the surrounding topography. Soil moisture and the groundwater table depth are affected by lateral subsurface flow of water, driven by gradients in water potentials along topographical gradients. Subsurface water flow converges in depressions and concave terrain (e.g., in valley bottoms) and diverges in convex terrain. (e.g., on ridges and hilltops). As a consequence, the water table is shallow in valley bottoms and deep under ridges. Radiation and hydrology thus create microclimates and plant water availability conditions that are shaped by topography and variations in vegetation that are shaped by the microclimates and hydrological conditions. 
+
+These hillslope-scale variations "intersect" with the the background climate (average climate across larger spatial scales, on the order of 10^4^-10^5^ m). A shallow groundwater table and moist soils in valley bottoms can promote plant productivity in arid regions and seasons. In contrast, in a humid climate, a very shallow water table in valley bottoms inhibits plant productivity due to anaerobic conditions in waterlogged soils and the inability of roots to penetrate into permanently water-saturated soil. Similarly, the influence of radiation in promoting versus inhibiting plant productivity depends on the background climate. In cold climates of the high northern latitudes, the solar zenith angle is relatively high, also in mid-summer. This creates a strong influence of the local slope and aspect. In the northern hemisphere, south-facing slopes receive more radiation - a difference to north-facing slopes that can be critical for sustaining tree growth in high northern regions. In contrast, elevated incident solar radiation in south-facing slopes can aggravate water limitation and suppress vegetation productivity in more arid climates of the subtropics and mid-latitudes of the northern hemisphere. 
+
+```{r echo=FALSE}
+#| label: fig-hillslope_photos_fan19
+#| fig-cap: "Hillslope effects on vegetation in different background climate zones. *Top-left:* Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: [wikipedia.org](https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg)). *Top-right:* Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: [wikimapia.org](https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176)). *Bottom-left:* Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: [thecommonmilkweed.blogspot.com](https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html)). *Bottom-right:* Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen's University, Canada). Figure extracted from @fan19wrr."
+#| out-width: 100%
+knitr::include_graphics("images/hillslope_photos_fan19.png")
+```
+
+Climate also varies along elevation due to thermodynamics and radiative transfer in the atmosphere - independent of the slope and aspect of the local terrain. Temperatures decline following the lapse rate in the troposphere, leading to a shift of vegetation zones along elevational gradients. This phenomenon is depicted also in Humboldt's drawings (@fig-humboldt). Radiation levels are elevated at high altitudes due to a shorter path length and thus reduced absorption by the atmosphere. Atmospheric pressure and thus the partial pressure of oxygen declines with elevation. This implies reduced respiration and an increased efficiency of photosynthesis. 
+
 
