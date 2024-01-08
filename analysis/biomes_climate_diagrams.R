@@ -1,34 +1,40 @@
-# install from local repositories (could also use github)
-# install.packages("~/flux_data_kit-stineb/")
-# install.packages("~/ingestr-stineb/")
-library(FluxDataKit)
-library(ingestr)
-
-# cran libraries
 library(dplyr)
 library(tidyr)
 library(climatol)
 library(purrr)
 library(readr)
 
-# Get representative locations for each biome as FLUXNET stations
-df_sites <- FluxDataKit::fdk_site_info |> 
-  as_tibble()
+# For preparing site meta data -----------
+# install from local repositories (could also use github)
+# install.packages("~/flux_data_kit-stineb/")
+# install.packages("~/ingestr-stineb/")
+# library(FluxDataKit)
+# library(ingestr)
+# # Get representative locations for each biome as FLUXNET stations
+# df_sites <- FluxDataKit::fdk_site_info |> 
+#   as_tibble()
+# 
+# # extract biome for each site using ingestr
+# df_wwf <- ingest(
+#   df_sites |> 
+#     dplyr::select(sitename, lon, lat),
+#   source = "wwf",
+#   dir = "~/data/biomes/wwf_ecoregions/official/",
+#   settings = list(layer = "wwf_terr_ecos")) |> 
+#   tidyr::unnest(data) |> 
+#   select(sitename, BIOME_NAME)
+# 
+# # combine data frames
+# df_sites <- df_sites |> 
+#   left_join(df_wwf,
+#             by = c("sitename"))
+# 
+# # write to file
+# saveRDS(df_sites, file = here::here("data/df_sites.rds"))
 
-# extract biome for each site using ingestr
-df_wwf <- ingest(
-  df_sites |> 
-    dplyr::select(sitename, lon, lat),
-  source = "wwf",
-  dir = "~/data/biomes/wwf_ecoregions/official/",
-  settings = list(layer = "wwf_terr_ecos")) |> 
-  tidyr::unnest(data) |> 
-  select(sitename, BIOME_NAME)
-
-# combine data frames
-df_sites <- df_sites |> 
-  left_join(df_wwf,
-            by = c("sitename"))
+# Reading from file prepared above -----------
+# read from file
+df_sites <- read_rds(here::here("data/df_sites.rds"))
 
 # chose representative sites
 use_sites <- c(
@@ -46,6 +52,8 @@ use_sites <- c(
 # subset sites
 df_sites_sub <- df_sites |> 
   filter(sitename %in% use_sites)
+
+saveRDS(df_sites_sub, file = here::here("data/df_sites_sub.rds"))
 
 # read daily flux data for each site
 read_fdk <- function(site, path){
@@ -88,6 +96,3 @@ create_diagram_per_site <- function(site, df){
 
 df <- df |> 
   mutate(file = purrr::map2_chr(sitename, data, ~create_diagram_per_site(.x, .y)))
-
-saveRDS(df_sites, file = here::here("data/df_sites.rds"))
-saveRDS(df_sites_sub, file = here::here("data/df_sites_sub.rds"))
