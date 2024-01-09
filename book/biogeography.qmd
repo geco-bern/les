@@ -25,13 +25,15 @@ knitr::include_graphics("images/biomes_olson.png")
 Each biome is characterised by the types of dominant plants (plant functional types), their characteristics (traits), ecosystem structural and functional properties, and landscape processes (e.g., fire). Underlying all of this is the characteristic climate. The following biome classification (based on @bonan and slightly deviating from @olson01biosci) can be made.
 
 ::: {.callout-note}
-Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map below.
+Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in @fig-sites_map.
 
 Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.
 :::
 
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: true
+#| fig-cap: "Locations of sites representative for each biome."
+#| label: fig-sites_map
 
 library(ggplot2)
 library(rnaturalearth)

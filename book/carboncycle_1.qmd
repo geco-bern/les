@@ -1,0 +1,122 @@
+# Carbon cycle 1: Global pools and fluxes
+
+Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO~2~ in the atmosphere.
+
+::: {.callout-note}
+We will express all carbon fluxes and pools in units of mass C. For global-scale quantities, we use PgC:
+
+**1 PgC = 1 petagram C = 10^15^ gC = 10^9^ tC = 1 GtC = 1 gigaton C.**
+
+C mass is sometimes also expressed in units of mass CO~2~. The interconversion between mass C and mass CO~2~ has to consider the respective molecular masses (44.01 g mol^-1^ for CO~2~ and 12.011 g mol^-1^ for C):
+
+**3.664 PgCO~2~ contains 1 PgC.**
+:::
+
+::: {.callout-note}
+The concentration of CO~2~ in the atmosphere is measured in parts per million (ppm), expressed as a dry-air mole fraction. Therefore, ppm is an abbreviation for micromoles per mole dry air. Since the total mass of the atmosphere is well-known and CO~2~ is relatively well-mixed in the troposphere within one year, the CO~2~ concentration can directly be converted into a total atmospheric mass of C in the form of CO~2~ [@ballantyne12nat]:
+
+**1 ppm CO~2~ = 2.124 PgC**
+:::
+
+```{r echo=FALSE}
+#| label: fig-carbon-pools-fluxes-ipcc
+#| fig-cap: "Global carbon (CO~2~) budget (2010–2019). Yellow arrows represent annual carbon fluxes (in PgC yr^-1^) associated with the natural carbon cycle, estimated for the time prior to the industrial era, around 1750. Pink arrows represent anthropogenic fluxes averaged over the period 2010–2019. The rate of carbon accumulation in the atmosphere is equal to net land-use change emissions, including land management plus fossil fuel emissions, minus land and ocean net sinks (plus a small budget imbalance). Circles with yellow numbers represent pre-industrial carbon stocks in PgC. Circles with pink numbers represent anthropogenic changes to these stocks (cumulative anthropogenic fluxes) since 1750. The relative change of gross photosynthesis since pre-industrial times is based on 15 Dynamic Global Vegetation Models. The corresponding emissions by total respiration and fire are those required to match the net land flux, exclusive of net land-use change emissions which are accounted for separately. The cumulative change of anthropogenic carbon in the terrestrial reservoir is the sum of carbon cumulatively lost by net land-use change emissions, and net carbon accumulated since 1750 in response to environmental drivers (warming, rising CO~2~, nitrogen deposition). Figure from @canadell21ipcc."
+#| out-width: 100%
+knitr::include_graphics("images/IPCC_AR6_WGI_Figure_5_12.png")
+```
+
+Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools 
+
+- Preindustrial Carbon cycle, (quasi) steady-state)
+- Dynamic equilibrium, lifetime
+- 1-Box model for terrestrial C cycle, dynamics
+- Preindustrial global carbon budget
+- Anthropogenic perturbation
+- Modern global carbon budget
+
+The global carbon budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels $E_\mathrm{FF}$ and land use change $E_\mathrm{LUC}$ on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. $G_\mathrm{atm}$ is the atmospheric growth rate, $S_\mathrm{ocean}$ is the ocean C uptake (also referred to as the *ocean sink*) and $S_\mathrm{land}$ is the land C uptake (or *land sink*). A net flux from the atmosphere into the ocean or into land C storage is positive.
+
+$$
+E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
+$$
+
+This terminology is adopted from the Global Carbon Budget @friedlingstein23essd and is expressed as global annual total fluxes. The separation of $E_\mathrm{LUC}$ and $S_\mathrm{land}$ is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in Chapter XXX.
+
+The values of the global carbon budget components are given in @fig-carbon-pools-fluxes-ipcc for as an average for years 2010-2019, where $S_\mathrm{ocean}$ corresponds to the 'net ocean flux' and $S_\mathrm{land}$ corresponds to the the 'net land flux'. $E_\mathrm{LUC}$ corresponds to 'net land-use change'. The 'net' indicates that $E_\mathrm{LUC}$ is the net effect between CO~2~ emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in @fig-carbon-pools-fluxes-ipcc. The most recent update of the global carbon budget from @friedlingstein23essd is given in @tbl-gcb2023 as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.
+
+<!-- xxx update -->
+
+| Component          | Cumulative 1750-2022 | Annual 2013-2022 |
+| ----               | ----                 | -----            |
+| $E_\mathrm{FF}$    | 480 $\pm$ 25         | 9.6 $\pm$ 0.5    |
+| $E_\mathrm{LUC}$   | 250 $\pm$ 75         | 1.3 $\pm$ 0.7    |
+| $G_\mathrm{atm}$   | 300 $\pm$ 5          | 5.2 $\pm$ 0.02   |
+| $S_\mathrm{ocean}$ | 190 $\pm$ 40         | 2.8 $\pm$ 0.4    |
+| $S_\mathrm{land}$  | 245 $\pm$ 60         | 3.3 $\pm$ 0.8    |
+
+: Global carbon budget (in PgC and PgC yr^-1^) from the 2023 update by @friedlingstein23essd {#tbl-gcb2023}
+
+Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. $E_\mathrm{FF}$ estimates based on energy statistics and cement production data. Values reported by @friedlingstein23essd include the cement carbonation sink. Without that sink, the value for 2022 would be about 0.2 PgC yr^-1^ higher. $E_\mathrm{LUC}$ estimates are based on land-use and land-use change data from national statistics and forest carbon "bookkeeping models". These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO~2~ concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO~2~ uptake models and observation-based products. The land sink is estimated from dynamic global vegetation models in @friedlingstein23essd.
+
+
+- separation of ocean vs land uptake, anthropogenic fingerprint
+    - CO2-O2: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002124
+    - 13C
+    - “single-deconvolution” (forward modelling ocean uptake)
+    - GCB approach (forward modelling ocean and land uptake, imbalance term)
+- C redistribution, airborne fraction, time-scale dependence
+- land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.
+- land C balance variability
+- Land: GPP-NPP, vegC, soilC, Ra, Rh
+- Ocean: concentration difference
+- Global (latitudinal) distribution of vegetation and soil carbon stocks
+- Peatlands and permafrost, C in sediments
+- Model for GPP-driven C stocks, considering temperature-dependence of heterotrophic respiration (Q10); respiration inhibition under anaerobic conditions (peatlands)
+- The C cascade: Tree growth, allocation, mortality, forest dynamics
+    - multi-box model
+
+### Key concepts
+
+- C gets redistributed between reservoirs
+- Dynamic equilibrium
+- Lifetime
+- 1st order decay model
+
+<!-- ### Basic expressions -->
+
+<!-- An expression is a set of commands that returns a value. -->
+
+<!-- Click `Run Code` to run the following R code. -->
+
+<!-- Execute this simple calculation. -->
+
+<!-- ```{r} -->
+<!-- 50 * 2.2 -->
+<!-- ``` -->
+
+<!-- Show the first rows of a table. -->
+
+<!-- ```{r} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
+
+<!-- ::: {.callout-note} -->
+<!-- ## Exercise -->
+
+<!-- Show the last rows of the `mtcars` table. -->
+
+<!-- ```{r} -->
+<!-- # Add you code here -->
+<!-- ``` -->
+
+<!-- Your result should look like the plot below -->
+<!-- ::: -->
+
+<!-- ::: {.callout-tip collapse="true"} -->
+<!-- ## Expected Result -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- tail(mtcars) -->
+<!-- ``` -->
+<!-- ::: -->

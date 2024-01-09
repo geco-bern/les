@@ -9,7 +9,7 @@ library(tmaptools)
 library(ggplot2)
 library(readr)
 
-sf::sf_use_s2(FALSE)
+# sf::sf_use_s2(FALSE)
 
 biomes <- sf::read_sf("~/data/biomes/wwf_ecoregions/official/wwf_terr_ecos.shp")
 

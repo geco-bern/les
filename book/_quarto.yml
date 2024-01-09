@@ -15,7 +15,7 @@ book:
     - index.qmd
     - intro.qmd
     - biogeography.qmd
-    - basicr.qmd
+    - carboncycle_1.qmd
     - ggplot.qmd
     - references.qmd
   favicon: "figures/favicon.ico"
