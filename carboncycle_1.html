@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Land in the Earth System I - 3&nbsp; Basic R</title>
+<title>Land in the Earth System I - 3&nbsp; Carbon cycle 1: Global pools and fluxes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -99,10 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Land in the Earth System I - 3&nbsp; Basic R">
+<meta name="twitter:title" content="Land in the Earth System I - 3&nbsp; Carbon cycle 1: Global pools and fluxes">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/IPCC_AR6_WGI_Figure_5_12.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -159,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basicr.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic R</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./carboncycle_1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -199,8 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basicr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic R</span></span></a>
+  <a href="./carboncycle_1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-expressions" id="toc-basic-expressions" class="nav-link active" data-scroll-target="#basic-expressions"><span class="header-section-number">3.0.1</span> Basic expressions</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link active" data-scroll-target="#key-concepts"><span class="header-section-number">3.0.1</span> Key concepts</a></li>
   </ul>
 </nav>
     </div>
@@ -234,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic R</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></h1>
 </div>
 
 
@@ -249,28 +237,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="basic-expressions" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="basic-expressions"><span class="header-section-number">3.0.1</span> Basic expressions</h3>
-<p>An expression is a set of commands that returns a value.</p>
-<p>Click <code>Run Code</code> to run the following R code.</p>
-<p>Execute this simple calculation.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span> <span class="sc">*</span> <span class="fl">2.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 110</code></pre>
+<p>Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO<sub>2</sub> in the atmosphere.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<p>Show the first rows of a table.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
-Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="callout-body-container callout-body">
+<p>We will express all carbon fluxes and pools in units of mass C. For global-scale quantities, we use PgC:</p>
+<p><strong>1 PgC = 1 petagram C = 10<sup>15</sup> gC = 10<sup>9</sup> tC = 1 GtC = 1 gigaton C.</strong></p>
+<p>C mass is sometimes also expressed in units of mass CO<sub>2</sub>. The interconversion between mass C and mass CO<sub>2</sub> has to consider the respective molecular masses (44.01 g mol<sup>-1</sup> for CO<sub>2</sub> and 12.011 g mol<sup>-1</sup> for C):</p>
+<p><strong>3.664 PgCO<sub>2</sub> contains 1 PgC.</strong></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -279,45 +260,150 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Show the last rows of the <code>mtcars</code> table.</p>
+<p>The concentration of CO<sub>2</sub> in the atmosphere is measured in parts per million (ppm), expressed as a dry-air mole fraction. Therefore, ppm is an abbreviation for micromoles per mole dry air. Since the total mass of the atmosphere is well-known and CO<sub>2</sub> is relatively well-mixed in the troposphere within one year, the CO<sub>2</sub> concentration can directly be converted into a total atmospheric mass of C in the form of CO<sub>2</sub> <span class="citation" data-cites="ballantyne12nat">(<a href="references.html#ref-ballantyne12nat" role="doc-biblioref">Ballantyne et al. 2012</a>)</span>:</p>
+<p><strong>1 ppm CO<sub>2</sub> = 2.124 PgC</strong></p>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add you code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Your result should look like the plot below</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expected Result
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>                mpg cyl  disp  hp drat    wt qsec vs am gear carb
-Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
-Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
-Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
-Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
-Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
-Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
+<div class="cell-output-display">
+<div id="fig-carbon-pools-fluxes-ipcc" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/IPCC_AR6_WGI_Figure_5_12.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Global carbon (CO<sub>2</sub>) budget (2010–2019). Yellow arrows represent annual carbon fluxes (in PgC yr<sup>-1</sup>) associated with the natural carbon cycle, estimated for the time prior to the industrial era, around 1750. Pink arrows represent anthropogenic fluxes averaged over the period 2010–2019. The rate of carbon accumulation in the atmosphere is equal to net land-use change emissions, including land management plus fossil fuel emissions, minus land and ocean net sinks (plus a small budget imbalance). Circles with yellow numbers represent pre-industrial carbon stocks in PgC. Circles with pink numbers represent anthropogenic changes to these stocks (cumulative anthropogenic fluxes) since 1750. The relative change of gross photosynthesis since pre-industrial times is based on 15 Dynamic Global Vegetation Models. The corresponding emissions by total respiration and fire are those required to match the net land flux, exclusive of net land-use change emissions which are accounted for separately. The cumulative change of anthropogenic carbon in the terrestrial reservoir is the sum of carbon cumulatively lost by net land-use change emissions, and net carbon accumulated since 1750 in response to environmental drivers (warming, rising CO<sub>2</sub>, nitrogen deposition). Figure from <span class="citation" data-cites="canadell21ipcc">Canadell et al. (<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">2021</a>)</span>.</figcaption>
+</figure>
 </div>
 </div>
 </div>
+<p>Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools</p>
+<ul>
+<li>Preindustrial Carbon cycle, (quasi) steady-state)</li>
+<li>Dynamic equilibrium, lifetime</li>
+<li>1-Box model for terrestrial C cycle, dynamics</li>
+<li>Preindustrial global carbon budget</li>
+<li>Anthropogenic perturbation</li>
+<li>Modern global carbon budget</li>
+</ul>
+<p>The global carbon budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels <span class="math inline">\(E_\mathrm{FF}\)</span> and land use change <span class="math inline">\(E_\mathrm{LUC}\)</span> on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. <span class="math inline">\(G_\mathrm{atm}\)</span> is the atmospheric growth rate, <span class="math inline">\(S_\mathrm{ocean}\)</span> is the ocean C uptake (also referred to as the <em>ocean sink</em>) and <span class="math inline">\(S_\mathrm{land}\)</span> is the land C uptake (or <em>land sink</em>). A net flux from the atmosphere into the ocean or into land C storage is positive.</p>
+<p><span class="math display">\[
+E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
+\]</span></p>
+<p>This terminology is adopted from the Global Carbon Budget <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> and is expressed as global annual total fluxes. The separation of <span class="math inline">\(E_\mathrm{LUC}\)</span> and <span class="math inline">\(S_\mathrm{land}\)</span> is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in Chapter XXX.</p>
+<p>The values of the global carbon budget components are given in <a href="#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a> for as an average for years 2010-2019, where <span class="math inline">\(S_\mathrm{ocean}\)</span> corresponds to the ‘net ocean flux’ and <span class="math inline">\(S_\mathrm{land}\)</span> corresponds to the the ‘net land flux’. <span class="math inline">\(E_\mathrm{LUC}\)</span> corresponds to ‘net land-use change’. The ‘net’ indicates that <span class="math inline">\(E_\mathrm{LUC}\)</span> is the net effect between CO<sub>2</sub> emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in <a href="#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a>. The most recent update of the global carbon budget from <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> is given in <a href="#tbl-gcb2023">Table&nbsp;<span>3.1</span></a> as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.</p>
+<!-- xxx update -->
+<div id="tbl-gcb2023" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.1: Global carbon budget (in PgC and PgC yr<sup>-1</sup>) from the 2023 update by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span></caption>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Cumulative 1750-2022</th>
+<th>Annual 2013-2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E_\mathrm{FF}\)</span></td>
+<td>480 <span class="math inline">\(\pm\)</span> 25</td>
+<td>9.6 <span class="math inline">\(\pm\)</span> 0.5</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(E_\mathrm{LUC}\)</span></td>
+<td>250 <span class="math inline">\(\pm\)</span> 75</td>
+<td>1.3 <span class="math inline">\(\pm\)</span> 0.7</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(G_\mathrm{atm}\)</span></td>
+<td>300 <span class="math inline">\(\pm\)</span> 5</td>
+<td>5.2 <span class="math inline">\(\pm\)</span> 0.02</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S_\mathrm{ocean}\)</span></td>
+<td>190 <span class="math inline">\(\pm\)</span> 40</td>
+<td>2.8 <span class="math inline">\(\pm\)</span> 0.4</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(S_\mathrm{land}\)</span></td>
+<td>245 <span class="math inline">\(\pm\)</span> 60</td>
+<td>3.3 <span class="math inline">\(\pm\)</span> 0.8</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
+<p>Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. <span class="math inline">\(E_\mathrm{FF}\)</span> estimates based on energy statistics and cement production data. Values reported by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> include the cement carbonation sink. Without that sink, the value for 2022 would be about 0.2 PgC yr<sup>-1</sup> higher. <span class="math inline">\(E_\mathrm{LUC}\)</span> estimates are based on land-use and land-use change data from national statistics and forest carbon “bookkeeping models”. These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO<sub>2</sub> concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO<sub>2</sub> uptake models and observation-based products. The land sink is estimated from dynamic global vegetation models in <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>.</p>
+<ul>
+<li>separation of ocean vs land uptake, anthropogenic fingerprint
+<ul>
+<li>CO2-O2: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002124</li>
+<li>13C</li>
+<li>“single-deconvolution” (forward modelling ocean uptake)</li>
+<li>GCB approach (forward modelling ocean and land uptake, imbalance term)</li>
+</ul></li>
+<li>C redistribution, airborne fraction, time-scale dependence</li>
+<li>land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.</li>
+<li>land C balance variability</li>
+<li>Land: GPP-NPP, vegC, soilC, Ra, Rh</li>
+<li>Ocean: concentration difference</li>
+<li>Global (latitudinal) distribution of vegetation and soil carbon stocks</li>
+<li>Peatlands and permafrost, C in sediments</li>
+<li>Model for GPP-driven C stocks, considering temperature-dependence of heterotrophic respiration (Q10); respiration inhibition under anaerobic conditions (peatlands)</li>
+<li>The C cascade: Tree growth, allocation, mortality, forest dynamics
+<ul>
+<li>multi-box model</li>
+</ul></li>
+</ul>
+<section id="key-concepts" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">3.0.1</span> Key concepts</h3>
+<ul>
+<li>C gets redistributed between reservoirs</li>
+<li>Dynamic equilibrium</li>
+<li>Lifetime</li>
+<li>1st order decay model</li>
+</ul>
+<!-- ### Basic expressions -->
+<!-- An expression is a set of commands that returns a value. -->
+<!-- Click `Run Code` to run the following R code. -->
+<!-- Execute this simple calculation. -->
+<!-- ```{r} -->
+<!-- 50 * 2.2 -->
+<!-- ``` -->
+
+<!-- Show the first rows of a table. -->
+<!-- ```{r} -->
+<!-- head(mtcars) -->
+<!-- ``` -->
+<!-- ::: {.callout-note} -->
+<!-- ## Exercise -->
+
+<!-- Show the last rows of the `mtcars` table. -->
+<!-- ```{r} -->
+<!-- # Add you code here -->
+<!-- ``` -->
+<!-- Your result should look like the plot below -->
+<!-- ::: -->
+<!-- ::: {.callout-tip collapse="true"} -->
+<!-- ## Expected Result -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- tail(mtcars) -->
+<!-- ``` -->
+<!-- ::: -->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ballantyne12nat" class="csl-entry" role="listitem">
+Ballantyne, A. P., C. B. Alden, J. B. Miller, P. P. Tans, and J. W. C. White. 2012. <span>“Increase in Observed Net Carbon Dioxide Uptake by Land and Oceans During the Past 50 Years.”</span> <em>Nature</em> 488 (7409): 70–72. <a href="https://doi.org/10.1038/nature11299">https://doi.org/10.1038/nature11299</a>.
+</div>
+<div id="ref-canadell21ipcc" class="csl-entry" role="listitem">
+Canadell, J. G., P. M. S. Monteiro, M. H. Costa, L. Cotrim da Cunha, P. M. Cox, A. V. Eliseev, S. Henson, et al. 2021. <span>“Global Carbon and Other Biogeochemical Cycles and Feedbacks.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al., 673–816. Cambridge, United Kingdom; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.007">https://doi.org/10.1017/9781009157896.007</a>.
+</div>
+<div id="ref-friedlingstein23essd" class="csl-entry" role="listitem">
+Friedlingstein, P., M. O’Sullivan, M. W. Jones, R. M. Andrew, D. C. E. Bakker, J. Hauck, P. Landschützer, et al. 2023. <span>“Global Carbon Budget 2023.”</span> <em>Earth System Science Data</em> 15 (12): 5301–69. <a href="https://doi.org/10.5194/essd-15-5301-2023">https://doi.org/10.5194/essd-15-5301-2023</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

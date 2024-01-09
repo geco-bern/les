@@ -83,7 +83,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./basicr.html" rel="next">
+<link href="./carboncycle_1.html" rel="next">
 <link href="./intro.html" rel="prev">
 <link href="./figures/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -221,8 +221,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basicr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic R</span></span></a>
+  <a href="./carboncycle_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -318,7 +318,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map below.</p>
+<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in <a href="#fig-sites_map">Figure&nbsp;<span>2.3</span></a>.</p>
 <p>Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month<sup>-1</sup>) is above the red curve (temperature, <span class="math inline">\(^\circ\)</span>C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.</p>
 </div>
 </div>
@@ -364,15 +364,18 @@ Note
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey70"</span>),</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"book/images/map_sites.png"</span>), <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="biogeography_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div id="fig-sites_map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="biogeography_files/figure-html/fig-sites_map-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.3: Locations of sites representative for each biome.</figcaption>
+</figure>
 </div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"book/images/map_sites.png"</span>), <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+</div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Tropical moist broadleaved (evergreen) forest</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Tropical deciduous forest (xeric woodland)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Tropical savannah</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Grasslands</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Shrublands and deserts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Temperate forests</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">Mediterranean forests</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false">Boreal forests</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-9" role="tab" aria-controls="tabset-1-9" aria-selected="false">Tundra</a></li></ul>
@@ -389,7 +392,7 @@ Note
 <div id="fig-climate_biome_tropical_moist" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_MY-PSO.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.3: Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.4: Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -414,7 +417,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_tropical_dry" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_ZM-Mon.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.4: Climate diagram of the site ZM-Mon, located in the Tropical deciduous forest biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.5: Climate diagram of the site ZM-Mon, located in the Tropical deciduous forest biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -433,7 +436,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_savannah" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_AU-How.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.5: Climate diagram of the site AU-How, located in the Tropical savannah biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.6: Climate diagram of the site AU-How, located in the Tropical savannah biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -451,7 +454,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_grassland" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_US-Tw1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.6: Climate diagram of the site US-Tw1, located in the Grasslands biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.7: Climate diagram of the site US-Tw1, located in the Grasslands biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -469,7 +472,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_desert" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_US-SRM.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.7: Climate diagram of the site US-SRM, located in the Shrublands and deserts biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.8: Climate diagram of the site US-SRM, located in the Shrublands and deserts biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -487,7 +490,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_temperate" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_DE-Hai.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.8: Climate diagram of the site DE-Hai, located in the Temperate forests biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.9: Climate diagram of the site DE-Hai, located in the Temperate forests biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -506,7 +509,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_mediterranean" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_FR-Pue.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.9: Climate diagram of the site FR-Pue, located in the Mediterranean forests biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.10: Climate diagram of the site FR-Pue, located in the Mediterranean forests biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -525,7 +528,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_boreal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_FI-Hyy.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.10: Climate diagram of the site FI-Hyy, located in the Boreal forests biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.11: Climate diagram of the site FI-Hyy, located in the Boreal forests biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -542,7 +545,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-climate_biome_tundra" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/diagram_GL-ZaH.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.11: Climate diagram of the site GL-ZaH, located in the Tundra biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.12: Climate diagram of the site GL-ZaH, located in the Tundra biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -552,22 +555,22 @@ knitr::include_graphics("images/diagram_")
 </div>
 <section id="biomes-in-climate-space" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="biomes-in-climate-space"><span class="header-section-number">2.2.1</span> Biomes in climate space</h3>
-<p><a href="#fig-biomes_olson">Figure&nbsp;<span>2.2</span></a> shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>. Note that the biome definition shown in <a href="#fig-biomes_whittaker">Figure&nbsp;<span>2.12</span></a> does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the “Whittaker-plot”. This is because their characteristic climate is not distinguished by annual means, but by the <em>seasonality</em> of temperature, solar radiation, and precipitation.</p>
+<p><a href="#fig-biomes_olson">Figure&nbsp;<span>2.2</span></a> shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>. Note that the biome definition shown in <a href="#fig-biomes_whittaker">Figure&nbsp;<span>2.13</span></a> does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the “Whittaker-plot”. This is because their characteristic climate is not distinguished by annual means, but by the <em>seasonality</em> of temperature, solar radiation, and precipitation.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(devtools)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("valentinitnelav/plotbiomes")</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotbiomes)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plotbiomes<span class="sc">::</span><span class="fu">whittaker_base_plot</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(devtools)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("valentinitnelav/plotbiomes")</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotbiomes)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plotbiomes<span class="sc">::</span><span class="fu">whittaker_base_plot</span>() <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-biomes_whittaker" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="biogeography_files/figure-html/fig-biomes_whittaker-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature and precipitation, following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.13: Biomes in climate space, defined by mean annual temperature and precipitation, following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -703,88 +706,88 @@ knitr::include_graphics("images/diagram_")
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># raster_vegtype &lt;- terra::rast(</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   "~/data/landcover/modis_landcover__LPDAAC__v5.1__0.05deg__2010.nc"</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) |&gt;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::subset("landcover") |&gt;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::aggregate(fact = 5, fun = "modal") |&gt;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   tidyterra::mutate(landcover = as.factor(landcover))</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># terra::writeRaster(</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   raster_vegtype,</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc"),</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   overwrite = TRUE</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>raster_vegtype <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc"</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Band1 =</span> <span class="fu">as.factor</span>(Band1)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">rename</span>(<span class="at">landcover =</span> Band1)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>coast <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="dv">110</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">geom_spatraster</span>(<span class="at">data =</span> raster_vegtype) <span class="sc">+</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> coast,</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">'black'</span>,</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"azure"</span>, <span class="co"># worldgrids_pal$IGBP["Water " ] , #"water" ;</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"dodgerblue4"</span> , <span class="co">#"evergreen needleleaf forest" ;</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span> , <span class="co">#"evergreen broadleaf forest" ;</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"#9ED003"</span>, <span class="co"># worldgrids_pal$IGBP["Deciduous Needleleaf forest "] , #"deciduous needleleaf forest" ;</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span>  <span class="st">"springgreen3"</span> , <span class="co">#"deciduous broadleaf forest" ;</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span>  <span class="st">"#31A278"</span>, <span class="co"># worldgrids_pal$IGBP["Mixed forest "] #"mixed forest" ;</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span>  <span class="st">"#A84974"</span>, <span class="co">#worldgrids_pal$IGBP["Closed shrublands " ] , #"closed shrublands" ;</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span>  <span class="st">"#FFD3A0"</span> , <span class="co">#"open shrublands" ;</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span>  <span class="st">"#CAFE8F"</span>, <span class="co">#worldgrids_pal$IGBP["Woody savannas "] , #"woody savannas" ;</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"#F7D600"</span>, <span class="co">#worldgrids_pal$IGBP["Savannas " ] , # "savannas" ;</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"khaki3"</span> , <span class="co"># "grasslands" ;</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"violetred"</span> , <span class="co"># "permanent wetlands" ;</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"#FAFE03"</span>, <span class="co"># worldgrids_pal$IGBP["Croplands " ] , # "croplands" ;</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"#FF2A00"</span>, <span class="co">#worldgrids_pal$IGBP["Urban and built-up "] , # "urban and built-up" ;</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"#8A9000"</span> , <span class="co">#worldgrids_pal$IGBP["Cropland/Natural vegetation mosaic "] , # "cropland (natural vegetation mosaic)" ;</span></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"#FFFFFF"</span>, <span class="co">#worldgrids_pal$IGBP["Snow and ice "] , # "snow and ice" ;</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"#AAAAAA"</span>, <span class="co"># worldgrids_pal$IGBP["Barren or sparsely vegetated "] , # "barren or sparsely vegetated" ;</span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"#424242"</span> <span class="co"># worldgrids_pal$IGBP["Unclassified "] # "unclassified or fill values" ;      </span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"water"</span>,</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"evergreen needleleaf forest"</span>,</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"evergreen broadleaf forest"</span>,</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"deciduous needleleaf forest"</span>,</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"deciduous broadleaf forest"</span>,</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"mixed forest"</span>,</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"closed shrublands"</span>,</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"open shrublands"</span>,</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span> <span class="st">"woody savannas"</span>,</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"savannas"</span>,</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"grasslands"</span>,</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"permanent wetlands"</span>,</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"croplands"</span>,</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"urban and built-up"</span>,</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"cropland (natural vegetation mosaic)"</span>,</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"snow and ice"</span>,</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"barren or sparsely vegetated"</span>,</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"unclassified or fill values"</span>      </span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># avoid gap between plotting area and axis</span></span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vegetation types"</span>) <span class="sc">+</span> </span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># raster_vegtype &lt;- terra::rast(</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   "~/data/landcover/modis_landcover__LPDAAC__v5.1__0.05deg__2010.nc"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) |&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::subset("landcover") |&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   terra::aggregate(fact = 5, fun = "modal") |&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   tidyterra::mutate(landcover = as.factor(landcover))</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># terra::writeRaster(</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   raster_vegtype,</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc"),</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   overwrite = TRUE</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>raster_vegtype <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/modis_landcover__LPDAAC__v5.1__0.25deg__2010.nc"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Band1 =</span> <span class="fu">as.factor</span>(Band1)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">rename</span>(<span class="at">landcover =</span> Band1)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>coast <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="dv">110</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">geom_spatraster</span>(<span class="at">data =</span> raster_vegtype) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> coast,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">'black'</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"azure"</span>, <span class="co"># worldgrids_pal$IGBP["Water " ] , #"water" ;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"dodgerblue4"</span> , <span class="co">#"evergreen needleleaf forest" ;</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span> , <span class="co">#"evergreen broadleaf forest" ;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"#9ED003"</span>, <span class="co"># worldgrids_pal$IGBP["Deciduous Needleleaf forest "] , #"deciduous needleleaf forest" ;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span>  <span class="st">"springgreen3"</span> , <span class="co">#"deciduous broadleaf forest" ;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span>  <span class="st">"#31A278"</span>, <span class="co"># worldgrids_pal$IGBP["Mixed forest "] #"mixed forest" ;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span>  <span class="st">"#A84974"</span>, <span class="co">#worldgrids_pal$IGBP["Closed shrublands " ] , #"closed shrublands" ;</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span>  <span class="st">"#FFD3A0"</span> , <span class="co">#"open shrublands" ;</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span>  <span class="st">"#CAFE8F"</span>, <span class="co">#worldgrids_pal$IGBP["Woody savannas "] , #"woody savannas" ;</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"#F7D600"</span>, <span class="co">#worldgrids_pal$IGBP["Savannas " ] , # "savannas" ;</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"khaki3"</span> , <span class="co"># "grasslands" ;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"violetred"</span> , <span class="co"># "permanent wetlands" ;</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"#FAFE03"</span>, <span class="co"># worldgrids_pal$IGBP["Croplands " ] , # "croplands" ;</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"#FF2A00"</span>, <span class="co">#worldgrids_pal$IGBP["Urban and built-up "] , # "urban and built-up" ;</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"#8A9000"</span> , <span class="co">#worldgrids_pal$IGBP["Cropland/Natural vegetation mosaic "] , # "cropland (natural vegetation mosaic)" ;</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"#FFFFFF"</span>, <span class="co">#worldgrids_pal$IGBP["Snow and ice "] , # "snow and ice" ;</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"#AAAAAA"</span>, <span class="co"># worldgrids_pal$IGBP["Barren or sparsely vegetated "] , # "barren or sparsely vegetated" ;</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"#424242"</span> <span class="co"># worldgrids_pal$IGBP["Unclassified "] # "unclassified or fill values" ;      </span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"water"</span>,</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"evergreen needleleaf forest"</span>,</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"evergreen broadleaf forest"</span>,</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"deciduous needleleaf forest"</span>,</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"deciduous broadleaf forest"</span>,</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"mixed forest"</span>,</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"closed shrublands"</span>,</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"open shrublands"</span>,</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span> <span class="st">"woody savannas"</span>,</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"savannas"</span>,</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"grasslands"</span>,</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"permanent wetlands"</span>,</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"croplands"</span>,</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"urban and built-up"</span>,</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"cropland (natural vegetation mosaic)"</span>,</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"snow and ice"</span>,</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"barren or sparsely vegetated"</span>,</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"unclassified or fill values"</span>      </span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># avoid gap between plotting area and axis</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vegetation types"</span>) <span class="sc">+</span> </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="biogeography_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
@@ -799,18 +802,18 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-table_beck" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.13: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.14: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.13</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.14</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.14</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.15</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-climate_zones" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.14: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.13</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.15: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.14</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -825,7 +828,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-hillslope_photos_fan19" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.15: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.16: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -1218,8 +1221,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./basicr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./carboncycle_1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
