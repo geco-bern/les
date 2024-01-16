@@ -13,13 +13,13 @@ knitr::include_graphics("images/humboldt_biogeography_small.png")
 
 ## Biomes
 
-Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see XXX) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_olson. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
+Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see XXX) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_sites_map. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
 
-```{r echo=FALSE}
-#| label: fig-biomes_olson
-#| fig-cap: "Fourteen biomes and eight biogeographic realms. Figure from @olson01biosci."
-#| out-width: 80%
-knitr::include_graphics("images/biomes_olson.png")
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-biomes_sites_map
+#| fig-cap: "Fourteen biomes and the locations of sites representative for each biome."
+#| out-width: 100%
+knitr::include_graphics("images/map_biomes.png")
 ```
 
 Each biome is characterised by the types of dominant plants (plant functional types), their characteristics (traits), ecosystem structural and functional properties, and landscape processes (e.g., fire). Underlying all of this is the characteristic climate. The following biome classification (based on @bonan and slightly deviating from @olson01biosci) can be made.
@@ -29,57 +29,6 @@ Click on the biome names below to open a tab that lists some key characteristics
 
 Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.
 :::
-
-```{r warning=FALSE, message=FALSE, echo = FALSE}
-#| label: fig-biomes_sites_map
-#| fig-cap: "Fourteen biomes. Locations of sites representative for each biome. "
-#| out-width: 100%
-knitr::include_graphics("images/map_biomes.png")
-# 
-# 
-# library(ggplot2)
-# library(rnaturalearth)
-# library(rnaturalearthdata)
-# library(ggrepel)
-# library(readr)
-# 
-# coast <- rnaturalearth::ne_coastline(scale = 110, returnclass = "sf")
-# sites <- read_rds(here::here("data/df_sites_sub.rds")) |> 
-#   sf::st_as_sf(coords = c("lon", "lat"), crs = sf::st_crs(coast))
-# 
-# ggplot() +
-#   geom_sf(data = coast,
-#           colour = 'black',
-#           size = 0.05) + 
-#   geom_sf(data = sites, col = "red") +
-#   ggrepel::geom_text_repel(data = sites, 
-#                            aes(label = sitename, geometry = geometry),
-#                            stat = "sf_coordinates",
-#                            min.segment.length = 0,
-#                            segment.size = 0.1,
-#                            size = 2,
-#                            seed = 42,
-#                            box.padding = 0.5,
-#                            color = "red") +
-#   
-#   # set extent in longitude and latitude
-#   coord_sf(ylim = c(-60, 85),
-#            expand = FALSE   # to draw map strictly bounded by the specified extent
-#   ) +
-# 
-#   # some layout modifications
-#   xlab('') +
-#   ylab('') +
-#   theme_bw() +
-#   theme(axis.ticks.y.right = element_line(),
-#         axis.ticks.x.top = element_line(),
-#         panel.grid = element_blank(),
-#         panel.background = element_rect(fill = "grey70"),
-#         plot.background = element_rect(fill = "white")
-#   )
-# 
-# ggsave(here::here("book/images/map_sites.png"), width = 10, height = 5)
-```
 
 ::: {.panel-tabset}
 
@@ -223,7 +172,7 @@ knitr::include_graphics("images/diagram_GL-ZaH.png")
 
 ### Biomes in climate space
 
-@fig-biomes_olson shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following @whittaker75. Note that the biome definition shown in @fig-biomes_whittaker does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the "Whittaker-plot". This is because their characteristic climate is not distinguished by annual means, but by the *seasonality* of temperature, solar radiation, and precipitation.
+@fig-biomes_sites_map shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following @whittaker75. Note that the biome definition shown in @fig-biomes_whittaker does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the "Whittaker-plot". This is because their characteristic climate is not distinguished by annual means, but by the *seasonality* of temperature, solar radiation, and precipitation.
 
 ```{r message=FALSE}
 #| code-fold: true
@@ -270,7 +219,7 @@ A changing environment changes the competitiveness of a given species, i.e., of 
 
 ## Vegetation types
 
-Note that the categorisation of vegetation into biomes is different from the categorisation of vegetation into *vegetation types* or land cover classes. A widely used distinction of vegetation types/land cover classes is that of the International Geosphere Biosphere Programme (IGBP). Vegetation types distinguish what can be seen from space and are thus amenable to remote-sensing based land cover classification. However, for example, different types of evergreen broadleaved forests are not distinguished (e.g., moist tropical, Mediterranean, and temperate evergreen broadleaved forests).
+Note that the categorisation of vegetation into biomes is different from the categorisation of vegetation into *vegetation types* or land cover classes. A widely used distinction of vegetation types/land cover classes is that of the International Geosphere Biosphere Programme (IGBP). Vegetation types distinguish what can be seen from space and are thus amenable to remote-sensing based land cover classification. However, for example, different types of evergreen broadleaved forests are not distinguished (e.g., moist tropical, Mediterranean, and temperate evergreen broadleaved forests). Also, vegetation types/land cover classes distinguish land cover that is dominated by human activities (agricultural and urban), while biomes distinguish naturally occurring (i.e., without human influence) vegetation zones.
 
 | Code | Name | Description |
 | ---- | ---- | -----       |
@@ -303,19 +252,6 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 
 # load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda
-
-raster_vegtype <- terra::rast(
-  "~/data/landcover/modis_landcover__LPDAAC__v5.1__0.05deg__2010.nc"
-  ) |>
-  terra::subset("landcover") |>
-  terra::aggregate(fact = 2, fun = "modal") |>
-  tidyterra::mutate(landcover = as.factor(landcover))
-
-terra::writeRaster(
-  raster_vegtype,
-  filename = here::here("data/modis_landcover__LPDAAC__v5.1__0.1deg__2010.nc"),
-  overwrite = TRUE
-  )
 
 raster_vegtype <- terra::rast(
   here::here("data/modis_landcover__LPDAAC__v5.1__0.1deg__2010.nc")
