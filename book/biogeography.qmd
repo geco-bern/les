@@ -17,7 +17,7 @@ Today's geodata provides information on climate and vegetation properties with g
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE}
 #| label: fig-biomes_sites_map
-#| fig-cap: "Fourteen biomes and the locations of sites representative for each biome."
+#| fig-cap: "Fourteen biomes and the locations of sites representative for each biome (used below)."
 #| out-width: 100%
 knitr::include_graphics("images/map_biomes.png")
 ```
@@ -25,7 +25,7 @@ knitr::include_graphics("images/map_biomes.png")
 Each biome is characterised by the types of dominant plants (plant functional types), their characteristics (traits), ecosystem structural and functional properties, and landscape processes (e.g., fire). Underlying all of this is the characteristic climate. The following biome classification (based on @bonan and slightly deviating from @olson01biosci) can be made.
 
 ::: {.callout-note}
-Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in @fig-sites_map.
+Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in @fig-biomes_sites_map.
 
 Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.
 :::
@@ -215,7 +215,30 @@ Leaf-shedding of deciduous trees, in contrast, is a strategy to avoid having to 
 
 Note that plant functional traits are often not entirely immutable. Instead, traits may vary also within a species and these variations are often driven by the environment. This is called *acclimation*. Such variations can even arise over the course of a season. For example, photosynthetic traits can rapidly acclimate to the large changes in light availability over the course of a year. Some traits are more plastic than others. For example, a tree is either needle-leaved or broadleaved. There is no continuum between the two leaf forms. In contrast, the nitrogen content per unit leaf mass is relatively plastic within a species.
 
-A changing environment changes the competitiveness of a given species, i.e., of a given trait combination. As a result, some traits may acclimate to some extent within a weeks to years. Over longer time scales, the altered demographic rates in a new climate affect the competitiveness of a species (even after some of its traits may have acclimated to a new climate) and ultimately shift demographic rates and the community composition. In grasslands, where the demographic cycle is short, such community composition changes may unfold over time scales of a few years. In forests, the longevity of an individual tree is on the order of decades to centuries and community composition changes unfold on correspondingly long time scale. 
+A changing environment changes the competitiveness of a given species, i.e., of a given trait combination. As a result, some traits may acclimate to some extent within a weeks to years. Over longer time scales, the altered demographic rates in a new climate affect the competitiveness of a species (even after some of its traits may have acclimated to a new climate) and ultimately shift demographic rates and the community composition. In grasslands, where the demographic cycle is short, such community composition changes may unfold over time scales of a few years. In forests, the longevity of an individual tree is on the order of decades to centuries and community composition changes unfold on correspondingly long time scale.
+
+## Global vegetation patterns
+
+The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and that can be mapped across the globe thanks to modern Earth Observation data. These global patterns of different observable variables reflect how the climate influences the vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of the carbon cycle and land-climate interactions are driven by the environment and vary across the globe.
+
+::: {.panel-tabset}
+
+### Vegetation height
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-vegheight
+#| fig-cap: "The global distribution of vegetation height from @simard11jgr."
+#| out-width: 100%
+knitr::include_graphics("images/map_vegheight.png")
+```
+
+```{r warning=FALSE, message=FALSE, echo = FALSE, fig.align='left'}
+#| label: fig-vegheight_biome
+#| fig-cap: "Distribution of vegetation height from @simard11jgr by biome."
+#| out-width: 100%
+knitr::include_graphics("images/map_vegheight_biome.png")
+```
+
+:::
 
 ## Vegetation types
 

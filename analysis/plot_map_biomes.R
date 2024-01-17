@@ -11,6 +11,16 @@ sf::sf_use_s2(FALSE)
 # https://doi.org/10.7910/DVN/WTLNRG, Harvard Dataverse, V1
 biomes <- sf::read_sf("~/data/biomes/olson_harvard_dataverse/tnc_terr_ecoregions.shp")
 
+# get biome names and code
+df_biomes_codes <- biomes |> 
+  select(WWF_MHTNAM, WWF_MHTNUM) |> 
+  as.data.frame() |> 
+  select(-geometry) |> 
+  distinct() |> 
+  arrange(WWF_MHTNUM)
+
+write_csv(df_biomes_codes, file = here::here("data/df_biomes_codes.csv"))
+
 # Rasterise ---------------
 # Load template raster available in this repository
 rasta <- terra::rast(
@@ -19,6 +29,9 @@ rasta <- terra::rast(
 
 # perform shapefile to raster conversion
 biomes_raster <- terra::rasterize(biomes, rasta, field = "WWF_MHTNAM")
+
+# write to file as NetCDF
+terra::writeRaster(biomes_raster, filename = here::here("data/biomes_raster_0.1deg.tif"), overwrite = TRUE)
 
 # get coastline -------------------
 coast <- rnaturalearth::ne_coastline(scale = 110, returnclass = "sf")
