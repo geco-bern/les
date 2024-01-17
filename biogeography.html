@@ -254,9 +254,10 @@ div.csl-indent {
   <li><a href="#plant-functional-types" id="toc-plant-functional-types" class="nav-link" data-scroll-target="#plant-functional-types"><span class="header-section-number">2.2.2</span> Plant functional types</a></li>
   <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">2.2.3</span> Traits</a></li>
   </ul></li>
-  <li><a href="#vegetation-types" id="toc-vegetation-types" class="nav-link" data-scroll-target="#vegetation-types"><span class="header-section-number">2.3</span> Vegetation types</a></li>
-  <li><a href="#climate-zones" id="toc-climate-zones" class="nav-link" data-scroll-target="#climate-zones"><span class="header-section-number">2.4</span> Climate zones</a></li>
-  <li><a href="#hillslope-scale-heterogeneity" id="toc-hillslope-scale-heterogeneity" class="nav-link" data-scroll-target="#hillslope-scale-heterogeneity"><span class="header-section-number">2.5</span> Hillslope-scale heterogeneity</a></li>
+  <li><a href="#global-vegetation-patterns" id="toc-global-vegetation-patterns" class="nav-link" data-scroll-target="#global-vegetation-patterns"><span class="header-section-number">2.3</span> Global vegetation patterns</a></li>
+  <li><a href="#vegetation-types" id="toc-vegetation-types" class="nav-link" data-scroll-target="#vegetation-types"><span class="header-section-number">2.4</span> Vegetation types</a></li>
+  <li><a href="#climate-zones" id="toc-climate-zones" class="nav-link" data-scroll-target="#climate-zones"><span class="header-section-number">2.5</span> Climate zones</a></li>
+  <li><a href="#hillslope-scale-heterogeneity" id="toc-hillslope-scale-heterogeneity" class="nav-link" data-scroll-target="#hillslope-scale-heterogeneity"><span class="header-section-number">2.6</span> Hillslope-scale heterogeneity</a></li>
   </ul>
 </nav>
     </div>
@@ -302,7 +303,7 @@ div.csl-indent {
 <div id="fig-biomes_sites_map" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/map_biomes.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.2: Fourteen biomes and the locations of sites representative for each biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Fourteen biomes and the locations of sites representative for each biome (used below).</figcaption>
 </figure>
 </div>
 </div>
@@ -318,7 +319,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in <span class="quarto-unresolved-ref">?fig-sites_map</span>.</p>
+<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in <a href="#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a>.</p>
 <p>Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month<sup>-1</sup>) is above the red curve (temperature, <span class="math inline">\(^\circ\)</span>C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.</p>
 </div>
 </div>
@@ -546,8 +547,39 @@ knitr::include_graphics("images/diagram_")
 <p>A changing environment changes the competitiveness of a given species, i.e., of a given trait combination. As a result, some traits may acclimate to some extent within a weeks to years. Over longer time scales, the altered demographic rates in a new climate affect the competitiveness of a species (even after some of its traits may have acclimated to a new climate) and ultimately shift demographic rates and the community composition. In grasslands, where the demographic cycle is short, such community composition changes may unfold over time scales of a few years. In forests, the longevity of an individual tree is on the order of decades to centuries and community composition changes unfold on correspondingly long time scale.</p>
 </section>
 </section>
-<section id="vegetation-types" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.3</span> Vegetation types</h2>
+<section id="global-vegetation-patterns" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="global-vegetation-patterns"><span class="header-section-number">2.3</span> Global vegetation patterns</h2>
+<p>The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and that can be mapped across the globe thanks to modern Earth Observation data. These global patterns of different observable variables reflect how the climate influences the vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of the carbon cycle and land-climate interactions are driven by the environment and vary across the globe.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Vegetation height</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-vegheight" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_vegheight.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.13: The global distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div id="fig-vegheight_biome" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="images/map_vegheight_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.14: Distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span> by biome.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="vegetation-types" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.4</span> Vegetation types</h2>
 <p>Note that the categorisation of vegetation into biomes is different from the categorisation of vegetation into <em>vegetation types</em> or land cover classes. A widely used distinction of vegetation types/land cover classes is that of the International Geosphere Biosphere Programme (IGBP). Vegetation types distinguish what can be seen from space and are thus amenable to remote-sensing based land cover classification. However, for example, different types of evergreen broadleaved forests are not distinguished (e.g., moist tropical, Mediterranean, and temperate evergreen broadleaved forests). Also, vegetation types/land cover classes distinguish land cover that is dominated by human activities (agricultural and urban), while biomes distinguish naturally occurring (i.e., without human influence) vegetation zones.</p>
 <div id="tbl-vegtype" class="anchored">
 <table class="table">
@@ -722,37 +754,37 @@ knitr::include_graphics("images/diagram_")
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="biogeography_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="biogeography_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="climate-zones" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="climate-zones"><span class="header-section-number">2.4</span> Climate zones</h2>
+<section id="climate-zones" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="climate-zones"><span class="header-section-number">2.5</span> Climate zones</h2>
 <p>While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish <em>climate zones</em> that largely align with the major biomes. The Köppen-Geiger climate classification <span class="citation" data-cites="koppen1884">(<a href="references.html#ref-koppen1884" role="doc-biblioref">Köppen 1884</a>)</span> is based on a hierarchical classification that separates climate based on values and the seasonality of monthly air temperature and precipitation. Water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-table_beck" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.13: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.15: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.13</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.14</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.15</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.16</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-climate_zones" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.14: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.13</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.16: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.15</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="hillslope-scale-heterogeneity" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="hillslope-scale-heterogeneity"><span class="header-section-number">2.5</span> Hillslope-scale heterogeneity</h2>
+<section id="hillslope-scale-heterogeneity" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="hillslope-scale-heterogeneity"><span class="header-section-number">2.6</span> Hillslope-scale heterogeneity</h2>
 <p>Topography shapes microclimates and drives small-scale variations in hydrology. In mountain regions, vegetation may thus vary strongly along small spatial scales - on the order of 10-10<sup>3</sup> m. This scale - from the river channel to the ridge - is referred to as the <em>hillslope scale</em>. In much the same way as climate drives vegetation across biomes, so it does across the hillslope scale. The incident solar radiation and - as a consequence of that - near-surface air temperatures are affected by the local slope, aspect, and shading by the surrounding topography. Soil moisture and the groundwater table depth are affected by lateral subsurface flow of water, driven by gradients in water potentials along topographical gradients. Subsurface water flow converges in depressions and concave terrain (e.g., in valley bottoms) and diverges in convex terrain. (e.g., on ridges and hilltops). As a consequence, the water table is shallow in valley bottoms and deep under ridges. Radiation and hydrology thus create microclimates and plant water availability conditions that are shaped by topography and variations in vegetation that are shaped by the microclimates and hydrological conditions.</p>
 <p>These hillslope-scale variations “intersect” with the the background climate (average climate across larger spatial scales, on the order of 10<sup>4</sup>-10<sup>5</sup> m). A shallow groundwater table and moist soils in valley bottoms can promote plant productivity in arid regions and seasons. In contrast, in a humid climate, a very shallow water table in valley bottoms inhibits plant productivity due to anaerobic conditions in waterlogged soils and the inability of roots to penetrate into permanently water-saturated soil. Similarly, the influence of radiation in promoting versus inhibiting plant productivity depends on the background climate. In cold climates of the high northern latitudes, the solar zenith angle is relatively high, also in mid-summer. This creates a strong influence of the local slope and aspect. In the northern hemisphere, south-facing slopes receive more radiation - a difference to north-facing slopes that can be critical for sustaining tree growth in high northern regions. In contrast, elevated incident solar radiation in south-facing slopes can aggravate water limitation and suppress vegetation productivity in more arid climates of the subtropics and mid-latitudes of the northern hemisphere.</p>
 <div class="cell">
@@ -760,7 +792,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-hillslope_photos_fan19" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.15: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.17: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -790,6 +822,9 @@ Olson, David M., Eric Dinerstein, Eric D. Wikramanayake, Neil D. Burgess, George
 </div>
 <div id="ref-peel07hess" class="csl-entry" role="listitem">
 Peel, M. C., B. L. Finlayson, and T. A. McMahon. 2007. <span>“Updated World Map of the <span>Köppen</span>-<span>Geiger</span> Climate Classification.”</span> <em>Hydrology and Earth System Sciences</em> 11 (5): 1633–44. <a href="https://doi.org/10.5194/hess-11-1633-2007">https://doi.org/10.5194/hess-11-1633-2007</a>.
+</div>
+<div id="ref-simard11jgr" class="csl-entry" role="listitem">
+Simard, Marc, Naiara Pinto, Joshua B. Fisher, and Alessandro Baccini. 2011. <span>“Mapping Forest Canopy Height Globally with Spaceborne Lidar.”</span> <em>Journal of Geophysical Research: Biogeosciences</em> 116 (G4). <a href="https://doi.org/10.1029/2011JG001708">https://doi.org/10.1029/2011JG001708</a>.
 </div>
 <div id="ref-whittaker75" class="csl-entry" role="listitem">
 Whittaker, Robert Harding. 1975. <em>Communities and Ecosystems</em>. 3rd ed. Macmillan.
