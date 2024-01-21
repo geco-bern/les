@@ -123,7 +123,7 @@ div.csl-indent {
 
 <meta name="twitter:title" content="Land in the Earth System I - 2&nbsp; Biogeography">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="images/humboldt_biogeography_small.png">
+<meta name="twitter:image" content="images/map_forestcoverfraction.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -204,7 +204,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">About this course</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -549,9 +549,9 @@ knitr::include_graphics("images/diagram_")
 </section>
 <section id="global-vegetation-patterns" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="global-vegetation-patterns"><span class="header-section-number">2.3</span> Global vegetation patterns</h2>
-<p>The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and that can be mapped across the globe thanks to modern Earth Observation data. These global patterns of different observable variables reflect how the climate influences the vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of the carbon cycle and land-climate interactions are driven by the environment and vary across the globe.</p>
+<p>The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and each of these variables can be mapped across the globe thanks to modern Earth observation data. These global patterns of different observable variables reflect how the climate influences vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of terrestrial ecology, plant physiology, the carbon cycle, and land-climate interactions are driven by the environment and vary across the globe.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Vegetation height</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Vegetation height</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Leaf area index</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Biomass</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Tree cover fraction</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
@@ -569,7 +569,73 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-vegheight_biome" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="images/map_vegheight_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.14: Distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span> by biome.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.14: Distribution of vegetation height by biome. Data from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see <a href="#fig-vegheight">Figure&nbsp;<span>2.13</span></a>). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome ‘Tundra’ appears implausibly high.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-lai" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_lai.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.15: Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div id="fig-lai_biome" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="images/map_lai_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.16: Multi-year average of the annual maximum leaf area index by biome.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-agc" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.17: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div id="fig-agc_biome" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="images/map_agc_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.18: Aboveground biomass carbon by biome. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-forestcoverfraction" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_forestcoverfraction.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.19: Tree cover fraction. Data from the MODIS MOD44B (v061) product.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div id="fig-forestcoverfraction_biome" class="quarto-figure quarto-figure-left anchored">
+<figure class="figure">
+<p><img src="images/map_forestcoverfraction_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.20: Tree cover fraction by biome.</figcaption>
 </figure>
 </div>
 </div>
@@ -577,6 +643,7 @@ knitr::include_graphics("images/diagram_")
 </div>
 </div>
 </div>
+<p>Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a <em>potential natural vegetation</em>. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome “Temperate broadleaved and mixed forests” (<a href="#fig-forestcoverfraction_biome">Figure&nbsp;<span>2.20</span></a>).</p>
 </section>
 <section id="vegetation-types" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.4</span> Vegetation types</h2>
@@ -754,7 +821,7 @@ knitr::include_graphics("images/diagram_")
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="biogeography_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="biogeography_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -766,18 +833,18 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-table_beck" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.15: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.21: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.15</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.16</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.21</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.22</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-climate_zones" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.16: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.15</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.22: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.21</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -792,7 +859,7 @@ knitr::include_graphics("images/diagram_")
 <div id="fig-hillslope_photos_fan19" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.17: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;2.23: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -816,6 +883,9 @@ Köppen, Wladimir. 1884. <span>“Die Wärmezonen Der Erde, Nach Der Dauer Der H
 </div>
 <div id="ref-koerner21div" class="csl-entry" role="listitem">
 Körner, Christian, and Erika Hiltbrunner. 2021. <span>“Why <span>Is</span> the <span>Alpine</span> <span>Flora</span> <span>Comparatively</span> <span>Robust</span> Against <span>Climatic</span> <span>Warming</span>?”</span> <em>Diversity</em> 13 (8): 383. <a href="https://doi.org/10.3390/d13080383">https://doi.org/10.3390/d13080383</a>.
+</div>
+<div id="ref-liu15natcc" class="csl-entry" role="listitem">
+Liu, Yi Y., Albert I. J. M. van Dijk, Richard A. M. de Jeu, Josep G. Canadell, Matthew F. McCabe, Jason P. Evans, and Guojie Wang. 2015. <span>“Recent Reversal in Loss of Global Terrestrial Biomass.”</span> <em>Nature Climate Change</em> 5 (5): 470–74. <a href="https://doi.org/10.1038/nclimate2581">https://doi.org/10.1038/nclimate2581</a>.
 </div>
 <div id="ref-olson01biosci" class="csl-entry" role="listitem">
 Olson, David M., Eric Dinerstein, Eric D. Wikramanayake, Neil D. Burgess, George V. N. Powell, Emma C. Underwood, Jennifer A. D’amico, et al. 2001. <span>“Terrestrial <span>Ecoregions</span> of the <span>World</span>: <span>A</span> <span>New</span> <span>Map</span> of <span>Life</span> on <span>Earth</span>: <span>A</span> New Global Map of Terrestrial Ecoregions Provides an Innovative Tool for Conserving Biodiversity.”</span> <em>BioScience</em> 51 (11): 933–38. <a href="https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2">https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2</a>.
