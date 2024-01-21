@@ -219,7 +219,7 @@ A changing environment changes the competitiveness of a given species, i.e., of 
 
 ## Global vegetation patterns
 
-The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and that can be mapped across the globe thanks to modern Earth Observation data. These global patterns of different observable variables reflect how the climate influences the vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of the carbon cycle and land-climate interactions are driven by the environment and vary across the globe.
+The biome classification is a way to discretise vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and each of these variables can be mapped across the globe thanks to modern Earth observation data. These global patterns of different observable variables reflect how the climate influences vegetation structure and functioning across the globe - independent of a classification into biomes. In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of terrestrial ecology, plant physiology, the carbon cycle, and land-climate interactions are driven by the environment and vary across the globe.
 
 ::: {.panel-tabset}
 
@@ -233,12 +233,58 @@ knitr::include_graphics("images/map_vegheight.png")
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE, fig.align='left'}
 #| label: fig-vegheight_biome
-#| fig-cap: "Distribution of vegetation height from @simard11jgr by biome."
+#| fig-cap: "Distribution of vegetation height by biome. Data from @simard11jgr. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see @fig-vegheight). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome 'Tundra' appears implausibly high."
 #| out-width: 100%
 knitr::include_graphics("images/map_vegheight_biome.png")
 ```
 
+### Leaf area index
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-lai
+#| fig-cap: "Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product."
+#| out-width: 100%
+knitr::include_graphics("images/map_lai.png")
+```
+
+```{r warning=FALSE, message=FALSE, echo = FALSE, fig.align='left'}
+#| label: fig-lai_biome
+#| fig-cap: "Multi-year average of the annual maximum leaf area index by biome."
+#| out-width: 100%
+knitr::include_graphics("images/map_lai_biome.png")
+```
+
+### Biomass
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-agc
+#| fig-cap: "Aboveground biomass carbon, mean over years 1993-2012. Data from @liu15natcc."
+#| out-width: 100%
+knitr::include_graphics("images/map_agc.png")
+```
+
+```{r warning=FALSE, message=FALSE, echo = FALSE, fig.align='left'}
+#| label: fig-agc_biome
+#| fig-cap: "Aboveground biomass carbon by biome. Data from @liu15natcc."
+#| out-width: 100%
+knitr::include_graphics("images/map_agc_biome.png")
+```
+
+### Tree cover fraction
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-forestcoverfraction
+#| fig-cap: "Tree cover fraction. Data from the MODIS MOD44B (v061) product."
+#| out-width: 100%
+knitr::include_graphics("images/map_forestcoverfraction.png")
+```
+
+```{r warning=FALSE, message=FALSE, echo = FALSE, fig.align='left'}
+#| label: fig-forestcoverfraction_biome
+#| fig-cap: "Tree cover fraction by biome."
+#| out-width: 100%
+knitr::include_graphics("images/map_forestcoverfraction_biome.png")
+```
 :::
+
+Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a *potential natural vegetation*. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome "Temperate broadleaved and mixed forests" (@fig-forestcoverfraction_biome). 
 
 ## Vegetation types
 
