@@ -37,7 +37,7 @@ The concentration of CO~2~ in the atmosphere is measured in parts per million (p
 knitr::include_graphics("images/IPCC_AR6_WGI_Figure_5_12.png")
 ```
 
-Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools described above remained relatively stable. To simplify, we can conceive them as constant - at *steady state* - under the pre-industrial Holocene climate. This is a simplification. For example, millennial-scale trends in solar radiation inputs over the seasons and latitudes (driven by slight changes in the Earth's orbit around the sun), caused climate and vegetation changes that were substantial and in certain cases abrupt (e.g., the demise of the Green Sahara between around 6-3 ka BP @shanahan15natgeo).
+Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools described above remained relatively stable. To simplify, we can conceive them as constant (at *steady state*) under the pre-industrial Holocene climate. This is a simplification. For example, millennial-scale trends in solar radiation inputs over the seasons and latitudes (driven by slight changes in the Earth's orbit around the sun), caused climate and vegetation changes that were substantial and in certain cases abrupt (e.g., the demise of the Green Sahara between around 6-3 ka BP [@shanahan15natgeo]).
 
 Even under such a pre-industrial steady state, C fluxes between the major reservoirs or *pools* (atmosphere, ocean, land) persisted. This is indicated in @fig-carbon-pools-fluxes-ipcc by the wide orange arrows pointing up and down between the land and the atmosphere and between the ocean and the atmosphere, as well as between different pools within the ocean. In a steady state, the C flux from the atmosphere into the land roughly equals the flux from the land to the atmosphere, and the net exchange flux is zero. Hence, the pool sizes remain constant in spite of the ongoing exchange fluxes between them. We speak of a *dynamic equilibrium*.
 
@@ -103,12 +103,12 @@ With the information in @fig-carbon-pools-fluxes-ipcc about pool sizes and stead
 
 It should be noted that the turnover time $\tau$ describes the average time that an atom of C resides in the respective pool. This is a simplification. In the C pool 'terrestrial biosphere', not every C atom has the same probability of being oxidized and respired as CO~2~. Hence, in reality, $\tau$ is a wide distribution, ranging from seconds to years for non-structural carbon derived from photosynthesis, decades to centuries for C in woody biomass, and to millennia for a small fraction of soil organic matter, especially if the C is protected from oxidation, for example in water-logged soils. The turnover time should therefore be understood as a diagnostic, useful for describing the average systems dynamics in a simplified way, and subsuming multiple processes that operate at different time scales, contributing to different portions of C conversion to CO~2~.
 
-The range of turnover times (e.g., within the terrestrial biosphere) arise because C is transferred between multiple pools within the biosphere and the ocean. Going to the next more detailed level of abstraction (model representation), multiple C pools in terrestrial ecosystems can be distinguished (e.g., non-structural C, leaves, roots, wood, litter, soil organic matter, microbes). Some C "cascades" through multiple pools, some is quickly respired back into the atmosphere. The interpretation that $k$ equals the inverse of the turnover time $\tau$, and that the turnover time equals the mean age of all C atoms in that pool, and that the mean *transit time* (the time it takes between an atom of C entering a pool until it exits that pool again) equals $\tau$ is only valid for certain cases, and not for "C cascades" with fluxes between multiple pools. Requirements are that we're dealing with a single pool, that this pool is at steady-state, that it has been so for an infinitely long time, that $I$ and $k$ are constant over time, and the flux leaving the pool is a linear function of the pool size ($O=kC$) [@sierra17gcb]. The transit time is the same as *residence time* - a term used more commonly in hydrology. 
+The range of turnover times (e.g., within the terrestrial biosphere) arise because C is transferred between multiple pools within the biosphere and the ocean. Going to the next more detailed level of abstraction (model representation), multiple C pools in terrestrial ecosystems can be distinguished (e.g., non-structural C, leaves, roots, wood, litter, soil organic matter, microbes). Some C "cascades" through multiple pools, some is quickly respired back into the atmosphere. The interpretation that $k$ equals the inverse of the turnover time $\tau$, and that the turnover time equals the mean age of all C atoms in that pool, and that the mean *transit time* (the time it takes between an atom of C entering a pool until it exits that pool again) equals $\tau$ is only valid for certain cases, and not for "C cascades" with fluxes between multiple pools. Requirements are that we're dealing with a single well-mixed pool, that this pool is at steady-state, that it has been so for an infinitely long time, that $I$ and $k$ are constant over time, and the flux leaving the pool is a linear function of the pool size ($O=kC$) [@sierra17gcb]. The transit time is the same as *residence time* - a term used more commonly in hydrology. 
 
 
 ## The anthropogenic perturbation
 
-Although fossil fuels are formed by natural processes of the C cycle, their combustion can be regarded as an external input of C into the (modern) global C cycle. This is because the time scale at which the reservoir of fossil fuels is depleted (10^2^ yr) stands in stark contrast to the time scale at which it was formed (10^8^ yr, see turnover time of C in the lithosphere in @tbl-turnover_times). The C is added in the form of CO~2~ to the atmosphere from where it is taken up by the ocean through diffusion and equilibration of the ocean surface water's CO~2~ partial pressure with the atmosphere's CO~2~ partial pressure, and by the terrestrial biosphere through photosynthesis. It is important to note that CO~2~ in the atmosphere does not decay through physical or chemical processes, nor are there C sinks on land or in the ocean that remove C away from the "fast" C cycle - except the burial into sediments (see @fig-carbon-pools-fluxes-ipcc and @tbl-turnover_times). However the magnitude of the burial fluxes are dwarfed by the magnitude of C inputs through the combustion of fossil fuels and deforestation. Hence, the fossil fuel combustion leads to an accumulation of the total amount of C cycling in the "fast" C cycle and the added C gets *redistributed* between the spheres. The net fluxes from the atmosphere into land ecosystems and the ocean arise because the total terrestrial and oceanic C pools are increasing as CO~2~ is emitted into the atmosphere and the atmospheric CO~2~ concentration is rising. In subsequent chapters (@sec-carboncycle_2 and @sec-carboncycle_3), we will learn about the processes driving the CO~2~ uptake by land and ocean and the dynamics of the C redistribution in the Earth system. In this chapter, we will look at the *global C budget* - how much C has been emitted by the combustion of fossil fuels and deforestation and how much of this C has accumulated in the atmosphere and how much has been taken up by the ocean and the terrestrial biosphere?
+Although fossil fuels are formed by natural processes of the C cycle, their combustion can be regarded as an external input of C into the (modern) global C cycle. This is because the time scale at which the reservoir of fossil fuels is depleted (10^2^ yr) stands in stark contrast to the time scale at which it was formed (10^8^ yr, see turnover time of C in the lithosphere in @tbl-turnover_times). The C is added in the form of CO~2~ to the atmosphere from where it is taken up by the ocean through diffusion and equilibration of the ocean surface water's CO~2~ partial pressure with the atmosphere's CO~2~ partial pressure, and by the terrestrial biosphere through photosynthesis. It is important to note that CO~2~ in the atmosphere does not decay through physical or chemical processes, nor are there C sinks on land or in the ocean that remove C away from the "fast" C cycle - except the burial into sediments (see @fig-carbon-pools-fluxes-ipcc and @tbl-turnover_times). However the magnitude of the burial fluxes are dwarfed by the magnitude of C inputs through the combustion of fossil fuels and deforestation. Hence, the present-day C emissions drive an accumulation of the total amount of C cycling in the "fast" C cycle and the added C gets *redistributed* between the spheres. The net fluxes from the atmosphere into land ecosystems and the ocean arise because the total terrestrial and oceanic C pools are increasing as CO~2~ is emitted into the atmosphere and the atmospheric CO~2~ concentration is rising. In subsequent chapters (@sec-carboncycle_2 and @sec-carboncycle_3), we will learn about the processes driving the CO~2~ uptake by land and ocean and the dynamics of the C redistribution in the Earth system. In this chapter, we will look at the *global C budget* - how much C has been emitted by the combustion of fossil fuels and deforestation and how much of this C has accumulated in the atmosphere and how much has been taken up by the ocean and the terrestrial biosphere?
 
 The global C budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels $E_\mathrm{FF}$ and land use change $E_\mathrm{LUC}$ on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. $G_\mathrm{atm}$ is the atmospheric growth rate, $S_\mathrm{ocean}$ is the net ocean C uptake (also referred to as the *ocean sink*) and $S_\mathrm{land}$ is the net land C uptake (or *land sink*). A net flux from the atmosphere into the ocean or into land C storage is positive.
 
@@ -118,7 +118,7 @@ $$ {#eq-carbon_budget}
 
 This terminology is adopted from the [Global Carbon Budget](https://globalcarbonbudget.org/) [@friedlingstein23essd] and is expressed as global annual total fluxes. The separation of $E_\mathrm{LUC}$ and $S_\mathrm{land}$ is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in @sec-landusechange.
 
-The values of the global carbon budget components are given in @fig-carbon-pools-fluxes-ipcc for an average across years 2010-2019, where $S_\mathrm{ocean}$ corresponds to the 'net ocean flux' and $S_\mathrm{land}$ corresponds to the the 'net land flux'. $E_\mathrm{LUC}$ corresponds to 'net land-use change'. The 'net' indicates that $E_\mathrm{LUC}$ is the net effect between CO~2~ emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in @fig-carbon-pools-fluxes-ipcc. The most recent update of the global carbon budget from @friedlingstein23essd is given in @tbl-gcb2023 as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.
+The values of the global carbon budget components are given in @fig-carbon-pools-fluxes-ipcc for an average across years 2010-2019, where $S_\mathrm{ocean}$ corresponds to the 'net ocean flux' and $S_\mathrm{land}$ corresponds to the the 'net land flux' in @fig-carbon-pools-fluxes-ipcc. $E_\mathrm{LUC}$ corresponds to 'net land-use change'. The 'net' indicates that $E_\mathrm{LUC}$ is the net effect between CO~2~ emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in @fig-carbon-pools-fluxes-ipcc. The most recent update of the global carbon budget from @friedlingstein23essd is given in @tbl-gcb2023 as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.
 
 <!-- xxx update -->
 
@@ -179,13 +179,11 @@ df <- read_csv(here("data/Global_Carbon_Budget_2023v1.0_tabGlobalCarbonBudget.cs
 # (Re-) definitions
 df <- df |> 
   
-  mutate(
-    # Include the carbonation sink in the fossil fuel emissions
-    e_ff = e_ff - s_cement,
+  # Include the carbonation sink in the fossil fuel emissions
+  mutate(e_ff = e_ff - s_cement) |> 
     
-    # Land sink defined as the budget residual
-    s_res = e_ff + e_luc - g_atm - s_ocean
-    )
+  # Land sink defined as the budget residual
+  mutate(s_res = e_ff + e_luc - g_atm - s_ocean)
 
 # Create the budget plot
 df |> 
@@ -283,9 +281,17 @@ df |>
     legend.position="bottom", 
     legend.box = "vertical"
     )
-  
 ```
 
 - land C balance variability
 - land C sink processes: Schimel, Pugh
 - land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.
+
+
+```{r echo=FALSE}
+#| label: fig-landsink_co2trajectories
+#| fig-cap: "asdf"
+#| out-width: 100%
+# Figure created with analysis/box_modelling.R
+knitr::include_graphics("images/landsink_co2trajectories.png")
+```
