@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -103,7 +104,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -112,6 +119,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -120,6 +128,33 @@ div.csl-indent {
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="Land in the Earth System I - 2&nbsp; Biogeography">
 <meta name="twitter:description" content="">
@@ -131,9 +166,9 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/logo.png" alt="" class="navbar-logo">
     </a>
@@ -148,12 +183,13 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/R_book_template/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/geco-bern/R_book_template/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -173,38 +209,29 @@ div.csl-indent {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./biogeography.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Biogeography</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./biogeography.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Biogeography</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About this course</span></a>
+ <span class="menu-text">About this book</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,8 +254,56 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ggplot demo</span></span></a>
+  <a href="./carboncycle_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carbon cycle 2: Ecosystem fluxes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./carboncycle_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Carbon cycle 3: Ocean CO<sub>2</sub> uptake and emission-concentration trajectories</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nutrients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carbon-nutrient cycle interactions and multiple greenhouse gas emissions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./landclimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions and water-limitation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ecohydrology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ecohydrology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./globenvchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Global environmental change</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./feedbacks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Earth system feedbacks</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./landusechange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Land use change</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reading</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -240,7 +315,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -251,7 +326,7 @@ div.csl-indent {
   <li><a href="#biomes" id="toc-biomes" class="nav-link" data-scroll-target="#biomes"><span class="header-section-number">2.2</span> Biomes</a>
   <ul class="collapse">
   <li><a href="#biomes-in-climate-space" id="toc-biomes-in-climate-space" class="nav-link" data-scroll-target="#biomes-in-climate-space"><span class="header-section-number">2.2.1</span> Biomes in climate space</a></li>
-  <li><a href="#plant-functional-types" id="toc-plant-functional-types" class="nav-link" data-scroll-target="#plant-functional-types"><span class="header-section-number">2.2.2</span> Plant functional types</a></li>
+  <li><a href="#sec-pfts" id="toc-sec-pfts" class="nav-link" data-scroll-target="#sec-pfts"><span class="header-section-number">2.2.2</span> Plant functional types</a></li>
   <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">2.2.3</span> Traits</a></li>
   </ul></li>
   <li><a href="#global-vegetation-patterns" id="toc-global-vegetation-patterns" class="nav-link" data-scroll-target="#global-vegetation-patterns"><span class="header-section-number">2.3</span> Global vegetation patterns</a></li>
@@ -279,17 +354,23 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="a-global-view-of-vegetation" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="a-global-view-of-vegetation"><span class="header-section-number">2.1</span> A global view of vegetation</h2>
-<p>We start with the observation that the global distribution of plants and characteristic assemblies of different plant species is not random, but relates to climate. Around the beginning of the 19th century, Alexander von Humboldt pursued expeditions to different places on Earth and connected the multitude of his local observations into a global view of biogeography. He was the first to realise that vegetation zones along elevational gradients were shifted across different mountain ranges on different continents and located on different latitudes, and that the elevational and latitudinal patterns in vegetation were related to climate - in much the same way across the earth. This finding is visualised by the schematic scientific drawing in <a href="#fig-humboldt">Figure&nbsp;<span>2.1</span></a>. The figure illustrates, for example, that the treeline increases from the high northern latitudes of Lapland at 68<span class="math inline">\(^\circ\)</span>N to the Alps and Pyrenees at 42-46<span class="math inline">\(^\circ\)</span>N and to the Himalaya at 29-32<span class="math inline">\(^\circ\)</span>N. Or that the elevation at which <em>Betula alba</em> (birch) grows varies from 1000-2000 ft in Lapland, to 4000-5000 ft in the Alps, and about 15,000 ft in the Himalaya. <a href="#fig-humboldt">Figure&nbsp;<span>2.1</span></a> also illustrates that the treeline doesn’t increase monotonically with decreasing latitude. Although not spelled out in the figure, this is a hint at the importance of water, along with temperature, for controlling vegetation. We’ll revisit this observation later in this book. Humboldt’s integration of globally distributed observations into his global view of climate as a driver of vegetation was pioneering and forms the basis of our modern approach to understanding and modelling global vegetation patterns and how they are influenced by climate change.</p>
+<p>We start with the observation that the global distribution of plants and characteristic assemblies of different plant species is not random, but relates to climate. Around the beginning of the 19th century, Alexander von Humboldt pursued expeditions to different places on Earth and connected the multitude of his local observations into a global view of biogeography. He was the first to realise that vegetation zones along elevational gradients were shifted across different mountain ranges on different continents and located on different latitudes, and that the elevational and latitudinal patterns in vegetation were related to climate - in much the same way across the earth. This finding is visualised by the schematic scientific drawing in <a href="#fig-humboldt" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. The figure illustrates, for example, that the treeline increases from the high northern latitudes of Lapland at 68<span class="math inline">\(^\circ\)</span>N to the Alps and Pyrenees at 42-46<span class="math inline">\(^\circ\)</span>N and to the Himalaya at 29-32<span class="math inline">\(^\circ\)</span>N. Or that the elevation at which <em>Betula alba</em> (birch) grows varies from 1000-2000 ft in Lapland, to 4000-5000 ft in the Alps, and about 15,000 ft in the Himalaya. <a href="#fig-humboldt" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> also illustrates that the treeline doesn’t increase monotonically with decreasing latitude. Although not spelled out in the figure, this is a hint at the importance of water, along with temperature, for controlling vegetation. We’ll revisit this observation later in this book. Humboldt’s integration of globally distributed observations into his global view of climate as a driver of vegetation was pioneering and forms the basis of our modern approach to understanding and modelling global vegetation patterns and how they are influenced by climate change.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-humboldt" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/humboldt_biogeography_small.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: Vegetation zones along elevation and latitude. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/9/96/Alexander_von_Humboldt_-_1850_-_Geographical_Distribution_of_Plants_-_Crop.jpg">Wikimedia</a>.</figcaption>
+<div id="fig-humboldt" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-humboldt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/humboldt_biogeography_small.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-humboldt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Vegetation zones along elevation and latitude. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/9/96/Alexander_von_Humboldt_-_1850_-_Geographical_Distribution_of_Plants_-_Crop.jpg">Wikimedia</a>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -297,13 +378,17 @@ div.csl-indent {
 </section>
 <section id="biomes" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="biomes"><span class="header-section-number">2.2</span> Biomes</h2>
-<p>Today’s geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and <em>plant functional types</em> (see XXX) into <em>biomes</em> or broad vegetation classes. A global map of biomes following the definition and global delineation by <span class="citation" data-cites="olson01biosci">Olson et al. (<a href="references.html#ref-olson01biosci" role="doc-biblioref">2001</a>)</span> is given in <a href="#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a>. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them.</p>
+<p>Today’s geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and <em>plant functional types</em> (see <a href="#sec-pfts" class="quarto-xref"><span>Section 2.2.2</span></a>) into <em>biomes</em> or broad vegetation classes. A global map of biomes following the definition and global delineation by <span class="citation" data-cites="olson01biosci">Olson et al. (<a href="references.html#ref-olson01biosci" role="doc-biblioref">2001</a>)</span> is given in <a href="#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-biomes_sites_map" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_biomes.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.2: Fourteen biomes and the locations of sites representative for each biome (used below).</figcaption>
+<div id="fig-biomes_sites_map" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-biomes_sites_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_biomes.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes_sites_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Fourteen biomes and the locations of sites representative for each biome (used below).
+</figcaption>
 </figure>
 </div>
 </div>
@@ -319,8 +404,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in <a href="#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a>.</p>
-<p>Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month<sup>-1</sup>) is above the red curve (temperature, <span class="math inline">\(^\circ\)</span>C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.</p>
+<p>Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in <a href="#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.</p>
+<p>Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month<sup>-1</sup>) is above the red curve (temperature, <span class="math inline">\(^\circ\)</span>C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see <a href="landclimate.html" class="quarto-xref"><span>Chapter 7</span></a>). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldest months are given to the left of the temperature axis.</p>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -335,10 +420,14 @@ Note
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_tropical_moist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_MY-PSO.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.3: Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome.</figcaption>
+<div id="fig-climate_biome_tropical_moist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_tropical_moist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_MY-PSO.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_tropical_moist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -360,10 +449,14 @@ knitr::include_graphics("images/diagram_")
 ``` -->
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_tropical_dry" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_ZM-Mon.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.4: Climate diagram of the site ZM-Mon, located in the Tropical deciduous forest biome.</figcaption>
+<div id="fig-climate_biome_tropical_dry" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_tropical_dry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_ZM-Mon.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_tropical_dry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Climate diagram of the site ZM-Mon, located in the Tropical deciduous forest biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -379,10 +472,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_savannah" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_AU-How.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.5: Climate diagram of the site AU-How, located in the Tropical savannah biome.</figcaption>
+<div id="fig-climate_biome_savannah" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_savannah-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_AU-How.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_savannah-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Climate diagram of the site AU-How, located in the Tropical savannah biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -397,10 +494,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_grassland" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_US-Tw1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.6: Climate diagram of the site US-Tw1, located in the Grasslands biome.</figcaption>
+<div id="fig-climate_biome_grassland" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_grassland-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_US-Tw1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_grassland-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: Climate diagram of the site US-Tw1, located in the Grasslands biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -415,10 +516,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_desert" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_US-SRM.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.7: Climate diagram of the site US-SRM, located in the Shrublands and deserts biome.</figcaption>
+<div id="fig-climate_biome_desert" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_desert-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_US-SRM.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_desert-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.7: Climate diagram of the site US-SRM, located in the Shrublands and deserts biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -433,10 +538,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_temperate" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_DE-Hai.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.8: Climate diagram of the site DE-Hai, located in the Temperate forests biome.</figcaption>
+<div id="fig-climate_biome_temperate" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_temperate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_DE-Hai.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_temperate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.8: Climate diagram of the site DE-Hai, located in the Temperate forests biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -452,10 +561,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_mediterranean" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_FR-Pue.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.9: Climate diagram of the site FR-Pue, located in the Mediterranean forests biome.</figcaption>
+<div id="fig-climate_biome_mediterranean" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_mediterranean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_FR-Pue.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_mediterranean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.9: Climate diagram of the site FR-Pue, located in the Mediterranean forests biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -471,10 +584,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_boreal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_FI-Hyy.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.10: Climate diagram of the site FI-Hyy, located in the Boreal forests biome.</figcaption>
+<div id="fig-climate_biome_boreal" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_boreal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_FI-Hyy.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_boreal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.10: Climate diagram of the site FI-Hyy, located in the Boreal forests biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -488,10 +605,14 @@ knitr::include_graphics("images/diagram_")
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_biome_tundra" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diagram_GL-ZaH.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.11: Climate diagram of the site GL-ZaH, located in the Tundra biome.</figcaption>
+<div id="fig-climate_biome_tundra" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_biome_tundra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diagram_GL-ZaH.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_biome_tundra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.11: Climate diagram of the site GL-ZaH, located in the Tundra biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -501,9 +622,9 @@ knitr::include_graphics("images/diagram_")
 </div>
 <section id="biomes-in-climate-space" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="biomes-in-climate-space"><span class="header-section-number">2.2.1</span> Biomes in climate space</h3>
-<p><a href="#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a> shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>. Note that the biome definition shown in <a href="#fig-biomes_whittaker">Figure&nbsp;<span>2.12</span></a> does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the “Whittaker-plot”. This is because their characteristic climate is not distinguished by annual means, but by the <em>seasonality</em> of temperature, solar radiation, and precipitation.</p>
+<p><a href="#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> shows biomes in geographical space - as a global map. Acknowledging their intricate relationship with climate, biomes can also be delineated in climate space - in a diagram defined by mean annual temperature (MAT) along one axis and mean annual precipitation (MAP) along the other axis. This yields a plot following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>. Note that the biome definition shown in <a href="#fig-biomes_whittaker" class="quarto-xref">Figure&nbsp;<span>2.12</span></a> does not exactly match the definition of biomes given above as it is mainly aimed at separating with respect to MAT and MAP. For example, Mediterranean forests are not separated in the “Whittaker-plot”. This is because their characteristic climate is not distinguished by annual means, but by the <em>seasonality</em> of temperature, solar radiation, and precipitation.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(devtools)</span></span>
@@ -513,18 +634,22 @@ knitr::include_graphics("images/diagram_")
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-biomes_whittaker" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="biogeography_files/figure-html/fig-biomes_whittaker-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature and precipitation, following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>.</figcaption>
+<div id="fig-biomes_whittaker" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-biomes_whittaker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="biogeography_files/figure-html/fig-biomes_whittaker-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes_whittaker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature and precipitation, following <span class="citation" data-cites="whittaker75">Whittaker (<a href="references.html#ref-whittaker75" role="doc-biblioref">1975</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="plant-functional-types" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="plant-functional-types"><span class="header-section-number">2.2.2</span> Plant functional types</h3>
-<p>Each biome is characterised by a typical assembly of <em>plant functional types</em> (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C<sub>3</sub> vs.&nbsp;the C<sub>4</sub> photosynthetic pathway (see Chapter XXX). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:</p>
+<section id="sec-pfts" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-pfts"><span class="header-section-number">2.2.2</span> Plant functional types</h3>
+<p>Each biome is characterised by a typical assembly of <em>plant functional types</em> (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C<sub>3</sub> vs.&nbsp;the C<sub>4</sub> photosynthetic pathway (see <a href="carboncycle_2.html" class="quarto-xref"><span>Chapter 4</span></a>). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:</p>
 <ol type="1">
 <li>needle-leaved evergreen trees</li>
 <li>broadleaved evergreen trees</li>
@@ -534,7 +659,7 @@ knitr::include_graphics("images/diagram_")
 <li>C<sub>3</sub> grasses</li>
 <li>C<sub>4</sub> grasses</li>
 </ol>
-<p>Global vegetation models use PFTs as their basic unit of distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant (“N-fixing plants”, see also Chapter XXX). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.</p>
+<p>Global vegetation models use PFTs as their basic unit of distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant (“N-fixing plants”, see also #sec-nutrients). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.</p>
 <p>Plants can also be distinguished into the botanical classification of <em>angiosperms</em> (flowering plants) and <em>gymnnosperms</em> (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates, and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.</p>
 </section>
 <section id="traits" class="level3" data-number="2.2.3">
@@ -556,20 +681,28 @@ knitr::include_graphics("images/diagram_")
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-vegheight" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_vegheight.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.13: The global distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>.</figcaption>
+<div id="fig-vegheight" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vegheight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_vegheight.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vegheight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.13: The global distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-vegheight_biome" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/map_vegheight_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.14: Distribution of vegetation height by biome. Data from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see <a href="#fig-vegheight">Figure&nbsp;<span>2.13</span></a>). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome ‘Tundra’ appears implausibly high.</figcaption>
+<div id="fig-vegheight_biome" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vegheight_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_vegheight_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vegheight_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.14: Distribution of vegetation height by biome. Data from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see <a href="#fig-vegheight" class="quarto-xref">Figure&nbsp;<span>2.13</span></a>). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome ‘Tundra’ appears implausibly high.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -578,20 +711,28 @@ knitr::include_graphics("images/diagram_")
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-lai" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_lai.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.15: Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product.</figcaption>
+<div id="fig-lai" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lai-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_lai.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lai-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.15: Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-lai_biome" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/map_lai_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.16: Multi-year average of the annual maximum leaf area index by biome.</figcaption>
+<div id="fig-lai_biome" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lai_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_lai_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lai_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.16: Multi-year average of the annual maximum leaf area index by biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -600,20 +741,28 @@ knitr::include_graphics("images/diagram_")
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-agc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.17: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.</figcaption>
+<div id="fig-agc" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.17: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-agc_biome" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/map_agc_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.18: Aboveground biomass carbon by biome. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.</figcaption>
+<div id="fig-agc_biome" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agc_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_agc_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agc_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.18: Aboveground biomass carbon by biome. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -622,20 +771,28 @@ knitr::include_graphics("images/diagram_")
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-forestcoverfraction" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_forestcoverfraction.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.19: Tree cover fraction. Data from the MODIS MOD44B (v061) product.</figcaption>
+<div id="fig-forestcoverfraction" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-forestcoverfraction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_forestcoverfraction.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forestcoverfraction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.19: Tree cover fraction. Data from the MODIS MOD44B (v061) product.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-forestcoverfraction_biome" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/map_forestcoverfraction_biome.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.20: Tree cover fraction by biome.</figcaption>
+<div id="fig-forestcoverfraction_biome" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-forestcoverfraction_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_forestcoverfraction_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forestcoverfraction_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.20: Tree cover fraction by biome.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -643,14 +800,23 @@ knitr::include_graphics("images/diagram_")
 </div>
 </div>
 </div>
-<p>Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a <em>potential natural vegetation</em>. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome “Temperate broadleaved and mixed forests” (<a href="#fig-forestcoverfraction_biome">Figure&nbsp;<span>2.20</span></a>).</p>
+<p>Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a <em>potential natural vegetation</em>. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome “Temperate broadleaved and mixed forests” (<a href="#fig-forestcoverfraction_biome" class="quarto-xref">Figure&nbsp;<span>2.20</span></a>).</p>
 </section>
 <section id="vegetation-types" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.4</span> Vegetation types</h2>
 <p>Note that the categorisation of vegetation into biomes is different from the categorisation of vegetation into <em>vegetation types</em> or land cover classes. A widely used distinction of vegetation types/land cover classes is that of the International Geosphere Biosphere Programme (IGBP). Vegetation types distinguish what can be seen from space and are thus amenable to remote-sensing based land cover classification. However, for example, different types of evergreen broadleaved forests are not distinguished (e.g., moist tropical, Mediterranean, and temperate evergreen broadleaved forests). Also, vegetation types/land cover classes distinguish land cover that is dominated by human activities (agricultural and urban), while biomes distinguish naturally occurring (i.e., without human influence) vegetation zones.</p>
-<div id="tbl-vegtype" class="anchored">
+<div id="tbl-vegtype" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vegtype-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https://fluxnet.org/data/badm-data-templates/igbp-classification/">https://fluxnet.org/data/badm-data-templates/igbp-classification/</a>
+</figcaption>
+<div aria-describedby="tbl-vegtype-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https://fluxnet.org/data/badm-data-templates/igbp-classification/">https://fluxnet.org/data/badm-data-templates/igbp-classification/</a></caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 38%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Code</th>
@@ -747,8 +913,10 @@ knitr::include_graphics("images/diagram_")
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
@@ -770,7 +938,7 @@ knitr::include_graphics("images/diagram_")
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">geom_spatraster</span>(<span class="at">data =</span> raster_vegtype) <span class="sc">+</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> coast,</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">'black'</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"azure"</span>, <span class="co"># worldgrids_pal$IGBP["Water " ] , #"water" ;</span></span>
@@ -818,10 +986,14 @@ knitr::include_graphics("images/diagram_")
 <span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vegetation types"</span>) <span class="sc">+</span> </span>
 <span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
 <span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="biogeography_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="biogeography_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -830,21 +1002,29 @@ knitr::include_graphics("images/diagram_")
 <p>While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish <em>climate zones</em> that largely align with the major biomes. The Köppen-Geiger climate classification <span class="citation" data-cites="koppen1884">(<a href="references.html#ref-koppen1884" role="doc-biblioref">Köppen 1884</a>)</span> is based on a hierarchical classification that separates climate based on values and the seasonality of monthly air temperature and precipitation. Water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-table_beck" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.21: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.</figcaption>
+<div id="fig-table_beck" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.21: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck">Figure&nbsp;<span>2.21</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones">Figure&nbsp;<span>2.22</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.21</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones" class="quarto-xref">Figure&nbsp;<span>2.22</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-climate_zones" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.22: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck">Figure&nbsp;<span>2.21</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.</figcaption>
+<div id="fig-climate_zones" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-climate_zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.22: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.21</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -856,19 +1036,23 @@ knitr::include_graphics("images/diagram_")
 <p>These hillslope-scale variations “intersect” with the the background climate (average climate across larger spatial scales, on the order of 10<sup>4</sup>-10<sup>5</sup> m). A shallow groundwater table and moist soils in valley bottoms can promote plant productivity in arid regions and seasons. In contrast, in a humid climate, a very shallow water table in valley bottoms inhibits plant productivity due to anaerobic conditions in waterlogged soils and the inability of roots to penetrate into permanently water-saturated soil. Similarly, the influence of radiation in promoting versus inhibiting plant productivity depends on the background climate. In cold climates of the high northern latitudes, the solar zenith angle is relatively high, also in mid-summer. This creates a strong influence of the local slope and aspect. In the northern hemisphere, south-facing slopes receive more radiation - a difference to north-facing slopes that can be critical for sustaining tree growth in high northern regions. In contrast, elevated incident solar radiation in south-facing slopes can aggravate water limitation and suppress vegetation productivity in more arid climates of the subtropics and mid-latitudes of the northern hemisphere.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-hillslope_photos_fan19" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.23: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.</figcaption>
+<div id="fig-hillslope_photos_fan19" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hillslope_photos_fan19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hillslope_photos_fan19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.23: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Climate also varies along elevation due to thermodynamics and radiative transfer in the atmosphere - independent of the slope and aspect of the local terrain. Temperatures decline following the lapse rate in the troposphere, leading to a shift of vegetation zones along elevational gradients. This phenomenon is depicted also in Humboldt’s drawings (<a href="#fig-humboldt">Figure&nbsp;<span>2.1</span></a>). Radiation levels are elevated at high altitudes due to a shorter path length and thus reduced absorption by the atmosphere. Atmospheric pressure and thus the partial pressure of oxygen declines with elevation. This implies reduced respiration and an increased efficiency of photosynthesis.</p>
+<p>Climate also varies along elevation due to thermodynamics and radiative transfer in the atmosphere - independent of the slope and aspect of the local terrain. Temperatures decline following the lapse rate in the troposphere, leading to a shift of vegetation zones along elevational gradients. This phenomenon is depicted also in Humboldt’s drawings (<a href="#fig-humboldt" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>). Radiation levels are elevated at high altitudes due to a shorter path length and thus reduced absorption by the atmosphere. Atmospheric pressure and thus the partial pressure of oxygen declines with elevation. This implies reduced respiration and an increased efficiency of photosynthesis.</p>
 <p>Small-scale variations in vegetation may also be driven my variations in soil characteristics and bedrock lithology which influences drainage and soil chemistry (pH, nutrient availability). Where the ground is seasonally snow-covered, very small-scale terrain features (10<sup>0</sup>-10<sup>2</sup>) and dominant wind directions drive snow accumulation and dispersion, leading to substantial small-scale variations in maximum snow depth and the duration of seasonal snow cover - with implications for plants <span class="citation" data-cites="koerner21div">(<a href="references.html#ref-koerner21div" role="doc-biblioref">Körner and Hiltbrunner 2021</a>)</span>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-beck18scidat" class="csl-entry" role="listitem">
 Beck, Hylke E., Niklaus E. Zimmermann, Tim R. McVicar, Noemi Vergopolan, Alexis Berg, and Eric F. Wood. 2018. <span>“Present and Future <span>Köppen</span>-<span>Geiger</span> Climate Classification Maps at 1-Km Resolution.”</span> <em>Scientific Data</em> 5 (1): 180214. <a href="https://doi.org/10.1038/sdata.2018.214">https://doi.org/10.1038/sdata.2018.214</a>.
 </div>
@@ -946,6 +1130,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1012,13 +1223,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1097,10 +1310,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1110,8 +1322,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1124,6 +1345,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1167,6 +1507,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1192,6 +1533,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1253,17 +1620,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./carboncycle_1.html" class="pagination-link">
+      <a href="./carboncycle_1.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Carbon cycle 1: Global pools and fluxes</span>">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

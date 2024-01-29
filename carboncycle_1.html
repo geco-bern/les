@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ggplot.html" rel="next">
+<link href="./carboncycle_2.html" rel="next">
 <link href="./biogeography.html" rel="prev">
 <link href="./figures/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -69,7 +104,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -78,6 +119,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -87,19 +129,45 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <meta name="twitter:title" content="Land in the Earth System I - 3&nbsp; Carbon cycle 1: Global pools and fluxes">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="images/IPCC_AR6_WGI_Figure_5_12.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/logo.png" alt="" class="navbar-logo">
     </a>
@@ -114,12 +182,13 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/R_book_template/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/geco-bern/R_book_template/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -139,38 +208,29 @@ div.csl-indent {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./carboncycle_1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./carboncycle_1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About this course</span></a>
+ <span class="menu-text">About this book</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -193,8 +253,56 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ggplot demo</span></span></a>
+  <a href="./carboncycle_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carbon cycle 2: Ecosystem fluxes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./carboncycle_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Carbon cycle 3: Ocean CO<sub>2</sub> uptake and emission-concentration trajectories</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nutrients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Carbon-nutrient cycle interactions and multiple greenhouse gas emissions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./landclimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions and water-limitation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ecohydrology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ecohydrology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./globenvchange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Global environmental change</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./feedbacks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Earth system feedbacks</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./landusechange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Land use change</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reading</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -206,14 +314,16 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link active" data-scroll-target="#key-concepts"><span class="header-section-number">3.0.1</span> Key concepts</a></li>
+  <li><a href="#the-pre-industrial-carbon-cycle" id="toc-the-pre-industrial-carbon-cycle" class="nav-link active" data-scroll-target="#the-pre-industrial-carbon-cycle"><span class="header-section-number">3.1</span> The pre-industrial carbon cycle</a></li>
+  <li><a href="#carbon-pool-dynamics" id="toc-carbon-pool-dynamics" class="nav-link" data-scroll-target="#carbon-pool-dynamics"><span class="header-section-number">3.2</span> Carbon pool dynamics</a></li>
+  <li><a href="#the-anthropogenic-perturbation" id="toc-the-anthropogenic-perturbation" class="nav-link" data-scroll-target="#the-anthropogenic-perturbation"><span class="header-section-number">3.3</span> The anthropogenic perturbation</a></li>
   </ul>
 </nav>
     </div>
@@ -222,7 +332,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></h1>
+<h1 class="title"><span id="sec-carboncycle_1" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Carbon cycle 1: Global pools and fluxes</span></span></h1>
 </div>
 
 
@@ -235,8 +345,12 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
+
+<section id="the-pre-industrial-carbon-cycle" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-pre-industrial-carbon-cycle"><span class="header-section-number">3.1</span> The pre-industrial carbon cycle</h2>
 <p>Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO<sub>2</sub> in the atmosphere.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -270,33 +384,150 @@ Note
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-carbon-pools-fluxes-ipcc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/IPCC_AR6_WGI_Figure_5_12.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.1: Global carbon (CO<sub>2</sub>) budget (2010–2019). Yellow arrows represent annual carbon fluxes (in PgC yr<sup>-1</sup>) associated with the natural carbon cycle, estimated for the time prior to the industrial era, around 1750. Pink arrows represent anthropogenic fluxes averaged over the period 2010–2019. The rate of carbon accumulation in the atmosphere is equal to net land-use change emissions, including land management plus fossil fuel emissions, minus land and ocean net sinks (plus a small budget imbalance). Circles with yellow numbers represent pre-industrial carbon stocks in PgC. Circles with pink numbers represent anthropogenic changes to these stocks (cumulative anthropogenic fluxes) since 1750. The relative change of gross photosynthesis since pre-industrial times is based on 15 Dynamic Global Vegetation Models. The corresponding emissions by total respiration and fire are those required to match the net land flux, exclusive of net land-use change emissions which are accounted for separately. The cumulative change of anthropogenic carbon in the terrestrial reservoir is the sum of carbon cumulatively lost by net land-use change emissions, and net carbon accumulated since 1750 in response to environmental drivers (warming, rising CO<sub>2</sub>, nitrogen deposition). Figure from <span class="citation" data-cites="canadell21ipcc">Canadell et al. (<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">2021</a>)</span>.</figcaption>
+<div id="fig-carbon-pools-fluxes-ipcc" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-carbon-pools-fluxes-ipcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/IPCC_AR6_WGI_Figure_5_12.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-carbon-pools-fluxes-ipcc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Global carbon (CO<sub>2</sub>) budget (2010–2019). Yellow arrows represent annual carbon fluxes (in PgC yr<sup>-1</sup>) associated with the natural carbon cycle, estimated for the time prior to the industrial era, around 1750. Pink arrows represent anthropogenic fluxes averaged over the period 2010–2019. The rate of carbon accumulation in the atmosphere is equal to net land-use change emissions, including land management plus fossil fuel emissions, minus land and ocean net sinks (plus a small budget imbalance). Circles with yellow numbers represent pre-industrial carbon stocks in PgC. Circles with pink numbers represent anthropogenic changes to these stocks (cumulative anthropogenic fluxes) since 1750. The relative change of gross photosynthesis since pre-industrial times is based on 15 Dynamic Global Vegetation Models. The corresponding emissions by total respiration and fire are those required to match the net land flux, exclusive of net land-use change emissions which are accounted for separately. The cumulative change of anthropogenic carbon in the terrestrial reservoir is the sum of carbon cumulatively lost by net land-use change emissions, and net carbon accumulated since 1750 in response to environmental drivers (warming, rising CO<sub>2</sub>, nitrogen deposition). Figure from <span class="citation" data-cites="canadell21ipcc">Canadell et al. (<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">2021</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools</p>
-<ul>
-<li>Preindustrial Carbon cycle, (quasi) steady-state)</li>
-<li>Dynamic equilibrium, lifetime</li>
-<li>1-Box model for terrestrial C cycle, dynamics</li>
-<li>Preindustrial global carbon budget</li>
-<li>Anthropogenic perturbation</li>
-<li>Modern global carbon budget</li>
-</ul>
-<p>The global carbon budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels <span class="math inline">\(E_\mathrm{FF}\)</span> and land use change <span class="math inline">\(E_\mathrm{LUC}\)</span> on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. <span class="math inline">\(G_\mathrm{atm}\)</span> is the atmospheric growth rate, <span class="math inline">\(S_\mathrm{ocean}\)</span> is the ocean C uptake (also referred to as the <em>ocean sink</em>) and <span class="math inline">\(S_\mathrm{land}\)</span> is the land C uptake (or <em>land sink</em>). A net flux from the atmosphere into the ocean or into land C storage is positive.</p>
+<p>Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools described above remained relatively stable. To simplify, we can conceive them as constant - at <em>steady state</em> - under the pre-industrial Holocene climate. This is a simplification. For example, millennial-scale trends in solar radiation inputs over the seasons and latitudes (driven by slight changes in the Earth’s orbit around the sun), caused climate and vegetation changes that were substantial and in certain cases abrupt (e.g., the demise of the Green Sahara between around 6-3 ka BP <span class="citation" data-cites="shanahan15natgeo">Shanahan et al. (<a href="references.html#ref-shanahan15natgeo" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Even under such a pre-industrial steady state, C fluxes between the major reservoirs or <em>pools</em> (atmosphere, ocean, land) persisted. This is indicated in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> by the wide orange arrows pointing up and down between the land and the atmosphere and between the ocean and the atmosphere, as well as between different pools within the ocean. In a steady state, the C flux from the atmosphere into the land roughly equals the flux from the land to the atmosphere, and the net exchange flux is zero. Hence, the pool sizes remain constant in spite of the ongoing exchange fluxes between them. We speak of a <em>dynamic equilibrium</em>.</p>
+</section>
+<section id="carbon-pool-dynamics" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="carbon-pool-dynamics"><span class="header-section-number">3.2</span> Carbon pool dynamics</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The 1st-order decay model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The concept of pools and fluxes is central for describing and modelling the carbon cycle and other biogeochemical cycles in the environment. The dynamics of a pool <span class="math inline">\(C(t)\)</span> is given by the balance of the flux of C into that pool <span class="math inline">\(I(t)\)</span> and the flux <span class="math inline">\(O(t)\)</span> leaving the pool - over time <span class="math inline">\(t\)</span>. In general terms, we can write the temporal change of the pool size as</p>
+<p><span id="eq-inputoutput"><span class="math display">\[
+\frac{\mathrm{d}C(t)}{\mathrm{d}t} = I(t) - O(t) \;.
+\tag{3.1}\]</span></span></p>
+<p>To simplify the expressions, we will omit <span class="math inline">\((t)\)</span> below. But remember, that the fluxes and pools vary with time. The assumption that the out-flux <span class="math inline">\(O\)</span> scales linearly with the size of the pool <span class="math inline">\(C\)</span> is a good simplifying description (i.e., a <em>model</em>) for many processes in the environment. For example, the amount of CO<sub>2</sub> produced by the decomposition (decay) of organic matter in the soil scales roughly linearly with the amount of organic matter that is being respired. This leads to the <em>1st-order decay model</em> of pool dynamics:</p>
+<p><span id="eq-firststorderdecay"><span class="math display">\[
+\frac{\mathrm{d}C}{\mathrm{d}t} = I - kC \;.
+\tag{3.2}\]</span></span> Here, <span class="math inline">\(k\)</span> is a decay constant and is in units of the inverse of time. In other words, it specifies the fraction of <span class="math inline">\(C\)</span> decaying per unit time (e.g,. seconds, or years). The higher <span class="math inline">\(k\)</span>, the more rapidly the pool decays. For the case of <span class="math inline">\(I=0\)</span>, we get <span class="math inline">\(\mathrm{d}C/\mathrm{d}t = -kC\)</span>. This is a differential equation and can be understood as: What is the function that yields itself, multiplied by <span class="math inline">\(-k\)</span>, when taking its derivative with respect to time? The solution is:</p>
 <p><span class="math display">\[
-E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
-\]</span></p>
-<p>This terminology is adopted from the Global Carbon Budget <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> and is expressed as global annual total fluxes. The separation of <span class="math inline">\(E_\mathrm{LUC}\)</span> and <span class="math inline">\(S_\mathrm{land}\)</span> is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in Chapter XXX.</p>
-<p>The values of the global carbon budget components are given in <a href="#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a> for as an average for years 2010-2019, where <span class="math inline">\(S_\mathrm{ocean}\)</span> corresponds to the ‘net ocean flux’ and <span class="math inline">\(S_\mathrm{land}\)</span> corresponds to the the ‘net land flux’. <span class="math inline">\(E_\mathrm{LUC}\)</span> corresponds to ‘net land-use change’. The ‘net’ indicates that <span class="math inline">\(E_\mathrm{LUC}\)</span> is the net effect between CO<sub>2</sub> emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in <a href="#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a>. The most recent update of the global carbon budget from <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> is given in <a href="#tbl-gcb2023">Table&nbsp;<span>3.1</span></a> as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.</p>
-<!-- xxx update -->
-<div id="tbl-gcb2023" class="anchored">
+C(t) = C_0 \; e^{-kt} \;.
+\]</span> For example, following this model, the pool of C in soil organic matter would decay exponentially if inputs (litterfall) were zero. The decay constant <span class="math inline">\(k\)</span> determines how long it takes for it to be reduced by a certain factor. A commonly used factor is 0.5. We can calculate a <em>half-life</em> - the time <span class="math inline">\(t\)</span> at which <span class="math inline">\(C(t) = 0.5\;C_0\)</span>.</p>
+<p>In a dynamic equilibrium the change in the pool size <span class="math inline">\(C\)</span> is by definition zero. <span id="eq-dynamiceq"><span class="math display">\[
+\frac{\mathrm{d}C}{\mathrm{d}t} = 0 \;.
+\tag{3.3}\]</span></span> Combining <a href="#eq-firststorderdecay" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> and <a href="#eq-dynamiceq" class="quarto-xref">Equation&nbsp;<span>3.3</span></a> and re-arranging terms leads to the steady-state pool size as a function of the in-flux and the decay constant <span class="math inline">\(k\)</span>. <span id="eq-steadystate"><span class="math display">\[
+C^\ast = I/k
+\tag{3.4}\]</span></span> Here, the asterisk denotes that <span class="math inline">\(C\)</span> is at steady-state. This solution indicates two aspects. First, the size of the steady-state pool is proportional to the input flux. Note that we assumed that the input flux itself has no dependency on <span class="math inline">\(C\)</span>. Second, the size of the steady-state pool is inversely proportional to the decay constant. That is, the faster the decay, the smaller the steady state pool.</p>
+<p><a href="#eq-firststorderdecay" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> can also be expressed in terms of an average lifetime or <em>turnover time</em> <span class="math inline">\(\tau\)</span>, instead of <span class="math inline">\(k\)</span>: <span id="eq-steadystate-lifetime"><span class="math display">\[
+\frac{\mathrm{d}C}{\mathrm{d}t} = I - C/\tau \;.
+\tag{3.5}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Consider the C pool of the intermediate and deep sea (37,100 PgC) in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> (bottom right). What is the turnover time of C in that pool?</li>
+<li>Express the steady-state pool size <span class="math inline">\(C^\ast\)</span> as a function of the in-flux and the turnover time <span class="math inline">\(\tau\)</span>.</li>
+<li>Express the half-life constant as a function of <span class="math inline">\(k\)</span>.</li>
+<li>Do you know about other processes in nature that can be described by the 1st-order decay model?</li>
+</ol>
+</div>
+</div>
+<p>With the information in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> about pool sizes and steady-state gross fluxes (parallel input and output fluxes), and our model of pool dynamics, we get an insight about how fast C is cycling in and out of different pools. <span class="math inline">\(k=I/C^\ast\)</span> is a measure of this cycling rate. Or expressed in terms of its inverse, the turnover time <span class="math inline">\(\tau\)</span> measures how long a C atom resides in that pool. <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a> documents the turnover times for major pools of the global carbon cycle. The small C burial fluxes into sediments on land and on the ocean floor are the supply of what is eventually converted into the very large pool of C in carbonate rock (limestone). A small fraction of the C burial flux is in the form of organic matter, including dead plants, algae, and other microorganisms. Under high heat and pressure, a fraction of it contributes to the formation of hydrocarbons such as oil and gas - fossil fuels. The discrepancy in turnover times between the lithosphere C pool and the other pools indicates that C cycles on vastly different time scales and the slow <em>geological C cycle</em> is largely disconnected from “fast” C cycle between the atmosphere, ocean, and biosphere. Reflecting this discrepancy in time scales, the geological C cycle is not depicted in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and C in fossil fuel reservoirs is treated as an <em>external input</em> to the fast C cycle.</p>
+<div id="tbl-turnover_times" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-turnover_times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Pre-industrial pool sizes, input fluxes, and turnover times of major pools of the global carbon cycle. The preindustrial input flux into the atmosphere is calculated as the sum of fluxes from volcanism, total respiration and fire, freshwater, and ocean-atmosphere gas exchange from <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. The input flux into the surface ocean is the sum of ocean-atmosphere gas exchange and the flux from intermediate and deep sea. The flux from marine biota is not additional to the ocean-atmosphere exchange flux. The pool size of the biosphere is taken as the sum of vegetation and soils. The permafrost C pool is relatively inert. The size of the lithosphere C pool includes C in the form of sedimentary (carbonate) rocks and kerogens (solid, insoluble organic matter in sedimentary rocks). Its estimate is based on <span class="citation" data-cites="falkowski00sci">Falkowski et al. (<a href="references.html#ref-falkowski00sci" role="doc-biblioref">2000</a>)</span>. The input flux into the lithosphere is calculated as the sum of burial on land, rock weathering, and ocean floor sedimentation
+</figcaption>
+<div aria-describedby="tbl-turnover_times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
-<caption>Table&nbsp;3.1: Global carbon budget (in PgC and PgC yr<sup>-1</sup>) from the 2023 update by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span></caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pool</th>
+<th>Pool size (PgC)</th>
+<th>Input flux (PgC yr<sup>-1</sup>)</th>
+<th>Turnover time (yr)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Atmosphere</td>
+<td>591</td>
+<td>167.3</td>
+<td>3.5</td>
+</tr>
+<tr class="even">
+<td>Surface ocean</td>
+<td>900</td>
+<td>329</td>
+<td>2.7</td>
+</tr>
+<tr class="odd">
+<td>Deep ocean</td>
+<td>37,000</td>
+<td>(see exercise 3.1)</td>
+<td>(see exercise 3.1)</td>
+</tr>
+<tr class="even">
+<td>Biosphere</td>
+<td>2150</td>
+<td>113</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>Lithosphere</td>
+<td>75,000,000</td>
+<td>0.7</td>
+<td>10<sup>8</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>It should be noted that the turnover time <span class="math inline">\(\tau\)</span> describes the average time that an atom of C resides in the respective pool. This is a simplification. In the C pool ‘terrestrial biosphere’, not every C atom has the same probability of being oxidized and respired as CO<sub>2</sub>. Hence, in reality, <span class="math inline">\(\tau\)</span> is a wide distribution, ranging from seconds to years for non-structural carbon derived from photosynthesis, decades to centuries for C in woody biomass, and to millennia for a small fraction of soil organic matter, especially if the C is protected from oxidation, for example in water-logged soils. The turnover time should therefore be understood as a diagnostic, useful for describing the average systems dynamics in a simplified way, and subsuming multiple processes that operate at different time scales, contributing to different portions of C conversion to CO<sub>2</sub>.</p>
+<p>The range of turnover times (e.g., within the terrestrial biosphere) arise because C is transferred between multiple pools within the biosphere and the ocean. Going to the next more detailed level of abstraction (model representation), multiple C pools in terrestrial ecosystems can be distinguished (e.g., non-structural C, leaves, roots, wood, litter, soil organic matter, microbes). Some C “cascades” through multiple pools, some is quickly respired back into the atmosphere. The interpretation that <span class="math inline">\(k\)</span> equals the inverse of the turnover time <span class="math inline">\(\tau\)</span>, and that the turnover time equals the mean age of all C atoms in that pool, and that the mean <em>transit time</em> (the time it takes between an atom of C entering a pool until it exits that pool again) equals <span class="math inline">\(\tau\)</span> is only valid for certain cases, and not for “C cascades” with fluxes between multiple pools. Requirements are that we’re dealing with a single pool, that this pool is at steady-state, that it has been so for an infinitely long time, that <span class="math inline">\(I\)</span> and <span class="math inline">\(k\)</span> are constant over time, and the flux leaving the pool is a linear function of the pool size (<span class="math inline">\(O=kC\)</span>) <span class="citation" data-cites="sierra17gcb">(<a href="references.html#ref-sierra17gcb" role="doc-biblioref">Sierra et al. 2017</a>)</span>. The transit time is the same as <em>residence time</em> - a term used more commonly in hydrology.</p>
+</section>
+<section id="the-anthropogenic-perturbation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-anthropogenic-perturbation"><span class="header-section-number">3.3</span> The anthropogenic perturbation</h2>
+<p>Although fossil fuels are formed by natural processes of the C cycle, their combustion can be regarded as an external input of C into the (modern) global C cycle. This is because the time scale at which the reservoir of fossil fuels is depleted (10<sup>2</sup> yr) stands in stark contrast to the time scale at which it was formed (10<sup>8</sup> yr, see turnover time of C in the lithosphere in <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). The C is added in the form of CO<sub>2</sub> to the atmosphere from where it is taken up by the ocean through diffusion and equilibration of the ocean surface water’s CO<sub>2</sub> partial pressure with the atmosphere’s CO<sub>2</sub> partial pressure, and by the terrestrial biosphere through photosynthesis. It is important to note that CO<sub>2</sub> in the atmosphere does not decay through physical or chemical processes, nor are there C sinks on land or in the ocean that remove C away from the “fast” C cycle - except the burial into sediments (see <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). However the magnitude of the burial fluxes are dwarfed by the magnitude of C inputs through the combustion of fossil fuels and deforestation. Hence, the fossil fuel combustion leads to an accumulation of the total amount of C cycling in the “fast” C cycle and the added C gets <em>redistributed</em> between the spheres. The net fluxes from the atmosphere into land ecosystems and the ocean arise because the total terrestrial and oceanic C pools are increasing as CO<sub>2</sub> is emitted into the atmosphere and the atmospheric CO<sub>2</sub> concentration is rising. In subsequent chapters (<a href="carboncycle_2.html" class="quarto-xref"><span>Chapter 4</span></a> and <a href="carboncycle_3.html" class="quarto-xref"><span>Chapter 5</span></a>), we will learn about the processes driving the CO<sub>2</sub> uptake by land and ocean and the dynamics of the C redistribution in the Earth system. In this chapter, we will look at the <em>global C budget</em> - how much C has been emitted by the combustion of fossil fuels and deforestation and how much of this C has accumulated in the atmosphere and how much has been taken up by the ocean and the terrestrial biosphere?</p>
+<p>The global C budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels <span class="math inline">\(E_\mathrm{FF}\)</span> and land use change <span class="math inline">\(E_\mathrm{LUC}\)</span> on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. <span class="math inline">\(G_\mathrm{atm}\)</span> is the atmospheric growth rate, <span class="math inline">\(S_\mathrm{ocean}\)</span> is the net ocean C uptake (also referred to as the <em>ocean sink</em>) and <span class="math inline">\(S_\mathrm{land}\)</span> is the net land C uptake (or <em>land sink</em>). A net flux from the atmosphere into the ocean or into land C storage is positive.</p>
+<p><span id="eq-carbon_budget"><span class="math display">\[
+E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
+\tag{3.6}\]</span></span></p>
+<p>This terminology is adopted from the <a href="https://globalcarbonbudget.org/">Global Carbon Budget</a> <span class="citation" data-cites="friedlingstein23essd">(<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">Friedlingstein et al. 2023</a>)</span> and is expressed as global annual total fluxes. The separation of <span class="math inline">\(E_\mathrm{LUC}\)</span> and <span class="math inline">\(S_\mathrm{land}\)</span> is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in <a href="landusechange.html" class="quarto-xref"><span>Chapter 11</span></a>.</p>
+<p>The values of the global carbon budget components are given in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> for an average across years 2010-2019, where <span class="math inline">\(S_\mathrm{ocean}\)</span> corresponds to the ‘net ocean flux’ and <span class="math inline">\(S_\mathrm{land}\)</span> corresponds to the the ‘net land flux’. <span class="math inline">\(E_\mathrm{LUC}\)</span> corresponds to ‘net land-use change’. The ‘net’ indicates that <span class="math inline">\(E_\mathrm{LUC}\)</span> is the net effect between CO<sub>2</sub> emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. The most recent update of the global carbon budget from <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> is given in <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a> as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.</p>
+<!-- xxx update -->
+<div id="tbl-gcb2023" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gcb2023-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: Global carbon budget (in PgC and PgC yr<sup>-1</sup>) from the 2023 update by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-gcb2023-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
 <thead>
 <tr class="header">
 <th>Component</th>
@@ -333,75 +564,212 @@ E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{l
 </tbody>
 </table>
 </div>
-<p>Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. <span class="math inline">\(E_\mathrm{FF}\)</span> estimates based on energy statistics and cement production data. Values reported by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> include the cement carbonation sink. Without that sink, the value for 2022 would be about 0.2 PgC yr<sup>-1</sup> higher. <span class="math inline">\(E_\mathrm{LUC}\)</span> estimates are based on land-use and land-use change data from national statistics and forest carbon “bookkeeping models”. These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO<sub>2</sub> concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO<sub>2</sub> uptake models and observation-based products. The land sink is estimated from dynamic global vegetation models in <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>.</p>
+</figure>
+</div>
+<p>Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. <span class="math inline">\(E_\mathrm{FF}\)</span> estimates are based on energy statistics and cement production data. Values reported by <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> include the cement carbonation sink. Without that sink, the value of <span class="math inline">\(E_\mathrm{FF}\)</span> for 2022 would be about 0.2 PgC yr<sup>-1</sup> higher. <span class="math inline">\(E_\mathrm{LUC}\)</span> estimates are based on land-use and land-use change data from national statistics and forest carbon “bookkeeping models”. These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO<sub>2</sub> concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO<sub>2</sub> uptake models and observation-based products. In <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>, the land sink is estimated from dynamic global vegetation models.</p>
+<p>Advances in observations and modelling in recent years now enable the land and ocean sink to be estimated in a “bottom-up fashion” - using models of land and ocean C uptake. Since every component of the global carbon budget is thereby estimated independently, a <em>budget imbalance</em> term <span class="math inline">\(B_\mathrm{IM}\)</span> can be defined. A value of zero indicates that models of the land and ocean C uptake exactly match the (better known) emission terms minus the atmospheric growth rate. <span id="eq-budget_imbalance"><span class="math display">\[
+B_\mathrm{IM} = E_\mathrm{FF} + E_\mathrm{LUC} - (G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land})
+\tag{3.7}\]</span></span></p>
+<p>Today, the global carbon budget is well specified thanks to reliable estimates of its individual components. The budget imbalance is only a small fraction of the total emissions. Until recently, “bottom-up” estimates of <span class="math inline">\(S_\mathrm{land}\)</span> by land C cycle models were deemed insufficient for providing reliable estimates. Instead, <span class="math inline">\(S_\mathrm{land}\)</span> was estimated as the budget residual by neglecting <span class="math inline">\(B_\mathrm{IM}\)</span> and rearranging terms in <a href="#eq-budget_imbalance" class="quarto-xref">Equation&nbsp;<span>3.7</span></a> to solve for <span class="math inline">\(S_\mathrm{land}\)</span>. In fact, when the IPCC First Assessment Report was published in 1990, the existence of C sink on land was not known and it was treated as a budget imbalance and referred to as the ‘missing sink’. It is stated that “there are possible processes on land which could account for the missing CO<sub>2</sub> (but it has not been possible to verify them)”.</p>
+<p>It was only later that the existence of a terrestrial C sink could be more firmly established and quantified thanks to parallel measurements of the atmospheric O<sub>2</sub> and CO<sub>2</sub> concentrations <span class="citation" data-cites="keeling96nat">(<a href="references.html#ref-keeling96nat" role="doc-biblioref">Keeling, Piper, and Heimann 1996</a>)</span>. (In fact, the ratio O<sub>2</sub>/N<sub>2</sub> is measured to avoid the much larger measurement uncertainty in absolute O<sub>2</sub> measurements). The ratios of O<sub>2</sub>:CO<sub>2</sub> are known from the stoichiometric molecular formulae for photosynthesis (O<sub>2</sub>:CO<sub>2</sub> = 1.1), fossil fuel combustion (O<sub>2</sub>:CO<sub>2</sub> = 1.4) and ocean uptake (O<sub>2</sub>:CO<sub>2</sub> = 0). An ocean O<sub>2</sub> source from marine organisms has to be factored in. Given the total C emissions from fossil fuel combustion, the net land C balance can thus be calculated and the calculation visualized geometrically (<a href="#fig-o2_n2_co2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>). Note that net emissions from land use change are not considered and the “land sink” in <a href="#fig-o2_n2_co2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> is the net of <span class="math inline">\(E_\mathrm{LUC}\)</span> and <span class="math inline">\(S_\mathrm{land}\)</span> in <a href="#eq-carbon_budget" class="quarto-xref">Equation&nbsp;<span>3.6</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-o2_n2_co2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-o2_n2_co2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/o2_n2_co2.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-o2_n2_co2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Global land and ocean carbon sinks deduced from changes in atmospheric CO<sub>2</sub> and O<sub>2</sub> concentrations. The figure is an updated version of Fig. 2 from <span class="citation" data-cites="keeling96nat">Keeling, Piper, and Heimann (<a href="references.html#ref-keeling96nat" role="doc-biblioref">1996</a>)</span>, taken from <span class="citation" data-cites="li22aas">Li et al. (<a href="references.html#ref-li22aas" role="doc-biblioref">2022</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can adopt the perspective of C cycle science stated in earlier publications. <span class="citation" data-cites="falkowski00sci">Falkowski et al. (<a href="references.html#ref-falkowski00sci" role="doc-biblioref">2000</a>)</span> wrote: “<em>Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO<sub>2</sub> and O<sub>2</sub> […].</em>” In that sense, let’s consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a>). Visually contrasting emissions and their redistribution reveals an interesting pattern (<a href="#fig-carbon_budget" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="5" type="1">
+<li>Use <a href="#eq-budget_imbalance" class="quarto-xref">Equation&nbsp;<span>3.7</span></a> to express the land sink as the budget residual (assuming <span class="math inline">\(B_\mathrm{IM} = 0\)</span>).</li>
+</ol>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Data from Friedlingstein et al. 2023. Downloaded excel file 'Global </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carbon Budget v2023' from</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># https://globalcarbonbudgetdata.org/latest-data.html</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Saved tab Global Carbon Budget as a CSV file. </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading this CSV here.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/Global_Carbon_Budget_2023v1.0_tabGlobalCarbonBudget.csv"</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (Re-) definitions</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include the carbonation sink in the fossil fuel emissions</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">e_ff =</span> e_ff <span class="sc">-</span> s_cement,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Land sink defined as the budget residual</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">s_res =</span> e_ff <span class="sc">+</span> e_luc <span class="sc">-</span> g_atm <span class="sc">-</span> s_ocean</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the budget plot</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_ff <span class="sc">+</span> e_luc, </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> e_luc, </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ff"</span>), </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_luc, </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="dv">0</span>, </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"luc"</span>), </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="dv">0</span>, </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>s_ocean, </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ocean"</span>), </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>s_ocean, </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"land"</span>), </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm), </span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"atm"</span>), </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">0</span>), </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> e_ff <span class="sc">+</span> e_luc)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm)</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> imbalance, </span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"imbalance"</span>), </span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.2</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"CO"</span>[<span class="dv">2</span>], <span class="st">" flux (PgC yr"</span><span class="sc">^-</span><span class="dv">1</span>, <span class="st">")"</span>)),</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Annual carbon emissions (positive) </span><span class="sc">\n</span><span class="st">and their redistribution (negative)"</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"ff"</span>, <span class="st">"luc"</span>, <span class="st">"ocean"</span>, <span class="st">"land"</span>, <span class="st">"atm"</span>),</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"ff"</span> <span class="ot">=</span> <span class="st">"lightslategrey"</span>,</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>               <span class="st">"luc"</span> <span class="ot">=</span> <span class="st">"chocolate1"</span>,</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>               <span class="st">"ocean"</span> <span class="ot">=</span> <span class="st">"lightseagreen"</span>,</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>               <span class="st">"land"</span> <span class="ot">=</span> <span class="st">"yellowgreen"</span>,</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>               <span class="st">"atm"</span> <span class="ot">=</span> <span class="st">"deepskyblue1"</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Fossil fuel </span><span class="sc">\n</span><span class="st">emissions"</span>, </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Net land-use </span><span class="sc">\n</span><span class="st">change emissions"</span>, </span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Ocean </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Land </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Atmospheric </span><span class="sc">\n</span><span class="st">growth"</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="st">"imbalance"</span>, </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"imbalance"</span> <span class="ot">=</span> <span class="st">"grey40"</span>),</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="st">"Budget imbalance"</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position=</span><span class="st">"bottom"</span>, </span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box =</span> <span class="st">"vertical"</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-carbon_budget" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-carbon_budget-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="carboncycle_1_files/figure-html/fig-carbon_budget-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-carbon_budget-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>, the land sink is defined here as the carbon budget residual. The budget imbalance term - the difference between <em>S</em><sub>land</sub> calculated as the budget residual vs.&nbsp;bottom-up using land C cycle models - is shown by the separate fine grey line.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <ul>
-<li>separation of ocean vs land uptake, anthropogenic fingerprint
-<ul>
-<li>CO2-O2: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002124</li>
-<li>13C</li>
-<li>“single-deconvolution” (forward modelling ocean uptake)</li>
-<li>GCB approach (forward modelling ocean and land uptake, imbalance term)</li>
-</ul></li>
-<li>C redistribution, airborne fraction, time-scale dependence</li>
-<li>land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.</li>
 <li>land C balance variability</li>
-<li>Land: GPP-NPP, vegC, soilC, Ra, Rh</li>
-<li>Ocean: concentration difference</li>
-<li>Global (latitudinal) distribution of vegetation and soil carbon stocks</li>
-<li>Peatlands and permafrost, C in sediments</li>
-<li>Model for GPP-driven C stocks, considering temperature-dependence of heterotrophic respiration (Q10); respiration inhibition under anaerobic conditions (peatlands)</li>
-<li>The C cascade: Tree growth, allocation, mortality, forest dynamics
-<ul>
-<li>multi-box model</li>
-</ul></li>
+<li>land C sink processes: Schimel, Pugh</li>
+<li>land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.</li>
 </ul>
-<section id="key-concepts" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">3.0.1</span> Key concepts</h3>
-<ul>
-<li>C gets redistributed between reservoirs</li>
-<li>Dynamic equilibrium</li>
-<li>Lifetime</li>
-<li>1st order decay model</li>
-</ul>
-<!-- ### Basic expressions -->
-<!-- An expression is a set of commands that returns a value. -->
-<!-- Click `Run Code` to run the following R code. -->
-<!-- Execute this simple calculation. -->
-<!-- ```{r} -->
-<!-- 50 * 2.2 -->
-<!-- ``` -->
-
-<!-- Show the first rows of a table. -->
-<!-- ```{r} -->
-<!-- head(mtcars) -->
-<!-- ``` -->
-<!-- ::: {.callout-note} -->
-<!-- ## Exercise -->
-
-<!-- Show the last rows of the `mtcars` table. -->
-<!-- ```{r} -->
-<!-- # Add you code here -->
-<!-- ``` -->
-<!-- Your result should look like the plot below -->
-<!-- ::: -->
-<!-- ::: {.callout-tip collapse="true"} -->
-<!-- ## Expected Result -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- tail(mtcars) -->
-<!-- ``` -->
-<!-- ::: -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-ballantyne12nat" class="csl-entry" role="listitem">
 Ballantyne, A. P., C. B. Alden, J. B. Miller, P. P. Tans, and J. W. C. White. 2012. <span>“Increase in Observed Net Carbon Dioxide Uptake by Land and Oceans During the Past 50 Years.”</span> <em>Nature</em> 488 (7409): 70–72. <a href="https://doi.org/10.1038/nature11299">https://doi.org/10.1038/nature11299</a>.
 </div>
 <div id="ref-canadell21ipcc" class="csl-entry" role="listitem">
 Canadell, J. G., P. M. S. Monteiro, M. H. Costa, L. Cotrim da Cunha, P. M. Cox, A. V. Eliseev, S. Henson, et al. 2021. <span>“Global Carbon and Other Biogeochemical Cycles and Feedbacks.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al., 673–816. Cambridge, United Kingdom; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.007">https://doi.org/10.1017/9781009157896.007</a>.
 </div>
+<div id="ref-falkowski00sci" class="csl-entry" role="listitem">
+Falkowski, P., R. J. Scholes, E. Boyle, J. Canadell, D. Canfield, J. Elser, N. Gruber, et al. 2000. <span>“The <span>Global</span> <span>Carbon</span> <span>Cycle</span>: <span>A</span> <span>Test</span> of <span>Our</span> <span>Knowledge</span> of <span>Earth</span> as a <span>System</span>.”</span> <em>Science</em> 290 (5490): 291–96. <a href="https://doi.org/10.1126/science.290.5490.291">https://doi.org/10.1126/science.290.5490.291</a>.
+</div>
 <div id="ref-friedlingstein23essd" class="csl-entry" role="listitem">
 Friedlingstein, P., M. O’Sullivan, M. W. Jones, R. M. Andrew, D. C. E. Bakker, J. Hauck, P. Landschützer, et al. 2023. <span>“Global Carbon Budget 2023.”</span> <em>Earth System Science Data</em> 15 (12): 5301–69. <a href="https://doi.org/10.5194/essd-15-5301-2023">https://doi.org/10.5194/essd-15-5301-2023</a>.
+</div>
+<div id="ref-keeling96nat" class="csl-entry" role="listitem">
+Keeling, Ralph F., Stephen C. Piper, and Martin Heimann. 1996. <span>“Global and Hemispheric <span>CO2</span> Sinks Deduced from Changes in Atmospheric <span>O2</span> Concentration.”</span> <em>Nature</em> 381 (6579): 218–21. <a href="https://doi.org/10.1038/381218a0">https://doi.org/10.1038/381218a0</a>.
+</div>
+<div id="ref-li22aas" class="csl-entry" role="listitem">
+Li, Changyu, Jianping Huang, Lei Ding, Yu Ren, Linli An, Xiaoyue Liu, and Jiping Huang. 2022. <span>“The <span>Variability</span> of <span>Air</span>-Sea <span>O2</span> <span>Flux</span> in <span>CMIP6</span>: <span>Implications</span> for <span>Estimating</span> <span>Terrestrial</span> and <span>Oceanic</span> <span>Carbon</span> <span>Sinks</span>.”</span> <em>Advances in Atmospheric Sciences</em> 39 (8): 1271–84. <a href="https://doi.org/10.1007/s00376-021-1273-x">https://doi.org/10.1007/s00376-021-1273-x</a>.
+</div>
+<div id="ref-shanahan15natgeo" class="csl-entry" role="listitem">
+Shanahan, Timothy M., Nicholas P. McKay, Konrad A. Hughen, Jonathan T. Overpeck, Bette Otto-Bliesner, Clifford W. Heil, John King, Christopher A. Scholz, and John Peck. 2015. <span>“The Time-Transgressive Termination of the <span>African</span> <span>Humid</span> <span>Period</span>.”</span> <em>Nature Geoscience</em> 8 (2): 140–44. <a href="https://doi.org/10.1038/ngeo2329">https://doi.org/10.1038/ngeo2329</a>.
+</div>
+<div id="ref-sierra17gcb" class="csl-entry" role="listitem">
+Sierra, Carlos A., Markus Müller, Holger Metzler, Stefano Manzoni, and Susan E. Trumbore. 2017. <span>“The Muddle of Ages, Turnover, Transit, and Residence Times in the Carbon Cycle.”</span> <em>Global Change Biology</em> 23 (5): 1763–73. <a href="https://doi.org/10.1111/gcb.13556">https://doi.org/10.1111/gcb.13556</a>.
 </div>
 </div>
 </section>
@@ -448,6 +816,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -516,13 +911,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -601,10 +998,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -614,8 +1010,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -628,6 +1033,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -671,6 +1195,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -696,6 +1221,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -757,17 +1308,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./biogeography.html" class="pagination-link">
+      <a href="./biogeography.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Biogeography</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ggplot.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">ggplot demo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./carboncycle_2.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Carbon cycle 2: Ecosystem fluxes</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Carbon cycle 2: Ecosystem fluxes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
