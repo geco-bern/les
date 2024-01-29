@@ -16,7 +16,15 @@ book:
     - intro.qmd
     - biogeography.qmd
     - carboncycle_1.qmd
-    - ggplot.qmd
+    - carboncycle_2.qmd
+    - carboncycle_3.qmd
+    - nutrients.qmd
+    - landclimate.qmd
+    - ecohydrology.qmd
+    - globenvchange.qmd
+    - feedbacks.qmd
+    - landusechange.qmd
+    - reading.qmd
     - references.qmd
   favicon: "figures/favicon.ico"
   twitter-card: true

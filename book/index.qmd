@@ -2,15 +2,13 @@
 title-block-banner: true
 ---
 
-# About this course {.unnumbered}
+# About this book {.unnumbered}
 
-## Course description 
+This online navigatable book serves as the material for the course with the same name - Land in the Earth System. It is written by Prof. [Benjamin Stocker](https://geco-group.org/author/benjamin-stocker/), Institute of Geography, University of Bern.
 
-This course introduces processes of the terrestrial biosphere and how they drive Earth system dynamics. The course starts with identifying general patterns in vegetation, carbon, and water fluxes and stocks, and connects them with underlying principles, governing controls, and quantitative frameworks for their description and prediction. A special focus will be put on introducing the role of terrestrial biosphere in driving and being driven by climate change and global environmental change.
+This book introduces processes of the terrestrial biosphere and how they drive Earth system dynamics. The course starts with identifying general patterns in vegetation, carbon, and water fluxes and stocks, and connects them with underlying principles, governing controls, and quantitative frameworks for their description and prediction. A special focus will be put on introducing the role of terrestrial biosphere in driving and being driven by climate change and global environmental change.
 
-The course covers a diverse thematic ground - as diverse as the processes of the biosphere. Topics range from biogeography, the global carbon cycle, land-climate interactions, ecohydrology, to Earth system dynamics.
-
-The course is organised into a mix of lectures, self-study, and self-guided exercises.
+The book covers a diverse thematic ground - as diverse as the processes of the biosphere. Topics range from biogeography, the global carbon cycle, land-climate interactions, ecohydrology, to Earth system dynamics.
 
 ## Learning objectives
 
@@ -22,9 +20,5 @@ The course is organised into a mix of lectures, self-study, and self-guided exer
 ## Target audience and prerequisites
 
 BSc Geography major and minors at the University of Bern. 
-
--------
-
-This website contains the lecture notes for the course, authored by Prof. [Benjamin Stocker](https://geco-group.org/author/benjamin-stocker/), Institute of Geography, University of Bern. Individual tutorials are co-authored by different contributors.
 
 ![](./images/logo_unibern_squid3.png){width="30%"} ![](./images/geco_logo_fullname.png){width="30%"}

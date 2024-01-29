@@ -13,12 +13,13 @@ knitr::include_graphics("images/humboldt_biogeography_small.png")
 
 ## Biomes
 
-Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see XXX) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_sites_map. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
+Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see @sec-pfts) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_sites_map. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE}
 #| label: fig-biomes_sites_map
 #| fig-cap: "Fourteen biomes and the locations of sites representative for each biome (used below)."
 #| out-width: 100%
+# plot produced by analysis/plot_map_biomes.R
 knitr::include_graphics("images/map_biomes.png")
 ```
 
@@ -27,7 +28,7 @@ Each biome is characterised by the types of dominant plants (plant functional ty
 ::: {.callout-note}
 Click on the biome names below to open a tab that lists some key characteristics and provides a Walter-Lieth climate diagram for a representative site, located in that biome. The sites are locations where ecoystem water and carbon fluxes, along with meteorological variables, are measured. We will revisit data from these same sites in later chapters, then with a focus on water and carbon fluxes and the phenology. The locations of the sites are indicated on the map in @fig-biomes_sites_map.
 
-Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see also Chapter XXX). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldes months are given to the left of the temperature axis.
+Walter-Lieth climate diagrams show monthly climatologies of average temperature and precipitation on the same axis and scaled such that months where the blue curve (precipitation, mm month^-1^) is above the red curve (temperature, $^\circ$C) indicates humid periods and the opposite relative curve positions indicates dry periods. Dry periods are roughly indicating when potential evapotranspiration is higher than precipitation (see @sec-landclimate). Blue bars along the x-axis indicate months with likely frost. Annotations on the top of the graph indicate the observation period (left), the mean annual temperature (center), and the mean annual precipitation (right). The average temperatures of the warmest and coldest months are given to the left of the temperature axis.
 :::
 
 ::: {.panel-tabset}
@@ -187,9 +188,9 @@ plotbiomes::whittaker_base_plot() +
   theme_classic()
 ```
 
-### Plant functional types
+### Plant functional types {#sec-pfts}
 
-Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see Chapter XXX). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:
+Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-carboncycle_2). Thereby, the bewildering diversity of the animal kingdom can be reduced to a small set of PFT. A common categorisation distinguishes the following PFTs:
 
 1. needle-leaved evergreen trees
 2. broadleaved evergreen trees
@@ -199,7 +200,7 @@ Each biome is characterised by a typical assembly of *plant functional types* (P
 6. C~3~ grasses
 7. C~4~ grasses
 
-Global vegetation models use PFTs as their basic unit of distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant ("N-fixing plants", see also Chapter XXX). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.
+Global vegetation models use PFTs as their basic unit of distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant ("N-fixing plants", see also #sec-nutrients). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.
 
 Plants can also be distinguished into the botanical classification of *angiosperms* (flowering plants) and *gymnnosperms* (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates, and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.
 
@@ -334,7 +335,7 @@ ggplot() +
   tidyterra::geom_spatraster(data = raster_vegtype) +
   geom_sf(data = coast,
           colour = 'black',
-          size = 0.05) +
+          linewidth = 0.1) +
   scale_fill_manual(
     values = c(
       "1" = "azure", # worldgrids_pal$IGBP["Water " ] , #"water" ;
@@ -382,7 +383,7 @@ ggplot() +
   labs(title = "Vegetation types") + 
   theme(legend.position = "bottom",
         legend.text = element_text(size = 6),
-        legend.title=element_blank())
+        legend.title = element_blank())
 ```
 
 ## Climate zones

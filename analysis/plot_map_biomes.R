@@ -45,7 +45,7 @@ gg <- ggplot() +
   tidyterra::geom_spatraster(data = biomes_raster) +
   geom_sf(data = coast,
           colour = 'black',
-          size = 0.05) +
+          linewidth = 0.1) +
   geom_sf(data = sites, fill = "red", shape = 21) +
   ggrepel::geom_label_repel(data = sites, 
                            aes(label = sitename, geometry = geometry),
