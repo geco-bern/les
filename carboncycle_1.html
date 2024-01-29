@@ -272,7 +272,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./landclimate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions and water-limitation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions and water-carbon coupling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -396,7 +396,7 @@ Figure&nbsp;3.1: Global carbon (CO<sub>2</sub>) budget (2010–2019). Yellow arr
 </div>
 </div>
 </div>
-<p>Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools described above remained relatively stable. To simplify, we can conceive them as constant - at <em>steady state</em> - under the pre-industrial Holocene climate. This is a simplification. For example, millennial-scale trends in solar radiation inputs over the seasons and latitudes (driven by slight changes in the Earth’s orbit around the sun), caused climate and vegetation changes that were substantial and in certain cases abrupt (e.g., the demise of the Green Sahara between around 6-3 ka BP <span class="citation" data-cites="shanahan15natgeo">Shanahan et al. (<a href="references.html#ref-shanahan15natgeo" role="doc-biblioref">2015</a>)</span>).</p>
+<p>Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP - 1750 CE), the size of the C pools described above remained relatively stable. To simplify, we can conceive them as constant (at <em>steady state</em>) under the pre-industrial Holocene climate. This is a simplification. For example, millennial-scale trends in solar radiation inputs over the seasons and latitudes (driven by slight changes in the Earth’s orbit around the sun), caused climate and vegetation changes that were substantial and in certain cases abrupt (e.g., the demise of the Green Sahara between around 6-3 ka BP <span class="citation" data-cites="shanahan15natgeo">(<a href="references.html#ref-shanahan15natgeo" role="doc-biblioref">Shanahan et al. 2015</a>)</span>).</p>
 <p>Even under such a pre-industrial steady state, C fluxes between the major reservoirs or <em>pools</em> (atmosphere, ocean, land) persisted. This is indicated in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> by the wide orange arrows pointing up and down between the land and the atmosphere and between the ocean and the atmosphere, as well as between different pools within the ocean. In a steady state, the C flux from the atmosphere into the land roughly equals the flux from the land to the atmosphere, and the net exchange flux is zero. Hence, the pool sizes remain constant in spite of the ongoing exchange fluxes between them. We speak of a <em>dynamic equilibrium</em>.</p>
 </section>
 <section id="carbon-pool-dynamics" class="level2" data-number="3.2">
@@ -509,17 +509,17 @@ Table&nbsp;3.1: Pre-industrial pool sizes, input fluxes, and turnover times of m
 </figure>
 </div>
 <p>It should be noted that the turnover time <span class="math inline">\(\tau\)</span> describes the average time that an atom of C resides in the respective pool. This is a simplification. In the C pool ‘terrestrial biosphere’, not every C atom has the same probability of being oxidized and respired as CO<sub>2</sub>. Hence, in reality, <span class="math inline">\(\tau\)</span> is a wide distribution, ranging from seconds to years for non-structural carbon derived from photosynthesis, decades to centuries for C in woody biomass, and to millennia for a small fraction of soil organic matter, especially if the C is protected from oxidation, for example in water-logged soils. The turnover time should therefore be understood as a diagnostic, useful for describing the average systems dynamics in a simplified way, and subsuming multiple processes that operate at different time scales, contributing to different portions of C conversion to CO<sub>2</sub>.</p>
-<p>The range of turnover times (e.g., within the terrestrial biosphere) arise because C is transferred between multiple pools within the biosphere and the ocean. Going to the next more detailed level of abstraction (model representation), multiple C pools in terrestrial ecosystems can be distinguished (e.g., non-structural C, leaves, roots, wood, litter, soil organic matter, microbes). Some C “cascades” through multiple pools, some is quickly respired back into the atmosphere. The interpretation that <span class="math inline">\(k\)</span> equals the inverse of the turnover time <span class="math inline">\(\tau\)</span>, and that the turnover time equals the mean age of all C atoms in that pool, and that the mean <em>transit time</em> (the time it takes between an atom of C entering a pool until it exits that pool again) equals <span class="math inline">\(\tau\)</span> is only valid for certain cases, and not for “C cascades” with fluxes between multiple pools. Requirements are that we’re dealing with a single pool, that this pool is at steady-state, that it has been so for an infinitely long time, that <span class="math inline">\(I\)</span> and <span class="math inline">\(k\)</span> are constant over time, and the flux leaving the pool is a linear function of the pool size (<span class="math inline">\(O=kC\)</span>) <span class="citation" data-cites="sierra17gcb">(<a href="references.html#ref-sierra17gcb" role="doc-biblioref">Sierra et al. 2017</a>)</span>. The transit time is the same as <em>residence time</em> - a term used more commonly in hydrology.</p>
+<p>The range of turnover times (e.g., within the terrestrial biosphere) arise because C is transferred between multiple pools within the biosphere and the ocean. Going to the next more detailed level of abstraction (model representation), multiple C pools in terrestrial ecosystems can be distinguished (e.g., non-structural C, leaves, roots, wood, litter, soil organic matter, microbes). Some C “cascades” through multiple pools, some is quickly respired back into the atmosphere. The interpretation that <span class="math inline">\(k\)</span> equals the inverse of the turnover time <span class="math inline">\(\tau\)</span>, and that the turnover time equals the mean age of all C atoms in that pool, and that the mean <em>transit time</em> (the time it takes between an atom of C entering a pool until it exits that pool again) equals <span class="math inline">\(\tau\)</span> is only valid for certain cases, and not for “C cascades” with fluxes between multiple pools. Requirements are that we’re dealing with a single well-mixed pool, that this pool is at steady-state, that it has been so for an infinitely long time, that <span class="math inline">\(I\)</span> and <span class="math inline">\(k\)</span> are constant over time, and the flux leaving the pool is a linear function of the pool size (<span class="math inline">\(O=kC\)</span>) <span class="citation" data-cites="sierra17gcb">(<a href="references.html#ref-sierra17gcb" role="doc-biblioref">Sierra et al. 2017</a>)</span>. The transit time is the same as <em>residence time</em> - a term used more commonly in hydrology.</p>
 </section>
 <section id="the-anthropogenic-perturbation" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="the-anthropogenic-perturbation"><span class="header-section-number">3.3</span> The anthropogenic perturbation</h2>
-<p>Although fossil fuels are formed by natural processes of the C cycle, their combustion can be regarded as an external input of C into the (modern) global C cycle. This is because the time scale at which the reservoir of fossil fuels is depleted (10<sup>2</sup> yr) stands in stark contrast to the time scale at which it was formed (10<sup>8</sup> yr, see turnover time of C in the lithosphere in <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). The C is added in the form of CO<sub>2</sub> to the atmosphere from where it is taken up by the ocean through diffusion and equilibration of the ocean surface water’s CO<sub>2</sub> partial pressure with the atmosphere’s CO<sub>2</sub> partial pressure, and by the terrestrial biosphere through photosynthesis. It is important to note that CO<sub>2</sub> in the atmosphere does not decay through physical or chemical processes, nor are there C sinks on land or in the ocean that remove C away from the “fast” C cycle - except the burial into sediments (see <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). However the magnitude of the burial fluxes are dwarfed by the magnitude of C inputs through the combustion of fossil fuels and deforestation. Hence, the fossil fuel combustion leads to an accumulation of the total amount of C cycling in the “fast” C cycle and the added C gets <em>redistributed</em> between the spheres. The net fluxes from the atmosphere into land ecosystems and the ocean arise because the total terrestrial and oceanic C pools are increasing as CO<sub>2</sub> is emitted into the atmosphere and the atmospheric CO<sub>2</sub> concentration is rising. In subsequent chapters (<a href="carboncycle_2.html" class="quarto-xref"><span>Chapter 4</span></a> and <a href="carboncycle_3.html" class="quarto-xref"><span>Chapter 5</span></a>), we will learn about the processes driving the CO<sub>2</sub> uptake by land and ocean and the dynamics of the C redistribution in the Earth system. In this chapter, we will look at the <em>global C budget</em> - how much C has been emitted by the combustion of fossil fuels and deforestation and how much of this C has accumulated in the atmosphere and how much has been taken up by the ocean and the terrestrial biosphere?</p>
+<p>Although fossil fuels are formed by natural processes of the C cycle, their combustion can be regarded as an external input of C into the (modern) global C cycle. This is because the time scale at which the reservoir of fossil fuels is depleted (10<sup>2</sup> yr) stands in stark contrast to the time scale at which it was formed (10<sup>8</sup> yr, see turnover time of C in the lithosphere in <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). The C is added in the form of CO<sub>2</sub> to the atmosphere from where it is taken up by the ocean through diffusion and equilibration of the ocean surface water’s CO<sub>2</sub> partial pressure with the atmosphere’s CO<sub>2</sub> partial pressure, and by the terrestrial biosphere through photosynthesis. It is important to note that CO<sub>2</sub> in the atmosphere does not decay through physical or chemical processes, nor are there C sinks on land or in the ocean that remove C away from the “fast” C cycle - except the burial into sediments (see <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and <a href="#tbl-turnover_times" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). However the magnitude of the burial fluxes are dwarfed by the magnitude of C inputs through the combustion of fossil fuels and deforestation. Hence, the present-day C emissions drive an accumulation of the total amount of C cycling in the “fast” C cycle and the added C gets <em>redistributed</em> between the spheres. The net fluxes from the atmosphere into land ecosystems and the ocean arise because the total terrestrial and oceanic C pools are increasing as CO<sub>2</sub> is emitted into the atmosphere and the atmospheric CO<sub>2</sub> concentration is rising. In subsequent chapters (<a href="carboncycle_2.html" class="quarto-xref"><span>Chapter 4</span></a> and <a href="carboncycle_3.html" class="quarto-xref"><span>Chapter 5</span></a>), we will learn about the processes driving the CO<sub>2</sub> uptake by land and ocean and the dynamics of the C redistribution in the Earth system. In this chapter, we will look at the <em>global C budget</em> - how much C has been emitted by the combustion of fossil fuels and deforestation and how much of this C has accumulated in the atmosphere and how much has been taken up by the ocean and the terrestrial biosphere?</p>
 <p>The global C budget can be defined for globally aggregated fluxes as the balance between emissions from fossil fuels <span class="math inline">\(E_\mathrm{FF}\)</span> and land use change <span class="math inline">\(E_\mathrm{LUC}\)</span> on the left side of the equation and the redistribution of C among the atmosphere, land and ocean. <span class="math inline">\(G_\mathrm{atm}\)</span> is the atmospheric growth rate, <span class="math inline">\(S_\mathrm{ocean}\)</span> is the net ocean C uptake (also referred to as the <em>ocean sink</em>) and <span class="math inline">\(S_\mathrm{land}\)</span> is the net land C uptake (or <em>land sink</em>). A net flux from the atmosphere into the ocean or into land C storage is positive.</p>
 <p><span id="eq-carbon_budget"><span class="math display">\[
 E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
 \tag{3.6}\]</span></span></p>
 <p>This terminology is adopted from the <a href="https://globalcarbonbudget.org/">Global Carbon Budget</a> <span class="citation" data-cites="friedlingstein23essd">(<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">Friedlingstein et al. 2023</a>)</span> and is expressed as global annual total fluxes. The separation of <span class="math inline">\(E_\mathrm{LUC}\)</span> and <span class="math inline">\(S_\mathrm{land}\)</span> is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in <a href="landusechange.html" class="quarto-xref"><span>Chapter 11</span></a>.</p>
-<p>The values of the global carbon budget components are given in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> for an average across years 2010-2019, where <span class="math inline">\(S_\mathrm{ocean}\)</span> corresponds to the ‘net ocean flux’ and <span class="math inline">\(S_\mathrm{land}\)</span> corresponds to the the ‘net land flux’. <span class="math inline">\(E_\mathrm{LUC}\)</span> corresponds to ‘net land-use change’. The ‘net’ indicates that <span class="math inline">\(E_\mathrm{LUC}\)</span> is the net effect between CO<sub>2</sub> emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. The most recent update of the global carbon budget from <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> is given in <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a> as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.</p>
+<p>The values of the global carbon budget components are given in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> for an average across years 2010-2019, where <span class="math inline">\(S_\mathrm{ocean}\)</span> corresponds to the ‘net ocean flux’ and <span class="math inline">\(S_\mathrm{land}\)</span> corresponds to the the ‘net land flux’ in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. <span class="math inline">\(E_\mathrm{LUC}\)</span> corresponds to ‘net land-use change’. The ‘net’ indicates that <span class="math inline">\(E_\mathrm{LUC}\)</span> is the net effect between CO<sub>2</sub> emissions from deforestation and C uptake by re-growing forests and afforestations. Note that the annual atmospheric growth rate is not resolved in <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. The most recent update of the global carbon budget from <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span> is given in <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a> as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.</p>
 <!-- xxx update -->
 <div id="tbl-gcb2023" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -621,110 +621,108 @@ Exercise
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (Re-) definitions</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include the carbonation sink in the fossil fuel emissions</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">e_ff =</span> e_ff <span class="sc">-</span> s_cement,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Land sink defined as the budget residual</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">s_res =</span> e_ff <span class="sc">+</span> e_luc <span class="sc">-</span> g_atm <span class="sc">-</span> s_ocean</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the budget plot</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_ff <span class="sc">+</span> e_luc, </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> e_luc, </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ff"</span>), </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_luc, </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="dv">0</span>, </span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"luc"</span>), </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="dv">0</span>, </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>s_ocean, </span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ocean"</span>), </span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>s_ocean, </span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"land"</span>), </span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm), </span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"atm"</span>), </span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">0</span>), </span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> e_ff <span class="sc">+</span> e_luc)</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm)</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> imbalance, </span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"imbalance"</span>), </span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.2</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"CO"</span>[<span class="dv">2</span>], <span class="st">" flux (PgC yr"</span><span class="sc">^-</span><span class="dv">1</span>, <span class="st">")"</span>)),</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Annual carbon emissions (positive) </span><span class="sc">\n</span><span class="st">and their redistribution (negative)"</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"ff"</span>, <span class="st">"luc"</span>, <span class="st">"ocean"</span>, <span class="st">"land"</span>, <span class="st">"atm"</span>),</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"ff"</span> <span class="ot">=</span> <span class="st">"lightslategrey"</span>,</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>               <span class="st">"luc"</span> <span class="ot">=</span> <span class="st">"chocolate1"</span>,</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>               <span class="st">"ocean"</span> <span class="ot">=</span> <span class="st">"lightseagreen"</span>,</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>               <span class="st">"land"</span> <span class="ot">=</span> <span class="st">"yellowgreen"</span>,</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>               <span class="st">"atm"</span> <span class="ot">=</span> <span class="st">"deepskyblue1"</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>               ),</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Fossil fuel </span><span class="sc">\n</span><span class="st">emissions"</span>, </span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Net land-use </span><span class="sc">\n</span><span class="st">change emissions"</span>, </span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Ocean </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Land </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Atmospheric </span><span class="sc">\n</span><span class="st">growth"</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="st">"imbalance"</span>, </span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"imbalance"</span> <span class="ot">=</span> <span class="st">"grey40"</span>),</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="st">"Budget imbalance"</span></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position=</span><span class="st">"bottom"</span>, </span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box =</span> <span class="st">"vertical"</span></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Include the carbonation sink in the fossil fuel emissions</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e_ff =</span> e_ff <span class="sc">-</span> s_cement) <span class="sc">|&gt;</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Land sink defined as the budget residual</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s_res =</span> e_ff <span class="sc">+</span> e_luc <span class="sc">-</span> g_atm <span class="sc">-</span> s_ocean)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the budget plot</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_ff <span class="sc">+</span> e_luc, </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> e_luc, </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ff"</span>), </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> e_luc, </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="dv">0</span>, </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"luc"</span>), </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="dv">0</span>, </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>s_ocean, </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"ocean"</span>), </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>s_ocean, </span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"land"</span>), </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymax =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res), </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">ymin =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm), </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">fill =</span> <span class="st">"atm"</span>), </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">0</span>), </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> e_ff <span class="sc">+</span> e_luc)</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">-</span>(s_ocean <span class="sc">+</span> s_res <span class="sc">+</span> g_atm)</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> year, </span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> imbalance, </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"imbalance"</span>), </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.2</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"CO"</span>[<span class="dv">2</span>], <span class="st">" flux (PgC yr"</span><span class="sc">^-</span><span class="dv">1</span>, <span class="st">")"</span>)),</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Annual carbon emissions (positive) </span><span class="sc">\n</span><span class="st">and their redistribution (negative)"</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"ff"</span>, <span class="st">"luc"</span>, <span class="st">"ocean"</span>, <span class="st">"land"</span>, <span class="st">"atm"</span>),</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"ff"</span> <span class="ot">=</span> <span class="st">"lightslategrey"</span>,</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>               <span class="st">"luc"</span> <span class="ot">=</span> <span class="st">"chocolate1"</span>,</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>               <span class="st">"ocean"</span> <span class="ot">=</span> <span class="st">"lightseagreen"</span>,</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>               <span class="st">"land"</span> <span class="ot">=</span> <span class="st">"yellowgreen"</span>,</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>               <span class="st">"atm"</span> <span class="ot">=</span> <span class="st">"deepskyblue1"</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Fossil fuel </span><span class="sc">\n</span><span class="st">emissions"</span>, </span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Net land-use </span><span class="sc">\n</span><span class="st">change emissions"</span>, </span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Ocean </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Land </span><span class="sc">\n</span><span class="st">sink"</span>, </span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Atmospheric </span><span class="sc">\n</span><span class="st">growth"</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="st">"imbalance"</span>, </span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"imbalance"</span> <span class="ot">=</span> <span class="st">"grey40"</span>),</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="st">"Budget imbalance"</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position=</span><span class="st">"bottom"</span>, </span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box =</span> <span class="st">"vertical"</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-carbon_budget" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -744,6 +742,20 @@ Figure&nbsp;3.3: Annual carbon emissions (positive) and their redistribution bet
 <li>land C sink processes: Schimel, Pugh</li>
 <li>land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.</li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-landsink_co2trajectories" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-landsink_co2trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/landsink_co2trajectories.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-landsink_co2trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: asdf
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
