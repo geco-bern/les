@@ -10,6 +10,10 @@ format:
 
 # Carbon cycle 1: Global pools and fluxes {#sec-carboncycle_1}
 
+The principles of what drives the carbon cycle, and along with it the energy and mass flow, cannot be better explained than through the words of Richard Feynman.
+
+{{< video https://www.youtube.com/watch?v=ifk6iuLQk28 >}}
+
 ## The pre-industrial carbon cycle
 
 Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO~2~ in the atmosphere.
@@ -145,9 +149,18 @@ It was only later that the existence of a terrestrial C sink could be more firml
 
 ```{r echo=FALSE}
 #| label: fig-o2_n2_co2
-#| fig-cap: "Global land and ocean carbon sinks deduced from changes in atmospheric CO~2~ and O~2~ concentrations. The figure is an updated version of Fig. 2 from @keeling96nat, taken from @li22aas."
+#| fig-cap: "Global land and ocean carbon sinks deduced from changes in atmospheric CO~2~ and O~2~ concentrations. The figure is an updated version of Fig. 2 from @keeling96nat, taken from a recent update of the atmospheric carbon and oxygen budget by @li22aas."
 #| out-width: 60%
 knitr::include_graphics("images/o2_n2_co2.png")
+```
+
+In a mathematical sense, the constraint from atmospheric oxygen can be understood as a second equation, necessary for solving for two unknowns $S_\mathrm{land}$ and $S_\mathrm{ocean}$. Their sum must equal (well-known) emissions $E_\mathrm{FF} + E_\mathrm{LUC}$ minus the atmospheric growth rate $G_\mathrm{atm}$. This yields only one equation - that for the C budget (@eq-carbon_budget). The oxygen budget provides a second equation and thus enables solving for two unknowns. In a similar fashion, the isotopic composition of C (the ratio of ^13^C:^12^C) also provides a second equation [@joosbruno98gbc]. The history of ^13^C can be measured on ice cores and $(S_\mathrm{land} - E_\mathrm{LUC})$ can thus be reconstructed for the past (@fig-land_c_balance_past). Note that in order to separate $S_\mathrm{land}$ from the budget, independent estimates of $E_\mathrm{LUC}$ are required. 
+
+```{r echo=FALSE}
+#| label: fig-land_c_balance_past
+#| fig-cap: "Top panel: Cumulative C uptake by the land biosphere over the past 11 kyr. The grey shaded area indicates uncertainty from ice core measurements. Bottom panel: Atmospheric CO~2~ concentration (grey squares and modelled atmospheric CO~2~ based on scenarios of drivers of past millennial-scale C cycle changes (green: land biosphere is the only driver, black: land biopshere, combined with effects by oceanic carbonate chemistry due to Holocene land C uptake, red: land biosphere, combined with effects by oceanic carbonate chemistry due to Holocene and pre-Holocene land C uptake). Figure from @elsig09nat."
+#| out-width: 60%
+knitr::include_graphics("images/land_c_balance_holocene_elsig09nat.png")
 ```
 
 We can adopt the perspective of C cycle science stated in earlier publications. @falkowski00sci wrote: "*Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO~2~ and O~2~ [...].*" In that sense, let's consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, @tbl-gcb2023). Visually contrasting emissions and their redistribution reveals an interesting pattern (@fig-carbon_budget). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.
@@ -283,15 +296,87 @@ df |>
     )
 ```
 
-- land C balance variability
-- land C sink processes: Schimel, Pugh
+## Understanding the land C sink
+
+### Processes
+
+As challenging as it was to locate the "missing C sink" in the terrestrial biosphere in the 1990s (see above), it remains a great challenge to locate the C sink within the terrestrial biosphere and attribute it to processes. Three processes are considered to be particularly influential for the terrestrial C balance, and they each affect ecosystems' C balances in different regions across the globe - land use change, the relief of temperature limitations on photosynthesis and growth, and the CO~2~ fertilization effect. 
+
+The land C balance  from land use change is the net of a flux to the atmosphere due to deforestation and a flux from the atmosphere to the land biosphere due to regrowth after deforestation. Land use change trends are very different across regions globally. While large C losses due to land use change are currently occurring in the tropics, northern extra-tropical regions generally gain C as forests are recovering from more intense wood harvesting in the past - prior the the mid-20th century. @sec-landusechange delves deeper into the role of land use change on the carbon cycle and climate. The net C flux from land use change is accounted for in the global carbon budget by the term $E_\mathrm{LUC}$ (@eq-carbon_budget) and should reflect also effects by C accumulation in recovering forests. However, past land use changes are uncertain and the impact of pre-1950 wood harvesting in temperate regions may be underestimated by models that supply estimates for $E_\mathrm{LUC}$. $S_\mathrm{land}$, when defined as the budget residual, may thus be driven by the C sink in recovering forests. A recent estimate suggests that about a quarter of the land sink, or 1.3 PgC yr^-1^, is due to recovery from past forest disturbances (fire, wind, and wood harvesting) [@pugh19pnas].
+
+Warming trends due to anthropogenic climate change are relieving temperature limitations on photosynthesis and tree growth, enabling an extension of the growing season [@ruehr23natree], and an expansion of forest areas and vegetation greenness in high northern latitudes - as sensed from space [@keenan18natcc]. The associated land C sink, as the one driven by forest recovery from past land use change, is located in the northern extra-tropics.
+
+Rising atmospheric CO~2~ stimulates leaf-level photosynthetic rates. The additional C assimilated likely drives increases in ecosystem C storage. However, a multitude of processes and ecosystem feedbacks are involved and affect the link between the leaf-level CO~2~-fertilization of photosynthesis and ecosystem-level C storage (nutrient limitation, tree longevity reduction due to accelerated growth, soil organic C loss due to plant-soil interactions). Free-Air-CO~2~-Experiments, where plots of outdoor growing vegetation are exposed to elevated CO~2~ during multiple years indicate a stimulation of photosynthesis and growth, but evidence for gains in biomass and soil C stocks is mixed. Yet, C gains in mature forest growth, biomass, and ecosystem C stocks  are documented and, particularly in the tropics, CO~2~-fertilization appears to be the main driver of this trend. This is consistent with Dynamic Global Vegetation Models that attribute about 60-85% of the total land sink to CO~2~-fertilization [@schimel15pnas; @keenan16natcomm]. Published review studies [@ruehr23natree; @walker21newphyt] provide a more detailed account of the complex role of CO~2~-fertilization in driving the land C sink.
+
+Theory suggests that the CO~2~ effect on photosynthesis should be higher under warm than under cold temperatures. Therefore, a CO~2~-driven land sink should be strongest in the tropics. As mentioned above, a C sink that is driven predominantly by either growing season extensions and cold limitation reliefs or by recovery from past land use change would be located mainly in the northern extra-tropics. How to discriminate between these drivers and their associated C sink regions? Once more, atmospheric CO~2~ measurements provide a constraint. While the total terrestrial C sink is relatively well-constrained through the global carbon budget, contributions from the tropics (and southern hemisphere) vs. the northern extra-tropics requires an additional constraint. Atmospheric CO~2~ measurements, in combination with known CO~2~ sources and their location and with atmospheric transport fields (*atmospheric inversions*) enable a split of the global land C sink into contribution from the two regions, while their sum is constrained by the global carbon budget. This 
+approach is visualized in @fig-c_sink_schimel15pnas. The combination of the two constraints indicates that model simulations where the CO~2~-fertilization effect was "turned off" tend to be outside the range of plausible combinations of tropical and northern-extratropical land C sinks.
+
+```{r echo=FALSE}
+#| label: fig-c_sink_schimel15pnas
+#| fig-cap: "The anti-correlation of the northern extra-tropical and the tropical-plus-southern land C sink. Atmospheric inversions from different sources (red and purple points and squares) indicate an anti-correlation of the regional sinks, constrained by the C mass balance from the global carbon budget: The sum of regional land C sinks must equal the total terrestrial C sink from the global carbon budget. Several Dynamic Global Vegetation Models (DGVMs) without the CO~2~-fertilisation effect (white triangles) lie outside the range constrained by the global C mass balance, while DGVMs with the CO~2~-fertilisation effect considered are better compatible with the budget. Figure from @schimel15pnas."
+#| out-width: 80%
+knitr::include_graphics("images/c_sink_schimel15pnas.png")
+```
+
+The processes for understanding the oceanic C sink will be introduced in @sec-carboncycle_3.
+
+### Interannual variability
+
+As highlighted above, pointing to @fig-carbon_budget, the magnitude of the land C sink varies strongly between years. Semi-arid regions, where dry conditions during a substantial part of the year limit photosynthesis and where drought-related disturbances strongly influence ecosystem C balances, are contributing most strongly to the signal apparent from the global C budget [@ahlstrom15sci]. Semi-arid regions largely align with temperate and tropical grasslands, savannahs, and shrubland biomes (@fig-biomes_sites_map). Years with a small land sink and a high atmospheric CO~2~ growth rate are dry years, associated with low global-scale terrestrial water storage [@humphrey18nat], and are associated with warm temperature anomalies in the tropics [@cox13nat]. This indicates two important points. First, C storage in the terrestrial biosphere is highly susceptible to climate variations. Second, water availability has a strong control on the terrestrial carbon cycle. We will learn more about how the water and the carbon cycles are coupled in @sec-landclimate and how the influence of water availability on vegetation varies across the globe in @sec-ecohydrology.
+
 - land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.
 
+::: {.callout-note}
+## CO~2~ trajectories and the land C cycle response
+
+@eq-firststorderdecay describes the dynamics of land C storage based on a 1-box model. Let's apply this model for understanding the link between changes in $I$ and the land C balance ($\mathrm{d}C/\mathrm{d}t$). We explore different future trajectories of atmospheric CO~2~, branching off from its observed history, and simulate the resulting total terrestrial photosynthetic CO~2~ uptake (also referred to as the *gross primary productivity*, see also @sec-carboncycle_2), the terrestrial C pool, and the land sink (i.e., the temporal change in the terrestrial C pool).
+
+We make the (strong) assumption that the land C balance dynamics are exclusively driven by the CO~2~-fertilization effect on photosynthetic C uptake, represented by $I$, while the turnover rate ($\tau$) remains constant. The CO~2~-fertilization effect on a variable $x$ is commonly measured as the sensitivity factor $\beta$:
+$$
+\beta = \frac{\ln (x/x_0)}{\ln (c_a/c_{a,0})}
+$$ {#eq-beta}
+Here, $c_a$ is the atmospheric CO~2~ concentration (*ambient* CO~2~). For ratios of $x/x_0$ and $c_a/c_{a,0}$ approaching 1, @eq-beta is equivalent to the ratio of the relative change in $x$ over the relative change in CO~2~.
+$$
+\beta \approx \frac{\Delta x/x}{\Delta c_a/c_a}\;,
+$$ {#eq-beta-approx}
+where $\Delta x = x - x_0$. The sensitivity of the total terrestrial photosynthetic CO~2~ uptake to atmospheric CO~2~ has been estimated by @keenan23natcc as $\beta = 0.59 \pm 0.16$. With this, we can model $I$ as a function of $c_a$ using @eq-beta-approx.
+
+The 1-box model can be implemented numerically by discretization in time (i.e., considering time steps $\Delta t$). To simulate the terrestrial C pool over time ($C(t)$), @eq-firststorderdecay can thus be written as
+$$
+C(t+\Delta t) = C(t) + I(t) - \tau^{-1}C(t)
+$$
+
+We further assume that $C(t)$ was at steady-state in year 1850 - the first year of the CO~2~ time series used here. $\tau$ could be estimated by using values of terrestrial C pools (sum of vegetation C and soil C) and the gross photosynthesis flux from @fig-carbon-pools-fluxes-ipcc ($\tau = (450\; \mathrm{GtC} + 1700\; \mathrm{GtC})/113\; \mathrm{GtC\;yr}^{-1} = 19.0 \; \mathrm{yr}$). However, the resulting land C sink would be strongly overestimated when compared to the residual sink $S_\mathrm{land}$ from the Global Carbon Budget. When choosing $\tau = 9 \; \mathrm{yr}$, a better fit between the 1-box model-derived land sink and the observed land sink emerges. This could indicate that CO~2~-fertilization drives additional C storage that is more short lived than on average in vegetation and soil biomass. The resulting evolution(s) of the land C cycle are illustrated in @fig-landsink_co2trajectories.
 
 ```{r echo=FALSE}
 #| label: fig-landsink_co2trajectories
-#| fig-cap: "asdf"
+#| fig-cap: "Evolution of the land C cycle in response to alternative (schematic) trajectories of future CO~2~. The green line in panels of the bottom row indicates the observed land sink, derived as the residual of the Global Carbon Budget."
 #| out-width: 100%
 # Figure created with analysis/box_modelling.R
 knitr::include_graphics("images/landsink_co2trajectories.png")
 ```
+
+
+<!-- Important to note (Pugh et al., 2019): -->
+<!-- Whereas the saturation point of a CO2-induced sink remains highly uncertain, a sink from forest regrowth is fundamentally bounded; once forests recovering from historical disturbance peaks have regained pseudoequilibrium between carbon loss from disturbance and carbon gain from regrowth, or if carbon loss from disturbance begins to exceed carbon gain from regrowth, the net regrowth sink will disappear. Understanding the role of forest regrowth is thus a crucial step in assessing the extent to which we can continue to rely on the biosphere to mitigate rising atmospheric CO2 concentrations. -->
+
+
+:::
+
+::: {.callout-caution}
+## Exercise
+
+6. Express $I$ as a function of $c_a$, using the definition of $\beta$ from @eq-beta-approx, and using $c_{a,0}$ and $I_0$. 
+7. Calculate $I(c_a)$ for $c_a = 400$ ppm and $I_0$ as the pre-industrial value of total terrestrial gross photosynthesis from @fig-carbon-pools-fluxes-ipcc and using the value of $\beta$ (mean) from @keenan23natcc. 
+8. It is important to note that the land C sink trajectories are strongly dependent on whether the dominating process driving it is CO~2~ fertilization or forest recovery from past disturbance (or other drivers). The temporal course of ecosystem C pools after a disturbance is schematically illustrated in @fig-disturbance_recovery. Sketch the resulting land C sink for the different CO~2~ trajectories of @fig-landsink_co2trajectories if the sink was exclusively driven by forest recovery.
+
+```{r echo=FALSE}
+#| label: fig-disturbance_recovery
+#| fig-cap: "Schematic illustration of the recovery of the ecosystem C pool (relative magnitude) after a disturbance in time step 10."
+#| out-width: 40%
+# Figure created with analysis/box_modelling.R
+knitr::include_graphics("images/disturbance_recovery.png")
+```
+
+
+:::

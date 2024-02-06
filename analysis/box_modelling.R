@@ -5,10 +5,11 @@ library(tidyr)
 library(purrr)
 library(here)
 library(cowplot)
+library(readr)
 
 # Model-----------
 ## 1-box model--------------------------------------------------------------------------------------------------------------------------------------------
-onebox <- function( c_influx, tau, cpool0, return_cpool = TRUE) {
+onebox <- function( c_influx, tau, cpool0, return_cpool = TRUE, dist = NA) {
   # ------------------------------------------------
   # c_influx:  flux into pool (GtC a-1)
   # cpool0:    initial pool size (GtC)
@@ -28,6 +29,11 @@ onebox <- function( c_influx, tau, cpool0, return_cpool = TRUE) {
 
   # integrate over each time step (this is an implementation of the differential equation)
   for (yr in seq(len) ) {
+    
+    print(paste("yr, dist: ", yr, dist))
+    if (yr == dist){
+      cpool <- 0 
+    }
 
     # copy current pool size to output time series
     out_cpool[yr] <- cpool
@@ -177,7 +183,7 @@ df_reduce <- df_reduce |>
 
 ## Linear increase ----------
 # Continued linear increase
-trend <- lm(co2 ~ year, data = filter(df, year > 1960))$coefficients["year"]
+trend <- lm(co2 ~ year, data = filter(df, year > 1990))$coefficients["year"]
 lastyeartrend <- df$year[nrow(df)]
 nyears_scenario <- 200
 df_lin <- df |> 
@@ -356,3 +362,20 @@ plot_grid(
 
 ggsave(here("book/images/landsink_co2trajectories.png"), width = 12, height = 10)
 
+# Disturbance-----------
+tau <- 10
+df_dist <- tibble(
+  c_pool = onebox(c_influx = rep(1, 100), 
+                  tau = tau, 
+                  cpool0 = tau, 
+                  dist = 10))  |> 
+  mutate(sink = c_pool - lag(c_pool),
+         t = 1:n())
+
+df_dist |> 
+  ggplot(aes(t, c_pool/tau)) +
+  geom_line() +
+  theme_classic() +
+  labs(x = "Time", y = "C pool")
+
+ggsave(here("book/images/disturbance_recovery.png"), width = 4, height = 3)
