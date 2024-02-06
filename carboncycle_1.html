@@ -158,7 +158,8 @@ window.Quarto = {
 
 <meta name="twitter:title" content="Land in the Earth System I - 3&nbsp; Carbon cycle 1: Global pools and fluxes">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/disturbance_recovery.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -324,6 +325,11 @@ window.Quarto = {
   <li><a href="#the-pre-industrial-carbon-cycle" id="toc-the-pre-industrial-carbon-cycle" class="nav-link active" data-scroll-target="#the-pre-industrial-carbon-cycle"><span class="header-section-number">3.1</span> The pre-industrial carbon cycle</a></li>
   <li><a href="#carbon-pool-dynamics" id="toc-carbon-pool-dynamics" class="nav-link" data-scroll-target="#carbon-pool-dynamics"><span class="header-section-number">3.2</span> Carbon pool dynamics</a></li>
   <li><a href="#the-anthropogenic-perturbation" id="toc-the-anthropogenic-perturbation" class="nav-link" data-scroll-target="#the-anthropogenic-perturbation"><span class="header-section-number">3.3</span> The anthropogenic perturbation</a></li>
+  <li><a href="#understanding-the-land-c-sink" id="toc-understanding-the-land-c-sink" class="nav-link" data-scroll-target="#understanding-the-land-c-sink"><span class="header-section-number">3.4</span> Understanding the land C sink</a>
+  <ul class="collapse">
+  <li><a href="#processes" id="toc-processes" class="nav-link" data-scroll-target="#processes"><span class="header-section-number">3.4.1</span> Processes</a></li>
+  <li><a href="#interannual-variability" id="toc-interannual-variability" class="nav-link" data-scroll-target="#interannual-variability"><span class="header-section-number">3.4.2</span> Interannual variability</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -349,6 +355,8 @@ window.Quarto = {
 </header>
 
 
+<p>The principles of what drives the carbon cycle, and along with it the energy and mass flow, cannot be better explained than through the words of Richard Feynman.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ifk6iuLQk28" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="the-pre-industrial-carbon-cycle" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="the-pre-industrial-carbon-cycle"><span class="header-section-number">3.1</span> The pre-industrial carbon cycle</h2>
 <p>Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO<sub>2</sub> in the atmosphere.</p>
@@ -580,13 +588,28 @@ B_\mathrm{IM} = E_\mathrm{FF} + E_\mathrm{LUC} - (G_\mathrm{atm} + S_\mathrm{oce
 <img src="images/o2_n2_co2.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-o2_n2_co2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: Global land and ocean carbon sinks deduced from changes in atmospheric CO<sub>2</sub> and O<sub>2</sub> concentrations. The figure is an updated version of Fig. 2 from <span class="citation" data-cites="keeling96nat">Keeling, Piper, and Heimann (<a href="references.html#ref-keeling96nat" role="doc-biblioref">1996</a>)</span>, taken from <span class="citation" data-cites="li22aas">Li et al. (<a href="references.html#ref-li22aas" role="doc-biblioref">2022</a>)</span>.
+Figure&nbsp;3.2: Global land and ocean carbon sinks deduced from changes in atmospheric CO<sub>2</sub> and O<sub>2</sub> concentrations. The figure is an updated version of Fig. 2 from <span class="citation" data-cites="keeling96nat">Keeling, Piper, and Heimann (<a href="references.html#ref-keeling96nat" role="doc-biblioref">1996</a>)</span>, taken from a recent update of the atmospheric carbon and oxygen budget by <span class="citation" data-cites="li22aas">Li et al. (<a href="references.html#ref-li22aas" role="doc-biblioref">2022</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>We can adopt the perspective of C cycle science stated in earlier publications. <span class="citation" data-cites="falkowski00sci">Falkowski et al. (<a href="references.html#ref-falkowski00sci" role="doc-biblioref">2000</a>)</span> wrote: “<em>Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO<sub>2</sub> and O<sub>2</sub> […].</em>” In that sense, let’s consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a>). Visually contrasting emissions and their redistribution reveals an interesting pattern (<a href="#fig-carbon_budget" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.</p>
+<p>In a mathematical sense, the constraint from atmospheric oxygen can be understood as a second equation, necessary for solving for two unknowns <span class="math inline">\(S_\mathrm{land}\)</span> and <span class="math inline">\(S_\mathrm{ocean}\)</span>. Their sum must equal (well-known) emissions <span class="math inline">\(E_\mathrm{FF} + E_\mathrm{LUC}\)</span> minus the atmospheric growth rate <span class="math inline">\(G_\mathrm{atm}\)</span>. This yields only one equation - that for the C budget (<a href="#eq-carbon_budget" class="quarto-xref">Equation&nbsp;<span>3.6</span></a>). The oxygen budget provides a second equation and thus enables solving for two unknowns. In a similar fashion, the isotopic composition of C (the ratio of <sup>13</sup>C:<sup>12</sup>C) also provides a second equation <span class="citation" data-cites="joosbruno98gbc">(<a href="references.html#ref-joosbruno98gbc" role="doc-biblioref">Joos and Bruno 1998</a>)</span>. The history of <sup>13</sup>C can be measured on ice cores and <span class="math inline">\((S_\mathrm{land} - E_\mathrm{LUC})\)</span> can thus be reconstructed for the past (<a href="#fig-land_c_balance_past" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). Note that in order to separate <span class="math inline">\(S_\mathrm{land}\)</span> from the budget, independent estimates of <span class="math inline">\(E_\mathrm{LUC}\)</span> are required.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-land_c_balance_past" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-land_c_balance_past-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/land_c_balance_holocene_elsig09nat.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-land_c_balance_past-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Top panel: Cumulative C uptake by the land biosphere over the past 11 kyr. The grey shaded area indicates uncertainty from ice core measurements. Bottom panel: Atmospheric CO<sub>2</sub> concentration (grey squares and modelled atmospheric CO<sub>2</sub> based on scenarios of drivers of past millennial-scale C cycle changes (green: land biosphere is the only driver, black: land biopshere, combined with effects by oceanic carbonate chemistry due to Holocene land C uptake, red: land biosphere, combined with effects by oceanic carbonate chemistry due to Holocene and pre-Holocene land C uptake). Figure from <span class="citation" data-cites="elsig09nat">Elsig et al. (<a href="references.html#ref-elsig09nat" role="doc-biblioref">2009</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We can adopt the perspective of C cycle science stated in earlier publications. <span class="citation" data-cites="falkowski00sci">Falkowski et al. (<a href="references.html#ref-falkowski00sci" role="doc-biblioref">2000</a>)</span> wrote: “<em>Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO<sub>2</sub> and O<sub>2</sub> […].</em>” In that sense, let’s consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, <a href="#tbl-gcb2023" class="quarto-xref">Table&nbsp;<span>3.2</span></a>). Visually contrasting emissions and their redistribution reveals an interesting pattern (<a href="#fig-carbon_budget" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -731,17 +754,64 @@ Exercise
 <img src="carboncycle_1_files/figure-html/fig-carbon_budget-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-carbon_budget-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>, the land sink is defined here as the carbon budget residual. The budget imbalance term - the difference between <em>S</em><sub>land</sub> calculated as the budget residual vs.&nbsp;bottom-up using land C cycle models - is shown by the separate fine grey line.
+Figure&nbsp;3.4: Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to <span class="citation" data-cites="friedlingstein23essd">Friedlingstein et al. (<a href="references.html#ref-friedlingstein23essd" role="doc-biblioref">2023</a>)</span>, the land sink is defined here as the carbon budget residual. The budget imbalance term - the difference between <em>S</em><sub>land</sub> calculated as the budget residual vs.&nbsp;bottom-up using land C cycle models - is shown by the separate fine grey line.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="understanding-the-land-c-sink" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="understanding-the-land-c-sink"><span class="header-section-number">3.4</span> Understanding the land C sink</h2>
+<section id="processes" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="processes"><span class="header-section-number">3.4.1</span> Processes</h3>
+<p>As challenging as it was to locate the “missing C sink” in the terrestrial biosphere in the 1990s (see above), it remains a great challenge to locate the C sink within the terrestrial biosphere and attribute it to processes. Three processes are considered to be particularly influential for the terrestrial C balance, and they each affect ecosystems’ C balances in different regions across the globe - land use change, the relief of temperature limitations on photosynthesis and growth, and the CO<sub>2</sub> fertilization effect.</p>
+<p>The land C balance from land use change is the net of a flux to the atmosphere due to deforestation and a flux from the atmosphere to the land biosphere due to regrowth after deforestation. Land use change trends are very different across regions globally. While large C losses due to land use change are currently occurring in the tropics, northern extra-tropical regions generally gain C as forests are recovering from more intense wood harvesting in the past - prior the the mid-20th century. <a href="landusechange.html" class="quarto-xref"><span>Chapter 11</span></a> delves deeper into the role of land use change on the carbon cycle and climate. The net C flux from land use change is accounted for in the global carbon budget by the term <span class="math inline">\(E_\mathrm{LUC}\)</span> (<a href="#eq-carbon_budget" class="quarto-xref">Equation&nbsp;<span>3.6</span></a>) and should reflect also effects by C accumulation in recovering forests. However, past land use changes are uncertain and the impact of pre-1950 wood harvesting in temperate regions may be underestimated by models that supply estimates for <span class="math inline">\(E_\mathrm{LUC}\)</span>. <span class="math inline">\(S_\mathrm{land}\)</span>, when defined as the budget residual, may thus be driven by the C sink in recovering forests. A recent estimate suggests that about a quarter of the land sink, or 1.3 PgC yr<sup>-1</sup>, is due to recovery from past forest disturbances (fire, wind, and wood harvesting) <span class="citation" data-cites="pugh19pnas">(<a href="references.html#ref-pugh19pnas" role="doc-biblioref">Pugh et al. 2019</a>)</span>.</p>
+<p>Warming trends due to anthropogenic climate change are relieving temperature limitations on photosynthesis and tree growth, enabling an extension of the growing season <span class="citation" data-cites="ruehr23natree">(<a href="references.html#ref-ruehr23natree" role="doc-biblioref">Ruehr et al. 2023</a>)</span>, and an expansion of forest areas and vegetation greenness in high northern latitudes - as sensed from space <span class="citation" data-cites="keenan18natcc">(<a href="references.html#ref-keenan18natcc" role="doc-biblioref">T. F. Keenan and Riley 2018</a>)</span>. The associated land C sink, as the one driven by forest recovery from past land use change, is located in the northern extra-tropics.</p>
+<p>Rising atmospheric CO<sub>2</sub> stimulates leaf-level photosynthetic rates. The additional C assimilated likely drives increases in ecosystem C storage. However, a multitude of processes and ecosystem feedbacks are involved and affect the link between the leaf-level CO<sub>2</sub>-fertilization of photosynthesis and ecosystem-level C storage (nutrient limitation, tree longevity reduction due to accelerated growth, soil organic C loss due to plant-soil interactions). Free-Air-CO<sub>2</sub>-Experiments, where plots of outdoor growing vegetation are exposed to elevated CO<sub>2</sub> during multiple years indicate a stimulation of photosynthesis and growth, but evidence for gains in biomass and soil C stocks is mixed. Yet, C gains in mature forest growth, biomass, and ecosystem C stocks are documented and, particularly in the tropics, CO<sub>2</sub>-fertilization appears to be the main driver of this trend. This is consistent with Dynamic Global Vegetation Models that attribute about 60-85% of the total land sink to CO<sub>2</sub>-fertilization <span class="citation" data-cites="schimel15pnas keenan16natcomm">(<a href="references.html#ref-schimel15pnas" role="doc-biblioref">Schimel, Stephens, and Fisher 2015</a>; <a href="references.html#ref-keenan16natcomm" role="doc-biblioref">Trevor F. Keenan et al. 2016</a>)</span>. Published review studies <span class="citation" data-cites="ruehr23natree walker21newphyt">(<a href="references.html#ref-ruehr23natree" role="doc-biblioref">Ruehr et al. 2023</a>; <a href="references.html#ref-walker21newphyt" role="doc-biblioref">Walker et al. 2021</a>)</span> provide a more detailed account of the complex role of CO<sub>2</sub>-fertilization in driving the land C sink.</p>
+<p>Theory suggests that the CO<sub>2</sub> effect on photosynthesis should be higher under warm than under cold temperatures. Therefore, a CO<sub>2</sub>-driven land sink should be strongest in the tropics. As mentioned above, a C sink that is driven predominantly by either growing season extensions and cold limitation reliefs or by recovery from past land use change would be located mainly in the northern extra-tropics. How to discriminate between these drivers and their associated C sink regions? Once more, atmospheric CO<sub>2</sub> measurements provide a constraint. While the total terrestrial C sink is relatively well-constrained through the global carbon budget, contributions from the tropics (and southern hemisphere) vs.&nbsp;the northern extra-tropics requires an additional constraint. Atmospheric CO<sub>2</sub> measurements, in combination with known CO<sub>2</sub> sources and their location and with atmospheric transport fields (<em>atmospheric inversions</em>) enable a split of the global land C sink into contribution from the two regions, while their sum is constrained by the global carbon budget. This approach is visualized in <a href="#fig-c_sink_schimel15pnas" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>. The combination of the two constraints indicates that model simulations where the CO<sub>2</sub>-fertilization effect was “turned off” tend to be outside the range of plausible combinations of tropical and northern-extratropical land C sinks.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-c_sink_schimel15pnas" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-c_sink_schimel15pnas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/c_sink_schimel15pnas.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-c_sink_schimel15pnas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: The anti-correlation of the northern extra-tropical and the tropical-plus-southern land C sink. Atmospheric inversions from different sources (red and purple points and squares) indicate an anti-correlation of the regional sinks, constrained by the C mass balance from the global carbon budget: The sum of regional land C sinks must equal the total terrestrial C sink from the global carbon budget. Several Dynamic Global Vegetation Models (DGVMs) without the CO<sub>2</sub>-fertilisation effect (white triangles) lie outside the range constrained by the global C mass balance, while DGVMs with the CO<sub>2</sub>-fertilisation effect considered are better compatible with the budget. Figure from <span class="citation" data-cites="schimel15pnas">Schimel, Stephens, and Fisher (<a href="references.html#ref-schimel15pnas" role="doc-biblioref">2015</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The processes for understanding the oceanic C sink will be introduced in <a href="carboncycle_3.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+</section>
+<section id="interannual-variability" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="interannual-variability"><span class="header-section-number">3.4.2</span> Interannual variability</h3>
+<p>As highlighted above, pointing to <a href="#fig-carbon_budget" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>, the magnitude of the land C sink varies strongly between years. Semi-arid regions, where dry conditions during a substantial part of the year limit photosynthesis and where drought-related disturbances strongly influence ecosystem C balances, are contributing most strongly to the signal apparent from the global C budget <span class="citation" data-cites="ahlstrom15sci">(<a href="references.html#ref-ahlstrom15sci" role="doc-biblioref">Ahlström et al. 2015</a>)</span>. Semi-arid regions largely align with temperate and tropical grasslands, savannahs, and shrubland biomes (<a href="biogeography.html#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>). Years with a small land sink and a high atmospheric CO<sub>2</sub> growth rate are dry years, associated with low global-scale terrestrial water storage <span class="citation" data-cites="humphrey18nat">(<a href="references.html#ref-humphrey18nat" role="doc-biblioref">Humphrey et al. 2018</a>)</span>, and are associated with warm temperature anomalies in the tropics <span class="citation" data-cites="cox13nat">(<a href="references.html#ref-cox13nat" role="doc-biblioref">Cox et al. 2013</a>)</span>. This indicates two important points. First, C storage in the terrestrial biosphere is highly susceptible to climate variations. Second, water availability has a strong control on the terrestrial carbon cycle. We will learn more about how the water and the carbon cycles are coupled in <a href="landclimate.html" class="quarto-xref"><span>Chapter 7</span></a> and how the influence of water availability on vegetation varies across the globe in <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
 <ul>
-<li>land C balance variability</li>
-<li>land C sink processes: Schimel, Pugh</li>
 <li>land carbon uptake model: input-driven as a function of CO2, constant turnover, compare land C sink as a function of atmospheric CO2 trajectories.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CO<sub>2</sub> trajectories and the land C cycle response
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="#eq-firststorderdecay" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> describes the dynamics of land C storage based on a 1-box model. Let’s apply this model for understanding the link between changes in <span class="math inline">\(I\)</span> and the land C balance (<span class="math inline">\(\mathrm{d}C/\mathrm{d}t\)</span>). We explore different future trajectories of atmospheric CO<sub>2</sub>, branching off from its observed history, and simulate the resulting total terrestrial photosynthetic CO<sub>2</sub> uptake (also referred to as the <em>gross primary productivity</em>, see also <a href="carboncycle_2.html" class="quarto-xref"><span>Chapter 4</span></a>), the terrestrial C pool, and the land sink (i.e., the temporal change in the terrestrial C pool).</p>
+<p>We make the (strong) assumption that the land C balance dynamics are exclusively driven by the CO<sub>2</sub>-fertilization effect on photosynthetic C uptake, represented by <span class="math inline">\(I\)</span>, while the turnover rate (<span class="math inline">\(\tau\)</span>) remains constant. The CO<sub>2</sub>-fertilization effect on a variable <span class="math inline">\(x\)</span> is commonly measured as the sensitivity factor <span class="math inline">\(\beta\)</span>: <span id="eq-beta"><span class="math display">\[
+\beta = \frac{\ln (x/x_0)}{\ln (c_a/c_{a,0})}
+\tag{3.8}\]</span></span> Here, <span class="math inline">\(c_a\)</span> is the atmospheric CO<sub>2</sub> concentration (<em>ambient</em> CO<sub>2</sub>). For ratios of <span class="math inline">\(x/x_0\)</span> and <span class="math inline">\(c_a/c_{a,0}\)</span> approaching 1, <a href="#eq-beta" class="quarto-xref">Equation&nbsp;<span>3.8</span></a> is equivalent to the ratio of the relative change in <span class="math inline">\(x\)</span> over the relative change in CO<sub>2</sub>. <span id="eq-beta-approx"><span class="math display">\[
+\beta \approx \frac{\Delta x/x}{\Delta c_a/c_a}\;,
+\tag{3.9}\]</span></span> where <span class="math inline">\(\Delta x = x - x_0\)</span>. The sensitivity of the total terrestrial photosynthetic CO<sub>2</sub> uptake to atmospheric CO<sub>2</sub> has been estimated by <span class="citation" data-cites="keenan23natcc">T. F. Keenan et al. (<a href="references.html#ref-keenan23natcc" role="doc-biblioref">2023</a>)</span> as <span class="math inline">\(\beta = 0.59 \pm 0.16\)</span>. With this, we can model <span class="math inline">\(I\)</span> as a function of <span class="math inline">\(c_a\)</span> using <a href="#eq-beta-approx" class="quarto-xref">Equation&nbsp;<span>3.9</span></a>.</p>
+<p>The 1-box model can be implemented numerically by discretization in time (i.e., considering time steps <span class="math inline">\(\Delta t\)</span>). To simulate the terrestrial C pool over time (<span class="math inline">\(C(t)\)</span>), <a href="#eq-firststorderdecay" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> can thus be written as <span class="math display">\[
+C(t+\Delta t) = C(t) + I(t) - \tau^{-1}C(t)
+\]</span></p>
+<p>We further assume that <span class="math inline">\(C(t)\)</span> was at steady-state in year 1850 - the first year of the CO<sub>2</sub> time series used here. <span class="math inline">\(\tau\)</span> could be estimated by using values of terrestrial C pools (sum of vegetation C and soil C) and the gross photosynthesis flux from <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> (<span class="math inline">\(\tau = (450\; \mathrm{GtC} + 1700\; \mathrm{GtC})/113\; \mathrm{GtC\;yr}^{-1} = 19.0 \; \mathrm{yr}\)</span>). However, the resulting land C sink would be strongly overestimated when compared to the residual sink <span class="math inline">\(S_\mathrm{land}\)</span> from the Global Carbon Budget. When choosing <span class="math inline">\(\tau = 9 \; \mathrm{yr}\)</span>, a better fit between the 1-box model-derived land sink and the observed land sink emerges. This could indicate that CO<sub>2</sub>-fertilization drives additional C storage that is more short lived than on average in vegetation and soil biomass. The resulting evolution(s) of the land C cycle are illustrated in <a href="#fig-landsink_co2trajectories" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-landsink_co2trajectories" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -750,20 +820,64 @@ Figure&nbsp;3.3: Annual carbon emissions (positive) and their redistribution bet
 <img src="images/landsink_co2trajectories.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-landsink_co2trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: asdf
+Figure&nbsp;3.6: Evolution of the land C cycle in response to alternative (schematic) trajectories of future CO<sub>2</sub>. The green line in panels of the bottom row indicates the observed land sink, derived as the residual of the Global Carbon Budget.
 </figcaption>
 </figure>
+</div>
+</div>
+</div>
+<!-- Important to note (Pugh et al., 2019): -->
+<!-- Whereas the saturation point of a CO2-induced sink remains highly uncertain, a sink from forest regrowth is fundamentally bounded; once forests recovering from historical disturbance peaks have regained pseudoequilibrium between carbon loss from disturbance and carbon gain from regrowth, or if carbon loss from disturbance begins to exceed carbon gain from regrowth, the net regrowth sink will disappear. Understanding the role of forest regrowth is thus a crucial step in assessing the extent to which we can continue to rely on the biosphere to mitigate rising atmospheric CO2 concentrations. -->
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="6" type="1">
+<li>Express <span class="math inline">\(I\)</span> as a function of <span class="math inline">\(c_a\)</span>, using the definition of <span class="math inline">\(\beta\)</span> from <a href="#eq-beta-approx" class="quarto-xref">Equation&nbsp;<span>3.9</span></a>, and using <span class="math inline">\(c_{a,0}\)</span> and <span class="math inline">\(I_0\)</span>.</li>
+<li>Calculate <span class="math inline">\(I(c_a)\)</span> for <span class="math inline">\(c_a = 400\)</span> ppm and <span class="math inline">\(I_0\)</span> as the pre-industrial value of total terrestrial gross photosynthesis from <a href="#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and using the value of <span class="math inline">\(\beta\)</span> (mean) from <span class="citation" data-cites="keenan23natcc">T. F. Keenan et al. (<a href="references.html#ref-keenan23natcc" role="doc-biblioref">2023</a>)</span>.</li>
+<li>It is important to note that the land C sink trajectories are strongly dependent on whether the dominating process driving it is CO<sub>2</sub> fertilization or forest recovery from past disturbance (or other drivers). The temporal course of ecosystem C pools after a disturbance is schematically illustrated in <a href="#fig-disturbance_recovery" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>. Sketch the resulting land C sink for the different CO<sub>2</sub> trajectories of <a href="#fig-landsink_co2trajectories" class="quarto-xref">Figure&nbsp;<span>3.6</span></a> if the sink was exclusively driven by forest recovery.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-disturbance_recovery" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-disturbance_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/disturbance_recovery.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-disturbance_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Schematic illustration of the recovery of the ecosystem C pool (relative magnitude) after a disturbance in time step 10.
+</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ahlstrom15sci" class="csl-entry" role="listitem">
+Ahlström, Anders, Michael R. Raupach, Guy Schurgers, Benjamin Smith, Almut Arneth, Martin Jung, Markus Reichstein, et al. 2015. <span>“The Dominant Role of Semi-Arid Ecosystems in the Trend and Variability of the Land <span>CO2</span> Sink.”</span> <em>Science</em> 348 (6237): 895–99. <a href="https://doi.org/10.1126/science.aaa1668">https://doi.org/10.1126/science.aaa1668</a>.
+</div>
 <div id="ref-ballantyne12nat" class="csl-entry" role="listitem">
 Ballantyne, A. P., C. B. Alden, J. B. Miller, P. P. Tans, and J. W. C. White. 2012. <span>“Increase in Observed Net Carbon Dioxide Uptake by Land and Oceans During the Past 50 Years.”</span> <em>Nature</em> 488 (7409): 70–72. <a href="https://doi.org/10.1038/nature11299">https://doi.org/10.1038/nature11299</a>.
 </div>
 <div id="ref-canadell21ipcc" class="csl-entry" role="listitem">
 Canadell, J. G., P. M. S. Monteiro, M. H. Costa, L. Cotrim da Cunha, P. M. Cox, A. V. Eliseev, S. Henson, et al. 2021. <span>“Global Carbon and Other Biogeochemical Cycles and Feedbacks.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al., 673–816. Cambridge, United Kingdom; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.007">https://doi.org/10.1017/9781009157896.007</a>.
+</div>
+<div id="ref-cox13nat" class="csl-entry" role="listitem">
+Cox, Peter M., David Pearson, Ben B. Booth, Pierre Friedlingstein, Chris Huntingford, Chris D. Jones, and Catherine M. Luke. 2013. <span>“Sensitivity of Tropical Carbon to Climate Change Constrained by Carbon Dioxide Variability.”</span> <em>Nature</em> 494 (7437): 341–44. <a href="https://doi.org/10.1038/nature11882">https://doi.org/10.1038/nature11882</a>.
+</div>
+<div id="ref-elsig09nat" class="csl-entry" role="listitem">
+Elsig, Joachim, Jochen Schmitt, Daiana Leuenberger, Robert Schneider, Marc Eyer, Markus Leuenberger, Fortunat Joos, Hubertus Fischer, and Thomas F Stocker. 2009. <span>“Stable Isotope Constraints on <span>Holocene</span> Carbon Cycle Changes from an <span>Antarctic</span> Ice Core.”</span> <em>Nature</em> 461 (7263): 507–10. <a href="https://doi.org/10.1038/nature08393">https://doi.org/10.1038/nature08393</a>.
 </div>
 <div id="ref-falkowski00sci" class="csl-entry" role="listitem">
 Falkowski, P., R. J. Scholes, E. Boyle, J. Canadell, D. Canfield, J. Elser, N. Gruber, et al. 2000. <span>“The <span>Global</span> <span>Carbon</span> <span>Cycle</span>: <span>A</span> <span>Test</span> of <span>Our</span> <span>Knowledge</span> of <span>Earth</span> as a <span>System</span>.”</span> <em>Science</em> 290 (5490): 291–96. <a href="https://doi.org/10.1126/science.290.5490.291">https://doi.org/10.1126/science.290.5490.291</a>.
@@ -771,11 +885,35 @@ Falkowski, P., R. J. Scholes, E. Boyle, J. Canadell, D. Canfield, J. Elser, N. G
 <div id="ref-friedlingstein23essd" class="csl-entry" role="listitem">
 Friedlingstein, P., M. O’Sullivan, M. W. Jones, R. M. Andrew, D. C. E. Bakker, J. Hauck, P. Landschützer, et al. 2023. <span>“Global Carbon Budget 2023.”</span> <em>Earth System Science Data</em> 15 (12): 5301–69. <a href="https://doi.org/10.5194/essd-15-5301-2023">https://doi.org/10.5194/essd-15-5301-2023</a>.
 </div>
+<div id="ref-humphrey18nat" class="csl-entry" role="listitem">
+Humphrey, Vincent, Jakob Zscheischler, Philippe Ciais, Lukas Gudmundsson, Stephen Sitch, and Sonia I. Seneviratne. 2018. <span>“Sensitivity of Atmospheric <span>CO2</span> Growth Rate to Observed Changes in Terrestrial Water Storage.”</span> <em>Nature</em> 560 (7720): 628–31. <a href="https://doi.org/10.1038/s41586-018-0424-4">https://doi.org/10.1038/s41586-018-0424-4</a>.
+</div>
+<div id="ref-joosbruno98gbc" class="csl-entry" role="listitem">
+Joos, Fortunat, and Michele Bruno. 1998. <span>“Long-Term Variability of the Terrestrial and Oceanic Carbon Sinks and the Budgets of the Carbon Isotopes <span>13C</span> and <span>14C</span>.”</span> <em>Global Biogeochemical Cycles</em> 12 (2): 277–95. <a href="https://doi.org/10.1029/98GB00746">https://doi.org/10.1029/98GB00746</a>.
+</div>
 <div id="ref-keeling96nat" class="csl-entry" role="listitem">
 Keeling, Ralph F., Stephen C. Piper, and Martin Heimann. 1996. <span>“Global and Hemispheric <span>CO2</span> Sinks Deduced from Changes in Atmospheric <span>O2</span> Concentration.”</span> <em>Nature</em> 381 (6579): 218–21. <a href="https://doi.org/10.1038/381218a0">https://doi.org/10.1038/381218a0</a>.
 </div>
+<div id="ref-keenan23natcc" class="csl-entry" role="listitem">
+Keenan, T. F., X. Luo, B. D. Stocker, M. G. De Kauwe, B. E. Medlyn, I. C. Prentice, N. G. Smith, et al. 2023. <span>“A Constraint on Historic Growth in Global Photosynthesis Due to Rising <span>CO2</span>.”</span> <em>Nature Climate Change</em>, November, 1–6. <a href="https://doi.org/10.1038/s41558-023-01867-2">https://doi.org/10.1038/s41558-023-01867-2</a>.
+</div>
+<div id="ref-keenan18natcc" class="csl-entry" role="listitem">
+Keenan, T. F., and W. J. Riley. 2018. <span>“Greening of the Land Surface in the World’s Cold Regions Consistent with Recent Warming.”</span> <em>Nature Climate Change</em> 8 (9): 825–28. <a href="https://doi.org/10.1038/s41558-018-0258-y">https://doi.org/10.1038/s41558-018-0258-y</a>.
+</div>
+<div id="ref-keenan16natcomm" class="csl-entry" role="listitem">
+Keenan, Trevor F., I. Colin Prentice, Josep G. Canadell, Christopher A. Williams, Han Wang, Michael Raupach, and G. James Collatz. 2016. <span>“Recent Pause in the Growth Rate of Atmospheric <span>CO2</span> Due to Enhanced Terrestrial Carbon Uptake.”</span> <em>Nature Communications</em> 7 (1): 13428. <a href="https://doi.org/10.1038/ncomms13428">https://doi.org/10.1038/ncomms13428</a>.
+</div>
 <div id="ref-li22aas" class="csl-entry" role="listitem">
 Li, Changyu, Jianping Huang, Lei Ding, Yu Ren, Linli An, Xiaoyue Liu, and Jiping Huang. 2022. <span>“The <span>Variability</span> of <span>Air</span>-Sea <span>O2</span> <span>Flux</span> in <span>CMIP6</span>: <span>Implications</span> for <span>Estimating</span> <span>Terrestrial</span> and <span>Oceanic</span> <span>Carbon</span> <span>Sinks</span>.”</span> <em>Advances in Atmospheric Sciences</em> 39 (8): 1271–84. <a href="https://doi.org/10.1007/s00376-021-1273-x">https://doi.org/10.1007/s00376-021-1273-x</a>.
+</div>
+<div id="ref-pugh19pnas" class="csl-entry" role="listitem">
+Pugh, Thomas A. M., Mats Lindeskog, Benjamin Smith, Benjamin Poulter, Almut Arneth, Vanessa Haverd, and Leonardo Calle. 2019. <span>“Role of Forest Regrowth in Global Carbon Sink Dynamics.”</span> <em>Proceedings of the National Academy of Sciences</em> 116 (10): 4382–87. <a href="https://doi.org/10.1073/pnas.1810512116">https://doi.org/10.1073/pnas.1810512116</a>.
+</div>
+<div id="ref-ruehr23natree" class="csl-entry" role="listitem">
+Ruehr, Sophie, Trevor F. Keenan, Christopher Williams, Yu Zhou, Xinchen Lu, Ana Bastos, Josep G. Canadell, Iain Colin Prentice, Stephen Sitch, and César Terrer. 2023. <span>“Evidence and Attribution of the Enhanced Land Carbon Sink.”</span> <em>Nature Reviews Earth &amp; Environment</em> 4 (8): 518–34. <a href="https://doi.org/10.1038/s43017-023-00456-3">https://doi.org/10.1038/s43017-023-00456-3</a>.
+</div>
+<div id="ref-schimel15pnas" class="csl-entry" role="listitem">
+Schimel, David, Britton B. Stephens, and Joshua B. Fisher. 2015. <span>“Effect of Increasing <span>CO2</span> on the Terrestrial Carbon Cycle.”</span> <em>Proceedings of the National Academy of Sciences</em> 112 (2): 436–41. <a href="https://doi.org/10.1073/pnas.1407302112">https://doi.org/10.1073/pnas.1407302112</a>.
 </div>
 <div id="ref-shanahan15natgeo" class="csl-entry" role="listitem">
 Shanahan, Timothy M., Nicholas P. McKay, Konrad A. Hughen, Jonathan T. Overpeck, Bette Otto-Bliesner, Clifford W. Heil, John King, Christopher A. Scholz, and John Peck. 2015. <span>“The Time-Transgressive Termination of the <span>African</span> <span>Humid</span> <span>Period</span>.”</span> <em>Nature Geoscience</em> 8 (2): 140–44. <a href="https://doi.org/10.1038/ngeo2329">https://doi.org/10.1038/ngeo2329</a>.
@@ -783,7 +921,11 @@ Shanahan, Timothy M., Nicholas P. McKay, Konrad A. Hughen, Jonathan T. Overpeck,
 <div id="ref-sierra17gcb" class="csl-entry" role="listitem">
 Sierra, Carlos A., Markus Müller, Holger Metzler, Stefano Manzoni, and Susan E. Trumbore. 2017. <span>“The Muddle of Ages, Turnover, Transit, and Residence Times in the Carbon Cycle.”</span> <em>Global Change Biology</em> 23 (5): 1763–73. <a href="https://doi.org/10.1111/gcb.13556">https://doi.org/10.1111/gcb.13556</a>.
 </div>
+<div id="ref-walker21newphyt" class="csl-entry" role="listitem">
+Walker, Anthony P., Martin G. De Kauwe, Ana Bastos, Soumaya Belmecheri, Katerina Georgiou, Ralph F. Keeling, Sean M. McMahon, et al. 2021. <span>“Integrating the Evidence for a Terrestrial Carbon Sink Caused by Increasing Atmospheric <span>CO</span> <span class="math inline">\(_{\textrm{2}}\)</span>.”</span> <em>New Phytologist</em> 229 (5): 2413–45. <a href="https://doi.org/10.1111/nph.16866">https://doi.org/10.1111/nph.16866</a>.
 </div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
