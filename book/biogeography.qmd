@@ -11,7 +11,7 @@ We start with the observation that the global distribution of plants and charact
 knitr::include_graphics("images/humboldt_biogeography_small.png")
 ```
 
-## Biomes
+## Biomes {#sec-biomes}
 
 Today's geodata provides information on climate and vegetation properties with global coverage. This enables a global mapping of vegetation, filling in the blank spots between the local observations made by Alexander von Humboldt 200 years ago. Global patterns in the distribution of vegetation become apparent when grouping plants and *plant functional types* (see @sec-pfts) into *biomes* or broad vegetation classes. A global map of biomes following the definition and global delineation by @olson01biosci is given in @fig-biomes_sites_map. The exact delineation and naming of biomes varies between different sources, but the main distinctions are shared among all of them. 
 
