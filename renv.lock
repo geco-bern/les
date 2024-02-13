@@ -17,23 +17,6 @@
       "Hash": "3e0051431dff9acfe66c23765e55c556",
       "Requirements": []
     },
-    "GECOr": {
-      "Package": "GECOr",
-      "Version": "0.9",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "~/GECOr-stineb/",
-      "Hash": "5768ea522a35095adc618a8027286599",
-      "Requirements": [
-        "cowplot",
-        "dplyr",
-        "fs",
-        "raster",
-        "scico",
-        "terra",
-        "tidyr"
-      ]
-    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-22",
