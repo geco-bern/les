@@ -26,27 +26,35 @@ Of course, a relationship with biomass productivity, as observed by @monteith72 
 
 The linear dependence of GPP on PPFD implies that the variations of solar radiation over the seasons and across latitude directly translate to how GPP varies across these scales. This will be further described in @sec-global-patterns. Note that at shorter time scales, GPP is no longer linearly related to PAR.
 
-In the following, we delve deeper into each of the three factors of @eq-luemodel.
+In the following, we delve deeper into each of the three factors of @eq-luemodel. Brace yourself. This will take us from the Earth's orbit in space to the scale of a cell where photosynthetic CO~2~ assimilation happens.
 
 ### Solar radiation
 
-PPFD is a fraction of the solar radiation at the top of the atmosphere ($S_\mathrm{TOA}$). This fraction depends on the planetary albedo for visible light ($\alpha_v$, unitless), an atmospheric attenuation factor ($\tau$, unitless) that accounts for the elevation ($z$)-dependent path length of a light ray travelling through the atmosphere and a factor that accounts for cloud cover $f_c$. A further reduction by about 50% arises because photosynthesis uses only a range of the spectrum of wavelengths of solar radiation, corresponding to the visible light spectrum. The factor $f_{p}$ accounts for this and for the conversion of $S_\mathrm{TOA}$, expressed as an energy flux in W m^-2^, to a flux of photons in mol s^-1^ m^-2^.
+PPFD is a fraction of the solar radiation at the top of the atmosphere ($I_\mathrm{TOA}$). This fraction depends on the planetary albedo for visible light ($\alpha_v$, unitless), an atmospheric attenuation factor ($\tau$, unitless) that accounts for the elevation ($z$)-dependent path length of a light ray travelling through the atmosphere and a factor that accounts for cloud cover $f_c$. A further reduction by about 50% arises because photosynthesis uses only a range of the spectrum of wavelengths of solar radiation, corresponding to the visible light spectrum. The factor $f_{p}$ accounts for this and for the conversion of $I_\mathrm{TOA}$, expressed as an energy flux in W m^-2^, to a flux of photons in mol s^-1^ m^-2^.
 $$
-\mathrm{PPFD} = (1-\alpha_{v})\; \tau(z, f_c) \; f_{p}  \; S_\mathrm{TOA}
+\mathrm{PPFD} = (1-\alpha_{v})\; \tau(z, f_c) \; f_{p}  \; I_\mathrm{TOA}
 $$ {#eq-ppfd}
 
-Solar radiation across the full short-wave spectrum emitted by the sun and incident at the land surface (top-of-canopy, $S_\mathrm{in}$) is similarly related to $S_\mathrm{TOA}$. A different albedo applies for total short-wave radiation vs. the radiation in the photosynthetically active (and visible) spectrum. $S_\mathrm{in}$ is commonly expressed in energy units (W m^-2^).
+Solar radiation across the full short-wave spectrum emitted by the sun and incident at the land surface (top-of-canopy, $I_\mathrm{0}$) is similarly related to $I_\mathrm{TOA}$. A different albedo applies for total short-wave radiation vs. the radiation in the photosynthetically active (and visible) spectrum. $I_\mathrm{0}$ is commonly expressed in energy units (W m^-2^).
 $$
-S_\mathrm{in} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; S_\mathrm{TOA}
+I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 $$ {#eq-sin}
+
+```{r echo=FALSE}
+#| label: fig-solar_radiation
+#| fig-cap: "Map of solar radiation incident at the Earth surface, averaged over 1981-2010, based on @chelsa_bioclim. Figure from [https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png](https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png)."
+#| out-width: 80%
+knitr::include_graphics("images/solar_radiation_chelsa.png")
+```
+
 
 #### Solar geometry
 
-Let's first step outside the atmosphere and focus on the solar geometry to understand $S_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
+Let's first step outside the atmosphere and focus on the solar geometry to understand $I_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
 
-$S_\mathrm{TOA}$ scales in proportion with the solar constant $S_c$ (1360.8 W m^-2^) and is inversely proportional to the square of the distance between the Earth and the sun ($r_E$). 
+$I_\mathrm{TOA}$ scales in proportion with the solar constant $I_S$ (1360.8 W m^-2^) and is inversely proportional to the square of the distance between the Earth and the sun ($r_E$). 
 $$
-S_\mathrm{TOA} = S_c r_E^{-2} \cos \theta_z
+I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
 $$ {#eq-s-toa}
 $\theta_z$ is the solar zenith angle. The term $\cos \theta_z$ accounts for the dependence of the solar radiation on the angle at which the sun's rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with *hour-of-day*) and over the course of a year (with *day-of-year*). The zenith angle is zero when the sun is directly above the observer - in the zenith (@fig-solar_geometry). At this point, the intensity of the solar radiation is at its maximum.
 
@@ -239,7 +247,7 @@ df |>
   scale_fill_viridis_c(option = "magma") +
   coord_fixed(ratio = 1.2) +
   labs(title = "Top-of-atmosphere solar radiation",
-       subtitle = "Daily total",
+       subtitle = "Daily total, year 2000",
        x = "Day of year",
        y = "Latitude (°N)",
        fill = expression(paste("J m"^-2))) +
@@ -249,7 +257,7 @@ df |>
 
 The diurnal (over the course of a day) and seasonal patterns in top-of-atmosphere solar radiation, following from solar geometry and expressed through @eq-solar-zenith-angle, have direct consequences for CO~2~ uptake patterns, as expressed through @eq-luemodel, @eq-ppfd, and @eq-s-toa and described further in @sec-global-patterns. 
 
-Some features are particularly noteworthy about the patterns in $S_\mathrm{TOA}$:
+Some features are particularly noteworthy about the patterns in $I_\mathrm{TOA}$:
 
 - The diurnal variation of the instantaneous flux is largest in the tropics.
 - The seasonal variation of the daily total flux is largest at the north pole.
@@ -265,7 +273,7 @@ The biology of plants is attuned to the solar radiation patterns across differen
 
 *Solar irradiance*  
 
-The solar constant $S_c$ isn't actually constant but varies on the order of 0.1% of the course of a *solar cycle*. One cycle is approximately 11 years. The cyclic behavior is related to the periodic flip of the sun's magnetic field and the number of sunspots. The radiation emitted from the sun and the number of sunspots are at their minimum after a magnetic flip. There is also a small long-term trend in the solar radiation, having increased by <0.1% since the Maunder Minimum (1645–1715). Solar irradiance is measured at high altitude to minimize the influence of the atmosphere ($\tau$ in Eq. @eq-ppfd) and get information about how $S_c$ varies. Reconstructions of solar irradiance changes for the pre-instrumental period are based on the relationship between $S_c$ and the (easily observable) sunspot number. Variations in $S_c$ are small and do not have a dominant effect on climate and the carbon cycle that would override other forcings, especially for the industrial period [@IPCC_2021_WGI_SPM].
+The solar constant $I_S$ isn't actually constant but varies on the order of 0.1% of the course of a *solar cycle*. One cycle is approximately 11 years. The cyclic behavior is related to the periodic flip of the sun's magnetic field and the number of sunspots. The radiation emitted from the sun and the number of sunspots are at their minimum after a magnetic flip. There is also a small long-term trend in the solar radiation, having increased by <0.1% since the Maunder Minimum (1645–1715). Solar irradiance is measured at high altitude to minimize the influence of the atmosphere ($\tau$ in Eq. @eq-ppfd) and get information about how $I_S$ varies. Reconstructions of solar irradiance changes for the pre-instrumental period are based on the relationship between $I_S$ and the (easily observable) sunspot number. Variations in $I_S$ are small and do not have a dominant effect on climate and the carbon cycle that would override other forcings, especially for the industrial period [@IPCC_2021_WGI_SPM].
 
 *Volcanic activity*
 
@@ -273,15 +281,56 @@ Volcanic eruptions can influence the solar radiation at the Earth surface. Event
 
 *Orbital parameters*
 
-The largest changes in PPFD and $S_\mathrm{in}$ arise over millennial time scales and are related to variations in Earth's orbit around the sun (which directly affect $S_\mathrm{TOA}$). These *Milankovic cycles* are the trigger for the large climate swings between ice ages and warm periods over the course of ~100,000 years. Variations in the orbital parameters affect the latitudinal and seasonal distribution of $S_\mathrm{TOA}$. Orbital parameters that vary cyclically are:
+The largest changes in $I_\mathrm{TOA}$ arise over millennial time scales and are related to variations in Earth's orbit around the sun. These *Milankovic cycles* are the trigger for the large climate swings between ice ages and warm periods over the course of ~100,000 years. Variations in the orbital parameters affect the latitudinal and seasonal distribution of $I_\mathrm{TOA}$. Orbital parameters that vary periodically are:
 
-- The *eccentricity* of the Earth's elliptical orbit which affects the distance between the Earth and the sun, affecting $S_\mathrm{TOA}$ via $r_E$ in @eq-s-toa. It varies with a period of approximately 100,000 years.
-- The *obliquity* - the tilt of the axis of the Earth's own rotation relative to the plane in which the Earth rotates around the sun. A greater obliquity amplifies seasonal variations in $S_\mathrm{TOA}$. The obliquity is currently at 23.44°. At its minimum, it's at 21.1°. Obliquity varies over 41,000 years.
+- The *eccentricity* of the Earth's elliptical orbit which affects the distance between the Earth and the sun, affecting $I_\mathrm{TOA}$ via $r_E$ in @eq-s-toa. It varies with a period of approximately 100,000 years.
+- The *obliquity* - the tilt of the axis of the Earth's own rotation relative to the plane in which the Earth rotates around the sun. A greater obliquity amplifies seasonal variations in $I_\mathrm{TOA}$. The obliquity is currently at 23.44°. At its minimum, it's at 21.1°. Obliquity varies over 41,000 years.
 - The *precession* is the rotation of the Earth's own rotation axis itself. The effect of precession, in combination with the fact that the Earth's orbit is elliptical, is that the variation of the sun-Earth distance shifts over the seasons. It varies with a period of about 25,700 years.
 
 The point of minimal distance coinciding with the summer solstice leads to the largest mid-summer radiation maximum. As a result, the incident solar radiation over the northern-hemispheric summer at 65°N varied by about 83 W m^-2^ during the past million years. These changes are much larger than the ones driven by solar irradiance and volcanic activity. 
 
-About 7000 years ago, during the *Mid-Holocene Warm Period*, a summer maximum insolation for the northern hemisphere was reached. During this period, temperatures and solar irradiance, especially during the growing season, were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimony to this change are reconstructions that document a "Green Sahara" and a northward shift of the boreal treeline (the margin between the boreal forest and the tundra biomes, @sec-biomes) during this period.
+About 6000 years ago, during the *Mid-Holocene Warm Period*, a summer maximum insolation for the northern hemisphere was reached (@fig-stoa_hovmoeller_holo). During this period, temperatures and solar irradiance during the growing season were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimony to this change are reconstructions that document a "Green Sahara" and a northward shift temperate and boreal forest biomes [@macdonald00qr; @prentice00biome] during this period.
+
+```{r}
+#| code-fold: true
+#| label: fig-stoa_hovmoeller_holo
+#| fig-cap: "Mid-Holocene solar radiation anomaly, calculated as the difference in the daily total top-of-atmosphere solar radiation at 6 kyr BP minus present-day (year 2000)."
+#| out-width: 80%
+
+# test:
+# tmp <- purrr::map(seq(from = -300000, to = 2000, by = 500),
+#                   ~calc_daily_solar(65, 173, year = .)) |> 
+#   purrr::map_dbl("ra_j.m2")
+
+# all combinations of day-of-year and latitude
+df_holo <- expand.grid(
+  doy = seq(1, 365, by = 2), 
+  lat = seq(-90, 90, by = 2)
+  ) |> 
+  rowwise() |> 
+  mutate(s_toa_holo = calc_daily_solar(lat, doy, year = -4000)$ra_j.m2) |> 
+  left_join(
+    df,
+    by = c("doy", "lat")
+  ) |> 
+  mutate(diff = (s_toa_holo - s_toa))
+
+df_holo |>
+  ggplot(aes(x = doy,
+             y = lat,
+             fill = diff)) +
+  geom_raster() +
+  khroma::scale_fill_roma(reverse = TRUE) +
+  geom_vline(xintercept = 173, linetype = "dotted") +
+  coord_fixed(ratio = 1.2) +
+  labs(title = "Mid-Holocene top-of-atmosphere solar radiation anomaly",
+       subtitle = expression(paste("Daily total, ", italic(I)[TOA], "(6 kyr BP) - ", italic(I)[TOA], "(present)" )),
+       x = "Day of year",
+       y = "Latitude (°N)",
+       fill = expression(paste("J m"^-2))) +
+  scale_x_continuous(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0))
+```
 
 
 <!-- XXX exercise for LES II: -->
@@ -294,18 +343,250 @@ About 7000 years ago, during the *Mid-Holocene Warm Period*, a summer maximum in
 
 ### Canopy light absorption {#sec-light-absorption}
 
-- Light absorption, direct vs diffuse light
-- LAI, Beer-Lambert Law
+The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers. While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
 
-### Light use efficiency
+While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. Each of these processes affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
+
+In brief, canopy *radiative transfer* is complex. A simple model of radiation extinction is given by the *Beer-Lambert law*. To apply it for radiative transfer in the canopy, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
+$$
+\frac{\mathrm{d}I}{\mathrm{d}z} = -\mu\;I(z)
+$$
+We further assume that the canopy is a homogenous turbid medium. In other words, we assume that leaves are uniformly distributed across the canopy and that the optical density is given by the leaf area index $L$ divided by the total canopy depth $z_0$:
+$$
+\mu = k \frac{L}{z_0}
+$$
+$k$ is the leaf area-specific optical density, or *light extinction coefficient*. Therefore, the radiation intensity at the bottom of the canopy ($z_0$) is:
+$$
+I(z_0) = I_0 \; e^{-kL}\;,
+$$
+and the fraction of absorbed (photosynthetically active) radiation is
+$$
+\mathrm{fAPAR} = 1 - e^{-kL}\;.
+$$
+A typical value of the light extinction coefficient $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
+
+The radiation $I$ consists of *direct* radiation from the sun and *diffuse* radiation from the sky and from radiation scattered within the canopy. This distinction is relevant for understanding radiation absorption by the canopy and canopy-level photosynthesis. Two important implications are the following. First, diffuse radiation is more effectively absorbed by canopies, particularly at low LAI. The reduction of GPP under cloudy conditions is therefore less than what would be expected from considering only changes in $I_0$ (the effective $k$ is higher for diffuse radiation than for direct radiation). 
+
+Second, the energy flux of direct radiation is much higher than that of diffuse radiation. Although at greater canopy depths, leaves are more frequently exposed to diffuse than to direct radiation, the latter provides potentially valuable energy for photosynthesis, but occurs very rarely (*sunflecks*). Leaves have to balance the rare high-intensity light levels and the frequent low-intensity levels for adjusting photosynthetic capacities.
+
+<!-- XXX to add: -->
+<!-- - box for Mercado et al. paper on volcanic eruption and the land C sink -->
+
+### Light use efficiency and photosynthesis
+
+The effiency at which absorbed photons (radiation) are converted into C in the form of sugars depends on the conductance to CO~2~ uptake by the leaf and on the activity of the photosynthetic machinery. CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
+$$
+A = g_s(c_a - c_i)
+$$ {#eq-photo-fick}
+$c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO~2~ concentration at the chloroplast. $g_s$ is the stomatal conductance. Note that we use the variable name $A$ here for CO~2~ assimilation by photosynthesis. In constrast to the ecosystem-level variable GPP, $A$ refers to the leaf-level flux.
+
+```{r echo=FALSE}
+#| label: fig-stomata
+#| fig-cap: "CO~2~ diffuses into the leaf through stomata, while water vapour diffuses out of the leaf. The water vapour diffusion out of the leaves (transpiration) is introduced in @sec-landclimate."
+#| out-width: 80%
+knitr::include_graphics("images/stomata.png")
+```
+
+Photosynthetic CO~2~ assimilation leads to a continous depletion of CO~2~ inside the leaf. Therefore, $c_i$ reflects photosynthetic rates. This description of $A$ is specific for plants that follow the C~3~ photosynthetic pathway - the majority of plants and all trees. Grasses growing in warm climates predominantly follow the C~4~ photosynthetic pathway (see @sec-c4). 
+
+Modelling photosynthesis is relatively complex because $g_s$ depends on $A$. @eq-photo-fick can therefore not be solved in a straight-forward manner. Furthermore, plants coordinate stomatal conductance to balance water losses and C assimilation but the exact relationship varies between species and depends on a multitude of mechanisms and traits related water transport in the plant (@sec-stomatal-regulation). Here, let's start by taking $g_s$ as given and look at how the assimilation rate $A$ depends on $c_i$.
+
+The primary processes are happening in the chloroplasts which are located in the mesophyll cells of leaves. After diffusing across stomata, CO~2~ diffuses across the mesophyll cell to the chloroplast. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration at the chloroplast.
+
+Before returning to a mathematical description of photosynthesis, let's step back and look at the process of leaf-level photosyntheis. Three steps of the photosynthetic apparatus can be distinguished (based on @lambers08 and @bonan).
+
+```{r echo=FALSE}
+#| label: fig-photosynthesis
+#| fig-cap: "Overview of photosynthesis, distinguishing the light reactions and the Calvin cycle. Image taken [https://bookdown.org/jcog196013/BS2003/photosynthesis.html](https://bookdown.org/jcog196013/BS2003/photosynthesis.html)."
+#| out-width: 60%
+knitr::include_graphics("images/photosynthesis.png")
+```
+
+#### Light absorption at the cellular level
+
+Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-ppfd is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
+
+#### Light reactions
+
+In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
+
+#### Calvin cycle
+
+NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, around 30-50 ppm, the *photorespiratory compensation point* is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
+
+Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C*.
+
+#### Summary
+
+The chemical summary equation of photosynthesis is:
+$$
+n\mathrm{CO}_2 + 2n\mathrm{H}_2\mathrm{O} \rightarrow (\mathrm{CH}_2\mathrm{O})_n + n\mathrm{O}_2 + n\mathrm{H}_2\mathrm{O}
+$$ {#eq-photosynthesis-chemical}
+A total of eight photons is consumed to assimilate one molecule of CO~2~. For each molecule of CO~2~, one molecule of O~2~ is produced. And for each molecule of CO~2~, one molecule of H~2~O is consumed (net). Note however, that this water consumption is not the primary reason for why plants use water. A much larger amount of water is consumed by the diffusion of water vapour from the water-saturated air inside the leaves out of the stomata. This *transpiration* flux is further explained in @sec-landclimate.
+
+#### Response to light and CO~2~
+
+The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates are coordinated such that they are roughly co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
+
+The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, are limiting, not CO~2~. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{max}$.
+
+The level at which the light response of $A$ saturates varies within a species and across different species. Variations within species arise through the *acclimation* of the light reaction capacities to the typical light intensities to which a leaf is exposed. Acclimation evolves over time scales of weeks to months (Thus, your indoor plant suffers because the change to high-light conditions happened to fast.). $A_\mathrm{max}$ also varies across species, reflecting the *adaptation* through evolution of different species to the environment in which they commonly grow. Typical difference in light adaptation are evident between plants that grow in the shady understorey versus plants that grow in the sun-exposed upper canopy.
+
+```{r echo=FALSE}
+#| label: fig-photosynthesis_light
+#| fig-cap: "Response of leaf photosynthesis to light and how it varies within species through acclimation to different growth environments (A) and across species through evolutionary adaptation (B). Figure from @lambers08."
+#| out-width: 80%
+knitr::include_graphics("images/assim_response_to_light_lambers08.png")
+```
+
+In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve". Commonly, net assimilation $A_n=A-R_d$ is considered. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco ($V_\mathrm{cmax}$). This functional response of assimilation is commonly denoted $A_C$. As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
+$$
+A_n = \min(A_C, A_J) - R_d
+$$
+
+The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals multiple quantities ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $\Gamma^\ast$, and the "shape parameters" of $A_C$ and $A_J$). These quantities are key for quantitatively describing and modeling leaf photosynthesis. The acclimation and adaptation of $A_\mathrm{max}$ (@fig-photosynthesis_light) reflects an acclimation and adaptation of the electron transport capacity and the capacity for RuBP carboxylation. Although acclimation can occur, it is not fast enough to respond to the strongly varying light conditions during a day. Therefore, plants have to tune the capacities of the different photosynthetic reactions such that they are mostly near the co-limitation point.
+
+```{r echo=FALSE}
+#| label: fig-a-ci-curve
+#| fig-cap: "The *A*-*c*~i~ curve. Net assimilation (*A*~n~ = *A* - *R*~d~) is measured for different levels of leaf-internal CO~2~ concentrations (black dots). The functional forms of *A*~C~ and *A*~J~ are fitted to the data points. The grey point indicates the co-limitation point. Figure from @duursma15plosone."
+#| out-width: 60%
+knitr::include_graphics("images/a_ci_curve.png")
+```
 
 ### Farquhar-von Caemmerer-Berry model
 
+Following the Farquhar-von Caemmerer-Berry model for C~3~ photosynthesis [@farquhar80], the RuBP carboxylation-limited assimilation rate $A_C$ can be described as
+$$
+A_C = V_\mathrm{cmax} \frac{c_i - \Gamma^\ast}{c_i + K} \;,
+$$ {#eq-ac}
+where $K$ is the effective Michaelis-Menten coefficient for $A_C$. It depends, i.a., on the partial pressure of oxygen.
+
+The electron transport-limited assimilation rate $A_J$ can be described as
+$$
+A_J = \frac{J}{4} \cdot \frac{c_i - \Gamma^\ast}{c_i + 2 \Gamma^\ast}
+$$ {#eq-aj}
+The electron transport rate $J$ is described by a saturating function that increases with absorbed light $I_\mathrm{abs}$ up to a maximum rate $J_\mathrm{max}$
+$$
+J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{abs}}{J_\mathrm{max}}\right)^2}}
+$$ {#eq-jmaxlim}
+Note that the "photosynthesis parameters" $V_\mathrm{cmax}$, $J_\mathrm{max}$, $\Gamma^\ast$, and $K$ have a strong temperature dependency. The latter two also depend on the partial pressure of O~2~ and therefore on the atmospheric pressure. These dependencies are described in @stocker20gmd. 
+
+```{r warning=FALSE}
+#| code-fold: true
+#| label: fig-a-ci-curve-rpmodel
+#| fig-cap: "The *A*-*c*~i~ curve."
+#| out-width: 60%
+
+library(rpmodel)
+library(dplyr)
+
+# modified seq() function to get a logarithmically spaced sequence
+lseq <- function(from=1, to=100000, length.out=6) {
+  exp(seq(log(from), log(to), length.out = length.out))
+}
+
+# Set model parameters (constants)
+# see Stocker et al., 2020 GMD for a description
+beta <- 146          # unit cost ratio a/b
+c_cost <- 0.41       # marginal cost of Jmax
+gamma <- 0.105       # unit cost ratio c/b
+kphio <- 0.085       # quantum yield efficiency
+c_molmass <- 12.0107 # molar mass, g / mol
+
+# Define environmental conditions
+tc <- 20             # temperature, deg C
+ppfd <- 100/(24*60*60)*1e6 # mol/m2/d
+vpd  <- 1000         # Pa
+co2  <- 400          # ppm
+elv  <- 0            # m.a.s.l.
+fapar <- 1           # fraction
+patm <- 101325       # Pa
+
+# get photosynthesis parameters gammastar, vcmax, jmax from p-model
+# this assumes vcmax and jmax to be optimally acclimated/adapted to
+# the specified environmental conditions and considers the temperature
+# and atmospheric-pressure dependence of all parameters.
+out_pmodel <- rpmodel(
+  tc             = tc,
+  vpd            = vpd,
+  co2            = co2,
+  elv            = elv,
+  kphio          = kphio,
+  beta           = beta,
+  fapar          = fapar,
+  ppfd           = ppfd,
+  method_optci   = "prentice14",
+  method_jmaxlim = "none",
+  do_ftemp_kphio = FALSE
+  )
+
+# electron transport-limited assimilation rate as a function of CO2 partial pressure
+calc_aj <- function(ci, gammastar, kphio, ppfd){
+  kphio * ppfd * (ci - gammastar)/(ci + 2 * gammastar)
+}
+
+# RuBP carboxylation-limited assimilation rate as a function of CO2 partial pressure
+calc_ac <- function(ci, gammastar, kmm, vcmax){
+  vcmax * (ci - gammastar)/(ci + kmm)
+}
+
+# assimilation rate given stomatal conductance and leaf-internal 
+# CO2 partial pressure
+calc_a_gs <- function(ci, gs, ca){
+  gs * (ca - ci)
+}
+
+# conversion of CO2 concentration in ppm to partial pressure in Pa
+co2_to_ca <- function( co2, patm ){
+  ( 1.0e-6 ) * co2 * patm
+}
+
+df_ci <- tibble(
+  ci = seq(0, 1000, length.out = 100)) |> 
+  rowwise() |> 
+  mutate(ci_pa = co2_to_ca(ci, patm = patm)) |> 
+  mutate(a_j = calc_aj(ci_pa, out_pmodel$gammastar, kphio = kphio, ppfd = ppfd)) |> 
+  mutate(a_c = calc_ac(ci_pa, out_pmodel$gammastar, out_pmodel$kmm, vcmax = out_pmodel$vcmax)) |> 
+  mutate(a_act = min(a_j, a_c)) |> 
+  mutate(a_gs = calc_a_gs(ci_pa, gs = out_pmodel$gs, ca = out_pmodel$ca))
+  
+df_ci |> 
+  pivot_longer(cols = c(a_j, a_c, a_gs), names_to = "Rate", values_to = "a_") |>
+  # pivot_longer(cols = c(a_j, a_c), names_to = "Rate", values_to = "a_") |> 
+  ggplot(aes(x = ci)) +
+  geom_line(aes(y = a_, color = Rate)) +
+  geom_line(aes(y = a_act)) +
+  # geom_line(aes(y = a_gs), linetype = "dashed") +
+  xlim(50, 1000) + 
+  ylim(-20, NA) +
+  labs(x = expression(paste("c"[i], " (ppm)")), 
+       y = expression(paste("A (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
+  scale_color_discrete(
+    name = "Rate", 
+    breaks = c("a_gs", 
+               "a_j", 
+               "a_c"),
+    labels = c(expression(paste("A"[gs])), 
+               expression(paste("A"[J])), 
+               expression(paste("A"[C])))
+    ) +
+  theme_classic()
+```
+
 - C3 photosynthesis, Farquhar model, A-ci curve
     - Photosynthesis is not saturated at current levels
+
+
+#### Response to temperature
+
+All parameters fitted by the *A*-*c*~i~ curve (@fig-a-ci-curve) have a temperature dependency. 
+
+
 - C4 photosynthesis
     
-### Stomatal conductance
+### Stomatal regulation {#sec-stomatal-regulation}
+
+### C~4~ photosynthesis {#sec-c4}
 
 ### Isotopic fractionation
 
