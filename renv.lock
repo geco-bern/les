@@ -370,22 +370,6 @@
       "Hash": "47b5f30c720c23999b913a1a635cf0bb",
       "Requirements": []
     },
-    "fuzzyjoin": {
-      "Package": "fuzzyjoin",
-      "Version": "0.1.6",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "24af5fc67dbeaac6d776a8e6630aacd9",
-      "Requirements": [
-        "dplyr",
-        "geosphere",
-        "purrr",
-        "stringdist",
-        "stringr",
-        "tibble",
-        "tidyr"
-      ]
-    },
     "generics": {
       "Package": "generics",
       "Version": "0.1.3",
@@ -416,17 +400,6 @@
       "Hash": "122e8341ead01f3746dd312ecc5ffd28",
       "Requirements": [
         "Rcpp"
-      ]
-    },
-    "geosphere": {
-      "Package": "geosphere",
-      "Version": "1.5-18",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "45aa4def70a402e7d20efde490c13ecb",
-      "Requirements": [
-        "Rcpp",
-        "sp"
       ]
     },
     "ggplot2": {
@@ -1223,14 +1196,6 @@
       "Requirements": [
         "lattice"
       ]
-    },
-    "stringdist": {
-      "Package": "stringdist",
-      "Version": "0.9.12",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "f360720fa3feb7db9d4133b31ebb067f",
-      "Requirements": []
     },
     "stringi": {
       "Package": "stringi",
