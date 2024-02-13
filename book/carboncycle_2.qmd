@@ -455,7 +455,7 @@ knitr::include_graphics("images/a_ci_curve.png")
 
 ### Farquhar-von Caemmerer-Berry model
 
-Following the Farquhar-von Caemmerer-Berry model for C~3~ photosynthesis [@farquhar80], the RuBP carboxylation-limited assimilation rate $A_C$ can be described as
+Following the Farquhar-von Caemmerer-Berry (FvCB) model for C~3~ photosynthesis [@farquhar80], the RuBP carboxylation-limited assimilation rate $A_C$ can be described as
 $$
 A_C = V_\mathrm{cmax} \frac{c_i - \Gamma^\ast}{c_i + K} \;,
 $$ {#eq-ac}
@@ -475,7 +475,7 @@ Note that the "photosynthesis parameters" $V_\mathrm{cmax}$, $J_\mathrm{max}$, $
 #| code-fold: true
 #| label: fig-a-ci-curve-rpmodel
 #| fig-cap: "The *A*-*c*~i~ curve."
-#| out-width: 60%
+#| out-width: 80%
 
 library(rpmodel)
 library(dplyr)
@@ -494,9 +494,9 @@ kphio <- 0.085       # quantum yield efficiency
 c_molmass <- 12.0107 # molar mass, g / mol
 
 # Define environmental conditions
-tc <- 20             # temperature, deg C
-ppfd <- 100/(24*60*60)*1e6 # mol/m2/d
-vpd  <- 1000         # Pa
+tc <- 15             # temperature, deg C
+ppfd <- 500          # micro-mol/m2/s
+vpd  <- 300          # Pa
 co2  <- 400          # ppm
 elv  <- 0            # m.a.s.l.
 fapar <- 1           # fraction
@@ -516,13 +516,13 @@ out_pmodel <- rpmodel(
   fapar          = fapar,
   ppfd           = ppfd,
   method_optci   = "prentice14",
-  method_jmaxlim = "none",
+  method_jmaxlim = "wang17",
   do_ftemp_kphio = FALSE
   )
 
 # electron transport-limited assimilation rate as a function of CO2 partial pressure
-calc_aj <- function(ci, gammastar, kphio, ppfd){
-  kphio * ppfd * (ci - gammastar)/(ci + 2 * gammastar)
+calc_aj <- function(ci, gammastar, kphio, ppfd, jmax){
+  kphio * ppfd * (ci - gammastar)/(ci + 2 * gammastar) * 1/sqrt(1+((4 * kphio * ppfd)/jmax)^2)
 }
 
 # RuBP carboxylation-limited assimilation rate as a function of CO2 partial pressure
@@ -545,8 +545,15 @@ df_ci <- tibble(
   ci = seq(0, 1000, length.out = 100)) |> 
   rowwise() |> 
   mutate(ci_pa = co2_to_ca(ci, patm = patm)) |> 
-  mutate(a_j = calc_aj(ci_pa, out_pmodel$gammastar, kphio = kphio, ppfd = ppfd)) |> 
-  mutate(a_c = calc_ac(ci_pa, out_pmodel$gammastar, out_pmodel$kmm, vcmax = out_pmodel$vcmax)) |> 
+  mutate(a_j = calc_aj(ci_pa, 
+                       out_pmodel$gammastar, 
+                       kphio = kphio, 
+                       ppfd = ppfd, 
+                       jmax = out_pmodel$jmax)) |> 
+  mutate(a_c = calc_ac(ci_pa, 
+                       out_pmodel$gammastar, 
+                       out_pmodel$kmm, 
+                       vcmax = out_pmodel$vcmax)) |>
   mutate(a_act = min(a_j, a_c)) |> 
   mutate(a_gs = calc_a_gs(ci_pa, gs = out_pmodel$gs, ca = out_pmodel$ca))
   
@@ -557,30 +564,109 @@ df_ci |>
   geom_line(aes(y = a_, color = Rate)) +
   geom_line(aes(y = a_act)) +
   # geom_line(aes(y = a_gs), linetype = "dashed") +
-  xlim(50, 1000) + 
-  ylim(-20, NA) +
+  xlim(00, 1000) + 
+  ylim(-20, 80) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
   labs(x = expression(paste("c"[i], " (ppm)")), 
        y = expression(paste("A (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
-  scale_color_discrete(
-    name = "Rate", 
-    breaks = c("a_gs", 
-               "a_j", 
-               "a_c"),
-    labels = c(expression(paste("A"[gs])), 
-               expression(paste("A"[J])), 
-               expression(paste("A"[C])))
-    ) +
+  scale_color_manual(
+    name = "",
+    breaks = c("a_gs",
+               "a_j",
+               "a_c"
+               ),
+    labels = c(expression(paste(italic("A")[gs])),
+               expression(paste(italic("A")[J])),
+               expression(paste(italic("A")[C]))),
+    values = c( "#009E73", "#56B4E9", "#E69F00")) +
   theme_classic()
 ```
-
-- C3 photosynthesis, Farquhar model, A-ci curve
-    - Photosynthesis is not saturated at current levels
-
 
 #### Response to temperature
 
 All parameters fitted by the *A*-*c*~i~ curve (@fig-a-ci-curve) have a temperature dependency. 
 
+```{r}
+#| code-fold: true
+#| label: fig-temp_dep
+#| fig-cap: "Temperature dependencies of parameters in the FvCB model."
+#| out-width: 80%
+
+df_temp <- tibble(
+  temp = seq(0, 40, length.out = 100)) |> 
+  rowwise() |> 
+  mutate(gammastar = gammastar(temp, patm = 101325),
+         kmm = kmm(temp, patm = 101325),
+         vcmax = out_pmodel$vcmax25 * ftemp_inst_vcmax(temp, tcgrowth = 15),
+         jmax = 1.7 * out_pmodel$vcmax25 * ftemp_inst_jmax(temp, tcgrowth = 15),
+         rd = 0.05 * out_pmodel$vcmax25 * ftemp_inst_rd(temp)
+         ) |> 
+  mutate(a_j = calc_aj(28.14209, gammastar, kphio = kphio, ppfd = ppfd, jmax = jmax) - rd) |> 
+  mutate(a_c = calc_ac(28.14209, gammastar, kmm, vcmax = vcmax) - rd) |> 
+  mutate(assim = min(a_j, a_c))
+
+gg1 <- df_temp |> 
+  pivot_longer(cols = c(gammastar, kmm), 
+               names_to = "Rate", 
+               values_to = "value") |>
+  ggplot(aes(x = temp)) +
+  geom_line(aes(y = value, color = Rate)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  labs(x = expression(paste("Temperature (°C)")), 
+       y = expression(paste("Value (Pa)"))) +
+  khroma::scale_color_okabeito(
+    name = "", 
+    breaks = c("gammastar", 
+               "kmm"),
+    labels = c(expression(paste(italic(Gamma)^"*")), 
+               expression(italic(K)))
+    ) +
+  theme_classic()
+
+gg2 <- df_temp |> 
+  pivot_longer(cols = c(vcmax, jmax, rd), 
+               names_to = "Rate", 
+               values_to = "value") |>
+  ggplot(aes(x = temp)) +
+  geom_line(aes(y = value, color = Rate)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  labs(x = expression(paste("Temperature (°C)")), 
+       y = expression(paste("Rate (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
+  khroma::scale_color_okabeito(
+    name = "", 
+    breaks = c("vcmax", 
+               "jmax", 
+               "rd"),
+    labels = c(expression(paste(italic("V")[cmax])), 
+               expression(paste(italic("J")[max])), 
+               expression(paste(italic("R")[d])))
+    ) +
+  theme_classic()
+
+gg3 <- df_temp |> 
+  pivot_longer(cols = c(assim, a_c, a_j), 
+               names_to = "Rate", 
+               values_to = "value") |>
+  ggplot(aes(x = temp)) +
+  geom_line(aes(y = value, color = Rate)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  labs(x = expression(paste("Temperature (°C)")), 
+       y = expression(paste(italic("A"), "(", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
+  scale_color_manual(
+    name = "",
+    breaks = c("a_c",
+               "a_j",
+               "assim"
+               ),
+    labels = c(expression(paste(italic("A")[C])),
+               expression(paste(italic("A")[J])),
+               expression(paste(italic("A")))),
+    values = c("#E69F00", "#56B4E9", "black")
+  ) +
+  theme_classic()
+
+cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
+```
 
 - C4 photosynthesis
     
