@@ -8,19 +8,17 @@ format:
     fig-height: 5
 ---
 
-# Gross primary production and solar radiation {#sec-carboncycle_2}
+# Gross primary production and solar radiation {#sec-gpp}
 
-In @sec-carboncycle_1, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean), emissions as fluxes into the system (added to the atmosphere). and fluxes between the pools. The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In this chapter, we are un-boxing this model to better understand the input flux through photosynthesis in @sec-photosynthesis and the C dynamics and fluxes at the level of an ecosystem in @sec-carboncycle_ecosystem. This un-boxing is essential for understanding global patterns in @sec-global-patterns.
+In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean), emissions as fluxes into the system (added to the atmosphere), and fluxes between the pools. The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In this chapter, we dive deeper into the processes that drive photosynthetic carbon uptake by land ecosystems.
 
-## Photosynthesis {#sec-photosynthesis}
-
-### Light use efficiency model
+## Light use efficiency model
 
 @monteith72 made the observation that the biomass productivity of a given (well-watered) crop (in the tropics) scales linearly with the amount of absorbed solar radiation, integrated over weeks to months. This observation underlies the general light use efficiency (LUE) model which describes ecosystem-level apparent photosynthesis (referred to as *gross primary production*, GPP) as the photosynthetic photon flux density (PPFD) and the efficiency at which photons are used for assimilating C (LUE). 
 $$
 \mathrm{GPP} = \mathrm{PPFD} \cdot \mathrm{fAPAR} \cdot \mathrm{LUE}
 $$ {#eq-luemodel}
-PPFD is the same as the also commonly used photosynthetically active radiation (PAR), but is expressed in moles of photons instead of energy units.
+PPFD is the same as the also commonly used photosynthetically active (solar) radiation (PAR), but is expressed in moles of photons instead of energy units.
 
 Of course, a relationship with biomass productivity, as observed by @monteith72 should not be equated with a relationship with GPP. However, again, over longer periods of time, a given plant converts assimilated carbon into biomass at a relatively constant rate (see @sec-npp). Therefore, the observation by @monteith72 is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of @eq-luemodel and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by @monteith72 were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are - for now - ignoring the effects by limited root-zone water availability. We will relieve this simplification in @sec-landclimate and @sec-ecohydrology.
 
@@ -28,7 +26,9 @@ The linear dependence of GPP on PPFD implies that the variations of solar radiat
 
 In the following, we delve deeper into each of the three factors of @eq-luemodel. Brace yourself. This will take us from the Earth's orbit in space to the scale of a cell where photosynthetic CO~2~ assimilation happens.
 
-### Solar radiation
+## Solar radiation
+
+Through its influence on GPP, as described by @eq-luemodel, solar radiation the "engine" of CO~2~ uptake by the terrestrial ecosystems through photosynthesis. Temporal and spatial patterns of GPP are strongly driven by patterns in solar radiation. In this subsection, the processes are introduced which are responsible for these patterns.
 
 PPFD is a fraction of the solar radiation at the top of the atmosphere ($I_\mathrm{TOA}$). This fraction depends on the planetary albedo for visible light ($\alpha_v$, unitless), an atmospheric attenuation factor ($\tau$, unitless) that accounts for the elevation ($z$)-dependent path length of a light ray travelling through the atmosphere and a factor that accounts for cloud cover $f_c$. A further reduction by about 50% arises because photosynthesis uses only a range of the spectrum of wavelengths of solar radiation, corresponding to the visible light spectrum. The factor $f_{p}$ accounts for this and for the conversion of $I_\mathrm{TOA}$, expressed as an energy flux in W m^-2^, to a flux of photons in mol s^-1^ m^-2^.
 $$
@@ -48,7 +48,7 @@ knitr::include_graphics("images/solar_radiation_chelsa.png")
 ```
 
 
-#### Solar geometry
+### Solar geometry
 
 Let's first step outside the atmosphere and focus on the solar geometry to understand $I_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
 
@@ -78,11 +78,11 @@ $$ {#eq-solar-zenith-angle}
 
 A derivation of @eq-solar-zenith-angle is given on [Wikipedia](https://en.wikipedia.org/wiki/Solar_zenith_angle).
 
-#### Sloped surfaces
+### Sloped surfaces
 
 Coming soon.
 
-#### Variations in solar radiation
+### Variations in solar radiation
 
 Variations in the solar zenith angle, as expressed through @eq-solar-zenith-angle, are shown for different latitudes and a mid-summer diurnal cycle in @fig-zenith.
 
@@ -273,7 +273,7 @@ The biology of plants is attuned to the solar radiation patterns across differen
 <!-- XXX to add: -->
 <!-- - Solar geometry for a sloped surface -->
 
-#### Long-term variations in solar radiation
+### Long-term variations in solar radiation
 
 *Solar irradiance*  
 
@@ -345,7 +345,7 @@ df_holo |>
 <!-- - Calculate orbital parameters using ORBPAR.SUB from https://data.giss.nasa.gov/modelE/ar5plots/srorbpar.html -->
 
 
-### Canopy light absorption {#sec-light-absorption}
+## Canopy light absorption {#sec-light-absorption}
 
 The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
 
@@ -383,9 +383,15 @@ Second, the energy flux of direct radiation is much higher than that of diffuse 
 <!-- XXX to add: -->
 <!-- - box for Mercado et al. paper on volcanic eruption and the land C sink -->
 
-### Light use efficiency and photosynthesis
+<!-- XXX for LES II: -->
 
-The effiency at which absorbed photons (radiation) are converted into C in the form of sugars depends on the conductance to CO~2~ uptake by the leaf and on the activity of the photosynthetic machinery. CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
+<!-- 2-stream model (Wohlfahrt code) -->
+
+## Photosynthesis
+
+The efficiency at which absorbed photons (radiation) are converted into C in the form of sugars depends on the conductance to CO~2~ uptake by the leaf and on the activity of the photosynthetic machinery. In this subsection, we dive very deep into the term LUE in @eq-luemodel.
+
+CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
 $$
 A = g_s(c_a - c_i)
 $$ {#eq-photo-fick}
@@ -413,21 +419,21 @@ Before returning to a mathematical description of photosynthesis, let's step bac
 knitr::include_graphics("images/photosynthesis.png")
 ```
 
-#### Light absorption at the cellular level
+### Light absorption at the cellular level
 
 Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-ppfd is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
 
-#### Light reactions
+### Light reactions
 
 In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
 
-#### Calvin cycle
+### Calvin cycle
 
 NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, around 30-50 ppm, the *photorespiratory compensation point* is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
 
 Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C*.
 
-#### Summary
+### Summary
 
 The chemical summary equation of photosynthesis is:
 $$
@@ -435,7 +441,7 @@ n\mathrm{CO}_2 + 2n\mathrm{H}_2\mathrm{O} \rightarrow (\mathrm{CH}_2\mathrm{O})_
 $$ {#eq-photosynthesis-chemical}
 A total of eight photons is consumed to assimilate one molecule of CO~2~. For each molecule of CO~2~, one molecule of O~2~ is produced. And for each molecule of CO~2~, one molecule of H~2~O is consumed (net). Note however, that this water consumption is not the primary reason for why plants use water. A much larger amount of water is consumed by the diffusion of water vapour from the water-saturated air inside the leaves out of the stomata. This *transpiration* flux is further explained in @sec-landclimate.
 
-#### Response to light and CO~2~
+### Response to light and CO~2~
 
 The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates are coordinated such that they are roughly co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
 
@@ -602,7 +608,7 @@ df_ci |>
   theme_classic()
 ```
 
-#### Response to temperature {#sec-ftemp}
+### Response to temperature {#sec-ftemp}
 
 The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, and is shown in @fig-temp_dep. For this, $c_i$, $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$ at a reference temperature are assumed to be given.
 
@@ -721,7 +727,7 @@ As shown in @fig-temp_dep, the instantaneous response of assimilation rates to t
 
 The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed [@kumarathunge19newphyt].
 
-### C4 photosynthesis {#sec-c4}
+### C~4~ photosynthesis {#sec-c4}
 
 Coming soon.
     
@@ -733,6 +739,8 @@ Coming soon.
 ### Isotopic fractionation {#sec-carbon-isotopes}
 
 Coming soon.
+
+### From photosynthesis to light use efficiency
 
 <!-- - Keeling et al., 2017 -->
 <!-- - leaf energy balance -->

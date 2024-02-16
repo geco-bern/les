@@ -190,7 +190,7 @@ plotbiomes::whittaker_base_plot() +
 
 ### Plant functional types {#sec-pfts}
 
-Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-carboncycle_2). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:
+Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-gpp). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:
 
 1. needle-leaved evergreen trees
 2. broadleaved evergreen trees

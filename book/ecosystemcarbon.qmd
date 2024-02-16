@@ -10,6 +10,7 @@ format:
 
 # Ecosystem carbon dynamics {#sec-carboncycle_ecosystem}
 
+In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance. 
 
 - Land: GPP-NPP, vegC, soilC, Ra, Rh
 
