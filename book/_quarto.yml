@@ -6,7 +6,7 @@ execute:
   freeze: auto
 
 book:
-  title: "Land in the Earth System I"
+  title: "Land in the Earth System"
   subtitle: "Introducing global patterns, processes, and underlying principles for how climate shapes the terrestrial biosphere and how land feeds back to Earth system dynamics."
   author: "Benjamin Stocker"
   date: "2024/01/03"
@@ -15,15 +15,19 @@ book:
     - index.qmd
     - intro.qmd
     - biogeography.qmd
-    - carboncycle_1.qmd
-    - carboncycle_2.qmd
-    - carboncycle_3.qmd
-    - nutrients.qmd
+    - globalcarbonbudget.qmd
+    - gpp.qmd
+    - ecosystemcarbon.qmd
+    - globalcarbonpatterns.qmd
+    - oceancarbon.qmd
     - landclimate.qmd
     - ecohydrology.qmd
+    - nutrients.qmd
+    - ghg.qmd
     - globenvchange.qmd
     - feedbacks.qmd
     - landusechange.qmd
+    - researchtools.qmd
     - reading.qmd
     - references.qmd
   favicon: "figures/favicon.ico"

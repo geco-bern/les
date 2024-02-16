@@ -1,5 +1,32 @@
 # Land-climate interactions and water-carbon coupling {#sec-landclimate}
 
-TBC
+Coming soon.
 
 <!-- Surface energy budget: figures in IPCC AR6 p 932 -->
+
+<!-- - Water-carbon trade-off -->
+<!-- Wright et al., 2003: Least-Cost Input Mixtures of Water and Nitrogen for Photosynthesis -->
+<!-- Prentice et al., 2014 doi: 10.1111/ele.12211 -->
+<!-- - FvCB model -->
+<!-- Lambers 2008 Ch 2 (textbooks/lambers08bookchapter_photosynthesis.pdf) -->
+<!-- - Stomatal regulation -->
+<!-- Bonan et al., 2014 doi:10.5194/gmd-7-2193-2014 -->
+<!-- - Soil physics, water flow -->
+<!-- Bonan 9 -->
+<!-- - Plant hydraulics -->
+<!-- Sperry & Love, 2015 doi: 10.1111/nph.13354 -->
+
+
+<!-- - Land surface energy partitioning -->
+<!--     - 2-source model -->
+<!-- - Surface water balance, evapotranspiration 2 -->
+<!-- Bonan 10 -->
+<!--     - Bucket model and water stress curves (Teuling et al., Stocker et al., 2023) -->
+<!--     - Priestly-Taylor -->
+<!--         - surface-air temperature difference, see Ning Dong et al., 2013 GEB DOI: 10.1111/geb.12614 -->
+<!--     - Penman-Monteith Eq -->
+<!--     Bonan 12.7 -->
+<!-- - Canopy light absorption -->
+<!--     - Albedo -->
+<!--     - Radiative transfer and light extinction (Beer-Lambert Law) -->
+<!-- - Big-leaf model (Knauer et al., 2018) -->

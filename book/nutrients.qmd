@@ -1,4 +1,10 @@
-# Carbon-nutrient cycle interactions and multiple greenhouse gas emissions {#sec-nutrients}
+# Carbon-nutrient cycle interactions {#sec-nutrients}
 
-TBC
+Coming soon.
+
+<!-- - Decomposition and nutrient release -->
+<!-- Bonan 21.3 -->
+<!-- Manzoni et al., 2008 -->
+<!-- - Ectomycorrhizae -->
+<!-- - N fixation -->
 

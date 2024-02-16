@@ -1,0 +1,19 @@
+# Research tools {#sec-researchtools}
+
+Coming soon.
+
+<!-- - Observations
+    - Eddy covariance
+    - Remote sensing (NDVI, SIF, LST, VOD)
+    - Soil moisture, lysimeter, tensiometer
+    - sap flow
+    - water potentials
+    Novick et al., 2022
+- Models
+    - DGVMs
+    Prentice et al., 2007: Dynamic Global Vegetation Modeling: Quantifying Terrestrial Ecosystem Responses to Large-Scale Environmental Change
+    - Eco-evolutionary optimality
+    Franklin et al., 2020
+    - Model-data integration
+    Dietze et al., 2018 [www.pnas.org/cgi/doi/10.1073/pnas.1710231115](http://www.pnas.org/cgi/doi/10.1073/pnas.1710231115)
+    - Data-driven upscaling -->

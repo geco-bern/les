@@ -8,7 +8,7 @@ format:
     fig-height: 5
 ---
 
-# Global carbon pools and fluxes {#sec-carboncycle_1}
+# The global carbon budget {#sec-carboncycle_1}
 
 The principles of what drives the carbon cycle, and along with it the energy and mass flow, cannot be better explained than through the words of Richard Feynman - Nobel Prize laureate in Physics.
 

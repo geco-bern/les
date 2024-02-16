@@ -8,7 +8,7 @@ format:
     fig-height: 5
 ---
 
-# Ecosystem carbon fluxes and global patterns {#sec-carboncycle_2}
+# Gross primary production and solar radiation {#sec-carboncycle_2}
 
 In @sec-carboncycle_1, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean), emissions as fluxes into the system (added to the atmosphere). and fluxes between the pools. The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In this chapter, we are un-boxing this model to better understand the input flux through photosynthesis in @sec-photosynthesis and the C dynamics and fluxes at the level of an ecosystem in @sec-carboncycle_ecosystem. This un-boxing is essential for understanding global patterns in @sec-global-patterns.
 
@@ -727,70 +727,14 @@ Coming soon.
     
 ### Stomatal regulation {#sec-stomatal-regulation}
 
+<!-- - iWUE -->
+
 
 ### Isotopic fractionation {#sec-carbon-isotopes}
 
 Coming soon.
 
-<!-- - 13C fractionation, Keeling et al., 2017 -->
+<!-- - Keeling et al., 2017 -->
+<!-- - leaf energy balance -->
 
 <!-- Box: - FLUXNET data, global upscaling of fluxes -->
-
-## Ecosystem C dynamics {#sec-carboncycle_ecosystem}
-
-- Land: GPP-NPP, vegC, soilC, Ra, Rh
-- The carbon cascade {#sec-cascade }
-- The C cascade: Tree growth, allocation, mortality, forest dynamics
-- multi-box model
-
-### Net primary productivity {#sec-npp}
-
-- carbon use efficiency and its relative constancy
-- biomass productivity
-
-### Allocation
-
-### Turnover
-
-### The C cascade
-
-Very Simple Ecosystem Model
-
-## Spatial and temporal patterns of the global C cycle {#sec-global-patterns}
-
-### Global patterns in GPP
-
-- Controls on terrestrial and ecosystem primary production
-Wang et al., 2014 doi:10.5194/bg-11-5987-2014
-
-### Seasonal cycle
-
-- Seasonality
-Bonan 18.3
-    - NDVI over the seasons
-    - phenology
-    - cold-hardening
-
-- Show mean seasonality of biome-representative flux sites of:
-    - Rn
-    - ET
-    - LAI
-    - GPP
-    - NEE
-    
-- Demonstrate how the LUE model (assuming const. LUE) explains a large part of variations in GPP, and the VSEM a large part of NEE
-    
-### Diurnal cycle
-
-- Demonstrate how (where) the constant LUE fails to explain the diurnal cycle
-
-### Breathing of the Earth
-
-### Global patterns in soil and vegetation C
-
-- Global (latitudinal) distribution of vegetation and soil carbon stocks
-- Model for GPP-driven C stocks, considering temperature-dependence of heterotrophic respiration (Q10); respiration inhibition under anaerobic conditions (peatlands)
-
-### Peatlands
-
-### Permafrost

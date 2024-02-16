@@ -1,0 +1,46 @@
+---
+format: 
+  html:
+    fig-width: 7
+    fig-height: 5
+  pdf:
+    fig-width: 7
+    fig-height: 5
+---
+
+# Ecosystem carbon dynamics {#sec-carboncycle_ecosystem}
+
+
+- Land: GPP-NPP, vegC, soilC, Ra, Rh
+
+## Plant-level carbon balance
+
+- The carbon cascade {#sec-cascade }
+- The C cascade: Tree growth, allocation, mortality, forest dynamics
+- multi-box model
+
+### Net primary productivity {#sec-npp}
+
+- carbon use efficiency and its relative constancy
+- biomass productivity
+
+### Allocation
+
+### Turnover
+
+### The C cascade
+
+<!-- Forest dynamics -->
+
+<!-- Very Simple Ecosystem Model -->
+
+<!-- - Tree allometry -->
+<!-- - Self-thinning -->
+<!-- - Disturbance and succession -->
+<!-- - Tree mortality -->
+<!-- McDowell et al., 2022 https://doi.org/10.1038/s43017-022-00272-1 -->
+<!-- - Models -->
+<!--     - von-Foerster Eq -->
+<!--     - PPA -->
+<!--     - gap dynamics -->
+<!--     Bonan 23.3 -->
