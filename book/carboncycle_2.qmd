@@ -78,6 +78,10 @@ $$ {#eq-solar-zenith-angle}
 
 A derivation of @eq-solar-zenith-angle is given on [Wikipedia](https://en.wikipedia.org/wiki/Solar_zenith_angle).
 
+#### Sloped surfaces
+
+Coming soon.
+
 #### Variations in solar radiation
 
 Variations in the solar zenith angle, as expressed through @eq-solar-zenith-angle, are shown for different latitudes and a mid-summer diurnal cycle in @fig-zenith.
@@ -343,7 +347,14 @@ df_holo |>
 
 ### Canopy light absorption {#sec-light-absorption}
 
-The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers. While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
+The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
+
+```{r echo=FALSE}
+#| label: fig-light_absorption
+#| fig-cap: "Vertical profile of the leaf area index (LAI) and light absorption the canopy for a typical oak forest, where most leaves are located in a dense canopy without an understorey. Figure from @bonan."
+#| out-width: 100%
+knitr::include_graphics("images/light_absorption_bonan.png")
+```
 
 While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. Each of these processes affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
 
@@ -459,22 +470,29 @@ Following the Farquhar-von Caemmerer-Berry (FvCB) model for C~3~ photosynthesis 
 $$
 A_C = V_\mathrm{cmax} \frac{c_i - \Gamma^\ast}{c_i + K} \;,
 $$ {#eq-ac}
-where $K$ is the effective Michaelis-Menten coefficient for $A_C$. It depends, i.a., on the partial pressure of oxygen.
+where $K$ is the effective Michaelis-Menten coefficient for $A_C$, considering the balance of carboxylation and oxygenation by Rubisco. It depends on the partial pressure of oxygen ($p\mathrm{O}_2$).
+$$
+K = K_c \left(1 + \frac{p\mathrm{O}_2}{K_o} \right)
+$$
+$V_\mathrm{cmax}$, $K_c$, $K_o$, and $\Gamma^\ast$ all have a temperature dependency. In addition, $\Gamma^\ast$ is proportional to atmospheric pressure. These dependencies are shown in @sec-ftemp and are described in full detail in @stocker20gmd. 
 
 The electron transport-limited assimilation rate $A_J$ can be described as
 $$
-A_J = \frac{J}{4} \cdot \frac{c_i - \Gamma^\ast}{c_i + 2 \Gamma^\ast}
+A_J = \frac{J}{4} \cdot \frac{c_i - \Gamma^\ast}{c_i + 2 \Gamma^\ast}\;.
 $$ {#eq-aj}
 The electron transport rate $J$ is described by a saturating function that increases with absorbed light $I_\mathrm{abs}$ up to a maximum rate $J_\mathrm{max}$
 $$
 J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{abs}}{J_\mathrm{max}}\right)^2}}
 $$ {#eq-jmaxlim}
-Note that the "photosynthesis parameters" $V_\mathrm{cmax}$, $J_\mathrm{max}$, $\Gamma^\ast$, and $K$ have a strong temperature dependency. The latter two also depend on the partial pressure of O~2~ and therefore on the atmospheric pressure. These dependencies are described in @stocker20gmd. 
+
+Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
+
+However, the FvCB model, on its own, does not allow us to model the LUE term in @eq-luemodel. An important additional ingredient is the stomatal conductance ($g_s$) which is relevant for determining the ratio of ambient to leaf-internal CO~2~ concentrations. It is described in @sec-stomatal-regulation.
 
 ```{r warning=FALSE}
 #| code-fold: true
 #| label: fig-a-ci-curve-rpmodel
-#| fig-cap: "The *A*-*c*~i~ curve."
+#| fig-cap: "The *A*-*c*~i~ curve as simulated by the FvCB model. *A*~gs~ is shown here as the dependency of *A* on stomatal conductance following @eq-photo-fick for a given *g*~s~. The fact that *A*~C~, *A*~J~, and *A*~gs~ intersect in one point does not follow from the FvCB model, but is simulated here based on a model of eco-evolutionary optimality (*P-model* @stocker20gmd, implemented by the {rpmodel} R package) which predicts that photosynthetic capacities are acclimated such that a leaf operates close to the intersection point of *A*~C~ and and *A*~J~. The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding *code*."
 #| out-width: 80%
 
 library(rpmodel)
@@ -555,20 +573,22 @@ df_ci <- tibble(
                        out_pmodel$kmm, 
                        vcmax = out_pmodel$vcmax)) |>
   mutate(a_act = min(a_j, a_c)) |> 
-  mutate(a_gs = calc_a_gs(ci_pa, gs = out_pmodel$gs, ca = out_pmodel$ca))
+  mutate(a_gs = calc_a_gs(ci_pa, 
+                          gs = out_pmodel$gs, 
+                          ca = out_pmodel$ca))
   
 df_ci |> 
-  pivot_longer(cols = c(a_j, a_c, a_gs), names_to = "Rate", values_to = "a_") |>
-  # pivot_longer(cols = c(a_j, a_c), names_to = "Rate", values_to = "a_") |> 
+  pivot_longer(cols = c(a_j, a_c, a_gs), 
+               names_to = "Rate", 
+               values_to = "a_") |>
   ggplot(aes(x = ci)) +
   geom_line(aes(y = a_, color = Rate)) +
   geom_line(aes(y = a_act)) +
-  # geom_line(aes(y = a_gs), linetype = "dashed") +
   xlim(00, 1000) + 
   ylim(-20, 80) +
   geom_hline(yintercept = 0, linetype = "dotted") +
-  labs(x = expression(paste("c"[i], " (ppm)")), 
-       y = expression(paste("A (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
+  labs(x = expression(paste(italic("c")[i], " (ppm)")), 
+       y = expression(paste(italic("A"), " (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
   scale_color_manual(
     name = "",
     breaks = c("a_gs",
@@ -582,14 +602,14 @@ df_ci |>
   theme_classic()
 ```
 
-#### Response to temperature
+#### Response to temperature {#sec-ftemp}
 
-All parameters fitted by the *A*-*c*~i~ curve (@fig-a-ci-curve) have a temperature dependency. 
+The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, and is shown in @fig-temp_dep. For this, $c_i$, $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$ at a reference temperature are assumed to be given.
 
 ```{r}
 #| code-fold: true
 #| label: fig-temp_dep
-#| fig-cap: "Temperature dependencies of parameters in the FvCB model."
+#| fig-cap: "Temperature dependencies of quantities in the FvCB model. The dashed lines in the bottom panel are the gross assimilation rates *A*~C~ and *A*~J~."
 #| out-width: 80%
 
 df_temp <- tibble(
@@ -601,9 +621,18 @@ df_temp <- tibble(
          jmax = 1.7 * out_pmodel$vcmax25 * ftemp_inst_jmax(temp, tcgrowth = 15),
          rd = 0.05 * out_pmodel$vcmax25 * ftemp_inst_rd(temp)
          ) |> 
-  mutate(a_j = calc_aj(28.14209, gammastar, kphio = kphio, ppfd = ppfd, jmax = jmax) - rd) |> 
-  mutate(a_c = calc_ac(28.14209, gammastar, kmm, vcmax = vcmax) - rd) |> 
-  mutate(assim = min(a_j, a_c))
+  mutate(a_j = calc_aj(ci = 28.14209, 
+                       gammastar, 
+                       kphio = kphio, 
+                       ppfd = ppfd, 
+                       jmax = jmax)) |> 
+  mutate(a_c = calc_ac(ci = 28.14209, 
+                       gammastar, 
+                       kmm, 
+                       vcmax = vcmax)) |> 
+  mutate(a_cr = a_c - rd, 
+         a_jr = a_j - rd) |> 
+  mutate(assim = min(a_jr, a_cr))
 
 gg1 <- df_temp |> 
   pivot_longer(cols = c(gammastar, kmm), 
@@ -643,42 +672,69 @@ gg2 <- df_temp |>
     ) +
   theme_classic()
 
-gg3 <- df_temp |> 
-  pivot_longer(cols = c(assim, a_c, a_j), 
+df_net_plot <- df_temp |> 
+  mutate(a_cr = a_c - rd,
+         a_jr = a_j - rd) |> 
+  pivot_longer(cols = c(rd, a_cr, a_jr, assim), 
                names_to = "Rate", 
-               values_to = "value") |>
-  ggplot(aes(x = temp)) +
-  geom_line(aes(y = value, color = Rate)) +
+               values_to = "value")
+
+df_gross_plot <- df_temp |> 
+  pivot_longer(cols = c(a_c, a_j), 
+               names_to = "Rate", 
+               values_to = "value")
+
+gg3 <- ggplot() +
+  geom_line(aes(x = temp, y = value, color = Rate),
+            data = df_gross_plot,
+            linetype = "dashed") +
+  geom_line(aes(x = temp, y = value, color = Rate),
+            data = df_net_plot) +
   geom_hline(yintercept = 0, linetype = "dotted") +
-  labs(x = expression(paste("Temperature (°C)")), 
-       y = expression(paste(italic("A"), "(", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
   scale_color_manual(
     name = "",
-    breaks = c("a_c",
+    breaks = c("rd",
+               "a_c",
                "a_j",
+               "a_cr",
+               "a_jr",
                "assim"
                ),
-    labels = c(expression(paste(italic("A")[C])),
+    labels = c(expression(paste(italic("R")[d])),
+               expression(paste(italic("A")[C])),
                expression(paste(italic("A")[J])),
-               expression(paste(italic("A")))),
-    values = c("#E69F00", "#56B4E9", "black")
+               expression(paste(italic("A")[C] ~ - ~ italic("R")[d])),
+               expression(paste(italic("A")[J] ~ - ~ italic("R")[d])),
+               expression(paste(italic("A")[n]))),
+    values = c("#CC79A7", "#E69F00", "#56B4E9", "#E69F00", "#56B4E9", "black")
   ) +
+  labs(x = expression(paste("Temperature (°C)")), 
+       y = expression(paste(italic("A"), "(", mu, "mol m" ^{-2}," s" ^{-1}, ")")),
+       color = "Rate",
+       linetype = "Rate") +
   theme_classic()
 
 cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 ```
 
-- C4 photosynthesis
+As shown in @fig-temp_dep, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially $A_C$, decline sharply. Dark respiration ($R_d$) monotonically increases with temperature which accentuates the decline in net assimilation $A_n$ with increasing temperature.
+
+The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed [@kumarathunge19newphyt].
+
+### C4 photosynthesis {#sec-c4}
+
+Coming soon.
     
 ### Stomatal regulation {#sec-stomatal-regulation}
 
-### C~4~ photosynthesis {#sec-c4}
 
-### Isotopic fractionation
+### Isotopic fractionation {#sec-carbon-isotopes}
 
-- 13C fractionation, Keeling et al., 2017
+Coming soon.
 
-Box: - FLUXNET data, global upscaling of fluxes
+<!-- - 13C fractionation, Keeling et al., 2017 -->
+
+<!-- Box: - FLUXNET data, global upscaling of fluxes -->
 
 ## Ecosystem C dynamics {#sec-carboncycle_ecosystem}
 
