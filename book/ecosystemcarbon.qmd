@@ -36,6 +36,7 @@ In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of 
 <!-- Very Simple Ecosystem Model -->
 
 <!-- - Tree allometry -->
+<!-- - tree ring width -->
 <!-- - Self-thinning -->
 <!-- - Disturbance and succession -->
 <!-- - Tree mortality -->

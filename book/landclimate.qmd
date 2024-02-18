@@ -1,6 +1,14 @@
-# Land-climate interactions and water-carbon coupling {#sec-landclimate}
+# Land-climate interactions {#sec-landclimate}
 
 Coming soon.
+
+## Water-carbon coupling {#sec-watercarbon}
+
+
+
+## Ecosystem water balance {#sec-waterbalance}
+
+## Surface energy balance {#sec-energybalance}
 
 <!-- Surface energy budget: figures in IPCC AR6 p 932 -->
 
