@@ -757,7 +757,7 @@ The trade-off between transpiration and assimilation can be measured by consider
 $$
 \frac{A_n}{E} = \frac{c_a(1 - \chi)}{1.6\;D}\;,
 $$ {#eq-wue-instantaneous}
-where $\chi = c_i/c_a$. The instantaneous water-use efficiency is proportional to $D^{-1}$. In other words, the drier the air, the more transpiration per unit net CO~2~ assimilation a leaf "suffers". This demonstrates the strong effect of atmospheric dryness on the water-carbon trade-off. To remove the effect of vapour pressure deficit ($D$) on transpiration and focus on the biological component of the water-carbon trade-off, the *intrinsic water-use efficiency* is defined by relating net assimilation to stomatal conductance: 
+where $\chi = c_i/c_a$. The instantaneous water-use efficiency is proportional to $D^{-1}$. In other words, the drier the air, the more transpiration per unit net CO~2~ assimilation a leaf "suffers". This demonstrates the strong effect of atmospheric dryness on the water-carbon trade-off. To remove the effect of vapour pressure deficit ($D$) on transpiration and focus on the biological component of the water-carbon trade-off, the *intrinsic water-use efficiency* (iWUE) is defined by relating net assimilation to stomatal conductance: 
 $$
 \frac{A_n}{g_s} = \frac{c_a}{1.6}(1 - \chi)
 $$ {#eq-wue-intrinsic}

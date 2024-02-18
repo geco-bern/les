@@ -19,13 +19,15 @@ The longest-running record of direct measurements of atmospheric CO~2~ is from t
 knitr::include_graphics("images/co2_data_mlo.png")
 ```
 
-The time series in @fig-mauna-loa-co2 shows not only the accelerating rise in atmospheric CO~2~ over the past decades, but also its regular annual swings - the "breathing of the Earth". This is the result of the seasonal cycles in CO~2~ uptake and release by terrestrial ecosystems. CO~2~ uptake peaks in early early summer in the northern extratropics - driven by the high light availability and high photosynthetic rates of young leaves in the early summer months. CO~2~ release by respiring plants and soil microbes has a shifted seasonality and tends to have a smaller amplitude, compared to CO~2~ uptake. The net of the two drives changes in atmospheric CO~2~ which are measured here in the free atmosphere - unaffected by local anthropogenic sources - atop a volcano on Hawaii.
+The time series in @fig-mauna-loa-co2 shows not only the accelerating rise in atmospheric CO~2~ over the past decades, but also its regular annual swings - the "breathing of the Earth". This is the result of the seasonal cycles in CO~2~ uptake and release by terrestrial ecosystems. CO~2~ uptake peaks in early early summer in the northern extra-tropics - driven by the high light availability and high photosynthetic rates of young leaves in the early summer months. CO~2~ release by respiring plants and soil microbes has a shifted seasonality and tends to have a smaller amplitude, compared to CO~2~ uptake. The net of the two drives changes in atmospheric CO~2~ which are measured here in the free atmosphere - unaffected by local anthropogenic sources - atop a volcano on Hawaii. 
+
+The processes responsible for the breathing of the Earth will be introduced in @sec-gpp and @sec-carboncycle_ecosystem. 
 
 ## Year-to-year changes of the global carbon budget
 
 Anthropogenic carbon emissions in the form of CO~2~, resulting from the combustion of fossil fuels and from land use change, are partly taken up by the ocean and partly by terrestrial ecosystems. The remainder remains in the atmosphere and drives the atmospheric CO~2~ growth (see @fig-mauna-loa-co2). Each of these components gets estimated and updated each year as the [Global Carbon Budget](https://globalcarbonbudget.org/carbonbudget2023/). The latest scientific publication is @friedlingstein23essd.
 
-Estimates of each compenent are largely independent and rely on different types of observations, data, and methods. Fossil emissions are based on energy statistics and cement production data, land use emissions are based on land-use and land-use change data and forest carbon "bookkeeping models". Atmospheric CO~2~ concentration, and hence the accumulation of C in the atmosphere, is measured directly. The ocean sink is estimated from global ocean biogeochemistry models and observation-based products. The land sink is estimated from dynamic global vegetation models [@friedlingstein23essd].
+Estimates of each component are largely independent and rely on different types of observations, data, and methods. Fossil emissions are based on energy statistics and cement production data, land use emissions are based on land-use and land-use change data and forest carbon "bookkeeping models". Atmospheric CO~2~ concentration, and hence the accumulation of C in the atmosphere, is measured directly. The ocean sink is estimated from global ocean biogeochemistry models and observation-based products. The land sink is estimated from dynamic global vegetation models [@friedlingstein23essd].
 
 ```{r echo=FALSE}
 #| label: fig-gcb_fig3
@@ -34,7 +36,9 @@ Estimates of each compenent are largely independent and rely on different types 
 knitr::include_graphics("images/gcb_friedlingstein23_fig3.png")
 ```
 
-@fig-gcb_fig3 shows that the largest year-to-year variations in the redistribution of anthropogenic CO~2~ emissions is in the land sink component. While variations in the ocean sink and in emissions are relatively small, the carbon balance of the terrestrial biosphere varies strongly between years. This leads to substantial variations in annual atmospheric CO~2~ growth rate. Annual variations in the land C balance have been found to originate mostly from semi-arid regions, where large year-to-year variations in precipitation, often linked to El-Nino-Southern-Oscillation climate variability, alter water limitation of vegetation and drought-related disturbances, including fire activity [@ahlstroem15; @humphrey18nat]. This leads to large year-to-year variability in CO~2~ uptake and release by land ecosystems and leaves an imprint on the rise in atmospheric CO~2~. This also demonstrates the sensitivity of terrestrial C storage to climatic variations and that the response of the land biosphere to climate extremes can drastically alter the accumulation of anthropogenic CO~2~ in the atmosphere and thus the rate of climate change.
+@fig-gcb_fig3 shows that the largest year-to-year variations in the redistribution of anthropogenic CO~2~ emissions is in the land sink component. While variations in the ocean sink and in emissions are relatively small, the carbon balance of the terrestrial biosphere varies strongly between years. This leads to substantial variations in annual atmospheric CO~2~ growth rate. Annual variations in the land C balance have been found to originate mostly from semi-arid regions, where large year-to-year variations in precipitation, often linked to El-Nino-Southern-Oscillation climate variability, alter water limitation of vegetation and drought-related disturbances, including fire activity [@ahlstroem15; @humphrey18nat]. This leads to large year-to-year variability in CO~2~ uptake and release by land ecosystems and leaves an imprint on the rise in atmospheric CO~2~. This also demonstrates the sensitivity of terrestrial C storage to climatic variations and that the response of the land biosphere to climate extremes can drastically alter the accumulation of anthropogenic CO~2~ in the atmosphere and thus the rate of climate change. 
+
+The global carbon budget will be introduced in @sec-carboncycle_ecosystem.
 
 ## Responses to rapid climate change in the past
 
@@ -49,12 +53,28 @@ The terrestrial biosphere was strongly affected by these large and rapid climate
 knitr::include_graphics("images/dansgaardoeschger_arneth10natgeo.png")
 ```
 
-These variations in land-mediated greenhouse gases, dust, and fire are attest to the large and hemisphere-scale changes in terrestrial biosphere functioning in response to climate variations. Of course, greenhouse gases, dust, and fire-related emissions of CO~2~ and aerosols are radiative forcing agents themselves and thus affect the climate. These changes during Dansgaard-Oescher events thus demonstrate the important role of the land biosphere in mediating Earth system changes.
+These variations in land-mediated greenhouse gases, dust, and fire are attest to the large and hemisphere-scale changes in terrestrial biosphere functioning in response to climate variations. Of course, greenhouse gases, dust, and fire-related emissions of CO~2~ and aerosols are radiative forcing agents themselves and thus affect the climate. These changes during Dansgaard-Oescher events therefore demonstrate the important role of the land biosphere in mediating Earth system changes.
 
-## Positive feedbacks and tipping points
+The sources of multiple land-mediated greenhouse gases will be introduced in @sec-ghg.
 
+## Feedbacks
 
+Land ecosystems are a major sink for anthropogenic CO~2~. Between a quarter and a third of the C emitted by the combustion of fossil fuels and by land use change is taken up again by land ecosystems (@sec-globalcarbonbudget). This uptake flux partly buffers the anthropogenic disturbance of the Earth system. This is called a *negative feedback* (@sec-feedbacks). Without it, the rise in atmospheric CO~2~ would be about 30-50% more rapid. The terrestrial carbon cycle is steered by a multitude of processes, operating at very different scales, and it is characterised by an enormous heterogeneity in space - across ecosystem types, climate and soil conditions. There is not just a single process responsible for this apparent negative global-scale climate-land biosphere feedback and the negative feedback is partly compensated by *positive feedbacks*.
 
+An example for an important positive feedback arising from land biosphere processes is that of permafrost melting. As the climate warms, previously frozen soil that is very rich in organic matter content melts and the C becomes exposed to decomposers (heterotrophic soil bacteria and fungi). CO~2~ is produced. This climate warming-induced CO~2~ from melting permafrost amplifies the warming, which triggered it in the first place, due to its greenhouse effect - a positive feedback. Melting permafrost soil often becomes water-logged. The anaerobic conditions promote the production of methane (CH~4~) - an even stronger greenhouse gas than CO~2~. The positive feedback gets further amplified.
+
+The land biosphere is connected with the Earth system through a multitude of positive and negative feedbacks, leading to complex interactions. While Earth System Models resolve many of these feedbacks and aid our understanding of the systems response to the anthropogenic forcing, translating these concepts into verbal and mental models of how climate change unfolds is challenging. A positive feedback is often described as a "vicious cycle" and sometimes vaguely conflated with a *tipping point*. A solid understanding of terrestrial biosphere processes, clear definitions, and a concise formalism, grounded on known physical relationships, helps to clarify concepts and the contextualization and communication of the risks of climate change. @sec-feedbacks will serve this purpose.
+
+## Tipping points
+
+Tipping points in the Earth system are points at which of a part of the Earth system transitions into a new state in response to a relatively small external forcing. They are inherently hard to predict using Earth System Models. Surprises cannot be excluded. Several potential tipping points have been identified in terrestrial systems [@mckay22sci]. Their reliable simulation in models relies on accurate models of processes in land ecosystems. Once more, land ecosystems and their response to climate change may be a critical element for the future of the Earth system. However, relatively large uncertainties remain for modelling key processes and further research is needed to consolidate the current understanding (and hand-drawn map) of potential tipping elements in the land biosphere [@mckay22sci].
+
+```{r echo=FALSE}
+#| label: fig-tippingpoints
+#| fig-cap: "The location of climate tipping elements in the cryosphere (blue), biosphere (green), and ocean/atmosphere (orange), and global warming levels at which their tipping points will likely be triggered. Figure and caption text from @mckay22sci."
+#| out-width: 80%
+knitr::include_graphics("images/tippingpoints.png")
+```
 
 
 

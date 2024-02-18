@@ -1,4 +1,5 @@
-# Terrestrial greenhouse gas emissions {#sec-nutrients}
+# Terrestrial greenhouse gas emissions {#sec-ghg}
 
 Coming soon.
 
+<!-- - Radiative forcing graph: IPCC AR6 p 959 -->
