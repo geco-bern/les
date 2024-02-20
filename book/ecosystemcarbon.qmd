@@ -10,26 +10,28 @@ format:
 
 # Ecosystem carbon dynamics {#sec-carboncycle_ecosystem}
 
-In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance. 
+Coming soon.
 
-- Land: GPP-NPP, vegC, soilC, Ra, Rh
+<!-- In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance.  -->
 
-## Plant-level carbon balance
+<!-- - Land: GPP-NPP, vegC, soilC, Ra, Rh -->
 
-- The carbon cascade {#sec-cascade }
-- The C cascade: Tree growth, allocation, mortality, forest dynamics
-- multi-box model
+<!-- ## Plant-level carbon balance -->
 
-### Net primary productivity {#sec-npp}
+<!-- - The carbon cascade {#sec-cascade } -->
+<!-- - The C cascade: Tree growth, allocation, mortality, forest dynamics -->
+<!-- - multi-box model -->
 
-- carbon use efficiency and its relative constancy
-- biomass productivity
+<!-- ### Net primary productivity {#sec-npp} -->
 
-### Allocation
+<!-- - carbon use efficiency and its relative constancy -->
+<!-- - biomass productivity -->
 
-### Turnover
+<!-- ### Allocation -->
 
-### The C cascade
+<!-- ### Turnover -->
+
+<!-- ### The C cascade -->
 
 <!-- Forest dynamics -->
 
