@@ -8,7 +8,9 @@ The terrestrial biosphere - land - is at the core of the Earth system. It connec
 
 This book focuses on the terrestrial biosphere, how its structure and functioning are shaped by climate, and how it affects atmospheric CO~2~ and climate change. The following set of phenomena, observations, and popularised concepts are an expression of the key role of the land in the Earth system. Over the course of this book, we will revisit these phenomena, observations, and concepts, introduce the underlying processes and principles for understanding them, and provide a scientific basis to address questions of immanent societal relevance. What is the role of the land biosphere in accelerating climate change (think positive feedbacks and tipping points), and in providing solutions for mitigating it (think forest restoration and other land-based mitigation options).
 
-## Annual swings in atmospheric CO~2~
+## Examples for the terrestrial biosphere's role in the Earth system 
+
+### Annual swings in atmospheric CO~2~
 
 The longest-running record of direct measurements of atmospheric CO~2~ is from the Mauna Loa Observatory, atop a volcano on Hawaii. This record has become iconic for documenting the rapid rise of atmospheric CO~2~ - a greenhouse gas - since the great economic acceleration after the Second World War. This has provided a basis for understanding the relationship between emissions of anthropogenic CO~2~ and its accumulation in the atmosphere and for estimating the climate impact of this important greenhouse gas.
 
@@ -23,7 +25,7 @@ The time series in @fig-mauna-loa-co2 shows not only the accelerating rise in at
 
 The processes responsible for the breathing of the Earth will be introduced in @sec-gpp and @sec-carboncycle_ecosystem. 
 
-## Year-to-year changes of the global carbon budget
+### Year-to-year changes of the global carbon budget
 
 Anthropogenic carbon emissions in the form of CO~2~, resulting from the combustion of fossil fuels and from land use change, are partly taken up by the ocean and partly by terrestrial ecosystems. The remainder remains in the atmosphere and drives the atmospheric CO~2~ growth (see @fig-mauna-loa-co2). Each of these components gets estimated and updated each year as the [Global Carbon Budget](https://globalcarbonbudget.org/carbonbudget2023/). The latest scientific publication is @friedlingstein23essd.
 
@@ -31,16 +33,17 @@ Estimates of each component are largely independent and rely on different types 
 
 ```{r echo=FALSE}
 #| label: fig-gcb_fig3
-#| fig-cap: "Component fluxes of the annual global carbon budget since 1850. Positive components are emissions to the atmosphere. Carbon emissions get redistributed by the global carbon cycle. This redistribution is governed carbon uptake by the ocean ('ocean sink') and carbon uptake by terrestrial ecosystems ('land sink'), while the remainder accumulates in the atmosphere ('atmospheric growth'). The dashed red line is mirrored from the solid red line and its difference to the blue line indicates the budget imbalance. All fluxes are given in GtC yr$^{-1}$ (gigatons of carbon per year, 1 Gt = 10$^9$ t = 1 Pg = 10$^{12}$ g). Figure from @friedlingstein23essd."
-#| out-width: 60%
-knitr::include_graphics("images/gcb_friedlingstein23_fig3.png")
+#| fig-cap: "Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to @friedlingstein23essd, the land sink is defined here as the carbon budget residual (introduced in @sec-globalcarbonbudget). The budget imbalance term - the difference between *S*~land~ calculated as the budget residual vs. bottom-up using land C cycle models - is shown by the separate fine grey line."
+#| out-width: 65%
+# knitr::include_graphics("images/gcb_friedlingstein23_fig3.png")
+knitr::include_graphics("images/globalcarbonbudget.png") # figure produced by code in book/globalcarbonbudget.qmd
 ```
 
 @fig-gcb_fig3 shows that the largest year-to-year variations in the redistribution of anthropogenic CO~2~ emissions is in the land sink component. While variations in the ocean sink and in emissions are relatively small, the carbon balance of the terrestrial biosphere varies strongly between years. This leads to substantial variations in annual atmospheric CO~2~ growth rate. Annual variations in the land C balance have been found to originate mostly from semi-arid regions, where large year-to-year variations in precipitation, often linked to El-Nino-Southern-Oscillation climate variability, alter water limitation of vegetation and drought-related disturbances, including fire activity [@ahlstroem15; @humphrey18nat]. This leads to large year-to-year variability in CO~2~ uptake and release by land ecosystems and leaves an imprint on the rise in atmospheric CO~2~. This also demonstrates the sensitivity of terrestrial C storage to climatic variations and that the response of the land biosphere to climate extremes can drastically alter the accumulation of anthropogenic CO~2~ in the atmosphere and thus the rate of climate change. 
 
 The global carbon budget will be introduced in @sec-carboncycle_ecosystem.
 
-## Responses to rapid climate change in the past
+### Responses to rapid climate change in the past
 
 The climate of the past 11,000 years (11 ka) until the Industrial Revolution was relatively stable, at least in comparison to the climate of the Last Glacial period. This period was marked by millennial-scale climate oscillations where temperatures rose by up to 16$^\circ$C within a few decades [@oeschger84; @dansgaard93nat]. When first discovered in measurments of an ice core recovered from Greenland, the massive excursions of the $\delta^{18}$O signal - a proxy for air temperature - were considered a measurement error. But the correspondence of similar excursions measured on a different Greenland ice core and the coincidence of the most recent such excursion with a similar pattern found in the $\delta^{18}$O signal of carbonate in the lake sediment of Gerzensee (near Bern) [@oeschger84] confirmed the robustness of these rapid climate change events in the past. Reflecting this, these rapid climate swings between about 80 and 10 ka BP were named Dansgaard-Oeschger events. Today, Dansgaard-Oeschger events are undersood to be oscillations of the Earth system that occurr without external triggers, but arise from the interaction of ocean and ice sheet dynamics, and are confined to Earth system states corresponding to the glacial periods of the late Pleistocene [@stocker03; @vettoretti22natgeo]. 
 
@@ -57,7 +60,7 @@ These variations in land-mediated greenhouse gases, dust, and fire are attest to
 
 The sources of multiple land-mediated greenhouse gases will be introduced in @sec-ghg.
 
-## Feedbacks
+### Feedbacks
 
 Land ecosystems are a major sink for anthropogenic CO~2~. Between a quarter and a third of the C emitted by the combustion of fossil fuels and by land use change is taken up again by land ecosystems (@sec-globalcarbonbudget). This uptake flux partly buffers the anthropogenic disturbance of the Earth system. This is called a *negative feedback* (@sec-feedbacks). Without it, the rise in atmospheric CO~2~ would be about 30-50% more rapid. The terrestrial carbon cycle is steered by a multitude of processes, operating at very different scales, and it is characterised by an enormous heterogeneity in space - across ecosystem types, climate and soil conditions. There is not just a single process responsible for this apparent negative global-scale climate-land biosphere feedback and the negative feedback is partly compensated by *positive feedbacks*.
 
@@ -65,7 +68,7 @@ An example for an important positive feedback arising from land biosphere proces
 
 The land biosphere is connected with the Earth system through a multitude of positive and negative feedbacks, leading to complex interactions. While Earth System Models resolve many of these feedbacks and aid our understanding of the systems response to the anthropogenic forcing, translating these concepts into verbal and mental models of how climate change unfolds is challenging. A positive feedback is often described as a "vicious cycle" and sometimes vaguely conflated with a *tipping point*. A solid understanding of terrestrial biosphere processes, clear definitions, and a concise formalism, grounded on known physical relationships, helps to clarify concepts and the contextualization and communication of the risks of climate change. @sec-feedbacks will serve this purpose.
 
-## Tipping points
+### Tipping points
 
 Tipping points in the Earth system are points at which of a part of the Earth system transitions into a new state in response to a relatively small external forcing. They are inherently hard to predict using Earth System Models. Surprises cannot be excluded. Several potential tipping points have been identified in terrestrial systems [@mckay22sci]. Their reliable simulation in models relies on accurate models of processes in land ecosystems. Once more, land ecosystems and their response to climate change may be a critical element for the future of the Earth system. However, relatively large uncertainties remain for modelling key processes and further research is needed to consolidate the current understanding (and hand-drawn map) of potential tipping elements in the land biosphere [@mckay22sci].
 
@@ -76,5 +79,24 @@ Tipping points in the Earth system are points at which of a part of the Earth sy
 knitr::include_graphics("images/tippingpoints.png")
 ```
 
+### Carbon dixide removal through land ecosystems
 
+For the climate to be stabilized at 1.5°C or 2.0°C, rapid and large CO~2~ emission cuts are needed. Alongside the reduction of fossil fuel combustion, climate stabilization scenarios rely - to a varying degree - on carbon dioxide removal (CDR). Most CDR options deployed to date and available for scaling to meet climate stabilization needs rely on land ecosystems for sequestering (net uptake and long-term storage) additional C. 
+<!-- For example, an area of XXX to be reforested or afforested is needed to stabilize climate to XXX while simultaneously reducing fossil C emissions to XXX [ref].  -->
+Afforestation and reforestation have been estimated to be a potent solution for climate change mitigation [@walker22pnas; @mo23nat] and tree planting has moved to centre stage in the public perception and in policy efforts to avert dangerous climate change.
+
+```{r echo=FALSE}
+#| label: fig-cdr_ar_potential
+#| fig-cap: "Unrealised potential for C storage in biomass and soil per country. This corresponds to a *technical potential* which does not take into account socio-economic constraints. Categories include: Restore/High suitability for forestry-based NCS (R/H; red), Maintain and manage/High suitability for forestry-based NCS (MM/ H; dark green), Maintain/High suitability for forestry-based NCS (M/H; dark blue), Restore/Low suitability for forestry-based NCS (R/L; orange), Maintain and manage/Low suitability for forestry-based NCS (MM/L; light green), Maintain/Low suitability for forestry-based NCS (M/L; light blue), and Nonwoody (yellow). Figure taken from @walker22pnas. "
+#| out-width: 80%
+knitr::include_graphics("images/cdr_ar_potential.png")
+```
+
+However, ecological principles and multiple aspects of the role of land ecosystems and their interaction with climate and the carbon cycle have to be considered - apart from conflicts with biodiversity and sustainability goals and social, economic, and cultural aspects of land use [@deprez24sci]. For example, the carbon stored in a tree is susceptible to a range of threats, including wildfires, deforestation, and tree mortality by aggravating climatic stress [@anderegg22sci]. Moreover, surface properties, relevant for land-climate interactions, and their differences between forests and grasslands imply that forests may heat the local climate more than a grassland would - despite the additional C stored in a forest [@bala07pnas].
+
+Understanding the technical potential of land-based CDR will have to consider the full complexity of land-Earth system interactions. This course introduces these interactions. 
+
+## Why we study the land
+
+The examples for given above are attest to the key role of the terrestrial biosphere in the Earth system and for understanding the risks and mitigation options in the context of anthropogenic climate change. With climate change and its impacts moving into the centre of public attention and becoming an increasingly important boundary condition for policy making, it is crucial to have a basic understanding of the Earth system and how the terrestrial biosphere works. That's why we study **Land in the Earth System**.
 

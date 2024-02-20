@@ -303,6 +303,8 @@ df |>
     legend.position="bottom", 
     legend.box = "vertical"
     )
+
+ggsave(here::here("book/images/globalcarbonbudget.png"), width = 6, height = 6)
 ```
 
 ## Understanding the land C sink
