@@ -11,22 +11,22 @@
     ]
   },
   {
-    "objectID": "index.html#learning-objectives",
-    "href": "index.html#learning-objectives",
+    "objectID": "index.html#links",
+    "href": "index.html#links",
     "title": "Land in the Earth System",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nIdentify the controls on water and carbon fluxes across the Earth.\nExplain what drives the diverse vegetation types across the Earth’s biomes.\nDistinguish different aspects of drought trends.\nUnderstand the role of biogeochemical cycles and their feedbacks, amplifying (or moderating) climate change.",
+    "section": "Links",
+    "text": "Links\nReport an issue",
     "crumbs": [
       "Home",
       "About this book"
     ]
   },
   {
-    "objectID": "index.html#target-audience-and-prerequisites",
-    "href": "index.html#target-audience-and-prerequisites",
+    "objectID": "index.html#license",
+    "href": "index.html#license",
     "title": "Land in the Earth System",
-    "section": "Target audience and prerequisites",
-    "text": "Target audience and prerequisites\nBSc Geography major and minors at the University of Bern.",
+    "section": "License",
+    "text": "License\nThis work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\nOriginal sources are attributed. Content without attribution is our own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing or other, please contact us or report an issue. Any feedback, positive or negative, is welcome.",
     "crumbs": [
       "Home",
       "About this book"
@@ -213,7 +213,7 @@
     "href": "gpp.html",
     "title": "4  Gross primary production and solar radiation",
     "section": "",
-    "text": "4.1 Light use efficiency model\nMonteith (1972) made the observation that the biomass productivity of a given (well-watered) crop (in the tropics) scales linearly with the amount of absorbed solar radiation, integrated over weeks to months. This observation underlies the general light use efficiency (LUE) model which describes ecosystem-level apparent photosynthesis (referred to as gross primary production, GPP) as the photosynthetic photon flux density (PPFD) and the efficiency at which photons are used for assimilating C (LUE). \\[\n\\mathrm{GPP} = \\mathrm{PPFD} \\cdot \\mathrm{fAPAR} \\cdot \\mathrm{LUE}\n\\tag{4.1}\\] PPFD is the same as the also commonly used photosynthetically active (solar) radiation (PAR), but is expressed in moles of photons instead of energy units.\nOf course, a relationship with biomass productivity, as observed by Monteith (1972) should not be equated with a relationship with GPP. However, again, over longer periods of time, a given plant converts assimilated carbon into biomass at a relatively constant rate (see ?sec-npp). Therefore, the observation by Monteith (1972) is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of Equation 4.1 and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by Monteith (1972) were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are - for now - ignoring the effects by limited root-zone water availability. We will relieve this simplification in Chapter 8 and Chapter 9.\nThe linear dependence of GPP on PPFD implies that the variations of solar radiation over the seasons and across latitude directly translate to how GPP varies across these scales. This will be further described in Chapter 6. Note that at shorter time scales, GPP is no longer linearly related to PAR.\nIn the following, we delve deeper into each of the three factors of Equation 4.1. Brace yourself. This will take us from the Earth’s orbit in space to the scale of a cell where photosynthetic CO2 assimilation happens.",
+    "text": "4.1 Light use efficiency model\nMonteith (1972) made the observation that the biomass productivity of a given (well-watered) crop (in the tropics) scales linearly with the amount of absorbed solar radiation, integrated over weeks to months. This observation underlies the general light use efficiency (LUE) model which describes ecosystem-level apparent photosynthesis (referred to as gross primary production, GPP) as the photosynthetic photon flux density (PPFD) and the efficiency at which photons are used for assimilating C (LUE). \\[\n\\mathrm{GPP} = \\mathrm{PPFD} \\cdot \\mathrm{fAPAR} \\cdot \\mathrm{LUE}\n\\tag{4.1}\\] PPFD is the same as the also commonly used photosynthetically active (solar) radiation (PAR), but is expressed in moles of photons instead of energy units.\nOf course, a relationship with biomass productivity, as observed by Monteith (1972) should not be equated with a relationship with GPP. However, again, over longer periods of time, a given plant converts assimilated carbon into biomass at a relatively constant rate (see Chapter 5). Therefore, the observation by Monteith (1972) is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of Equation 4.1 and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by Monteith (1972) were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are - for now - ignoring the effects by limited root-zone water availability. We will relieve this simplification in Chapter 8 and Chapter 9.\nThe linear dependence of GPP on PPFD implies that the variations of solar radiation over the seasons and across latitude directly translate to how GPP varies across these scales. This will be further described in Chapter 6. Note that at shorter time scales, GPP is no longer linearly related to PAR.\nIn the following, we delve deeper into each of the three factors of Equation 4.1. Brace yourself. This will take us from the Earth’s orbit in space to the scale of a cell where photosynthetic CO2 assimilation happens.",
     "crumbs": [
       "Home",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Gross primary production and solar radiation</span>"
