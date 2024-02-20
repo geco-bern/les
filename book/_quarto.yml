@@ -9,7 +9,7 @@ book:
   title: "Land in the Earth System"
   subtitle: "Introducing global patterns, processes, and underlying principles for how climate shapes the terrestrial biosphere and how land feeds back to Earth system dynamics."
   author: "Benjamin Stocker"
-  date: "2024/01/03"
+  date: "2024/02/20"
   page-navigation: true
   chapters:
     - index.qmd
@@ -33,7 +33,7 @@ book:
   favicon: "figures/favicon.ico"
   twitter-card: true
   search: true
-  repo-url: https://github.com/geco-bern/R_book_template/
+  repo-url: https://github.com/geco-bern/les_i/
   sharing: [twitter, facebook]
   navbar:
     title: " "

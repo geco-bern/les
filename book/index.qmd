@@ -10,15 +10,20 @@ This book introduces processes of the terrestrial biosphere and how they drive E
 
 The book covers a diverse thematic ground - as diverse as the processes of the biosphere. Topics range from biogeography, the global carbon cycle, land-climate interactions, ecohydrology, to Earth system dynamics.
 
-## Learning objectives
+## Links
 
-- Identify the controls on water and carbon fluxes across the Earth.
-- Explain what drives the diverse vegetation types across the Earth’s biomes.
-- Distinguish different aspects of drought trends.
-- Understand the role of biogeochemical cycles and their feedbacks, amplifying (or moderating) climate change.
+[Report an issue](https://github.com/geco-bern/les_i/issues)
 
-## Target audience and prerequisites
+## License
 
-BSc Geography major and minors at the University of Bern. 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+Original sources are attributed. Content without attribution is our own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing or other, please [contact us](https://geco-group.org/contact/) or [report an issue](https://github.com/geco-bern/les_i/issues). Any feedback, positive or negative, is welcome.
+
+<!-- ### How to cite this book {-} -->
+
+<!-- Benjamin Stocker, Koen Hufkens, Pepa Arán, & Pascal Schneider. (2023). Applied Geodata Science (v1.0). Zenodo. [![DOI](https://zenodo.org/badge/569245031.svg)](https://zenodo.org/badge/latestdoi/569245031) -->
+
+----
 
 ![](./images/logo_unibern_squid3.png){width="30%"} ![](./images/geco_logo_fullname.png){width="30%"}
