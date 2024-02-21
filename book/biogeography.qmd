@@ -201,7 +201,7 @@ Each biome is characterised by a typical assembly of *plant functional types* (P
 6. C~3~ grasses
 7. C~4~ grasses
 
-Global vegetation models use PFTs as their basic unit for distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant ("N-fixing plants", see also #sec-nutrients). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.
+Global vegetation models use PFTs as their basic unit for distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant ("N-fixing plants", see also @sec-nutrients). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.
 
 Plants can also be distinguished into the botanical classification of *angiosperms* (flowering plants) and *gymnnosperms* (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups are not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.
 
@@ -460,3 +460,15 @@ Multiple vegetation reconstructions for the Last Glacial Maximum (LGM) obtained 
 knitr::include_graphics("images/biomes-lgm.png")
 ```
 
+
+::: {.callout-caution}
+## Exercise
+
+1. Explain the difference between biomes, as defined for example by @olson01biosci, and the IGBP vegetation classes.
+2. Give a good reason for why precipitation and temperature are plotted both along the y-axis in the Walter-Lieth climate diagrams. What is the meaning of the blue hashed area and the red dotted area?
+3. Compare the seasonality of temperature and precipitation of the example site given for the Mediterranean forest biome (FR-Pue) and the boreal forest biome (FI-Hyy). Which site do you expect to have a stronger seasonal variation in runoff?
+4. For the seven biomes for which climate diagrams are shown above, establish a ranking with respect to the growing season length.
+5. Consider an ecosystem that is characterised with a fractional plant cover of trees of 10% and a fractional plant cover of grasses of 90%. What biome does it belong to?
+6. In a changing climate, where do you expect vegetation composition shifts to unfold faster: in a large plain or in a mountainous landscape?
+
+:::
