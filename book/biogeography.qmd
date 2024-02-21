@@ -6,6 +6,7 @@ We start with the observation that the global distribution of plants and charact
 
 ```{r echo=FALSE}
 #| label: fig-humboldt
+#| column: screen
 #| fig-cap: "Vegetation zones along elevation and latitude. Source: [Wikimedia](https://upload.wikimedia.org/wikipedia/commons/9/96/Alexander_von_Humboldt_-_1850_-_Geographical_Distribution_of_Plants_-_Crop.jpg)."
 #| out-width: 100%
 knitr::include_graphics("images/humboldt_biogeography_small.png")
