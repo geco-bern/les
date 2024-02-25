@@ -443,7 +443,7 @@ n\mathrm{CO}_2 + 2n\mathrm{H}_2\mathrm{O} \rightarrow (\mathrm{CH}_2\mathrm{O})_
 $$ {#eq-photosynthesis-chemical}
 A total of eight photons is consumed to assimilate one molecule of CO~2~. For each molecule of CO~2~, one molecule of O~2~ is produced. And for each molecule of CO~2~, one molecule of H~2~O is consumed (net). Note however, that this water consumption is not the primary reason for why plants use water. A much larger amount of water is consumed by the diffusion of water vapour from the water-saturated air inside the leaves out of the stomata. This *transpiration* flux is further explained in @sec-landclimate.
 
-### Response to light and CO~2~
+### Response to light and CO~2~ {#sec-fvcb}
 
 The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates are coordinated such that they are roughly co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
 
@@ -727,13 +727,20 @@ cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 
 As shown in @fig-temp_dep, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially $A_C$, decline sharply. Dark respiration ($R_d$) monotonically increases with temperature which accentuates the decline in net assimilation $A_n$ with increasing temperature.
 
-The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed [@kumarathunge19newphyt].
+The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed @fig-topt-kumarathunge.
+
+```{r echo=FALSE}
+#| label: fig-topt-kumarathunge
+#| fig-cap: "Temperature optimum of leaf net photosynthesis at an intercellular CO~2~ concentration of 275 micro-mol mol^-1^ (T~optA275~) of mature plants growing in their native environments (d), species in the field (grown at ambient growth temperatures) measured in at least two or more seasons (e). T~growth~ is the mean air temperature of the preceding 30 d. Different colours depict plant functional types: orange, tropical evergreen angiosperms (EA-Tr); light blue, arctic tundra; red, temperate deciduous angiosperms (DA-Te); blue, temperate evergreen angiosperms (EA-Te); green, boreal evergreen gymnosperms (EG-Br); purple, temperate evergreen gymnosperms (EG-Te); those in (b,c,e,f) depict different datasets. The thick black lines are: (in d) least-squares linear regression fits and linear mixed-effect model fits (in e) with random intercepts for each dataset. Error bars represent +/-1 standard error. Figure and caption text from @kumarathunge19newphyt."
+#| out-width: 80%
+knitr::include_graphics("images/topt-kumarathunge.png")
+```
 
 ### C~4~ photosynthesis {#sec-c4}
 
 Coming soon.
     
-## Transpiration {#sec-transpiration}
+## Transpiration and leaf water-carbon coupling {#sec-transpiration}
 
 The opening of stomata is highly sensitive to environmental factors and the CO~2~ assimilation rate feeds back to stomatal opening. By opening and closing stomata, plants regulate the conductance to CO~2~ diffusion from the ambient air into the leaves and to the photosynthesis reaction sites. Simultaneously, when stomata are open, water vapour diffuses out of the leaf - *transpiration*. This link between CO~2~ and water loss is at the core of stomatal regulation to balance C uptake and desiccation.
 
@@ -743,7 +750,7 @@ The diffusive water vapour flux out of the leaf - transpiration - is driven by t
 $$
 E = 1.6 \; g_s \; D
 $$ {#eq-transpiration}
-The factor 1.6 arises due to the lower diffusivity of CO~2~ compared with H~2~O. Hence, $g_s$ has to be understood as a conductance to CO~2~ diffusion (mol CO~2~ m^-2^ s^-1^).
+The factor 1.6 arises due to the lower diffusivity of CO~2~ compared with H~2~O. Hence, $g_s$ has to be understood as a conductance to CO~2~ diffusion (mol CO~2~ m^-2^ s^-1^). Note that $g_s$ regulates both transpiration (@eq-transpiration) and assimilation (@eq-photo-fick) at the leaf-level. A tight coupling between water and carbon fluxes at the leaf-level follows from the physical principle of diffusion.
 
 Water loss through transpiration poses risks and incurs costs for a plant. The diffusive water vapour flux through stomata has to be maintained by root water uptake from the soil and transport along the xylem in the plant. When the water content in the rooting zone declines, it becomes increasingly hard for plants to extract water from the soil - they have to "suck" out the water with a increasingly negative water potential - a negative pressure. The hydraulic relationships of water transport along the soil-plant-atmosphere continuum will be introduced later. What matters here is that such negative water potentials along the water transport pathway are dangerous for the plant and can lead to lethal desiccation of cells, leaves, branches, or entire plants. 
 
@@ -775,15 +782,49 @@ knitr::include_graphics("images/constant_chi.png")
 
 Coming soon.
 
-### Stomatal optimization
+### Stomatal regulation
 
-Coming soon.
+Stomatal openings - and therefore the effective leaf stomatal conductance - are regulated by plant-internal signalling mechanisms that respond to the water-carbon trade-off within minutes. Two important relations underlie this trade-off. First, transpiration directly depends on the vapor pressure deficit ($D$) expressed through the diffusion equation @eq-transpiration. Second, while the assimilation rate ($A$) depends on stomatal conductance ($g_s$), $A$ also feeds back on $g_s$. This relationship is has an empirical basis as shown in @fig-constant-chi a. From this, a relationship of $g_s$ as a function of $D$ and $A$ can be established. However, due to the feedback between $A$ and $g_s$, deriving an analytical solution is not straight-forward.
 
-### From photosynthesis to light use efficiency
+An empirical solution that reflects the dependency of $g_s$ on $D$ and on $A$ - as represented by a saturating function to light - is presented by @oren01 for diurnal variations at the canopy-level as:
+$$
+G_s = \frac{I_0}{I_0 + a} \left( b + m \ln D \right)
+$$
+The uppercase $G_s$ denotes stomatal conductance at the canopy-level - in contrast to $g_s$ described above at the leaf-level. The first term represents an empirical representation of the light ($I_0$)-dependency of photosynthesis. $a$, $b$, and $m$ are empirically fitted coefficients.
 
-Coming soon
+There is empirical evidence that *optimality models* are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
+
+$$
+A - aE - bV_\mathrm{cmax} = \arg \max
+$$ {#eq-optim-max}
+
+Over time scales of days to weeks, $V_\mathrm{cmax}$ is coordinated with stomatal conductance [@joshi22natplants]. The simultaneous effects of $V_\mathrm{cmax}$ and $g_s$ are reflected by $\chi$. Therefore, @eq-optim-max can be expressed with respect to optimising $\chi$. Maximising a function is equivalent to finding the point where its first derivative (here with respect to $\chi$) is zero. [@prentice14ecollett] formulated such a similar (but not strictly equivalent) optimality criterion as
+$$
+\frac{\partial (E/A)}{\partial \chi} + \beta \frac{\partial (V_\mathrm{cmax}/A)}{\partial \chi} = 0 \;.
+$$
+$E/A$ is the unit cost of transpiration. $V_\mathrm{cmax}/A$ is the unit cost of carboxylation. Their sum is minimized here with respect to $\chi$. $\beta$ is the unit cost ratio. From this, the response of the stomatal conductance to $D$ and $A$ can be derived (not shown here, but in @stocker20gmd) as
+$$
+g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
+$$
+$g_1$ is a stomatal sensitivity parameter. Similar results are obtained with a related but not identical optimality criterion [@medlyn11gcb]. 
+
+## From photosynthesis to light use efficiency
+
+The light use efficiency model (@eq-luemodel) and the FvCB model (@eq-aj and @eq-jmaxlim) represent a contrasting response of photosynthesis to light - linear in @eq-luemodel and saturating (by effects of a finite $J_\mathrm{max}$) in @eq-aj and @eq-jmaxlim. It should be noted that the LUE model describes the photosynthetic CO~2~ uptake at the canopy-level and for periods of multiple days to weeks (total GPP vs. total absorbed light). In contrast, the FvCB model describes the light-photosynthesis relationship at the leaf-level and in response to rapid changes in light (e.g., over the course of a day). 
+
+As pointed out in @sec-fvcb, plants tend to coordinate the light and carboxylation-limited assimilation rates flexibly in response to average environmental conditions to which they are exposed while performing photosynthesis. Tending towards the co-limitation point can also be understood as an optimal functioning - avoiding overinvestment into maintaining a high maximum electron transport rate ($J_\mathrm{max}$) while being carboxylation-limited (too low $V_\mathrm{cmax}$), or the opposite. In other words, the higher the average light levels, the higher the maximum carboxylation capacity and therefore the amount of Rubisco in leaves. The linear relationship between GPP and PPFD in @eq-luemodel can be interpreted as an emerging relationship from the coordination of $A_C$ and $A_J$, and thus of $V_\mathrm{cmax}$ and $J_\mathrm{max}$. 
+
+A very simple model, by which LUE is assumed to be constant over time and across plants and ecosystems and using @eq-luemodel explains about two thirds of observed GPP variations in data obtained from ecosystem flux measurements, as shown in @fig-gpp-constlue. In other words, variations in light (PPFD) and leaf area (measured by fAPAR) explain two thirds of GPP variations over the seasons and across different locations on the globe.
+
+```{r echo=FALSE}
+#| label: fig-gpp-constlue
+#| fig-cap: "Observed versus simulated GPP. Observations are derived from ecosystem CO~2~ flux measurements taken at 126 different sites distributed across a wide diversity of ecoystems and environmental conditions. Simulated GPP values are obtained by applying the light use efficiency model (@eq-luemodel) and fitting a temporally and spatially constant LUE term to the data. Each data point represents an 8-day sum. Figure taken from @stocker20gmd."
+#| out-width: 60%
+knitr::include_graphics("images/gpp-constlue.png")
+```
+
 
 <!-- - Keeling et al., 2017 -->
 <!-- - leaf energy balance -->
 
-<!-- Box: - FLUXNET data, global upscaling of fluxes -->
+<!-- XXX Box: - FLUXNET data, global upscaling of fluxes -->
