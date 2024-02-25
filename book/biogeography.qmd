@@ -144,6 +144,8 @@ knitr::include_graphics("images/diagram_FR-Pue.png")
 
 #### Boreal forests {-}
 
+<!-- image at: https://www.pewtrusts.org/en/research-and-analysis/articles/2015/03/19/fast-facts-canadas-boreal-forest -->
+
 - very cold winters, cool summers
 - winter light and temperature limits productivity
 - mostly needle-leaved evergreen
@@ -189,7 +191,7 @@ plotbiomes::whittaker_base_plot() +
   theme_classic()
 ```
 
-### Plant functional types {#sec-pfts}
+## Plant functional types {#sec-pfts}
 
 Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-gpp). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:
 
@@ -205,7 +207,7 @@ Global vegetation models use PFTs as their basic unit for distinguishing plants.
 
 Plants can also be distinguished into the botanical classification of *angiosperms* (flowering plants) and *gymnnosperms* (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups are not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.
 
-### Traits
+## Traits
 
 The physiological, morphological, and life history characteristics of different plants determine their productivity and competitiveness in a given climate. Such characteristics are referred to as *plant functional traits*, or often just *traits*. Plant species can be described by a set of traits and a subset of certain traits yields the distinction into PFTs described above: leaf habit (deciduous vs. evergreen), leaf form (needle-leaved vs. broadleaved), and the life history strategy distinguising annual vs. perennial. A range of additional traits are commonly described and investigated scientifically. Here, we will not consider additional ones. The concept of a plant functional trait is that it describes a largely immutable characteristic of a plant species that determines metabolic rates (photosynthesis, respiration) and their relationship to the abiotic environment (e.g., temperature), nutrient and water demand, and ultimately its demographic rates (growth, fecundity, mortality) and thus competitiveness.
 
@@ -218,6 +220,8 @@ Leaf-shedding of deciduous trees, in contrast, is a strategy to avoid having to 
 Note that plant functional traits are often not entirely immutable. Instead, traits may vary also within a species and these variations are often driven by the environment. This is called *acclimation*. Such variations can even arise over the course of a season. For example, photosynthetic traits can rapidly acclimate to the large changes in light availability over the course of a year. Some traits are more plastic than others. For example, a tree is either needle-leaved or broadleaved. There is no continuum between the two leaf forms. In contrast, the nitrogen content per unit leaf mass is relatively plastic within a species.
 
 A changing environment changes the competitiveness of a given species, i.e., of a given trait combination. As a result, some traits may acclimate to some extent within a weeks to years. Over longer time scales, the altered demographic rates in a new climate affect the competitiveness of a species (even after some of its traits may have acclimated to a new climate) and ultimately shift demographic rates and the community composition. In grasslands, where the demographic cycle is short, such community composition changes may unfold over time scales of a few years. In forests, the longevity of an individual tree is on the order of decades to centuries and community composition changes unfold on correspondingly long time scale.
+
+<!-- XXX: explain trait variations with leaf N and P - Reich et al. PNAS, Asner et al. -->
 
 ## Global vegetation patterns
 

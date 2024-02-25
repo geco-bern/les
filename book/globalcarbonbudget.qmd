@@ -335,6 +335,12 @@ The processes for understanding the oceanic C sink will be introduced in @sec-oc
 
 As highlighted above, pointing to @fig-carbon_budget, the magnitude of the land C sink varies strongly between years. Semi-arid regions, where dry conditions during a substantial part of the year limit photosynthesis and where drought-related disturbances strongly influence ecosystem C balances, are contributing most strongly to the signal apparent from the global C budget [@ahlstrom15sci]. Semi-arid regions largely align with temperate and tropical grasslands, savannahs, and shrubland biomes (@fig-biomes_sites_map). Years with a small land sink and a high atmospheric CO~2~ growth rate are dry years, associated with low global-scale terrestrial water storage [@humphrey18nat], and are associated with warm temperature anomalies in the tropics [@cox13nat]. This indicates two important points. First, C storage in the terrestrial biosphere is highly susceptible to climate variations. Second, water availability has a strong control on the terrestrial carbon cycle. We will learn more about how the water and the carbon cycles are coupled in @sec-landclimate and how the influence of water availability on vegetation varies across the globe in @sec-ecohydrology.
 
+```{r echo=FALSE}
+#| label: fig-tws-humphrey18
+#| fig-cap: "Interannual variability of the atmospheric CO~2~ growth rate (CGR) and terrestrial water storage (TWS). (a) Monthly de-seasonalized and de-trended CGR, TWS from gravimetric satellite observations (GRACE mission) and TWS from a statistical model that reconstructs the TWS based on climate data (GRACE-REC). The vertical axis is inverted for CGR so that positive (downwards) CGR anomalies indicate a weaker land carbon sink. A 6-month moving average was applied to GRACE data for readability. (b) Yearly CGR versus GRACE TWS anomalies. Figure and caption text from @humphrey18nat."
+#| out-width: 100%
+knitr::include_graphics("images/tws-humphrey18.png")
+```
 
 ::: {.callout-note}
 ## CO~2~ trajectories and the land C cycle response
