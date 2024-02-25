@@ -10,9 +10,132 @@ format:
 
 # Ecosystem carbon dynamics {#sec-carboncycle_ecosystem}
 
+In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance. We will describe the C dynamics of an ecosystem, not as a single box with a single and constant turnover, but as a *cascade* of C, made of of multiple pools with different turnover rates, and where the partitioning (allocation) of the cascading C into the different pools is influenced by the environment and by the ecosystem state.
+
+## Ecosystem carbon flows and pools
+
+At the ecosystem-level, C dynamics can be described as the flows (fluxes) between carbon pools that represent C in non-structural forms, leaves (foliage), (stem) wood, fine roots, litter, and soil (@fig-ecosystem-carbon-cycle-bonan). C is respired by plants (autotrophic respiration) and by soil microbes (heterotrophic respiration). C in live vegetation biomass is turned over to produce litter (litterfall) as trees shed their leaves and lose branches (over years) and as they die (over decades to centuries). Plant mortality is related to the size and age of a tree and may be driven by disturbances (fire, pests, extreme drought and heat). Within years, litter is respired or transformed into soil organic C where it may be stabilized for centuries and more. Heterotrophic respiration originates from litter and soil C decomposition by microbes (fungi and bacteria).
+
+```{r echo=FALSE}
+#| label: fig-ecosystem-carbon-cycle-bonan
+#| fig-cap: "Major carbon fluxes and pools in land ecosystems. Figure from @bonan08sci."
+#| out-width: 40%
+knitr::include_graphics("images/ecosystem-carbon-cycle-bonan.png")
+```
+
+### Net primary productivity
+
+C assimilated by photosynthesis is initially present as *non-structural C* (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the *reserves* pool. Some of the assimilated carbon is consumed by *autotrophic respiration* ($R_a$) which subsumes different processes, including maintaining vital functions of the plant (maintenance respiration), inevitable losses during photosynthesis (leaf dark respiration, 
+$R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (growth respiration). The remainder is available for growth in different compartments (leaves, wood, fine roots, seeds).
+
+At the plant-level, C used for growth is supplied by NSC. The availability of NSC for growth depends on the balance of C assimilation and autotrophic respiration, is influenced by abiotic conditions (temperature, plant desiccation), and varies over the seasons. For example, when leaves are flushed in deciduous plants, the required C is drawn from the NSC pool. Wood is produced not evenly over the seasons, but in a limited period during the growing season which varies strongly between species. Grasses switch from a vegetative growth phase, producing leaves, in the early season to a seed-producing phase later.
+
+Over longer ($\sim$annual) time scales, the amount of C invested into growth of new biomass in leaves ($\Delta C_\mathrm{leaves}$), fine roots ($\Delta C_\mathrm{roots}$), and wood ($\Delta C_\mathrm{wood}$) plus the production organic compounds released through leaves (volatile organic compounds) and roots (exudates) corresponds to the gross primary productivity minus autotrophic respiration. This quantity is referred to as the *net primary productivity* (NPP) and is commonly expressed for annual total fluxes.
+$$
+\begin{aligned}
+\mathrm{NPP} &= \mathrm{GPP} - R_a \\
+             &= \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood} + C_\mathrm{VOC} + C_\mathrm{exu}
+\end{aligned}
+$$ {#eq-npp}
+$C_\mathrm{VOC}$ is the amount of C released through volatile organic compounds and $C_\mathrm{exu}$ is the amount of C released through exudates. These two terms are difficult to measure in the field and tend to be smaller than the other terms. Therefore, the *biomass productivity* is more commonly quantified from observations.
+$$
+\mathrm{BP} = \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood}
+$$ {#eq-bp}
+Note that the mass balance expressed through @eq-npp only holds if there is no net change in the amount of C stored in the NSC pool. 
+
+The ratio of NPP:GPP is commonly referred to as the *ecosystem carbon use efficiency* (CUE), and BP:GPP as the *biomass production efficiency* (BPE).
+
+$$
+\begin{aligned}
+\mathrm{CUE} &= \mathrm{NPP} / \mathrm{GPP} \\
+\mathrm{BPE} &= \mathrm{BP} / \mathrm{GPP} \\
+\end{aligned}
+$$
+
+As shown in @fig-npp_bpe, BP is linearly related to GPP across ecosystems, indicating that BP can be assumed to be a constant fraction of GPP - albeit with substantial uncertainty. 
+
+```{r echo=FALSE}
+#| label: fig-npp_bpe
+#| fig-cap: "BP and BPE. (a) relationship of biomass productivity (BP) versus gross primary productivity (GPP) across 231 sites. (b) Distribution of the biomass production efficiency (BPE) across 231 sites. Data from @peng23jecol."
+#| out-width: 80%
+# figure created in analysis/npp.R
+knitr::include_graphics("images/npp_bpe.png")
+```
+
+<!-- XXX Add Vicca et al., 2012 plot -->
+
+### Allocation and growth
+
+The partitioning of available NSC to growth in different plant compartments, to VOC, exudates, or respiration is referred to as *allocation*. Quantitatively, allocation to a given compartment can be expressed as the ratio of BP of that compartment (leaves, roots, wood) over the total NPP.
+$$
+\alpha_i = \Delta C_i / \mathrm{NPP}
+$$ {#eq-allocation-fraction}
+Since C allocated to exudates and volatile organic compounds are rarely measured, BP is commonly used instead of NPP in @eq-allocation-fraction.
+
+```{r echo=FALSE}
+#| label: fig-npp_a_ALL
+#| fig-cap: "Allocation. (a) Relationship of leaf biomass production vs. total biomass production. (b) Distribution of the fractional allocation to leaves. (c) Relationship of woody biomass production vs. total biomass production. 'Wood' contains stem, branches, and coarse roots. 'Roots' is fine roots only. (d) Distribution of the fractional allocation to woody biomass. (e) Relationship of fine root biomass production vs. total biomass production. (b) Distribution of the fractional allocation to fine roots.  Data from @peng23jecol."
+#| out-width: 80%
+# figure created in analysis/npp.R
+knitr::include_graphics("images/npp_a_ALL.png")
+```
+
+The absence of woody biomass and C allocation to wood production in grasses and herbs as opposed to woody plants (trees and shrubs) is a major difference of allocation across different vegetation types and biomes. While in forests, about half of the total BP is in woody biomass, in grasslands, this is zero. In grasslands, the fractional allocation to leaves and fine roots is about twice as high as in forests (@tbl-allocation).
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-allocation
+#| tbl-cap: "Carbon allocation fractions in forests and grasslands. Wood contains stem, branches, and coarse roots. 'Roots' is fine roots only. Data from @peng23jecol."
+
+library(knitr)
+library(readr)
+library(dplyr)
+
+# data file produced in analysis/npp.R
+df_allocation <- read_rds(here::here("data/df_allocation.rds"))
+
+df_allocation |> 
+  select(Vegetation = pft, Leaves = a_leaf, Wood = a_wood, Roots = a_root) |> 
+  mutate(across(where(is.numeric), ~format(., digits = 2))) |> 
+  kable()
+```
+
+The fractional belowground C allocation is under a strong influence by environmental conditions (nutrient availability, water availability, and CO~2~). The fraction of C allocated to fine root growth tends to increase under poor soil nutrient availability, under elevated CO~2~ (as seen in experiments), and under dry conditions. This can be understood as a response to the balance of above vs. belowground resource availabilities (light and CO~2~ vs. nutrients and water).
+
+Because C in leaves and fine roots has a much shorter turnover time than in wood, allocation is a key quantity that controls the effective ecosystem C turnover time and ecosystem C dynamics. Thus, a changing environment affects ecosystem C dynamics, i.a., through its influence on allocation.
+
+### Biomass turnover and litterfall
+
+Turnover of different plant compartments is driven by different processes. Leaf turnover (*leaf longevity*) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine root and leaf biomass. Its turnover is governed by tree mortality (@sec-forest-dynamics) and ecosystem disturbances (@sec-disturbances) or the mortality of individual branches of a tree.
+
+### Soil and litter C dynamics
+
+
+<!-- XXX for LES 2: newer soil C models -->
+
+### Net ecosystem productivity
+
+### Net biome productivity
+
+## The C cascade model
+
+## Tree growth and allometry
+
 Coming soon.
 
-<!-- In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance.  -->
+<!-- XXX for LES 2 -->
+
+## Forest dynamics {#sec-forest-dynamics}
+
+Coming soon.
+
+<!-- XXX for LES 2 -->
+
+## Fire and other disturbances {#sec-disturbances}
+
+Coming soon.
+
+<!-- XXX for LES 2 -->
+
 
 <!-- - Land: GPP-NPP, vegC, soilC, Ra, Rh -->
 
