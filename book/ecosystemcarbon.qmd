@@ -105,18 +105,89 @@ Because C in leaves and fine roots has a much shorter turnover time than in wood
 
 ### Biomass turnover and litterfall
 
-Turnover of different plant compartments is driven by different processes. Leaf turnover (*leaf longevity*) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine root and leaf biomass. Its turnover is governed by tree mortality (@sec-forest-dynamics) and ecosystem disturbances (@sec-disturbances) or the mortality of individual branches of a tree.
+Turnover of different plant compartments is driven by different processes. The leaf turnover time (*leaf longevity*) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (@sec-forest-dynamics) and ecosystem disturbances (@sec-disturbances) or the mortality of individual branches of a tree.
 
 ### Soil and litter C dynamics
 
+Senesced leaves are shed and, together with deadwood, form the litter pool on the ground surface. Litter is decomposed by soil microorganisms - *heterotrophic* organisms - that gain energy from consuming the organic matter. Litter also gets mixed into the topsoil by bioturbation (mixing by the soil fauna). C in the litter pool has a turnover time on the order of years (@fig-litter_decomposition) and it can have an important role as fuel for fire and as an insulation layer between soil and air. 
+
+The rate of litter decomposition is strongly affected by temperature and moisture. The warmer, the more rapid the decomposition. The moisture-dependency is a peaked relationship. Below the peak, decomposition increases with moisture. Above the peak, it declines due to a lack of oxygen. The decomposition rate is also influenced by the chemical composition. Lignified (woody) biomass decomposes more slowly than, e.g., fine roots and leaves.
+
+```{r echo=FALSE}
+#| label: fig-litter_decomposition
+#| fig-cap: "Litter decomposition in different biomes. Shown is the average mass remaining as a function of time for leaf (n = 5 to 6 species) and root (n = 3 species) litters decomposed in 21 sites. (A) Leaf litter decomposed in forest and tundra biomes; (B) root litter decomposed in forest and tundra biomes; (C) leaf litter decomposed in humid and arid grasslands; (D) root litter decomposed in humid and arid grasslands. Each species and litter type was decomposed in replicate bags and collected at multiple time points. Results show that leaf and root litter decomposition rates generally increase as the climatic decomposition index (CDI) increases (Table 1). In arid grasslands, leaf litter decomposed more rapidly than expected (based on the CDI), possibly due to photodegradation. The CDI is incorporates seasonality in temperature and moisture. Figure and caption text from @parton07sci"
+#| out-width: 80%
+knitr::include_graphics("images/litter_decomposition.png")
+```
+
+Soil organic matter (SOM) refers to the organic mass fraction in soils. It consists of litter at advanced stages of decomposition and of microbial biomass and necromass. A fraction of soil organic matter is present in the form of particulate organic matter, associated to soil minerals. The remainder is decomposed by microbes (fungi and bacteria) and fuels their growth. 
+
+SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see @fig-carbon-pools-fluxes-ipcc). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (@sec-landclimate). 
+
+::: {.callout-note}
+## 1st-order decay model for litter and SOM
+
+Soil and litter C dynamics can be conceived as a 1-st order decay model, consisting of multiple pools, characterized by distinct turnover rates, and supplied with biomass turnover from different plant compartments. The dynamics of an individual pool can be described following 1st-order dynamics (Box in @sec-cpooldynamics). 
+$$
+\frac{\mathrm{d}C}{\mathrm{d}t} = I - k(T,\theta) \;C \;.
+$$ {#eq-firststorderdecay_littersom}
+Terrestrial biosphere models commonly treat the decay rate $k$ as a function of temperature and moisture, as indicated in @eq-firststorderdecay_littersom ($T$ is temperature, $\theta$ is soil moisture). Some models also use the pH of the soil solution and the oxygen content in the soil for modifying $k$. $k$ at a standard temperature varies for different pools, ranging from 1/3-1 years^-1^ for litter, to 50-500 years^-1^ for SOM.
+
+Experiments of litter decomposition in the field, where a specified initial mass of litter is tracked over time (@fig-litter_decomposition), reveal a general pattern that is consistent with the 1st-order decay model. The solution of @eq-firststorderdecay_littersom with $I=0$ yields:
+$$
+C(t) = C_0\; e^{-k t}\;,
+$$
+where $t$ is time. Indeed, the litter mass shown in @fig-litter_decomposition exhibits an exponential decline over time.
+
+Also SOM decay can be represented following @eq-firststorderdecay_littersom. In words, the amount of SOM C that gets decomposed in a given amount of time is proportional to the SOM C pool size. The input into that pool is independent of the pool itself.
+
+Litter and SOM pools in terrestrial biosphere models are most commonly represented by an array of pools that are characterized by different turnover times and that are connected following a specific structure. The litter pools receive inputs from biomass turnover. Decomposed litter is diverted to SOM pools. Fast-decomposing litter is diverted too a SOM pool with a short turnover time (high $k$), slow-decomposing litter is diverted to a SOM pool with a long turnover time. C is respired away as CO~2~ during litter and SOM decomposition. The *microbial carbon use efficiency* ($e$) determines the ratio of the decomposed C contributing to microbial biomass growth. $(1-e)$ is respired as CO~2~.
+
+```{r echo=FALSE}
+#| label: fig-littersom
+#| fig-cap: "Model for litter and SOM C pools and fluxes. Decomposition of fast and slow litter and SOM pools are modelled using @eq-firststorderdecay_littersom with a relatively high and low *k* respectively. The input term *I* for each pool is depicted by straight arrows. *e* is the carbon use efficiency of litter decomposition. *f*~fast~ is the fraction of litter decomposition diverted to the fast decomposing SOM pool. *R*~h~ is the heterotrophic respiration of C, leaving the system as CO~2~. This shows a simplified version of the litter and SOM model structure implemented in the LPJ terrestrial biosphere model [@sitch03gcb]."
+#| out-width: 60%
+knitr::include_graphics("images/littersom_model.png")
+```
+
+:::
+
+
+
+
+
+
+C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. The rate of litter and SOM decomposition ($k$ in @eq-firststorderdecay) is controlled by the soil temperature and moisture.
 
 <!-- XXX for LES 2: newer soil C models -->
 
 ### Net ecosystem productivity
 
+$$
+\begin{align}
+\mathrm{NEP} &= \mathrm{GPP} - R_a - R_h \\
+             &= \mathrm{NPP} - R_h
+\end{align}
+$$
+
 ### Net biome productivity
 
+$$
+\begin{align}
+\mathrm{NBP} &= \mathrm{GPP} - R_a - R_h - \Delta C_\mathrm{dist} \\
+             &= \mathrm{NEP} - \Delta C_\mathrm{dist}
+\end{align}
+$$
+
 ## The C cascade model
+
+```{r echo=FALSE}
+#| label: fig-ccascade
+#| fig-cap: "The carbon cascade in terrestrial ecosystems."
+#| out-width: 80%
+knitr::include_graphics("images/carbon_cascade2.png")
+```
+
 
 ## Tree growth and allometry
 
