@@ -17,3 +17,5 @@ Coming soon.
     - Model-data integration
     Dietze et al., 2018 [www.pnas.org/cgi/doi/10.1073/pnas.1710231115](http://www.pnas.org/cgi/doi/10.1073/pnas.1710231115)
     - Data-driven upscaling -->
+    
+<!-- Chapter 14 in Schulze book -->

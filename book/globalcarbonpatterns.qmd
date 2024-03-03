@@ -54,3 +54,5 @@ Coming soon.
 
 <!-- Map of continental and subsea permafrost in northern hemisphere -->
 <!-- source: Overduin et al. 2019 -->
+
+<!-- Biomass in different biomes: https://doi.org/10.1073/pnas.0901970106 -->
