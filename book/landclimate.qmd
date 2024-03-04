@@ -4,8 +4,6 @@ Coming soon.
 
 <!-- ## Water-carbon coupling {#sec-watercarbon} -->
 
-
-
 <!-- ## Ecosystem water balance {#sec-waterbalance} -->
 
 <!-- ## Surface energy balance {#sec-energybalance} -->

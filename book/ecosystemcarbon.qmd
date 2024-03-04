@@ -1,8 +1,8 @@
 ---
 format: 
   html:
-    fig-width: 7
-    fig-height: 5
+    fig-width: 5
+    fig-height: 3
   pdf:
     fig-width: 7
     fig-height: 5
@@ -258,7 +258,7 @@ The GPP is then increased from 100 PgC yr^-1^ during the first 3000 simulation y
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| label: fig-ccascade-simulations
-#| fig-cap: "Time series of the pool sizes in the C cascade model, forced with an increase of GPP from 100 to 120 PgC yr^-1^. The first 2000 simulation years are not shown as they are used for model spin-up."
+#| fig-cap: "Time series of the pool sizes in the C cascade model, forced with an increase of GPP from 100 to 120 PgC yr^-1^. The first 2000 simulation years are not shown as they are used for model spin-up. The years used for quantifying relative changes below are indicated by the vertical dotted lines."
 #| out-width: 80%
 
 # specify GPP for each simulation year as a vector
@@ -277,6 +277,8 @@ df |>
   geom_line(aes(year, slitt, color = "Slow litter C")) +
   geom_line(aes(year, fsoil, color = "Fast soil C")) +
   geom_line(aes(year, ssoil, color = "Slow soil C")) +
+  geom_vline(xintercept = 2500, linetype = "dotted") +
+  geom_vline(xintercept = 5500, linetype = "dotted") +
   xlim(2000, 6000) +
   khroma::scale_color_okabeito(name = "") +
   theme_classic() +
@@ -309,7 +311,7 @@ df_plot |>
   ggplot(aes(value_2500, value_5500, color = variable)) +
   geom_abline(slope = 1, linetype = "dotted") +
   geom_abline(slope = 1.2, color = "grey") +
-  geom_point() +
+  geom_point(size = 3) +
   khroma::scale_color_okabeito(name = "") +
   theme_classic() +
   labs(x = "Pool size in year 2500 (PgC)", 
