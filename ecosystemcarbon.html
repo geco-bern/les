@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -72,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="Land in the Earth System - 5&nbsp; Ecosystem carbon dynamics">
 <meta name="twitter:description" content="">
@@ -171,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and solar radiation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and photosynthesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -258,7 +341,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ecosystem-carbon-flows-and-pools" id="toc-ecosystem-carbon-flows-and-pools" class="nav-link active" data-scroll-target="#ecosystem-carbon-flows-and-pools"><span class="header-section-number">5.1</span> Ecosystem carbon flows and pools</a>
+  <ul class="collapse">
+  <li><a href="#net-primary-productivity" id="toc-net-primary-productivity" class="nav-link" data-scroll-target="#net-primary-productivity"><span class="header-section-number">5.1.1</span> Net primary productivity</a></li>
+  <li><a href="#allocation-and-growth" id="toc-allocation-and-growth" class="nav-link" data-scroll-target="#allocation-and-growth"><span class="header-section-number">5.1.2</span> Allocation and growth</a></li>
+  <li><a href="#biomass-turnover-and-litterfall" id="toc-biomass-turnover-and-litterfall" class="nav-link" data-scroll-target="#biomass-turnover-and-litterfall"><span class="header-section-number">5.1.3</span> Biomass turnover and litterfall</a></li>
+  <li><a href="#soil-and-litter-c-dynamics" id="toc-soil-and-litter-c-dynamics" class="nav-link" data-scroll-target="#soil-and-litter-c-dynamics"><span class="header-section-number">5.1.4</span> Soil and litter C dynamics</a></li>
+  <li><a href="#sec-nep" id="toc-sec-nep" class="nav-link" data-scroll-target="#sec-nep"><span class="header-section-number">5.1.5</span> Net ecosystem productivity</a></li>
+  <li><a href="#net-biome-productivity" id="toc-net-biome-productivity" class="nav-link" data-scroll-target="#net-biome-productivity"><span class="header-section-number">5.1.6</span> Net biome productivity</a></li>
+  </ul></li>
+  <li><a href="#the-c-cascade-model" id="toc-the-c-cascade-model" class="nav-link" data-scroll-target="#the-c-cascade-model"><span class="header-section-number">5.2</span> The C cascade model</a></li>
+  <li><a href="#tree-growth-and-allometry" id="toc-tree-growth-and-allometry" class="nav-link" data-scroll-target="#tree-growth-and-allometry"><span class="header-section-number">5.3</span> Tree growth and allometry</a></li>
+  <li><a href="#sec-forest-dynamics" id="toc-sec-forest-dynamics" class="nav-link" data-scroll-target="#sec-forest-dynamics"><span class="header-section-number">5.4</span> Forest dynamics</a></li>
+  <li><a href="#sec-disturbances" id="toc-sec-disturbances" class="nav-link" data-scroll-target="#sec-disturbances"><span class="header-section-number">5.5</span> Fire and other disturbances</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -282,8 +383,439 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In <a href="globalcarbonbudget.html" class="quarto-xref"><span>Chapter 3</span></a>, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>, we focused on the processes driving terrestrial CO<sub>2</sub> uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance. We will describe the C dynamics of an ecosystem, not as a single box with a single and constant turnover, but as a <em>cascade</em> of C, made of of multiple pools with different turnover rates, and where the partitioning (allocation) of the cascading C into the different pools is influenced by the environment and by the ecosystem state.</p>
+<section id="ecosystem-carbon-flows-and-pools" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="ecosystem-carbon-flows-and-pools"><span class="header-section-number">5.1</span> Ecosystem carbon flows and pools</h2>
+<p>At the ecosystem-level, C dynamics can be described as the flows (fluxes) between carbon pools that represent C in non-structural forms, leaves (foliage), (stem) wood, fine roots, litter, and soil (<a href="#fig-ecosystem-carbon-cycle-bonan" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>). C is respired by plants (autotrophic respiration) and by soil microbes (heterotrophic respiration). C in live vegetation biomass is turned over to produce litter (litterfall) as trees shed their leaves and lose branches (over years) and as they die (over decades to centuries). Plant mortality is related to the size and age of a tree and may be driven by disturbances (fire, pests, extreme drought and heat). Within years, litter is respired or transformed into soil organic C where it may be stabilized for centuries and more. Heterotrophic respiration originates from litter and soil C decomposition by microbes (fungi and bacteria).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ecosystem-carbon-cycle-bonan" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ecosystem-carbon-cycle-bonan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ecosystem-carbon-cycle-bonan.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosystem-carbon-cycle-bonan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Major carbon fluxes and pools in land ecosystems. Figure from <span class="citation" data-cites="bonan08sci">Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="net-primary-productivity" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="net-primary-productivity"><span class="header-section-number">5.1.1</span> Net primary productivity</h3>
+<p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (maintenance respiration), inevitable losses during photosynthesis (leaf dark respiration, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>), and energetic costs for biomass synthesis (growth respiration). The remainder is available for growth in different compartments (leaves, wood, fine roots, seeds).</p>
+<p>At the plant-level, C used for growth is supplied by NSC. The availability of NSC for growth depends on the balance of C assimilation and autotrophic respiration, is influenced by abiotic conditions (temperature, plant desiccation), and varies over the seasons. For example, when leaves are flushed in deciduous plants, the required C is drawn from the NSC pool. Wood is produced not evenly over the seasons, but in a limited period during the growing season which varies strongly between species. Grasses switch from a vegetative growth phase, producing leaves, in the early season to a seed-producing phase later.</p>
+<p>Over longer (<span class="math inline">\(\sim\)</span>annual) time scales, the amount of C invested into growth of new biomass in leaves (<span class="math inline">\(\Delta C_\mathrm{leaves}\)</span>), fine roots (<span class="math inline">\(\Delta C_\mathrm{roots}\)</span>), and wood (<span class="math inline">\(\Delta C_\mathrm{wood}\)</span>) plus the production organic compounds released through leaves (volatile organic compounds) and roots (exudates) corresponds to the gross primary productivity minus autotrophic respiration. This quantity is referred to as the <em>net primary productivity</em> (NPP) and is commonly expressed for annual total fluxes. <span id="eq-npp"><span class="math display">\[
+\begin{aligned}
+\mathrm{NPP} &amp;= \mathrm{GPP} - R_a \\
+             &amp;= \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood} + C_\mathrm{VOC} + C_\mathrm{exu}
+\end{aligned}
+\tag{5.1}\]</span></span> <span class="math inline">\(C_\mathrm{VOC}\)</span> is the amount of C released through volatile organic compounds and <span class="math inline">\(C_\mathrm{exu}\)</span> is the amount of C released through exudates. These two terms are difficult to measure in the field and tend to be smaller than the other terms. Therefore, the <em>biomass productivity</em> is more commonly quantified from observations. <span id="eq-bp"><span class="math display">\[
+\mathrm{BP} = \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood}
+\tag{5.2}\]</span></span> Note that the mass balance expressed through <a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> only holds if there is no net change in the amount of C stored in the NSC pool. BP is expressed as a flux of C per unit square meter (for example gC m<sup>-2</sup> yr<sup>-1</sup>). It measures the amount of biomass C produced per unit ground area and time. NPP is expressed in the same units and additionally includes C produced and released as volatie organic compounds and exudates. These do not contribute to biomass of the plant itself and are relatively short-lived. However, they are not in the form of oxidized C (as is <span class="math inline">\(R_a\)</span>) and therefore are counted towards NPP.</p>
+<p>The ratio of NPP:GPP is commonly referred to as the <em>ecosystem carbon use efficiency</em> (CUE), and BP:GPP as the <em>biomass production efficiency</em> (BPE).</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{CUE} &amp;= \mathrm{NPP} / \mathrm{GPP} \\
+\mathrm{BPE} &amp;= \mathrm{BP} / \mathrm{GPP} \\
+\end{aligned}
+\]</span></p>
+<p>As shown in <a href="#fig-npp_bpe" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>, BP is linearly related to GPP across ecosystems, indicating that BP can be assumed to be a constant fraction of GPP - albeit with substantial uncertainty.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-npp_bpe" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-npp_bpe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/npp_bpe.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-npp_bpe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: BP and BPE. (a) relationship of biomass productivity (BP) versus gross primary productivity (GPP) across 231 sites. (b) Distribution of the biomass production efficiency (BPE) across 231 sites. Data from <span class="citation" data-cites="peng23jecol">Peng et al. (<a href="references.html#ref-peng23jecol" role="doc-biblioref">n.d.</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- XXX Add Vicca et al., 2012 plot -->
+</section>
+<section id="allocation-and-growth" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="allocation-and-growth"><span class="header-section-number">5.1.2</span> Allocation and growth</h3>
+<p>The partitioning of available NSC to growth in different plant compartments, to VOC, exudates, or respiration is referred to as <em>allocation</em>. Quantitatively, allocation to a given compartment can be expressed as the ratio of BP of that compartment (leaves, roots, wood) over the total NPP. <span id="eq-allocation-fraction"><span class="math display">\[
+\alpha_i = \Delta C_i / \mathrm{NPP}
+\tag{5.3}\]</span></span> Since C allocated to exudates and volatile organic compounds are rarely measured, BP is commonly used instead of NPP in <a href="#eq-allocation-fraction" class="quarto-xref">Equation&nbsp;<span>5.3</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-npp_a_ALL" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-npp_a_ALL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/npp_a_ALL.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-npp_a_ALL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: Allocation. (a) Relationship of leaf biomass production vs.&nbsp;total biomass production. (b) Distribution of the fractional allocation to leaves. (c) Relationship of woody biomass production vs.&nbsp;total biomass production. ‘Wood’ contains stem, branches, and coarse roots. ‘Roots’ is fine roots only. (d) Distribution of the fractional allocation to woody biomass. (e) Relationship of fine root biomass production vs.&nbsp;total biomass production. (b) Distribution of the fractional allocation to fine roots. Data from <span class="citation" data-cites="peng23jecol">Peng et al. (<a href="references.html#ref-peng23jecol" role="doc-biblioref">n.d.</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The absence of woody biomass and C allocation to wood production in grasses and herbs as opposed to woody plants (trees and shrubs) is a major difference of allocation across different vegetation types and biomes. While in forests, about half of the total BP is in woody biomass, in grasslands, this is zero. In grasslands, the fractional allocation to leaves and fine roots is about twice as high as in forests (<a href="#tbl-allocation" class="quarto-xref">Table&nbsp;<span>5.1</span></a>).</p>
+<div class="cell">
+<div id="tbl-allocation" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-allocation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: Carbon allocation fractions in forests and grasslands. Wood contains stem, branches, and coarse roots. ‘Roots’ is fine roots only. Data from <span class="citation" data-cites="peng23jecol">Peng et al. (<a href="references.html#ref-peng23jecol" role="doc-biblioref">n.d.</a>)</span>.
+</figcaption>
+<div aria-describedby="tbl-allocation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Vegetation</th>
+<th style="text-align: left;">Leaves</th>
+<th style="text-align: left;">Wood</th>
+<th style="text-align: left;">Roots</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Forest</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: left;">0.47</td>
+<td style="text-align: left;">0.27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grassland</td>
+<td style="text-align: left;">0.47</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.53</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The fractional belowground C allocation is under a strong influence by environmental conditions (nutrient availability, water availability, and CO<sub>2</sub>). The fraction of C allocated to fine root growth tends to increase under poor soil nutrient availability, under elevated CO<sub>2</sub> (as seen in experiments), and under dry conditions. This can be understood as a response to the balance of above vs.&nbsp;belowground resource availabilities (light and CO<sub>2</sub> vs.&nbsp;nutrients and water).</p>
+<p>Because C in leaves and fine roots has a much shorter turnover time than in wood, allocation is a key quantity that controls the effective ecosystem C turnover time and ecosystem C dynamics. Thus, a changing environment affects ecosystem C dynamics, i.a., through its influence on allocation.</p>
+</section>
+<section id="biomass-turnover-and-litterfall" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="biomass-turnover-and-litterfall"><span class="header-section-number">5.1.3</span> Biomass turnover and litterfall</h3>
+<p>Turnover of different plant compartments is driven by different processes. The leaf turnover time (<em>leaf longevity</em>) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (<a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>) and ecosystem disturbances (<a href="#sec-disturbances" class="quarto-xref"><span>Section 5.5</span></a>) or the mortality of individual branches of a tree.</p>
+</section>
+<section id="soil-and-litter-c-dynamics" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="soil-and-litter-c-dynamics"><span class="header-section-number">5.1.4</span> Soil and litter C dynamics</h3>
+<p>Senesced leaves are shed and, together with deadwood, form the litter pool on the ground surface. Litter is decomposed by soil microorganisms - <em>heterotrophic</em> organisms - that gain energy from consuming the organic matter. Litter also gets mixed into the topsoil by bioturbation (mixing by the soil fauna). C in the litter pool has a turnover time on the order of months to years for the fast-decomposing litter of dead leaves and fine roots (<a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>), to 10<sup>1</sup>-10<sup>2</sup> years for deadwood. Litter can have an important role as fuel for fire and as an insulation layer between soil and air.</p>
+<p>The rate of litter decomposition is strongly affected by temperature and moisture. The warmer, the more rapid the decomposition. The moisture-dependency is a peaked relationship. Below the peak, decomposition increases with moisture. Above the peak, it declines due to a lack of oxygen. The decomposition rate is also influenced by the chemical composition. As a consequence of this environment-dependency, the time scale of litter decomposition varies across biomes (<a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>). Lignified (woody) biomass decomposes more slowly than, e.g., fine roots and leaves.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-litter_decomposition" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-litter_decomposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/litter_decomposition.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-litter_decomposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: Litter decomposition in different biomes. Shown is the average mass remaining as a function of time for leaf (n = 5 to 6 species) and root (n = 3 species) litters decomposed in 21 sites. (A) Leaf litter decomposed in forest and tundra biomes; (B) root litter decomposed in forest and tundra biomes; (C) leaf litter decomposed in humid and arid grasslands; (D) root litter decomposed in humid and arid grasslands. Each species and litter type was decomposed in replicate bags and collected at multiple time points. Results show that leaf and root litter decomposition rates generally increase as the climatic decomposition index (CDI) increases (Table 1). In arid grasslands, leaf litter decomposed more rapidly than expected (based on the CDI), possibly due to photodegradation. The CDI is incorporates seasonality in temperature and moisture. Figure and caption text from <span class="citation" data-cites="parton07sci">Parton et al. (<a href="references.html#ref-parton07sci" role="doc-biblioref">2007</a>)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Soil organic matter (SOM) refers to the organic mass fraction in soils. It consists of litter at advanced stages of decomposition and of microbial biomass and necromass. The decomposition rate of organic matter in soil can be strongly reduced compared to the decomposition rate of litter. This is due to <em>stabilisation</em> processes. Stabilisation of SOM arises from the chemical transformation through soil micro and macro-fauna and through physical protection in the soil matrix (association to minerals, occlusion in soil aggregates). Yet, the decomposition of SOM is rarely fully suppressed (except under fully anoxic conditions).</p>
+<p>SOM exposed to decomposition is consumed by microbes (fungi and bacteria) and fuels their growth. As they consume organic matter - like humans - they use the chemical energy “stored” in organic matter and oxidise the carbohydrates to CO<sub>2</sub>. The CO<sub>2</sub> is respired away in gaseous form and leaves the soil volume and is referred to as <em>heterotrophic respiration</em> (<span class="math inline">\(R_h\)</span>).</p>
+<p>SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see <a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (<a href="landclimate.html" class="quarto-xref"><span>Chapter 8</span></a>).</p>
+<p>C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. As for litter decomposition, the rate of SOM decomposition (<span class="math inline">\(k\)</span> in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.4</span></a>) is controlled by the soil temperature and moisture.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1st-order decay model for litter and SOM
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soil and litter C dynamics can be conceived as a 1-st order decay model, consisting of multiple pools, characterized by distinct turnover rates, and supplied with biomass turnover from different plant compartments. The dynamics of an individual pool can be described following 1st-order dynamics (Box in <a href="globalcarbonbudget.html#sec-cpooldynamics" class="quarto-xref"><span>Section 3.2</span></a>). <span id="eq-firststorderdecay_littersom"><span class="math display">\[
+\frac{\mathrm{d}C}{\mathrm{d}t} = I - k(T,\theta) \;C \;.
+\tag{5.4}\]</span></span> Terrestrial biosphere models commonly treat the decay rate <span class="math inline">\(k\)</span> as a function of temperature and moisture, as indicated in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.4</span></a> (<span class="math inline">\(T\)</span> is temperature, <span class="math inline">\(\theta\)</span> is soil moisture). Some models also use the pH of the soil solution and the oxygen content in the soil for modifying <span class="math inline">\(k\)</span>. <span class="math inline">\(k\)</span> at a standard temperature varies for different pools, ranging from 1/3-1 years<sup>-1</sup> for litter, to 50-500 years<sup>-1</sup> for SOM.</p>
+<p>Experiments of litter decomposition in the field, where a specified initial mass of litter is tracked over time (<a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>), reveal a general pattern that is consistent with the 1st-order decay model. The solution of <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.4</span></a> with <span class="math inline">\(I=0\)</span> yields: <span class="math display">\[
+C(t) = C_0\; e^{-k t}\;,
+\]</span> where <span class="math inline">\(t\)</span> is time. Indeed, the litter mass shown in <a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> exhibits an exponential decline over time.</p>
+<p>Also SOM decay can be represented following <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.4</span></a>. In words, the amount of SOM C that gets decomposed in a given amount of time is proportional to the SOM C pool size. The input into that pool is independent of the pool itself.</p>
+<p>Litter and SOM pools in terrestrial biosphere models are most commonly represented by an array of pools that are characterized by different turnover times and that are connected following a specific structure. The litter pools receive inputs from biomass turnover. Decomposed litter is diverted to SOM pools. Fast-decomposing litter is diverted too a SOM pool with a short turnover time (high <span class="math inline">\(k\)</span>), slow-decomposing litter is diverted to a SOM pool with a long turnover time. C is respired away as CO<sub>2</sub> during litter and SOM decomposition. The <em>microbial carbon use efficiency</em> (<span class="math inline">\(e\)</span>) determines the ratio of the decomposed C contributing to microbial biomass growth. <span class="math inline">\((1-e)\)</span> is respired as CO<sub>2</sub>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-littersom" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-littersom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/littersom_model.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-littersom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Model for litter and SOM C pools and fluxes. Decomposition of fast and slow litter and SOM pools are modelled using <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.4</span></a> with a relatively high and low <em>k</em> respectively. The input term <em>I</em> for each pool is depicted by straight arrows. <em>e</em> is the carbon use efficiency of litter decomposition. <em>f</em><sub>fast</sub> is the fraction of litter decomposition diverted to the fast decomposing SOM pool. <em>R</em><sub>h</sub> is the heterotrophic respiration of C, leaving the system as CO<sub>2</sub>. This shows a simplified version of the litter and SOM model structure implemented in the LPJ terrestrial biosphere model <span class="citation" data-cites="sitch03gcb">(<a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>. ‘Fast’ and ‘slow’ litter pools are also commonly referred to as ‘metabolic’ and ‘structural’ litter, respectively. ‘Fast’ and ‘slow’ SOM pools are also commonly referred to as ‘active’ and ‘passive’, respectively - although the structure of how they are connected through mass transfers may differ.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- XXX for LES 2: newer soil C models -->
+</section>
+<section id="sec-nep" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="sec-nep"><span class="header-section-number">5.1.5</span> Net ecosystem productivity</h3>
+<p>The net of gross primary productivity (GPP), autotrophic respiration by plants (<span class="math inline">\(R_a\)</span>), and heterotrophic microorganisms (<span class="math inline">\(R_h\)</span>) is referred to as the net ecosystem productivity, NEP. It is expressed in units of a flux of C mass per unit ground area and time, e.g., gC m<sup>-2</sup> yr<sup>-1</sup>. It measures how much C accumulates in an ecosystem in the form of live biomass, litter, and soil (plus VOC and exudates). Since GPP and respiration terms typically have a strong seasonality and diurnal cycle and are not (perfectly) synchronized, NEP has a strong seasonality and diurnal cycle, too (see also <a href="globalcarbonpatterns.html" class="quarto-xref"><span>Chapter 6</span></a>). However, integrated over a year, the NEP is small - much smaller than the absolute of its components GPP, <span class="math inline">\(R_a\)</span>, and <span class="math inline">\(R_h\)</span>.</p>
+<p><span id="eq-nep"><span class="math display">\[
+\begin{align}
+\mathrm{NEP} &amp;= \mathrm{GPP} - R_a - R_h \\
+             &amp;= \mathrm{NPP} - R_h
+\end{align}
+\tag{5.5}\]</span></span> NEP can be measured by <em>eddy covariance</em> flux measurement technique (see also <a href="researchtools.html" class="quarto-xref"><span>Chapter 15</span></a>). The net CO<sub>2</sub> exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.</p>
+<p>The classical model of ecological succession and an ecosystem’s carbon balance is that it reaches a steady state at time scales of forest stand maturity (shorter for grasslands), where, under constant environmental conditions, the NEP approaches zero. Respiration balances photosynthetic C uptake, biomass turnover balances biomass accumulation, and ecosystems become “C neutral” <span class="citation" data-cites="odum69sci">(<a href="references.html#ref-odum69sci" role="doc-biblioref">Odum 1969</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-odum" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-odum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/odum.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-odum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: Classical model of ecosystem an ecosystem’s carbon fluxes and balance. <em>P</em><sub>G</sub> corresponds to GPP, <em>P</em><sub>N</sub> to NPP, and <em>R</em> to <em>R</em><sub>a</sub>. The concept can be extended such that <em>B</em> is not only (live) biomass, but includes also litter and soil organic matter. Then, <em>P</em><sub>N</sub> corresponds to NEP, and <em>R</em> is (<em>R</em><sub>a</sub> + <em>R</em><sub>h</sub>). Figure from <span class="citation" data-cites="odum69sci">(<a href="references.html#ref-odum69sci" role="doc-biblioref">Odum 1969</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>However, field data of biomass stocks in mature forests seem to Odum’s steady state (and zero NEP) model <span class="citation" data-cites="luyssaert08nat">(<a href="references.html#ref-luyssaert08nat" role="doc-biblioref">Luyssaert et al. 2008</a>)</span>. Biometric data (forest inventories) and eddy covariance flux measurements from forests do not show a clear decline of NEP towards zero with increasing stand age, but rather show a sustained positive NEP over several decades to centuries since forest stand development.</p>
+<p>Will forests accumulate C infinitely? Tracking soil C stocks over millennia is <em>per se</em> not possible but clear patterns of a positive influence of soil age on SOM content would have to be evident in data - but are not. Biomass C stocks do not increase indefinitely, either. Individual trees in maturing forest stands continue accumulating biomass but the lifetime of a tree is limited due to hydraulic, mechanical, or C balance constraints whereby increasing respiratory costs pose limits to further growth and may trigger mortality. <em>Self-thinning</em> drives the exclusion of individual trees based on the competition for limited resources and leads to a negative relationship between the number and the average size of trees in a maturing forest stand (see <a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>). Therefore, although individual trees may accumulate C in the form of biomass for centuries, the biomass C accumulation at the stand level is much lower due to the declining tree number and the associated mortality, turnover, and decomposition of affected trees.</p>
+<p>Very old stands are dominated by few very large individual trees that contribute strongly to the total ecosystem biomass. However, also these individuals are inevitably affected by mortality. Once they fall, the ecosystem C stock rapidly declines (NEP is negative) and they create a forest <em>gap</em> that enables younger and smaller individuals to benefit from increased light levels. Smaller individuals around the newly formed gap accelerate growth, reach the canopy, and eventually fill the gap.</p>
+<p>These dynamics imply that the NEP is rarely zero, but is positive for most of the time, except when affected by rare mortality events of large individuals. The spatial extent of a forest gap is on the order of 10<sup>0</sup>-10<sup>1</sup> m and the maximum tree longevity is on the centuries (and the probability of a tree dying in a given year is its inverse - on the order of 10<sup>-2</sup>). This implies that the probability of observing a gap formation within a given areal extent is a function of the size of the areal extent. The larger the areal extent, the larger the probability that the influence of gap formation on NEP is captured and the large negative NEP of the gap is balanced by the small positive NEP of the remaining forest area. With an increasing size of the areal extent, the mean NEP should therefore tend to zero.</p>
+<p>Forest monitoring plots are usually on the order of 20-50 m in radius. Hence, such data is sensitive to whether the observed plots are a representative sample of forest dynamics and forest gap formation across the landscape.</p>
+</section>
+<section id="net-biome-productivity" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="net-biome-productivity"><span class="header-section-number">5.1.6</span> Net biome productivity</h3>
+<p>Net biome productivity (NBP, expressed in a mass carbon per unit ground area and time, for example gC m<sup>-2</sup> yr<sup>-1</sup>) is the net of NEP and C loss by disturbances <span class="math inline">\(\Delta C_\mathrm{dist}\)</span>. The NBP is defined for large spatial domains - large enough to contain a representative sample of stochastically occurring disturbances. Across an entire biome, this is given. <span class="math display">\[
+\begin{align}
+\mathrm{NBP} &amp;= \mathrm{GPP} - R_a - R_h - \Delta C_\mathrm{dist} \\
+             &amp;= \mathrm{NEP} - \Delta C_\mathrm{dist}
+\end{align}
+\]</span> Disturbances are commonly referred to as stand-replacing events that drive mortality in a large portion of individual plants of an ecosystem. Causes for disturbances include fire, pests, windthrow, or wood harvesting. A disturbance can be conceived as a re-setting of the “Odum-type” ecosystem succession. In contrast to the forest gap dynamics (<a href="#sec-nep" class="quarto-xref"><span>Section 5.1.5</span></a>), which play out at the level of individual trees, disturbances affect larger spatial extents (ecosystem or forest <em>patches</em>). However, the same aspects of stochasticity across the landscape applies.</p>
+<p>At the landscape-level, a forest can be conceived as a mosaic of forest patches, characterized by different times since the last stand-replacing disturbance. The first years after a disturbance, ecosystems tend to lose C (negative NEP). This is because the respiration from decomposing litter outweighs the biomass production of regrowth. After a few years, this balance reverses and the ecosystem total C stock increases. Although individual patches tend to have a positive NEP, a small portion of young patches will have a strongly negative NEP. When considering a large number of patches in absence of environmental change (driving trends in GPP, <span class="math inline">\(R_a\)</span>, <span class="math inline">\(R_h\)</span> or the disturbance probability), the mean NEP across patches - this is the NBP - tends to zero.</p>
+<p>The terrestrial carbon balance can be understood of the global total NBP.</p>
+</section>
+</section>
+<section id="the-c-cascade-model" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-c-cascade-model"><span class="header-section-number">5.2</span> The C cascade model</h2>
+<p>The C cascade model (<a href="#fig-ccascade" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>) integrates the information about ecosystem carbon pools and fluxes, provided above in this Chapter. A key insight is that C only enters ecosystems through photosynthesis, measured at the ecosystem-level by GPP. Once in the system, it fuels a “cascade” of pools. They can be conceived as a <em>cascade</em> because biomass pools receive C inputs only through GPP (minus <span class="math inline">\(R_a\)</span>), litter pools only receive C inputs through biomass turnover, and SOM pools only receive C inputs through litter decomposition. Along this cascade, autotrophic and heterotrophic respiration incurs an ecosystem C loss. The rate at which C cascades through this system depends on the turnover rates of the individual pools and on the relative partitioning (allocation and partitioning to different litter and SOM pools) into the “downstream” pools. A schematic of the C cascade can be drawn by extending <a href="#fig-littersom" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ccascade" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ccascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/carbon_cascade2.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ccascade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: The carbon cascade in terrestrial ecosystems. Boxes indicate pools, arrows (including ‘pointed boxes’ for GPP and BP) indicate C fluxes. BPE is the biomass production efficiency. α is the fractional allocation, <em>k</em><sub>l</sub>, <em>k</em><sub>r</sub>, and <em>k</em><sub>w</sub> are the decay constants of the leaf, root, and wood pool. <em>e</em> is the carbon use efficiency of litter decomposition. <em>f</em><sub>fast</sub> is the fraction of litter decomposition diverted to the fast decomposing SOM pool. <em>R</em><sub>h</sub> is the heterotrophic respiration of C, leaving the system as CO<sub>2</sub>. <em>R</em><sub>a</sub> is autotrophic respiration.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-ccascade" class="quarto-xref">Figure&nbsp;<span>5.7</span></a> illustrates the pivotal role of BPE in determining how much C enters more long-lived storage as biomass vs.&nbsp;its largely immediate loss through respiration, of allocation in diverting C streams along cascades of very different turnover times (e.g., leaf vs.&nbsp;wood allocation), of microbial carbon use efficiency, and of processes determining the partitioning of C into (protected) slowly decomposing SOM pools and more rapidly decomposing SOM pools.</p>
+<p>In <a href="globalcarbonbudget.html" class="quarto-xref"><span>Chapter 3</span></a>, we simulated the response of terrestrial C storage to an increased GPP using a 1-box model and 1st-order decay. In this Chapter, we have “unboxed” C storage in terrestrial ecosystems, distinguishing a suite of pools and fluxes, arranged in a cascading order. When considering the response of this system to a change in GPP, how does the more complex representation affect the dynamics?</p>
+<p>A key characteristic of the 1st order decay model is that the steady-state C pool size <span class="math inline">\(C^\ast\)</span> is proportional to (is linearly dependent on) the input flux (<a href="globalcarbonbudget.html#eq-steadystate" class="quarto-xref">Equation&nbsp;<span>3.4</span></a>). Hence, with an change in the input flux of <span class="math inline">\(x = I/I_0\)</span>, the steady-state pools size changes also by <span class="math inline">\(x = C^\ast/C^\ast_0\)</span>.</p>
+<p>It can be demonstrated (see Box ‘Simulating the C cascade’ below) that when considering the following properties for the C cascade model:</p>
+<ul>
+<li>1st-order decay dynamics of all pools</li>
+<li>constant <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k_i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(f_\mathrm{fast}\)</span></li>
+</ul>
+<p>…, the same linear dependency of the total system C storage <span class="math inline">\(\sum_i C_i^\ast\)</span> emerges: <span class="math display">\[
+\frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast}
+\]</span> However, whether a model with constant <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k_i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(f_\mathrm{fast}\)</span> is a good representation of real ecosystems’ responses to environmental change is questionable. It is well established, for example, that <span class="math inline">\(\alpha\)</span> is very sensitive altered soil nutrient availability and changes in CO<sub>2</sub> experiments <span class="citation" data-cites="poorter12">(<a href="references.html#ref-poorter12" role="doc-biblioref">Poorter et al. 2012</a>)</span>. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO<sub>2</sub> fertilization or an extension of the growing season) <span class="citation" data-cites="marques23">(<a href="references.html#ref-marques23" role="doc-biblioref">Marqués et al. 2023</a>)</span>. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Simulating the C cascade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The two points (see above) are implemented in a multi-box model:</p>
+<ul>
+<li>1st-order decay dynamics of all pools</li>
+<li>constant <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k_i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(f_\mathrm{fast}\)</span></li>
+</ul>
+<p>The following parameters are set:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"R/ccascade.R"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getpar</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="fig-ccascade-params" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ccascade-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">bpe</th>
+<th style="text-align: right;">fleaf</th>
+<th style="text-align: right;">froot</th>
+<th style="text-align: right;">fwood</th>
+<th style="text-align: right;">kleaf</th>
+<th style="text-align: right;">kwood</th>
+<th style="text-align: right;">kroot</th>
+<th style="text-align: right;">kflitt</th>
+<th style="text-align: right;">kslitt</th>
+<th style="text-align: right;">kfsoil</th>
+<th style="text-align: right;">kssoil</th>
+<th style="text-align: right;">eff</th>
+<th style="text-align: right;">ffast</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.95</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ccascade-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Parameters of the C cascade model. ‘bpe’ is the biomass production efficiency (unitless). ‘fleaf’, ‘froot’, and ‘fwood’ are the fractional allocation factors to leaves, roots, and wood (unitless). ‘kleaf’, ‘kwood’, and ‘kroot’ are the decay constants of the leaf, wood, and root pool, respectively (in yr<sup>-1</sup>). ‘kflitt’ and ‘kslitt’ are the decay constants of the fast and slow litter pools, respectively (in yr<sup>-1</sup>). ‘kfsoil’ and ‘kssoil’ are the decay constants of the fast and slow soil pools, respectively (in yr<sup>-1</sup>). ‘eff’ is the carbon use efficiency of litter decomposition. ‘ffast’ is the fraction of litter decomposition diverted to the fast-turnover soil pool
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The model is “spun-up” to a steady state for 3000 simulation years. The turnover time of the slowest pool (here the slow soil pool, <code>kssoil = 0.003</code>, corresponding to 333 years) is indicative of how long the model has to be spun-up.</p>
+<p>The GPP is then increased from 100 PgC yr<sup>-1</sup> during the first 3000 simulation years to 120 PgC yr<sup>-1</sup> for the subsequent 3000 simulation years.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify GPP for each simulation year as a vector</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gpp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">100</span>, <span class="dv">3000</span>), <span class="fu">rep</span>(<span class="dv">120</span>, <span class="dv">3000</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># run the model, it returns a data frame</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">ccascade</span>(gpp)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, cleaf, <span class="at">color =</span> <span class="st">"Leaf C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, cwood, <span class="at">color =</span> <span class="st">"Wood C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, croot, <span class="at">color =</span> <span class="st">"Root C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, flitt, <span class="at">color =</span> <span class="st">"Fast litter C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, slitt, <span class="at">color =</span> <span class="st">"Slow litter C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, fsoil, <span class="at">color =</span> <span class="st">"Fast soil C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(year, ssoil, <span class="at">color =</span> <span class="st">"Slow soil C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2500</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">5500</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">2000</span>, <span class="dv">6000</span>) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Simulation year"</span>, <span class="at">y =</span> <span class="st">"Pool size (PgC)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-ccascade-simulations" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ccascade-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ecosystemcarbon_files/figure-html/fig-ccascade-simulations-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ccascade-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9: Time series of the pool sizes in the C cascade model, forced with an increase of GPP from 100 to 120 PgC yr<sup>-1</sup>. The first 2000 simulation years are not shown as they are used for model spin-up. The years used for quantifying relative changes below are indicated by the vertical dotted lines.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The relative change in each pool can be quantified by comparing the pool sizes, e.g., in simulation year 2500, with the pool sizes in simulation year 5500.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2500</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"value_2500"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>year) <span class="sc">|&gt;</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">5500</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pivot_longer</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"value_5500"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>year),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"variable"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rel_change =</span> value_5500 <span class="sc">/</span> value_2500)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>df_plot <span class="sc">|&gt;</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ra"</span>, <span class="st">"rh"</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(value_2500, value_5500, <span class="at">color =</span> variable)) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pool size in year 2500 (PgC)"</span>, </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Pool size in year 5500 (PgC)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-ccascade-relchange" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ccascade-relchange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ecosystemcarbon_files/figure-html/fig-ccascade-relchange-1.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ccascade-relchange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.10: Initial pool size (after spin-up and before step-change in GPP) along the x-axis and final pool size along the y-axis (in PgC). The 1:1 line (slope = 1, intercept = 0) is shown by the dotted line. The grey line has a slope of 1.2 (intercept = 0).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This illustrates that the relative change in the size of each pool in the C cascade is identical and corresponds to the relative change in GPP. In other words, the C cascade with constant allocation, turnover rates, and efficiencies exhibits a <em>linear systems dynamics</em>.</p>
+</div>
+</div>
+</section>
+<section id="tree-growth-and-allometry" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="tree-growth-and-allometry"><span class="header-section-number">5.3</span> Tree growth and allometry</h2>
 <p>Coming soon.</p>
-<!-- In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of three pools (atmosphere, land, ocean). The C dynamics in the land biosphere were modeled using a 1-box model which receives C inputs through photosynthesis and loses C through a constant turnover. In @sec-gpp, we focused on the processes driving terrestrial CO~2~ uptake. In this chapter, we are unboxing the 1-box model and introduce the processes that determine C flows in ecosystems and their C balance.  -->
+<!-- XXX for LES 2 -->
+</section>
+<section id="sec-forest-dynamics" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-forest-dynamics"><span class="header-section-number">5.4</span> Forest dynamics</h2>
+<p>Coming soon.</p>
+<!-- XXX for LES 2 -->
+</section>
+<section id="sec-disturbances" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-disturbances"><span class="header-section-number">5.5</span> Fire and other disturbances</h2>
+<p>Coming soon.</p>
+<!-- XXX for LES 2 -->
 <!-- - Land: GPP-NPP, vegC, soilC, Ra, Rh -->
 <!-- ## Plant-level carbon balance -->
 <!-- - The carbon cascade {#sec-cascade } -->
@@ -310,6 +842,33 @@ ul.task-list li input[type="checkbox"] {
 <!--     Bonan 23.3 -->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-bonan08sci" class="csl-entry" role="listitem">
+Bonan, Gordon B. 2008. <span>“Forests and <span>Climate</span> <span>Change</span>: <span>Forcings</span>, <span>Feedbacks</span>, and the <span>Climate</span> <span>Benefits</span> of <span>Forests</span>.”</span> <em>Science</em> 320 (5882): 1444–49. <a href="https://doi.org/10.1126/science.1155121">https://doi.org/10.1126/science.1155121</a>.
+</div>
+<div id="ref-luyssaert08nat" class="csl-entry" role="listitem">
+Luyssaert, Sebastiaan, E. -Detlef Schulze, Annett Börner, Alexander Knohl, Dominik Hessenmöller, Beverly E. Law, Philippe Ciais, and John Grace. 2008. <span>“Old-Growth Forests as Global Carbon Sinks.”</span> <em>Nature</em> 455 (7210): 213–15. <a href="https://doi.org/10.1038/nature07276">https://doi.org/10.1038/nature07276</a>.
+</div>
+<div id="ref-marques23" class="csl-entry" role="listitem">
+Marqués, Laura, Ensheng Weng, Harald Bugmann, David I. Forrester, Brigitte Rohner, Martina L. Hobi, Volodymyr Trotsiuk, and Benjamin D. Stocker. 2023. <span>“Tree <span>Growth</span> <span>Enhancement</span> <span>Drives</span> a <span>Persistent</span> <span>Biomass</span> <span>Gain</span> in <span>Unmanaged</span> <span>Temperate</span> <span>Forests</span>.”</span> <em>AGU Advances</em> 4 (5): e2022AV000859. <a href="https://doi.org/10.1029/2022AV000859">https://doi.org/10.1029/2022AV000859</a>.
+</div>
+<div id="ref-odum69sci" class="csl-entry" role="listitem">
+Odum, Eugene P. 1969. <span>“The <span>Strategy</span> of <span>Ecosystem</span> <span>Development</span>.”</span> <em>Science</em> 164 (3877): 262–70. <a href="https://doi.org/10.1126/science.164.3877.262">https://doi.org/10.1126/science.164.3877.262</a>.
+</div>
+<div id="ref-parton07sci" class="csl-entry" role="listitem">
+Parton, William, Whendee L. Silver, Ingrid C. Burke, Leo Grassens, Mark E. Harmon, William S. Currie, Jennifer Y. King, et al. 2007. <span>“Global-<span>Scale</span> <span>Similarities</span> in <span>Nitrogen</span> <span>Release</span> <span>Patterns</span> <span>During</span> <span>Long</span>-<span>Term</span> <span>Decomposition</span>.”</span> <em>Science</em> 315 (5810): 361–64. <a href="https://doi.org/10.1126/science.1134853">https://doi.org/10.1126/science.1134853</a>.
+</div>
+<div id="ref-peng23jecol" class="csl-entry" role="listitem">
+Peng, Yunke, Iain Colin Prentice, Keith J. Bloomfield, Matteo Campioli, Zhiwen Guo, Yuanfeng Sun, Di Tian, Xiangping Wang, Sara Vicca, and Benjamin D. Stocker. n.d. <span>“Global Terrestrial Nitrogen Uptake and Nitrogen Use Efficiency.”</span> <em>Journal of Ecology</em> n/a (n/a). Accessed October 27, 2023. <a href="https://doi.org/10.1111/1365-2745.14208">https://doi.org/10.1111/1365-2745.14208</a>.
+</div>
+<div id="ref-poorter12" class="csl-entry" role="listitem">
+Poorter, Hendrik, Karl J. Niklas, Peter B. Reich, Jacek Oleksyn, Pieter Poot, and Liesje Mommer. 2012. <span>“Biomass Allocation to Leaves, Stems and Roots: Meta‐analyses of Interspecific Variation and Environmental Control.”</span> <em>New Phytologist</em> 193 (1): 30–50. <a href="https://doi.org/10.1111/j.1469-8137.2011.03952.x">https://doi.org/10.1111/j.1469-8137.2011.03952.x</a>.
+</div>
+<div id="ref-sitch03gcb" class="csl-entry" role="listitem">
+Sitch, S., B. Smith, I. C. Prentice, A. Arneth, A. Bondeau, W. Cramer, J. O. Kaplan, et al. 2003. <span>“Evaluation of Ecosystem Dynamics, Plant Geography and Terrestrial Carbon Cycling in the <span>LPJ</span> Dynamic Global Vegetation Model.”</span> <em>Global Change Biology</em> 9 (2): 161–85. <a href="https://doi.org/10.1046/j.1365-2486.2003.00569.x">https://doi.org/10.1046/j.1365-2486.2003.00569.x</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -845,8 +1404,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gpp.html" class="pagination-link" aria-label="Gross primary production and solar radiation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and solar radiation</span></span>
+      <a href="./gpp.html" class="pagination-link" aria-label="Gross primary production and photosynthesis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and photosynthesis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

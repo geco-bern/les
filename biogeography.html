@@ -255,7 +255,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and solar radiation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Gross primary production and photosynthesis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -355,7 +355,7 @@ window.Quarto = {
   <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">2.4</span> Traits</a></li>
   <li><a href="#global-vegetation-patterns" id="toc-global-vegetation-patterns" class="nav-link" data-scroll-target="#global-vegetation-patterns"><span class="header-section-number">2.5</span> Global vegetation patterns</a></li>
   <li><a href="#vegetation-types" id="toc-vegetation-types" class="nav-link" data-scroll-target="#vegetation-types"><span class="header-section-number">2.6</span> Vegetation types</a></li>
-  <li><a href="#climate-zones" id="toc-climate-zones" class="nav-link" data-scroll-target="#climate-zones"><span class="header-section-number">2.7</span> Climate zones</a></li>
+  <li><a href="#sec-climate-zones" id="toc-sec-climate-zones" class="nav-link" data-scroll-target="#sec-climate-zones"><span class="header-section-number">2.7</span> Climate zones</a></li>
   <li><a href="#hillslope-scale-heterogeneity" id="toc-hillslope-scale-heterogeneity" class="nav-link" data-scroll-target="#hillslope-scale-heterogeneity"><span class="header-section-number">2.8</span> Hillslope-scale heterogeneity</a></li>
   <li><a href="#species-distribution-modelling-and-ecological-niche" id="toc-species-distribution-modelling-and-ecological-niche" class="nav-link" data-scroll-target="#species-distribution-modelling-and-ecological-niche"><span class="header-section-number">2.9</span> Species distribution modelling and ecological niche</a></li>
   <li><a href="#temporal-variations-of-vegetation" id="toc-temporal-variations-of-vegetation" class="nav-link" data-scroll-target="#temporal-variations-of-vegetation"><span class="header-section-number">2.10</span> Temporal variations of vegetation</a></li>
@@ -677,7 +677,7 @@ Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature an
 </section>
 <section id="sec-pfts" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-pfts"><span class="header-section-number">2.3</span> Plant functional types</h2>
-<p>Each biome is characterised by a typical assembly of <em>plant functional types</em> (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C<sub>3</sub> vs.&nbsp;the C<sub>4</sub> photosynthetic pathway (see <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:</p>
+<p>Each biome is characterised by a typical assembly of <em>plant functional types</em> (PFT, <a href="#fig-pfts" class="quarto-xref">Figure&nbsp;<span>2.13</span></a>). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C<sub>3</sub> vs.&nbsp;the C<sub>4</sub> photosynthetic pathway (see <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:</p>
 <ol type="1">
 <li>needle-leaved evergreen trees</li>
 <li>broadleaved evergreen trees</li>
@@ -689,6 +689,20 @@ Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature an
 </ol>
 <p>Global vegetation models use PFTs as their basic unit for distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant (“N-fixing plants”, see also <a href="nutrients.html" class="quarto-xref"><span>Chapter 10</span></a>). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.</p>
 <p>Plants can also be distinguished into the botanical classification of <em>angiosperms</em> (flowering plants) and <em>gymnnosperms</em> (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups are not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pfts" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pfts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/pfts.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pfts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.13: Assembly of plant functional types as a basis for biome classification
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="traits" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="traits"><span class="header-section-number">2.4</span> Traits</h2>
@@ -715,7 +729,7 @@ Figure&nbsp;2.12: Biomes in climate space, defined by mean annual temperature an
 <img src="images/map_vegheight.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vegheight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.13: The global distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>.
+Figure&nbsp;2.14: The global distribution of vegetation height from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -729,7 +743,7 @@ Figure&nbsp;2.13: The global distribution of vegetation height from <span class=
 <img src="images/map_vegheight_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vegheight_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.14: Distribution of vegetation height by biome. Data from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see <a href="#fig-vegheight" class="quarto-xref">Figure&nbsp;<span>2.13</span></a>). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome ‘Tundra’ appears implausibly high.
+Figure&nbsp;2.15: Distribution of vegetation height by biome. Data from <span class="citation" data-cites="simard11jgr">Simard et al. (<a href="references.html#ref-simard11jgr" role="doc-biblioref">2011</a>)</span>. Note that the vegetation height data has gaps in areas with sparse or generally short-statured vegetation cover (deserts, grasslands, Tundra, see <a href="#fig-vegheight" class="quarto-xref">Figure&nbsp;<span>2.14</span></a>). Therefore, the pixels for which data is used for visualising the vegetation height per biome is biased towards particularly tall vegetation in these areas. Consequently, the distribution of vegetation heights in the biome ‘Tundra’ appears implausibly high.
 </figcaption>
 </figure>
 </div>
@@ -745,7 +759,7 @@ Figure&nbsp;2.14: Distribution of vegetation height by biome. Data from <span cl
 <img src="images/map_lai.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lai-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.15: Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product.
+Figure&nbsp;2.16: Annual maximum leaf area index, averaged over years 2000-2008. Data from the MODIS MOD15A2 (C006) product.
 </figcaption>
 </figure>
 </div>
@@ -759,7 +773,7 @@ Figure&nbsp;2.15: Annual maximum leaf area index, averaged over years 2000-2008.
 <img src="images/map_lai_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lai_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.16: Multi-year average of the annual maximum leaf area index by biome.
+Figure&nbsp;2.17: Multi-year average of the annual maximum leaf area index by biome.
 </figcaption>
 </figure>
 </div>
@@ -775,7 +789,7 @@ Figure&nbsp;2.16: Multi-year average of the annual maximum leaf area index by bi
 <img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.17: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
+Figure&nbsp;2.18: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -789,7 +803,7 @@ Figure&nbsp;2.17: Aboveground biomass carbon, mean over years 1993-2012. Data fr
 <img src="images/map_agc_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agc_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.18: Aboveground biomass carbon by biome. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
+Figure&nbsp;2.19: Aboveground biomass carbon by biome. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -805,7 +819,7 @@ Figure&nbsp;2.18: Aboveground biomass carbon by biome. Data from <span class="ci
 <img src="images/map_forestcoverfraction.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forestcoverfraction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.19: Tree cover fraction. Data from the MODIS MOD44B (v061) product.
+Figure&nbsp;2.20: Tree cover fraction. Data from the MODIS MOD44B (v061) product.
 </figcaption>
 </figure>
 </div>
@@ -819,7 +833,7 @@ Figure&nbsp;2.19: Tree cover fraction. Data from the MODIS MOD44B (v061) product
 <img src="images/map_forestcoverfraction_biome.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forestcoverfraction_biome-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.20: Tree cover fraction by biome.
+Figure&nbsp;2.21: Tree cover fraction by biome.
 </figcaption>
 </figure>
 </div>
@@ -828,7 +842,7 @@ Figure&nbsp;2.20: Tree cover fraction by biome.
 </div>
 </div>
 </div>
-<p>Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a <em>potential natural vegetation</em>. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome “Temperate broadleaved and mixed forests” (<a href="#fig-forestcoverfraction_biome" class="quarto-xref">Figure&nbsp;<span>2.20</span></a>).</p>
+<p>Note that the global vegetation patterns shown above are based on Earth observation data from satellite remote sensing. These reflect the actual state of the land surface and thus the influence of human land use and land use change. In contrast, biomes are defined for a <em>potential natural vegetation</em>. Therefore, you see, for example, that the tree cover fraction has very wide distributions, particularly in the biome “Temperate broadleaved and mixed forests” (<a href="#fig-forestcoverfraction_biome" class="quarto-xref">Figure&nbsp;<span>2.21</span></a>).</p>
 </section>
 <section id="vegetation-types" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="vegetation-types"><span class="header-section-number">2.6</span> Vegetation types</h2>
@@ -1023,14 +1037,14 @@ Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="biogeography_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="biogeography_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="climate-zones" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="climate-zones"><span class="header-section-number">2.7</span> Climate zones</h2>
+<section id="sec-climate-zones" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sec-climate-zones"><span class="header-section-number">2.7</span> Climate zones</h2>
 <p>While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish <em>climate zones</em>. The Köppen-Geiger climate classification <span class="citation" data-cites="koppen1884">(<a href="references.html#ref-koppen1884" role="doc-biblioref">Köppen 1884</a>)</span> is based on a hierarchical classification that separates climate based on the seasonality of monthly air temperature and precipitation. The climate zones are chosen such that they largely align with the biomes. For this, water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation and are considered for the Köppen-Geiger climate classification.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -1040,13 +1054,13 @@ Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https
 <img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.21: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.
+Figure&nbsp;2.22: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.21</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones" class="quarto-xref">Figure&nbsp;<span>2.22</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones" class="quarto-xref">Figure&nbsp;<span>2.23</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-climate_zones" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1055,7 +1069,7 @@ Figure&nbsp;2.21: Overview of the Köppen-Geiger climate classes including the d
 <img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.22: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.21</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.
+Figure&nbsp;2.23: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -1074,7 +1088,7 @@ Figure&nbsp;2.22: Köppen-Geiger climate zones for a present-day climate (1980-2
 <img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hillslope_photos_fan19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.23: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.
+Figure&nbsp;2.24: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -1085,7 +1099,7 @@ Figure&nbsp;2.23: Hillslope effects on vegetation in different background climat
 </section>
 <section id="species-distribution-modelling-and-ecological-niche" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="species-distribution-modelling-and-ecological-niche"><span class="header-section-number">2.9</span> Species distribution modelling and ecological niche</h2>
-<p>The notion that climate drives vegetation and the distribution of plant species enables a prediction and mapping of the species occurrence across geographical space. Data on species presence and absence can be associated with multiple variables characterizing the abiotic environment (mostly climate) recorded for the same location. The resulting empirical patterns can be used for spatial modelling and predicting whether a species is likely to occur at a new location or even a novel climate <a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>2.24</span></a>.</p>
+<p>The notion that climate drives vegetation and the distribution of plant species enables a prediction and mapping of the species occurrence across geographical space. Data on species presence and absence can be associated with multiple variables characterizing the abiotic environment (mostly climate) recorded for the same location. The resulting empirical patterns can be used for spatial modelling and predicting whether a species is likely to occur at a new location or even a novel climate <a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>2.25</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-sdm" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1094,17 +1108,31 @@ Figure&nbsp;2.23: Hillslope effects on vegetation in different background climat
 <img src="images/sdm.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.24: Methodological approach to species distribution modelling and predicting to a novel climate. Figure from <span class="citation" data-cites="svenning11qsr">Svenning et al. (<a href="references.html#ref-svenning11qsr" role="doc-biblioref">2011</a>)</span>.
+Figure&nbsp;2.25: Methodological approach to species distribution modelling and predicting to a novel climate. Figure from <span class="citation" data-cites="svenning11qsr">Svenning et al. (<a href="references.html#ref-svenning11qsr" role="doc-biblioref">2011</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The approach to species distribution modelling is fundamentally rooted in the <em>ecological niche</em> concept. As formulated by <span class="citation" data-cites="hutchinson57 araujo06">Hutchinson (<a href="references.html#ref-hutchinson57" role="doc-biblioref">1957</a>; <a href="references.html#ref-araujo06" role="doc-biblioref">Araújo and Guisan 2006</a>)</span>, each species has a <em>fundamental niche</em> that can be conceived as a domain in a multi-dimensional space defined by the environmental conditions. <em>Environmental filtering</em> yields the fundamental niche. The actual, or <em>realized niche</em> is smaller as it is additionally constrained by competition with other species. <em>Natural selection</em> yields the realized niche. Several challenges for species distribution modelling exist <span class="citation" data-cites="zimmermann10">(<a href="references.html#ref-zimmermann10" role="doc-biblioref">Zimmermann et al. 2010</a>)</span>. For example, the species distribution is hardly ever in equilibrium with the environment, given that climate has been constantly changing (although not as rapidly as today for millions of years); topographic heterogeneity, climatic history, and ecological refugia affect the species distribution and how it varies under climate change; genetic adaptation can lead to populations within species that exhibit different responses to the environment; and niche stability over long time scales may be undermined not only by genetic adaptation, but also by physiological effects of CO<sub>2</sub> which fundamentally alters photosynthesis and transpiration and will therefore shift water availability-related niche limits observed today.</p>
+<p>The approach to species distribution modelling is fundamentally rooted in the <em>ecological niche</em> concept. As formulated by <span class="citation" data-cites="hutchinson57 araujo06">Hutchinson (<a href="references.html#ref-hutchinson57" role="doc-biblioref">1957</a>; <a href="references.html#ref-araujo06" role="doc-biblioref">Araújo and Guisan 2006</a>)</span>, each species has a <em>fundamental niche</em> that can be conceived as a domain in a multi-dimensional space defined by the environmental conditions. <em>Environmental filtering</em> yields the fundamental niche which is generally a subset of the Earth’s climate space (<a href="#fig-niche" class="quarto-xref">Figure&nbsp;<span>2.26</span></a>). The actual, or <em>realized niche</em> is smaller as it is additionally constrained by biotic interactions with other species. <em>Natural selection</em> yields the realized niche. Several challenges for species distribution modelling exist <span class="citation" data-cites="zimmermann10">(<a href="references.html#ref-zimmermann10" role="doc-biblioref">Zimmermann et al. 2010</a>)</span>. For example, the species distribution is hardly ever in equilibrium with the environment, given that climate has been constantly changing (although not as rapidly as today for millions of years); topographic heterogeneity, climatic history, and ecological refugia affect the species distribution and how it varies under climate change; genetic adaptation can lead to populations within species that exhibit different responses to the environment; and niche stability over long time scales may be undermined not only by genetic adaptation, but also by physiological effects of CO<sub>2</sub> which fundamentally alters photosynthesis and transpiration and will therefore shift water availability-related niche limits observed today.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-niche" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-niche-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/niche.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-niche-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.26: Environmental filtering yields the fundamental niche. Biotic interactions yield the realized niche.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="temporal-variations-of-vegetation" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="temporal-variations-of-vegetation"><span class="header-section-number">2.10</span> Temporal variations of vegetation</h2>
-<p>Spatial patterns in vegetation are influenced by how climate varies across different areas. Similarly, changes in vegetation are influenced by how climate changes over time. Vegetation change at temporal scales of thousands of years is recorded, for example, by pollen deposited in layered sediments. Given that they are preserved and that the sediment layers can be dated, the vegetation composition over time can be reconstructed. An example is given for the Moossee, near Bern in <a href="#fig-pollen" class="quarto-xref">Figure&nbsp;<span>2.25</span></a>. The pollen diagram documents how vegetation on the Swiss Plateau unterwent several major changes since the last Glacial. At around 19 kyr BP, a steppe tundra established, replaced around 16 kyr BP by a shrub tundra. At around 15 kyr BP, a boreal forest established before it was replaced by a temperate mixed oak forest at the beginning of the Holocene - the current warm period at 11,600 yr BP. A beech-dominated temperate forest, as it is common for this region today, established around 8200 yr BP. <a href="#fig-pollen" class="quarto-xref">Figure&nbsp;<span>2.25</span></a> also shows that these biome replacements coincided with rapid climatic shifts and that the vegetation change was largely instantaneous. This instantaneous response of species composition is interpreted as a reflection of the importance of glacial refugia from which a species may rapidly expand upon climate change <span class="citation" data-cites="rey20cp">(<a href="references.html#ref-rey20cp" role="doc-biblioref">Rey et al. 2020</a>)</span>.</p>
+<p>Spatial patterns in vegetation are influenced by how climate varies across different areas. Similarly, changes in vegetation are influenced by how climate changes over time. Vegetation change at temporal scales of thousands of years is recorded, for example, by pollen deposited in layered sediments. Given that they are preserved and that the sediment layers can be dated, the vegetation composition over time can be reconstructed. An example is given for the Moossee, near Bern in <a href="#fig-pollen" class="quarto-xref">Figure&nbsp;<span>2.27</span></a>. The pollen diagram documents how vegetation on the Swiss Plateau unterwent several major changes since the last Glacial. At around 19 kyr BP, a steppe tundra established, replaced around 16 kyr BP by a shrub tundra. At around 15 kyr BP, a boreal forest established before it was replaced by a temperate mixed oak forest at the beginning of the Holocene - the current warm period at 11,600 yr BP. A beech-dominated temperate forest, as it is common for this region today, established around 8200 yr BP. <a href="#fig-pollen" class="quarto-xref">Figure&nbsp;<span>2.27</span></a> also shows that these biome replacements coincided with rapid climatic shifts and that the vegetation change was largely instantaneous. This instantaneous response of species composition is interpreted as a reflection of the importance of glacial refugia from which a species may rapidly expand upon climate change <span class="citation" data-cites="rey20cp">(<a href="references.html#ref-rey20cp" role="doc-biblioref">Rey et al. 2020</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-pollen" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1113,13 +1141,27 @@ Figure&nbsp;2.24: Methodological approach to species distribution modelling and 
 <img src="images/pollen.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.25: Pollen diagram from the Moossee, Switzerland. The diagram shows the percentage of pollen recorded over time (green areas). Cultural indicators and charcoal influx indicate the presence of humans in the region. Parallel variations observed from other data sources are also shown for interpretation: Millennial-scale variations in solar radiation, lake levels, and temperature reconstructions. Figure from <span class="citation" data-cites="rey20cp">Rey et al. (<a href="references.html#ref-rey20cp" role="doc-biblioref">2020</a>)</span>.
+Figure&nbsp;2.27: Pollen diagram from the Moossee, Switzerland. The diagram shows the percentage of pollen recorded over time (green areas). Cultural indicators and charcoal influx indicate the presence of humans in the region. Parallel variations observed from other data sources are also shown for interpretation: Millennial-scale variations in solar radiation, lake levels, and temperature reconstructions. Figure from <span class="citation" data-cites="rey20cp">Rey et al. (<a href="references.html#ref-rey20cp" role="doc-biblioref">2020</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Multiple vegetation reconstructions for the Last Glacial Maximum (LGM) obtained from globally distributed locations provide a picture of how biomes were distributed across the Earth around 20 ka BP (<a href="#fig-biomes-lgm" class="quarto-xref">Figure&nbsp;<span>2.26</span></a>, bottom panel). The difference in climate and CO<sub>2</sub> (global mean temperatures were around 6°C lower than at present; CO<sub>2</sub> was at around 180 ppm, today it’s at over 420 ppm) caused forest biomes to recede and grasslands to expand across most of the globe. The upper panel of <a href="#fig-biomes-lgm" class="quarto-xref">Figure&nbsp;<span>2.26</span></a> shows the simulated biome distribution. These simulation results are not based on a species distribution model, but on a Dynamic Global Vegetation Model that accounts for both climate and CO<sub>2</sub> effects and simulates the distribution of PFTs from which biomes were derived here. The simulation of vegetation distribution at the level of PFTs instead of species is less affected by biotic interactions that are hard to simulate at global scale.</p>
+<p>Multiple vegetation reconstructions for the Last Glacial Maximum (LGM) obtained from globally distributed locations provide a picture of how biomes were distributed across the Earth around 20 ka BP (<a href="#fig-biomes-lgm" class="quarto-xref">Figure&nbsp;<span>2.29</span></a>, bottom panel). The difference in climate and CO<sub>2</sub> (global mean temperatures were around 6°C lower than at present; CO<sub>2</sub> was at around 180 ppm, today it’s at over 420 ppm) caused forest biomes to recede and grasslands to expand across most of the globe. The upper panel of <a href="#fig-biomes-lgm" class="quarto-xref">Figure&nbsp;<span>2.29</span></a> shows the simulated biome distribution. These simulation results are not based on a species distribution model, but on a Dynamic Global Vegetation Model that accounts for both climate and CO<sub>2</sub> effects and simulates the distribution of PFTs from which biomes were derived here. The simulation of vegetation distribution at the level of PFTs instead of species is less affected by biotic interactions that are hard to simulate at global scale.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-biomes-midholo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-biomes-midholo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/biomes_midholocene.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes-midholo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.28: The global distribution of biomes at the Mid-Holocene (6000 kyr BP). Figure from <span class="citation" data-cites="prentice00biome">I. Colin Prentice, Jolly, and Participants (<a href="references.html#ref-prentice00biome" role="doc-biblioref">2000</a>)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-biomes-lgm" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1128,12 +1170,13 @@ Figure&nbsp;2.25: Pollen diagram from the Moossee, Switzerland. The diagram show
 <img src="images/biomes-lgm.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes-lgm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.26: The global distribution of biomes at the Last Glacial Maximum. Figure from <span class="citation" data-cites="prentice11newphyt">Prentice, Harrison, and Bartlein (<a href="references.html#ref-prentice11newphyt" role="doc-biblioref">2011</a>)</span>.
+Figure&nbsp;2.29: The global distribution of biomes at the Last Glacial Maximum from a model simulation (top) and from a biome reconstruction based on pollen records. Figure from <span class="citation" data-cites="prentice11newphyt">I. C. Prentice, Harrison, and Bartlein (<a href="references.html#ref-prentice11newphyt" role="doc-biblioref">2011</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>The mapping of vegetation for past climates is enabled by the <em>biomization</em> of paleo-ecological records <span class="citation" data-cites="prentice96climdyn">(<a href="references.html#ref-prentice96climdyn" role="doc-biblioref">I. Prentice et al. 1996</a>)</span>. Classifying vegetation into biomes is useful for distilling ecological information beyond the anthropogenic impact. Biomes reflect a potential natural vegetation. The use of biomes is therefore important for designing conservation efforts suited for a specific climate <span class="citation" data-cites="olson01biosci">(<a href="references.html#ref-olson01biosci" role="doc-biblioref">Olson et al. 2001</a>)</span>, and is instructive for understanding environmental controls on ecosystem types as reflected by the agreement of biomes and climate zones (<a href="#sec-climate-zones" class="quarto-xref"><span>Section 2.7</span></a>). Yet, to understand principles and mechanisms of how plant physiology, biogeochemical cycling, and land-climate interactions are shaped by the environment, we often don’t need to rely on a classification of vegetation. As we will learn in later chapters, the abiotic environment drives vegetation functioning in much the same way (bar some exceptions) through generally applicable physical laws across the whole terrestrial biosphere.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1187,8 +1230,14 @@ Olson, David M., Eric Dinerstein, Eric D. Wikramanayake, Neil D. Burgess, George
 <div id="ref-peel07hess" class="csl-entry" role="listitem">
 Peel, M. C., B. L. Finlayson, and T. A. McMahon. 2007. <span>“Updated World Map of the <span>Köppen</span>-<span>Geiger</span> Climate Classification.”</span> <em>Hydrology and Earth System Sciences</em> 11 (5): 1633–44. <a href="https://doi.org/10.5194/hess-11-1633-2007">https://doi.org/10.5194/hess-11-1633-2007</a>.
 </div>
+<div id="ref-prentice00biome" class="csl-entry" role="listitem">
+Prentice, I Colin, D. Jolly, and BIOME 6000 Participants. 2000. <span>“Mid-<span>Holocene</span> and <span>Glacial</span>-<span>Maximum</span> <span>Vegetation</span> <span>Geography</span> of the <span>Northern</span> <span>Continents</span> and <span>Africa</span>.”</span> <em>Journal of Biogeography</em> 27 (3): 507–19. <a href="http://www.jstor.org/stable/2656208">http://www.jstor.org/stable/2656208</a>.
+</div>
 <div id="ref-prentice11newphyt" class="csl-entry" role="listitem">
 Prentice, I. C., S. P. Harrison, and P. J. Bartlein. 2011. <span>“Global Vegetation and Terrestrial Carbon Cycle Changes After the Last Ice Age.”</span> <em>New Phytologist</em> 189 (4): 988–98. <a href="https://doi.org/10.1111/j.1469-8137.2010.03620.x">https://doi.org/10.1111/j.1469-8137.2010.03620.x</a>.
+</div>
+<div id="ref-prentice96climdyn" class="csl-entry" role="listitem">
+Prentice, Iain, Guiot Joel, Brian Huntley, Jolly D., and Rachid Cheddadi. 1996. <span>“Reconstructing Biomes from Palaeoecological Data: <span>A</span> General Method and Its Application to <span>European</span> Pollen Data at 0 and 6 Ka.”</span> <em>Cd</em> 12 (February): 185. <a href="https://doi.org/10.1007/s003820050102">https://doi.org/10.1007/s003820050102</a>.
 </div>
 <div id="ref-rey20cp" class="csl-entry" role="listitem">
 Rey, Fabian, Erika Gobet, Christoph Schwörer, Albert Hafner, Sönke Szidat, and Willy Tinner. 2020. <span>“Climate Impacts on Vegetation and Fire Dynamics Since the Last Deglaciation at <span>Moossee</span> (<span>Switzerland</span>).”</span> <em>Climate of the Past</em> 16 (4): 1347–67. <a href="https://doi.org/10.5194/cp-16-1347-2020">https://doi.org/10.5194/cp-16-1347-2020</a>.
