@@ -193,7 +193,7 @@ plotbiomes::whittaker_base_plot() +
 
 ## Plant functional types {#sec-pfts}
 
-Each biome is characterised by a typical assembly of *plant functional types* (PFT). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-gpp). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:
+Each biome is characterised by a typical assembly of *plant functional types* (PFT, @fig-pfts). PFTs are a grouping of plant species based on their key physiological, morphological, and life history characteristics. That is, we can distinguish between annual (mostly grasses and herbs) and perennial (mostly trees and shrubs) plants, between needle-leaved and broadleaved trees, and between deciduous and evergreen trees. A key physiological distinction can further be made between grasses following the C~3~ vs. the C~4~ photosynthetic pathway (see @sec-gpp). Thereby, the bewildering diversity of the plant kingdom can be reduced to a small set of PFT. A common categorization distinguishes the following PFTs:
 
 1. needle-leaved evergreen trees
 2. broadleaved evergreen trees
@@ -206,6 +206,13 @@ Each biome is characterised by a typical assembly of *plant functional types* (P
 Global vegetation models use PFTs as their basic unit for distinguishing plants. The exact delineation of PFTs implemented in such models may vary from the list given above. Further distinctions may be made and are relevant in a global vegetation and carbon cycle modelling context. For example, only a relatively small subset of plants are known to associate with symbiotic nitrogen (N)-fixing bacteria that live in root nodules of the host plant ("N-fixing plants", see also @sec-nutrients). This association is highly relevant for the N economy of the plant and its productivity and competitiveness under different levels of N availability.
 
 Plants can also be distinguished into the botanical classification of *angiosperms* (flowering plants) and *gymnnosperms* (seed-producing plants that include conifers, cycads, and Ginkgo). The distinction between angiosperms and gymnosperms largely aligns with the distinction between needle-leaved and broadleaved plants (but see Ginkgo). The two groups are not only distinguished by their phylogenetic heritage, but also by essential characteristics that relate to the efficiency by which they photosynthesise and transpire water. Angiosperm leaves typically exhibit higher photosynthesis and transpiration rates and are thinner and shorter-lived than leaves of gymnosperms. These differences relate to differences in how the water transport system (plant hydraulics) is built. A larger number and a wider diameter of water transport organs in angiosperms enable a higher water conductivity - essential for sustaining higher photosynthetic rates than in gymnosperms.
+
+```{r echo=FALSE}
+#| label: fig-pfts
+#| fig-cap: "Assembly of plant functional types as a basis for biome classification"
+#| out-width: 60%
+knitr::include_graphics("images/pfts.png")
+```
 
 ## Traits
 
@@ -395,7 +402,7 @@ ggplot() +
         legend.title = element_blank())
 ```
 
-## Climate zones
+## Climate zones {#sec-climate-zones}
 
 While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish *climate zones*. The Köppen-Geiger climate classification [@koppen1884] is based on a hierarchical classification that separates climate based on the seasonality of monthly air temperature and precipitation. The climate zones are chosen such that they largely align with the biomes. For this, water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation and are considered for the Köppen-Geiger climate classification.
 
@@ -443,7 +450,14 @@ The notion that climate drives vegetation and the distribution of plant species 
 knitr::include_graphics("images/sdm.png")
 ```
 
-The approach to species distribution modelling is fundamentally rooted in the *ecological niche* concept. As formulated by @hutchinson57 [@araujo06], each species has a *fundamental niche* that can be conceived as a domain in a multi-dimensional space defined by the environmental conditions. *Environmental filtering* yields the fundamental niche. The actual, or *realized niche* is smaller as it is additionally constrained by competition with other species. *Natural selection* yields the realized niche. Several challenges for species distribution modelling exist [@zimmermann10]. For example, the species distribution is hardly ever in equilibrium with the environment, given that climate has been constantly changing (although not as rapidly as today for millions of years); topographic heterogeneity, climatic history, and ecological refugia affect the species distribution and how it varies under climate change; genetic adaptation can lead to populations within species that exhibit different responses to the environment; and niche stability over long time scales may be undermined not only by genetic adaptation, but also by physiological effects of CO~2~ which fundamentally alters photosynthesis and transpiration and will therefore shift water availability-related niche limits observed today.
+The approach to species distribution modelling is fundamentally rooted in the *ecological niche* concept. As formulated by @hutchinson57 [@araujo06], each species has a *fundamental niche* that can be conceived as a domain in a multi-dimensional space defined by the environmental conditions. *Environmental filtering* yields the fundamental niche which is generally a subset of the Earth's climate space (@fig-niche). The actual, or *realized niche* is smaller as it is additionally constrained by biotic interactions with other species. *Natural selection* yields the realized niche. Several challenges for species distribution modelling exist [@zimmermann10]. For example, the species distribution is hardly ever in equilibrium with the environment, given that climate has been constantly changing (although not as rapidly as today for millions of years); topographic heterogeneity, climatic history, and ecological refugia affect the species distribution and how it varies under climate change; genetic adaptation can lead to populations within species that exhibit different responses to the environment; and niche stability over long time scales may be undermined not only by genetic adaptation, but also by physiological effects of CO~2~ which fundamentally alters photosynthesis and transpiration and will therefore shift water availability-related niche limits observed today.
+
+```{r echo=FALSE}
+#| label: fig-niche
+#| fig-cap: "Environmental filtering yields the fundamental niche. Biotic interactions yield the realized niche."
+#| out-width: 60%
+knitr::include_graphics("images/niche.png")
+```
 
 ## Temporal variations of vegetation
 
@@ -457,12 +471,22 @@ knitr::include_graphics("images/pollen.png")
 ```
 
 Multiple vegetation reconstructions for the Last Glacial Maximum (LGM) obtained from globally distributed locations provide a picture of how biomes were distributed across the Earth around 20 ka BP (@fig-biomes-lgm, bottom panel). The difference in climate and CO~2~ (global mean temperatures were around 6°C lower than at present; CO~2~ was at around 180 ppm, today it's at over 420 ppm) caused forest biomes to recede and grasslands to expand across most of the globe. The upper panel of @fig-biomes-lgm shows the simulated biome distribution. These simulation results are not based on a species distribution model, but on a Dynamic Global Vegetation Model that accounts for both climate and CO~2~ effects and simulates the distribution of PFTs from which biomes were derived here. The simulation of vegetation distribution at the level of PFTs instead of species is less affected by biotic interactions that are hard to simulate at global scale.
+
+```{r echo=FALSE}
+#| label: fig-biomes-midholo
+#| fig-cap: "The global distribution of biomes at the Mid-Holocene (6000 kyr BP). Figure from @prentice00biome"
+#| out-width: 80%
+knitr::include_graphics("images/biomes_midholocene.png")
+```
+
 ```{r echo=FALSE}
 #| label: fig-biomes-lgm
-#| fig-cap: "The global distribution of biomes at the Last Glacial Maximum. Figure from @prentice11newphyt."
+#| fig-cap: "The global distribution of biomes at the Last Glacial Maximum from a model simulation (top) and from a biome reconstruction based on pollen records. Figure from @prentice11newphyt."
 #| out-width: 80%
 knitr::include_graphics("images/biomes-lgm.png")
 ```
+The mapping of vegetation for past climates is enabled by the *biomization* of paleo-ecological records [@prentice96climdyn]. Classifying vegetation into biomes is useful for distilling ecological information beyond the anthropogenic impact. Biomes reflect a potential natural vegetation. The use of biomes is therefore important for designing conservation efforts suited for a specific climate [@olson01biosci], and is instructive for understanding environmental controls on ecosystem types as reflected by the agreement of biomes and climate zones (@sec-climate-zones). Yet, to understand principles and mechanisms of how plant physiology, biogeochemical cycling, and land-climate interactions are shaped by the environment, we often don't need to rely on a classification of vegetation. As we will learn in later chapters, the abiotic environment drives vegetation functioning in much the same way (bar some exceptions) through generally applicable physical laws across the whole terrestrial biosphere.
+
 
 
 ::: {.callout-caution}

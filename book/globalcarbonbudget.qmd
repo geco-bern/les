@@ -54,10 +54,10 @@ Under the relatively stable climate of the pre-industrial Holocene (11,700 yr BP
 
 Even under such a pre-industrial steady state, C fluxes between the major reservoirs or *pools* (atmosphere, ocean, land) persisted. This is indicated in @fig-carbon-pools-fluxes-ipcc by the wide orange arrows pointing up and down between the land and the atmosphere and between the ocean and the atmosphere, as well as between different pools within the ocean. In a steady state, the C flux from the atmosphere into the land roughly equals the flux from the land to the atmosphere, and the net exchange flux is zero. Hence, the pool sizes remain constant in spite of the ongoing exchange fluxes between them. We speak of a *dynamic equilibrium*.
 
-## Carbon pool dynamics
+## Carbon pool dynamics {#sec-cpooldynamics}
 
 ::: {.callout-note}
-## The 1st-order decay model
+## The 1st-order decay model {#sec-firstorderdecay}
 
 The concept of pools and fluxes is central for describing and modelling the carbon cycle and other biogeochemical cycles in the environment. The dynamics of a pool $C(t)$ is given by the balance of the flux of C into that pool $I(t)$ and the flux $O(t)$ leaving the pool - over time $t$. In general terms, we can write the temporal change of the pool size as
 
@@ -152,13 +152,13 @@ $$
 B_\mathrm{IM} = E_\mathrm{FF} + E_\mathrm{LUC} - (G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land})
 $$ {#eq-budget_imbalance}
  
-Today, the global carbon budget is well specified thanks to reliable estimates of its individual components. The budget imbalance is only a small fraction of the total emissions. Until recently, "bottom-up" estimates of $S_\mathrm{land}$ by land C cycle models were deemed insufficient for providing reliable estimates. Instead, $S_\mathrm{land}$ was estimated as the budget residual by neglecting $B_\mathrm{IM}$ and rearranging terms in @eq-budget_imbalance to solve for $S_\mathrm{land}$. In fact, when the IPCC First Assessment Report was published in 1990, the existence of C sink on land was not known and it was treated as a budget imbalance and referred to as the 'missing sink'. It is stated that "there are possible processes on land which could account for the missing CO~2~ (but it has not been possible to verify them)".
+Today, the global carbon budget is well specified thanks to reliable estimates of its individual components. The budget imbalance is only a fraction of the total emissions. Until recently, "bottom-up" estimates of $S_\mathrm{land}$ by land C cycle models were deemed insufficient for providing reliable estimates. Instead, $S_\mathrm{land}$ was estimated as the budget residual by neglecting $B_\mathrm{IM}$ and rearranging terms in @eq-budget_imbalance to solve for $S_\mathrm{land}$. In fact, when the IPCC First Assessment Report was published in 1990, the existence of C sink on land was not known and it was treated as the budget imbalance and referred to as the 'missing sink'. It was stated that "there are possible processes on land which could account for the missing CO~2~ (but it has not been possible to verify them)".
 
-It was only later that the existence of a terrestrial C sink could be more firmly established and quantified thanks to parallel measurements of the atmospheric O~2~ and CO~2~ concentrations [@keeling96nat]. (In fact, the ratio O~2~/N~2~ is measured to avoid the much larger measurement uncertainty in absolute O~2~ measurements). The ratios of O~2~:CO~2~ are known from the stoichiometric molecular formulae for photosynthesis (O~2~:CO~2~ = 1.1), fossil fuel combustion (O~2~:CO~2~ = 1.4) and ocean uptake (O~2~:CO~2~ = 0). An ocean O~2~ source from marine organisms has to be factored in. Given the total C emissions from fossil fuel combustion, the net land C balance can thus be calculated and the calculation visualized geometrically (@fig-o2_n2_co2). Note that net emissions from land use change are not considered and the "land sink" in @fig-o2_n2_co2 is the net of $E_\mathrm{LUC}$ and $S_\mathrm{land}$ in @eq-carbon_budget.
+It was only later that the existence of a terrestrial C sink could be more firmly established and quantified thanks to parallel measurements of the atmospheric O~2~ and CO~2~ concentrations [@keeling96nat]. (In fact, the ratio O~2~/N~2~ is measured to avoid the much larger measurement uncertainty in absolute O~2~ measurements). The ratios of O~2~:CO~2~ are known from the stoichiometric molecular formulae for photosynthesis (O~2~:CO~2~ = 1.1), fossil fuel combustion (O~2~:CO~2~ = 1.4) and ocean uptake (O~2~:CO~2~ = 0). An ocean O~2~ source from marine organisms has to be factored in. Given the total C emissions from fossil fuel combustion, the net land C balance can thus be calculated and the calculation visualized geometrically (@fig-o2_n2_co2). Note that net emissions from land use change are not considered and the what is termed the "*S*~land~" in @fig-o2_n2_co2 is actually the net $(S_\mathrm{land} - E_\mathrm{LUC})$ in @eq-carbon_budget.
 
 ```{r echo=FALSE}
 #| label: fig-o2_n2_co2
-#| fig-cap: "Global land and ocean carbon sinks deduced from changes in atmospheric CO~2~ and O~2~ concentrations. The figure is an updated version of Fig. 2 from @keeling96nat, taken from a recent update of the atmospheric carbon and oxygen budget by @li22aas."
+#| fig-cap: "Global land and ocean carbon sinks deduced from changes in atmospheric CO~2~ and O~2~ concentrations. The figure is an updated version of Fig. 2 from @keeling96nat, taken from a recent update of the atmospheric carbon and oxygen budget by @li22aas. In this figure, what is termed '*S*~land~' corresponds to (*S*~land~ - *E*~LUC~) as defined in @eq-carbon_budget."
 #| out-width: 60%
 knitr::include_graphics("images/o2_n2_co2.png")
 ```

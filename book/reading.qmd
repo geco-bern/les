@@ -2,3 +2,7 @@
 
 - @falkowski00sci
   - Reviews our understanding of the carbon cycle - almost 25 years ago, but still relevant: "Although natural processes can potentially slow the rate of increase in atmospheric CO~2~, there is no natural “savior” waiting to assimilate all the anthropogenically produced CO~2~ in the coming century."
+- @bonan08sci
+  - A review paper on the role of forests in the climate system
+- [Key Concepts in Ecology reading list, British Ecological Society](https://www.britishecologicalsociety.org/learning-and-resources/career-development/key-concepts-in-ecology/)
+  - Contains links to papers with "textbook quality" on a set of topics in terrestrial ecology.
