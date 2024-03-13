@@ -23,25 +23,63 @@ At the ecosystem-level, C dynamics can be described as the flows (fluxes) betwee
 knitr::include_graphics("images/ecosystem-carbon-cycle-bonan.png")
 ```
 
-### Net primary productivity
+### Non-structural carbon and autotrophic respiration
 
-C assimilated by photosynthesis is initially present as *non-structural C* (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the *reserves* pool. Some of the assimilated carbon is consumed by *autotrophic respiration* ($R_a$) which subsumes different processes, including maintaining vital functions of the plant (maintenance respiration), inevitable losses during photosynthesis (leaf dark respiration, 
-$R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (growth respiration). The remainder is available for growth in different compartments (leaves, wood, fine roots, seeds).
+C assimilated by photosynthesis is initially present as *non-structural C* (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the *reserves* pool. Some of the assimilated carbon is consumed by *autotrophic respiration* ($R_a$) which subsumes different processes, including maintaining vital functions of the plant (*maintenance respiration*), inevitable losses during photosynthesis (*leaf dark respiration*, 
+$R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (*growth respiration*, $R_g$). Growth respiration produces CO~2~ as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models. 
+
+Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, $R_a$ is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in $R_a$, but respiration rates acclimate to average growth temperatures such that the relationship between $R_a$ and temperature is less steep when considering longer time scales or variations across different climates. A typical temperature dependency of respiration, used in the LPJ vegetation model [@lloyd94; @sitch03gcb], is given by @eq-resp-maint and visualised in @fig-resp-maint.
+$$
+\begin{align}
+R_{m,i} &= r_i C_i f(T) \\
+f(T)    &= \exp \left( E_0 \left( \frac{1}{56.02} - \frac{1}{T+46.02} \right) \right)
+\end{align}
+$$ {#eq-resp-maint}
+$r_i$ is a specific respiration rate for a given plant compartment $i$ and at standard temperature, typically taken to be 10°C. $C_i$ is the biomass C pool size and $f(T)$ is a factor that accounts for the temperature dependency of maintenance respiration. $E_0$ is an activation energy, set to 308.56 J.
+
+```{r, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| label: fig-resp-maint
+#| fig-cap: "Temperature dependency of maintenance respiration, modelled based on a modified Arrhenius equation [@lloyd94; @sitch03gcb]."
+library(ggplot2)
+
+calc_ft_arrhenius <- function(temp){
+  exp(308.56 * (1/56.02 - 1/(temp + 46.02)))
+}
+
+ggplot() +
+  geom_function(fun = calc_ft_arrhenius) +
+  xlim(0, 35) +
+  geom_vline(xintercept = 10, linetype = "dotted") +
+  geom_hline(yintercept = 1, linetype = "dotted") +
+  labs(x = "Temperature (°C)",
+       y = expression(paste("Respiration factor ", italic(f), "(", italic(T), ")"))) + 
+  theme_classic()
+```
+
+::: {.callout-caution}
+## Exercise
+
+1. What is a typical magnitude of $R_a$, expressed as a fraction of GPP?
+
+:::
+
+### Net primary productivity
 
 At the plant-level, C used for growth is supplied by NSC. The availability of NSC for growth depends on the balance of C assimilation and autotrophic respiration, is influenced by abiotic conditions (temperature, plant desiccation), and varies over the seasons. For example, when leaves are flushed in deciduous plants, the required C is drawn from the NSC pool. Wood is produced not evenly over the seasons, but in a limited period during the growing season which varies strongly between species. Grasses switch from a vegetative growth phase, producing leaves, in the early season to a seed-producing phase later.
 
-Over longer ($\sim$annual) time scales, the amount of C invested into growth of new biomass in leaves ($\Delta C_\mathrm{leaves}$), fine roots ($\Delta C_\mathrm{roots}$), and wood ($\Delta C_\mathrm{wood}$) plus the production organic compounds released through leaves (volatile organic compounds) and roots (exudates) corresponds to the gross primary productivity minus autotrophic respiration. This quantity is referred to as the *net primary productivity* (NPP) and is commonly expressed for annual total fluxes.
+The amount of C invested into growth of new biomass in leaves ($\Delta C_\mathrm{leaves}$), fine roots ($\Delta C_\mathrm{roots}$), and wood ($\Delta C_\mathrm{wood}$) plus the production organic compounds released through leaves (volatile organic compounds, $C_\mathrm{VOC}$) and roots (exudates, $C_\mathrm{exu}$), plus the change in NSC storage ($\Delta C_\mathrm{NSC}$) is equal to the gross primary productivity (GPP) minus autotrophic respiration ($R_a$). This is the definition of the ecosystem-level vegetation C mass balance. The sum of biomass production in different plant compartments plus $(C_\mathrm{VOC} + C_\mathrm{exu})$ is referred to as the *net primary productivity* (NPP) and is commonly expressed for annual total fluxes. Over longer ($\sim$annual) time scales, the change in NSC storage can be neglected $(\Delta C_\mathrm{NSC} = 0)$ and the following applies:
 $$
 \begin{aligned}
 \mathrm{NPP} &= \mathrm{GPP} - R_a \\
              &= \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood} + C_\mathrm{VOC} + C_\mathrm{exu}
 \end{aligned}
 $$ {#eq-npp}
-$C_\mathrm{VOC}$ is the amount of C released through volatile organic compounds and $C_\mathrm{exu}$ is the amount of C released through exudates. These two terms are difficult to measure in the field and tend to be smaller than the other terms. Therefore, the *biomass productivity* is more commonly quantified from observations.
+These two terms $C_\mathrm{VOC}$ and $C_\mathrm{exu}$ are difficult to measure in the field and tend to be smaller than the other terms. Therefore, the *biomass productivity* is more commonly quantified from observations.
 $$
 \mathrm{BP} = \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood}
 $$ {#eq-bp}
-Note that the mass balance expressed through @eq-npp only holds if there is no net change in the amount of C stored in the NSC pool. BP is expressed as a flux of C per unit square meter (for example gC m^-2^ yr^-1^). It measures the amount of biomass C produced per unit ground area and time. NPP is expressed in the same units and additionally includes C produced and released as volatie organic compounds and exudates. These do not contribute to biomass of the plant itself and are relatively short-lived. However, they are not in the form of oxidized C (as is $R_a$) and therefore are counted towards NPP.
+Note that there is often some ambiguity in definitions of in the literature and 'NPP' is used instead of 'BP'. BP is expressed as a flux of C per unit square meter (for example gC m^-2^ yr^-1^). It measures the amount of biomass C produced per unit ground area and time. NPP is expressed in the same units and additionally includes C produced and released as volatie organic compounds and exudates. These do not contribute to biomass of the plant itself and are relatively short-lived. However, they are not in the form of oxidized C (as is $R_a$) and therefore are counted towards NPP.
 
 The ratio of NPP:GPP is commonly referred to as the *ecosystem carbon use efficiency* (CUE), and BP:GPP as the *biomass production efficiency* (BPE).
 
@@ -122,11 +160,9 @@ knitr::include_graphics("images/litter_decomposition.png")
 
 Soil organic matter (SOM) refers to the organic mass fraction in soils. It consists of litter at advanced stages of decomposition and of microbial biomass and necromass. The decomposition rate of organic matter in soil can be strongly reduced compared to the decomposition rate of litter. This is due to *stabilisation* processes. Stabilisation of SOM arises from the chemical transformation through soil micro and macro-fauna and through physical protection in the soil matrix (association to minerals, occlusion in soil aggregates). Yet, the decomposition of SOM is rarely fully suppressed (except under fully anoxic conditions). 
 
-SOM exposed to decomposition is consumed by microbes (fungi and bacteria) and fuels their growth. As they consume organic matter - like humans - they use the chemical energy "stored" in organic matter and oxidise the carbohydrates to CO~2~. The CO~2~ is respired away in gaseous form and leaves the soil volume and is referred to as *heterotrophic respiration* ($R_h$).
+SOM exposed to decomposition is consumed by microbes (fungi and bacteria) and fuels their growth. As they consume organic matter - like humans - they use the chemical energy "stored" in organic matter and oxidise the carbohydrates to CO~2~. The CO~2~ is respired away in gaseous form and leaves the soil volume and is referred to as *heterotrophic respiration* ($R_h$). The rate of microbial activity and hence $R_h$ increases with temperature in a similar way as the temperature dependency of $R_a$. $R_h$ also depends on soil moisture and has a peaked relationship. It initially increases with increasing soil moisture until a point where the oxygen availability in the soil probihits activity by heterotrophic microorganisms. At this point, $R_h$ drops sharply. Under water-logged soil conditions, SOM decomposition and $R_h$ are suppressed. The temperature dependency of $R_h$, implemented in the LPJ vegetation model is the same as described for $R_m$ by @eq-resp-maint.
 
-SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see @fig-carbon-pools-fluxes-ipcc). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (@sec-landclimate). 
-
-C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. As for litter decomposition, the rate of SOM decomposition ($k$ in @eq-firststorderdecay_littersom) is controlled by the soil temperature and moisture.
+SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see @fig-carbon-pools-fluxes-ipcc). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (@sec-landclimate). C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. As for litter decomposition, the rate of SOM decomposition ($k$ in @eq-firststorderdecay_littersom) is controlled by the soil temperature and moisture.
 
 ::: {.callout-note}
 ## 1st-order decay model for litter and SOM
@@ -204,7 +240,7 @@ At the landscape-level, a forest can be conceived as a mosaic of forest patches,
 
 The terrestrial carbon balance can be understood of the global total NBP.
 
-## The C cascade model
+## The C cascade model {#sec-ccascade}
 
 The C cascade model (@fig-ccascade) integrates the information about ecosystem carbon pools and fluxes, provided above in this Chapter. A key insight is that C only enters ecosystems through photosynthesis, measured at the ecosystem-level by GPP. Once in the system, it fuels a "cascade" of pools. They can be conceived as a *cascade* because biomass pools receive C inputs only through GPP (minus $R_a$), litter pools only receive C inputs through biomass turnover, and SOM pools only receive C inputs through litter decomposition. Along this cascade, autotrophic and heterotrophic respiration incurs an ecosystem C loss. The rate at which C cascades through this system depends on the turnover rates of the individual pools and on the relative partitioning (allocation and partitioning to different litter and SOM pools) into the "downstream" pools. A schematic of the C cascade can be drawn by extending @fig-littersom. 
 
@@ -228,9 +264,9 @@ It can be demonstrated (see Box 'Simulating the C cascade' below) that when cons
 
 ..., the same linear dependency of the total system C storage $\sum_i C_i^\ast$ emerges:
 $$
-\frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast}
+\frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast} = \frac{C_i^\ast}{C_{i,0}^\ast}, \; \forall i
 $$
-However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
+The symbol $\forall$ means 'for all'. However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
 
 ::: {.callout-note}
 ## Simulating the C cascade
