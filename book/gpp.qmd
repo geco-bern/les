@@ -109,7 +109,7 @@ Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm
 
 In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
 
-### Calvin cycle
+### Calvin cycle {#sec-calvin-cycle}
 
 NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, around 30-50 ppm, the *photorespiratory compensation point* is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
 
@@ -175,12 +175,10 @@ $$ {#eq-jmaxlim}
 
 Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
 
-However, the FvCB model, on its own, does not allow us to model the LUE term in @eq-luemodel. An important additional ingredient is the stomatal conductance ($g_s$) which is relevant for determining the ratio of ambient to leaf-internal CO~2~ concentrations. It is described in @sec-transpiration.
-
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: true
 #| label: fig-a-ci-curve-rpmodel
-#| fig-cap: "The *A*-*c*~i~ curve as simulated by the FvCB model. *A*~gs~ is shown here as the dependency of *A* on stomatal conductance following @eq-photo-fick for a given *g*~s~. The fact that *A*~C~, *A*~J~, and *A*~gs~ intersect in one point does not follow from the FvCB model, but is simulated here based on a model of eco-evolutionary optimality (*P-model* @stocker20gmd, implemented by the {rpmodel} R package) which predicts that photosynthetic capacities are acclimated such that a leaf operates close to the intersection point of *A*~C~ and and *A*~J~. The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding *code*."
+#| fig-cap: "The *A*-*c*~i~ curve as simulated by the FvCB model. *A*~gs~ is shown here as the dependency of *A* on stomatal conductance following @eq-photo-fick for a given *g*~s~. The fact that *A*~C~, *A*~J~, and *A*~gs~ intersect in one point does not follow from the FvCB model, but is simulated here based on a model of eco-evolutionary optimality (*P-model* @stocker20gmd, implemented by the {rpmodel} R package) which predicts that photosynthetic capacities are acclimated such that a leaf operates close to the intersection point of *A*~C~ and and *A*~J~. The point at which curves intersect with the x-axis (y = 0) is the photorespiratory compensation point. The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding *code*. "
 #| out-width: 80%
 
 library(rpmodel)
@@ -277,6 +275,8 @@ df_ci |>
   xlim(00, 1000) + 
   ylim(-20, 80) +
   geom_hline(yintercept = 0, linetype = "dotted") +
+  geom_vline(xintercept = 0, linetype = "dotted") +
+  geom_vline(xintercept = (out_pmodel$gammastar/(1.0e-6 * patm)), linetype = "dotted") +
   labs(x = expression(paste(italic("c")[i], " (ppm)")), 
        y = expression(paste(italic("A"), " (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
   scale_color_manual(
@@ -291,6 +291,169 @@ df_ci |>
     values = c( "#009E73", "#56B4E9", "#E69F00")) +
   theme_classic()
 ```
+
+@fig-a-ppfd-curve-rpmodel shows the light response curve of $A_J - R_d$ following the FvCB model. The response is shown for leaves acclimated to different levels of light, thus having different values for $J_\mathrm{max}$. Because acclimation to light also involves a change in the Rubisco content of leaves and thus $V_\mathrm{cmax}$, "high-light leaves" also have higher dark respiration rates. Therefore, under low light conditions, leaves acclimated to low light have higher net assimilation rates than leaves acclimated to high light. This is illustrated by @fig-a-ppfd-curve-rpmodel **a**. 
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
+#| label: fig-a-ppfd-curve-rpmodel
+#| fig-cap: "The light response curve of the electron transport-limited net assimilation rate *A*~J~ - *R*~d~ as simulated by the FvCB model using simulated acclimated *J*~max~ values for different light levels from the P-model (implemented by the {rpmodel} R package) . The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding *code*."
+#| out-width: 80%
+
+library(rpmodel)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+# modified seq() function to get a logarithmically spaced sequence
+lseq <- function(from=1, to=100000, length.out=6) {
+  exp(seq(log(from), log(to), length.out = length.out))
+}
+
+# Set model parameters (constants)
+# see Stocker et al., 2020 GMD for a description
+beta <- 146          # unit cost ratio a/b
+c_cost <- 0.41       # marginal cost of Jmax
+gamma <- 0.105       # unit cost ratio c/b
+kphio <- 0.085       # quantum yield efficiency
+c_molmass <- 12.0107 # molar mass, g / mol
+
+# Define environmental conditions
+tc <- 15             # temperature, deg C
+ppfd <- 500          # micro-mol/m2/s
+vpd  <- 300          # Pa
+co2  <- 400          # ppm
+elv  <- 0            # m.a.s.l.
+fapar <- 1           # fraction
+patm <- 101325       # Pa
+
+# get photosynthesis parameters gammastar, vcmax, jmax from p-model
+# this assumes vcmax and jmax to be optimally acclimated/adapted to
+# the specified environmental conditions and considers the temperature
+# and atmospheric-pressure dependence of all parameters.
+
+# first for low light
+out_pmodel_lo <- rpmodel(
+  tc             = tc,
+  vpd            = vpd,
+  co2            = co2,
+  elv            = elv,
+  kphio          = kphio,
+  beta           = beta,
+  fapar          = fapar,
+  ppfd           = ppfd*0.5,
+  method_optci   = "prentice14",
+  method_jmaxlim = "wang17",
+  do_ftemp_kphio = FALSE
+  )
+
+# medium light
+out_pmodel_me <- rpmodel(
+  tc             = tc,
+  vpd            = vpd,
+  co2            = co2,
+  elv            = elv,
+  kphio          = kphio,
+  beta           = beta,
+  fapar          = fapar,
+  ppfd           = ppfd,
+  method_optci   = "prentice14",
+  method_jmaxlim = "wang17",
+  do_ftemp_kphio = FALSE
+  )
+
+# high light
+out_pmodel_hi <- rpmodel(
+  tc             = tc,
+  vpd            = vpd,
+  co2            = co2,
+  elv            = elv,
+  kphio          = kphio,
+  beta           = beta,
+  fapar          = fapar,
+  ppfd           = ppfd*2,
+  method_optci   = "prentice14",
+  method_jmaxlim = "wang17",
+  do_ftemp_kphio = FALSE
+  )
+
+# electron transport-limited assimilation rate as a function of CO2 partial pressure
+calc_aj <- function(ci, gammastar, kphio, ppfd, jmax){
+  kphio * ppfd * (ci - gammastar)/(ci + 2 * gammastar) * 1/sqrt(1+((4 * kphio * ppfd)/jmax)^2)
+}
+
+# RuBP carboxylation-limited assimilation rate as a function of CO2 partial pressure
+calc_ac <- function(ci, gammastar, kmm, vcmax){
+  vcmax * (ci - gammastar)/(ci + kmm)
+}
+
+# assimilation rate given stomatal conductance and leaf-internal 
+# CO2 partial pressure
+calc_a_gs <- function(ci, gs, ca){
+  gs * (ca - ci)
+}
+
+# conversion of CO2 concentration in ppm to partial pressure in Pa
+co2_to_ca <- function( co2, patm ){
+  ( 1.0e-6 ) * co2 * patm
+}
+
+df_ppfd <- tibble(
+  ppfd = seq(0, 2000, length.out = 100)) |> 
+  rowwise() |> 
+  mutate(a_j_lo = calc_aj(co2_to_ca(400, patm = patm), 
+                          out_pmodel_lo$gammastar, 
+                          kphio = kphio, 
+                          ppfd = ppfd, 
+                          jmax = out_pmodel_lo$jmax * 0.5) - 
+           out_pmodel_lo$rd) |> 
+  mutate(a_j_me = calc_aj(co2_to_ca(400, patm = patm), 
+                       out_pmodel_me$gammastar, 
+                       kphio = kphio, 
+                       ppfd = ppfd, 
+                       jmax = out_pmodel_me$jmax) - 
+           out_pmodel_me$rd) |> 
+  mutate(a_j_hi = calc_aj(co2_to_ca(400, patm = patm), 
+                          out_pmodel_hi$gammastar, 
+                          kphio = kphio, 
+                          ppfd = ppfd, 
+                          jmax = out_pmodel_hi$jmax * 2) - 
+           out_pmodel_hi$rd)
+
+gg <- df_ppfd |> 
+  pivot_longer(cols = c(a_j_lo, a_j_me, a_j_hi), 
+               names_to = "Rate", 
+               values_to = "a_") |>
+  ggplot(aes(x = ppfd)) +
+  geom_line(aes(y = a_, color = Rate)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  labs(x = expression(paste("PPFD (", mu, "mol m"^{-2}, "s"^{-1}, ")")), 
+       y = expression(paste(italic("A")[J] - italic(R)[d], " (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
+  scale_color_manual(
+    name = "",
+    breaks = c("a_j_lo",
+               "a_j_me",
+               "a_j_hi"
+               ),
+    labels = c(expression(paste("Low light")),
+               expression(paste("Medium light")),
+               expression(paste("High light"))),
+    values = c( "#009E73", "#56B4E9", "#E69F00")) +
+  theme_classic()
+
+gg1 <- gg +
+  xlim(0, 250) +
+  ylim(NA, 20)
+
+gg2 <- gg +
+  xlim(0, 2000)
+
+cowplot::plot_grid(gg1, gg2, 
+                   nrow = 2,
+                   labels = c("a", "b"))
+```
+
+Note that the FvCB model, on its own, does not allow us to model the LUE term in @eq-luemodel. An important additional ingredient is the stomatal conductance ($g_s$) which is relevant for determining the ratio of ambient to leaf-internal CO~2~ concentrations. It is described in @sec-transpiration.
 
 ### Response to temperature {#sec-ftemp}
 
@@ -490,20 +653,64 @@ g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 $$
 $g_1$ is a stomatal sensitivity parameter. Similar results are obtained with a related but not identical optimality criterion [@medlyn11gcb]. 
 
-## From photosynthesis to light use efficiency
+## From photosynthesis to light use efficiency {#sec-constlue}
 
 The light use efficiency model (@eq-luemodel) and the FvCB model (@eq-aj and @eq-jmaxlim) represent a contrasting response of photosynthesis to light - linear in @eq-luemodel and saturating (by effects of a finite $J_\mathrm{max}$) in @eq-aj and @eq-jmaxlim. It should be noted that the LUE model describes the photosynthetic CO~2~ uptake at the canopy-level and for periods of multiple days to weeks (total GPP vs. total absorbed light). In contrast, the FvCB model describes the light-photosynthesis relationship at the leaf-level and in response to rapid changes in light (e.g., over the course of a day). 
 
 As pointed out in @sec-fvcb, plants tend to coordinate the light and carboxylation-limited assimilation rates flexibly in response to average environmental conditions to which they are exposed while performing photosynthesis. Tending towards the co-limitation point can also be understood as an optimal functioning - avoiding overinvestment into maintaining a high maximum electron transport rate ($J_\mathrm{max}$) while being carboxylation-limited (too low $V_\mathrm{cmax}$), or the opposite. In other words, the higher the average light levels, the higher the maximum carboxylation capacity and therefore the amount of Rubisco in leaves. The linear relationship between GPP and PPFD in @eq-luemodel can be interpreted as an emerging relationship from the coordination of $A_C$ and $A_J$, and thus of $V_\mathrm{cmax}$ and $J_\mathrm{max}$. 
 
-A very simple model, by which LUE is assumed to be constant over time and across plants and ecosystems and using @eq-luemodel explains about two thirds of observed GPP variations in data obtained from ecosystem flux measurements, as shown in @fig-gpp-constlue. In other words, variations in light (PPFD) and leaf area (measured by fAPAR) explain two thirds of GPP variations over the seasons and across different locations on the globe.
+A very simple model, by which LUE is assumed to be constant over time and across ecosystems and using @eq-luemodel explains about 80% of observed GPP variations in data obtained from ecosystem flux measurements, as shown in @fig-gpp-constlue. In other words, variations in light (PPFD) and leaf area (measured by fAPAR) explain 80% of GPP variations over the seasons and across different locations on the globe.
 
-```{r echo=FALSE}
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
 #| label: fig-gpp-constlue
-#| fig-cap: "Observed versus simulated GPP. Observations are derived from ecosystem CO~2~ flux measurements taken at 126 different sites distributed across a wide diversity of ecoystems and environmental conditions. Simulated GPP values are obtained by applying the light use efficiency model (@eq-luemodel) and fitting a temporally and spatially constant LUE term to the data. Each data point represents an 8-day sum. Figure taken from @stocker20gmd."
-#| out-width: 60%
-knitr::include_graphics("images/gpp-constlue.png")
+#| fig-cap: "Observed GPP vs. absorbed photosynthetically active radiation (APAR), defined as the product of LUE and PPFD (@eq-luemodel). Observations are derived from ecosystem CO~2~ flux measurements taken at 241 different sites distributed across a wide diversity of ecoystems and environmental conditions. Data is aggregated to weekly means. The adjusted *R*^2^ is given at the top and measures the portion of variation explained by APAR. Colors indicate the density of data points. The dotted line represens the leas-squares linear regression with zero intercept. Its slope measures the average LUE."
+#| out-width: 80%
+
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+library(tidyr)
+
+wdf <- readRDS(here::here("data/wdf_fdk.rds"))
+
+# get absorbed photosynthetically active radiation APAR
+wdf <- wdf |> 
+  mutate(apar = fapar * ppfd)
+
+# fit linear model of GPP ~ APAR with zero intercept
+linmod <- lm(gpp ~ 0 + apar, data = wdf)
+
+rsq_val <- summary(linmod)$r.squared
+rsq_lab <- format( rsq_val, digits = 2 )
+
+wdf |> 
+  ggplot(aes(apar, gpp)) +
+  geom_hex(bins = 50) +
+  scale_fill_viridis_c(trans = "log", option = "magma", name = "Count") +
+  geom_abline(intercept = 0, slope = coef(linmod), linetype="dotted") +
+  theme_classic() +
+  labs(
+    x = expression(paste("PPFD"  %*% "fAPAR (mol m"^{-2}, "s"^{-1}, ")")),
+    y = expression(paste("GPP (gC m"^{-2}, "s"^{-1}, ")")),
+    subtitle = bquote(
+        italic(R)^2 == .(rsq_lab)
+      ),
+    name = ""
+  )
 ```
+
+::: {.callout-caution}
+## Exercise
+
+Rising CO~2~ increases leaf-level photosynthesis. This sensitivity can be quantified using $\beta$ following @eq-beta. Calculate $\beta$ for the light-saturated photosynthesis rate (taking the equation for $A_C$), considering an increase in atmospheric CO~2~ from 400 to 600 ppm. Use $\Gamma^\ast = 3.3$ Pa, $K = 46$ Pa and $V_\mathrm{cmax} = 49 \; \mu$mol m^-2^ s^-1^. Note that $c_a$ in @eq-photo-fick is expressed in Pa. Convert an atmospheric CO~2~ concentration in units of ppm to Pa by multiplication with 0.101325 Pa ppm^-1^ (considering standard atmospheric pressure). Assume that the ratio of ambient-to-leaf-internal CO~2~ ($\chi$) remains constant at 0.7.
+
+Compare your calculated $\beta$ of the light-saturated leaf-level photosynthesis rate with observations from Free Air CO~2~ Enrichment (FACE) experiments, as summarized by @ainsworth05. For this, download the paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-8137.2004.01224.x) and find the reported value for the CO~2~ response of the light-saturated leaf-level photosynthesis rate. Convert the percentage increase reported by @ainsworth05 into a $\beta$ factor. Assume that on average, the CO~2~ levels in the FACE experiments were 350 ppm at ambient and 550 ppm at elevated levels.
+:::
+
+
+<!-- Exercise:  -->
+<!-- - Calculate response ratio of net photosynthesis to a doubling of CO2 (from 400 to 800 ppm). Calculate the beta factor from Chapter 3. Compare to leaf net assimilation from experiments (Walker et al. 2018). -->
 
 
 <!-- - Keeling et al., 2017 -->

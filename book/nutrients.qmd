@@ -7,4 +7,5 @@ Coming soon.
 <!-- Manzoni et al., 2008 -->
 <!-- - Ectomycorrhizae -->
 <!-- - N fixation -->
-
+<!-- Galloway et al. https://doi.org/10.1007/s10533-004-0370-0 -->
+<!-- Vitousek & Howarth 1991 -->
