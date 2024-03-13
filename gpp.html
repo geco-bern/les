@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -191,7 +191,7 @@ window.Quarto = {
     <a href="https://github.com/geco-bern/les_i/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
@@ -351,7 +351,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#light-absorption-at-the-cellular-level" id="toc-light-absorption-at-the-cellular-level" class="nav-link" data-scroll-target="#light-absorption-at-the-cellular-level"><span class="header-section-number">4.3.1</span> Light absorption at the cellular level</a></li>
   <li><a href="#light-reactions" id="toc-light-reactions" class="nav-link" data-scroll-target="#light-reactions"><span class="header-section-number">4.3.2</span> Light reactions</a></li>
-  <li><a href="#calvin-cycle" id="toc-calvin-cycle" class="nav-link" data-scroll-target="#calvin-cycle"><span class="header-section-number">4.3.3</span> Calvin cycle</a></li>
+  <li><a href="#sec-calvin-cycle" id="toc-sec-calvin-cycle" class="nav-link" data-scroll-target="#sec-calvin-cycle"><span class="header-section-number">4.3.3</span> Calvin cycle</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.3.4</span> Summary</a></li>
   <li><a href="#sec-fvcb" id="toc-sec-fvcb" class="nav-link" data-scroll-target="#sec-fvcb"><span class="header-section-number">4.3.5</span> Response to light and CO<sub>2</sub></a></li>
   <li><a href="#farquhar-von-caemmerer-berry-model" id="toc-farquhar-von-caemmerer-berry-model" class="nav-link" data-scroll-target="#farquhar-von-caemmerer-berry-model"><span class="header-section-number">4.3.6</span> Farquhar-von Caemmerer-Berry model</a></li>
@@ -364,7 +364,7 @@ window.Quarto = {
   <li><a href="#sec-carbon-isotopes" id="toc-sec-carbon-isotopes" class="nav-link" data-scroll-target="#sec-carbon-isotopes"><span class="header-section-number">4.4.2</span> Isotopic fractionation</a></li>
   <li><a href="#stomatal-regulation" id="toc-stomatal-regulation" class="nav-link" data-scroll-target="#stomatal-regulation"><span class="header-section-number">4.4.3</span> Stomatal regulation</a></li>
   </ul></li>
-  <li><a href="#from-photosynthesis-to-light-use-efficiency" id="toc-from-photosynthesis-to-light-use-efficiency" class="nav-link" data-scroll-target="#from-photosynthesis-to-light-use-efficiency"><span class="header-section-number">4.5</span> From photosynthesis to light use efficiency</a></li>
+  <li><a href="#sec-constlue" id="toc-sec-constlue" class="nav-link" data-scroll-target="#sec-constlue"><span class="header-section-number">4.5</span> From photosynthesis to light use efficiency</a></li>
   </ul>
 </nav>
     </div>
@@ -474,14 +474,14 @@ Figure&nbsp;4.3: Overview of photosynthesis, distinguishing the light reactions 
 </div>
 <section id="light-absorption-at-the-cellular-level" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="light-absorption-at-the-cellular-level"><span class="header-section-number">4.3.1</span> Light absorption at the cellular level</h3>
-<p>Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by <em>pigments</em> - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That’s why <span class="quarto-unresolved-ref">?eq-ppfd</span> is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO<sub>2</sub> assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.</p>
+<p>Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by <em>pigments</em> - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That’s why <a href="globalcarbonpatterns.html#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a> is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO<sub>2</sub> assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.</p>
 </section>
 <section id="light-reactions" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="light-reactions"><span class="header-section-number">4.3.2</span> Light reactions</h3>
 <p>In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O<sub>2</sub>) as a “side-product”. The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the <em>light reactions</em> of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.</p>
 </section>
-<section id="calvin-cycle" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="calvin-cycle"><span class="header-section-number">4.3.3</span> Calvin cycle</h3>
+<section id="sec-calvin-cycle" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="sec-calvin-cycle"><span class="header-section-number">4.3.3</span> Calvin cycle</h3>
 <p>NADPH and ATP are then used for reducing CO<sub>2</sub> (the energy-demanding reversal of oxidation) in the <em>Calvin cycle</em>. This step forms C<sub>3</sub> compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the “dark reactions” of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O<sub>2</sub> and produces CO<sub>2</sub> as part of <em>photorespiration</em>. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO<sub>2</sub> by 30-50%, depending on the relative concentrations of CO<sub>2</sub> and O<sub>2</sub>. At very low CO<sub>2</sub> levels, around 30-50 ppm, the <em>photorespiratory compensation point</em> is reached and net photosynthesis is zero. In contrast to photorespiration, <em>dark respiration</em> (<span class="math inline">\(R_d\)</span>), which also produces CO<sub>2</sub>, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.</p>
 <p>Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as <em>non-structural C</em>.</p>
 </section>
@@ -542,7 +542,6 @@ A_J = \frac{J}{4} \cdot \frac{c_i - \Gamma^\ast}{c_i + 2 \Gamma^\ast}\;.
 J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{abs}}{J_\mathrm{max}}\right)^2}}
 \tag{4.6}\]</span></span></p>
 <p>Together, <a href="#eq-ac" class="quarto-xref">Equation&nbsp;<span>4.4</span></a> and <a href="#eq-aj" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> describe the combined effect of <span class="math inline">\(c_i\)</span>, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO<sub>2</sub> assimilation. <em>A-c</em><sub>i</sub> and the <em>A</em> vs.&nbsp;PPFD curves, as shown for measurements in <a href="#fig-photosynthesis_light" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> and <a href="#fig-a-ci-curve" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>, can thereby be modeled.</p>
-<p>However, the FvCB model, on its own, does not allow us to model the LUE term in <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>. An important additional ingredient is the stomatal conductance (<span class="math inline">\(g_s\)</span>) which is relevant for determining the ratio of ambient to leaf-internal CO<sub>2</sub> concentrations. It is described in <a href="#sec-transpiration" class="quarto-xref"><span>Section 4.4</span></a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -640,19 +639,21 @@ J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{ab
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">00</span>, <span class="dv">1000</span>) <span class="sc">+</span> </span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">80</span>) <span class="sc">+</span></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"c"</span>)[i], <span class="st">" (ppm)"</span>)), </span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>), <span class="st">" ("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>))) <span class="sc">+</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"a_gs"</span>,</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j"</span>,</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_c"</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>               ),</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[gs])),</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J])),</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C]))),</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"#009E73"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#E69F00"</span>)) <span class="sc">+</span></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> (out_pmodel<span class="sc">$</span>gammastar<span class="sc">/</span>(<span class="fl">1.0e-6</span> <span class="sc">*</span> patm)), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"c"</span>)[i], <span class="st">" (ppm)"</span>)), </span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>), <span class="st">" ("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>))) <span class="sc">+</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"a_gs"</span>,</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j"</span>,</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_c"</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[gs])),</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J])),</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C]))),</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"#009E73"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#E69F00"</span>)) <span class="sc">+</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-a-ci-curve-rpmodel" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -661,122 +662,292 @@ J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{ab
 <img src="gpp_files/figure-html/fig-a-ci-curve-rpmodel-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-a-ci-curve-rpmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.6: The <em>A</em>-<em>c</em><sub>i</sub> curve as simulated by the FvCB model. <em>A</em><sub>gs</sub> is shown here as the dependency of <em>A</em> on stomatal conductance following <a href="#eq-photo-fick" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> for a given <em>g</em><sub>s</sub>. The fact that <em>A</em><sub>C</sub>, <em>A</em><sub>J</sub>, and <em>A</em><sub>gs</sub> intersect in one point does not follow from the FvCB model, but is simulated here based on a model of eco-evolutionary optimality (<em>P-model</em> <span class="citation" data-cites="stocker20gmd">Stocker et al. (<a href="references.html#ref-stocker20gmd" role="doc-biblioref">2020</a>)</span>, implemented by the {rpmodel} R package) which predicts that photosynthetic capacities are acclimated such that a leaf operates close to the intersection point of <em>A</em><sub>C</sub> and and <em>A</em><sub>J</sub>. The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding <em>code</em>.
+Figure&nbsp;4.6: The <em>A</em>-<em>c</em><sub>i</sub> curve as simulated by the FvCB model. <em>A</em><sub>gs</sub> is shown here as the dependency of <em>A</em> on stomatal conductance following <a href="#eq-photo-fick" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> for a given <em>g</em><sub>s</sub>. The fact that <em>A</em><sub>C</sub>, <em>A</em><sub>J</sub>, and <em>A</em><sub>gs</sub> intersect in one point does not follow from the FvCB model, but is simulated here based on a model of eco-evolutionary optimality (<em>P-model</em> <span class="citation" data-cites="stocker20gmd">Stocker et al. (<a href="references.html#ref-stocker20gmd" role="doc-biblioref">2020</a>)</span>, implemented by the {rpmodel} R package) which predicts that photosynthetic capacities are acclimated such that a leaf operates close to the intersection point of <em>A</em><sub>C</sub> and and <em>A</em><sub>J</sub>. The point at which curves intersect with the x-axis (y = 0) is the photorespiratory compensation point. The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding <em>code</em>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="sec-ftemp" class="level3" data-number="4.3.7">
-<h3 data-number="4.3.7" class="anchored" data-anchor-id="sec-ftemp"><span class="header-section-number">4.3.7</span> Response to temperature</h3>
-<p>The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span>, and is shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>. For this, <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span> at a reference temperature are assumed to be given.</p>
+<p><a href="#fig-a-ppfd-curve-rpmodel" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> shows the light response curve of <span class="math inline">\(A_J - R_d\)</span> following the FvCB model. The response is shown for leaves acclimated to different levels of light, thus having different values for <span class="math inline">\(J_\mathrm{max}\)</span>. Because acclimation to light also involves a change in the Rubisco content of leaves and thus <span class="math inline">\(V_\mathrm{cmax}\)</span>, “high-light leaves” also have higher dark respiration rates. Therefore, under low light conditions, leaves acclimated to low light have higher net assimilation rates than leaves acclimated to high light. This is illustrated by <a href="#fig-a-ppfd-curve-rpmodel" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> <strong>a</strong>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_temp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">temp =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gammastar =</span> <span class="fu">gammastar</span>(temp, <span class="at">patm =</span> <span class="dv">101325</span>),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">kmm =</span> <span class="fu">kmm</span>(temp, <span class="at">patm =</span> <span class="dv">101325</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">vcmax =</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_vcmax</span>(temp, <span class="at">tcgrowth =</span> <span class="dv">15</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">jmax =</span> <span class="fl">1.7</span> <span class="sc">*</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_jmax</span>(temp, <span class="at">tcgrowth =</span> <span class="dv">15</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">rd =</span> <span class="fl">0.05</span> <span class="sc">*</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_rd</span>(temp)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_j =</span> <span class="fu">calc_aj</span>(<span class="at">ci =</span> <span class="fl">28.14209</span>, </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                       gammastar, </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kphio =</span> kphio, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ppfd =</span> ppfd, </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">jmax =</span> jmax)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_c =</span> <span class="fu">calc_ac</span>(<span class="at">ci =</span> <span class="fl">28.14209</span>, </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                       gammastar, </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                       kmm, </span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">vcmax =</span> vcmax)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_cr =</span> a_c <span class="sc">-</span> rd, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">a_jr =</span> a_j <span class="sc">-</span> rd) <span class="sc">|&gt;</span> </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">assim =</span> <span class="fu">min</span>(a_jr, a_cr))</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(gammastar, kmm), </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp)) <span class="sc">+</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, <span class="at">color =</span> Rate)) <span class="sc">+</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Value (Pa)"</span>))) <span class="sc">+</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"gammastar"</span>, </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>               <span class="st">"kmm"</span>),</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(Gamma)<span class="sc">^</span><span class="st">"*"</span>)), </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(vcmax, jmax, rd), </span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp)) <span class="sc">+</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, <span class="at">color =</span> Rate)) <span class="sc">+</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Rate ("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>))) <span class="sc">+</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"vcmax"</span>, </span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>               <span class="st">"jmax"</span>, </span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>               <span class="st">"rd"</span>),</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"V"</span>)[cmax])), </span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"J"</span>)[max])), </span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"R"</span>)[d])))</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>df_net_plot <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_cr =</span> a_c <span class="sc">-</span> rd,</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>         <span class="at">a_jr =</span> a_j <span class="sc">-</span> rd) <span class="sc">|&gt;</span> </span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(rd, a_cr, a_jr, assim), </span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>df_gross_plot <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(a_c, a_j), </span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>gg3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> value, <span class="at">color =</span> Rate),</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df_gross_plot,</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> value, <span class="at">color =</span> Rate),</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df_net_plot) <span class="sc">+</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"rd"</span>,</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_c"</span>,</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j"</span>,</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_cr"</span>,</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_jr"</span>,</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>               <span class="st">"assim"</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>               ),</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C])),</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J])),</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C] <span class="sc">~</span> <span class="sc">-</span> <span class="er">~</span> <span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J] <span class="sc">~</span> <span class="sc">-</span> <span class="er">~</span> <span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[n]))),</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#CC79A7"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"black"</span>)</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>), <span class="st">"("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Rate"</span>,</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Rate"</span>) <span class="sc">+</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(gg1, gg2, gg3, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpmodel)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># modified seq() function to get a logarithmically spaced sequence</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>lseq <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">from=</span><span class="dv">1</span>, <span class="at">to=</span><span class="dv">100000</span>, <span class="at">length.out=</span><span class="dv">6</span>) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(<span class="fu">seq</span>(<span class="fu">log</span>(from), <span class="fu">log</span>(to), <span class="at">length.out =</span> length.out))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Set model parameters (constants)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># see Stocker et al., 2020 GMD for a description</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">146</span>          <span class="co"># unit cost ratio a/b</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>c_cost <span class="ot">&lt;-</span> <span class="fl">0.41</span>       <span class="co"># marginal cost of Jmax</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.105</span>       <span class="co"># unit cost ratio c/b</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>kphio <span class="ot">&lt;-</span> <span class="fl">0.085</span>       <span class="co"># quantum yield efficiency</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>c_molmass <span class="ot">&lt;-</span> <span class="fl">12.0107</span> <span class="co"># molar mass, g / mol</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Define environmental conditions</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="dv">15</span>             <span class="co"># temperature, deg C</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ppfd <span class="ot">&lt;-</span> <span class="dv">500</span>          <span class="co"># micro-mol/m2/s</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>vpd  <span class="ot">&lt;-</span> <span class="dv">300</span>          <span class="co"># Pa</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>co2  <span class="ot">&lt;-</span> <span class="dv">400</span>          <span class="co"># ppm</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>elv  <span class="ot">&lt;-</span> <span class="dv">0</span>            <span class="co"># m.a.s.l.</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>fapar <span class="ot">&lt;-</span> <span class="dv">1</span>           <span class="co"># fraction</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>patm <span class="ot">&lt;-</span> <span class="dv">101325</span>       <span class="co"># Pa</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># get photosynthesis parameters gammastar, vcmax, jmax from p-model</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># this assumes vcmax and jmax to be optimally acclimated/adapted to</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># the specified environmental conditions and considers the temperature</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># and atmospheric-pressure dependence of all parameters.</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># first for low light</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>out_pmodel_lo <span class="ot">&lt;-</span> <span class="fu">rpmodel</span>(</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">tc             =</span> tc,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">vpd            =</span> vpd,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">co2            =</span> co2,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">elv            =</span> elv,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">kphio          =</span> kphio,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta           =</span> beta,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">fapar          =</span> fapar,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">ppfd           =</span> ppfd<span class="sc">*</span><span class="fl">0.5</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_optci   =</span> <span class="st">"prentice14"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_jmaxlim =</span> <span class="st">"wang17"</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">do_ftemp_kphio =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># medium light</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>out_pmodel_me <span class="ot">&lt;-</span> <span class="fu">rpmodel</span>(</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">tc             =</span> tc,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">vpd            =</span> vpd,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">co2            =</span> co2,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">elv            =</span> elv,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">kphio          =</span> kphio,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta           =</span> beta,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="at">fapar          =</span> fapar,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">ppfd           =</span> ppfd,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_optci   =</span> <span class="st">"prentice14"</span>,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_jmaxlim =</span> <span class="st">"wang17"</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="at">do_ftemp_kphio =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co"># high light</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>out_pmodel_hi <span class="ot">&lt;-</span> <span class="fu">rpmodel</span>(</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">tc             =</span> tc,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">vpd            =</span> vpd,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="at">co2            =</span> co2,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">elv            =</span> elv,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="at">kphio          =</span> kphio,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta           =</span> beta,</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="at">fapar          =</span> fapar,</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="at">ppfd           =</span> ppfd<span class="sc">*</span><span class="dv">2</span>,</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_optci   =</span> <span class="st">"prentice14"</span>,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  <span class="at">method_jmaxlim =</span> <span class="st">"wang17"</span>,</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">do_ftemp_kphio =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co"># electron transport-limited assimilation rate as a function of CO2 partial pressure</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>calc_aj <span class="ot">&lt;-</span> <span class="cf">function</span>(ci, gammastar, kphio, ppfd, jmax){</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  kphio <span class="sc">*</span> ppfd <span class="sc">*</span> (ci <span class="sc">-</span> gammastar)<span class="sc">/</span>(ci <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> gammastar) <span class="sc">*</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">+</span>((<span class="dv">4</span> <span class="sc">*</span> kphio <span class="sc">*</span> ppfd)<span class="sc">/</span>jmax)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="co"># RuBP carboxylation-limited assimilation rate as a function of CO2 partial pressure</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>calc_ac <span class="ot">&lt;-</span> <span class="cf">function</span>(ci, gammastar, kmm, vcmax){</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  vcmax <span class="sc">*</span> (ci <span class="sc">-</span> gammastar)<span class="sc">/</span>(ci <span class="sc">+</span> kmm)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co"># assimilation rate given stomatal conductance and leaf-internal </span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># CO2 partial pressure</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>calc_a_gs <span class="ot">&lt;-</span> <span class="cf">function</span>(ci, gs, ca){</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  gs <span class="sc">*</span> (ca <span class="sc">-</span> ci)</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="co"># conversion of CO2 concentration in ppm to partial pressure in Pa</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>co2_to_ca <span class="ot">&lt;-</span> <span class="cf">function</span>( co2, patm ){</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  ( <span class="fl">1.0e-6</span> ) <span class="sc">*</span> co2 <span class="sc">*</span> patm</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>df_ppfd <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">ppfd =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_j_lo =</span> <span class="fu">calc_aj</span>(<span class="fu">co2_to_ca</span>(<span class="dv">400</span>, <span class="at">patm =</span> patm), </span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>                          out_pmodel_lo<span class="sc">$</span>gammastar, </span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>                          <span class="at">kphio =</span> kphio, </span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ppfd =</span> ppfd, </span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>                          <span class="at">jmax =</span> out_pmodel_lo<span class="sc">$</span>jmax <span class="sc">*</span> <span class="fl">0.5</span>) <span class="sc">-</span> </span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>           out_pmodel_lo<span class="sc">$</span>rd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_j_me =</span> <span class="fu">calc_aj</span>(<span class="fu">co2_to_ca</span>(<span class="dv">400</span>, <span class="at">patm =</span> patm), </span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>                       out_pmodel_me<span class="sc">$</span>gammastar, </span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kphio =</span> kphio, </span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ppfd =</span> ppfd, </span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>                       <span class="at">jmax =</span> out_pmodel_me<span class="sc">$</span>jmax) <span class="sc">-</span> </span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>           out_pmodel_me<span class="sc">$</span>rd) <span class="sc">|&gt;</span> </span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_j_hi =</span> <span class="fu">calc_aj</span>(<span class="fu">co2_to_ca</span>(<span class="dv">400</span>, <span class="at">patm =</span> patm), </span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>                          out_pmodel_hi<span class="sc">$</span>gammastar, </span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>                          <span class="at">kphio =</span> kphio, </span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ppfd =</span> ppfd, </span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>                          <span class="at">jmax =</span> out_pmodel_hi<span class="sc">$</span>jmax <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">-</span> </span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>           out_pmodel_hi<span class="sc">$</span>rd)</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">&lt;-</span> df_ppfd <span class="sc">|&gt;</span> </span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(a_j_lo, a_j_me, a_j_hi), </span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"a_"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ppfd)) <span class="sc">+</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> a_, <span class="at">color =</span> Rate)) <span class="sc">+</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD ("</span>, mu, <span class="st">"mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)), </span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J] <span class="sc">-</span> <span class="fu">italic</span>(R)[d], <span class="st">" ("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>))) <span class="sc">+</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"a_j_lo"</span>,</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j_me"</span>,</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j_hi"</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Low light"</span>)),</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Medium light"</span>)),</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"High light"</span>))),</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>( <span class="st">"#009E73"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#E69F00"</span>)) <span class="sc">+</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> gg <span class="sc">+</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">250</span>) <span class="sc">+</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">20</span>)</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> gg <span class="sc">+</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">2000</span>)</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(gg1, gg2, </span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>                   <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-a-ppfd-curve-rpmodel" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-a-ppfd-curve-rpmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="gpp_files/figure-html/fig-a-ppfd-curve-rpmodel-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-a-ppfd-curve-rpmodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: The light response curve of the electron transport-limited net assimilation rate <em>A</em><sub>J</sub> - <em>R</em><sub>d</sub> as simulated by the FvCB model using simulated acclimated <em>J</em><sub>max</sub> values for different light levels from the P-model (implemented by the {rpmodel} R package) . The environmental conditions used as forcing for the simulation displayed here can be seen by unfolding <em>code</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that the FvCB model, on its own, does not allow us to model the LUE term in <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>. An important additional ingredient is the stomatal conductance (<span class="math inline">\(g_s\)</span>) which is relevant for determining the ratio of ambient to leaf-internal CO<sub>2</sub> concentrations. It is described in <a href="#sec-transpiration" class="quarto-xref"><span>Section 4.4</span></a>.</p>
+</section>
+<section id="sec-ftemp" class="level3" data-number="4.3.7">
+<h3 data-number="4.3.7" class="anchored" data-anchor-id="sec-ftemp"><span class="header-section-number">4.3.7</span> Response to temperature</h3>
+<p>The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span>, and is shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>. For this, <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, <span class="math inline">\(J_\mathrm{max}\)</span>, <span class="math inline">\(K_c\)</span>, <span class="math inline">\(K_o\)</span>, and <span class="math inline">\(\Gamma^\ast\)</span> at a reference temperature are assumed to be given.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_temp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">temp =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">100</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gammastar =</span> <span class="fu">gammastar</span>(temp, <span class="at">patm =</span> <span class="dv">101325</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">kmm =</span> <span class="fu">kmm</span>(temp, <span class="at">patm =</span> <span class="dv">101325</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">vcmax =</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_vcmax</span>(temp, <span class="at">tcgrowth =</span> <span class="dv">15</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">jmax =</span> <span class="fl">1.7</span> <span class="sc">*</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_jmax</span>(temp, <span class="at">tcgrowth =</span> <span class="dv">15</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">rd =</span> <span class="fl">0.05</span> <span class="sc">*</span> out_pmodel<span class="sc">$</span>vcmax25 <span class="sc">*</span> <span class="fu">ftemp_inst_rd</span>(temp)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_j =</span> <span class="fu">calc_aj</span>(<span class="at">ci =</span> <span class="fl">28.14209</span>, </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                       gammastar, </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">kphio =</span> kphio, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ppfd =</span> ppfd, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">jmax =</span> jmax)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_c =</span> <span class="fu">calc_ac</span>(<span class="at">ci =</span> <span class="fl">28.14209</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                       gammastar, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                       kmm, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">vcmax =</span> vcmax)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_cr =</span> a_c <span class="sc">-</span> rd, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">a_jr =</span> a_j <span class="sc">-</span> rd) <span class="sc">|&gt;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">assim =</span> <span class="fu">min</span>(a_jr, a_cr))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(gammastar, kmm), </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp)) <span class="sc">+</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, <span class="at">color =</span> Rate)) <span class="sc">+</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Value (Pa)"</span>))) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"gammastar"</span>, </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>               <span class="st">"kmm"</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(Gamma)<span class="sc">^</span><span class="st">"*"</span>)), </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(vcmax, jmax, rd), </span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp)) <span class="sc">+</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> value, <span class="at">color =</span> Rate)) <span class="sc">+</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Rate ("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>))) <span class="sc">+</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"vcmax"</span>, </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>               <span class="st">"jmax"</span>, </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>               <span class="st">"rd"</span>),</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"V"</span>)[cmax])), </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"J"</span>)[max])), </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"R"</span>)[d])))</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>df_net_plot <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_cr =</span> a_c <span class="sc">-</span> rd,</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>         <span class="at">a_jr =</span> a_j <span class="sc">-</span> rd) <span class="sc">|&gt;</span> </span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(rd, a_cr, a_jr, assim), </span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>df_gross_plot <span class="ot">&lt;-</span> df_temp <span class="sc">|&gt;</span> </span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(a_c, a_j), </span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Rate"</span>, </span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>gg3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> value, <span class="at">color =</span> Rate),</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df_gross_plot,</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> value, <span class="at">color =</span> Rate),</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df_net_plot) <span class="sc">+</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"rd"</span>,</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_c"</span>,</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_j"</span>,</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_cr"</span>,</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>               <span class="st">"a_jr"</span>,</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>               <span class="st">"assim"</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C])),</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J])),</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[C] <span class="sc">~</span> <span class="sc">-</span> <span class="er">~</span> <span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[J] <span class="sc">~</span> <span class="sc">-</span> <span class="er">~</span> <span class="fu">italic</span>(<span class="st">"R"</span>)[d])),</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>               <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>)[n]))),</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#CC79A7"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#56B4E9"</span>, <span class="st">"black"</span>)</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Temperature (°C)"</span>)), </span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"A"</span>), <span class="st">"("</span>, mu, <span class="st">"mol m"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>},<span class="st">" s"</span> <span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Rate"</span>,</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Rate"</span>) <span class="sc">+</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(gg1, gg2, gg3, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-temp_dep" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -785,14 +956,14 @@ Figure&nbsp;4.6: The <em>A</em>-<em>c</em><sub>i</sub> curve as simulated by the
 <img src="gpp_files/figure-html/fig-temp_dep-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-temp_dep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.7: Temperature dependencies of quantities in the FvCB model. The dashed lines in the bottom panel are the gross assimilation rates <em>A</em><sub>C</sub> and <em>A</em><sub>J</sub>.
+Figure&nbsp;4.8: Temperature dependencies of quantities in the FvCB model. The dashed lines in the bottom panel are the gross assimilation rates <em>A</em><sub>C</sub> and <em>A</em><sub>J</sub>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially <span class="math inline">\(A_C\)</span>, decline sharply. Dark respiration (<span class="math inline">\(R_d\)</span>) monotonically increases with temperature which accentuates the decline in net assimilation <span class="math inline">\(A_n\)</span> with increasing temperature.</p>
-<p>The temperature dependencies shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> are referred to as <em>instantaneous</em> because <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, and <span class="math inline">\(J_\mathrm{max}\)</span> acclimate to the environment on time scales of days to weeks and <span class="math inline">\(g_s\)</span> is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO<sub>2</sub> uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the <span class="math inline">\(A_n\)</span>-temperature curve) shifts as a function of the <em>growth temperature</em> - an average temperature to which the leaf is exposed <a href="#fig-topt-kumarathunge" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>.</p>
+<p>As shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially <span class="math inline">\(A_C\)</span>, decline sharply. Dark respiration (<span class="math inline">\(R_d\)</span>) monotonically increases with temperature which accentuates the decline in net assimilation <span class="math inline">\(A_n\)</span> with increasing temperature.</p>
+<p>The temperature dependencies shown in <a href="#fig-temp_dep" class="quarto-xref">Figure&nbsp;<span>4.8</span></a> are referred to as <em>instantaneous</em> because <span class="math inline">\(c_i\)</span>, <span class="math inline">\(V_\mathrm{cmax}\)</span>, and <span class="math inline">\(J_\mathrm{max}\)</span> acclimate to the environment on time scales of days to weeks and <span class="math inline">\(g_s\)</span> is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO<sub>2</sub> uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the <span class="math inline">\(A_n\)</span>-temperature curve) shifts as a function of the <em>growth temperature</em> - an average temperature to which the leaf is exposed <a href="#fig-topt-kumarathunge" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-topt-kumarathunge" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -801,7 +972,7 @@ Figure&nbsp;4.7: Temperature dependencies of quantities in the FvCB model. The d
 <img src="images/topt-kumarathunge.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topt-kumarathunge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.8: Temperature optimum of leaf net photosynthesis at an intercellular CO<sub>2</sub> concentration of 275 micro-mol mol<sup>-1</sup> (T<sub>optA275</sub>) of mature plants growing in their native environments (d), species in the field (grown at ambient growth temperatures) measured in at least two or more seasons (e). T<sub>growth</sub> is the mean air temperature of the preceding 30 d.&nbsp;Different colours depict plant functional types: orange, tropical evergreen angiosperms (EA-Tr); light blue, arctic tundra; red, temperate deciduous angiosperms (DA-Te); blue, temperate evergreen angiosperms (EA-Te); green, boreal evergreen gymnosperms (EG-Br); purple, temperate evergreen gymnosperms (EG-Te); those in (b,c,e,f) depict different datasets. The thick black lines are: (in d) least-squares linear regression fits and linear mixed-effect model fits (in e) with random intercepts for each dataset. Error bars represent +/-1 standard error. Figure and caption text from <span class="citation" data-cites="kumarathunge19newphyt">Kumarathunge et al. (<a href="references.html#ref-kumarathunge19newphyt" role="doc-biblioref">2019</a>)</span>.
+Figure&nbsp;4.9: Temperature optimum of leaf net photosynthesis at an intercellular CO<sub>2</sub> concentration of 275 micro-mol mol<sup>-1</sup> (T<sub>optA275</sub>) of mature plants growing in their native environments (d), species in the field (grown at ambient growth temperatures) measured in at least two or more seasons (e). T<sub>growth</sub> is the mean air temperature of the preceding 30 d.&nbsp;Different colours depict plant functional types: orange, tropical evergreen angiosperms (EA-Tr); light blue, arctic tundra; red, temperate deciduous angiosperms (DA-Te); blue, temperate evergreen angiosperms (EA-Te); green, boreal evergreen gymnosperms (EG-Br); purple, temperate evergreen gymnosperms (EG-Te); those in (b,c,e,f) depict different datasets. The thick black lines are: (in d) least-squares linear regression fits and linear mixed-effect model fits (in e) with random intercepts for each dataset. Error bars represent +/-1 standard error. Figure and caption text from <span class="citation" data-cites="kumarathunge19newphyt">Kumarathunge et al. (<a href="references.html#ref-kumarathunge19newphyt" role="doc-biblioref">2019</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -829,7 +1000,7 @@ E = 1.6 \; g_s \; D
 \frac{A_n}{E} = \frac{c_a(1 - \chi)}{1.6\;D}\;,
 \tag{4.8}\]</span></span> where <span class="math inline">\(\chi = c_i/c_a\)</span>. The instantaneous water-use efficiency is proportional to <span class="math inline">\(D^{-1}\)</span>. In other words, the drier the air, the more transpiration per unit net CO<sub>2</sub> assimilation a leaf “suffers”. This demonstrates the strong effect of atmospheric dryness on the water-carbon trade-off. To remove the effect of vapour pressure deficit (<span class="math inline">\(D\)</span>) on transpiration and focus on the biological component of the water-carbon trade-off, the <em>intrinsic water-use efficiency</em> (iWUE) is defined by relating net assimilation to stomatal conductance: <span id="eq-wue-intrinsic"><span class="math display">\[
 \frac{A_n}{g_s} = \frac{c_a}{1.6}(1 - \chi)
-\tag{4.9}\]</span></span> Note that <a href="#eq-wue-instantaneous" class="quarto-xref">Equation&nbsp;<span>4.8</span></a> and <a href="#eq-wue-intrinsic" class="quarto-xref">Equation&nbsp;<span>4.9</span></a> are written as being proportional to <span class="math inline">\(c_a(1-\chi)\)</span>. Of course, this term is mathematically equivalent to <span class="math inline">\((c_a - c_i)\)</span>. However, there is a reason for expressing it this way. First, it reflects the direct influence of <span class="math inline">\(c_a\)</span> ambient (atmospheric) CO<sub>2</sub> concentration on the water-carbon trade-off - less water is lost for a given amount of C assimilation under elevated CO<sub>2</sub>. Second, observations suggest that <span class="math inline">\(\chi\)</span> is regulated by plants to remain relatively constant under a wide range of CO<sub>2</sub> levels <span class="citation" data-cites="ainsworth05">(<a href="references.html#ref-ainsworth05" role="doc-biblioref">Ainsworth and Long 2005</a>)</span> and <a href="#fig-constant-chi" class="quarto-xref">Figure&nbsp;<span>4.9</span></a>. The near constancy of <span class="math inline">\(\chi\)</span> is also reflected by the observation that <span class="math inline">\(A_n\)</span> and <span class="math inline">\(g_s\)</span> vary in near proportion across a wide range of light levels <span class="citation" data-cites="bonan">(<a href="references.html#ref-bonan" role="doc-biblioref">Bonan 2015</a>)</span>.</p>
+\tag{4.9}\]</span></span> Note that <a href="#eq-wue-instantaneous" class="quarto-xref">Equation&nbsp;<span>4.8</span></a> and <a href="#eq-wue-intrinsic" class="quarto-xref">Equation&nbsp;<span>4.9</span></a> are written as being proportional to <span class="math inline">\(c_a(1-\chi)\)</span>. Of course, this term is mathematically equivalent to <span class="math inline">\((c_a - c_i)\)</span>. However, there is a reason for expressing it this way. First, it reflects the direct influence of <span class="math inline">\(c_a\)</span> ambient (atmospheric) CO<sub>2</sub> concentration on the water-carbon trade-off - less water is lost for a given amount of C assimilation under elevated CO<sub>2</sub>. Second, observations suggest that <span class="math inline">\(\chi\)</span> is regulated by plants to remain relatively constant under a wide range of CO<sub>2</sub> levels <span class="citation" data-cites="ainsworth05">(<a href="references.html#ref-ainsworth05" role="doc-biblioref">Ainsworth and Long 2005</a>)</span> and <a href="#fig-constant-chi" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>. The near constancy of <span class="math inline">\(\chi\)</span> is also reflected by the observation that <span class="math inline">\(A_n\)</span> and <span class="math inline">\(g_s\)</span> vary in near proportion across a wide range of light levels <span class="citation" data-cites="bonan">(<a href="references.html#ref-bonan" role="doc-biblioref">Bonan 2015</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-constant-chi" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -838,7 +1009,7 @@ E = 1.6 \; g_s \; D
 <img src="images/constant_chi.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-constant-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.9: Constancy of leaf-internal to ambient CO<sub>2</sub>. (a) Relationship between net photosynthesis (<em>A</em><sub>n</sub>) and stomatal conductance (<em>g</em><sub>s</sub>) of one species (Jack pine) over a range of light conditions. A linear relationship is reflective of a constant <em>c</em><sub>i</sub>:<em>c</em><sub>a</sub>. Figure from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>. (b) Response of multiple photosynthesis-related variables to elevated CO<sub>2</sub> from free-air carbon dioxide enrichment experiments. Figure from <span class="citation" data-cites="ainsworth05">Ainsworth and Long (<a href="references.html#ref-ainsworth05" role="doc-biblioref">2005</a>)</span>. <em>c</em><sub>i</sub>:<em>c</em><sub>a</sub>
+Figure&nbsp;4.10: Constancy of leaf-internal to ambient CO<sub>2</sub>. (a) Relationship between net photosynthesis (<em>A</em><sub>n</sub>) and stomatal conductance (<em>g</em><sub>s</sub>) of one species (Jack pine) over a range of light conditions. A linear relationship is reflective of a constant <em>c</em><sub>i</sub>:<em>c</em><sub>a</sub>. Figure from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>. (b) Response of multiple photosynthesis-related variables to elevated CO<sub>2</sub> from free-air carbon dioxide enrichment experiments. Figure from <span class="citation" data-cites="ainsworth05">Ainsworth and Long (<a href="references.html#ref-ainsworth05" role="doc-biblioref">2005</a>)</span>. <em>c</em><sub>i</sub>:<em>c</em><sub>a</sub>
 </figcaption>
 </figure>
 </div>
@@ -851,7 +1022,7 @@ Figure&nbsp;4.9: Constancy of leaf-internal to ambient CO<sub>2</sub>. (a) Relat
 </section>
 <section id="stomatal-regulation" class="level3" data-number="4.4.3">
 <h3 data-number="4.4.3" class="anchored" data-anchor-id="stomatal-regulation"><span class="header-section-number">4.4.3</span> Stomatal regulation</h3>
-<p>Stomatal openings - and therefore the effective leaf stomatal conductance - are regulated by plant-internal signalling mechanisms that respond to the water-carbon trade-off within minutes. Two important relations underlie this trade-off. First, transpiration directly depends on the vapor pressure deficit (<span class="math inline">\(D\)</span>) expressed through the diffusion equation <a href="#eq-transpiration" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>. Second, while the assimilation rate (<span class="math inline">\(A\)</span>) depends on stomatal conductance (<span class="math inline">\(g_s\)</span>), <span class="math inline">\(A\)</span> also feeds back on <span class="math inline">\(g_s\)</span>. This relationship is has an empirical basis as shown in <a href="#fig-constant-chi" class="quarto-xref">Figure&nbsp;<span>4.9</span></a> a. From this, a relationship of <span class="math inline">\(g_s\)</span> as a function of <span class="math inline">\(D\)</span> and <span class="math inline">\(A\)</span> can be established. However, due to the feedback between <span class="math inline">\(A\)</span> and <span class="math inline">\(g_s\)</span>, deriving an analytical solution is not straight-forward.</p>
+<p>Stomatal openings - and therefore the effective leaf stomatal conductance - are regulated by plant-internal signalling mechanisms that respond to the water-carbon trade-off within minutes. Two important relations underlie this trade-off. First, transpiration directly depends on the vapor pressure deficit (<span class="math inline">\(D\)</span>) expressed through the diffusion equation <a href="#eq-transpiration" class="quarto-xref">Equation&nbsp;<span>4.7</span></a>. Second, while the assimilation rate (<span class="math inline">\(A\)</span>) depends on stomatal conductance (<span class="math inline">\(g_s\)</span>), <span class="math inline">\(A\)</span> also feeds back on <span class="math inline">\(g_s\)</span>. This relationship is has an empirical basis as shown in <a href="#fig-constant-chi" class="quarto-xref">Figure&nbsp;<span>4.10</span></a> a. From this, a relationship of <span class="math inline">\(g_s\)</span> as a function of <span class="math inline">\(D\)</span> and <span class="math inline">\(A\)</span> can be established. However, due to the feedback between <span class="math inline">\(A\)</span> and <span class="math inline">\(g_s\)</span>, deriving an analytical solution is not straight-forward.</p>
 <p>An empirical solution that reflects the dependency of <span class="math inline">\(g_s\)</span> on <span class="math inline">\(D\)</span> and on <span class="math inline">\(A\)</span> - as represented by a saturating function to light - is presented by <span class="citation" data-cites="oren01">Oren et al. (<a href="references.html#ref-oren01" role="doc-biblioref">2001</a>)</span> for diurnal variations at the canopy-level as: <span class="math display">\[
 G_s = \frac{I_0}{I_0 + a} \left( b + m \ln D \right)
 \]</span> The uppercase <span class="math inline">\(G_s\)</span> denotes stomatal conductance at the canopy-level - in contrast to <span class="math inline">\(g_s\)</span> described above at the leaf-level. The first term represents an empirical representation of the light (<span class="math inline">\(I_0\)</span>)-dependency of photosynthesis. <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(m\)</span> are empirically fitted coefficients.</p>
@@ -866,25 +1037,75 @@ g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 \]</span> <span class="math inline">\(g_1\)</span> is a stomatal sensitivity parameter. Similar results are obtained with a related but not identical optimality criterion <span class="citation" data-cites="medlyn11gcb">(<a href="references.html#ref-medlyn11gcb" role="doc-biblioref">Medlyn et al. 2011</a>)</span>.</p>
 </section>
 </section>
-<section id="from-photosynthesis-to-light-use-efficiency" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="from-photosynthesis-to-light-use-efficiency"><span class="header-section-number">4.5</span> From photosynthesis to light use efficiency</h2>
+<section id="sec-constlue" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-constlue"><span class="header-section-number">4.5</span> From photosynthesis to light use efficiency</h2>
 <p>The light use efficiency model (<a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>) and the FvCB model (<a href="#eq-aj" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> and <a href="#eq-jmaxlim" class="quarto-xref">Equation&nbsp;<span>4.6</span></a>) represent a contrasting response of photosynthesis to light - linear in <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> and saturating (by effects of a finite <span class="math inline">\(J_\mathrm{max}\)</span>) in <a href="#eq-aj" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> and <a href="#eq-jmaxlim" class="quarto-xref">Equation&nbsp;<span>4.6</span></a>. It should be noted that the LUE model describes the photosynthetic CO<sub>2</sub> uptake at the canopy-level and for periods of multiple days to weeks (total GPP vs.&nbsp;total absorbed light). In contrast, the FvCB model describes the light-photosynthesis relationship at the leaf-level and in response to rapid changes in light (e.g., over the course of a day).</p>
 <p>As pointed out in <a href="#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>, plants tend to coordinate the light and carboxylation-limited assimilation rates flexibly in response to average environmental conditions to which they are exposed while performing photosynthesis. Tending towards the co-limitation point can also be understood as an optimal functioning - avoiding overinvestment into maintaining a high maximum electron transport rate (<span class="math inline">\(J_\mathrm{max}\)</span>) while being carboxylation-limited (too low <span class="math inline">\(V_\mathrm{cmax}\)</span>), or the opposite. In other words, the higher the average light levels, the higher the maximum carboxylation capacity and therefore the amount of Rubisco in leaves. The linear relationship between GPP and PPFD in <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> can be interpreted as an emerging relationship from the coordination of <span class="math inline">\(A_C\)</span> and <span class="math inline">\(A_J\)</span>, and thus of <span class="math inline">\(V_\mathrm{cmax}\)</span> and <span class="math inline">\(J_\mathrm{max}\)</span>.</p>
-<p>A very simple model, by which LUE is assumed to be constant over time and across plants and ecosystems and using <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> explains about two thirds of observed GPP variations in data obtained from ecosystem flux measurements, as shown in <a href="#fig-gpp-constlue" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>. In other words, variations in light (PPFD) and leaf area (measured by fAPAR) explain two thirds of GPP variations over the seasons and across different locations on the globe.</p>
+<p>A very simple model, by which LUE is assumed to be constant over time and across ecosystems and using <a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> explains about 80% of observed GPP variations in data obtained from ecosystem flux measurements, as shown in <a href="#fig-gpp-constlue" class="quarto-xref">Figure&nbsp;<span>4.11</span></a>. In other words, variations in light (PPFD) and leaf area (measured by fAPAR) explain 80% of GPP variations over the seasons and across different locations on the globe.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/wdf_fdk.rds"</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># get absorbed photosynthetically active radiation APAR</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>wdf <span class="ot">&lt;-</span> wdf <span class="sc">|&gt;</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apar =</span> fapar <span class="sc">*</span> ppfd)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># fit linear model of GPP ~ APAR with zero intercept</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>linmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(gpp <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> apar, <span class="at">data =</span> wdf)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>rsq_val <span class="ot">&lt;-</span> <span class="fu">summary</span>(linmod)<span class="sc">$</span>r.squared</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>rsq_lab <span class="ot">&lt;-</span> <span class="fu">format</span>( rsq_val, <span class="at">digits =</span> <span class="dv">2</span> )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>wdf <span class="sc">|&gt;</span> </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(apar, gpp)) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">trans =</span> <span class="st">"log"</span>, <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">name =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="fu">coef</span>(linmod), <span class="at">linetype=</span><span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PPFD"</span>  <span class="sc">%*%</span> <span class="st">"fAPAR (mol m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"GPP (gC m"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">2</span>}, <span class="st">"s"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">")"</span>)),</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">bquote</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">italic</span>(R)<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> .(rsq_lab)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div id="fig-gpp-constlue" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gpp-constlue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/gpp-constlue.png" class="img-fluid figure-img" style="width:60.0%">
+<img src="gpp_files/figure-html/fig-gpp-constlue-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gpp-constlue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.10: Observed versus simulated GPP. Observations are derived from ecosystem CO<sub>2</sub> flux measurements taken at 126 different sites distributed across a wide diversity of ecoystems and environmental conditions. Simulated GPP values are obtained by applying the light use efficiency model (<a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>) and fitting a temporally and spatially constant LUE term to the data. Each data point represents an 8-day sum. Figure taken from <span class="citation" data-cites="stocker20gmd">Stocker et al. (<a href="references.html#ref-stocker20gmd" role="doc-biblioref">2020</a>)</span>.
+Figure&nbsp;4.11: Observed GPP vs.&nbsp;absorbed photosynthetically active radiation (APAR), defined as the product of LUE and PPFD (<a href="#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>). Observations are derived from ecosystem CO<sub>2</sub> flux measurements taken at 241 different sites distributed across a wide diversity of ecoystems and environmental conditions. Data is aggregated to weekly means. The adjusted <em>R</em><sup>2</sup> is given at the top and measures the portion of variation explained by APAR. Colors indicate the density of data points. The dotted line represens the leas-squares linear regression with zero intercept. Its slope measures the average LUE.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rising CO<sub>2</sub> increases leaf-level photosynthesis. This sensitivity can be quantified using <span class="math inline">\(\beta\)</span> following <a href="globalcarbonbudget.html#eq-beta" class="quarto-xref">Equation&nbsp;<span>3.8</span></a>. Calculate <span class="math inline">\(\beta\)</span> for the light-saturated photosynthesis rate (taking the equation for <span class="math inline">\(A_C\)</span>), considering an increase in atmospheric CO<sub>2</sub> from 400 to 600 ppm. Use <span class="math inline">\(\Gamma^\ast = 3.3\)</span> Pa, <span class="math inline">\(K = 46\)</span> Pa and <span class="math inline">\(V_\mathrm{cmax} = 49 \; \mu\)</span>mol m<sup>-2</sup> s<sup>-1</sup>. Note that <span class="math inline">\(c_a\)</span> in <a href="#eq-photo-fick" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> is expressed in Pa. Convert an atmospheric CO<sub>2</sub> concentration in units of ppm to Pa by multiplication with 0.101325 Pa ppm<sup>-1</sup> (considering standard atmospheric pressure). Assume that the ratio of ambient-to-leaf-internal CO<sub>2</sub> (<span class="math inline">\(\chi\)</span>) remains constant at 0.7.</p>
+<p>Compare your calculated <span class="math inline">\(\beta\)</span> of the light-saturated leaf-level photosynthesis rate with observations from Free Air CO<sub>2</sub> Enrichment (FACE) experiments, as summarized by <span class="citation" data-cites="ainsworth05">Ainsworth and Long (<a href="references.html#ref-ainsworth05" role="doc-biblioref">2005</a>)</span>. For this, download the paper <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-8137.2004.01224.x">here</a> and find the reported value for the CO<sub>2</sub> response of the light-saturated leaf-level photosynthesis rate. Convert the percentage increase reported by <span class="citation" data-cites="ainsworth05">Ainsworth and Long (<a href="references.html#ref-ainsworth05" role="doc-biblioref">2005</a>)</span> into a <span class="math inline">\(\beta\)</span> factor. Assume that on average, the CO<sub>2</sub> levels in the FACE experiments were 350 ppm at ambient and 550 ppm at elevated levels.</p>
+</div>
+</div>
+<!-- Exercise:  -->
+<!-- - Calculate response ratio of net photosynthesis to a doubling of CO2 (from 400 to 800 ppm). Calculate the beta factor from Chapter 3. Compare to leaf net assimilation from experiments (Walker et al. 2018). -->
 <!-- - Keeling et al., 2017 -->
 <!-- - leaf energy balance -->
 <!-- XXX Box: - FLUXNET data, global upscaling of fluxes -->
@@ -1154,6 +1375,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1188,7 +1427,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
