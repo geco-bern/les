@@ -103,7 +103,7 @@ knitr::include_graphics("images/photosynthesis.png")
 
 ### Light absorption at the cellular level
 
-Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-ppfd is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
+Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-luemodel is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
 
 ### Light reactions
 
@@ -581,6 +581,8 @@ The temperature dependencies shown in @fig-temp_dep are referred to as *instanta
 knitr::include_graphics("images/topt-kumarathunge.png")
 ```
 
+<!-- XXX LES 2: Add box explaining acclimated vs. instantaneous response (Way & Yamori, 2014) -->
+
 ### C~4~ photosynthesis {#sec-c4}
 
 Coming soon.
@@ -699,6 +701,8 @@ wdf |>
     name = ""
   )
 ```
+
+<!-- XXX LES 2: demonstrate that linearity follows from tendency to operate at co-limitation point. -->
 
 ::: {.callout-caution}
 ## Exercise

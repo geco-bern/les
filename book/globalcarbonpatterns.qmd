@@ -9,11 +9,13 @@ format:
 ---
 
 
-# Spatial and temporal patterns of the land carbon cycle {#sec-global-patterns}
+# Spatial and temporal patterns of the terrestrial biosphere {#sec-global-patterns}
  
 Up to this point, we have considered the global terrestrial C cycle either as a 1-box model in @sec-gpp, or as a cascade of boxes in @sec-carboncycle_ecosystem. We have also learned in @sec-gpp and @sec-carboncycle_ecosystem how the CO~2~ assimilation and respiration fluxes depend on climatic variables. This implies the fluxes and pools of the terrestrial carbon cycle vary over the course of seasons and days and across geographical space - with different background climates. In this chapter, we delve into these spatial and temporal patterns of the land carbon cycle.
 
-In @sec-gpp, the ecosystem-level photosynthetic CO~2~ assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In @sec-constlue, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains about 80% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate "engine" of the C cycle in terrestrial ecosystems and supplies C for all "downstream" fluxes and pools along the C cascade (@sec-ccascade), solar radiation is a major control of the terrestrial carbon cycle. @sec-solar-radiation explains how variations in PPFD received at the top of the canopy at a specific day-of-year and latitude depends on the geometry of how the Earth rotates around the sun. @sec-phenology introduces patterns and simple models for how phenology of vegetation greenness evolves. This focuses on leaf unfolding and shedding, with a focus on winter-dormant temperate and boreal biomes. Water stress-driven vegetation greenness changes will be introduced later. @sec-flux-variability will introduce how ecosystem fluxes vary over the seasons, while @sec-fluxepools-spatial will introduce how ecosystem fluxes and carbon pools vary spatially across the globe.
+In @sec-gpp, the ecosystem-level photosynthetic CO~2~ assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In @sec-constlue, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains about 80% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate "engine" of the C cycle in terrestrial ecosystems and supplies C for all "downstream" fluxes and pools along the C cascade (@sec-ccascade), solar radiation is a major control of the terrestrial carbon cycle. 
+
+After having introduced how photosynthesis and light use efficiency (LUE) are driven by climate, this chapter introduces the spatial and temporal variations of the other two factors of the LUE model: PPFD and fAPAR. @sec-solar-radiation explains how variations in PPFD received at the top of the canopy at a specific day-of-year and latitude depends on the geometry of how the Earth rotates around the sun. @sec-phenology introduces patterns and simple models for how phenology of vegetation greenness, and therefore fAPAR, evolve. This focuses on leaf unfolding and shedding, with a focus on winter-dormant temperate and boreal biomes. Water stress-driven vegetation greenness changes will be introduced later. @sec-flux-variability integrates the introduction of the processes into a description of the emerging patterns of GPP across space and time, while @sec-fluxepools-spatial will introduce how ecosystem fluxes and carbon pools vary spatially across the globe.
  
 ## Solar radiation {#sec-solar-radiation}
 
@@ -325,8 +327,60 @@ df_holo |>
 
 ## Phenology {#sec-phenology} 
 
-Coming soon.
+In general, phenology refers to the study of periodic events of biological activity. In most cases, such periodic events are linked the seasonal variations of the climate. In the context of terrestrial photosynthesis and land-climate interactions, the most important phenological event is the leaf unfolding and leaf senescence and shedding in response to seasonal variations in temperature, radiation, and water availability. The presence (or absence) of active green leaves has major implications for the CO~2~, water vapour, and energy exchange between the land surface and the atmosphere.
 
+In winter-cold climates (climate zones C, D, and E, see @fig-table_beck), leaf phenology of deciduous plants is driven by the seasonal fluctuations of temperature and radiation. Leaves are shed before winter to avoid damage by cold temperatures and because the limited gains by C assimulation during dark and cold winter months does not outweigh the costs for maintenance of vital functions. In seasonally dry climates (mainly climate zones Am, Aw, see @fig-table_beck), leaves are shed to avoid water loss and avoid dangerous desiccation of the plant. Leaf area also varies more gradually in response to seasonal variations in climate. LAI can have a seasonal cycle also in evergreen forests and shrublands. In grasslands, LAI typically has a strong seasonal cycle, with rapid foliage development and senescence during the typically relatively short vegetation period - but without the typical budbreak, leaf unfolding, and leaf shedding as in deciduous trees.
+
+Photosynthesis and the exchange of CO~2~ between the land surface and the atmosphere are very directly affected by the amount of active green leaves - as measured by fAPAR (@eq-luemodel). Coupled to this exchange is the exchange of water vapour and the surface energy balance. Therefore, leaf phenology is a primary control on land-climate interactions and the carbon cycle. Leaf phenology is not only a driver of land-climate interactions, but is also driven by climate. Different controls act on the leaf unfolding and leaf senescence dates.
+
+### Leaf unfolding
+
+In winter-cold (temperate and boreal) deciduous forests, the timing of leaf unfolding (bud-burst) is sensitive to temperatures prior to the leaf unfolding date. Warm temperatures in early spring accelerate leaf unfolding and can lead to a shift of spring phenology dates by several days or even weeks. Phenology models commonly use the concept of *growing degree days* (GDD) [@basler16] and consider a critical GDD (GDD\*) for predicting leaf unfolding. Growing degree days on day $j$ is defined as the cumulative sum of temperatures above a specified threshold ($T_0$, most commonly $T_0 = 5^\circ$C), counting from a given start date $M$.
+
+$$
+\text{GDD}_{T_0,j}=\sum_{i=M}^j \max(T_i-T_0, 0)
+$$ 
+The leaf unfolding date is then modeled as the day at which GDD\* is reached. In other words, the leaf unfolding is triggered by the accumulated "warmth". The GDD concept is also commonly used for modelling crop development stages in crop models (distinguishing vegetative growth, seed filling, etc.). GDD\* is assumed to be a constant in space and time but may be distinguished by tree species (some trees require a higher GDD - more "warmth" - to start leaf unfolding than others.)
+
+More complex models consider also abiotic factors leading up to the phase (endodormancy, state of inactivity mediated by factor inside the bud, [@basler16]) where an increasing GDD drives bud development and leaf unfolding. For example, some models consider the requirement of a *chilling phase* - a period of cool, but non-freezing temperatures in the range of 2–7°C [@basler16] - and *photoperiod* (measuring the seasonal variation of daylength). However, complex models do not generally yield better predictive power than simple GDD-based models [@basler16]. It should also be noted that models relying purely on temperature for modelling leaf unfolding may have limited applicability for simulating responses to long-term climatic trends. Plant-specific, biotic factors responding to photoperiod impose bounds on the sensitivity of phenology to temperature [@koernerbasler10].  
+
+```{r echo=FALSE}
+#| label: fig-lai_seasonality
+#| fig-cap: "Mean seasonal cycle of air temperature (a), growing degree days (GDD, b), and leaf area index (LAI, c) at a deciduous temperate forest site in Germany (DE-Hai FLUXNET site). LAI data is from MODIS remote sensing. 5°C is indicated by the dotted line in (a). GDD is calculated with respect to a 5°C base temperature."
+#| out-width: 100%
+knitr::include_graphics("images/lai_seasonality.png")
+```
+Here in Switzerland, most trees start leaf unfolding in the second half of April. Why are leaves of winter-cold deciduous trees not unfolding earlier in the year (given that there is light available for photosynthesis)? Leaf shedding is a protection of plants against frost. At temperatures below freezing, costly cell protection measures against frozen water and excessive photosynthetic light harvesting are required to avoiding damage. Delayed leaf unfolding is a strategy to avoid such damage. 
+
+::: {.callout-note}
+Check out our tutorial [here](https://geco-bern.github.io/handfull_of_pixels/phenology_modelling.html) to learn more about phenology modelling and fitting the GDD model to remotely sensed phenology data
+:::
+
+### Leaf senescence
+
+Leaf senescence in temperate and boreal deciduous forests is - similarly as leaf unfolding - a strategy to avoid stress and damage by low temperatures in winter. Before *leaf abscission* (leaf shedding), the leaf nutrients are resorbed and photosynthetic activity starts declining. Leaves are rich in nutrients. A large fraction of nutrients contained in leaf biomass, in particular nitrogen (N), are linked to photosynthesis - mostly Rubisco. These nutrients are re-mobilised before leaf abscission and resorbed into plant-internal storage compartments. Thereby, the loss of "costly" nutrients can be avoided. A side effect of the nutrient resorption is the change of the leaf color to yellow, reddish, or brown. 
+
+Environmental controls on leaf senescence are not the same as for leaf unfolding and vary between tree species. Model predictability for leaf senescence dates is generally lower than for leaf unfolding dates, observed global trends are less clear [@piao19], and drivers less well understood [@richardson13] than for spring phenology. Photoperiod and temperature are considered important abiotic controls on leaf senescence dates. While photoperiod sets the induction of the end-of-season phenology, temperature modulates its progression with cold temperatures accelerating leaf senescence [@koernerbasler10]. Also the timing of leaf unfolding can appears to affect the timing of leaf senescence [@keenan15; marques23natee]. An earlier leaf unfolding in spring appears to induce an earlier leaf senescence in autumn. Processes driving this pattern may be related to cell aging and a conserved leaf longevity, but may also be related to the ecosystem water balance and premature defoliation as a response to dry soil conditions (after vegetation has started consuming water earlier in spring). 
+
+### Phenology trends and spatial patterns
+
+Since leaf unfolding and senescence phenology is sensitive to climate, patterns in spring phenology emerge across climatic gradients and over the course of long-term climate change. Phenology is very evident for an observer without technical instruments and the timing of phenological dates can be relatively well determined. This has enabled the recording of phenological dates since centuries and long-term phenological records now impressively document the unprecedented current warming in the context of the last few centuries @fig-phenology-trends.
+
+```{r echo=FALSE}
+#| label: fig-phenology-trends
+#| fig-cap: "Phenological indicators of changes in growing season. (a) Cherry blossom peak bloom in Kyoto, Japan; (b) grape harvest in Beaune, France; (c) spring phenology index in eastern China; (d) full flower of Piedmont species in Philadelphia, USA; (e) grape harvest in Central Victoria, Australia; (f) start of growing season in Tibetan Plateau, China. Red lines depict the 25-year moving average (top row) or the nine-year moving average (middle and bottom rows). Figure and caption taken from @IPCC_2021_WGI_Ch_2."
+#| out-width: 90%
+knitr::include_graphics("images/IPCC_AR6_WGI_Figure_2_32.png")
+```
+
+Variations in leaf unfolding dates are also evident across space, i.e., across climatic gradients in space. In mountainous regions, climatic gradients are steep and variations in the timing of leaf unfolding can be observed by eye - or from space across a larger region (@fig-phenology-patterns).
+
+```{r echo=FALSE}
+#| label: fig-phenology-patterns
+#| fig-cap: "Spring phenology patterns along elevation in Switzerland. (a) Remotely sensed spring greenup date (day of year, DOY) in 2012 from the MODIS MCD12Q2 product. (b) Relationship of the spring greenup with elevation, derived from the map shown in (a)."
+#| out-width: 100%
+knitr::include_graphics("images/phenology_patterns.png")
+```
 ## Temporal variations of ecosystem fluxes {#sec-flux-variability} 
 
 Coming soon.

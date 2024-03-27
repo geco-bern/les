@@ -80,7 +80,7 @@ getpar <- function(){
     froot = 3,
     fwood = 0.4,
     kleaf = 0.5,
-    kwood = 0.01,
+    kwood = 0.02,
     kroot = 0.5,
     kflitt = 0.5,
     kslitt = 0.1,

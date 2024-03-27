@@ -19,11 +19,11 @@ book:
     - gpp.qmd
     - ecosystemcarbon.qmd
     - globalcarbonpatterns.qmd
-    - oceancarbon.qmd
     - landclimate.qmd
     - ecohydrology.qmd
     - nutrients.qmd
     - ghg.qmd
+    - oceancarbon.qmd
     - globenvchange.qmd
     - feedbacks.qmd
     - landusechange.qmd
