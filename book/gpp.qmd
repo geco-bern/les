@@ -673,6 +673,7 @@ library(ggplot2)
 library(cowplot)
 library(dplyr)
 library(tidyr)
+library(hexbin)
 
 wdf <- readRDS(here::here("data/wdf_fdk.rds"))
 
