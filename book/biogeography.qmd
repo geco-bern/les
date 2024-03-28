@@ -41,6 +41,8 @@ Walter-Lieth climate diagrams show monthly climatologies of average temperature 
 - tall vegetation height, high productivity, high total leaf area per unit ground area (leaf area index, LAI), fast decomposition
 - large, thin leaves
 
+<!-- Climate diagrams created by analysis/plot_climate_diagrams_biomes.R -->
+
 ```{r echo=FALSE}
 #| label: fig-climate_biome_tropical_moist
 #| fig-cap: "Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome."
