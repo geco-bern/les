@@ -377,7 +377,7 @@ Variations in leaf unfolding dates are also evident across space, i.e., across c
 
 ```{r echo=FALSE}
 #| label: fig-phenology-patterns
-#| fig-cap: "Spring phenology patterns along elevation in Switzerland. (a) Remotely sensed spring greenup date (day of year, DOY) in 2012 from the MODIS MCD12Q2 product. (b) Relationship of the spring greenup with elevation, derived from the map shown in (a)."
+#| fig-cap: "Spring phenology patterns along elevation in Switzerland. (a) Remotely sensed spring greenup date (day of year, DOY) in 2012 from the MODIS MCD12Q2 product. (b) Relationship of the spring greenup with elevation, derived from the map shown in (a). Figure created based on https://geco-bern.github.io/handfull_of_pixels/."
 #| out-width: 100%
 knitr::include_graphics("images/phenology_patterns.png")
 ```
