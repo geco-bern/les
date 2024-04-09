@@ -1,4 +1,4 @@
-﻿| Symbol/abbreviation | Description | Common units | Equation |
+| Symbol/abbreviation | Description | Common units | Equation |
 | ---- | ---- | ---- | ---- |
 | GPP | Gross primary production. Ecosystem level photosynthetic CO~2~ uptake. | gC m^-2^ s^-1^ | @eq-luemodel |
 | PPFD | Photosynthetic photon flux density | mol  m^-2^ s^-1^ | @eq-luemodel |
@@ -7,7 +7,7 @@
 | $I$ | Incident (incoming) solar radiation | W m^-2^ | @eq-optical-density |
 | $I_0$ | Incident (incoming) solar radiation at the top of the canopy | W m^-2^ | @eq-optical-density |
 | $k$ | Exponential light extinction coefficient | (unitless) | @eq-optical-density |
-| $L$ | Leaf area index (LAI) | m^2^ m^-2^ | @eq-homogenous-canopy |
+| $L$, LAI | Leaf area index | m^2^ m^-2^ | @eq-homogenous-canopy |
 | $\mu$ | Optical density | m^-1^ | @eq-homogenous-canopy |
 | $z_0$ | Total canopy depth | m | @eq-homogenous-canopy |
 | $z$ | Canopy depth | m | @eq-optical-density |

@@ -27,9 +27,9 @@ The linear dependence of GPP on PPFD implies that the variations of solar radiat
 
 ## Canopy light absorption {#sec-light-absorption}
 
-Photosynthetic CO~2~ uptake only operates if active (green) leaves are out. The relationship between the amount of leaves and GPP are introduced here. Active leaf area varies across the seasons and space in response to the seasonality of temperature and light and water availability. The seasonal fluctuation of leaf area, most visible for deciduous trees, is referred to as (leaf) phenology. The drivers of temporal and spatial variations of phenology and leaf area are introduced later.
+Photosynthetic CO~2~ uptake only operates if active (green) leaves are out. The relationship between the amount of leaves and GPP is introduced here. Active leaf area varies across the seasons and space in response to the seasonality of temperature, light and water availability. The seasonal fluctuation of leaf area, most visible for deciduous trees, is referred to as (leaf) phenology. The drivers of temporal and spatial variations of phenology and leaf area are introduced in @sec-phenology.
 
-The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
+The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). The total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy. The canopy may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests commonly form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
 
 ```{r echo=FALSE}
 #| label: fig-light_absorption
@@ -38,25 +38,125 @@ The fraction of absorbed photosynthetically active radiation (fAPAR) increases w
 knitr::include_graphics("images/light_absorption_bonan.png")
 ```
 
-While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. Each of these processes affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
+While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. The penetration of radiation into a canopy is referred to as canopy *radiative transfer*. Each of the processes - reflection, absorption, and transmittance - affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
 
-In brief, canopy *radiative transfer* is complex. A simple model of radiation extinction is given by the *Beer-Lambert law*. To apply it for radiative transfer in the canopy, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
+In brief, canopy radiative transfer is complex. A simple model for how (solar) radiation (light) is attenuated as it penetrates into the canopy is given by the *Beer-Lambert law*. To apply it for canopy radiative transfer, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light intensity $I$ at the bottom of the canopy ($z_0$) is an exponential function of LAI ($L$). The rate of decline of the light intensity is given by the light extinction coefficient $k$. A typical value of $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
+$$
+I(z_0) = I_0 \; e^{-kL}
+$$
+We have assumed that no light is reflected. Therefore the reduction of light levels at the bottom of the canopy tells us how much light was absorbed by the canopy (and used for photosynthesis). The fraction of absorbed (photosynthetically active) radiation therefore is
+$$
+\begin{align}
+\mathrm{fAPAR} &= 1 - I(z_0)/I_0 \\
+               &= 1 - e^{-kL}\;.
+\end{align}
+$$
+
+The shape of this function is illuatrated in @fig-fapar (a). This implies a dependency of light levels on canopy depth $z$, as illustrated in @fig-fapar (b) - consistent with the observation shown in @fig-light_absorption (b). 
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
+#| label: fig-fapar
+#| fig-cap: "The fraction of absorbed photosynthetically active radiation (fAPAR) as a function of LAI (a)  and relative light (or photosynthetically active radiation) levels as a function of canopy depth (z) following the Beer-Lambert law. The arrangement of the canopy versus depth (z = 0 at the top of the canopy) is shown by the green rectangle in (b), within which leaves are assumed to be evenly distributed. The yellow line in (b) represents the light levels, relative to the top of the canopy. The brown rectangle represents a stem, indicating that this part is below the canopy - without light-absorbing leaves."
+#| out-width: 80%
+
+library(ggplot2)
+library(dplyr)
+
+calc_fapar <- function(lai, k_beer){
+  1 - exp(-k_beer * lai)
+}
+
+gg_fapar <- ggplot() +
+  geom_function(
+    fun = calc_fapar, 
+    args = list(k_beer = 0.5),
+    linewidth = 0.75
+    ) +
+  xlim(0, 10) +
+  labs(x = expression(paste("LAI (m"^2, " m"^-2, ")")),
+       y = "fAPAR (unitless)") +
+  theme_classic()
+
+calc_cumlai <- function(z){
+  ifelse(z <= 3.5, z*4.6/3.5, 4.6)
+}
+
+calc_light_rel <- function(z, k_beer){
+  exp(-k_beer * calc_cumlai(z))
+}
+
+df <- tibble(z = seq(0, 7, by = 0.01)) |> 
+  mutate(
+    light_rel = calc_light_rel(z, k_beer = 0.5)
+    )
+
+gg_canopydepth <- ggplot() +
+  geom_rect(
+    aes(
+      xmin = 0, xmax = 1,
+      ymin = 0, ymax = 3.5
+    ),
+    fill = "#009E73",
+    alpha = 0.5
+  ) +
+  geom_rect(
+    aes(
+      xmin = 0.45, xmax = 0.55,
+      ymin = 3.5, ymax = 7
+    ),
+    fill = "sienna",
+    alpha = 0.5
+  ) +
+  geom_line(
+    data = df,
+    aes(
+      y = z,
+      x = light_rel),
+    linewidth = 1,
+    color = "#E69F00"
+  ) +
+  labs(y = "Canopy depth (m)",
+       x = "Light level (relative)") +
+  theme_classic() +
+  scale_y_reverse()
+
+cowplot::plot_grid(
+  gg_fapar,
+  gg_canopydepth,
+  nrow = 1,
+  labels = c("a", "b"),
+  rel_widths = c(1, 0.6)
+)
+```
+
+::: {.callout-note}
+## Basis of the Beer-Lambert law for canopy light extinction
+
+Following the Beer-Lambert law model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
 $$
 \frac{\mathrm{d}I}{\mathrm{d}z} = -\mu\;I(z)
 $$ {#eq-optical-density}
-We further assume that the canopy is a homogenous turbid medium. In other words, we assume that leaves are uniformly distributed across the canopy and that the optical density is given by the leaf area index $L$ divided by the total canopy depth $z_0$:
+Therefore, the light intensity declines exponentially with $z$.
+$$
+I(z) = I_0 \exp(-\mu z)
+$$ {#eq-light-extinction}
+How does the dependency on $z$ relate to the dependency on LAI ($L$)?
+
+For applying the Beer Lambert law, it is further assumed that the canopy is a homogenous turbid medium. In other words, we assume that leaves are uniformly distributed across the canopy and that the optical density is given by the leaf area index $L$ divided by the total canopy depth $z_0$:
 $$
 \mu = k \frac{L}{z_0}
 $$ {#eq-homogenous-canopy}
-$k$ is the leaf area-specific optical density, or *light extinction coefficient*. Therefore, the radiation intensity at the bottom of the canopy ($z_0$) is:
+$k$ is the leaf area-specific optical density, or *light extinction coefficient*. Using @eq-light-extinction and @eq-homogenous-canopy, we can thus express the light level at the bottom of the canopy ($z_0$) as a function of $L$ as
 $$
-I(z_0) = I_0 \; e^{-kL}\;,
+I(z_0) = I_0 \; e^{-kL}
 $$
 and the fraction of absorbed (photosynthetically active) radiation is
 $$
 \mathrm{fAPAR} = 1 - e^{-kL}\;.
 $$
-A typical value of the light extinction coefficient $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
+
+:::
 
 The radiation $I$ consists of *direct* radiation from the sun and *diffuse* radiation from the sky and from radiation scattered within the canopy. This distinction is relevant for understanding radiation absorption by the canopy and canopy-level photosynthesis. Two important implications are the following. First, diffuse radiation is more effectively absorbed by canopies, particularly at low LAI. The reduction of GPP under cloudy conditions is therefore less than what would be expected from considering only changes in $I_0$ (the effective $k$ is higher for diffuse radiation than for direct radiation). 
 
@@ -726,7 +826,7 @@ Compare your calculated $\beta$ of the light-saturated leaf-level photosynthesis
 | $I$ | Incident (incoming) solar radiation | W m^-2^ | @eq-optical-density |
 | $I_0$ | Incident (incoming) solar radiation at the top of the canopy | W m^-2^ | @eq-optical-density |
 | $k$ | Exponential light extinction coefficient | (unitless) | @eq-optical-density |
-| $L$ | Leaf area index (LAI) | m^2^ m^-2^ | @eq-homogenous-canopy |
+| $L$, LAI | Leaf area index | m^2^ m^-2^ | @eq-homogenous-canopy |
 | $\mu$ | Optical density | m^-1^ | @eq-homogenous-canopy |
 | $z_0$ | Total canopy depth | m | @eq-homogenous-canopy |
 | $z$ | Canopy depth | m | @eq-optical-density |
