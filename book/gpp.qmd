@@ -171,13 +171,13 @@ Second, the energy flux of direct radiation is much higher than that of diffuse 
 
 ## Photosynthesis {#sec-photosynthesis}
 
-The efficiency at which absorbed photons (radiation) are converted into C in the form of sugars depends on the conductance to CO~2~ uptake by the leaf and on the activity of the photosynthetic machinery. In this subsection, we dive very deep into the term LUE in @eq-luemodel.
+Light use efficiency (LUE, @eq-luemodel) measures the efficiency at which absorbed photons (radiation) are converted into C in the form of sugars. LUE is an ecosystem-level quantity and reflects the collective photosynthetic CO~2~ uptake efficiency of all leaves in the canopy. This efficiency is determined by the leaf physiology and the activity of the photosynthetic machinery. In this subsection, we dive very deep into the physiology of photosynthesis.
 
 CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
 $$
 A = g_s(c_a - c_i)
 $$ {#eq-photo-fick}
-$c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO~2~ concentration at the chloroplast. $g_s$ is the stomatal conductance. Note that we use the variable name $A$ here for CO~2~ assimilation by photosynthesis. In constrast to the ecosystem-level variable GPP, $A$ refers to the leaf-level flux.
+$c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO~2~ concentration inside the leaf - at the chloroplast. $g_s$ is the stomatal conductance. Note that we use the variable name $A$ here for CO~2~ assimilation by photosynthesis. In constrast to the ecosystem-level variable GPP, $A$ refers to the leaf-level flux.
 
 ```{r echo=FALSE}
 #| label: fig-stomata
@@ -186,13 +186,13 @@ $c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO
 knitr::include_graphics("images/stomata.png")
 ```
 
-Photosynthetic CO~2~ assimilation leads to a continous depletion of CO~2~ inside the leaf. Therefore, $c_i$ reflects photosynthetic rates. This description of $A$ is specific for plants that follow the C~3~ photosynthetic pathway - the majority of plants and all trees. Grasses growing in warm climates predominantly follow the C~4~ photosynthetic pathway (see @sec-c4). 
+<!-- Photosynthetic CO~2~ assimilation leads to a continous depletion of CO~2~ inside the leaf. Therefore, $c_i$ reflects photosynthetic rates. This description of $A$ is specific for plants that follow the C~3~ photosynthetic pathway - the majority of plants and all trees. Grasses growing in warm climates predominantly follow the C~4~ photosynthetic pathway (see @sec-c4).  -->
 
-Modelling photosynthesis is relatively complex because $g_s$ depends on $A$. @eq-photo-fick can therefore not be solved in a straight-forward manner. Furthermore, plants coordinate stomatal conductance to balance water losses and C assimilation but the exact relationship varies between species and depends on a multitude of mechanisms and traits related water transport in the plant (@sec-transpiration). Here, let's start by taking $g_s$ as given and look at how the assimilation rate $A$ depends on $c_i$.
+<!-- Modelling photosynthesis is relatively complex because $g_s$ depends on $A$. @eq-photo-fick can therefore not be solved in a straight-forward manner. Furthermore, plants coordinate stomatal conductance to balance water losses and C assimilation but the exact relationship varies between species and depends on a multitude of mechanisms and traits related water transport in the plant (@sec-transpiration). Here, let's start by taking $g_s$ as given and look at how the assimilation rate $A$ depends on $c_i$. -->
 
-The primary processes are happening in the chloroplasts which are located in the mesophyll cells of leaves. After diffusing across stomata, CO~2~ diffuses across the mesophyll cell to the chloroplast. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration at the chloroplast.
+Once inside the leaf, CO~2~ diffuses across mesophyll cells to the chloroplasts - the site of photosynthetic reactions. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal" CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration *at the chloroplast*.
 
-Before returning to a mathematical description of photosynthesis, let's step back and look at the process of leaf-level photosyntheis. Three steps of the photosynthetic apparatus can be distinguished (based on @lambers08 and @bonan).
+Photosynthesis can be considered as a sequence of three processes that are serially connected - the three processes run one after the other and the rate of the slowest of the three processes determines the overall process rate of photosynthesis. The following is a condensed description, based on @lambers08 and @bonan.
 
 ```{r echo=FALSE}
 #| label: fig-photosynthesis
@@ -203,17 +203,17 @@ knitr::include_graphics("images/photosynthesis.png")
 
 ### Light absorption at the cellular level
 
-Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-luemodel is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
+Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-luemodel is expressed in units of photons, not energy (Watts). (A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength, although it carries a higher energy). The excess energy is dissipated as heat or through other pathways.
 
 ### Light reactions
 
-In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
+In the reaction centers, the excitation energy of the chlorophyll is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
 
 ### Calvin cycle {#sec-calvin-cycle}
 
-NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, around 30-50 ppm, the *photorespiratory compensation point* is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
+NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, at around 30-50 ppm, the *photorespiratory compensation point* ($\Gamma^\ast$) is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
 
-Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C*.
+Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C* (see @sec-carboncycle_ecosystem).
 
 ### Summary
 
@@ -225,11 +225,11 @@ A total of eight photons is consumed to assimilate one molecule of CO~2~. For ea
 
 ### Response to light and CO~2~ {#sec-fvcb}
 
-The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates are coordinated such that they are roughly co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
+The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates of the processes are coordinated such that they are roughly equal and co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
 
-The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, are limiting, not CO~2~. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{sat}$.
+The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation in the light reactions (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, is limiting, not CO~2~ inside the leaf. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{sat}$.
 
-The level at which the light response of $A$ saturates varies within a species and across different species. Variations within species arise through the *acclimation* of the light reaction capacities to the typical light intensities to which a leaf is exposed. Acclimation evolves over time scales of weeks to months (Thus, your indoor plant suffers because the change to high-light conditions happened to fast.). $A_\mathrm{sat}$ also varies across species, reflecting the *adaptation* through evolution of different species to the environment in which they commonly grow. Typical difference in light adaptation are evident between plants that grow in the shady understorey versus plants that grow in the sun-exposed upper canopy.
+The level at which the light response of $A$ saturates ($A_\mathrm{sat}$) varies *within* a species and across different plant species. Variations within species arise through the *acclimation* of the light reaction capacities to the typical light intensities to which a leaf is exposed. Acclimation of photosynthesis evolves over time scales of weeks to months. (Thus, your indoor plant suffers because the change to high-light conditions happened to fast.) $A_\mathrm{sat}$ also varies *across* species, reflecting the *adaptation* through evolution of different plant species to the environment in which they commonly grow. A typical light adaptation to different light levels is expressed by plants that commonly grow in the shady understorey versus plants that grow in the sun-exposed upper canopy.
 
 ```{r echo=FALSE}
 #| label: fig-photosynthesis_light
@@ -238,12 +238,16 @@ The level at which the light response of $A$ saturates varies within a species a
 knitr::include_graphics("images/assim_response_to_light_lambers08.png")
 ```
 
-In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve". Commonly, net assimilation $A_n=A-R_d$ is considered. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco ($V_\mathrm{cmax}$). This functional response of assimilation is commonly denoted $A_C$. As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
+In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve" (@fig-a-ci-curve). Commonly, net assimilation $A_n = A - R_d$ is considered when analysing *A*-*c*~i~ curves. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco. This Rubisco carboxylation-limited functional response of assimilation is commonly denoted $A_C$. 
+
+As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
 $$
 A_n = \min(A_C, A_J) - R_d
 $$ {#eq-net-assimilation}
 
-The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals multiple quantities ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $\Gamma^\ast$, and the "shape parameters" of $A_C$ and $A_J$). These quantities are key for quantitatively describing and modeling leaf photosynthesis. The acclimation and adaptation of $A_\mathrm{max}$ (@fig-photosynthesis_light) reflects an acclimation and adaptation of the electron transport capacity and the capacity for RuBP carboxylation. Although acclimation can occur, it is not fast enough to respond to the strongly varying light conditions during a day. Therefore, plants have to tune the capacities of the different photosynthetic reactions such that they are mostly near the co-limitation point.
+The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals the rates and efficiencies of the individual processes of the photosynthesis "chain" (light and dark reactions). These quantities are key for quantitatively describing and modeling leaf photosynthesis (see Box Farquhar-von Caemmerer-Berry model below). 
+
+<!-- The acclimation and adaptation of $A_\mathrm{sat}$ (@fig-photosynthesis_light) reflects an acclimation and adaptation of the electron transport capacity and the capacity for RuBP carboxylation. Although acclimation can occur, it is not fast enough to respond to the strongly varying light conditions during a day. Therefore, plants have to tune the capacities of the different photosynthetic reactions such that they are mostly near the co-limitation point. -->
 
 ```{r echo=FALSE}
 #| label: fig-a-ci-curve
@@ -251,6 +255,8 @@ The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals 
 #| out-width: 60%
 knitr::include_graphics("images/a_ci_curve.png")
 ```
+
+::: {.callout-note}
 
 ### Farquhar-von Caemmerer-Berry model
 
@@ -273,7 +279,9 @@ $$
 J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{abs}}{J_\mathrm{max}}\right)^2}}
 $$ {#eq-jmaxlim}
 
-Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
+Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. 
+
+With the mathematical description of $A_C$ and $A_J$ and their dependency on light and CO~2~ following the FvCB model, *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
 
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: true
@@ -366,14 +374,18 @@ df_ci <- tibble(
                           ca = out_pmodel$ca))
   
 df_ci |> 
-  pivot_longer(cols = c(a_j, a_c, a_gs), 
-               names_to = "Rate", 
-               values_to = "a_") |>
+  pivot_longer(cols = c(
+    a_j, 
+    a_c
+    # a_gs
+    ), 
+    names_to = "Rate", 
+    values_to = "a_") |>
   ggplot(aes(x = ci)) +
   geom_line(aes(y = a_, color = Rate)) +
   geom_line(aes(y = a_act)) +
   xlim(00, 1000) + 
-  ylim(-20, 80) +
+  # ylim(-20, 80) +
   geom_hline(yintercept = 0, linetype = "dotted") +
   geom_vline(xintercept = 0, linetype = "dotted") +
   geom_vline(xintercept = (out_pmodel$gammastar/(1.0e-6 * patm)), linetype = "dotted") +
@@ -381,14 +393,21 @@ df_ci |>
        y = expression(paste(italic("A"), " (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
   scale_color_manual(
     name = "",
-    breaks = c("a_gs",
-               "a_j",
-               "a_c"
-               ),
-    labels = c(expression(paste(italic("A")[gs])),
-               expression(paste(italic("A")[J])),
-               expression(paste(italic("A")[C]))),
-    values = c( "#009E73", "#56B4E9", "#E69F00")) +
+    breaks = c(
+      # "a_gs",
+      "a_j",
+      "a_c"
+      ),
+    labels = c(
+      # expression(paste(italic("A")[gs])),
+      expression(paste(italic("A")[J])),
+      expression(paste(italic("A")[C]))
+      ),
+    values = c( 
+      # "#009E73", 
+      "#56B4E9", 
+      "#E69F00"
+      )) +
   theme_classic()
 ```
 
@@ -555,7 +574,15 @@ cowplot::plot_grid(gg1, gg2,
 
 Note that the FvCB model, on its own, does not allow us to model the LUE term in @eq-luemodel. An important additional ingredient is the stomatal conductance ($g_s$) which is relevant for determining the ratio of ambient to leaf-internal CO~2~ concentrations. It is described in @sec-transpiration.
 
+::: 
+
 ### Response to temperature {#sec-ftemp}
+
+All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, net assimilation rates decline even faster above their temperature optimum than without considering $R_d$. 
+
+Similarly, the balance of oxygenation versus carboxylation is strongly affected by temperature. This leads to a temperature dependency of assimilation rates $A_C$ and $A_J$. Such a temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates. 
+
+The Farquhar-von Caemmerer Berry model (see box above) and the temperature dependency of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$) provide a basis for modelling the temperature dependency of assimilation rates. 
 
 The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, and is shown in @fig-temp_dep. For this, $c_i$, $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$ at a reference temperature are assumed to be given.
 
