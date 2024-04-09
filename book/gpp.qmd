@@ -578,13 +578,11 @@ Note that the FvCB model, on its own, does not allow us to model the LUE term in
 
 ### Response to temperature {#sec-ftemp}
 
-All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, net assimilation rates decline even faster above their temperature optimum than without considering $R_d$. 
+All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, the decline of net assimilation rates is even faster at towards high temperatures than that of gross assimilation rates.
 
-Similarly, the balance of oxygenation versus carboxylation is strongly affected by temperature. This leads to a temperature dependency of assimilation rates $A_C$ and $A_J$. Such a temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates. 
+The temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident. 
 
-The Farquhar-von Caemmerer Berry model (see box above) and the temperature dependency of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$) provide a basis for modelling the temperature dependency of assimilation rates. 
-
-The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, and is shown in @fig-temp_dep. For this, $c_i$, $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$ at a reference temperature are assumed to be given.
+The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see box above) and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
 
 ```{r}
 #| code-fold: true
@@ -697,7 +695,7 @@ gg3 <- ggplot() +
 cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 ```
 
-As shown in @fig-temp_dep, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially $A_C$, decline sharply. Dark respiration ($R_d$) monotonically increases with temperature which accentuates the decline in net assimilation $A_n$ with increasing temperature.
+### Acclimation and adptation of *T*~opt~
 
 The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed @fig-topt-kumarathunge.
 
