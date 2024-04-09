@@ -1,0 +1,31 @@
+﻿| Symbol/abbreviation | Description | Common units | Equation |
+| ---- | ---- | ---- | ---- |
+| GPP | Gross primary production. Ecosystem level photosynthetic CO~2~ uptake. | gC m^-2^ s^-1^ | @eq-luemodel |
+| PPFD | Photosynthetic photon flux density | mol  m^-2^ s^-1^ | @eq-luemodel |
+| fAPAR | Fraction of absorbed photosynthetically active radiation | (unitless) | @eq-luemodel |
+| LUE | Light use efficiency. Ratio of GPP over absorbed photosynthetically active radiation | gC mol^-1^ | @eq-luemodel |
+| $I$ | Incident (incoming) solar radiation | W m^-2^ | @eq-optical-density |
+| $I_0$ | Incident (incoming) solar radiation at the top of the canopy | W m^-2^ | @eq-optical-density |
+| $k$ | Exponential light extinction coefficient | (unitless) | @eq-optical-density |
+| $L$ | Leaf area index (LAI) | m^2^ m^-2^ | @eq-homogenous-canopy |
+| $\mu$ | Optical density | m^-1^ | @eq-homogenous-canopy |
+| $z_0$ | Total canopy depth | m | @eq-homogenous-canopy |
+| $z$ | Canopy depth | m | @eq-optical-density |
+| $A$ | Leaf-level CO~2~ assimilation | mol  m^-2^ s^-1^ | @eq-photo-fick |
+| $g_s$ | Stomatal conductance to CO~2~ diffusion |  | @eq-photo-fick |
+| $c_i$ | Leaf-internal CO~2~ concentration. Expressed as a partial pressure | Pa | @eq-photo-fick |
+| $c_a$ | Ambient (atmospheric) CO~2~ concentration. Expressed as a partial pressure | Pa | @eq-photo-fick |
+| $A_n$ | Leaf-level net CO~2~ assimilation after accounting for dark respiration ($R_d$) | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $A_C$ | Rubisco-carboxylation limited leaf-level CO~2~ assimilation rate | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $A_J$ | Electron-transport limited leaf-level CO~2~ assimilation rate | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $R_d$ | Leaf dark respiration | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $V_\mathrm{cmax}$ | Maximum rate of Rubisco carboxylation | mol  m^-2^ s^-1^ | @eq-ac |
+| $K$ | Effective Michaelis-Menten coefficient for $A_C$ | Pa | @eq-ac |
+| $\Gamma^\ast$ | Photorespiratory compensation point | Pa | @eq-ac |
+| $J_\mathrm{max}$ | Maximum rate of eletron transport  | mol  m^-2^ s^-1^ | @eq-aj |
+| $J$ | Electron transport rate | mol  m^-2^ s^-1^ | @eq-aj |
+| $\varphi_0$ | Quantum yield | mol mol^-1^ | @eq-aj |
+| $E$ | Transpiration at the leaf-level | mm s^-1^ | @eq-transpiration |
+| $D$ | Vapour pressure deficit (VPD) | Pa | @eq-transpiration |
+| $\chi$ | Ratio of leaf-internal to ambient CO~2~ concentration | (unitless) | @eq-wue-instantaneous |
+
