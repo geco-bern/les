@@ -130,7 +130,7 @@ cowplot::plot_grid(
 )
 ```
 
-::: {.callout-note}
+::: {.callout-tip icon=false, collapse=true}
 ## Basis of the Beer-Lambert law for canopy light extinction
 
 Following the Beer-Lambert law model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
@@ -256,7 +256,7 @@ The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals 
 knitr::include_graphics("images/a_ci_curve.png")
 ```
 
-::: {#nte-fvcb .callout-note}
+::: {.callout-note}
 
 ### Farquhar-von Caemmerer-Berry model
 
@@ -778,7 +778,7 @@ G_s = G_{s,\mathrm{ref}} \left(1 - m \ln D \right)\;.
 $$
 Here, $G_{s,\mathrm{ref}}$ is a reference canopy conductance, $D$ is VPD, and $m$ is a stomatal sensitivity parameter. The data shown in @fig-novick16 indicate that the sensitivity parameter $m$ is not a constant, but decreases with drying soils and tends to be lower at dry sites than at moist sites investigated by @novick16natcc.
 
-::: {.callout-caution icon=false, collapse=true}
+::: {.callout-tip icon=false, collapse=true}
 
 ### Stomatal optimization models
 
@@ -834,6 +834,7 @@ rsq_lab <- format( rsq_val, digits = 2 )
 
 wdf |> 
   ggplot(aes(apar, gpp)) +
+  # geom_point(alpha = 0.3) +
   geom_hex(bins = 50) +
   scale_fill_viridis_c(trans = "log", option = "magma", name = "Count") +
   geom_abline(intercept = 0, slope = coef(linmod), linetype="dotted") +

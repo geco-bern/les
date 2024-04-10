@@ -28,7 +28,12 @@ knitr::include_graphics("images/ecosystem-carbon-cycle-bonan.png")
 C assimilated by photosynthesis is initially present as *non-structural C* (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the *reserves* pool. Some of the assimilated carbon is consumed by *autotrophic respiration* ($R_a$) which subsumes different processes, including maintaining vital functions of the plant (*maintenance respiration*), inevitable losses during photosynthesis (*leaf dark respiration*, 
 $R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (*growth respiration*, $R_g$). Growth respiration produces CO~2~ as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models. 
 
-Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, $R_a$ is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in $R_a$, but respiration rates acclimate to average growth temperatures such that the relationship between $R_a$ and temperature is less steep when considering longer time scales or variations across different climates. A typical temperature dependency of respiration, used in the LPJ vegetation model [@lloyd94; @sitch03gcb], is given by @eq-resp-maint and visualised in @fig-resp-maint.
+Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, $R_a$ is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in $R_a$, but respiration rates acclimate to average growth temperatures such that the relationship between $R_a$ and temperature is less steep when considering longer time scales or variations across different climates. 
+
+::: {.callout-tip icon=false, collapse=true}
+### Temperature dependency of respiration
+
+A typical temperature dependency of respiration, used in the LPJ vegetation model [@lloyd94; @sitch03gcb], is given by @eq-resp-maint and visualised in @fig-resp-maint.
 $$
 \begin{align}
 R_{m,i} &= r_i C_i f(T) \\
@@ -56,7 +61,7 @@ ggplot() +
        y = expression(paste("Respiration factor ", italic(f), "(", italic(T), ")"))) + 
   theme_classic()
 ```
-
+:::
 
 ### Net primary productivity
 
@@ -252,6 +257,8 @@ At the landscape-level, a forest can be conceived as a mosaic of forest patches,
 
 The terrestrial carbon balance can be understood of the global total NBP.
 
+::: {.callout-note}
+
 ## The C cascade model {#sec-ccascade}
 
 The C cascade model (@fig-ccascade) integrates the information about ecosystem carbon pools and fluxes, provided above in this Chapter. A key insight is that C only enters ecosystems through photosynthesis, measured at the ecosystem-level by GPP. Once in the system, it fuels a "cascade" of pools. They can be conceived as a *cascade* because biomass pools receive C inputs only through GPP (minus $R_a$), litter pools only receive C inputs through biomass turnover, and SOM pools only receive C inputs through litter decomposition. Along this cascade, autotrophic and heterotrophic respiration incurs an ecosystem C loss. The rate at which C cascades through this system depends on the turnover rates of the individual pools and on the relative partitioning (allocation and partitioning to different litter and SOM pools) into the "downstream" pools. A schematic of the C cascade can be drawn by extending @fig-littersom. 
@@ -279,8 +286,9 @@ $$
 \frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast} = \frac{C_i^\ast}{C_{i,0}^\ast}, \; \forall i
 $$
 The symbol $\forall$ means 'for all'. However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
+:::
 
-::: {.callout-note}
+::: {.callout-tip icon=false, collapse=true}
 ## Simulating the C cascade
 
 The two points (see above) are implemented in a multi-box model:
