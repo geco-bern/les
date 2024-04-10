@@ -257,8 +257,6 @@ At the landscape-level, a forest can be conceived as a mosaic of forest patches,
 
 The terrestrial carbon balance can be understood of the global total NBP.
 
-::: {.callout-note}
-
 ## The C cascade model {#sec-ccascade}
 
 The C cascade model (@fig-ccascade) integrates the information about ecosystem carbon pools and fluxes, provided above in this Chapter. A key insight is that C only enters ecosystems through photosynthesis, measured at the ecosystem-level by GPP. Once in the system, it fuels a "cascade" of pools. They can be conceived as a *cascade* because biomass pools receive C inputs only through GPP (minus $R_a$), litter pools only receive C inputs through biomass turnover, and SOM pools only receive C inputs through litter decomposition. Along this cascade, autotrophic and heterotrophic respiration incurs an ecosystem C loss. The rate at which C cascades through this system depends on the turnover rates of the individual pools and on the relative partitioning (allocation and partitioning to different litter and SOM pools) into the "downstream" pools. A schematic of the C cascade can be drawn by extending @fig-littersom. 
@@ -286,7 +284,6 @@ $$
 \frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast} = \frac{C_i^\ast}{C_{i,0}^\ast}, \; \forall i
 $$
 The symbol $\forall$ means 'for all'. However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
-:::
 
 ::: {.callout-tip icon=false, collapse=true}
 ## Simulating the C cascade
@@ -510,6 +507,8 @@ Coming soon.
 
 Coming soon.
 
+::: {.callout-important icon=false}
+
 ## Symbols
 
 | Symbol/abbreviation | Description | Common units | Equation |
@@ -541,6 +540,8 @@ Coming soon.
 | $\Delta C_\mathrm{dist}$ | C loss due to disturbances | gC m^-2^ yr^-1^ | @eq-nbp |
 
 : Symbols and abbreviations used in this chapter. {#tbl-symbols-ecosystemcarbon}
+
+:::
 
 <!-- XXX for LES 2 -->
 

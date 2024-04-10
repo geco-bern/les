@@ -859,6 +859,8 @@ Rising CO~2~ increases leaf-level photosynthesis. This sensitivity can be quanti
 Compare your calculated $\beta$ of the light-saturated leaf-level photosynthesis rate with observations from Free Air CO~2~ Enrichment (FACE) experiments, as summarized by @ainsworth05. For this, download the paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-8137.2004.01224.x) and find the reported value for the CO~2~ response of the light-saturated leaf-level photosynthesis rate. Convert the percentage increase reported by @ainsworth05 into a $\beta$ factor. Assume that on average, the CO~2~ levels in the FACE experiments were 350 ppm at ambient and 550 ppm at elevated levels.
 :::
 
+::: {.callout-important icon=false}
+
 ## Symbols
 
 <!-- To copy from book/symbols_gpp.qmd, produced via book/symbols_gpp.csv, edited by hand to convert to qmd table saved as book/symbols_gpp.qmd  -->
@@ -895,6 +897,8 @@ Compare your calculated $\beta$ of the light-saturated leaf-level photosynthesis
 | $\chi$ | Ratio of leaf-internal to ambient CO~2~ concentration | (unitless) | @eq-wue-instantaneous |
 
 : Symbols and abbreviations used in this chapter. {#tbl-symbols-gpp}
+
+::: 
 
 <!-- Exercise:  -->
 <!-- - Calculate response ratio of net photosynthesis to a doubling of CO2 (from 400 to 800 ppm). Calculate the beta factor from Chapter 3. Compare to leaf net assimilation from experiments (Walker et al. 2018). -->
