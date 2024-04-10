@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -393,10 +393,10 @@ window.Quarto = {
 <div id="fig-ecosystem-carbon-cycle-bonan" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ecosystem-carbon-cycle-bonan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/ecosystem-carbon-cycle-bonan.png" class="img-fluid figure-img" style="width:40.0%">
+<img src="images/ecosystem_carbon.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosystem-carbon-cycle-bonan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Major carbon fluxes and pools in land ecosystems. Figure from <span class="citation" data-cites="bonan08sci">Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.
+Figure&nbsp;5.1: An illustrative (a) and schematic (b) representation of arbon fluxes and pools in land ecosystems. Major fluxes in (b) are introduced in this chapter below. R<sub>h</sub> is heterotrophic respiration. CWD is coarse woody debris. SOM is soil organic matter. PS-products is photosynthetic products. The width of arrows is representative of flux magnitudes. Panel (a) is from <span class="citation" data-cites="bonan08sci">Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>. Panel (b) is from <span class="citation" data-cites="schulze19">Schulze et al. (<a href="references.html#ref-schulze19" role="doc-biblioref">2019</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -404,8 +404,21 @@ Figure&nbsp;5.1: Major carbon fluxes and pools in land ecosystems. Figure from <
 </div>
 <section id="non-structural-carbon-and-autotrophic-respiration" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="non-structural-carbon-and-autotrophic-respiration"><span class="header-section-number">5.1.1</span> Non-structural carbon and autotrophic respiration</h3>
-<p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (<em>maintenance respiration</em>), inevitable losses during photosynthesis (<em>leaf dark respiration</em>, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>), and energetic costs for biomass synthesis (<em>growth respiration</em>, <span class="math inline">\(R_g\)</span>). Growth respiration produces CO<sub>2</sub> as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models.</p>
-<p>Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, <span class="math inline">\(R_a\)</span> is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in <span class="math inline">\(R_a\)</span>, but respiration rates acclimate to average growth temperatures such that the relationship between <span class="math inline">\(R_a\)</span> and temperature is less steep when considering longer time scales or variations across different climates. A typical temperature dependency of respiration, used in the LPJ vegetation model <span class="citation" data-cites="lloyd94 sitch03gcb">(<a href="references.html#ref-lloyd94" role="doc-biblioref">Lloyd and Taylor 1994</a>; <a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>, is given by <a href="#eq-resp-maint" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> and visualised in <a href="#fig-resp-maint" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. <span id="eq-resp-maint"><span class="math display">\[
+<p>C assimilated by photosynthesis is initially present as <em>non-structural C</em> (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the <em>reserves</em> pool. Some of the assimilated carbon is consumed by <em>autotrophic respiration</em> (<span class="math inline">\(R_a\)</span>) which subsumes different processes, including maintaining vital functions of the plant (<em>maintenance respiration</em>), inevitable losses during photosynthesis (<em>leaf dark respiration</em>, <span class="math inline">\(R_d\)</span>, see <a href="gpp.html#sec-fvcb" class="quarto-xref"><span>Section 4.3.5</span></a>), and energetic costs for biomass synthesis (<em>growth respiration</em>, <span class="math inline">\(R_g\)</span>). Growth respiration produces CO<sub>2</sub> as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models. Symbols used in this chapter are listed in <a href="#tbl-symbols-ecosystemcarbon" class="quarto-xref">Table&nbsp;<span>5.2</span></a>.</p>
+<p>Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, <span class="math inline">\(R_a\)</span> is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in <span class="math inline">\(R_a\)</span>, but respiration rates acclimate to average growth temperatures such that the relationship between <span class="math inline">\(R_a\)</span> and temperature is less steep when considering longer time scales or variations across different climates.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Temperature dependency of respiration
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A typical temperature dependency of respiration, used in the LPJ vegetation model <span class="citation" data-cites="lloyd94 sitch03gcb">(<a href="references.html#ref-lloyd94" role="doc-biblioref">Lloyd and Taylor 1994</a>; <a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>, is given by <a href="#eq-resp-maint" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> and visualised in <a href="#fig-resp-maint" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. <span id="eq-resp-maint"><span class="math display">\[
 \begin{align}
 R_{m,i} &amp;= r_i C_i f(T) \\
 f(T)    &amp;= \exp \left( E_0 \left( \frac{1}{56.02} - \frac{1}{T+46.02} \right) \right)
@@ -442,6 +455,9 @@ Figure&nbsp;5.2: Temperature dependency of maintenance respiration, modelled bas
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 </section>
 <section id="net-primary-productivity" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="net-primary-productivity"><span class="header-section-number">5.1.2</span> Net primary productivity</h3>
@@ -455,12 +471,12 @@ Figure&nbsp;5.2: Temperature dependency of maintenance respiration, modelled bas
 \mathrm{BP} = \Delta C_\mathrm{leaves} + \Delta C_\mathrm{roots} + \Delta C_\mathrm{wood}
 \tag{5.3}\]</span></span> Note that there is often some ambiguity in definitions of in the literature and ‘NPP’ is used instead of ‘BP’. BP is expressed as a flux of C per unit square meter (for example gC m<sup>-2</sup> yr<sup>-1</sup>). It measures the amount of biomass C produced per unit ground area and time. NPP is expressed in the same units and additionally includes C produced and released as volatie organic compounds and exudates. These do not contribute to biomass of the plant itself and are relatively short-lived. However, they are not in the form of oxidized C (as is <span class="math inline">\(R_a\)</span>) and therefore are counted towards NPP.</p>
 <p>The ratio of NPP:GPP is commonly referred to as the <em>ecosystem carbon use efficiency</em> (CUE), and BP:GPP as the <em>biomass production efficiency</em> (BPE).</p>
-<p><span class="math display">\[
+<p><span id="eq-cue"><span class="math display">\[
 \begin{aligned}
 \mathrm{CUE} &amp;= \mathrm{NPP} / \mathrm{GPP} \\
 \mathrm{BPE} &amp;= \mathrm{BP} / \mathrm{GPP} \\
 \end{aligned}
-\]</span></p>
+\tag{5.4}\]</span></span></p>
 <p>As shown in <a href="#fig-npp_bpe" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, BP is linearly related to GPP across ecosystems, indicating that BP can be assumed to be a constant fraction of GPP - albeit with substantial uncertainty.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -497,7 +513,7 @@ Exercise
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="allocation-and-growth"><span class="header-section-number">5.1.3</span> Allocation and growth</h3>
 <p>The partitioning of available NSC to growth in different plant compartments, to VOC, exudates, or respiration is referred to as <em>allocation</em>. Quantitatively, allocation to a given compartment can be expressed as the ratio of BP of that compartment (leaves, roots, wood) over the total NPP. <span id="eq-allocation-fraction"><span class="math display">\[
 \alpha_i = \Delta C_i / \mathrm{NPP}
-\tag{5.4}\]</span></span> Since C allocated to exudates and volatile organic compounds are rarely measured, BP is commonly used instead of NPP in <a href="#eq-allocation-fraction" class="quarto-xref">Equation&nbsp;<span>5.4</span></a>.</p>
+\tag{5.5}\]</span></span> Since C allocated to exudates and volatile organic compounds are rarely measured, BP is commonly used instead of NPP in <a href="#eq-allocation-fraction" class="quarto-xref">Equation&nbsp;<span>5.5</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-npp_a_ALL" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -555,7 +571,7 @@ Table&nbsp;5.1: Carbon allocation fractions in forests and grasslands. Wood cont
 </section>
 <section id="biomass-turnover-and-litterfall" class="level3" data-number="5.1.4">
 <h3 data-number="5.1.4" class="anchored" data-anchor-id="biomass-turnover-and-litterfall"><span class="header-section-number">5.1.4</span> Biomass turnover and litterfall</h3>
-<p>Turnover of different plant compartments is driven by different processes. The leaf turnover time (<em>leaf longevity</em>) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (<a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>) and ecosystem disturbances (<a href="#sec-disturbances" class="quarto-xref"><span>Section 5.5</span></a>) or the mortality of individual branches of a tree.</p>
+<p>Turnover of different plant compartments is driven by different processes. The leaf turnover in grasses and deciduous trees is linked to the seasons. In evergreen trees, the leaf turnover time (or <em>leaf longevity</em>) is commonly longer than one year and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (<a href="#sec-forest-dynamics" class="quarto-xref"><span>Section 5.4</span></a>) and ecosystem disturbances (<a href="#sec-disturbances" class="quarto-xref"><span>Section 5.5</span></a>) or the mortality of individual branches of a tree.</p>
 <!-- LES II: tree mortality -->
 </section>
 <section id="soil-and-litter-c-dynamics" class="level3" data-number="5.1.5">
@@ -578,7 +594,7 @@ Figure&nbsp;5.5: Litter decomposition in different biomes. Shown is the average 
 </div>
 <p>Soil organic matter (SOM) refers to the organic mass fraction in soils. It consists of litter at advanced stages of decomposition and of microbial biomass and necromass. The decomposition rate of organic matter in soil can be strongly reduced compared to the decomposition rate of litter. This is due to <em>stabilisation</em> processes. Stabilisation of SOM arises from the chemical transformation through soil micro and macro-fauna and through physical protection in the soil matrix (association to minerals, occlusion in soil aggregates). Yet, the decomposition of SOM is rarely fully suppressed (except under fully anoxic conditions).</p>
 <p>SOM exposed to decomposition is consumed by microbes (fungi and bacteria) and fuels their growth. As they consume organic matter - like humans - they use the chemical energy “stored” in organic matter and oxidise the carbohydrates to CO<sub>2</sub>. The CO<sub>2</sub> is respired away in gaseous form and leaves the soil volume and is referred to as <em>heterotrophic respiration</em> (<span class="math inline">\(R_h\)</span>). The rate of microbial activity and hence <span class="math inline">\(R_h\)</span> increases with temperature in a similar way as the temperature dependency of <span class="math inline">\(R_a\)</span>. <span class="math inline">\(R_h\)</span> also depends on soil moisture and has a peaked relationship. It initially increases with increasing soil moisture until a point where the oxygen availability in the soil probihits activity by heterotrophic microorganisms. At this point, <span class="math inline">\(R_h\)</span> drops sharply. Under water-logged soil conditions, SOM decomposition and <span class="math inline">\(R_h\)</span> are suppressed. The temperature dependency of <span class="math inline">\(R_h\)</span>, implemented in the LPJ vegetation model is the same as described for <span class="math inline">\(R_m\)</span> by <a href="#eq-resp-maint" class="quarto-xref">Equation&nbsp;<span>5.1</span></a>.</p>
-<p>SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see <a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (<a href="landclimate.html" class="quarto-xref"><span>Chapter 7</span></a>). C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. As for litter decomposition, the rate of SOM decomposition (<span class="math inline">\(k\)</span> in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.5</span></a>) is controlled by the soil temperature and moisture.</p>
+<p>SOM plays important roles for global biogeochemical cycles and for land-climate interactions. SOM is a vast store of C (~1700 PgC, see <a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>). The soil organic matter content is an important measure for nutrient availability, and strongly influences the water holding capacity of the soil (<a href="landclimate.html" class="quarto-xref"><span>Chapter 7</span></a>). C in soil organic matter (SOM) has a turnover time on the order of years to centuries. Under anoxic conditions, the turnover time of SOM can attain millennia. As for litter decomposition, the rate of SOM decomposition (<span class="math inline">\(k\)</span> in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a>) is controlled by the soil temperature and moisture.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -591,11 +607,11 @@ Figure&nbsp;5.5: Litter decomposition in different biomes. Shown is the average 
 <div class="callout-body-container callout-body">
 <p>Soil and litter C dynamics can be conceived as a 1-st order decay model, consisting of multiple pools, characterized by distinct turnover rates, and supplied with biomass turnover from different plant compartments. The dynamics of an individual pool can be described following 1st-order dynamics (Box in <a href="globalcarbonbudget.html#sec-cpooldynamics" class="quarto-xref"><span>Section 3.2</span></a>). <span id="eq-firststorderdecay_littersom"><span class="math display">\[
 \frac{\mathrm{d}C}{\mathrm{d}t} = I - k(T,\theta) \;C \;.
-\tag{5.5}\]</span></span> Terrestrial biosphere models commonly treat the decay rate <span class="math inline">\(k\)</span> as a function of temperature and moisture, as indicated in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.5</span></a> (<span class="math inline">\(T\)</span> is temperature, <span class="math inline">\(\theta\)</span> is soil moisture). Some models also use the pH of the soil solution and the oxygen content in the soil for modifying <span class="math inline">\(k\)</span>. <span class="math inline">\(k\)</span> at a standard temperature varies for different pools, ranging from 1/3-1 years<sup>-1</sup> for litter, to 50-500 years<sup>-1</sup> for SOM.</p>
-<p>Experiments of litter decomposition in the field, where a specified initial mass of litter is tracked over time (<a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>), reveal a general pattern that is consistent with the 1st-order decay model. The solution of <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.5</span></a> with <span class="math inline">\(I=0\)</span> yields: <span class="math display">\[
+\tag{5.6}\]</span></span> Terrestrial biosphere models commonly treat the decay rate <span class="math inline">\(k\)</span> as a function of temperature and moisture, as indicated in <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a> (<span class="math inline">\(T\)</span> is temperature, <span class="math inline">\(\theta\)</span> is soil moisture). Some models also use the pH of the soil solution and the oxygen content in the soil for modifying <span class="math inline">\(k\)</span>. <span class="math inline">\(k\)</span> at a standard temperature varies for different pools, ranging from 1/3-1 years<sup>-1</sup> for litter, to 50-500 years<sup>-1</sup> for SOM.</p>
+<p>Experiments of litter decomposition in the field, where a specified initial mass of litter is tracked over time (<a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>), reveal a general pattern that is consistent with the 1st-order decay model. The solution of <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a> with <span class="math inline">\(I=0\)</span> yields: <span class="math display">\[
 C(t) = C_0\; e^{-k t}\;,
 \]</span> where <span class="math inline">\(t\)</span> is time. Indeed, the litter mass shown in <a href="#fig-litter_decomposition" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> exhibits an exponential decline over time.</p>
-<p>Also SOM decay can be represented following <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.5</span></a>. In words, the amount of SOM C that gets decomposed in a given amount of time is proportional to the SOM C pool size. The input into that pool is independent of the pool itself.</p>
+<p>Also SOM decay can be represented following <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a>. In words, the amount of SOM C that gets decomposed in a given amount of time is proportional to the SOM C pool size. The input into that pool is independent of the pool itself.</p>
 <p>Litter and SOM pools in terrestrial biosphere models are most commonly represented by an array of pools that are characterized by different turnover times and that are connected following a specific structure. The litter pools receive inputs from biomass turnover. Decomposed litter is diverted to SOM pools. Fast-decomposing litter is diverted too a SOM pool with a short turnover time (high <span class="math inline">\(k\)</span>), slow-decomposing litter is diverted to a SOM pool with a long turnover time. C is respired away as CO<sub>2</sub> during litter and SOM decomposition. The <em>microbial carbon use efficiency</em> (<span class="math inline">\(e\)</span>) determines the ratio of the decomposed C contributing to microbial biomass growth. <span class="math inline">\((1-e)\)</span> is respired as CO<sub>2</sub>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -605,7 +621,7 @@ C(t) = C_0\; e^{-k t}\;,
 <img src="images/littersom_model.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-littersom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: Model for litter and SOM C pools and fluxes. Decomposition of fast and slow litter and SOM pools are modelled using <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.5</span></a> with a relatively high and low <em>k</em> respectively. The input term <em>I</em> for each pool is depicted by straight arrows. <em>e</em> is the carbon use efficiency of litter decomposition. <em>f</em><sub>fast</sub> is the fraction of litter decomposition diverted to the fast decomposing SOM pool. <em>R</em><sub>h</sub> is the heterotrophic respiration of C, leaving the system as CO<sub>2</sub>. This shows a simplified version of the litter and SOM model structure implemented in the LPJ terrestrial biosphere model <span class="citation" data-cites="sitch03gcb">(<a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>. ‘Fast’ and ‘slow’ litter pools are also commonly referred to as ‘metabolic’ and ‘structural’ litter, respectively. ‘Fast’ and ‘slow’ SOM pools are also commonly referred to as ‘active’ and ‘passive’, respectively - although the structure of how they are connected through mass transfers may differ.
+Figure&nbsp;5.6: Model for litter and SOM C pools and fluxes. Decomposition of fast and slow litter and SOM pools are modelled using <a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a> with a relatively high and low <em>k</em> respectively. The input term <em>I</em> for each pool is depicted by straight arrows. <em>e</em> is the carbon use efficiency of litter decomposition. <em>f</em><sub>fast</sub> is the fraction of litter decomposition diverted to the fast decomposing SOM pool. <em>R</em><sub>h</sub> is the heterotrophic respiration of C, leaving the system as CO<sub>2</sub>. This shows a simplified version of the litter and SOM model structure implemented in the LPJ terrestrial biosphere model <span class="citation" data-cites="sitch03gcb">(<a href="references.html#ref-sitch03gcb" role="doc-biblioref">Sitch et al. 2003</a>)</span>. ‘Fast’ and ‘slow’ litter pools are also commonly referred to as ‘metabolic’ and ‘structural’ litter, respectively. ‘Fast’ and ‘slow’ SOM pools are also commonly referred to as ‘active’ and ‘passive’, respectively - although the structure of how they are connected through mass transfers may differ.
 </figcaption>
 </figure>
 </div>
@@ -623,7 +639,7 @@ Figure&nbsp;5.6: Model for litter and SOM C pools and fluxes. Decomposition of f
 \mathrm{NEP} &amp;= \mathrm{GPP} - R_a - R_h \\
              &amp;= \mathrm{NPP} - R_h
 \end{align}
-\tag{5.6}\]</span></span> NEP can be measured by <em>eddy covariance</em> flux measurement technique (see also <a href="researchtools.html" class="quarto-xref"><span>Chapter 15</span></a>). The net CO<sub>2</sub> exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.</p>
+\tag{5.7}\]</span></span> NEP can be measured by <em>eddy covariance</em> flux measurement technique (see also <a href="researchtools.html" class="quarto-xref"><span>Chapter 15</span></a>). The net CO<sub>2</sub> exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.</p>
 <p>The classical model of ecological succession and an ecosystem’s carbon balance is that it reaches a steady state at time scales of forest stand maturity (shorter for grasslands), where, under constant environmental conditions, the NEP approaches zero. Respiration balances photosynthetic C uptake, biomass turnover balances biomass accumulation, and ecosystems become “C neutral” <span class="citation" data-cites="odum69sci">(<a href="references.html#ref-odum69sci" role="doc-biblioref">Odum 1969</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -647,12 +663,12 @@ Figure&nbsp;5.7: Classical model of ecosystem an ecosystem’s carbon fluxes and
 </section>
 <section id="net-biome-productivity" class="level3" data-number="5.1.7">
 <h3 data-number="5.1.7" class="anchored" data-anchor-id="net-biome-productivity"><span class="header-section-number">5.1.7</span> Net biome productivity</h3>
-<p>Net biome productivity (NBP, expressed in a mass carbon per unit ground area and time, for example gC m<sup>-2</sup> yr<sup>-1</sup>) is the net of NEP and C loss by disturbances <span class="math inline">\(\Delta C_\mathrm{dist}\)</span>. The NBP is defined for large spatial domains - large enough to contain a representative sample of stochastically occurring disturbances. Across an entire biome, this is given. <span class="math display">\[
+<p>Net biome productivity (NBP, expressed in a mass carbon per unit ground area and time, for example gC m<sup>-2</sup> yr<sup>-1</sup>) is the net of NEP and C loss by disturbances <span class="math inline">\(\Delta C_\mathrm{dist}\)</span>. The NBP is defined for large spatial domains - large enough to contain a representative sample of stochastically occurring disturbances. Across an entire biome, this is given. <span id="eq-nbp"><span class="math display">\[
 \begin{align}
 \mathrm{NBP} &amp;= \mathrm{GPP} - R_a - R_h - \Delta C_\mathrm{dist} \\
              &amp;= \mathrm{NEP} - \Delta C_\mathrm{dist}
 \end{align}
-\]</span> Disturbances are commonly referred to as stand-replacing events that drive mortality in a large portion of individual plants of an ecosystem. Causes for disturbances include fire, pests, windthrow, or wood harvesting. A disturbance can be conceived as a re-setting of the “Odum-type” ecosystem succession. In contrast to the forest gap dynamics (<a href="#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>), which play out at the level of individual trees, disturbances affect larger spatial extents (ecosystem or forest <em>patches</em>, <a href="#fig-patches" class="quarto-xref">Figure&nbsp;<span>5.8</span></a>). However, the same aspects of stochasticity across the landscape applies.</p>
+\tag{5.8}\]</span></span> Disturbances are commonly referred to as stand-replacing events that drive mortality in a large portion of individual plants of an ecosystem. Causes for disturbances include fire, pests, windthrow, or wood harvesting. A disturbance can be conceived as a re-setting of the “Odum-type” ecosystem succession. In contrast to the forest gap dynamics (<a href="#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>), which play out at the level of individual trees, disturbances affect larger spatial extents (ecosystem or forest <em>patches</em>, <a href="#fig-patches" class="quarto-xref">Figure&nbsp;<span>5.8</span></a>). However, the same aspects of stochasticity across the landscape applies.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-patches" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -699,15 +715,17 @@ Figure&nbsp;5.9: The carbon cascade in terrestrial ecosystems. Boxes indicate po
 <p>…, the same linear dependency of the total system C storage <span class="math inline">\(\sum_i C_i^\ast\)</span> emerges: <span class="math display">\[
 \frac{I}{I_0} = \frac{\sum_i C_i^\ast}{\sum_i C_{i,0}^\ast} = \frac{C_i^\ast}{C_{i,0}^\ast}, \; \forall i
 \]</span> The symbol <span class="math inline">\(\forall\)</span> means ‘for all’. However, whether a model with constant <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k_i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(f_\mathrm{fast}\)</span> is a good representation of real ecosystems’ responses to environmental change is questionable. It is well established, for example, that <span class="math inline">\(\alpha\)</span> is very sensitive altered soil nutrient availability and changes in CO<sub>2</sub> experiments <span class="citation" data-cites="poorter12">(<a href="references.html#ref-poorter12" role="doc-biblioref">Poorter et al. 2012</a>)</span>. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO<sub>2</sub> fertilization or an extension of the growing season) <span class="citation" data-cites="marques23">(<a href="references.html#ref-marques23" role="doc-biblioref">Marqués et al. 2023</a>)</span>. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Simulating the C cascade
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The two points (see above) are implemented in a multi-box model:</p>
 <ul>
@@ -871,6 +889,7 @@ Figure&nbsp;5.12: Initial pool size (after spin-up and before step-change in GPP
 <p>This illustrates that the relative change in the size of each pool in the C cascade is identical and corresponds to the relative change in GPP. In other words, the C cascade with constant allocation, turnover rates, and efficiencies exhibits a <em>linear systems dynamics</em>.</p>
 </div>
 </div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1011,6 +1030,195 @@ Figure&nbsp;5.13: Simulated biomass C and the ecosystem C balance (measured by N
 <section id="sec-disturbances" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="sec-disturbances"><span class="header-section-number">5.5</span> Fire and other disturbances</h2>
 <p>Coming soon.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Symbols
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="tbl-symbols-ecosystemcarbon" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-symbols-ecosystemcarbon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.2: Symbols and abbreviations used in this chapter.
+</figcaption>
+<div aria-describedby="tbl-symbols-ecosystemcarbon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol/abbreviation</th>
+<th>Description</th>
+<th>Common units</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NSC</td>
+<td>Non-structural carbon</td>
+<td>gC m<sup>-2</sup></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_a\)</span></td>
+<td>Autotrophic respiration</td>
+<td>gC m<sup>-2</sup> s<sup>-1</sup></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R_g\)</span></td>
+<td>Growth respiration. A component of <span class="math inline">\(R_a\)</span>.</td>
+<td>gC m<sup>-2</sup> s<sup>-1</sup></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_a\)</span></td>
+<td>Dark respiration. A component of <span class="math inline">\(R_a\)</span>.</td>
+<td>gC m<sup>-2</sup> s<sup>-1</sup></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NPP</td>
+<td>Net primary production</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Delta C_\mathrm{leaves}\)</span></td>
+<td>Biomass C production in leaves</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Delta C_\mathrm{roots}\)</span></td>
+<td>Biomass C production in roots</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Delta C_\mathrm{wood}\)</span></td>
+<td>Biomass C production in wood</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C_\mathrm{VOC}\)</span></td>
+<td>C allocated to volatile organic compounds</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_\mathrm{exu}\)</span></td>
+<td>C allocated to exudates</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-npp" class="quarto-xref">Equation&nbsp;<span>5.2</span></a></td>
+</tr>
+<tr class="odd">
+<td>CUE</td>
+<td>Carbon use efficiency</td>
+<td>(unitless)</td>
+<td><a href="#eq-cue" class="quarto-xref">Equation&nbsp;<span>5.4</span></a></td>
+</tr>
+<tr class="even">
+<td>BPE</td>
+<td>Biomass production efficiency</td>
+<td>(unitless)</td>
+<td><a href="#eq-cue" class="quarto-xref">Equation&nbsp;<span>5.4</span></a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\alpha_i\)</span></td>
+<td>Fraction of C allocated to biomass C production in plant pool <span class="math inline">\(i\)</span></td>
+<td>(unitless)</td>
+<td><a href="#eq-allocation-fraction" class="quarto-xref">Equation&nbsp;<span>5.5</span></a></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_h\)</span></td>
+<td>Heterotrophic respiration</td>
+<td>gC m<sup>-2</sup> s<sup>-1</sup></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SOM</td>
+<td>Soil organic matter</td>
+<td>gC m<sup>-2</sup></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta\)</span></td>
+<td>Soil water content</td>
+<td>m<sup>3</sup> m<sup>-3</sup></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(T\)</span></td>
+<td>Temperature</td>
+<td><span class="math inline">\(^\circ\)</span>C</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(t\)</span></td>
+<td>Time</td>
+<td>yr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I\)</span></td>
+<td>Input flux of C in the 1-box model</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k\)</span></td>
+<td>Decay constant in the 1-box model</td>
+<td>yr<sup>-1</sup></td>
+<td><a href="#eq-firststorderdecay_littersom" class="quarto-xref">Equation&nbsp;<span>5.6</span></a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(e\)</span></td>
+<td>Microbial C use efficiency</td>
+<td>(unitless)</td>
+<td><a href="#fig-littersom" class="quarto-xref">Figure&nbsp;<span>5.6</span></a></td>
+</tr>
+<tr class="even">
+<td>f<sub>fast</sub></td>
+<td>Fraction of C entering the fast-turnover SOM pool in the C cascade model</td>
+<td>(unitless)</td>
+<td><a href="#fig-littersom" class="quarto-xref">Figure&nbsp;<span>5.6</span></a></td>
+</tr>
+<tr class="odd">
+<td>NEP</td>
+<td>Net ecoystem production</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-nep" class="quarto-xref">Equation&nbsp;<span>5.7</span></a></td>
+</tr>
+<tr class="even">
+<td>NBP</td>
+<td>Net biome production</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-nbp" class="quarto-xref">Equation&nbsp;<span>5.8</span></a></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Delta C_\mathrm{dist}\)</span></td>
+<td>C loss due to disturbances</td>
+<td>gC m<sup>-2</sup> yr<sup>-1</sup></td>
+<td><a href="#eq-nbp" class="quarto-xref">Equation&nbsp;<span>5.8</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
 <!-- XXX for LES 2 -->
 <!-- - Land: GPP-NPP, vegC, soilC, Ra, Rh -->
 <!-- ## Plant-level carbon balance -->
@@ -1062,6 +1270,9 @@ Peng, Yunke, Iain Colin Prentice, Keith J. Bloomfield, Matteo Campioli, Zhiwen G
 </div>
 <div id="ref-poorter12" class="csl-entry" role="listitem">
 Poorter, Hendrik, Karl J. Niklas, Peter B. Reich, Jacek Oleksyn, Pieter Poot, and Liesje Mommer. 2012. <span>“Biomass Allocation to Leaves, Stems and Roots: Meta‐analyses of Interspecific Variation and Environmental Control.”</span> <em>New Phytologist</em> 193 (1): 30–50. <a href="https://doi.org/10.1111/j.1469-8137.2011.03952.x">https://doi.org/10.1111/j.1469-8137.2011.03952.x</a>.
+</div>
+<div id="ref-schulze19" class="csl-entry" role="listitem">
+Schulze, Ernst-Detlef, Beck Erwin, Nina Buchmann, Stephan Clemens, Klaus Müller-Hohenstein, and Michael Scherer-Lorenzen. 2019. <em>Plant <span>Ecology</span></em>. Heidelberg: Springer Berlin. <a href="https://doi.org/10.1007/978-3-662-56233-8">https://doi.org/10.1007/978-3-662-56233-8</a>.
 </div>
 <div id="ref-sitch03gcb" class="csl-entry" role="listitem">
 Sitch, S., B. Smith, I. C. Prentice, A. Arneth, A. Bondeau, W. Cramer, J. O. Kaplan, et al. 2003. <span>“Evaluation of Ecosystem Dynamics, Plant Geography and Terrestrial Carbon Cycling in the <span>LPJ</span> Dynamic Global Vegetation Model.”</span> <em>Global Change Biology</em> 9 (2): 161–85. <a href="https://doi.org/10.1046/j.1365-2486.2003.00569.x">https://doi.org/10.1046/j.1365-2486.2003.00569.x</a>.
