@@ -4,6 +4,8 @@ library(dplyr)
 library(ggplot2)
 library(readr)
 library(ggridges)
+library(GECOr)
+library(khroma)
 sf::sf_use_s2(FALSE)
 source(here::here("R/create_map_byvar.R"))
 

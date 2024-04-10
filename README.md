@@ -1,4 +1,4 @@
-# Land in the Earth System I
+# Land in the Earth System
 
 Introducing global patterns, processes, and underlying principles for how climate shapes the terrestrial biosphere and how land feeds back to Earth system dynamics.
 

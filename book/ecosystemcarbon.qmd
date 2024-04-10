@@ -18,17 +18,22 @@ At the ecosystem-level, C dynamics can be described as the flows (fluxes) betwee
 
 ```{r echo=FALSE}
 #| label: fig-ecosystem-carbon-cycle-bonan
-#| fig-cap: "Major carbon fluxes and pools in land ecosystems. Figure from @bonan08sci."
-#| out-width: 40%
-knitr::include_graphics("images/ecosystem-carbon-cycle-bonan.png")
+#| fig-cap: "An illustrative (a) and schematic (b) representation of arbon fluxes and pools in land ecosystems. Major fluxes in (b) are introduced in this chapter below. R~h~ is heterotrophic respiration. CWD is coarse woody debris. SOM is soil organic matter. PS-products is photosynthetic products. The width of arrows is representative of flux magnitudes. Panel (a) is from @bonan08sci. Panel (b) is from @schulze19."
+#| out-width: 100%
+knitr::include_graphics("images/ecosystem_carbon.png")
 ```
 
 ### Non-structural carbon and autotrophic respiration
 
 C assimilated by photosynthesis is initially present as *non-structural C* (NSC) in the form of hydrocarbons (sugars). Some of the assimilated C is stored internally in the form of starch to fuel the *reserves* pool. Some of the assimilated carbon is consumed by *autotrophic respiration* ($R_a$) which subsumes different processes, including maintaining vital functions of the plant (*maintenance respiration*), inevitable losses during photosynthesis (*leaf dark respiration*, 
-$R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (*growth respiration*, $R_g$). Growth respiration produces CO~2~ as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models. 
+$R_d$, see @sec-fvcb), and energetic costs for biomass synthesis (*growth respiration*, $R_g$). Growth respiration produces CO~2~ as new biomass is formed, scales with the rate of new biomass formation (BP, see below), and is typically taken to be independent of temperature in vegetation models. Symbols used in this chapter are listed in @tbl-symbols-ecosystemcarbon.
 
-Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, $R_a$ is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in $R_a$, but respiration rates acclimate to average growth temperatures such that the relationship between $R_a$ and temperature is less steep when considering longer time scales or variations across different climates. A typical temperature dependency of respiration, used in the LPJ vegetation model [@lloyd94; @sitch03gcb], is given by @eq-resp-maint and visualised in @fig-resp-maint.
+Maintenance respiration depends on plant size and temperature. It is commonly modelled as being proportional to the pool size of live biomass (sapwood, fine roots). Hence, the respiratory costs is higher for larger plants than for small plants. In vegetation models, $R_a$ is often assumed to depend on the C:N ratio (mass ratio of C to nitrogen in biomass), with lower C:N ratios associated with higher respiration rates. Temperature drives a strong instantaneous response in $R_a$, but respiration rates acclimate to average growth temperatures such that the relationship between $R_a$ and temperature is less steep when considering longer time scales or variations across different climates. 
+
+::: {.callout-tip icon=false, collapse=true}
+### Temperature dependency of respiration
+
+A typical temperature dependency of respiration, used in the LPJ vegetation model [@lloyd94; @sitch03gcb], is given by @eq-resp-maint and visualised in @fig-resp-maint.
 $$
 \begin{align}
 R_{m,i} &= r_i C_i f(T) \\
@@ -56,7 +61,7 @@ ggplot() +
        y = expression(paste("Respiration factor ", italic(f), "(", italic(T), ")"))) + 
   theme_classic()
 ```
-
+:::
 
 ### Net primary productivity
 
@@ -82,7 +87,7 @@ $$
 \mathrm{CUE} &= \mathrm{NPP} / \mathrm{GPP} \\
 \mathrm{BPE} &= \mathrm{BP} / \mathrm{GPP} \\
 \end{aligned}
-$$
+$$ {#eq-cue}
 
 As shown in @fig-npp_bpe, BP is linearly related to GPP across ecosystems, indicating that BP can be assumed to be a constant fraction of GPP - albeit with substantial uncertainty. 
 
@@ -144,7 +149,7 @@ Because C in leaves and fine roots has a much shorter turnover time than in wood
 
 ### Biomass turnover and litterfall
 
-Turnover of different plant compartments is driven by different processes. The leaf turnover time (*leaf longevity*) varies strongly between deciduous and evergreen species and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (@sec-forest-dynamics) and ecosystem disturbances (@sec-disturbances) or the mortality of individual branches of a tree.
+Turnover of different plant compartments is driven by different processes. The leaf turnover in grasses and deciduous trees is linked to the seasons. In evergreen trees, the leaf turnover time (or *leaf longevity*) is commonly longer than one year and is related to the leaf mass per unit leaf area (LMA - thicker leaves live longer). Leaves may also be damaged and shed after severe water stress and exposure to desiccation. Fine roots turn over at time scales of months to years. Woody biomass is much more long-lived than fine roots and leaf biomass. Its turnover is governed by tree mortality (@sec-forest-dynamics) and ecosystem disturbances (@sec-disturbances) or the mortality of individual branches of a tree.
 
 <!-- LES II: tree mortality -->
 
@@ -237,7 +242,7 @@ $$
 \mathrm{NBP} &= \mathrm{GPP} - R_a - R_h - \Delta C_\mathrm{dist} \\
              &= \mathrm{NEP} - \Delta C_\mathrm{dist}
 \end{align}
-$$
+$$ {#eq-nbp}
 Disturbances are commonly referred to as stand-replacing events that drive mortality in a large portion of individual plants of an ecosystem. Causes for disturbances include fire, pests, windthrow, or wood harvesting. A disturbance can be conceived as a re-setting of the "Odum-type" ecosystem succession. In contrast to the forest gap dynamics (@sec-nep), which play out at the level of individual trees, disturbances affect larger spatial extents (ecosystem or forest *patches*, @fig-patches). However, the same aspects of stochasticity across the landscape applies. 
 
 ```{r echo=FALSE}
@@ -280,7 +285,7 @@ $$
 $$
 The symbol $\forall$ means 'for all'. However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
 
-::: {.callout-note}
+::: {.callout-tip icon=false, collapse=true}
 ## Simulating the C cascade
 
 The two points (see above) are implemented in a multi-box model:
@@ -501,6 +506,42 @@ Coming soon.
 ## Fire and other disturbances {#sec-disturbances}
 
 Coming soon.
+
+::: {.callout-important icon=false}
+
+## Symbols
+
+| Symbol/abbreviation | Description | Common units | Equation |
+| ---- | ---- | ---- | ---- |
+| NSC | Non-structural carbon | gC m^-2^ |  |
+| $R_a$ | Autotrophic respiration | gC m^-2^ s^-1^ |  |
+| $R_g$ | Growth respiration. A component of $R_a$. | gC m^-2^ s^-1^ |  |
+| $R_a$ | Dark respiration. A component of $R_a$. | gC m^-2^ s^-1^ |  |
+| NPP | Net primary production | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{leaves}$ | Biomass C production in leaves | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{roots}$ | Biomass C production in roots | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{wood}$ | Biomass C production in wood | gC m^-2^ yr^-1^ | @eq-npp |
+| $C_\mathrm{VOC}$ | C allocated to volatile organic compounds | gC m^-2^ yr^-1^ | @eq-npp |
+| $C_\mathrm{exu}$ | C allocated to exudates  | gC m^-2^ yr^-1^ | @eq-npp |
+| CUE | Carbon use efficiency | (unitless) | @eq-cue |
+| BPE | Biomass production efficiency | (unitless) | @eq-cue |
+| $\alpha_i$ | Fraction of C allocated to biomass C production in plant pool $i$  | (unitless) | @eq-allocation-fraction |
+| $R_h$ | Heterotrophic respiration | gC m^-2^ s^-1^ |  |
+| SOM | Soil organic matter | gC m^-2^ |  |
+| $\theta$ | Soil water content | m^3^ m^-3^ |  |
+| $T$ | Temperature | $^\circ$C |  |
+| $t$ | Time | yr |  |
+| $I$ | Input flux of C in the 1-box model | gC m^-2^ yr^-1^ | @eq-firststorderdecay_littersom |
+| $k$ | Decay constant in the 1-box model | yr^-1^ | @eq-firststorderdecay_littersom |
+| $e$ | Microbial C use efficiency | (unitless) | @fig-littersom |
+| f~fast~ | Fraction of C entering the fast-turnover SOM pool in the C cascade model | (unitless) | @fig-littersom |
+| NEP | Net ecoystem production | gC m^-2^ yr^-1^ | @eq-nep |
+| NBP | Net biome production | gC m^-2^ yr^-1^ | @eq-nbp |
+| $\Delta C_\mathrm{dist}$ | C loss due to disturbances | gC m^-2^ yr^-1^ | @eq-nbp |
+
+: Symbols and abbreviations used in this chapter. {#tbl-symbols-ecosystemcarbon}
+
+:::
 
 <!-- XXX for LES 2 -->
 

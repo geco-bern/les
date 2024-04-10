@@ -216,7 +216,7 @@ Plants can also be distinguished into the botanical classification of *angiosper
 knitr::include_graphics("images/pfts.png")
 ```
 
-## Traits
+## Traits {#sec-traits}
 
 The physiological, morphological, and life history characteristics of different plants determine their productivity and competitiveness in a given climate. Such characteristics are referred to as *plant functional traits*, or often just *traits*. Plant species can be described by a set of traits and a subset of certain traits yields the distinction into PFTs described above: leaf habit (deciduous vs. evergreen), leaf form (needle-leaved vs. broadleaved), and the life history strategy distinguising annual vs. perennial. A range of additional traits are commonly described and investigated scientifically. Here, we will not consider additional ones. The concept of a plant functional trait is that it describes a largely immutable characteristic of a plant species that determines metabolic rates (photosynthesis, respiration) and their relationship to the abiotic environment (e.g., temperature), nutrient and water demand, and ultimately its demographic rates (growth, fecundity, mortality) and thus competitiveness.
 

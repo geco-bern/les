@@ -18,7 +18,7 @@ In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of 
 $$
 \mathrm{GPP} = \mathrm{PPFD} \cdot \mathrm{fAPAR} \cdot \mathrm{LUE}
 $$ {#eq-luemodel}
-GPP is expressed as a C flux per unit ground area and per unit time (e.g., gC m^-2^ s^-1^). PPFD measures the solar radiation flux, incident at the top of the canopy. It is expressed, e.g., in units of mol (photons) m^-2^ s^-1^. The light use efficiency model (@eq-luemodel) is also often formulated using the photosynthetically active (solar) radiation (PAR) in units of an energy flux per unit ground area (e.g., J m^-2^), instead of PPFD. This is equivalent to the expression with respect to PPFD, considering that each photon (light quantum) bears a certain amount of radiation energy (see, e.g., [here](https://en.wikipedia.org/wiki/Photon_energy)). fAPAR is the fraction (unitless) of absorbed photosynthetically active radiation. It depends on the total ecosystem-level (or canopy-level) surface area of green leaves (@sec-light-absorption). LUE is the light use efficiency, measuring the efficiency with which photons are harvested and used for assimilating CO~2~ by the photosynthetic machinery (@sec-photosynthesis). It is expressed, e.g., in units of gC (mol CO~2~)^-1^.
+GPP is expressed as a C flux per unit ground area and per unit time (e.g., gC m^-2^ s^-1^). PPFD measures the solar radiation flux, incident at the top of the canopy. It is expressed, e.g., in units of mol (photons) m^-2^ s^-1^. The light use efficiency model (@eq-luemodel) is also often formulated using the photosynthetically active (solar) radiation (PAR) in units of an energy flux per unit ground area (e.g., W m^-2^), instead of PPFD. This is equivalent to the expression with respect to PPFD, considering that each photon (light quantum) bears a certain amount of radiation energy (see, e.g., [here](https://en.wikipedia.org/wiki/Photon_energy)). fAPAR is the fraction (unitless) of absorbed photosynthetically active radiation. It depends on the total ecosystem-level (or canopy-level) surface area of green leaves (@sec-light-absorption). LUE is the light use efficiency, measuring the efficiency with which photons are harvested and used for assimilating CO~2~ by the photosynthetic machinery (@sec-photosynthesis). It is expressed, e.g., in units of gC (mol CO~2~)^-1^. See @tbl-symbols-gpp for an overview of symbols and abbreviations used in this chapter.
 
 Of course, a relationship with biomass productivity, as observed by @monteith72 should not be equated with a relationship with GPP. However, again, over longer periods of time, a given plant converts assimilated carbon into biomass at a relatively constant rate (see @sec-carboncycle_ecosystem). Therefore, the observation by @monteith72 is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of @eq-luemodel and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by @monteith72 were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are - for now - ignoring the effects by limited root-zone water availability. We will relieve this simplification in @sec-landclimate and @sec-ecohydrology.
 
@@ -27,9 +27,9 @@ The linear dependence of GPP on PPFD implies that the variations of solar radiat
 
 ## Canopy light absorption {#sec-light-absorption}
 
-Photosynthetic CO~2~ uptake only operates if active (green) leaves are out. The relationship between the amount of leaves and GPP are introduced here. Active leaf area varies across the seasons and space in response to the seasonality of temperature and light and water availability. The seasonal fluctuation of leaf area, most visible for deciduous trees, is referred to as (leaf) phenology. The drivers of temporal and spatial variations of phenology and leaf area are introduced later.
+Photosynthetic CO~2~ uptake only operates if active (green) leaves are out. The relationship between the amount of leaves and GPP is introduced here. Active leaf area varies across the seasons and space in response to the seasonality of temperature, light and water availability. The seasonal fluctuation of leaf area, most visible for deciduous trees, is referred to as (leaf) phenology. The drivers of temporal and spatial variations of phenology and leaf area are introduced in @sec-phenology.
 
-The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). Note that the total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy which may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests may form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
+The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). The total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy. The canopy may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests commonly form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
 
 ```{r echo=FALSE}
 #| label: fig-light_absorption
@@ -38,25 +38,125 @@ The fraction of absorbed photosynthetically active radiation (fAPAR) increases w
 knitr::include_graphics("images/light_absorption_bonan.png")
 ```
 
-While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. Each of these processes affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
+While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. The penetration of radiation into a canopy is referred to as canopy *radiative transfer*. Each of the processes - reflection, absorption, and transmittance - affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
 
-In brief, canopy *radiative transfer* is complex. A simple model of radiation extinction is given by the *Beer-Lambert law*. To apply it for radiative transfer in the canopy, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
+In brief, canopy radiative transfer is complex. A simple model for how (solar) radiation (light) is attenuated as it penetrates into the canopy is given by the *Beer-Lambert law*. To apply it for canopy radiative transfer, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light intensity $I$ at the bottom of the canopy ($z_0$) is an exponential function of LAI ($L$). The rate of decline of the light intensity is given by the light extinction coefficient $k$. A typical value of $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
+$$
+I(z_0) = I_0 \; e^{-kL}
+$$
+We have assumed that no light is reflected. Therefore the reduction of light levels at the bottom of the canopy tells us how much light was absorbed by the canopy (and used for photosynthesis). The fraction of absorbed (photosynthetically active) radiation therefore is
+$$
+\begin{align}
+\mathrm{fAPAR} &= 1 - I(z_0)/I_0 \\
+               &= 1 - e^{-kL}\;.
+\end{align}
+$$
+
+The shape of this function is illuatrated in @fig-fapar (a). This implies a dependency of light levels on canopy depth $z$, as illustrated in @fig-fapar (b) - consistent with the observation shown in @fig-light_absorption (b). 
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
+#| label: fig-fapar
+#| fig-cap: "The fraction of absorbed photosynthetically active radiation (fAPAR) as a function of LAI (a)  and relative light (or photosynthetically active radiation) levels as a function of canopy depth (z) following the Beer-Lambert law. The arrangement of the canopy versus depth (z = 0 at the top of the canopy) is shown by the green rectangle in (b), within which leaves are assumed to be evenly distributed. The yellow line in (b) represents the light levels, relative to the top of the canopy. The brown rectangle represents a stem, indicating that this part is below the canopy - without light-absorbing leaves."
+#| out-width: 80%
+
+library(ggplot2)
+library(dplyr)
+
+calc_fapar <- function(lai, k_beer){
+  1 - exp(-k_beer * lai)
+}
+
+gg_fapar <- ggplot() +
+  geom_function(
+    fun = calc_fapar, 
+    args = list(k_beer = 0.5),
+    linewidth = 0.75
+    ) +
+  xlim(0, 10) +
+  labs(x = expression(paste("LAI (m"^2, " m"^-2, ")")),
+       y = "fAPAR (unitless)") +
+  theme_classic()
+
+calc_cumlai <- function(z){
+  ifelse(z <= 3.5, z*4.6/3.5, 4.6)
+}
+
+calc_light_rel <- function(z, k_beer){
+  exp(-k_beer * calc_cumlai(z))
+}
+
+df <- tibble(z = seq(0, 7, by = 0.01)) |> 
+  mutate(
+    light_rel = calc_light_rel(z, k_beer = 0.5)
+    )
+
+gg_canopydepth <- ggplot() +
+  geom_rect(
+    aes(
+      xmin = 0, xmax = 1,
+      ymin = 0, ymax = 3.5
+    ),
+    fill = "#009E73",
+    alpha = 0.5
+  ) +
+  geom_rect(
+    aes(
+      xmin = 0.45, xmax = 0.55,
+      ymin = 3.5, ymax = 7
+    ),
+    fill = "sienna",
+    alpha = 0.5
+  ) +
+  geom_line(
+    data = df,
+    aes(
+      y = z,
+      x = light_rel),
+    linewidth = 1,
+    color = "#E69F00"
+  ) +
+  labs(y = "Canopy depth (m)",
+       x = "Light level (relative)") +
+  theme_classic() +
+  scale_y_reverse()
+
+cowplot::plot_grid(
+  gg_fapar,
+  gg_canopydepth,
+  nrow = 1,
+  labels = c("a", "b"),
+  rel_widths = c(1, 0.6)
+)
+```
+
+::: {.callout-tip icon=false, collapse=true}
+## Basis of the Beer-Lambert law for canopy light extinction
+
+Following the Beer-Lambert law model, the light extinction at canopy depth $z$ (measuring from the top) is proportional to the light intensity at that depth and an "optical density" $\mu$.
 $$
 \frac{\mathrm{d}I}{\mathrm{d}z} = -\mu\;I(z)
+$$ {#eq-optical-density}
+Therefore, the light intensity declines exponentially with $z$.
 $$
-We further assume that the canopy is a homogenous turbid medium. In other words, we assume that leaves are uniformly distributed across the canopy and that the optical density is given by the leaf area index $L$ divided by the total canopy depth $z_0$:
+I(z) = I_0 \exp(-\mu z)
+$$ {#eq-light-extinction}
+How does the dependency on $z$ relate to the dependency on LAI ($L$)?
+
+For applying the Beer Lambert law, it is further assumed that the canopy is a homogenous turbid medium. In other words, we assume that leaves are uniformly distributed across the canopy and that the optical density is given by the leaf area index $L$ divided by the total canopy depth $z_0$:
 $$
 \mu = k \frac{L}{z_0}
+$$ {#eq-homogenous-canopy}
+$k$ is the leaf area-specific optical density, or *light extinction coefficient*. Using @eq-light-extinction and @eq-homogenous-canopy, we can thus express the light level at the bottom of the canopy ($z_0$) as a function of $L$ as
 $$
-$k$ is the leaf area-specific optical density, or *light extinction coefficient*. Therefore, the radiation intensity at the bottom of the canopy ($z_0$) is:
-$$
-I(z_0) = I_0 \; e^{-kL}\;,
+I(z_0) = I_0 \; e^{-kL}
 $$
 and the fraction of absorbed (photosynthetically active) radiation is
 $$
 \mathrm{fAPAR} = 1 - e^{-kL}\;.
 $$
-A typical value of the light extinction coefficient $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
+
+:::
 
 The radiation $I$ consists of *direct* radiation from the sun and *diffuse* radiation from the sky and from radiation scattered within the canopy. This distinction is relevant for understanding radiation absorption by the canopy and canopy-level photosynthesis. Two important implications are the following. First, diffuse radiation is more effectively absorbed by canopies, particularly at low LAI. The reduction of GPP under cloudy conditions is therefore less than what would be expected from considering only changes in $I_0$ (the effective $k$ is higher for diffuse radiation than for direct radiation). 
 
@@ -71,13 +171,13 @@ Second, the energy flux of direct radiation is much higher than that of diffuse 
 
 ## Photosynthesis {#sec-photosynthesis}
 
-The efficiency at which absorbed photons (radiation) are converted into C in the form of sugars depends on the conductance to CO~2~ uptake by the leaf and on the activity of the photosynthetic machinery. In this subsection, we dive very deep into the term LUE in @eq-luemodel.
+Light use efficiency (LUE, @eq-luemodel) measures the efficiency at which absorbed photons (radiation) are converted into C in the form of sugars. LUE is an ecosystem-level quantity and reflects the collective photosynthetic CO~2~ uptake efficiency of all leaves in the canopy. This efficiency is determined by the leaf physiology and the activity of the photosynthetic machinery. In this subsection, we dive very deep into the physiology of photosynthesis.
 
 CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
 $$
 A = g_s(c_a - c_i)
 $$ {#eq-photo-fick}
-$c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO~2~ concentration at the chloroplast. $g_s$ is the stomatal conductance. Note that we use the variable name $A$ here for CO~2~ assimilation by photosynthesis. In constrast to the ecosystem-level variable GPP, $A$ refers to the leaf-level flux.
+$c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO~2~ concentration inside the leaf - at the chloroplast. $g_s$ is the stomatal conductance. Note that we use the variable name $A$ here for CO~2~ assimilation by photosynthesis. In constrast to the ecosystem-level variable GPP, $A$ refers to the leaf-level flux.
 
 ```{r echo=FALSE}
 #| label: fig-stomata
@@ -86,13 +186,13 @@ $c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO
 knitr::include_graphics("images/stomata.png")
 ```
 
-Photosynthetic CO~2~ assimilation leads to a continous depletion of CO~2~ inside the leaf. Therefore, $c_i$ reflects photosynthetic rates. This description of $A$ is specific for plants that follow the C~3~ photosynthetic pathway - the majority of plants and all trees. Grasses growing in warm climates predominantly follow the C~4~ photosynthetic pathway (see @sec-c4). 
+<!-- Photosynthetic CO~2~ assimilation leads to a continous depletion of CO~2~ inside the leaf. Therefore, $c_i$ reflects photosynthetic rates. This description of $A$ is specific for plants that follow the C~3~ photosynthetic pathway - the majority of plants and all trees. Grasses growing in warm climates predominantly follow the C~4~ photosynthetic pathway (see @sec-c4).  -->
 
-Modelling photosynthesis is relatively complex because $g_s$ depends on $A$. @eq-photo-fick can therefore not be solved in a straight-forward manner. Furthermore, plants coordinate stomatal conductance to balance water losses and C assimilation but the exact relationship varies between species and depends on a multitude of mechanisms and traits related water transport in the plant (@sec-transpiration). Here, let's start by taking $g_s$ as given and look at how the assimilation rate $A$ depends on $c_i$.
+<!-- Modelling photosynthesis is relatively complex because $g_s$ depends on $A$. @eq-photo-fick can therefore not be solved in a straight-forward manner. Furthermore, plants coordinate stomatal conductance to balance water losses and C assimilation but the exact relationship varies between species and depends on a multitude of mechanisms and traits related water transport in the plant (@sec-transpiration). Here, let's start by taking $g_s$ as given and look at how the assimilation rate $A$ depends on $c_i$. -->
 
-The primary processes are happening in the chloroplasts which are located in the mesophyll cells of leaves. After diffusing across stomata, CO~2~ diffuses across the mesophyll cell to the chloroplast. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration at the chloroplast.
+Once inside the leaf, CO~2~ diffuses across mesophyll cells to the chloroplasts - the site of photosynthetic reactions. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal" CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration *at the chloroplast*.
 
-Before returning to a mathematical description of photosynthesis, let's step back and look at the process of leaf-level photosyntheis. Three steps of the photosynthetic apparatus can be distinguished (based on @lambers08 and @bonan).
+Photosynthesis can be considered as a sequence of three processes that are serially connected - the three processes run one after the other and the rate of the slowest of the three processes determines the overall process rate of photosynthesis. The following is a condensed description, based on @lambers08 and @bonan.
 
 ```{r echo=FALSE}
 #| label: fig-photosynthesis
@@ -103,17 +203,17 @@ knitr::include_graphics("images/photosynthesis.png")
 
 ### Light absorption at the cellular level
 
-Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-luemodel is expressed in units of photons, not energy (Watts). A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength. The excess energy is dissipated as heat or through other pathways.
+Light (photons) in the photosynthetically active wavelength spectrum (400-700 nm) is absorbed by *pigments* - mainly chlorophyll. The absorbed energy is transported in the form of excited chlorophyll to the reaction centers of photosystem I (PSI) and photosystem II (PSII). Relevant for photosynthesis is the number of photons in the photosynthetically active spectrum, not their total energy. That's why @eq-luemodel is expressed in units of photons, not energy (Watts). (A photon in the blue wavelength has the same effect on CO~2~ assimilation as a photon in the red wavelength, although it carries a higher energy). The excess energy is dissipated as heat or through other pathways.
 
 ### Light reactions
 
-In the reaction centers, the excitation energy is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
+In the reaction centers, the excitation energy of the chlorophyll is used for splitting electrons from water molecules, producing oxygen (O~2~) as a "side-product". The electrons are transported along the electron transport chain and are used to produce NADPH and ATP. These are called the *light reactions* of photosynthesis. Up to here, radiation energy has been converted into chemical energy in the form of ATP. The production of ATP consumes inorganic phosphate.
 
 ### Calvin cycle {#sec-calvin-cycle}
 
-NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, around 30-50 ppm, the *photorespiratory compensation point* is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
+NADPH and ATP are then used for reducing CO~2~ (the energy-demanding reversal of oxidation) in the *Calvin cycle*. This step forms C~3~ compounds (triose-phosphates) and occurs independently of light. It is therefore commonly referred to as the "dark reactions" of photosynthesis. Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the principal enzyme involved in the Calvin cycle and the amount of Rubisco determines the capacity for the carboxylation of RuBP (Ribulose-1,5-bisphosphate). Rubisco also catalyzes the oxygenation of RuBP which consumes O~2~ and produces CO~2~ as part of *photorespiration*. This respiration scales with photosynthetic activity and reduces the net photosynthetic CO~2~ by 30-50%, depending on the relative concentrations of CO~2~ and O~2~. At very low CO~2~ levels, at around 30-50 ppm, the *photorespiratory compensation point* ($\Gamma^\ast$) is reached and net photosynthesis is zero. In contrast to photorespiration, *dark respiration* ($R_d$), which also produces CO~2~, arises from the decarboxylation of Rubisco and is independent of light, but proportional to the amount of Rubisco.
 
-Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C*.
+Reduced C in the form of sucrose or (after an additional step) starch is either consumed in the leaf during the night, or exported through the phloem and used for synthesising biomass or supplying plant-internal C storage as *non-structural C* (see @sec-carboncycle_ecosystem).
 
 ### Summary
 
@@ -125,11 +225,11 @@ A total of eight photons is consumed to assimilate one molecule of CO~2~. For ea
 
 ### Response to light and CO~2~ {#sec-fvcb}
 
-The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates are coordinated such that they are roughly co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
+The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates of the processes are coordinated such that they are roughly equal and co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
 
-The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, are limiting, not CO~2~. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{sat}$.
+The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation in the light reactions (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, is limiting, not CO~2~ inside the leaf. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{sat}$.
 
-The level at which the light response of $A$ saturates varies within a species and across different species. Variations within species arise through the *acclimation* of the light reaction capacities to the typical light intensities to which a leaf is exposed. Acclimation evolves over time scales of weeks to months (Thus, your indoor plant suffers because the change to high-light conditions happened to fast.). $A_\mathrm{sat}$ also varies across species, reflecting the *adaptation* through evolution of different species to the environment in which they commonly grow. Typical difference in light adaptation are evident between plants that grow in the shady understorey versus plants that grow in the sun-exposed upper canopy.
+The level at which the light response of $A$ saturates ($A_\mathrm{sat}$) varies *within* a species and across different plant species. Variations within species arise through the *acclimation* of the light reaction capacities to the typical light intensities to which a leaf is exposed. Acclimation of photosynthesis evolves over time scales of weeks to months. (Thus, your indoor plant suffers because the change to high-light conditions happened to fast.) $A_\mathrm{sat}$ also varies *across* species, reflecting the *adaptation* through evolution of different plant species to the environment in which they commonly grow. A typical light adaptation to different light levels is expressed by plants that commonly grow in the shady understorey versus plants that grow in the sun-exposed upper canopy.
 
 ```{r echo=FALSE}
 #| label: fig-photosynthesis_light
@@ -138,12 +238,16 @@ The level at which the light response of $A$ saturates varies within a species a
 knitr::include_graphics("images/assim_response_to_light_lambers08.png")
 ```
 
-In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve". Commonly, net assimilation $A_n=A-R_d$ is considered. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco ($V_\mathrm{cmax}$). This functional response of assimilation is commonly denoted $A_C$. As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
+In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve" (@fig-a-ci-curve). Commonly, net assimilation $A_n = A - R_d$ is considered when analysing *A*-*c*~i~ curves. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco. This Rubisco carboxylation-limited functional response of assimilation is commonly denoted $A_C$. 
+
+As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
 $$
 A_n = \min(A_C, A_J) - R_d
-$$
+$$ {#eq-net-assimilation}
 
-The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals multiple quantities ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $\Gamma^\ast$, and the "shape parameters" of $A_C$ and $A_J$). These quantities are key for quantitatively describing and modeling leaf photosynthesis. The acclimation and adaptation of $A_\mathrm{max}$ (@fig-photosynthesis_light) reflects an acclimation and adaptation of the electron transport capacity and the capacity for RuBP carboxylation. Although acclimation can occur, it is not fast enough to respond to the strongly varying light conditions during a day. Therefore, plants have to tune the capacities of the different photosynthetic reactions such that they are mostly near the co-limitation point.
+The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals the rates and efficiencies of the individual processes of the photosynthesis "chain" (light and dark reactions). These quantities are key for quantitatively describing and modeling leaf photosynthesis (see Box Farquhar-von Caemmerer-Berry model below). 
+
+<!-- The acclimation and adaptation of $A_\mathrm{sat}$ (@fig-photosynthesis_light) reflects an acclimation and adaptation of the electron transport capacity and the capacity for RuBP carboxylation. Although acclimation can occur, it is not fast enough to respond to the strongly varying light conditions during a day. Therefore, plants have to tune the capacities of the different photosynthetic reactions such that they are mostly near the co-limitation point. -->
 
 ```{r echo=FALSE}
 #| label: fig-a-ci-curve
@@ -151,6 +255,8 @@ The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals 
 #| out-width: 60%
 knitr::include_graphics("images/a_ci_curve.png")
 ```
+
+::: {.callout-note}
 
 ### Farquhar-von Caemmerer-Berry model
 
@@ -173,7 +279,9 @@ $$
 J = \frac{4\varphi_0 I_\mathrm{abs}}{\sqrt{1+\left(\frac{4\varphi_0 I_\mathrm{abs}}{J_\mathrm{max}}\right)^2}}
 $$ {#eq-jmaxlim}
 
-Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
+Together, @eq-ac and @eq-aj describe the combined effect of $c_i$, (leaf) temperature, the absorbed photon flux density, and atmospheric pressure on leaf-level CO~2~ assimilation. 
+
+With the mathematical description of $A_C$ and $A_J$ and their dependency on light and CO~2~ following the FvCB model, *A-c*~i~ and the *A* vs. PPFD curves, as shown for measurements in @fig-photosynthesis_light and @fig-a-ci-curve, can thereby be modeled.
 
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: true
@@ -266,14 +374,18 @@ df_ci <- tibble(
                           ca = out_pmodel$ca))
   
 df_ci |> 
-  pivot_longer(cols = c(a_j, a_c, a_gs), 
-               names_to = "Rate", 
-               values_to = "a_") |>
+  pivot_longer(cols = c(
+    a_j, 
+    a_c
+    # a_gs
+    ), 
+    names_to = "Rate", 
+    values_to = "a_") |>
   ggplot(aes(x = ci)) +
   geom_line(aes(y = a_, color = Rate)) +
   geom_line(aes(y = a_act)) +
   xlim(00, 1000) + 
-  ylim(-20, 80) +
+  # ylim(-20, 80) +
   geom_hline(yintercept = 0, linetype = "dotted") +
   geom_vline(xintercept = 0, linetype = "dotted") +
   geom_vline(xintercept = (out_pmodel$gammastar/(1.0e-6 * patm)), linetype = "dotted") +
@@ -281,14 +393,21 @@ df_ci |>
        y = expression(paste(italic("A"), " (", mu, "mol m" ^{-2}," s" ^{-1}, ")"))) +
   scale_color_manual(
     name = "",
-    breaks = c("a_gs",
-               "a_j",
-               "a_c"
-               ),
-    labels = c(expression(paste(italic("A")[gs])),
-               expression(paste(italic("A")[J])),
-               expression(paste(italic("A")[C]))),
-    values = c( "#009E73", "#56B4E9", "#E69F00")) +
+    breaks = c(
+      # "a_gs",
+      "a_j",
+      "a_c"
+      ),
+    labels = c(
+      # expression(paste(italic("A")[gs])),
+      expression(paste(italic("A")[J])),
+      expression(paste(italic("A")[C]))
+      ),
+    values = c( 
+      # "#009E73", 
+      "#56B4E9", 
+      "#E69F00"
+      )) +
   theme_classic()
 ```
 
@@ -455,9 +574,15 @@ cowplot::plot_grid(gg1, gg2,
 
 Note that the FvCB model, on its own, does not allow us to model the LUE term in @eq-luemodel. An important additional ingredient is the stomatal conductance ($g_s$) which is relevant for determining the ratio of ambient to leaf-internal CO~2~ concentrations. It is described in @sec-transpiration.
 
+::: 
+
 ### Response to temperature {#sec-ftemp}
 
-The instantaneous temperature dependency of leaf-level photosynthesis reflects the combined effect of the temperature dependencies in $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, and is shown in @fig-temp_dep. For this, $c_i$, $V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$ at a reference temperature are assumed to be given.
+All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, the decline of net assimilation rates is even faster at towards high temperatures than that of gross assimilation rates.
+
+The temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident. 
+
+The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see Box 'Farquhar von Caemmerer Berry model') and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, temperature dependencies not shown here) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
 
 ```{r}
 #| code-fold: true
@@ -570,9 +695,11 @@ gg3 <- ggplot() +
 cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 ```
 
-As shown in @fig-temp_dep, the instantaneous response of assimilation rates to temperature has a peak above which rates, especially $A_C$, decline sharply. Dark respiration ($R_d$) monotonically increases with temperature which accentuates the decline in net assimilation $A_n$ with increasing temperature.
+### Adptation and acclimation of *T*~opt~
 
-The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed @fig-topt-kumarathunge.
+The temperature dependencies shown in @fig-temp_dep are *instantaneous* responses. That is, they represent the responses to changes in temperature that evolve over short time scales - minutes to hours. Over longer time scales, the shapes of the instantaneous temperature responses change. The temperature optimum of photosynthesis (*T*~opt~) tends to be higher for plant species that grow in warm climates than for plants that can be found in cold climates (@fig-topt-kumarathunge a). Such variations of *T*~opt~ across different plant species reflects species' *adaptation* to their growth environment which makes them perform well and compete effectively under certain environmental conditions and is related to their genes and is thus passed on from generation to generation. *T*~opt~ can be considered as a plant trait (see @sec-traits). 
+
+*T*~opt~ not only varies between species growing in different climates, but can also vary *within* a given species and even within a given plant when it is exposed to different temperatures for a longer period  [@kumarathunge19newphyt]. Given enough time, the instantaneous temperature response and *T*~opt~ will shift to higher temperatures as a result of persistent exposure to warmer temperatures. Such variations in a plant trait (here *T*~opt~) within species and an individual plant is referred to as *acclimation*. @fig-topt-kumarathunge b shows how *T*~opt~ varies within different species (distinguished by color) over the course of the seasons - a demonstration of acclimation.
 
 ```{r echo=FALSE}
 #| label: fig-topt-kumarathunge
@@ -580,6 +707,9 @@ The temperature dependencies shown in @fig-temp_dep are referred to as *instanta
 #| out-width: 80%
 knitr::include_graphics("images/topt-kumarathunge.png")
 ```
+
+Acclimation is relatively common to observe also for other physiological traits than *T*~opt~. For example, photosynthetic capacities (the maximum rate of Rubisco carboxylation - $V_\mathrm{cmax}$ in the FvCB model - or the maximum rate of electron transport - $J_\mathrm{max}$) acclimate over the course of seasons [@jiang20gcb]. Other plant traits are less plastic or not plastic at all. For example phenological strategies (e.g., deciduousness) does not acclimate. The acclimation of physiological traits is important for understanding vegetation and land carbon cycle responses to long-term trends in climate. While it may be exected that plants have a certain capacity for acclimation to a new climate, limits to acclimation must be better understood. 
+
 
 <!-- XXX LES 2: Add box explaining acclimated vs. instantaneous response (Way & Yamori, 2014) -->
 
@@ -631,21 +761,34 @@ Coming soon.
 
 ### Stomatal regulation
 
-Stomatal openings - and therefore the effective leaf stomatal conductance - are regulated by plant-internal signalling mechanisms that respond to the water-carbon trade-off within minutes. Two important relations underlie this trade-off. First, transpiration directly depends on the vapor pressure deficit ($D$) expressed through the diffusion equation @eq-transpiration. Second, while the assimilation rate ($A$) depends on stomatal conductance ($g_s$), $A$ also feeds back on $g_s$. This relationship is has an empirical basis as shown in @fig-constant-chi a. From this, a relationship of $g_s$ as a function of $D$ and $A$ can be established. However, due to the feedback between $A$ and $g_s$, deriving an analytical solution is not straight-forward.
+The closing of stomates and the reduction of stomatal conductance $g_s$ under dry conditions prevents plants from dangerous desiccation. However, a reduced $g_s$ also leads to a reduction in CO~2~ diffusion into leaves and thus a reduction of photosynthetic CO~2~ assimilation. Hence, plants have to balance a trade-off between carbon gain and the risk of desiccation. A complete stomatal closure under moderately dry conditions (low soil moisture, high VPD)  may be safe in terms of desiccation avoidance but comes at an excessive cost in terms of foregone CO~2~ uptake (and similarly vice-versa). An optimal strategy must lie somewhere in between these extreme strategies.
 
-An empirical solution that reflects the dependency of $g_s$ on $D$ and on $A$ - as represented by a saturating function to light - is presented by @oren01 for diurnal variations at the canopy-level as:
-$$
-G_s = \frac{I_0}{I_0 + a} \left( b + m \ln D \right)
-$$
-The uppercase $G_s$ denotes stomatal conductance at the canopy-level - in contrast to $g_s$ described above at the leaf-level. The first term represents an empirical representation of the light ($I_0$)-dependency of photosynthesis. $a$, $b$, and $m$ are empirically fitted coefficients.
+Observations of leaf and ecosystem fluxes CO~2~ and water vapour fluxes document how stomatal conductance responds to increasing VPD and decreasing soil moisture. @fig-novick16 shows this for measurements taken at the ecosystem-level, quantifying the canopy stomatal conductance (denoted by an uppercase $G_s$), representative for the collective behaviour of all leaves in the canopy. Three important aspects of this relationship stand out. First, $G_s$ declines in response to VPD in a non-linear fashion (high sensitivity to VPD at low VPD, lower sensitivity towards higher VPD). Second, there is an interaction between the effect of VPD and soil moisture. Under conditions of dry soils, $G_s$ is reduced compared to wet soils, given the same VPD. Third, at the most moist site (@fig-novick16 a), $G_s$ under moist conditions (moist soils, low VPD) is highest but declines most rapidly with VPD.
 
-There is empirical evidence that *optimality models* are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
+```{r echo=FALSE}
+#| label: fig-novick16
+#| fig-cap: "Response of canopy conductance (ecosystem-level aggregate stomatal conductance) to soil and air drying at four different sites (a-d) that differ in average aridity. Soil moisture levels are represented by colors of circles. DI in each panel's title is the site's dryness index calculated as the ratio of potential evapotranspiration over precipitation. Figure from @novick16natcc."
+#| out-width: 100%
+knitr::include_graphics("images/fig-novick16.png")
+```
+
+A simple empirical model for the $G_s$ response to VPD [@oren01] is given by
+$$
+G_s = G_{s,\mathrm{ref}} \left(1 - m \ln D \right)\;.
+$$
+Here, $G_{s,\mathrm{ref}}$ is a reference canopy conductance, $D$ is VPD, and $m$ is a stomatal sensitivity parameter. The data shown in @fig-novick16 indicate that the sensitivity parameter $m$ is not a constant, but decreases with drying soils and tends to be lower at dry sites than at moist sites investigated by @novick16natcc.
+
+::: {.callout-tip icon=false, collapse=true}
+
+### Stomatal optimization models
+
+The aspect that plants regulate stomatal conductance to balance the trade-off between carbon gain and water loss lends itself to modelling the stomatal response considering *optimality principles*. Indeed, there is empirical evidence that optimality models are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
 
 $$
 A - aE - bV_\mathrm{cmax} = \arg \max
 $$ {#eq-optim-max}
 
-Over time scales of days to weeks, $V_\mathrm{cmax}$ is coordinated with stomatal conductance [@joshi22natplants]. The simultaneous effects of $V_\mathrm{cmax}$ and $g_s$ are reflected by $\chi$. Therefore, @eq-optim-max can be expressed with respect to optimising $\chi$. Maximising a function is equivalent to finding the point where its first derivative (here with respect to $\chi$) is zero. [@prentice14ecollett] formulated such a similar (but not strictly equivalent) optimality criterion as
+Over time scales of days to weeks, $V_\mathrm{cmax}$ in the FvCB model (see box above) is coordinated with stomatal conductance [@joshi22natplants]. The simultaneous effects of $V_\mathrm{cmax}$ and $g_s$ are reflected by $\chi$. Therefore, @eq-optim-max can be expressed with respect to optimising $\chi$. Maximising a function is equivalent to finding the point where its first derivative (here with respect to $\chi$) is zero. [@prentice14ecollett] formulated such a similar (but not strictly equivalent) optimality criterion as
 $$
 \frac{\partial (E/A)}{\partial \chi} + \beta \frac{\partial (V_\mathrm{cmax}/A)}{\partial \chi} = 0 \;.
 $$
@@ -654,6 +797,8 @@ $$
 g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 $$
 $g_1$ is a stomatal sensitivity parameter. Similar results are obtained with a related but not identical optimality criterion [@medlyn11gcb]. 
+
+:::
 
 ## From photosynthesis to light use efficiency {#sec-constlue}
 
@@ -673,6 +818,7 @@ library(ggplot2)
 library(cowplot)
 library(dplyr)
 library(tidyr)
+library(hexbin)
 
 wdf <- readRDS(here::here("data/wdf_fdk.rds"))
 
@@ -688,6 +834,7 @@ rsq_lab <- format( rsq_val, digits = 2 )
 
 wdf |> 
   ggplot(aes(apar, gpp)) +
+  # geom_point(alpha = 0.3) +
   geom_hex(bins = 50) +
   scale_fill_viridis_c(trans = "log", option = "magma", name = "Count") +
   geom_abline(intercept = 0, slope = coef(linmod), linetype="dotted") +
@@ -712,6 +859,46 @@ Rising CO~2~ increases leaf-level photosynthesis. This sensitivity can be quanti
 Compare your calculated $\beta$ of the light-saturated leaf-level photosynthesis rate with observations from Free Air CO~2~ Enrichment (FACE) experiments, as summarized by @ainsworth05. For this, download the paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-8137.2004.01224.x) and find the reported value for the CO~2~ response of the light-saturated leaf-level photosynthesis rate. Convert the percentage increase reported by @ainsworth05 into a $\beta$ factor. Assume that on average, the CO~2~ levels in the FACE experiments were 350 ppm at ambient and 550 ppm at elevated levels.
 :::
 
+::: {.callout-important icon=false}
+
+## Symbols
+
+<!-- To copy from book/symbols_gpp.qmd, produced via book/symbols_gpp.csv, edited by hand to convert to qmd table saved as book/symbols_gpp.qmd  -->
+
+| Symbol/abbreviation | Description | Common units | Equation |
+| ---- | ---- | ---- | ---- |
+| GPP | Gross primary production. Ecosystem level photosynthetic CO~2~ uptake. | gC m^-2^ s^-1^ | @eq-luemodel |
+| PPFD | Photosynthetic photon flux density | mol  m^-2^ s^-1^ | @eq-luemodel |
+| fAPAR | Fraction of absorbed photosynthetically active radiation | (unitless) | @eq-luemodel |
+| LUE | Light use efficiency. Ratio of GPP over absorbed photosynthetically active radiation | gC mol^-1^ | @eq-luemodel |
+| $I$ | Incident (incoming) solar radiation | W m^-2^ | @eq-optical-density |
+| $I_0$ | Incident (incoming) solar radiation at the top of the canopy | W m^-2^ | @eq-optical-density |
+| $k$ | Exponential light extinction coefficient | (unitless) | @eq-optical-density |
+| $L$, LAI | Leaf area index | m^2^ m^-2^ | @eq-homogenous-canopy |
+| $\mu$ | Optical density | m^-1^ | @eq-homogenous-canopy |
+| $z_0$ | Total canopy depth | m | @eq-homogenous-canopy |
+| $z$ | Canopy depth | m | @eq-optical-density |
+| $A$ | Leaf-level CO~2~ assimilation | mol  m^-2^ s^-1^ | @eq-photo-fick |
+| $g_s$ | Stomatal conductance to CO~2~ diffusion |  | @eq-photo-fick |
+| $c_i$ | Leaf-internal CO~2~ concentration. Expressed as a partial pressure | Pa | @eq-photo-fick |
+| $c_a$ | Ambient (atmospheric) CO~2~ concentration. Expressed as a partial pressure | Pa | @eq-photo-fick |
+| $A_n$ | Leaf-level net CO~2~ assimilation after accounting for dark respiration ($R_d$) | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $A_C$ | Rubisco-carboxylation limited leaf-level CO~2~ assimilation rate | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $A_J$ | Electron-transport limited leaf-level CO~2~ assimilation rate | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $R_d$ | Leaf dark respiration | mol  m^-2^ s^-1^ | @eq-net-assimilation |
+| $V_\mathrm{cmax}$ | Maximum rate of Rubisco carboxylation | mol  m^-2^ s^-1^ | @eq-ac |
+| $K$ | Effective Michaelis-Menten coefficient for $A_C$ | Pa | @eq-ac |
+| $\Gamma^\ast$ | Photorespiratory compensation point | Pa | @eq-ac |
+| $J_\mathrm{max}$ | Maximum rate of eletron transport  | mol  m^-2^ s^-1^ | @eq-aj |
+| $J$ | Electron transport rate | mol  m^-2^ s^-1^ | @eq-aj |
+| $\varphi_0$ | Quantum yield | mol mol^-1^ | @eq-aj |
+| $E$ | Transpiration at the leaf-level | mm s^-1^ | @eq-transpiration |
+| $D$ | Vapour pressure deficit (VPD) | Pa | @eq-transpiration |
+| $\chi$ | Ratio of leaf-internal to ambient CO~2~ concentration | (unitless) | @eq-wue-instantaneous |
+
+: Symbols and abbreviations used in this chapter. {#tbl-symbols-gpp}
+
+::: 
 
 <!-- Exercise:  -->
 <!-- - Calculate response ratio of net photosynthesis to a doubling of CO2 (from 400 to 800 ppm). Calculate the beta factor from Chapter 3. Compare to leaf net assimilation from experiments (Walker et al. 2018). -->
