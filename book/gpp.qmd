@@ -256,7 +256,7 @@ The *A*-*c*~i~ curve (@fig-a-ci-curve) can be measured in the field and reveals 
 knitr::include_graphics("images/a_ci_curve.png")
 ```
 
-::: {.callout-note}
+::: {#nte-fvcb .callout-note}
 
 ### Farquhar-von Caemmerer-Berry model
 
@@ -582,7 +582,7 @@ All processes involved in photosynthesis are strongly affected by temperature. E
 
 The temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident. 
 
-The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see box above) and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, temperature dependencies not shown here) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
+The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see Box 'Farquhar von Caemmerer Berry model') and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, temperature dependencies not shown here) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
 
 ```{r}
 #| code-fold: true
@@ -761,21 +761,34 @@ Coming soon.
 
 ### Stomatal regulation
 
-Stomatal openings - and therefore the effective leaf stomatal conductance - are regulated by plant-internal signalling mechanisms that respond to the water-carbon trade-off within minutes. Two important relations underlie this trade-off. First, transpiration directly depends on the vapor pressure deficit ($D$) expressed through the diffusion equation @eq-transpiration. Second, while the assimilation rate ($A$) depends on stomatal conductance ($g_s$), $A$ also feeds back on $g_s$. This relationship is has an empirical basis as shown in @fig-constant-chi a. From this, a relationship of $g_s$ as a function of $D$ and $A$ can be established. However, due to the feedback between $A$ and $g_s$, deriving an analytical solution is not straight-forward.
+The closing of stomates and the reduction of stomatal conductance $g_s$ under dry conditions prevents plants from dangerous desiccation. However, a reduced $g_s$ also leads to a reduction in CO~2~ diffusion into leaves and thus a reduction of photosynthetic CO~2~ assimilation. Hence, plants have to balance a trade-off between carbon gain and the risk of desiccation. A complete stomatal closure under moderately dry conditions (low soil moisture, high VPD)  may be safe in terms of desiccation avoidance but comes at an excessive cost in terms of foregone CO~2~ uptake (and similarly vice-versa). An optimal strategy must lie somewhere in between these extreme strategies.
 
-An empirical solution that reflects the dependency of $g_s$ on $D$ and on $A$ - as represented by a saturating function to light - is presented by @oren01 for diurnal variations at the canopy-level as:
-$$
-G_s = \frac{I_0}{I_0 + a} \left( b + m \ln D \right)
-$$
-The uppercase $G_s$ denotes stomatal conductance at the canopy-level - in contrast to $g_s$ described above at the leaf-level. The first term represents an empirical representation of the light ($I_0$)-dependency of photosynthesis. $a$, $b$, and $m$ are empirically fitted coefficients.
+Observations of leaf and ecosystem fluxes CO~2~ and water vapour fluxes document how stomatal conductance responds to increasing VPD and decreasing soil moisture. @fig-novick16 shows this for measurements taken at the ecosystem-level, quantifying the canopy stomatal conductance (denoted by an uppercase $G_s$), representative for the collective behaviour of all leaves in the canopy. Three important aspects of this relationship stand out. First, $G_s$ declines in response to VPD in a non-linear fashion (high sensitivity to VPD at low VPD, lower sensitivity towards higher VPD). Second, there is an interaction between the effect of VPD and soil moisture. Under conditions of dry soils, $G_s$ is reduced compared to wet soils, given the same VPD. Third, at the most moist site (@fig-novick16 a), $G_s$ under moist conditions (moist soils, low VPD) is highest but declines most rapidly with VPD.
 
-There is empirical evidence that *optimality models* are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
+```{r echo=FALSE}
+#| label: fig-novick16
+#| fig-cap: "Response of canopy conductance (ecosystem-level aggregate stomatal conductance) to soil and air drying at four different sites (a-d) that differ in average aridity. Soil moisture levels are represented by colors of circles. DI in each panel's title is the site's dryness index calculated as the ratio of potential evapotranspiration over precipitation. Figure from @novick16natcc."
+#| out-width: 100%
+knitr::include_graphics("images/fig-novick16.png")
+```
+
+A simple empirical model for the $G_s$ response to VPD [@oren01] is given by
+$$
+G_s = G_{s,\mathrm{ref}} \left(1 - m \ln D \right)\;.
+$$
+Here, $G_{s,\mathrm{ref}}$ is a reference canopy conductance, $D$ is VPD, and $m$ is a stomatal sensitivity parameter. The data shown in @fig-novick16 indicate that the sensitivity parameter $m$ is not a constant, but decreases with drying soils and tends to be lower at dry sites than at moist sites investigated by @novick16natcc.
+
+::: {.callout-caution icon=false, collapse=true}
+
+### Stomatal optimization models
+
+The aspect that plants regulate stomatal conductance to balance the trade-off between carbon gain and water loss lends itself to modelling the stomatal response considering *optimality principles*. Indeed, there is empirical evidence that optimality models are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
 
 $$
 A - aE - bV_\mathrm{cmax} = \arg \max
 $$ {#eq-optim-max}
 
-Over time scales of days to weeks, $V_\mathrm{cmax}$ is coordinated with stomatal conductance [@joshi22natplants]. The simultaneous effects of $V_\mathrm{cmax}$ and $g_s$ are reflected by $\chi$. Therefore, @eq-optim-max can be expressed with respect to optimising $\chi$. Maximising a function is equivalent to finding the point where its first derivative (here with respect to $\chi$) is zero. [@prentice14ecollett] formulated such a similar (but not strictly equivalent) optimality criterion as
+Over time scales of days to weeks, $V_\mathrm{cmax}$ in the FvCB model (see box above) is coordinated with stomatal conductance [@joshi22natplants]. The simultaneous effects of $V_\mathrm{cmax}$ and $g_s$ are reflected by $\chi$. Therefore, @eq-optim-max can be expressed with respect to optimising $\chi$. Maximising a function is equivalent to finding the point where its first derivative (here with respect to $\chi$) is zero. [@prentice14ecollett] formulated such a similar (but not strictly equivalent) optimality criterion as
 $$
 \frac{\partial (E/A)}{\partial \chi} + \beta \frac{\partial (V_\mathrm{cmax}/A)}{\partial \chi} = 0 \;.
 $$
@@ -784,6 +797,8 @@ $$
 g_s = \left( 1 + \frac{g_1}{\sqrt{D}} \right) \frac{A}{c_a - \Gamma^\ast}
 $$
 $g_1$ is a stomatal sensitivity parameter. Similar results are obtained with a related but not identical optimality criterion [@medlyn11gcb]. 
+
+:::
 
 ## From photosynthesis to light use efficiency {#sec-constlue}
 
