@@ -582,7 +582,7 @@ All processes involved in photosynthesis are strongly affected by temperature. E
 
 The temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident. 
 
-The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see box above) and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
+The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see box above) and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, temperature dependencies not shown here) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
 
 ```{r}
 #| code-fold: true
@@ -695,9 +695,11 @@ gg3 <- ggplot() +
 cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 ```
 
-### Acclimation and adptation of *T*~opt~
+### Adptation and acclimation of *T*~opt~
 
-The temperature dependencies shown in @fig-temp_dep are referred to as *instantaneous* because $c_i$, $V_\mathrm{cmax}$, and $J_\mathrm{max}$ acclimate to the environment on time scales of days to weeks and $g_s$ is regulated on time scales of seconds to minutes. This acclimation affects the temperature response. Therefore, the functional relationships shown here are relevant for understanding how CO~2~ uptake varies in response to temperature over the course of a day. However, over longer time scales, plants acclimate to their growth environment such that the temperature optimum of photosynthesis (the peak of the $A_n$-temperature curve) shifts as a function of the *growth temperature* - an average temperature to which the leaf is exposed @fig-topt-kumarathunge.
+The temperature dependencies shown in @fig-temp_dep are *instantaneous* responses. That is, they represent the responses to changes in temperature that evolve over short time scales - minutes to hours. Over longer time scales, the shapes of the instantaneous temperature responses change. The temperature optimum of photosynthesis (*T*~opt~) tends to be higher for plant species that grow in warm climates than for plants that can be found in cold climates (@fig-topt-kumarathunge a). Such variations of *T*~opt~ across different plant species reflects species' *adaptation* to their growth environment which makes them perform well and compete effectively under certain environmental conditions and is related to their genes and is thus passed on from generation to generation. *T*~opt~ can be considered as a plant trait (see @sec-traits). 
+
+*T*~opt~ not only varies between species growing in different climates, but can also vary *within* a given species and even within a given plant when it is exposed to different temperatures for a longer period  [@kumarathunge19newphyt]. Given enough time, the instantaneous temperature response and *T*~opt~ will shift to higher temperatures as a result of persistent exposure to warmer temperatures. Such variations in a plant trait (here *T*~opt~) within species and an individual plant is referred to as *acclimation*. @fig-topt-kumarathunge b shows how *T*~opt~ varies within different species (distinguished by color) over the course of the seasons - a demonstration of acclimation.
 
 ```{r echo=FALSE}
 #| label: fig-topt-kumarathunge
@@ -705,6 +707,9 @@ The temperature dependencies shown in @fig-temp_dep are referred to as *instanta
 #| out-width: 80%
 knitr::include_graphics("images/topt-kumarathunge.png")
 ```
+
+Acclimation is relatively common to observe also for other physiological traits than *T*~opt~. For example, photosynthetic capacities (the maximum rate of Rubisco carboxylation - $V_\mathrm{cmax}$ in the FvCB model - or the maximum rate of electron transport - $J_\mathrm{max}$) acclimate over the course of seasons [@jiang20gcb]. Other plant traits are less plastic or not plastic at all. For example phenological strategies (e.g., deciduousness) does not acclimate. The acclimation of physiological traits is important for understanding vegetation and land carbon cycle responses to long-term trends in climate. While it may be exected that plants have a certain capacity for acclimation to a new climate, limits to acclimation must be better understood. 
+
 
 <!-- XXX LES 2: Add box explaining acclimated vs. instantaneous response (Way & Yamori, 2014) -->
 
