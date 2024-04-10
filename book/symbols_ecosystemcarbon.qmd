@@ -1,0 +1,27 @@
+﻿| Symbol/abbreviation | Description | Common units | Equation |
+| ---- | ---- | ---- | ---- |
+| NSC | Non-structural carbon | gC m^-2^ |  |
+| $R_a$ | Autotrophic respiration | gC m^-2^ s^-1^ |  |
+| $R_g$ | Growth respiration. A component of $R_a$. | gC m^-2^ s^-1^ |  |
+| $R_a$ | Dark respiration. A component of $R_a$. | gC m^-2^ s^-1^ |  |
+| NPP | Net primary production | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{leaves}$ | Biomass C production in leaves | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{roots}$ | Biomass C production in roots | gC m^-2^ yr^-1^ | @eq-npp |
+| $\Delta C_\mathrm{wood}$ | Biomass C production in wood | gC m^-2^ yr^-1^ | @eq-npp |
+| $C_\mathrm{VOC}$ | C allocated to volatile organic compounds | gC m^-2^ yr^-1^ | @eq-npp |
+| $C_\mathrm{exu}$ | C allocated to exudates  | gC m^-2^ yr^-1^ | @eq-npp |
+| CUE | Carbon use efficiency | (unitless) | @eq-cue |
+| BPE | Biomass production efficiency | (unitless) | @eq-cue |
+| $\alpha_i$ | Fraction of C allocated to biomass C production in plant pool $i$  | (unitless) | @eq-allocation-fraction |
+| $R_h$ | Heterotrophic respiration | gC m^-2^ s^-1^ |  |
+| SOM | Soil organic matter | gC m^-2^ |  |
+| $\theta$ | Soil water content | m^3^ m^-3^ |  |
+| $T$ | Temperature | $^\circ$C |  |
+| $t$ | Time | yr |  |
+| $I$ | Input flux of C in the 1-box model | gC m^-2^ yr^-1^ | @eq-firststorderdecay_littersom |
+| $k$ | Decay constant in the 1-box model | yr^-1^ | @eq-firststorderdecay_littersom |
+| $e$ | Microbial C use efficiency | (unitless) | @fig-littersom |
+| f~fast~ | Fraction of C entering the fast-turnover SOM pool in the C cascade model | (unitless) | @fig-littersom |
+| NEP | Net ecoystem production | gC m^-2^ yr^-1^ | @eq-nep |
+| NBP | Net biome production | gC m^-2^ yr^-1^ | @eq-nbp |
+| $\Delta C_\mathrm{dist}$ | C loss due to disturbances | gC m^-2^ yr^-1^ | @eq-nbp |
