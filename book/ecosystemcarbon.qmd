@@ -491,6 +491,24 @@ This illustrates that a forest is only a net C sink during its establishment. On
 
 ::: 
 
+::: {.callout-caution}
+## Exercise
+
+1. Which pool in the C cascade model (@fig-ccascade) has the slowest C turnover? What is its turnover time $\tau$, considering model parameter values given in @fig-ccascade-params?
+2. Consider the visualisation of litter decomposition in different biomes (@fig-litter_decomposition), and the 1st-order decay model. Establish the order of each biome's decay constant $k$ (e.g., $k_\mathrm{biome1} < k_\mathrm{biome2} < ...$).
+3. Consider two ecosystems ($a, b$) that differ with respect to their photosynthetic rates ($\mathrm{GPP}_a < \mathrm{GPP}_b$), but have identical (constant) carbon pool turnover times $k_i$, identical (constant) allocation fractions $\alpha$, and identical (constant) soil organic matter dynamics (identical $f_\mathrm{fast}$ in the C cascade model). Which of the two has a higher steady-state total ecosystem C storage, considering the C cascade model and 1-st order decay in each C pool?
+4. Consider the same setup as in (3.), but now you have more information about the relative magnitudes of $\mathrm{GPP}_a$ and $\mathrm{GPP}_b$:
+$$
+\mathrm{GPP}_b / \mathrm{GPP}_a = 1.2
+$$
+  What is the ratio of steady-state ecosystem C storage in the two ecosystems? 
+5. Discuss whether the C cascade model and the result obtained for (4.) is an accurate model for the real world. Do you expect the ratio of steady-state C storage in response to a 20% increase in GPP to be higher or lower than 20%? Do you expect BPE, allocation fractions $\alpha_i$, and decay constants $k_i$ to change in response to increases in GPP?
+6. What quantity do you consider for measuring the annual C balance of an ecosystem?
+7, What quantity do you consider for measuring the annual C balance of forests, grasslands, and agricultural lands in Switzerland?
+
+:::
+
+
 ## Tree growth and allometry
 
 Coming soon.
