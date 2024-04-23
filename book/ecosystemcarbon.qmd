@@ -108,7 +108,7 @@ knitr::include_graphics("images/npp_bpe.png")
 
 <!-- XXX Add Vicca et al., 2012 plot -->
 
-### Allocation and growth
+### Allocation and growth {#sec-allocation}
 
 The partitioning of available NSC to growth in different plant compartments, to VOC, exudates, or respiration is referred to as *allocation*. Quantitatively, allocation to a given compartment can be expressed as the ratio of BP of that compartment (leaves, roots, wood) over the total NPP.
 $$
@@ -153,7 +153,7 @@ Turnover of different plant compartments is driven by different processes. The l
 
 <!-- LES II: tree mortality -->
 
-### Soil and litter C dynamics
+### Soil and litter C dynamics {#sec-littersom}
 
 Senesced leaves are shed and, together with deadwood, form the litter pool on the ground surface. Litter is decomposed by soil microorganisms - *heterotrophic* organisms - that gain energy from consuming the organic matter. Litter also gets mixed into the topsoil by bioturbation (mixing by the soil fauna). C in the litter pool has a turnover time on the order of months to years for the fast-decomposing litter of dead leaves and fine roots (@fig-litter_decomposition), to 10^1^-10^2^ years for deadwood. Litter can have an important role as fuel for fire and as an insulation layer between soil and air. 
 
@@ -286,7 +286,7 @@ $$
 The symbol $\forall$ means 'for all'. However, whether a model with constant $\alpha$, $k_i$, $e$, and $f_\mathrm{fast}$ is a good representation of real ecosystems' responses to environmental change is questionable. It is well established, for example, that $\alpha$ is very sensitive altered soil nutrient availability and changes in CO~2~ experiments [@poorter12]. The turnover rate of biomass in forests (or tree longevity) may be affected by accelerated self-thinning if environmental change positively influences tree-level growth (e.g., through CO~2~ fertilization or an extension of the growing season) [@marques23]. This implies a departure from the linear systems behavior of the C cascade model described by the two points above.
 
 ::: {.callout-tip icon=false, collapse=true}
-## Simulating the C cascade
+## Simulating the C cascade {#sec-ccascade-simulation}
 
 The two points (see above) are implemented in a multi-box model:
 
