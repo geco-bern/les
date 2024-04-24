@@ -526,9 +526,12 @@ knitr::include_graphics("images/soilc_map.png")
 
 **Stabilisation and saturation**  of soil organic C depends on the mineralogy of the soil. This suggests that not (only) the C inputs determine stocks, but also the capacity of soil mineral surfaces to sorb organic matter.
 
-**Plant-soil interactions**  via fungi and bacteria strongly influence C and nutrient cycling in soils. Inputs of fresh litter and labile C through root exudates can lead to the decomposition  (*priming*) of stable, old C in the soil. These relationships are complex and implications for the global distribution of soil C is not clear.
+**Plant-soil interactions**  via fungi and bacteria strongly influence C and nutrient cycling in soils. Inputs of fresh litter and labile C through root exudates can stimulate the decomposition  (*priming*) of stable C in the soil. These relationships are complex and implications for the global distribution of soil C is not clear, but can undermine a positive and linear relationship between vegetation productivity, litter inputs, and soil C stocks.
 
-The very high soil C density at high northern latitudes reflects also the particular functioning and soil C dynamics in peatland (@sec-peatlands) and permafrost (@sec-permafrost) regions. Taken together, the global distribution of soil C deviates strongly but not entirely from the distribution of GPP and biomass C. The parallel trends of average biomass and soil C along latitudes is shown in @fig-soilc_vegc_bylat.
+The high soil C density in high northern latitudes reflects also the particular functioning and soil C dynamics under conditions of annual mean temperatures below-freezing and under permanently water-logged conditions (see @sec-peatlands). 
+<!-- @sec-permafrost -->
+
+Taken together, the global distribution of soil C deviates strongly from the distribution of GPP and biomass C. The parallel trends of average biomass and soil C along latitudes is shown in @fig-soilc_vegc_bylat and illustrates the divergence of their latitudinal patterns.
 
 ```{r echo=FALSE}
 #| label: fig-soilc_vegc_bylat
@@ -539,21 +542,74 @@ knitr::include_graphics("images/soilc_vegc_bylat.png")
 
 ### Peatlands {#sec-peatlands}
 
+Under well-drained soil conditions, the organic carbon content of soil tends to stabilise during soil development. At this stage, on average over long time scales, decomposition of organic matter equals litter inputs. A steady-state is reached. However, decomposition by heterotrophic organisms requires oxygen. Under frequent flooding and water-logged soil conditions, oxygen availability becomes limiting for heterotrophic activity and decomposition is strongly reduced. If a long-term imbalance of vegetation productivity and litter inputs vs. decomposition persists, undecomposed litter C can accumulate. Peat and organic soils (*histosols*) form. Such conditions are given in very particular locations across the globe (@fig-peatland_map). 
+
+Peatlands are extremely C-rich, containing 500-700 PgC on only 3% of the Earth’s land surface [@page16annrev; @yu10grl]. Collectively, peatlands across the globe are also a persistent C sink. Due to their special role in the C cycle, we afford a small excursion into the special world of peatlands.
+
+::: {.callout-note}
+
+#### Definitions
+
+- *Peat* is the material that constitutes soils in peatlands.
+- *Peatland* is a type of wetland where peat is present.
+- *Bog* is a nutrient-poor type of peatlands.
+- *Raised bog* (ombrotrophic bog, German: Hochmoor) is a bog in which organic matter has accumulated vertically to a degree such that plants with their roots are disconnected from the water table and receive nutrient inputs solely from atmospheric wet and dry deposition. Raised bogs are extremely nutrient-poor, acidic, and are dominated by mosses (*sphagnum*).
+- *Fen* is a more nutrient-enriched type of peatland, is more alkaline, and dominated by sedges and grasses, but can also host shrubs and sparse trees. Plants growing in fens have access to water that has been in touch with mineral soils and bedrock and contains dissolved minerals. Hence, fens are referred to as *minerotrophic*.
+:::
+
+#### Peatland distribution {-}
+
+In view of the frequent flooding and wet soil conditions, peatlands are considered a type of *wetland*. They occur in a wide range of biomes. In the tropics, decomposition rates - even under water logging - are much higher than in the Arctic. Yet, vegetation productivity is much higher, too, and can lead to an imbalance of organic matter inputs and decomposition and a long-term accumulation.
+
+Today, major peatlands are located in the Hudson Bay Lowland (Canada) and in the West Siberian Lowland (Russia). In the tropics, major peatlands are located in Southeast Asia (Indonesia, Malaysia, Papua New Guinea, and Brunei) [@page16annrev] and in the Congo Basin [@dargie17nat]. Peatland vegetation is very different in boreal and temperate versus tropical peatlands. The latter occur in forested, often palm-dominated swamps and in coastal mangroves [@page16annrev]. Boreal and temperate peatlands are dominated by sedges or mosses (see box above).
+
 ```{r echo=FALSE}
 #| label: fig-peatland_map
-#| fig-cap: "Reference: @xu18catena"
+#| fig-cap: "Global peatland distribution derived from PEATMAP. The colour classes indicate percentage peatland cover in Canada, where the source data were provided as grid cells rather than shape files; and regions where peatland cover was estimated from histosols of HWSD v1.2. Elsewhere, where shapefiles are freely available, individual peatlands and peat complexes are shown in solid black. Figure and caption text from @xu18catena."
 #| out-width: 100%
 knitr::include_graphics("images/peatland_map.jpeg")
 ```
 
-### Permafrost {#sec-permafrost}
+#### Peatland establishment {-}
+
+The particular pattern of the global distribution of peatlands (@fig-peatland_map) reflects the environmental constraints on their development. This can be understood as a sequence of criteria that need to be fulfilled for the establishment of a peatland [@stocker14gmd]:
+
+1. *Hydroclimate*: The balance of mean annual precipitation (MAP) should be higher than the mean annual potential evapotranspiration (PET, see @sec-ecohydrology). PET measures how much radiation is available for evaporating water. A positive ratio of MAP/PET indicates a wet hydroclimate and is a primary prerequisite for the establishment of a peatland.
+2. *C balance*: Under water-logged conditions, vegetation productivity and litter inputs must outpace soil organic matter decomposition and a long-term C accumulation is necessary to form peat.
+3. *Topography and soil drainage*: Water-logged soil conditions and a shallow groundwater table depth are present in the landscape where subsurface water flow converges and where drainage is hindered either due to the topographic situation or due to impermeable soil layers or bedrock. Frequent conditions with the groundwater table near the surface or above (inundation) thus occur in low-lying depressions or in poorly drained plains, but less in convex terrain (e.g, ridges).
+
+#### Peat growth {-}
+
+Peat is undecomposed plant material. Most of this material accumulates at the surface. In *sphagnum*-dominated bogs, *all* of this material accumulates at the surface since *sphagnum* forms no roots. Hence, peat grows vertically. Eventually, peat domes form and the peatland transitions to becoming a raised bog (see box above). 
+
+Peat layers form in each year by added litter, are subsequently covered by the next layer, and slowly decay over time, losing mass and volume. The oldest peat is found at its base, the youngest at the top. Due to the age-depth relation, peat soils also serve as a paleo archive. 
+
+#### Peatland history {-}
+
+Due to the very slow decay, oldest peat present at a peat dome's base may date back millennia. Indeed, dated carbon in peatlands across the globe indicate a peak in the initiation of northern peatlands in the early Holocene around 11-9 kyr BP and of tropical peatlands even before - around 20 kyr BP [@yu10grl; @macdonald06sci] and. The timing of the rapid initiation of northern peatlands coincides with the retreat of the major ice sheets after the Last Glacial Maximum and with a peak in summer insolation (@fig-stoa_hovmoeller_holo and @fig-peatland_initiation) and climate seasonality with warm summers in the northern hemisphere, supporting vegetation growth. As new peatlands formed in the early Holocene, old ones that established in the glacial climate, disappeared due to climatic change [@muller20bg] and were lost to rising sea levels during the melting of the ice sheets [@dommain14qsr].
 
 ```{r echo=FALSE}
-#| label: fig-permafrost_map
-#| fig-cap: "Reference: @schuur18annrev"
-#| out-width: 100%
-knitr::include_graphics("images/permafrost_map.png")
+#| label: fig-peatland_initiation
+#| fig-cap: "Timing of circumarctic peatland establishment compared with June insolation at 60°N, Greenland Ice Sheet Project 2 (GISP2) temperature reconstruction, atmospheric CO~2~ and CH~4~ concentrations, and estimates of Northern Hemisphere CH~4~ emissions derived from the InterPolar CH~4~ Gradient (IPG). Atmospheric CO~2~ and CH~4~ concentrations show ice-core data from European Project for Ice Coring in Antarctica (EPICA) Dome C (red for CO~2~ and blue for CH~4~)and GISP2 [green triangles show CH~4~]. Dome C data are shown on the original EPICA Dome C 1 time scale from 0 to 10 ka before present (circles) and on the GISP2 time scale with CH~4~ synchronization from 10 to 18 kyr before present (diamonds). Dome C error bars indicate 1sd uncertainty. (A) The occurrence frequency of 1516 radiocarbon dates of basal peat deposits (14) shows the number of calibrated age ranges that occur in any year (black curve). (B) Cumulative curve of 1516 dates (red curve). (C) The oldest basal peat dates within each 2° by 2° grid (gray bars). Figure and caption from @macdonald06sci"
+#| out-width: 70%
+knitr::include_graphics("images/peatland_initiation.jpeg")
 ```
+
+#### Peatlands and the global carbon cycle {-}
+
+As mentioned above, peatlands store 500-700 PgC (more than all biomass C globally) on only 3% of the Earth’s land surface [@page16annrev; @yu10grl]. Since the majority of the peat present today has accumulated over the course of the Holocene, an average C sink of >5 PgC (100 yr)^-1^ has persisted over the same duration [@yu10grl]. This is much smaller than the global fluxes of the anthropogenic C cycle perturbation, as quantified by the global carbon budget in @sec-globalcarbonbudget. Yet, its persistent nature and the magnitude of long-term C accumulation has had implications for millennial-scale terrestrial carbon storage changes and atmospheric CO~2~ [@stocker17pnas]. Due to their susceptibility to hydro-climatic conditions, peatland extent, global distribution, and C storage will likely undergo changes in a future climate. However, current research and model projections indicate unclear trends [@qiu22].
+
+Peatlands, as all wetlands, are also a major source of methane (CH~4~). Under anoxic soil conditions, CH~4~ is produced, rather than C being oxidised and CO~2~ released (@sec-ghg). 
+
+
+<!-- ### Permafrost {#sec-permafrost} -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- #| label: fig-permafrost_map -->
+<!-- #| fig-cap: "Reference: @schuur18annrev" -->
+<!-- #| out-width: 100% -->
+<!-- knitr::include_graphics("images/permafrost_map.png") -->
+<!-- ``` -->
 
 
 <!-- XXX exercise for LES II: -->
