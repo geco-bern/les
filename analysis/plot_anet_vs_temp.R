@@ -1,4 +1,6 @@
-library(tidyverse)
+library(readr)
+library(dplyr)
+library(ggplot2)
 library(cowplot)
 
 # load Kumarathunge et al. data
@@ -32,37 +34,37 @@ plot_grid(gg1, gg2, nrow = 2)
 
 ggsave(here::here("fig/example.pdf"), width = 8, height = 6)
 
-
-df |> 
-  filter(Dataset == "Tundra USA-AK") |> 
-  group_by(Species) |> 
-  summarise(n = n())
-
-# spatial - adaptation
-df |> 
-  filter(
-    Dataset == "Tundra USA-AK" &
-    Ci > 270 & Ci < 280
-  ) |> 
-  ggplot(
-    aes(
-      x = Tleaf,
-      y = Photo
-    )
-  ) +
-  geom_point()
-
-# seasonal - acclimation
-df |> 
-  filter(
-    Dataset == "Maritime Pine, France" &
-      Ci > 250 & Ci < 300
-  ) |> 
-  ggplot(
-    aes(
-      x = Tleaf,
-      y = Photo
-    )
-  ) +
-  geom_point()
-
+# 
+# df |> 
+#   filter(Dataset == "Tundra USA-AK") |> 
+#   group_by(Species) |> 
+#   summarise(n = n())
+# 
+# # spatial - adaptation
+# df |> 
+#   filter(
+#     Dataset == "Tundra USA-AK" &
+#     Ci > 270 & Ci < 280
+#   ) |> 
+#   ggplot(
+#     aes(
+#       x = Tleaf,
+#       y = Photo
+#     )
+#   ) +
+#   geom_point()
+# 
+# # seasonal - acclimation
+# df |> 
+#   filter(
+#     Dataset == "Maritime Pine, France" &
+#       Ci > 250 & Ci < 300
+#   ) |> 
+#   ggplot(
+#     aes(
+#       x = Tleaf,
+#       y = Photo
+#     )
+#   ) +
+#   geom_point()
+# 
