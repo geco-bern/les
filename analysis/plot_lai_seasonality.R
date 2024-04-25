@@ -1,5 +1,6 @@
-library(FluxDataKit)
-library(tidyverse)
+# library(FluxDataKit)
+library(dplyr)
+library(ggplot2)
 library(cowplot)
 source(here::here("R/read_fdk.R"))
 
@@ -143,7 +144,7 @@ df_modis <- get_modis(
 
 df_flx <- sites |> 
   filter(sitename == "DE-Hai") |> 
-  select(sitename, lon, lat, elv, BIOME_NAME) |> 
+  select(sitename, lon, lat, elv) |> 
   mutate(data = purrr::map(sitename, ~read_fdk(., path = "~/data/FluxDataKit/FLUXDATAKIT_FLUXNET"))) |> 
   unnest(data)
 

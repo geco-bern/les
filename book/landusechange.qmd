@@ -5,3 +5,4 @@ Coming soon.
 <!-- Useful figure: -->
 <!-- https://nca2023.globalchange.gov/all-figures/#6 -->
 <!-- Exercise: calculate how much land is needed remove hard-to-abate emissions of XXXX PgC with afforestation -->
+<!-- Wetland loss: Fluet-Chouinard -->

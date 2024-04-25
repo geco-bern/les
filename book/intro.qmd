@@ -10,7 +10,7 @@ This book focuses on the terrestrial biosphere, how its structure and functionin
 
 ## Examples for the terrestrial biosphere's role in the Earth system 
 
-### Annual swings in atmospheric CO~2~
+### Annual swings in atmospheric CO~2~ {#sec-intro-breathing}
 
 The longest-running record of direct measurements of atmospheric CO~2~ is from the Mauna Loa Observatory, atop a volcano on Hawaii. This record has become iconic for documenting the rapid rise of atmospheric CO~2~ - a greenhouse gas - since the great economic acceleration after the Second World War. This has provided a basis for understanding the relationship between emissions of anthropogenic CO~2~ and its accumulation in the atmosphere and for estimating the climate impact of this important greenhouse gas.
 

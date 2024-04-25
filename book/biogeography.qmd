@@ -45,9 +45,9 @@ Walter-Lieth climate diagrams show monthly climatologies of average temperature 
 
 ```{r echo=FALSE}
 #| label: fig-climate_biome_tropical_moist
-#| fig-cap: "Climate diagram of the site MY-PSO, located in the ropical moist broadleaved (evergreen) forest biome."
+#| fig-cap: "Climate diagram of the site BR-Sa3, located in the ropical moist broadleaved (evergreen) forest biome."
 #| out-width: 80%
-knitr::include_graphics("images/diagram_MY-PSO.png")
+knitr::include_graphics("images/diagram_BR-Sa3.png")
 ```
 
 #### Tropical deciduous forest (xeric woodland) {-}
@@ -60,7 +60,7 @@ knitr::include_graphics("images/diagram_MY-PSO.png")
 
 <!-- ```{r echo=FALSE}
 #| label: fig-climate_biome_tropical_dry
-#| fig-cap: "Climate diagram of the site GL-ZaH, located in the biome."
+#| fig-cap: "Climate diagram of the site US-ICh, located in the biome."
 #| out-width: 80%
 knitr::include_graphics("images/diagram_")
 ``` -->
@@ -169,9 +169,9 @@ knitr::include_graphics("images/diagram_FI-Hyy.png")
 
 ```{r echo=FALSE}
 #| label: fig-climate_biome_tundra
-#| fig-cap: "Climate diagram of the site GL-ZaH, located in the Tundra biome."
+#| fig-cap: "Climate diagram of the site US-ICh, located in the Tundra biome."
 #| out-width: 80%
-knitr::include_graphics("images/diagram_GL-ZaH.png")
+knitr::include_graphics("images/diagram_US-ICh.png")
 ```
 
 :::

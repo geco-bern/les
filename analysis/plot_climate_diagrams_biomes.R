@@ -36,7 +36,8 @@ source(here::here("R/read_fdk.R"))
 
 # Reading from file prepared above -----------
 # read from file
-df_sites <- read_rds(here::here("data/df_sites.rds"))
+# df_sites <- read_rds(here::here("data/df_sites.rds"))
+df_sites <- read_csv(here::here("data/fdk_site_info.csv"))
 
 # chose representative sites
 use_sites <- c(
@@ -45,11 +46,14 @@ use_sites <- c(
   "FR-Pue", # Mediterranean Forests, Woodlands & Scrub
   "DE-Hai", # Temperate Broadleaf & Mixed Forests
   "US-Tw1", # Temperate Grasslands, Savannas & Shrublands
-  "AU-How", # Tropical & Subtropical Grasslands, Savannas & Shrublan
-  "MY-PSO", # Tropical moist broadleaved (evergreen) forest
+  "AU-How", # Tropical & Subtropical Grasslands, Savannas & Shrubland
+  # "MY-PSO", # Tropical moist broadleaved (evergreen) forest
+  "BR-Sa3", # Tropical
   "ZM-Mon", # Tropical deciduous forest (xeric woodland)
-  "GL-ZaH"  # Tundra
+  "US-ICh" # Tundra
+  # "GL-ZaH"  # Tundra
 )
+
 
 # subset sites
 df_sites_sub <- df_sites |> 
@@ -59,8 +63,9 @@ saveRDS(df_sites_sub, file = here::here("data/df_sites_sub.rds"))
 
 # read daily flux data for each site
 df <- df_sites_sub |> 
-  select(sitename, lon, lat, elv, BIOME_NAME) |> 
-  mutate(data = purrr::map(sitename, ~read_fdk(., path = "~/data/FluxDataKit/FLUXDATAKIT_FLUXNET"))) |> 
+  select(sitename, lon, lat, elv) |> 
+  # mutate(data = purrr::map(sitename, ~read_fdk(., path = "~/data/FluxDataKit/FLUXDATAKIT_FLUXNET"))) |> 
+  mutate(data = purrr::map(sitename, ~read_fdk(., path = "~/data/FluxDataKit/v3.1/zenodo_upload/fluxnet/"))) |>
   unnest(data) |> 
   group_by(sitename) |> 
   nest()
@@ -71,7 +76,7 @@ create_diagram_per_site <- function(site, df){
     mutate(year = lubridate::year(TIMESTAMP),
            month = lubridate::month(TIMESTAMP),
            day = lubridate::mday(TIMESTAMP)) |> 
-    select(year, month, day, P_F, TMAX_F_MDS, TMIN_F_MDS, lat, lon, elv, BIOME_NAME) |> 
+    select(year, month, day, P_F, TMAX_F_MDS, TMIN_F_MDS, lat, lon, elv) |> 
     as.data.frame()
   
   filn <- paste0(here::here("book/images/diagram_"),
