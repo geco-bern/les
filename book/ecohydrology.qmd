@@ -2,3 +2,9 @@
 
 Coming soon.
 
+- Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation
+- Tropical forests:
+  - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008)
+- Material from trial lecture: lecture_et_giub.key
+- Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation.
+- 3.4 Hydrologic Cycle (Bonan)

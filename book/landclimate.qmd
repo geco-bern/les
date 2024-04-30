@@ -1,6 +1,450 @@
+---
+format: 
+  html:
+    fig-width: 5
+    fig-height: 4
+  pdf:
+    fig-width: 7
+    fig-height: 5
+---
+
 # Land-climate interactions {#sec-landclimate}
 
-Coming soon.
+In previous chapters, we have investigated the interactions between the atmosphere and the land surface through the exchange of CO~2~. In this, chapter, we focus on interactions through physical processes, including the radiative energy balance and heat fluxes at the land surface. Since these Earth system interactions are also mediated to a large degree through biology, they are referred to as *biogeophysical* processes. This is in contrast to the exchange of CO~2~ and nutrient fluxes, referred to as *biogeochemical* processes.
+
+The partitioning of heat fluxes into a sensible (hot air) and latent (moist air) heat flux is determined by the availability of water for evaporation and transpiration. All aspects that relate to the water cycle, how it is affected by vegetation, and how it affects the surface energy balance, are introduced in @sec-ecohydrology.
+
+## Components of surface radiation
+
+Analogous to solar radiation being the "engine" of biogeochemical processes through its control on photosynthesis, net radiation is the engine of energy and water vapour fluxes between the atmosphere and the land surface. Net radiation ($R_n$) is the net of incoming (or incident) shortwave radiation ($S\downarrow$) minus outgoing shortwave (solar) radiation ($S\uparrow$) and longwave radiation ($L\downarrow$ and $L\uparrow$) at the land surface (@fig-netrad a).
+$$
+R_n = S\downarrow - S\uparrow + L\downarrow - L\uparrow
+$$ {#eq-netrad}
+
+```{r echo=FALSE}
+#| label: fig-netrad
+#| fig-cap: "Land surface energy partitioning. (a) Components of net radiation. (b) Energy balance of the land surface."
+#| out-width: 60%
+knitr::include_graphics("images/energybalance.png")
+```
+
+### Incident shortwave radiation
+
+Incident shortwave (solar) radiation $S\downarrow$ was referred to in @sec-global-patterns as $I_\mathrm{0}$. (Nomenclature will be homogenized across chapters in future issues this book.) It varies over the course of a day and a year, and is affected by the presence of clouds and the altitude of the land surface above sea level, as described in @sec-global-patterns. As shown in @fig-surface-energy-balance, the presence of clouds is a strong determinant of the incoming solar radiation energy flux, when considering global means (including the sea surface) under actual conditions and under cloud-free conditions (160 vs. 214 W^-2^). 
+
+```{r echo=FALSE}
+#| label: fig-surface-energy-balance
+#| fig-cap: "Schematic representation of the global mean energy budget of the Earth (upper panel), and its equivalent without considerations of cloud effects (lower panel). Numbers indicate best estimates for the magnitudes of the globally averaged energy balance components in  W^-2^ together with their uncertainty ranges in parentheses (5–95% confidence range), representing climate conditions at the beginning of the 21st century. Note that the cloud-free energy budget shown in the lower panel is not the one that Earth would achieve in equilibrium when no clouds could form. It rather represents the global mean fluxes as determined solely by removing the clouds but otherwise retaining the entire atmospheric structure. This enables the quantification of the effects of clouds on the Earth energy budget and corresponds to the way clear-sky fluxes are calculated in climate models. Thus, the cloud-free energy budget is not closed and therefore the sensible and latent heat fluxes are not quantified in the lower panel. Figure and caption from @IPCC_2021_WGI_Ch_7."
+#| out-width: 100%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_7_2.png")
+```
+### Outgoing shortwave radiation and albedo
+
+Outgoing shortwave radiation at the land surface ($S\uparrow$) is determined by the albedo ($\alpha$) - the fraction of the incident radiation that gets reflected.
+$$
+S\uparrow = \alpha S\downarrow
+$$ {#eq-albedo}
+The albedo varies across different vegetation and other types of Earth surface covers. Values range from 0.8-0.95 for fresh snow, to 0.2-0.45 for a desert surface, 0.05–0.40 for bare soil, 0.05-0.26 for vegetation, and 0.03–0.10 for water [@oke87]. Variations across different vegetation types are substantial as shown also in @fig-albedo-vegtypes. This indicates that the amount of outgoing shortwave radiation, and with it net radiation, is strongly affected by vegetation types.
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: true
+#| label: fig-albedo-vegtypes
+#| fig-cap: "Albedo values for different vegetation types. Each point represents a site where surface radiation fluxes were measured. Vegetation types are described in @tbl-vegtype. Data from @cescatti12rse."
+#| out-width: 60%
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+
+df <- read_csv(here::here("data-raw/albedo_cescatti.csv"))
+
+df |> 
+  ggplot(aes(
+    x = reorder(vegtype, albedo_insitu, decreasing = TRUE), 
+    y = albedo_insitu
+    )) +
+  geom_boxplot(fill = "grey70") +
+  geom_jitter(width = 0.15) +
+  theme_classic() +
+  labs(
+    x = "Vegetation type",
+    y = "Albedo"
+  )
+```
+
+The diurnal variation of albedo is U-shaped - high at sunrise and sunset, and lower in between. Over the seasons, land surface albedo is affected by variations in LAI and by the presence of snow. During winter and in the presence of snow, the albedo of a grassland or a cropland can reach very high values - determined by the albedo of snow. In contrast, the albedo of a forest, even in the presence of snow, remains. much lower (0.2-0.4, @zhao14ecolmono). This is because trees are not fully "submerged" in the snow pack, as opposed to grasses, and the exposed canopy absorbs a substantial fraction of the incident radiation. This effect of forest vs. non-forest covers on the surface energy balance during winter is referred to as the *snow masking effect*.
+
+```{r echo=FALSE}
+#| label: fig-snow-masking
+#| fig-cap: "Snow-free vs. snow-covered surface albedo for different vegetation types. Figure from @bonan08sci."
+#| out-width: 60%
+knitr::include_graphics("images/snow_masking_bonan.jpg")
+```
+
+Note that albedo also depends on the wavelength of the radiation, on the solar zenith angle (lower at noon), and on whether the solar radiation is diffuse or direct. Thus, albedo varies over time, $\alpha$ in @eq-albedo represents the albedo for shortwave radiation, and values shown in @fig-albedo-vegtypes are averages across the seasons.
+
+
+### Longwave radiation
+
+Every material body with a temperature above the absolute zero (0 K $= -$ 273.15°C) emits radiative energy. The total radiative energy flux (integrated across wavelengths) and the wavelengths at which radiation is emitted depend on the temperature of the body and its emissivity. The surface of the sun is about 6000 K and emits radiation in the shorwave spectrum which is visible to the human eye. The Earth surface is on average 288 K and emits radiation in the longwave spectrum which is not visible to the eye. 
+```{r warning=FALSE, message=FALSE, fig.height=3, fig.width=8}
+#| code-fold: true
+#| label: fig-wavelengths
+#| fig-cap: "Spectral distribution of the radiative energy flux (a) for a body of 6000 K (the sun) and (b) a body of 288 K (the earth), assuming an emissivity of 1. *Emittance* (the y-axis) is the density of the radiative energy flux per unit wavelength spectrum. Note the different magnitudes of the emittances and wavelengths for the two bodies. Example following @bonan."
+#| out-width: 100%
+
+library(ggplot2)
+library(cowplot)
+
+# Formula for Planck's Law
+calc_planck <- function(lambda, temp){
+  h <- 6.626e-34  # Planck’s constant
+  c <- 3e8        # speed of light
+  k <- 1.38e-23   # Stefan Boltzmann constant
+  out <- (2*pi*h*c^2) / (lambda^5*(exp(h*c/(k*lambda*temp)) - 1))
+  return(out)
+}
+
+gg1 <- ggplot() +
+  geom_function(
+    fun = calc_planck,
+    args = list(
+      temp = 6000
+    )
+  ) +
+  xlim(0, 0.4e-5) +
+  theme_classic() +
+  labs(
+    title = "Sun",
+    subtitle = "6000 K",
+    x = "Wavelength (m)",
+    y = expression(paste("Emittance (W m"^-2, " m"^-1, ")"))
+  )
+
+gg2 <- ggplot() +
+  geom_function(
+    fun = calc_planck,
+    args = list(
+      temp = 288
+    )
+  ) +
+  xlim(0, 1e-4) +
+  theme_classic() +
+  labs(
+    title = "Earth",
+    subtitle = "288 K",
+    x = "Wavelength (m)",
+    y = expression(paste("Emittance (W m"^-2, " m"^-1, ")"))
+  )
+
+plot_grid(
+  gg1,
+  gg2,
+  labels = c("a", "b")
+)
+```
+According to the Stefan-Boltzmann law, the total radiative energy flux scales with the temperature of the body $T$ and an emissivity $\varepsilon$:
+$$
+R = \varepsilon \sigma T^4
+$$ {#eq-boltzmann}
+$\sigma$ is the Stefan Boltzmann constant and has a value of $5.670\times 10^{-8}$ W m^-2^ K^-4^. Here, $T$ is expressed in Kelvin. $R$ is the integral under the curve in @fig-wavelengths. $R$ stands for either longwave or shortwave radiation, as referred to as $L$ and $S$ in @eq-netrad.
+
+The longwave radiation components are a substantial fraction of net radiation. In @fig-surface-energy-balance, they are referred to as "thermal". The outgoing longwave radiation $L\uparrow$ is on average 398 W m^-2^ and is a function of the Earth's surface temperature and emissivity, following the Stefan-Boltzmann law (@eq-boltzmann), plus the  incident longwave radiation reflected (not absorbed) by the surface:
+$$
+L\uparrow = \varepsilon \sigma T^4 + (1-\varepsilon) L\downarrow
+$$ {#eq-longwave-up}
+Note that $\varepsilon$ is used in @eq-longwave-up as the absorbtivity and in @eq-boltzmann as the emissivity. This is because the two are equal.
+
+Clouds absorb radiation emitted by the earth surface and re-emit a large fraction of it. In absence of clouds, much less radiation is absorbed and re-emitted by the atmosphere. Therefore, the incoming longwave radiation depends strongly on the presence of clouds. 
+
+::: {.callout-note}
+
+### Net radiation
+
+Using @eq-albedo and @eq-longwave-up, the net radiation at the earth surface (@eq-netrad) can be expressed as
+$$
+R_n = (1-\alpha) S\downarrow + \varepsilon L\downarrow - \varepsilon \sigma T^4
+$$
+:::
+
+Exercise:
+
+1. Calculate the albedo from 'all sky' conditions in @fig-surface-energy-balance.
+
+
+## Surface energy balance
+
+The energy available from radiative fluxes is converted into a sensible heat flux ($H$), a latent heat flux ($\lambda E$), and a ground heat flux ($G$, @fig-netrad b). Following energy conservation, net radiation is equal to the sum of these three heat fluxes.
+$$
+R_n = H + \lambda E + G
+$$ {#eq-energybalance}
+
+The components of the surface energy balance (@eq-energybalance) are commonly expressed in energy units (W m^-2^). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux ($\lambda E$) can also be expressed as a mass flux of water vapour ($E$). $E$ is the mass flux of water vapor, e.g., expressed in units of g m^-2^ s^-1^. $\lambda$ is the latent heat of vaporization and converts the mass units into energy units. It measures how much energy (Joules, J) is needed vapourize 1 g of water at constant temperature. $\lambda$ is 2.466 MJ kg^-1^ at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C (see code below using the {bigleaf} R package [@knauer18plosone]).
+
+```{r warning=FALSE, message=FALSE}
+#| code-fold: false
+library(bigleaf)  # This package contains lots of useful functions and parameters for land-atmosphere exchange. Reference: Knauer et al. 2018 https://dx.plos.org/10.1371/journal.pone.0201114
+latent.heat.vaporization(30) / latent.heat.vaporization(0)
+```
+
+The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see fig xxx) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass *condensates* at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance. The ground heat flux $G$ buffers variations of net radiation, absorbing energy and removing heat from the surface during the day and summer and releasing heat during night and winter.
+
+### Energy partitioning
+
+Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the *partitioning* of net radiation into sensible and latent heat fluxes in @eq-energybalance. Thus, the spatial distribution of vegetation and other land cover types, and the response of plants to temporal changes in the environment (and thus on LAI and stomatal conductance) influence the energy partitioning at the land surface and near-surface atmospheric conditions. In other words, we have to understand vegetation and its response to the environment in order to understand land-climate interactions and near-surface climate.
+
+The key properties influencing the partitioning into the sensible and latent heat flux are the aerodynamic conductance to heat transfer ($G_\mathrm{ah}$) and the surface conductance to water vapor transport ($G_\mathrm{sw}$). How they influence the latent heat flux is shown in @fig-penmanmonteith. The aerodynamic conductance depends on the roughness of the surface and on wind speed. Taller vegetation has a higher roughness and a higher aerodynamic conductance. Roughness also increases with LAI. 
+
+On vegetated surfaces, the surface conductance to water vapor transport is strongly influenced by the stomatal conductance ($g_s$, @eq-photo-fick and @eq-transpiration) and by the LAI. Water evaporation from rock, soil, leaf, or branch surfaces contributes to surface conductance and occurs also from non-vegetated surfaces. In a closed canopy, surface conductance is dominated by the signal by stomatal conductance. When leaves are active and photosynthesizing (high light), and when water stress is low (high soil moisture, low VPD), stomatal conductance is high. How water availability and vegetation regulate stomatal conductance and thus the latent heat flux and energy partitioning at the land surface is introduced in @sec-ecohydrology.
+
+```{r echo=FALSE}
+#| label: fig-surface-resistance
+#| fig-cap: "Surface resistance and normalized latent heat flux for different vegetation types. Normalization removes effects of different net radiation on latent heat fluxes. Canopy resistance is equivalent to the inverse of surface conductance described in this chapter. Figure from @bonan08sci."
+#| out-width: 70%
+knitr::include_graphics("images/canopy_resistance.png")
+```
+
+::: {.callout-note}
+
+### Dependency on conductances
+
+Given the atmospheric condition (net radiation $R_n$ and the vapor pressure deficit of the ambient air $D_a$), the latent heat flux can be modelled following the Penman-Monteith equation:
+$$
+\lambda E = \frac{s(R_n - G) + \rho c_p D_a G_\mathrm{ah}}{s + \gamma (1 + G_\mathrm{ah}/G_\mathrm{sw})}
+$$ {#eq-pm}
+
+- $s$ is the slope of the saturation vapor pressure versus temperature curve (kPa K^−1^)
+- $\rho$ is the density of air (kg m^-3^)
+- $c_p$ is the heat capacity of dry air (J K^−1^ kg^−1^)
+- $\gamma$ is the psychrometric constant (kPa K^−1^)
+
+A derivation of the Penman-Monteith equation is given by @bonan, Ch. 12.7.
+
+With this, and given the atmospheric condition, we can visualise the dependency of the latent heat flux on the aerodynamic and the surface conductances. Let's assume $R_n =$ 400 W m^-1^.
+
+```{r warning=FALSE, message=FALSE, fig.height=3, fig.width=8}
+#| code-fold: true
+#| label: fig-penmanmonteith
+#| fig-cap: "Dependency of the latent heat flux on (a) the aerodynamic conductance and (b) the surface conductance following the Penman-Monteith equation (@eq-pm)."
+#| out-width: 100%
+
+library(bigleaf)
+
+# calculate latent heat flux using penman monteith
+calc_le_pm <- function(netrad, vpd, temp, g_ah, g_sw){
+  # ARGUMENTS
+  # netrad: net radiation
+  # vpd: vapour pressure deficit
+  # temp: ambient air temperature
+  # patm: atmospheric pressure (kPa)
+  # aerodynamic conductance to heat transport, in mass units (m s-1)
+  # surface conductance to water vapor transport, in mass units (m s-1)
+  
+  # using standard atmospheric pressure
+  patm <- bigleaf.constants()$pressure0 * 1e-3
+  
+  # slope of the saturation vapor pressure, using "Sonntag_1990" in Bigleaf
+  s <- Esat.slope(temp)$Delta
+  
+  # density of air
+  rho <- air.density(temp, patm)
+  
+  # heat capacity of dry air
+  cp <- bigleaf.constants()$cp
+  
+  # psychrometric constant
+  gamma <- psychrometric.constant(temp, patm)
+  
+  # assuming G = 0; conductances are in mass units
+  out <- (s * netrad + rho * cp * vpd * g_ah) / (s + gamma * (1 + g_ah / g_sw))
+  
+  return(out)
+}
+
+# # test our function
+# calc_le_pm(
+#   netrad = 100,
+#   vpd = 1,
+#   temp = 15,
+#   g_ah = 0.1,  # mass units (m s-1)
+#   g_sw = mol.to.ms(0.6, Tair = temp, pressure = patm, constants = bigleaf.constants())  # convert molar units (mol m-2 s-1) to mass units
+#   )
+# 
+# # test built-in function
+# potential.ET(
+#   Gs_pot = 0.6,  # molar units (mol m-2 s-1)
+#   Tair = 15,
+#   pressure = bigleaf.constants()$pressure0 * 1e-3,
+#   VPD = 1,
+#   Ga = 0.1,  # mass units
+#   Rn = 100,
+#   approach = "Penman-Monteith"
+#   )[,"LE_pot"]
+
+# plot vs aerodynamic conductance
+df <- expand.grid(
+  g_ah = seq(0, 0.3, by = 0.01),
+  vpd = seq(0, 5, by = 0.5)
+) |> 
+  as_tibble() |> 
+  mutate(
+    le = purrr::map2_dbl(
+      g_ah,
+      vpd,
+      ~calc_le_pm(
+        netrad = 400, 
+        vpd = .y, 
+        temp = 15, 
+        g_ah = .x, 
+        g_sw = mol.to.ms(
+          0.6, 
+          Tair = 15, 
+          pressure =  bigleaf.constants()$pressure0 * 1e-3, 
+          constants = bigleaf.constants()
+          ))
+    )
+  )
+
+gg1 <- df |> 
+  ggplot() +
+  geom_line(aes(g_ah, le, color = vpd, group = vpd)) +
+  scale_color_viridis_c(name = "VPD (kPa)") +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  theme_classic() +
+  labs(
+    x = expression(paste("Aerodynamic conductance (m s"^-1, ")")),
+    y = expression(paste(lambda, italic("E"), " (W m"^-2, ")"))
+  ) + 
+  theme(legend.position="none")
+
+# plot vs surface conductance
+df <- expand.grid(
+  g_sw = seq(0, 0.2, by = 0.01),
+  vpd = seq(0, 5, by = 0.5)
+) |> 
+  as_tibble() |> 
+  mutate(
+    le = purrr::map2_dbl(
+      g_sw,
+      vpd,
+      ~calc_le_pm(
+        netrad = 400, 
+        vpd = .y, 
+        temp = 15, 
+        g_ah = 0.1, 
+        g_sw = .x)
+    )
+  )
+
+gg2 <- df |> 
+  ggplot() +
+  geom_line(aes(g_sw, le, color = vpd, group = vpd)) +
+  scale_color_viridis_c(name = "VPD (kPa)") +
+  theme_classic() +
+  labs(
+    x = expression(paste("Surface conductance (m s"^-1, ")")),
+    y = expression(paste(lambda, italic("E"), " (W m"^-2, ")"))
+  )
+
+plot_grid(
+  gg1,
+  gg2,
+  labels = c("a", "b"),
+  rel_widths = c(0.77, 1)
+)
+```
+
+:::
+
+### Evaporative fraction and Bowen ratio
+
+When considering totals over longer periods of time (over at least one annual cycle), the ground heat flux can be neglected since the ground doesn't gradually heat up over time. Hence, the sum of the latent and sensible heat fluxes add up to match net radiation. The *evaporative fraction* quantifies the fraction of available energy from net radiation goes into the latent heat flux.
+$$
+\mathrm{EF} = \lambda E/R_n
+$$
+The remainder goes into the sensible heat flux. The Bowen ratio expresses the same relation and is defined as 
+$$
+B = H/\lambda E
+$$
+Quantifications of EF or $B$ give important insights beyond the "first-order control" by net radiation. Variations across space reflect surface properties and vegetation activity. In forests, the proportion of evapotranspiration to available energy is typically lower compared to certain crops, and it's even lower in conifer forests than in deciduous broadleaf forests (@fig-surface-resistance). 
+
+## Energy fluxes across biomes
+
+### Diurnal variations
+
+```{r echo=FALSE}
+#| label: fig-energy-diurnal
+#| fig-cap: "asdf"
+#| out-width: 100%
+knitr::include_graphics("images/diurnal_cycle_radiation.png")
+```
+
+### Seasonal variations
+
+```{r echo=FALSE}
+#| label: fig-energy-seasonal
+#| fig-cap: "asdf"
+#| out-width: 100%
+knitr::include_graphics("images/seasonal_cycle_radiation.png")
+```
+
+
+
+Variations over time (for a given location) reflect changes in water limitation on vegetation activity.
+
+
+
+
+indicative of the degree of water stress on 
+
+Exercise:
+- Express the sensible heat flux as a function of net radiation and the evaporative fraction
+- Express the EF as a function of the Bowen ratio.
+
+
+- aerodynamic conductance to heat transfer: AT-Neu (grassland) isrelatively poorly coupled, whereas DE-Tha (forest) shows a high degree of coupling.
+
+
+Outgoing shortwave radiation is determined by the shortwave *albedo* ($\alpha$) of the surface. Longwave radiation is emitted by the atmosphere, determining $L\downarrow$, and by the land surface, determining $L_\uparrow$. 
+
+- In this chapter: interactions through physical processes. Everything water in next chapter. Land use change affects biogeophyical properties and processes. This is part of chapter xxx.
+- History of climate models. The atmosphere model compoenent of climate models and numerical weather prediction models, require "fluxes of energy, moisture, and momentum at the land surface as boundary conditions to solve numerical equations of atmospheric physics and dynamics" (Bonan, 2008).
+- Surface energy balance
+
+
+- Physical properties determine the how global radiation is partitioned into components. Physical properties that are strongly affected by vegetation type and vegetation functioning over the course of the seasons:
+  - roughness, aerodynamic resistance (Fig. 1E in Bonan et al 2008)
+  - interaction of veg and snow cover, effect on albedo (Fig. 1D in Bonan et al 2008)
+- Bowen ratio and evaporative fraction
+  - Bowen ratio (defined as the ratio of sensible heat flux to latent heat flux). 
+- Land surface temperatures
+  - "In western Europe, forest and agricultural land have comparable surface radiative temperature when soil is moist but respond differently to drought (30). Forest maintains green vegetation, as indicated by the normalized difference vegetation index, although surface temperature and sensible heat flux increase with drought. Vegetation greenness in cropland declines by ~50%, the surface warms 13°C more than in forest, and the drought enhancement in sensible heat flux is greater than for forest. The different response to drought arises from the deep roots of trees and their access to deeper reservoirs of soil water." (Bonan 2008)
+- Microclimates
+- Differences in land-climate interactions across biomes and vegetation types
+  - Diurnal and seasonal cycle of Rnet, H, LE, and EF at the sites shown in Ch 6. 
+    - Contrast FI-Hyy with a broadleaf-dominated boreal forest 
+    - Contrast DE-Hai with coniferous temperate forest
+  - Tropical forests
+    - High rates of ET
+    - "Flux tower measurements in the Brazilian Amazon confirm that forests have lower albedo compared with pasture, greater net radiation, and greater evapotranspiration, particularly during the dry season (11, 12), producing a shallow, cool, and moist boundary layer." (Bonan 2008)
+  - Boreal forests
+    - "Climate model simulations show that the low surface albedo during the snow season, evident in local flux measurements (21) and satellite-derived surface albedo (Fig. 1D), warms climate compared to when there is an absence of trees (SOM). Consequently, the boreal forest has the greatest biogeophysical effect of all biomes on annual mean global temperature (7)." (Bonan 2008)
+    - "Conifer forests have low summertime evaporative fraction (defined as the ratio of latent heat flux to available energy) compared with deciduous broadleaf forests, producing high rates of sensible heat exchange and deep atmospheric boundary layers (21)."  (Bonan 2008)
+  - Temperate forests
+    - Snow masking effect
+    - Can have substantial water limitation effects on evaporative fraction and surface temperatures
+    
+- Land use change:
+  - Small scale heterogeneity of deforestation can influence convergence
+
+
+XXX exercise: 
+2. How much water is evaporated and transpired per day (kg m^-2^ d^1^) in mid-summer at the site DE-Hai assuming an air temperature of 15°C? Express the mass flux as a "depth", converting the units of mass per ground area in kg m^-2^ into a "depth" in mm.
+
+
+- Bala et al. PNAS
+<!-- https://www.dora.lib4ri.ch/wsl/islandora/object/wsl%3A16555/datastream/PDF/Rebetez-2018-Meteorological_data_series_from_Swiss-%28published_version%29.pdf -->
+
 
 <!-- ## Water-carbon coupling {#sec-watercarbon} -->
 
