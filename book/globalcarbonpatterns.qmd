@@ -325,6 +325,14 @@ df_holo |>
   scale_y_continuous(expand = c(0,0))
 ```
 
+::: {.callout-caution}
+## Exercise
+
+1. High solar radiation during summer drives monsoonal patterns in the tropics and sub-tropics. Considering @fig-stoa_hovmoeller_holo, how do you expect monsoonal precipitation intensity in the northern part of the African continent to have changed around 6 kyr BP, compared to today.
+
+:::
+
+
 ## Phenology {#sec-phenology} 
 
 In general, phenology refers to the study of periodic events of biological activity. In most cases, such periodic events are linked the seasonal variations of the climate. In the context of terrestrial photosynthesis and land-climate interactions, the most important phenological event is the leaf unfolding and leaf senescence and shedding in response to seasonal variations in temperature, radiation, and water availability. The presence (or absence) of active green leaves has major implications for CO~2~, water vapour, and energy exchange between the land surface and the atmosphere. 
@@ -332,6 +340,14 @@ In general, phenology refers to the study of periodic events of biological activ
 The presence of green leaves is recorded by optical satellite remote sensing and documents the Earth's greenness dynamics that follows the seasons - differently across the globe, as the video below illustrates.  
 
 {{< video https://www.youtube.com/watch?v=OK_HI3sjbtI >}}
+
+::: {.callout-caution}
+## Exercise
+
+2. Why does the "green belt" in Africa move north and south over the seasons? 
+
+:::
+
 
 Leaf phenology is either controlled by temperatures and light availability in temperate, boreal, and tundra ecosystems, or by water availability in warm, seasonally dry climates elsewhere. The water control on vegetation and leaf phenology will be discussed in @sec-ecohydrology.
 
@@ -395,6 +411,13 @@ knitr::include_graphics("images/phenology_patterns.png")
 <!-- - Chilling and photoperiod controls as a way to avoid response to "false springs". -->
 <!-- - Senescence: response to cumulative light exposure (but much less to drought) -> leaf ageing, degradation as the driver of early senescence -->
 
+::: {.callout-caution}
+## Exercise
+
+3. With rising temperature under anthropogenic climate change, how do you expect the risk of frost events causing damage on unfolded leaves to change?
+
+:::
+
 ## Temporal variations of ecosystem C fluxes {#sec-flux-variability}
 
 Solar radiation is the "engine" of photosynthesis and thus of the terrestrial carbon cycle. This is expressed by the light use efficiency model of GPP (@eq-luemodel). The temporal and spatial patterns of photosynthetic CO~2~ uptake are therefore driven by the temporal and spatial patterns in solar radiation. The Earth's revolution around its own axis within a day, and its revolution around the sun within a year give rise to *diurnal* and *seasonal* variations in solar radiation, climate, C fluxes, and biological activity in all its forms. (It's a fascinating thought that even physiological and psychological circadian rhythms like wake and sleep patterns are a consequence of solar geometry.) The variations of solar radiation over the course of a day and a year are expressed very differently along different latitudinal positions.
@@ -420,7 +443,6 @@ In absence of disturbances influencing ecosystem C fluxes, the net ecosystem exc
 - Sites with a strong mid-day CO~2~ uptake have a higher night-time respiration.
 - During nighttime hours, NEE is relatively stable. During that time, GPP is zero. Hence, *R*~eco~ is relatively stable during the night.
 - The daily total NEE (@fig-diurnal_cycle c) is smaller than daily totals in GPP and *R*~eco~. At the tropical site, NEE is very small in comparison to GPP and *R*~eco~. This indicates that over the course of one day, the tropical forest site is nearly C neutral. A substantial net C uptake is evident for DE-Hai. This is the C balance for a day in mid July. In general, during summer, temperate, boreal, and tundra ecosystems are a net C sink, and a net C source during winter (see @sec-seasonal-cycle).
-
 
 ```{r echo=FALSE}
 #| label: fig-diurnal_cycle
@@ -458,6 +480,15 @@ As for the diurnal cycle, also for the seasonal cycle, the pattern in NEE strong
 # plot created with analysis/plot_gpp_sites_biomes.R
 knitr::include_graphics("images/seasonal_cycle.png")
 ```
+::: {.callout-caution}
+## Exercise
+
+4. At what latitude do you expect the largest diurnal cycle amplitude in top-of-atmosphere solar radiation? 
+5. At what latitude do you expect the largest seasonal amplitude in top-of-atmosphere solar radiation?
+6. Where do you expect the smallest seasonal variation in the daily net ecosystem productivity.
+7. Consider mature forest ecosystems (*sensu* @odum69sci, @fig-odum) in a moist tropical, temperate and boreal region. Where do you expect the largest annual NEP? Where do you expect the largest daily NEP during the peak growing season?
+:::
+
 
 #### The breathing of the Earth
 
@@ -492,7 +523,7 @@ We start by adopting the hypothetical perspective from the top of the atmosphere
 
 Next, we consider the attenuation of solar radiation by the atmosphere, considering cloud cover and the elevation of the land surface. This considers @eq-sin and reflects the geographic pattern of distribution of solar radiation, incident at the land surface (@fig-solar_radiation). Note that $\varphi_0$ and $\tilde{a}$ are considered here to be global constants. Atmospheric attenuation of photysnthetically active solar radiation reduces terrestrial GPP by over 50% (from 2960 to 1442 PgC yr^-1^, @wang14bg).
 
-Not all solar radiation that reaches the land surface is absorbed by active green vegetation. The highest radiation intensities coincide with sparsely vegetated land, including major desert regions. The effect of reduced vegetation cover on GPP is quantified by the factor fAPAR which accounts for the fraction of *absorbed* photosynthetically active radiation (@sec-light-absorption) and reflects water and other limitations on vegetation. Limited vegetation cover and light absorption reduces terrestrial GPP further by over 75% (from 1442 to 322 PgC yr^-1^, @wang14bg).
+Not all solar radiation that reaches the land surface is absorbed by active green vegetation. The highest radiation intensities coincide with sparsely vegetated land, including major desert regions. The effect of reduced vegetation cover on GPP is quantified by the factor fAPAR which accounts for the fraction of *absorbed* photosynthetically active radiation (@sec-light-absorption). Limited vegetation cover and light absorption reduces terrestrial GPP further by over 75% (from 1442 to 322 PgC yr^-1^, @wang14bg).
 
 At the global scale, temperature has a relatively weak effect on GPP. Considering that photosynthesis is inhibited by freezing temperatures (below 0°C) does not substantially reduce total terrestrial GPP (from 322 to 300 PgC yr^-1^, corresponding to a 7% reduction, @wang14bg). This is because low temperatures coincide with low PAR (or $I_0$) and . Situations of high light and low temperatures are relatively rare.
 
@@ -504,6 +535,14 @@ Finally, physiological effects of CO~2~, temperature, vapour pressure deficit, a
 #| out-width: 80%
 knitr::include_graphics("images/gpp_constraints_wang14.png")
 ```
+
+::: {.callout-caution}
+## Exercise
+
+8. Which of the factors described above implies the strongest reduction in GPP? What resource limitation may be responsible for this large unrealised C assimilation?
+
+:::
+
 
 ### Global distribution of biomass carbon
 
@@ -622,6 +661,16 @@ As mentioned above, peatlands store 500-700 PgC (more than all biomass C globall
 
 Peatlands, as all wetlands, are also a major source of methane (CH~4~). Under anoxic soil conditions, CH~4~ is produced, rather than C being oxidized and CO~2~ released (@sec-ghg). 
 
+::: {.callout-caution}
+## Exercise
+
+9. Water table variations affect the C balance of a peatland. If it falls, how do you expect NPP, *R*~eco~, and NEP of a peatland, and the turnover time of C in soil organic matter to change? 
+10. What other greenhouse gas may be influenced by a declining water table in a peatland? In what direction would its emission change?
+11. Why are soils dark in the Seeland of the Canton of Bern?
+12. Why are wooden artefacts of the Bronze age preserved in some places but not in others? Do you know any such wooden artefacts?
+
+:::
+
 
 ### Permafrost {#sec-permafrost}
 
@@ -645,6 +694,15 @@ knitr::include_graphics("images/permafrost_soiltem_depth_biskaborn19natcomm.png"
 The presence of permafrost constrains the volume available for plant rooting, vegetation access to water and nutrients, and the heterotrophic activity if microbes. It also prohibits the infiltration of water into deeper layers which can lead to a perched water table, water-logging, and anoxic conditions in the soil.
 
 With rapid warming in northern high latitudes, permafrost temperatures are rising throughout the Arctic [@biskaborn19natcomm]. Implications of permafrost melting for greenhouse gases (CO~2~ and CH~4~) and the climate-land Earth system feedback are discussed in later chapters.
+
+::: {.callout-caution}
+## Exercise
+
+13. Why does the melting of permafrost affect methane emissions?
+
+:::
+
+
 
 <!-- XXX exercise for LES II: -->
 <!-- - Simulate land C balance changes in response to a harmonic oscillation of the solar constant -->
