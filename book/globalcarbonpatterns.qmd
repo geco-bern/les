@@ -689,7 +689,7 @@ Permafrost occurs (roughly) where the mean annual temperature is below freezing.
 #| label: fig-soiltemp_depth
 #| fig-cap: "Thermal regime of permafrost. Schematic showing the maximum (red line) and minimum ground temperature (blue line) during the year, and their convergence to give the mean annual ground temperature *T* at the depth of zero annual amplitude Z*. Black dots show the schematic mean temperature for permafrost soils. Figure and caption from @biskaborn19natcomm"
 #| out-width: 60%
-knitr::include_graphics("images/permafrost_soiltem_depth_biskaborn19natcomm.png")
+knitr::include_graphics("images/permafrost_soiltem_depth_biskaborn19natcomm.png") 
 ```
 The presence of permafrost constrains the volume available for plant rooting, vegetation access to water and nutrients, and the heterotrophic activity if microbes. It also prohibits the infiltration of water into deeper layers which can lead to a perched water table, water-logging, and anoxic conditions in the soil.
 
