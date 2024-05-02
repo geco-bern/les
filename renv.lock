@@ -17,6 +17,14 @@
       "Hash": "3e0051431dff9acfe66c23765e55c556",
       "Requirements": []
     },
+    "DEoptimR": {
+      "Package": "DEoptimR",
+      "Version": "1.1-3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "72f87e0092e39384aee16df8d67d7410",
+      "Requirements": []
+    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-22",
@@ -99,6 +107,17 @@
       "Repository": "CRAN",
       "Hash": "543776ae6848fde2f48ff3816d0628bc",
       "Requirements": []
+    },
+    "bigleaf": {
+      "Package": "bigleaf",
+      "Version": "0.8.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8678f1d5d980de37c7bddc9de56e2079",
+      "Requirements": [
+        "robustbase",
+        "solartime"
+      ]
     },
     "bit": {
       "Package": "bit",
@@ -1073,6 +1092,16 @@
         "sp"
       ]
     },
+    "robustbase": {
+      "Package": "robustbase",
+      "Version": "0.99-2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "bae2e53c94459ff147aef478eac6ee94",
+      "Requirements": [
+        "DEoptimR"
+      ]
+    },
     "rpmodel": {
       "Package": "rpmodel",
       "Version": "1.2.0",
@@ -1193,6 +1222,16 @@
       "Requirements": [
         "Rcpp",
         "geometries"
+      ]
+    },
+    "solartime": {
+      "Package": "solartime",
+      "Version": "0.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cd75b243f7f10be541255f0801528722",
+      "Requirements": [
+        "lubridate"
       ]
     },
     "sp": {

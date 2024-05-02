@@ -173,6 +173,8 @@ Second, the energy flux of direct radiation is much higher than that of diffuse 
 
 Light use efficiency (LUE, @eq-luemodel) measures the efficiency at which absorbed photons (radiation) are converted into C in the form of sugars. LUE is an ecosystem-level quantity and reflects the collective photosynthetic CO~2~ uptake efficiency of all leaves in the canopy. This efficiency is determined by the leaf physiology and the activity of the photosynthetic machinery. In this subsection, we dive very deep into the physiology of photosynthesis.
 
+<!-- XXX add: photosynthetically active radiation (with average wavelength 0.55 μm) is converted from W m–2 (J s–1 m–2) to photosynthetic pho- ton flux density with units μmol photon m–2 s–1 using the factor 4.6 μmol J–1 (Bonan 2015) -->
+
 CO~2~ uptake by the leaf happens by diffusion through pores at the leaf surface (*stomata*, @fig-stomata). The opening of stomata is dynamically regulated in response to environmental conditions (light, CO~2~, temperature, atmospheric humidity) and controls the conductance to CO~2~ diffusion. The CO~2~ uptake flux by diffusive transport through stomata can thus be described by *Fick's law* which states that the flux is proportional to the concentration difference of CO~2~ inside and outside the leaf.
 $$
 A = g_s(c_a - c_i)
