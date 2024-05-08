@@ -184,11 +184,16 @@ $$ {#eq-energybalance}
 
 The components of the surface energy balance (@eq-energybalance) are commonly expressed in energy units (W m^-2^). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux ($\lambda E$) can also be expressed as a mass flux of water vapour ($E$). $E$ is the mass flux of water vapor, e.g., expressed in units of g m^-2^ s^-1^. $\lambda$ is the latent heat of vaporization and converts the mass units into energy units. It measures how much energy (Joules, J) is needed vapourize 1 g of water at constant temperature. $\lambda$ is 2.466 MJ kg^-1^ at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C (see code below using the {bigleaf} R package [@knauer18plosone]).
 
+<!-- XXX to change: make this a curve vs. temperature -->
+
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: false
 library(bigleaf)  # This package contains lots of useful functions and parameters for land-atmosphere exchange. Reference: Knauer et al. 2018 https://dx.plos.org/10.1371/journal.pone.0201114
 latent.heat.vaporization(30) / latent.heat.vaporization(0)
 ```
+
+<!-- Add from Bonan: -->
+<!-- The latent heat of vaporization decreases with warmer temperatures because water mol- ecules contain more internal energy at warmer temperatures and less energy is required for them to evaporate. -->
 
 The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see fig xxx) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass *condensates* at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance. The ground heat flux $G$ buffers variations of net radiation, absorbing energy and removing heat from the surface during the day and summer and releasing heat during night and winter.
 
@@ -231,7 +236,10 @@ With this, and given the atmospheric condition, we can visualise the dependency 
 #| fig-cap: "Dependency of the latent heat flux on (a) the aerodynamic conductance and (b) the surface conductance following the Penman-Monteith equation (@eq-pm)."
 #| out-width: 100%
 
+library(dplyr)
+library(ggplot2)
 library(bigleaf)
+library(cowplot)
 
 # calculate latent heat flux using penman monteith
 calc_le_pm <- function(netrad, vpd, temp, g_ah, g_sw){
@@ -264,25 +272,37 @@ calc_le_pm <- function(netrad, vpd, temp, g_ah, g_sw){
   return(out)
 }
 
-# # test our function
-# calc_le_pm(
-#   netrad = 100,
-#   vpd = 1,
-#   temp = 15,
-#   g_ah = 0.1,  # mass units (m s-1)
-#   g_sw = mol.to.ms(0.6, Tair = temp, pressure = patm, constants = bigleaf.constants())  # convert molar units (mol m-2 s-1) to mass units
-#   )
-# 
-# # test built-in function
-# potential.ET(
-#   Gs_pot = 0.6,  # molar units (mol m-2 s-1)
-#   Tair = 15,
-#   pressure = bigleaf.constants()$pressure0 * 1e-3,
-#   VPD = 1,
-#   Ga = 0.1,  # mass units
-#   Rn = 100,
-#   approach = "Penman-Monteith"
-#   )[,"LE_pot"]
+# from SPLASH (Davis et al. 2017)
+calc_enthalpy_vap <- function(tc){
+  1.91846e6*((tc + 273.15)/(tc + 273.15 - 33.91))**2
+}
+calc_enthalpy_vap(15)
+
+# bigleaf built-in function
+latent.heat.vaporization(15)
+
+# ratio
+calc_enthalpy_vap(15) / latent.heat.vaporization(15)
+
+# test our function
+calc_le_pm(
+  netrad = 100,
+  vpd = 1,
+  temp = 15,
+  g_ah = 0.1,  # mass units (m s-1)
+  g_sw = mol.to.ms(0.6, Tair = 15, pressure = bigleaf.constants()$pressure0 * 1e-3, constants = bigleaf.constants())  # convert molar units (mol m-2 s-1) to mass units
+  )
+
+# test bigleaf built-in function
+potential.ET(
+  Gs_pot = 0.6,  # molar units (mol m-2 s-1)
+  Tair = 15,
+  pressure = bigleaf.constants()$pressure0 * 1e-3,
+  VPD = 1,
+  Ga = 0.1,  # mass units
+  Rn = 100,
+  approach = "Penman-Monteith"
+  )[,"LE_pot"]
 
 # plot vs aerodynamic conductance
 df <- expand.grid(
@@ -478,19 +498,19 @@ knitr::include_graphics("images/seasonal_cycle_radiation.png")
 :::
 
 
-<!-- ## Big-leaf model for energy exchange -->
+<!-- XXX Additional contents -->
 
+<!-- - Ground (soil) heat flux, link to diurnal and seasonal variations -->
+  <!-- - Two soil properties (thermal conductivity, heat capacity)  -->
+  - Thermal conductivity and heat capacity vary depending on mineral composition, porosity, organic matter content, and the water content of soils 
+  - Explain Eq. 9.3
+  - Differences in thermal conductivity, subject to organic matter content, water content
+  - Soils are often covered by organic material or snow. Forests, in particular, are typically cov- ered with a layer of decomposing leaf litter sev- eral centimeters thick. Organic material has a heat capacity similar to mineral soil, but a much lower thermal conductivity (Table 9.1). As a result, decomposing organic material acts as an insulator, preventing soil from warming in the day and from cooling at night. Snow, with its low thermal conductivity (e.g., 0.34 W m–1 K–1), has a similar insulating effect. A deep snow pack early in winter can keep soil warmer than if no snow was present.
+  - Freezing/thawing affects thermal properties and consumes/releases energy
+<!-- - Big-leaf model for energy exchange -->
 <!-- - Diffusion equations for sensible and latent heat -->
 <!-- - Surface temperature -->
-
-<!-- ## Microclimates -->
-
-<!-- - Rebetez data -->
-
-
-
-
-
+<!-- - Forest vs non-forest climate (Rebetez et al) -->
 
 
 
@@ -557,7 +577,6 @@ knitr::include_graphics("images/seasonal_cycle_radiation.png")
 <!--     - 2-source model -->
 <!-- - Surface water balance, evapotranspiration 2 -->
 <!-- Bonan 10 -->
-<!--     - Bucket model and water stress curves (Teuling et al., Stocker et al., 2023) -->
 <!--     - Priestly-Taylor -->
 <!--         - surface-air temperature difference, see Ning Dong et al., 2013 GEB DOI: 10.1111/geb.12614 -->
 <!--     - Penman-Monteith Eq -->

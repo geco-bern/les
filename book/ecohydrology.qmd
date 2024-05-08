@@ -1,5 +1,110 @@
 # Ecohydrology  {#sec-ecohydrology}
 
+## Global water cycle
+
+- Energy tranport (latent heat). For the Earth as a whole, 80 W m–2 are used annu- ally in evaporation – more than three-quarters of the 98 W m–2 net radiation at the surface (Figure 3.2)
+- Less than 1% of freshwater stored in soils
+- But soil moisture is an important control on GPP and surface energy partitioning across a large part of the globe.
+- Water as a resource for human activities. Large fraction of the global population lives in semi-arid and arid regions.
+- Box: One kilogram of water spread over an area of one square meter (1 kg m–2) is equivalent to a depth of 1 mm
+- Global water balance: positive balance over land -> freshwater runoff into oceans
+- Q = P - E; P>E over land => Q>0; E/P = 0.65 for global average
+- Exercise: Calculate turnover times of water in different spheres: 9.5 days in atmosphere, ...
+
+## Atmospheric humidity
+
+- Because moist air is less dense than dry air, water vapor is a source of buoyancy in the atmosphere
+- Measures of atmospheric humidity
+  - partial pressures and density
+  - specific humidity (Eq. 3.31)
+  - saturation vapour pressure (make plot)
+  - relative humidity
+  - vapour pressure defict
+
+## Root zone water storage
+
+### Soil texture
+
+```{r, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| label: fig-soiltext
+#| fig-cap: "Soil texture classes and related soil physical properties."
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+df <- read_csv(here::here("data/soiltext.csv")) |> 
+  mutate(
+    fc_abs = fc * porosity,
+    wp_abs = wp * porosity,
+    solid = 1 - porosity
+  ) |> 
+  mutate(
+    unavailable = wp_abs,
+    available = fc_abs - wp_abs,
+    gravitational = porosity - fc_abs
+  )
+
+df |> 
+  pivot_longer(cols = c(unavailable, available, gravitational, solid)) |> 
+  mutate(name = factor(name, levels = rev(c("unavailable", "available", "gravitational", "solid")))) |> 
+  ggplot(aes(soiltext, value, fill = name)) + 
+  geom_bar(position = "stack", stat = "identity") +
+  scale_fill_manual(
+    name = "",
+    values = c(
+      "unavailable" = "#E69F00",
+      "available" = "#0072B2",
+      "gravitational" = "#56B4E9",
+      "solid" = "#CC79A7"
+    )
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_classic() +
+  labs(
+    x = "Soil texture class",
+    y = "Volume fraction"
+  )
+```
+
+- Texture and WHC
+  - In a typical soil, about 55 percent of the soil volume comprises solids and 45 per- cent of the soil volume is pore space comprising air and water.
+  - Sand, silt, clay
+  - triangle of soil texture classes, distinguishing sandy loam, clay loam, loam
+  - WHC by soil texture
+- Soil moisture
+  - volumetric water content (vol per vol, or mm = kg m-2)
+  - saturation: percent of water filled pore space
+  - field capacity: The amount of water held in the soil after gravitational drainage is its field capacity.
+  - wilting point: rapid decline of soil matric potential with SWC at this point
+  - plot column for sandy, clayy, and silty soil
+- Water movement: gravitational and matric potential
+  - because water is bound to soil particles
+  - Darcy’s law
+- Sandy soils:
+  - The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. Loams are intermediate, draining more slowly than sands and retaining more water.
+
+### Rooting depth
+
+
+### Water uptake depth
+
+
+### Landscape-scape heterogeneity
+
+
+
+## Ecosystem water balance
+
+- Bucket model and water stress curves (Teuling et al., Stocker et al., 2023)
+
+## Fluxes under water limitation
+
+(Contrast moist and dry sites)
+
+
 Coming soon.
 
 - Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation
