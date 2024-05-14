@@ -12,3 +12,5 @@ Coming soon.
 <!-- Phenology trends: https://onlinelibrary.wiley.com/doi/10.1111/gcb.14619 -->
 
 <!-- peatland trends: Qiu -->
+
+<!-- Water cycle change: IPCC AR6 Ch 8 -->
