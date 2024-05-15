@@ -104,7 +104,7 @@ With $R \geq 0$ and $\Delta S = 0$, it follows that $P \geq E$. On a global aver
 
 $E$ in @eq-waterbalance includes contributions from multiples sources and processes (@fig-evapotranspiration-components). Below, we will refer to it as *evapotranspiration*, or short, *ET*. ET is the sum of transpiration by leaves ($T$, corresponding to what is referred to as $E$ in @sec-transpiration), evaporation from soil ($E_S$), evaporation from intercepted water on leaf and branch surfaces ($E_I$), and sublimation ($S$, the phase change from solid water in the form of snow and ice directly to the gaseous phase).
 $$
-\mathrm{ET} = T + E_S + E_I + S
+E = T + E_S + E_I + S
 $$ {#eq-et}
 
 The water balance of the rooting zone has to account for the fact that a portion of precipitation is intercepted and evaporates again as $E_I$. Only the remainder reaches the ground as *throughfall*. *Infiltration* is referred to as the moisture flux that reaches a certain depth in the soil. On annual and longer time scales, snow water mass does not accumulate and snow melt equals the amount of precipitation that falls as snow minus sublimation ($S$). Snow accumulation and melt is therefore not reflected in @eq-waterbalance. However, at sub-seasonal time scales, snow accumulation and melting can substantially affect the water root zone water balance (see below).
