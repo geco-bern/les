@@ -183,14 +183,17 @@ knitr::include_graphics("images/diagram_US-ICh.png")
 ```{r message=FALSE}
 #| code-fold: true
 #| label: fig-biomes_whittaker
-#| fig-cap: Biomes in climate space, defined by mean annual temperature and precipitation, following @whittaker75.
+#| fig-cap: "Biomes in climate space, defined by mean annual temperature and precipitation, following @whittaker75."
 
-library(ggplot2)
+# library(ggplot2)
 # library(devtools)
 # devtools::install_github("valentinitnelav/plotbiomes")
-library(plotbiomes)
-plotbiomes::whittaker_base_plot() +
-  theme_classic()
+# library(plotbiomes)
+# plotbiomes::whittaker_base_plot() +
+#   theme_classic()
+# ggsave(here::here("book/images/biomes_whittaker.png"), width = 7, height = 4)
+
+knitr::include_graphics("images/biomes_whittaker.png")
 ```
 
 ## Plant functional types {#sec-pfts}
