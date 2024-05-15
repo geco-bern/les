@@ -761,7 +761,7 @@ knitr::include_graphics("images/constant_chi.png")
 
 Coming soon.
 
-### Stomatal regulation
+### Stomatal regulation {#sec-stomatalregulation}
 
 The closing of stomates and the reduction of stomatal conductance $g_s$ under dry conditions prevents plants from dangerous desiccation. However, a reduced $g_s$ also leads to a reduction in CO~2~ diffusion into leaves and thus a reduction of photosynthetic CO~2~ assimilation. Hence, plants have to balance a trade-off between carbon gain and the risk of desiccation. A complete stomatal closure under moderately dry conditions (low soil moisture, high VPD)  may be safe in terms of desiccation avoidance but comes at an excessive cost in terms of foregone CO~2~ uptake (and similarly vice-versa). An optimal strategy must lie somewhere in between these extreme strategies.
 

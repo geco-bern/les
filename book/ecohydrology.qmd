@@ -137,7 +137,7 @@ knitr::include_graphics("images/cwd.png")
 
 Soils are an important storage component of water. Soil water (or soil moisture) supplies water for plant transpiration and soil evaporation during dry periods. How much soil moisture is accessible to plants determines how rapidly plants experience water stress during dry periods and affects the surface energy partitioning, near-surface air heating and heat extremes. Soil moisture also acts to buffer the asynchroneity of precipitation and radiation (and thus potential evapotranspiration) and introduces an important memory element in the Earth system [@seneviratne10]. For example, an anomalously dry spring may aggravate water stress later in the season because soil moisture stores that have re-filled during the wet winter (and may still be relatively moist in spring) get depleted *gradually* and may reach a critically low moisture level earlier than after a wet spring. The strength of this memory effect and the time it takes for plants to experience water stress during dry periods depends (i.a.) on the capacity for plant-accessible water storage in the rooting zone of vegetation.
 
-An important determinant for how much water can be stored in a given volume of soil is its texture. The size of soil particles determines their surface area. Water is adsorbed to the soil matrix and it takes work to remove it. Therefore, the size distribution of soil particles determines how much water the soil can bound. Soil particles are distinguished by size into sand (2-0.05 mm), silt (0.05-0.002 mm), and clay (<0.002 mm). A soil is a mixture of size classes and depending on this mixture, it can be classified into a *soil texture class* (@fig-soiltext-triangle).  
+An important determinant for how much water can be stored in a given volume of soil is its texture. The size of soil particles determines their surface area. Water is adsorbed to the surfaces of the soil matrix and it takes work to remove it. Therefore, the size distribution of soil particles determines how much water the soil can bound. Soil particles are distinguished by size into sand (2-0.05 mm), silt (0.05-0.002 mm), and clay (<0.002 mm). A soil is a mixture of size classes and depending on this mixture, it can be classified into a *soil texture class* (@fig-soiltext-triangle).  
 
 ```{r, message=FALSE, warning=FALSE, fig.height=6}
 #| code-fold: true
@@ -174,33 +174,126 @@ ggplot(data = USDA, aes(y = Clay, x = Sand, z = Silt)) +
   theme_showarrows() +
   custom_percent("(%)") +
   theme(legend.position="none") +
-  labs(title = 'USDA soil texture classes',
-       fill  = '',
+  labs(fill  = '',
        color = '')
 ```
 
+In a common soil (not compacted, not an organic - peatland - soil), about 55% of the volume is comprised of solid material. The rest is air and water. The fraction of the soil that is not solid material is referred to as the *porosity*. When all pores are filled with water, the soil *volumetric water content* is at *saturation* ($\theta_\text{SAT}$). Soil texture classes vary relatively little with respect to porosity, but differ strongly in the strength at which the water is adsorbed to the soil matrix (@fig-soiltext). Water movement in soil is driven by two distinct forces. The gravitational potential "pushes" water through soil under the influence of gravity. The soil *matric potential* $\psi_s$ arises from the adsorption of water to soil particles. It takes work to remove water from their adsorption to the soil matrix.
 
+::: {.callout-note}
 
-In a typical soil (not compacted, not an organic - peatland - soil), about 55% of the volume is comprised of solid material. The rest is air and water.
+### Soil water content and matric potential relationship
 
-- Texture and WHC
-  - In a typical soil, about 55 percent of the soil volume comprises solids and 45 per- cent of the soil volume is pore space comprising air and water.
-  - Sand, silt, clay
-  - triangle of soil texture classes, distinguishing sandy loam, clay loam, loam
-  - WHC by soil texture
-- Soil moisture
-  - volumetric water content (vol per vol, or mm = kg m-2)
-  - saturation: percent of water filled pore space
-  - field capacity: The amount of water held in the soil after gravitational drainage is its field capacity.
-  - wilting point: rapid decline of soil matric potential with SWC at this point
-  - plot column for sandy, clayy, and silty soil
-- Water movement: gravitational and matric potential
-  - because water is bound to soil particles
-  - Darcy’s law
-- Sandy soils:
-  - The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. Loams are intermediate, draining more slowly than sands and retaining more water.
+The matric potential is commonly expressed in units of mm or Pa. It can also be expressed as the *suction head* which is the negative of the matric potential. 
 
+Imagine you stick a straw into the soil and try to suck out the water. When the soil is wet, you initially don't have to suck hard to withdraw water. The suction head has a small positive value. The matric potential has a small negative value. After you have sucked out some amount water from the soil, you have to start sucking "harder" to extract the same amount again as the soil dries out. That's because the matric potential declines to more negative numbers (and the suction head increases to larger positive numbers) for drier soils. Staying with the straw analogue, -1 mm matric potential (or 1 mm suction head) is equivalent sucking from your straw such that that 1 mm of water doesn't drain out of the straw (ignoring capillary forces). 
 
+The same can also be expressed as a pressure - the gravitational force per unit area: 
+$$
+p = \frac{F_G}{A} = \frac{mg}{A}
+$$
+1 mm corresponds to 1 kg m^-2^ and $g =$ 9.81 m s^-2^. Therefore
+$$
+1 \; \text{mm} = 9.81 \; \text{kg m}^{-1} \text{s}^{-2} = 9.81 \; \text{Pa}
+$$
+
+The soil matric potential $\psi_s$ is related to the soil volumentric water content $\theta$ in a highly non-linear fashion. It stays near zero for a wide range $\theta$ and drops off sharply as $\theta$ falls below a certain range. Reflecting the large variation in how strongly water is bound to the soil matric across different soil texture classes, the relationship $\psi_s(\theta)$ varies strongly across soil types. An empirical equation for this relationship is given by @clapp78wrr as:
+$$
+\psi_s = \psi_\text{SAT} \left( \frac{\theta}{\theta_\text{SAT}} \right)^{-b}
+$$ {#eq-psisoil}
+Here, $\psi_\text{SAT}$ is the soil matric potential at saturation, that is when $\theta = \theta_\text{SAT}$. The exponent $b$ determines how rapidly the matric potential declines towards low $\theta$. These parameters have different values depending on the soil texture class, resulting in different functional forms of the relationship between volumetric water content and the matric potential.
+
+```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8}
+#| code-fold: true
+#| label: fig-psisoil
+#| fig-cap: "Soil matric potential and suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan."
+
+library(readr)
+library(cowplot)
+
+# get table of soil parameters by texture class, adopted from Bonan 2015, Table 9.2
+df_soilpar <- read_csv(here::here("data/df_soilpar.csv")) |> 
+  mutate(
+    fc_abs = fc * porosity,
+    wp_abs = wp * porosity,
+    solid = 1 - porosity
+  ) |> 
+  mutate(
+    unavailable = wp_abs,
+    available = fc_abs - wp_abs,
+    gravitational = porosity - fc_abs
+  )
+
+calc_psi <- function(swc, soilclass, df_soilpar){
+  df_soilpar <- df_soilpar |> 
+    dplyr::filter(soiltext == soilclass)
+  psi <- df_soilpar$psi_sat * (swc / df_soilpar$porosity)^(-df_soilpar$exponent)
+  return(psi)
+}
+
+drop_by_porosity <- function(swc, psi, soilclass, df_soilpar){
+  df_soilpar <- df_soilpar |> 
+    filter(soiltext == soilclass)
+  psi <- ifelse(swc > df_soilpar$porosity, NA, psi)
+}
+
+create_df_swc_bysoil <- function(soilclass, df_soilpar){
+  tibble(swc = seq(0.01, 1, 0.001)) |> 
+    mutate(
+      soilclass = soilclass
+    ) |> 
+    rowwise() |> 
+    mutate(
+      psi = calc_psi(swc, soilclass, df_soilpar)
+    ) |> 
+    mutate(
+      psi = drop_by_porosity(swc, psi, soilclass, df_soilpar)
+    )
+}
+
+df_swc <- purrr::map_dfr(
+  df_soilpar$soiltext,
+  ~create_df_swc_bysoil(., df_soilpar)
+)
+
+gg1 <- df_swc |> 
+  ggplot(aes(swc, psi, color = soilclass)) +
+  geom_line() +
+  geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") +
+  khroma::scale_color_okabeito() +
+  labs(
+    x = "Volumetric soil water content",
+    y = expression(paste("Soil matric potential (mm)"))
+  ) +
+  theme_classic() +
+  ylim(-0.5e6, 0) + 
+  xlim(0, 0.5) + 
+  theme(legend.position="none")
+
+gg2 <- df_swc |> 
+  ggplot(aes(swc, -psi, color = soilclass)) +
+  geom_line() +
+  geom_hline(yintercept = c(1000, 150000), linetype = "dotted") +
+  scale_y_log10() +
+  khroma::scale_color_okabeito(name = "Soil texture") +
+  labs(
+    x = "Volumetric soil water content",
+    y = expression(paste("Suction head (mm)"))
+  ) +
+  theme_classic() + 
+  xlim(0, 0.5)
+
+plot_grid(
+  gg1,
+  gg2,
+  labels = c("a", "b"),
+  rel_widths = c(0.77, 1)
+)
+```
+
+:::
+
+In sandy soils, the size of particles and hence the size of soil pores is large, water is only loosely bound to the soil matrix, and can drain rapidly. The *field capacity* ($\theta_\text{FC}$) is the volumetric water content that is bound to the soil matrix and does not drain due to the gravitational force. Because the matric potential is comparatively low for a given amount of soil water in sandy soils, more water drains due to the gravitational force compared to other soil texture classes. Therefore, $\theta_\text{FC}$ is lower in sandy soils than in other soils. The higher the field capacity, the more water is retained in the soil and prevented from drainage. However, not all of this water is available for uptake by plants. Depending on the soil texture a certain amount of water is too strongly adsorbed to the soil matrix for plants to "remove" it and mobilise it for uptake through their roots. The *permanent wilting point* $\theta_\text{PWP}$ measures the volumetric soil water content that is bound to the soil at a matric potential of -150,000 mm which is taken to be too strongly negative for plants to access. Actually, plants start to respond to water stress by closing their stomates and suffering from damage to their transport vessels already earlier. $\theta_\text{PWP}$ varies strongly between soil texture classes. It is high for clay soils, meaning that a relatively large amount of soil water remains inaccessible for plant uptake. 
 
 ```{r, message=FALSE, warning=FALSE, fig.height=4}
 #| code-fold: true
@@ -251,92 +344,225 @@ df_soilpar |>
   )
 ```
 
-```{r, message=FALSE, warning=FALSE}
-#| code-fold: true
-#| label: fig-psisoil
-#| fig-cap: "Soil texture classes and related soil physical properties."
+The plant-available soil *water holding capacity* (WHC) is the difference between the field capacity and permanent wilting point.
+$$
+\text{WHC} = \theta_\text{FC} - \theta_\text{PWP}
+$$
+Soil water storage above $\theta_\text{FC}$ eventually drains and is thus inaccessible for plant uptake and soil water storage water below $\theta_\text{PWP}$ is too strongly bound to the soil matrix and is therefore inaccessible for plant uptake. WHC is an important measure of suitability of soils for supporting vegetation. A low WHC means that a small amount of water can be stored per soil volume and made available for plant uptake during dry periods. However, the WHC varies only relatively little between soil texture classes as shown in @fig-soiltext. This is because $\theta_\text{PWP}$ and $\theta_\text{FC}$ are correlated across soil texture classes. Soils with a high $\theta_\text{FC}$ (clay soils) also tend to have a high $\theta_\text{PWP}$ and vice versa. However, WHC may vary across different locations also due to other constraints. For example, a large share of gravel (rocks with diameters greater than sand) reduces the WHC. 
 
-calc_psi <- function(swc, soilclass, df_soilpar){
-  df_soilpar <- df_soilpar |> 
-    filter(soiltext == soilclass)
-  psi <- df_soilpar$psi_sat * (swc / df_soilpar$porosity)^(-df_soilpar$exponent)
-  return(psi)
-}
+In view of the relative constancy of WHC, but large variance of $\theta_\text{PWP}$ and $\theta_\text{FC}$ across soil texture classes, soil moisture is often expressed as a fraction of available water. The *soil water index* (also often referred to as the *soil water scalar*) is commonly defined as
+$$
+W = \frac{\theta - \theta_\text{PWP}}{\theta_\text{FC} - \theta_\text{PWP}}
+$$
+Another common expression of soil moisture is in *percent saturation* ($100\% \cdot \theta / \theta_\text{SAT}$).
 
-drop_by_porosity <- function(swc, psi, soilclass, df_soilpar){
-  df_soilpar <- df_soilpar |> 
-    filter(soiltext == soilclass)
-  psi <- ifelse(swc > df_soilpar$porosity, NA, psi)
-}
+<!-- ::: {.callout-note} -->
 
-create_df_swc_bysoil <- function(soilclass){
-  tibble(swc = seq(0.01, 1, 0.001)) |> 
-    mutate(
-      soilclass = soilclass
-    ) |> 
-    rowwise() |> 
-    mutate(
-      psi = calc_psi(swc, soilclass, df_soilpar)
-    ) |> 
-    mutate(
-      psi = drop_by_porosity(swc, psi, soilclass, df_soilpar)
-    )
-}
+<!-- ### Soil water index and matric potential relationship -->
 
-df_swc <- purrr::map_dfr(
-  df_soilpar$soiltext,
-  ~create_df_swc_bysoil(.)
-)
+<!-- ```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8} -->
+<!-- #| code-fold: true -->
+<!-- #| label: fig-psisoilindex -->
+<!-- #| fig-cap: "Soil matric potential and suction head as a function of volumetric water content." -->
 
-df_swc |> 
-  ggplot(aes(swc, psi, color = soilclass)) +
-  geom_line() +
-  geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") +
-  khroma::scale_color_okabeito() +
-  labs(
-    x = "Volumetric soil water content",
-    y = expression(paste("Soil matric potential (mm)"))
-  ) +
-  theme_classic() +
-  ylim(-0.5e6, 0) + 
-  xlim(0, 0.5)
+<!-- library(readr) -->
+<!-- library(cowplot) -->
 
-df_swc |> 
-  ggplot(aes(swc, -psi, color = soilclass)) +
-  geom_line() +
-  geom_hline(yintercept = c(1000, 150000), linetype = "dotted") +
-  scale_y_log10() +
-  khroma::scale_color_okabeito() +
-  labs(
-    x = "Volumetric soil water content",
-    y = expression(paste("Succion (mm)"))
-  ) +
-  theme_classic() + 
-  xlim(0, 0.5)
+<!-- create_df_swc_bysoil <- function(soilclass, df_soilpar){ -->
+<!--   tibble(swc = seq(0.01, 1, 0.001)) |>  -->
+<!--     mutate( -->
+<!--       soilclass = soilclass -->
+<!--     ) |>  -->
+<!--     rowwise() |>  -->
+<!--     mutate( -->
+<!--       psi = calc_psi(swc, soilclass, df_soilpar) -->
+<!--     ) -->
+<!-- } -->
+
+<!-- df_swc <- purrr::map_dfr( -->
+<!--   df_soilpar$soiltext, -->
+<!--   ~create_df_swc_bysoil(., df_soilpar) -->
+<!-- ) -->
+
+<!-- df_swc <- df_swc |>  -->
+<!--   left_join( -->
+<!--     df_soilpar |>  -->
+<!--       rename(soilclass = soiltext), -->
+<!--     by = join_by(soilclass) -->
+<!--   ) |>  -->
+<!--   mutate( -->
+<!--     wscal = (swc - wp)/(fc - wp) -->
+<!--   ) |>  -->
+<!--   filter( -->
+<!--     wscal >= 0 & -->
+<!--     wscal <= 1 -->
+<!--   ) -->
+
+<!-- gg1 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") + -->
+<!--   khroma::scale_color_okabeito() + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Soil matric potential (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic() + -->
+<!--   # ylim(-0.5e6, 0) +  -->
+<!--   # xlim(0, 1) + -->
+<!--   theme(legend.position="none") -->
+
+<!-- gg2 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, -psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(1000, 150000), linetype = "dotted") + -->
+<!--   scale_y_log10() + -->
+<!--   khroma::scale_color_okabeito(name = "Soil texture") + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Suction head (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic()  -->
+<!--   # xlim(0, 0.5) -->
+
+<!-- plot_grid( -->
+<!--   gg1, -->
+<!--   gg2, -->
+<!--   labels = c("a", "b"), -->
+<!--   rel_widths = c(0.77, 1) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- Two forces act on water in the soil.  -->
+
+<!-- - Soil moisture -->
+<!--   - volumetric water content (vol per vol, or mm = kg m-2) -->
+<!--   - saturation: percent of water filled pore space -->
+<!--   - field capacity: The amount of water held in the soil after gravitational drainage is its field capacity. -->
+<!--   - wilting point: rapid decline of soil matric potential with SWC at this point -->
+<!--   - plot column for sandy, clayy, and silty soil -->
+<!-- - Water movement: gravitational and matric potential -->
+<!--   - because water is bound to soil particles -->
+<!--   - Darcy’s law -->
+<!-- - Sandy soils: -->
+<!--   - The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. Loams are intermediate, draining more slowly than sands and retaining more water. -->
+
+
+::: {.callout-caution}
+## Exercise
+
+- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, and $\theta_\text{WP}$ in @fig-soiltext.
+
+:::
+
+
+### Rooting-zone water-storage capacity
+
+All metrics and relationships described above are expressed with a unit soil *volume* as a reference. For example, the WHC is the amount of water, a given volume of soil can hold. The total amount of water that vegetation has access to - the *rooting-zone water-storage capacity* $S_0$ - is determined not only by the soil texture across the rooting zone, but also to rooting depth $z_r$. It can be conceived as the integral of the WHC across the rooting profile. Assuming a constant WHC across the rooting depth, this is simply
+$$
+S_0 = z_r \cdot \text{WHC}\;.
+$$ {#eq-s0}
+The rooting depth $z_r$ is measured in units of length (for example in m), while the WHC is a volume fraction (for example m^3^ m^-3^). Hence, $S_0$ is in units of length. While the WHC varies relatively little across soil texture classes and across different locations globally, rooting depth $z_r$ varies strongly between species, and plant functional types (@fig-rootingdepth). It tends to be smaller for grasses and forbs than for trees and shrubs. 
+
+::: {.callout-caution}
+## Exercise
+
+- Look up species names shown in @fig-rootingdepth on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in @fig-rootingdepth a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?
+
+:::
+
+<!-- For example, common crops, like maize (*Zea Mays L.*) and wheat (*Triticum aestivum*), and a common temperate grass (*Lolium perenne*) have relatively shallow roots. Also some tree species have relatively shallow roots. For example, Norway spruce (*Picea abies*, German: Fichte), coniferous tree that is widely cultivated in as a high-yielding species in temperate forests, has consistently shallow roots. On the other extreme, *Acacia erioloba* - a tropical savannah tree, or *Boscia albitrunca* - have been recorded with extremely deep roots, reaching up to 80 m.   -->
+
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-rootingdepth
+#| fig-cap: "Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from @tumber22newphyt."
+
+# figure created with analysis/plot_rootingdepth.R
+knitr::include_graphics("images/rootingdepth.png")
 ```
 
-xxx Exercise: label wilting point, field capacity, and porosity in @fig-soiltext.
+The variations in rooting depth have implications for the rooting-zone water-storage capacity (a consequence of @eq-s0). This, in turn, variations in $S_0$ are linked to how sensitive different vegetation types and species respond to dry periods - with consequences for surface energy partitioning is altered as the rooting zone dries out. Variations in rooting depth are related not only to species and PFTs, but also to large-scale climate variations and differences in vegetation cover in the different biomes across the globe (@fig-rootingdepth_maps). As a consequence of the large variations in $z_r$, the $S_0$ exhibits a large variation across the globe and its variation is largely disconnected to WHC. In other words, variations in $S_0$ are primarily driven by $z_r$, rather than by WHC.
 
 
-
-
-### Rooting depth
-
-- Root zone water storage capacity = rooting depth x WHC
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-rootingdepth_maps
+#| fig-cap: "(a) Total water holding capacity of the top 1 m of soil. (b) Rooting-zone water-storage capacity estimated from the annual maximum cumulative water deficits. Data and methods from @stocker23natgeo."
+#| 
+# figure created with analysis/plot_rootingdepth.R
+knitr::include_graphics("images/map_whc_s0.png")
+```
 
 
 ## Plant hydraulics
 
-- Water transport
-- Leaf water potential
-  - Fig. 10.4 in Bonan
-- Combined effect of VPD and soil moisture
-- Cavitation
-- Response to soil dry-down (Joshi paper)
+Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (@sec-transpiration). This water transport along the *soil-plant-atmosphere* (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable "burden" that is traded off against CO~2~ uptake for photosynthesis (@sec-stomatalregulation). 
 
-### Water uptake depth
+Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)
 
-- Fig. 16.3 and 16.4 in Schulze (p. 534)
+{{< video https://www.youtube.com/watch?v=BickMFHAZR0 >}}
+
+The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf.  In simplified terms, this can be written as.
+$$
+T = -G_p (\psi_l - \psi_s)
+$$ {#eq-hydraulic_simple}
+This equation expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
+$$
+T =  1.6 \; g_s \; D
+$$
+These equations illustrates three important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by $D$ and $g_s$. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+
+:::{.callout-note}
+
+@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
+$$
+T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
+$$
+where $P(\psi)$ is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is
+$$
+P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
+$$
+where $P_\text{50}$ is the water potential at which $P$ has dropped to 0.5. 
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
+#| code-fold: true
+#| label: fig-hydraulics
+#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a separate parameter (not shown)."
+
+library(ggplot2)
+
+vulnerability_curve <- function(psi, p50, b){
+  0.5 ^ ((psi/p50)^b)
+}
+
+ggplot() +
+  geom_function(fun = function(x) vulnerability_curve(x, -2000, 5)) +
+  xlim(-3500, 0) +
+  geom_vline(xintercept = c(-2000, 0), linetype = "dotted") +
+  labs(x = expression(paste(psi, " (Pa)")),
+       y = expression(paste(italic(P(psi))))) + 
+  theme_classic()
+```
+
+:::
+
+However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
+
+Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO~2~ assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
+
+Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in @fig-drydownresponse
+
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-drydownresponse
+#| fig-cap: "Response of (a) CO~2~ assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted *Eucalyptus populnea* and *Eucalyptus pilularis*, which is adapted to more moist climates. The lines represent predictions of the model by @joshi22natplants where an optimal response of stomata in trading off CO~2~ assimilation and the risks associated with negative leaf water potentials is assumed."
+knitr::include_graphics("images/drydownresponse.png")
+```
+
+<!-- ### Water uptake depth -->
+
+<!-- - Fig. 16.3 and 16.4 in Schulze (p. 534) -->
 
 
 ## Water bucket model
