@@ -140,7 +140,7 @@ df_allocation <- read_rds(here::here("data/df_allocation.rds"))
 df_allocation |> 
   select(Vegetation = pft, Leaves = a_leaf, Wood = a_wood, Roots = a_root) |> 
   mutate(across(where(is.numeric), ~format(., digits = 2))) |> 
-  kable()
+  kable() 
 ```
 
 The fractional belowground C allocation is under a strong influence by environmental conditions (nutrient availability, water availability, and CO~2~). The fraction of C allocated to fine root growth tends to increase under poor soil nutrient availability, under elevated CO~2~ (as seen in experiments), and under dry conditions. This can be understood as a response to the balance of above vs. belowground resource availabilities (light and CO~2~ vs. nutrients and water).

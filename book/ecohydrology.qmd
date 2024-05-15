@@ -1,10 +1,607 @@
 # Ecohydrology  {#sec-ecohydrology}
 
+## Global water cycle
+
+Water cycles in the Earth system between the atmosphere, the ocean, the land biosphere and the cryosphere. The evaporation of water (H~2~O) from its liquid form to (gaseous) water vapour consumes energy (@sec-energybalance) and its condensation releases the same amount of energy in the form of heat again. Hence, the global water cycle is coupled to large energy transfers. For the Earth as a whole and as an annual average, 80 W m^–2^ are consumed for evaporation – more than three-quarters of the 98 W m^–2^ net radiation at the surface [@bonan]. 
+
+The vast majority (ca. 98%) of water on Earth is saline and is stored in the Oceans, inland seas, and saline groundwater (@fig-global-water-cycle a). Among the total amount of freshwater, the vast majority is stored as ice. Only a small fraction of water on Earth cycles between the atmosphere, the ocean and land. However, this cycling is relatively rapid (see Exercise below). 
+
+Oceans dominate in total evaporation (470 km^3^ yr^-1^, vs. 74 km^3^ yr^-1^ from land, @fig-global-water-cycle b) and the majority of precipitation falls over oceans. However, since precipitation over oceans is smaller than evaporation from oceans (424  km^3^ yr^-1^ vs. 470  km^3^ yr^-1^), a net transfer of water from oceans to land exists. Almost all of the surplus of the land's water balance runs off as river discharge back into the ocean. A small fraction is discharged into the ocean through groundwater.
+
+```{r echo=FALSE}
+#| label: fig-global-water-cycle
+#| fig-cap: "Depiction of the present-day water cycle. In the atmosphere, which accounts for only 0.001% of all water on Earth, water primarily occurs as a gas (water vapour), but it is also present as ice and liquid water within clouds. The ocean is the primary water reservoir on Earth: it comprises mostly liquid water across much of the globe but also includes areas covered by ice in polar regions. Liquid freshwater on land forms surface water (lakes, rivers) and, together with soil moisture and mostly unusable groundwater stores, accounts for less than 2% of global water. Solid terrestrial water that occurs as ice sheets, glaciers, snow and ice on the surface, and permafrost currently represents nearly 2% of the planet’s water. Water that falls as snow in winter provides soil moisture and streamflow after melting, which are essential for human activities and ecosystem functioning. Note that these best estimates do not lead to a perfectly closed global water budget and that this budget has no reason to be closed given the ongoing human influence through both climate change (e.g., melting of ice sheets and glaciers, see Chapter 9) and water use (e.g., groundwater depletion through pumping into fossil aquifers, see Figure 8.10). Figure and caption from @IPCC_2021_WGI_Ch_8."
+#| out-width: 90%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_8_1.png")
+```
+
+Evaporation from land is a smaller component than evaporation from oceans, and soils store less than 1% of the unfrozen freshwater on Earth. Yet, land processes are a key regulator of global water cycling and energy fluxes. This is because the majority of evaporation over land occurs through transpiration and is thus affected by the vegetation structure and ecophysiological relations - through effects of LAI (@sec-light-absorption), surface conductance (@sec-energypartitioning) and stomatal conductance (@sec-transpiration). Another aspect is the fact that, while the amount of water stored in the rooting zone of vegetation is small, it supplies all transpiration. In many climates, the root zone moisture gets substantially depleted during episodic dry spells or regularly recurring dry seasons. The ensuing plant water stress leads to a reduction of transpiration and evaporation, and thus to an alteration also of the surface energy partitioning. This chapter introduces the quantities and mechanisms for understanding how water regulates vegetation and how vegetation shapes the cycling of water and land surface energy partitioning across the globe.
+
+::: {.callout-caution}
+## Exercise
+
+- Calculate the total freshwater stored as ice as a fraction of total freshwater. 
+- Calculate the turnover time of water in the atmosphere.
+- Calculate the turnover time of water in soils (soil moisture).
+
+:::
+
+::: {.callout-note}
+
+## Atmospheric humidity
+
+<!-- XXX move this to Ch land-climate interactions -->
+
+We have encountered the vapour pressure deficit (VPD) and its control on transpiration in @sec-transpiration and on evapotranspiration in @sec-energypartitioning. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air. 
+
+The total pressure of a gas can be expressed as the sum of partial pressures of different components of a gas mixture. For moist air, we can distinguish the partial pressures of water vapor ($e_a$) and dry air ($P_d$) and write the total pressure of moist air as
+$$
+P = P_d + e_a \;.
+$$
+Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is
+$$
+\begin{align}
+P_d &= \rho_d \frac{RT}{M_d} \\
+e_a &= \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
+\end{align}
+$$ {#eq-partialpressures}
+Here, $\rho_d$ is the density of dry air; $\rho_v$ is the density of water vapor, $R$ is the universal gas constant (8.314 J K^-1^ mol^-1^); $T$ is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v = $ 18.02 g mol^–1^) to that of dry air ($M_d = $28.97 g mol^–1^). 
+
+The specific humidity $q$ can be derived from @eq-partialpressures as
+$$
+q = \frac{\rho_v}{\rho_v + \rho_d} = \frac{0.622 e_a}{P-(1-0.622)e_a}
+$$
+The vapour pressure deficit ($D$) is the difference between the actual vapour pressure $e_a$ and the vapour pressure at saturation $e_s(T)$ (where water condensates). 
+$$
+D = e_s - e_a
+$$
+The saturation vapour pressure is a function of air temperature ($T$ in °C). This relationship is related to the Clausius-Clapeyron relation of the temperature dependence of vapor pressure. A relatively accurate, yet simple empirical equation for this relationship is the following. 
+$$
+e_s(T) = 611.0 \; \exp \left( \frac{17.27 \; T}{T + 237.3} \right)
+$$
+This equation calculates the the saturation vapour pressure $e_s(T)$ in units of Pa.
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
+#| code-fold: true
+#| label: fig-esat
+#| fig-cap: "Saturation vapour pressure as a function of air temperature."
+
+library(ggplot2)
+
+calc_e_sat <- function(temp){
+  611.0 * exp( (17.27 * temp)/(temp + 237.3) )
+}
+
+ggplot() +
+  geom_function(fun = calc_e_sat) +
+  xlim(0, 35) +
+  labs(x = "Temperature (°C)",
+       y = "Saturation vapour pressure (Pa)") + 
+  theme_classic()
+```
+
+The relative humidity (RH) also relates $e_a$ to $e_s$, but as its ratio and not the difference.
+$$
+\mathrm{RH} = 100 \% \; \frac{e_a}{e_s(T)}
+$$
+
+:::
+
+
+## Ecosystem water balance
+
+From the conservation of water mass, it follows that the amount of water inputs into an ecosystem through precipitation must equal its outputs plus a change in ecosystem water storage. Outputs are either evaporation or runoff. The ecosystem water balance can thus be expressed as 
+$$
+P = E + R + \Delta S \;,
+$$ {#eq-waterbalance}
+where $P$ is precipitation, $E$ is evaporation, which includes different contributions (see below), $R$ is runoff, and $\Delta S$ is the change in water storage, mostly in the form of groundwater. Lateral subsurface flow is accounted for by $R$. @eq-waterbalance applies to any system and scale. When considering totals or means of these fluxes over longer periods of time, $\Delta S$ tends to be small and may be neglected. At the scale of a river catchment, $R$ is always zero or positive. At smaller scales, horizontal subsurface water flow convergence could make $R$ negative ("run-on" instead of run-off). $E$ is the same quantity as the $E$ in @eq-energybalance, but here expressed as a mass flux. (Remember, $\lambda E$ is the latent heat flux expressed in energy units). 
+
+::: {.callout-note}
+Most commonly, the components of @eq-waterbalance are expressed as a mass per unit ground area and time. That is, for example in kg m^-2^ yr^-1^. With the density of water $\rho_w = 1000$ kg m^-3^, 1 kg m^-2^ is equivalent to 1 mm. 
+:::
+
+With $R \geq 0$ and $\Delta S = 0$, it follows that $P \geq E$. On a global average over land, $E/P = 0.65$. However, $E/P$ varies between about 0.2 and 1 across different ecosystems, catchments, and biomes. The pattern of how this ratio varies across the globe is described and explained in @sec-budyko.
+
+$E$ in @eq-waterbalance includes contributions from multiples sources and processes (@fig-evapotranspiration-components). Below, we will refer to it as *evapotranspiration*, or short, *ET*. ET is the sum of transpiration by leaves ($T$, corresponding to what is referred to as $E$ in @sec-transpiration), evaporation from soil ($E_S$), evaporation from intercepted water on leaf and branch surfaces ($E_I$), and sublimation ($S$, the phase change from solid water in the form of snow and ice directly to the gaseous phase).
+$$
+\mathrm{ET} = T + E_S + E_I + S
+$$ {#eq-et}
+
+The water balance of the rooting zone has to account for the fact that a portion of precipitation is intercepted and evaporates again as $E_I$. Only the remainder reaches the ground as *throughfall*. *Infiltration* is referred to as the moisture flux that reaches a certain depth in the soil. On annual and longer time scales, snow water mass does not accumulate and snow melt equals the amount of precipitation that falls as snow minus sublimation ($S$). Snow accumulation and melt is therefore not reflected in @eq-waterbalance. However, at sub-seasonal time scales, snow accumulation and melting can substantially affect the water root zone water balance (see below).
+
+```{r echo=FALSE}
+#| label: fig-evapotranspiration-components
+#| fig-cap: "Ecosystem water balance components. The ground in the brown background color indicates the vadose (unsaturated) zone. The ground in the blue background color indicates the aquifer (groundwater). Figure adopted from @zhang24scidat."
+#| out-width: 70%
+knitr::include_graphics("images/ecosystemwaterbalance.png")
+```
+
+The relative contributions of the different components of ET in @eq-et are difficult to estimate. Model-based estimates for global averages are 48% for transpiration, 36% for soil evaporation, and 16% for canopy evaporation [@dirmeyer06]. A more recent estimate suggests a higher contribution by $T$ [@wei17grl]. The partitioning depends on ecosystem characteristics, primarily LAI. A high LAI is associated with high $T$ and $E_I$. The higher LAI, the lower the radiation reaching the soil surface (@sec-light-absorption) and thus the lower $E_S$ (noting that energy is required for driving evaporation). 
+
+The different components to ET draw water from separate stores - from moisture in the root zone of vegetation for $T$, from moisture in the top few centimeters of soil for $E_S$, and from moisture adsorbed on canopy surfaces. Therefore, their evolution over time during dry (rain-free) phases is very different. While $E_I$ drops to zero within 1-3 days as canopy surfaces become dry, $E_S$ declines more slowly since the top soil takes longer to dry out to a degree where $E_S$ becomes zero. In contrast, $T$ takes much longer to decline as plants may draw moisture from much larger belowground stores - from water stored in the soil and sub-soil across the entire rooting zone. 
+
+### Cumulative water deficits
+
+The latent heat flux and precipitation have clear seasonal variations in most biomes. As described above, for annual totals, $P \geq E$. However, over shorter periods of time, ET may exceed precipitation ($E > P$). Of course, on a rain-free day $P=0$, while $E>0$. In some climates, $E > P$ may also be sustained over several weeks to months. For example, in Mediterranean or Monsoonal climates the asynchroneity of precipitation and solar radiation (and thus net radiation) can create a seasonal imbalance of water and energy availability and thus of water inputs and losses. As an example, @fig-cwd a shows the multi-year average monthly total precipitation ($P$) and ET (the same as $E$) for an ecosystem in a Mediterranean climate - a woody savannah in California (eddy covariance measurement site US-Ton). It shows that $E>P$ on average for May-Sep each year. The difference in monthly totals is relatively small - on the order of 10 mm or less. However, considering the cumuluative sum of daily $E-P$ during the dry summer months for calculating the *cumulative water deficit* (@fig-cwd b) shows that the maximum attained seasonal water deficit is 40-80 mm for this site (and varies between years). This is a substantial amount. Where does this water come from? Of course, it's drawn by plants through their roots from the rooting zone, including the soil and potentially also the sub-soil or even the groundwater. How much water can be stored in the soil is the topic of the next section.
+
+```{r echo=FALSE}
+#| label: fig-cwd
+#| fig-cap: "(a) Mean monthly evapotranspiration (ET) and precipitation (*P*) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - *P*. It is terminated each year when *P* after the dry season has compensated the previously accumuated water deficit. No negative values of CWD are considered by design. The method of CWD calculation is based on @stocker23natgeo."
+#| out-width: 80%
+# figure created with analysis/plot_cwd.R
+knitr::include_graphics("images/cwd.png")
+```
+
+
+## Soil water {#sec-soilwater}
+
+Soils are an important storage component of water. Soil water (or soil moisture) supplies water for plant transpiration and soil evaporation during dry periods. How much soil moisture is accessible to plants determines how rapidly plants experience water stress during dry periods and affects the surface energy partitioning, near-surface air heating and heat extremes. Soil moisture also acts to buffer the asynchroneity of precipitation and radiation (and thus potential evapotranspiration) and introduces an important memory element in the Earth system [@seneviratne10]. For example, an anomalously dry spring may aggravate water stress later in the season because soil moisture stores that have re-filled during the wet winter (and may still be relatively moist in spring) get depleted *gradually* and may reach a critically low moisture level earlier than after a wet spring. The strength of this memory effect and the time it takes for plants to experience water stress during dry periods depends (i.a.) on the capacity for plant-accessible water storage in the rooting zone of vegetation.
+
+An important determinant for how much water can be stored in a given volume of soil is its texture. The size of soil particles determines their surface area. Water is adsorbed to the surfaces of the soil matrix and it takes work to remove it. Therefore, the size distribution of soil particles determines how much water the soil can bound. Soil particles are distinguished by size into sand (2-0.05 mm), silt (0.05-0.002 mm), and clay (<0.002 mm). A soil is a mixture of size classes and depending on this mixture, it can be classified into a *soil texture class* (@fig-soiltext-triangle).  
+
+```{r, message=FALSE, warning=FALSE, fig.height=6}
+#| code-fold: true
+#| label: fig-soiltext-triangle
+#| fig-cap: "USDA soil texture classes."
+
+library(dplyr)
+library(ggplot2)
+library(ggtern)
+library(grid)
+
+# Load the Data. (Available in ggtern 1.0.3.0 next version)
+data(USDA)
+
+# Put tile labels at the midpoint of each tile based on https://stackoverflow.com/questions/29136168/add-texture-classes-to-soil-classification-triangle-via-ggplot2
+USDA.LAB <- USDA |> 
+  group_by(Label) |> 
+  dplyr::summarise(across(where(is.numeric), mean))
+
+# Tweak
+USDA.LAB$Angle = 0
+USDA.LAB$Angle[which(USDA.LAB$Label == 'Loamy Sand')] = -35
+
+# Construct the plot.
+ggplot(data = USDA, aes(y = Clay, x = Sand, z = Silt)) +
+  coord_tern(L="x", T="y", R="z") +
+  geom_polygon(alpha = 0.75, size = 0.5, color = 'black', aes(color = Label, fill = Label)) +
+  geom_text(data = USDA.LAB,
+            aes(label = Label, angle = Angle),
+            color = 'black',
+            size = 3.5) +
+  theme_rgbw() +
+  theme_showsecondary() +
+  theme_showarrows() +
+  custom_percent("(%)") +
+  theme(legend.position="none") +
+  labs(fill  = '',
+       color = '')
+```
+
+In a common soil (not compacted, not an organic - peatland - soil), about 55% of the volume is comprised of solid material. The rest is air and water. The fraction of the soil that is not solid material is referred to as the *porosity*. When all pores are filled with water, the soil *volumetric water content* is at *saturation* ($\theta_\text{SAT}$). Soil texture classes vary relatively little with respect to porosity, but differ strongly in the strength at which the water is adsorbed to the soil matrix (@fig-soiltext). Water movement in soil is driven by two distinct forces. The gravitational potential "pushes" water through soil under the influence of gravity. The soil *matric potential* $\psi_s$ arises from the adsorption of water to soil particles. It takes work to remove water from their adsorption to the soil matrix.
+
+::: {.callout-note}
+
+### Soil water content and matric potential relationship
+
+The matric potential is commonly expressed in units of mm or Pa. It can also be expressed as the *suction head* which is the negative of the matric potential. 
+
+Imagine you stick a straw into the soil and try to suck out the water. When the soil is wet, you initially don't have to suck hard to withdraw water. The suction head has a small positive value. The matric potential has a small negative value. After you have sucked out some amount water from the soil, you have to start sucking "harder" to extract the same amount again as the soil dries out. That's because the matric potential declines to more negative numbers (and the suction head increases to larger positive numbers) for drier soils. Staying with the straw analogue, -1 mm matric potential (or 1 mm suction head) is equivalent sucking from your straw such that that 1 mm of water doesn't drain out of the straw (ignoring capillary forces). 
+
+The same can also be expressed as a pressure - the gravitational force per unit area: 
+$$
+p = \frac{F_G}{A} = \frac{mg}{A}
+$$
+1 mm corresponds to 1 kg m^-2^ and $g =$ 9.81 m s^-2^. Therefore
+$$
+1 \; \text{mm} = 9.81 \; \text{kg m}^{-1} \text{s}^{-2} = 9.81 \; \text{Pa}
+$$
+
+The soil matric potential $\psi_s$ is related to the soil volumentric water content $\theta$ in a highly non-linear fashion. It stays near zero for a wide range $\theta$ and drops off sharply as $\theta$ falls below a certain range. Reflecting the large variation in how strongly water is bound to the soil matric across different soil texture classes, the relationship $\psi_s(\theta)$ varies strongly across soil types. An empirical equation for this relationship is given by @clapp78wrr as:
+$$
+\psi_s = \psi_\text{SAT} \left( \frac{\theta}{\theta_\text{SAT}} \right)^{-b}
+$$ {#eq-psisoil}
+Here, $\psi_\text{SAT}$ is the soil matric potential at saturation, that is when $\theta = \theta_\text{SAT}$. The exponent $b$ determines how rapidly the matric potential declines towards low $\theta$. These parameters have different values depending on the soil texture class, resulting in different functional forms of the relationship between volumetric water content and the matric potential.
+
+```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8}
+#| code-fold: true
+#| label: fig-psisoil
+#| fig-cap: "Soil matric potential and suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan."
+
+library(readr)
+library(cowplot)
+
+# get table of soil parameters by texture class, adopted from Bonan 2015, Table 9.2
+df_soilpar <- read_csv(here::here("data/df_soilpar.csv")) |> 
+  mutate(
+    fc_abs = fc * porosity,
+    wp_abs = wp * porosity,
+    solid = 1 - porosity
+  ) |> 
+  mutate(
+    unavailable = wp_abs,
+    available = fc_abs - wp_abs,
+    gravitational = porosity - fc_abs
+  )
+
+calc_psi <- function(swc, soilclass, df_soilpar){
+  df_soilpar <- df_soilpar |> 
+    dplyr::filter(soiltext == soilclass)
+  psi <- df_soilpar$psi_sat * (swc / df_soilpar$porosity)^(-df_soilpar$exponent)
+  return(psi)
+}
+
+drop_by_porosity <- function(swc, psi, soilclass, df_soilpar){
+  df_soilpar <- df_soilpar |> 
+    filter(soiltext == soilclass)
+  psi <- ifelse(swc > df_soilpar$porosity, NA, psi)
+}
+
+create_df_swc_bysoil <- function(soilclass, df_soilpar){
+  tibble(swc = seq(0.01, 1, 0.001)) |> 
+    mutate(
+      soilclass = soilclass
+    ) |> 
+    rowwise() |> 
+    mutate(
+      psi = calc_psi(swc, soilclass, df_soilpar)
+    ) |> 
+    mutate(
+      psi = drop_by_porosity(swc, psi, soilclass, df_soilpar)
+    )
+}
+
+df_swc <- purrr::map_dfr(
+  df_soilpar$soiltext,
+  ~create_df_swc_bysoil(., df_soilpar)
+)
+
+gg1 <- df_swc |> 
+  ggplot(aes(swc, psi, color = soilclass)) +
+  geom_line() +
+  geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") +
+  khroma::scale_color_okabeito() +
+  labs(
+    x = "Volumetric soil water content",
+    y = expression(paste("Soil matric potential (mm)"))
+  ) +
+  theme_classic() +
+  ylim(-0.5e6, 0) + 
+  xlim(0, 0.5) + 
+  theme(legend.position="none")
+
+gg2 <- df_swc |> 
+  ggplot(aes(swc, -psi, color = soilclass)) +
+  geom_line() +
+  geom_hline(yintercept = c(1000, 150000), linetype = "dotted") +
+  scale_y_log10() +
+  khroma::scale_color_okabeito(name = "Soil texture") +
+  labs(
+    x = "Volumetric soil water content",
+    y = expression(paste("Suction head (mm)"))
+  ) +
+  theme_classic() + 
+  xlim(0, 0.5)
+
+plot_grid(
+  gg1,
+  gg2,
+  labels = c("a", "b"),
+  rel_widths = c(0.77, 1)
+)
+```
+
+:::
+
+In sandy soils, the size of particles and hence the size of soil pores is large, water is only loosely bound to the soil matrix, and can drain rapidly. The *field capacity* ($\theta_\text{FC}$) is the volumetric water content that is bound to the soil matrix and does not drain due to the gravitational force. Because the matric potential is comparatively low for a given amount of soil water in sandy soils, more water drains due to the gravitational force compared to other soil texture classes. Therefore, $\theta_\text{FC}$ is lower in sandy soils than in other soils. The higher the field capacity, the more water is retained in the soil and prevented from drainage. However, not all of this water is available for uptake by plants. Depending on the soil texture a certain amount of water is too strongly adsorbed to the soil matrix for plants to "remove" it and mobilise it for uptake through their roots. The *permanent wilting point* $\theta_\text{PWP}$ measures the volumetric soil water content that is bound to the soil at a matric potential of -150,000 mm which is taken to be too strongly negative for plants to access. Actually, plants start to respond to water stress by closing their stomates and suffering from damage to their transport vessels already earlier. $\theta_\text{PWP}$ varies strongly between soil texture classes. It is high for clay soils, meaning that a relatively large amount of soil water remains inaccessible for plant uptake. 
+
+```{r, message=FALSE, warning=FALSE, fig.height=4}
+#| code-fold: true
+#| label: fig-soiltext
+#| fig-cap: "Soil volume fractions of available and unavailable moisture by texture classes. Data from @clapp72, adopted from @bonan."
+#| out-width: 80%
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+df_soilpar <- read_csv(here::here("data/df_soilpar.csv")) |> 
+  mutate(
+    fc_abs = fc * porosity,
+    wp_abs = wp * porosity,
+    solid = 1 - porosity
+  ) |> 
+  mutate(
+    unavailable = wp_abs,
+    available = fc_abs - wp_abs,
+    gravitational = porosity - fc_abs
+  )
+
+# Volume fractions
+df_soilpar |> 
+  pivot_longer(cols = c(unavailable, available, gravitational, solid)) |> 
+  mutate(
+    name = factor(name, levels = rev(c("unavailable", "available", "gravitational", "solid"))),
+    soiltext = factor(soiltext, levels = c("Clay", "Clay loam", "Loam", "Sandy loam", "Sand"))
+    ) |> 
+  ggplot(aes(soiltext, value, fill = name)) + 
+  geom_bar(position = "stack", stat = "identity") +
+  scale_fill_manual(
+    name = "",
+    values = c(
+      "unavailable" = "#E69F00",
+      "available" = "#0072B2",
+      "gravitational" = "#56B4E9",
+      "solid" = "#CC79A7"
+    )
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_classic() +
+  labs(
+    x = "Soil texture class",
+    y = "Volume fraction"
+  )
+```
+
+The plant-available soil *water holding capacity* (WHC) is the difference between the field capacity and permanent wilting point.
+$$
+\text{WHC} = \theta_\text{FC} - \theta_\text{PWP}
+$$
+Soil water storage above $\theta_\text{FC}$ eventually drains and is thus inaccessible for plant uptake and soil water storage water below $\theta_\text{PWP}$ is too strongly bound to the soil matrix and is therefore inaccessible for plant uptake. WHC is an important measure of suitability of soils for supporting vegetation. A low WHC means that a small amount of water can be stored per soil volume and made available for plant uptake during dry periods. However, the WHC varies only relatively little between soil texture classes as shown in @fig-soiltext. This is because $\theta_\text{PWP}$ and $\theta_\text{FC}$ are correlated across soil texture classes. Soils with a high $\theta_\text{FC}$ (clay soils) also tend to have a high $\theta_\text{PWP}$ and vice versa. However, WHC may vary across different locations also due to other constraints. For example, a large share of gravel (rocks with diameters greater than sand) reduces the WHC. 
+
+In view of the relative constancy of WHC, but large variance of $\theta_\text{PWP}$ and $\theta_\text{FC}$ across soil texture classes, soil moisture is often expressed as a fraction of available water. The *soil water index* (also often referred to as the *soil water scalar*) is commonly defined as
+$$
+W = \frac{\theta - \theta_\text{PWP}}{\theta_\text{FC} - \theta_\text{PWP}}
+$$
+Another common expression of soil moisture is in *percent saturation* ($100\% \cdot \theta / \theta_\text{SAT}$).
+
+<!-- ::: {.callout-note} -->
+
+<!-- ### Soil water index and matric potential relationship -->
+
+<!-- ```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8} -->
+<!-- #| code-fold: true -->
+<!-- #| label: fig-psisoilindex -->
+<!-- #| fig-cap: "Soil matric potential and suction head as a function of volumetric water content." -->
+
+<!-- library(readr) -->
+<!-- library(cowplot) -->
+
+<!-- create_df_swc_bysoil <- function(soilclass, df_soilpar){ -->
+<!--   tibble(swc = seq(0.01, 1, 0.001)) |>  -->
+<!--     mutate( -->
+<!--       soilclass = soilclass -->
+<!--     ) |>  -->
+<!--     rowwise() |>  -->
+<!--     mutate( -->
+<!--       psi = calc_psi(swc, soilclass, df_soilpar) -->
+<!--     ) -->
+<!-- } -->
+
+<!-- df_swc <- purrr::map_dfr( -->
+<!--   df_soilpar$soiltext, -->
+<!--   ~create_df_swc_bysoil(., df_soilpar) -->
+<!-- ) -->
+
+<!-- df_swc <- df_swc |>  -->
+<!--   left_join( -->
+<!--     df_soilpar |>  -->
+<!--       rename(soilclass = soiltext), -->
+<!--     by = join_by(soilclass) -->
+<!--   ) |>  -->
+<!--   mutate( -->
+<!--     wscal = (swc - wp)/(fc - wp) -->
+<!--   ) |>  -->
+<!--   filter( -->
+<!--     wscal >= 0 & -->
+<!--     wscal <= 1 -->
+<!--   ) -->
+
+<!-- gg1 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") + -->
+<!--   khroma::scale_color_okabeito() + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Soil matric potential (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic() + -->
+<!--   # ylim(-0.5e6, 0) +  -->
+<!--   # xlim(0, 1) + -->
+<!--   theme(legend.position="none") -->
+
+<!-- gg2 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, -psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(1000, 150000), linetype = "dotted") + -->
+<!--   scale_y_log10() + -->
+<!--   khroma::scale_color_okabeito(name = "Soil texture") + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Suction head (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic()  -->
+<!--   # xlim(0, 0.5) -->
+
+<!-- plot_grid( -->
+<!--   gg1, -->
+<!--   gg2, -->
+<!--   labels = c("a", "b"), -->
+<!--   rel_widths = c(0.77, 1) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- Two forces act on water in the soil.  -->
+
+<!-- - Soil moisture -->
+<!--   - volumetric water content (vol per vol, or mm = kg m-2) -->
+<!--   - saturation: percent of water filled pore space -->
+<!--   - field capacity: The amount of water held in the soil after gravitational drainage is its field capacity. -->
+<!--   - wilting point: rapid decline of soil matric potential with SWC at this point -->
+<!--   - plot column for sandy, clayy, and silty soil -->
+<!-- - Water movement: gravitational and matric potential -->
+<!--   - because water is bound to soil particles -->
+<!--   - Darcy’s law -->
+<!-- - Sandy soils: -->
+<!--   - The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. Loams are intermediate, draining more slowly than sands and retaining more water. -->
+
+
+::: {.callout-caution}
+## Exercise
+
+- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, and $\theta_\text{WP}$ in @fig-soiltext.
+
+:::
+
+
+### Rooting-zone water-storage capacity
+
+All metrics and relationships described above are expressed with a unit soil *volume* as a reference. For example, the WHC is the amount of water, a given volume of soil can hold. The total amount of water that vegetation has access to - the *rooting-zone water-storage capacity* $S_0$ - is determined not only by the soil texture across the rooting zone, but also to rooting depth $z_r$. It can be conceived as the integral of the WHC across the rooting profile. Assuming a constant WHC across the rooting depth, this is simply
+$$
+S_0 = z_r \cdot \text{WHC}\;.
+$$ {#eq-s0}
+The rooting depth $z_r$ is measured in units of length (for example in m), while the WHC is a volume fraction (for example m^3^ m^-3^). Hence, $S_0$ is in units of length. While the WHC varies relatively little across soil texture classes and across different locations globally, rooting depth $z_r$ varies strongly between species, and plant functional types (@fig-rootingdepth). It tends to be smaller for grasses and forbs than for trees and shrubs. 
+
+::: {.callout-caution}
+## Exercise
+
+- Look up species names shown in @fig-rootingdepth on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in @fig-rootingdepth a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?
+
+:::
+
+<!-- For example, common crops, like maize (*Zea Mays L.*) and wheat (*Triticum aestivum*), and a common temperate grass (*Lolium perenne*) have relatively shallow roots. Also some tree species have relatively shallow roots. For example, Norway spruce (*Picea abies*, German: Fichte), coniferous tree that is widely cultivated in as a high-yielding species in temperate forests, has consistently shallow roots. On the other extreme, *Acacia erioloba* - a tropical savannah tree, or *Boscia albitrunca* - have been recorded with extremely deep roots, reaching up to 80 m.   -->
+
+```{r echo=FALSE, fig.width=7, fig.height=12}
+#| label: fig-rootingdepth
+#| fig-cap: "Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from @tumber22newphyt."
+
+# figure created with analysis/plot_rootingdepth.R
+knitr::include_graphics("images/rootingdepth.png")
+```
+
+The variations in rooting depth have implications for the rooting-zone water-storage capacity (a consequence of @eq-s0). This, in turn, variations in $S_0$ are linked to how sensitive different vegetation types and species respond to dry periods - with consequences for surface energy partitioning is altered as the rooting zone dries out. Variations in rooting depth are related not only to species and PFTs, but also to large-scale climate variations and differences in vegetation cover in the different biomes across the globe (@fig-rootingdepth_maps). As a consequence of the large variations in $z_r$, the $S_0$ exhibits a large variation across the globe and its variation is largely disconnected to WHC. In other words, variations in $S_0$ are primarily driven by $z_r$, rather than by WHC.
+
+
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-rootingdepth_maps
+#| fig-cap: "(a) Total water holding capacity of the top 1 m of soil. (b) Rooting-zone water-storage capacity estimated from the annual maximum cumulative water deficits. Data and methods from @stocker23natgeo."
+#| 
+# figure created with analysis/plot_rootingdepth.R
+knitr::include_graphics("images/map_whc_s0.png")
+```
+
+
+## Plant hydraulics
+
+Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (@sec-transpiration). This water transport along the *soil-plant-atmosphere* (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable "burden" that is traded off against CO~2~ uptake for photosynthesis (@sec-stomatalregulation). 
+
+Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)
+
+{{< video https://www.youtube.com/watch?v=BickMFHAZR0 >}}
+
+The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf.  In simplified terms, this can be written as.
+$$
+T = -G_p (\psi_l - \psi_s)
+$$ {#eq-hydraulic_simple}
+This equation expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
+$$
+T =  1.6 \; g_s \; D
+$$
+These equations illustrates three important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by $D$ and $g_s$. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+
+:::{.callout-note}
+
+@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
+$$
+T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
+$$
+where $P(\psi)$ is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is
+$$
+P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
+$$
+where $P_\text{50}$ is the water potential at which $P$ has dropped to 0.5. 
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
+#| code-fold: true
+#| label: fig-hydraulics
+#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a separate parameter (not shown)."
+
+library(ggplot2)
+
+vulnerability_curve <- function(psi, p50, b){
+  0.5 ^ ((psi/p50)^b)
+}
+
+ggplot() +
+  geom_function(fun = function(x) vulnerability_curve(x, -2000, 5)) +
+  xlim(-3500, 0) +
+  geom_vline(xintercept = c(-2000, 0), linetype = "dotted") +
+  labs(x = expression(paste(psi, " (Pa)")),
+       y = expression(paste(italic(P(psi))))) + 
+  theme_classic()
+```
+
+:::
+
+However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
+
+Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO~2~ assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
+
+Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in @fig-drydownresponse
+
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-drydownresponse
+#| fig-cap: "Response of (a) CO~2~ assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted *Eucalyptus populnea* and *Eucalyptus pilularis*, which is adapted to more moist climates. The lines represent predictions of the model by @joshi22natplants where an optimal response of stomata in trading off CO~2~ assimilation and the risks associated with negative leaf water potentials is assumed."
+knitr::include_graphics("images/drydownresponse.png")
+```
+
+<!-- ### Water uptake depth -->
+
+<!-- - Fig. 16.3 and 16.4 in Schulze (p. 534) -->
+
+
+## Water bucket model
+
 Coming soon.
 
-- Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation
-- Tropical forests:
-  - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008)
-- Material from trial lecture: lecture_et_giub.key
-- Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation.
-- 3.4 Hydrologic Cycle (Bonan)
+<!-- - Fluxes: E, T, interception, ... -->
+<!-- - Bucket model -->
+<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+<!-- - Lifetime of soil water -->
+<!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
+<!-- - Mass curve technique -->
+
+## Ecosystem water fluxes
+
+Coming soon.
+
+<!-- (Contrast moist and dry sites) -->
+
+<!-- - Schulze Ch 16 -->
+
+## Energy and water limitation across the globe
+
+Coming soon.
+
+<!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
+
+<!-- ### (Donohue graph) -->
+
+<!-- ### Budyko {#sec-budyko} -->
+
+## Landscape-scale heterogeneity
+
+Coming soon.
+
+<!-- - Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation -->
+<!-- - Tropical forests: -->
+<!--   - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008) -->
+<!-- - Material from trial lecture: lecture_et_giub.key -->
+<!-- - Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation. -->
+<!-- - 3.4 Hydrologic Cycle (Bonan) -->
+

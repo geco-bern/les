@@ -175,28 +175,85 @@ $$
 1. Calculate the albedo from 'all sky' conditions in @fig-surface-energy-balance.
 :::
 
-## Surface energy balance
+## Surface energy balance and partitioning {#sec-energybalance}
 
 The energy available from radiative fluxes is converted into a sensible heat flux ($H$), a latent heat flux ($\lambda E$), and a ground heat flux ($G$, @fig-netrad b). Following energy conservation, net radiation is equal to the sum of these three heat fluxes.
 $$
 R_n = H + \lambda E + G
 $$ {#eq-energybalance}
 
-The components of the surface energy balance (@eq-energybalance) are commonly expressed in energy units (W m^-2^). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux ($\lambda E$) can also be expressed as a mass flux of water vapour ($E$). $E$ is the mass flux of water vapor, e.g., expressed in units of g m^-2^ s^-1^. $\lambda$ is the latent heat of vaporization and converts the mass units into energy units. It measures how much energy (Joules, J) is needed vapourize 1 g of water at constant temperature. $\lambda$ is 2.466 MJ kg^-1^ at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C (see code below using the {bigleaf} R package [@knauer18plosone]).
+The components of the surface energy balance (@eq-energybalance) are commonly expressed in energy units (W m^-2^). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux ($\lambda E$) can also be expressed as a mass flux of water vapour ($E$). $E$ is the mass flux of water vapor, e.g., expressed in units of g m^-2^ s^-1^. $\lambda$ is the latent heat of vaporization and converts the mass units into energy units. It measures how much energy (Joules, J) is needed vapourize 1 g of water at constant temperature. $\lambda$ is 2.466 MJ kg^-1^ at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C.
 
-```{r warning=FALSE, message=FALSE}
-#| code-fold: false
-library(bigleaf)  # This package contains lots of useful functions and parameters for land-atmosphere exchange. Reference: Knauer et al. 2018 https://dx.plos.org/10.1371/journal.pone.0201114
-latent.heat.vaporization(30) / latent.heat.vaporization(0)
+<!-- XXX to change: make this a curve vs. temperature -->
+
+```{r warning=FALSE, message=FALSE, fig.width=4, fig.height=3}
+#| code-fold: true
+#| label: fig-latentheat
+#| fig-cap: "Latent heat of vaporization as a function of air temperature."
+
+library(ggplot2)
+
+# Function adopted from function bigleaf::latent.heat.vaporization
+# Returns latent heat of vaporization (J g-1)
+# References:
+# Stull, B., 1988: An Introduction to Boundary Layer Meteorology (p.641) Kluwer Academic Publishers, Dordrecht, Netherlands
+# Foken, T, 2008: Micrometeorology. Springer, Berlin, Germany.
+calc_lambda <- function(temp){
+  k1 <- 2.501
+  k2 <- 0.00237
+  lambda <- (k1 - k2 * temp) * 1e+03
+  return(lambda)
+}
+
+ggplot() +
+  geom_function(fun = calc_lambda) +
+  xlim(0, 35) +
+  labs(x = "Temperature (°C)",
+       y = expression(paste("Latent heat of vaporization (J g"^-1, ")"))) + 
+  theme_classic()
 ```
 
-The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see fig xxx) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass *condensates* at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance. The ground heat flux $G$ buffers variations of net radiation, absorbing energy and removing heat from the surface during the day and summer and releasing heat during night and winter.
+<!-- Add from Bonan: -->
+<!-- The latent heat of vaporization decreases with warmer temperatures because water mol- ecules contain more internal energy at warmer temperatures and less energy is required for them to evaporate. -->
 
-### Energy partitioning
+The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see @fig-energy-diurnal and @fig-energy-seasonal) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass *condensates* at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance. The ground heat flux $G$ buffers variations of net radiation, absorbing energy and removing heat from the surface during the day and summer and releasing heat during night and winter.
 
-Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the *partitioning* of net radiation into sensible and latent heat fluxes in @eq-energybalance. Thus, the spatial distribution of vegetation and other land cover types, and the response of plants to temporal changes in the environment (and thus on LAI and stomatal conductance) influence the energy partitioning at the land surface and near-surface atmospheric conditions. In other words, we have to understand vegetation and its response to the environment in order to understand land-climate interactions and near-surface climate.
+<!-- XXX To add: Box for big-leaf model for heat and vapour fluxes with conductances -->
 
-The key properties influencing the partitioning into the sensible and latent heat flux are the aerodynamic conductance to heat transfer ($G_\mathrm{ah}$) and the surface conductance to water vapor transport ($G_\mathrm{sw}$). How they influence the latent heat flux is shown in @fig-penmanmonteith. The aerodynamic conductance depends on the roughness of the surface and on wind speed. Taller vegetation has a higher roughness and a higher aerodynamic conductance. Roughness also increases with LAI. 
+### Potential evapotranspiration {#sec-energypartitioning}
+
+Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the *partitioning* of net radiation into sensible and latent heat fluxes in @eq-energybalance. In particular, the availability of water for evaporation from the land surface through transpiration or directly from wet surfaces, is decisive for the partitioning of net radiation into $H$ and $\lambda E$.
+
+A useful quantity for understanding the surface energy partitioning and the influence of limiting factors (e.g., water limitation) is the *potential evapotranspiration* (PET). Evapotranspiration is equivalent to the latent heat flux, but expressed in water vapour mass units. (You will learn more about evapotranspiration in @sec-ecohydrology). PET can be understood as the maximum possible $E$, attained under conditions where water supply to evaporation is not limiting. Different methods are available for estimating PET. A physically based and widely used method is the one by @priestleytaylor72 which relates PET to net radiation, considering that net radiation is consumed by the water vapor flux from a water-saturated surface into an air parcel at constant temperature and pressure.
+$$
+\mathrm{PET} = \alpha \frac{s}{s + \gamma} \frac{R_n}{\lambda}
+$$
+Here, $s$ (Pa K^-2^) is the slope the change in saturation vapor pressure with respect to temperature. $\gamma$ is the psychrometric constant (a representative value is 66.5 Pa K^–1^). The coefficient $\alpha$ is an empirically determined value and is taken to be 1.26 for a wet surface. However, for vegetated surfaces, it is substantially lower, even if the plants are not water-limited. It ranges between 0.82 for tropical and temperate broadleaf forests and 0.55 for boreal conifer forests [@bonan].
+
+### Metrics of energy partitioning
+
+Different metrics are used for quantifying the partitioning of net radiation into $H$ and $\lambda E$. When considering totals over longer periods of time (over at least one annual cycle), the ground heat flux $G$ can be neglected since the ground doesn't gradually heat up over time. Hence, the sum of the latent and sensible heat fluxes add up to match net radiation. The *evaporative fraction* quantifies the fraction of available energy from net radiation goes into the latent heat flux.
+$$
+\mathrm{EF} = \lambda E/R_n
+$$
+The remainder goes into the sensible heat flux. The Bowen ratio expresses the same relation and is defined as 
+$$
+B = H/\lambda E
+$$
+The ratio of actual over potential evapotranspiration ($E/\mathrm{PET}$, also referred to as 'AET/PET') is often used, but measurements of actual evapotranspiration are scarce and model-based estimates are subject to strong assumptions.
+
+Quantifications of EF, $B$, and $E/\mathrm{PET}$ give important and readily interpretable insights. Variations of these quantities across space and time reflect water limitation to $E$, biophysical surface properties and vegetation activity. For example, in forests, the evaporative fraction is typically lower compared to certain crops, and it's even lower in conifer forests than in deciduous broadleaf forests (@fig-surface-resistance). The evaporative fraction declines as water becomes more limiting during dry (rain-free) periods. An example for the application of $E/\mathrm{PET}$ is the Evaporative Stress Index product (@fig-evaporative-stress), generated by the ECOSTRESS satellite mission [@fisher20wrr]. 
+
+```{r echo=FALSE}
+#| label: fig-evaporative-stress
+#| fig-cap: "ECOSTRESS evaporative stress index for the Guanacaste region of Costa Rica (in red on inset map, left) a few months after the onset of a major Central American drought. Red indicates high plant water stress, yellow is moderate stress and greens/blues are low stress. Light gray is cloud cover. The index measures how much water plants are using relative to how much they would use under optimal conditions; low numbers correlate with high stress. Figure from [https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought](https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought)."
+#| out-width: 80%
+knitr::include_graphics("https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA22839.jpg")
+```
+
+### Combining energy, atmospheric, and biophysical controls on $\lambda E$
+
+Not only the availability of water for evaporation, but also the atmospheric condition (specifically, the vapour pressure deficit) and biophysical surface properties determine the latent heat flux and the surface energy partitioning. The key biophysical surface properties are the aerodynamic conductance to heat transfer ($G_\mathrm{ah}$) and the surface conductance to water vapor transport ($G_\mathrm{sw}$). How energy, atmospheric, and biophysical controls drive the latent heat flux $\lambda E$ is described by the Penman-Monteith equation (@eq-pm), as shown in the box below and @fig-penmanmonteith. The aerodynamic conductance depends on the roughness of the surface and on wind speed. Taller vegetation has a higher roughness and a higher aerodynamic conductance. Roughness also increases with LAI. 
 
 On vegetated surfaces, the surface conductance to water vapor transport is strongly influenced by the stomatal conductance ($g_s$, @eq-photo-fick and @eq-transpiration) and by the LAI. Water evaporation from rock, soil, leaf, or branch surfaces contributes to surface conductance and occurs also from non-vegetated surfaces. In a closed canopy, surface conductance is dominated by the signal by stomatal conductance. When leaves are active and photosynthesizing (high light), and when water stress is low (high soil moisture, low VPD), stomatal conductance is high. How water availability and vegetation regulate stomatal conductance and thus the latent heat flux and energy partitioning at the land surface is introduced in @sec-ecohydrology.
 
@@ -206,6 +263,9 @@ On vegetated surfaces, the surface conductance to water vapor transport is stron
 #| out-width: 70%
 knitr::include_graphics("images/canopy_resistance.png")
 ```
+
+Taken together, the spatial distribution of vegetation and other land cover types, and the response of plants to temporal changes in the environment (and thus on LAI and stomatal conductance) influence the energy partitioning at the land surface and near-surface atmospheric conditions. In other words, we have to understand vegetation and its response to the environment in order to understand land-climate interactions and near-surface climate.
+
 
 ::: {.callout-note}
 
@@ -231,7 +291,10 @@ With this, and given the atmospheric condition, we can visualise the dependency 
 #| fig-cap: "Dependency of the latent heat flux on (a) the aerodynamic conductance and (b) the surface conductance following the Penman-Monteith equation (@eq-pm)."
 #| out-width: 100%
 
+library(dplyr)
+library(ggplot2)
 library(bigleaf)
+library(cowplot)
 
 # calculate latent heat flux using penman monteith
 calc_le_pm <- function(netrad, vpd, temp, g_ah, g_sw){
@@ -264,16 +327,28 @@ calc_le_pm <- function(netrad, vpd, temp, g_ah, g_sw){
   return(out)
 }
 
+# from SPLASH (Davis et al. 2017)
+calc_enthalpy_vap <- function(tc){
+  1.91846e6*((tc + 273.15)/(tc + 273.15 - 33.91))**2
+}
+# calc_enthalpy_vap(15)
+# 
+# # bigleaf built-in function
+# latent.heat.vaporization(15)
+# 
+# # ratio
+# calc_enthalpy_vap(15) / latent.heat.vaporization(15)
+
 # # test our function
 # calc_le_pm(
 #   netrad = 100,
 #   vpd = 1,
 #   temp = 15,
 #   g_ah = 0.1,  # mass units (m s-1)
-#   g_sw = mol.to.ms(0.6, Tair = temp, pressure = patm, constants = bigleaf.constants())  # convert molar units (mol m-2 s-1) to mass units
+#   g_sw = mol.to.ms(0.6, Tair = 15, pressure = bigleaf.constants()$pressure0 * 1e-3, constants = bigleaf.constants())  # convert molar units (mol m-2 s-1) to mass units
 #   )
-# 
-# # test built-in function
+
+# # test bigleaf built-in function
 # potential.ET(
 #   Gs_pot = 0.6,  # molar units (mol m-2 s-1)
 #   Tair = 15,
@@ -361,20 +436,8 @@ plot_grid(
 
 Under conditions of very low aerodynamic conductance (e.g., in a short-statured grassland that has a low surface roughness and under stable atmospheric conditions, e.g., during an inversion), the latent heat flux does not approach zero. This is because as long as there is positive net radiation (here 400 W m^-2^), the surface (skin temperature) heats up relative to the ambient air and creates a positive VPD at the leaf surface (even if VPD of ambient air is zero). These aspects drive a continued positive $H$ and $\lambda E$ and the rise of the surface boundary layer.
 
-
 :::
 
-### Evaporative fraction and Bowen ratio
-
-When considering totals over longer periods of time (over at least one annual cycle), the ground heat flux can be neglected since the ground doesn't gradually heat up over time. Hence, the sum of the latent and sensible heat fluxes add up to match net radiation. The *evaporative fraction* quantifies the fraction of available energy from net radiation goes into the latent heat flux.
-$$
-\mathrm{EF} = \lambda E/R_n
-$$
-The remainder goes into the sensible heat flux. The Bowen ratio expresses the same relation and is defined as 
-$$
-B = H/\lambda E
-$$
-Quantifications of EF or $B$ give important insights beyond the "first-order control" by net radiation. Variations across space reflect surface properties and vegetation activity. In forests, the proportion of evapotranspiration to available energy is typically lower compared to certain crops, and it's even lower in conifer forests than in deciduous broadleaf forests (@fig-surface-resistance). 
 
 ## Energy fluxes across biomes
 
@@ -478,19 +541,20 @@ knitr::include_graphics("images/seasonal_cycle_radiation.png")
 :::
 
 
-<!-- ## Big-leaf model for energy exchange -->
+<!-- XXX Additional contents -->
 
+<!-- - Ground (soil) heat flux, link to diurnal and seasonal variations -->
+  <!-- - Two soil properties (thermal conductivity, heat capacity)  -->
+  <!-- - Thermal conductivity and heat capacity vary depending on mineral composition, porosity, organic matter content, and the water content of soils  -->
+  <!-- - Explain Eq. 9.3 -->
+  <!-- - Differences in thermal conductivity, subject to organic matter content, water content -->
+  <!-- - Soils are often covered by organic material or snow. Forests, in particular, are typically cov- ered with a layer of decomposing leaf litter sev- eral centimeters thick. Organic material has a heat capacity similar to mineral soil, but a much lower thermal conductivity (Table 9.1). As a result, decomposing organic material acts as an insulator, preventing soil from warming in the day and from cooling at night. Snow, with its low thermal conductivity (e.g., 0.34 W m–1 K–1), has a similar insulating effect. A deep snow pack early in winter can keep soil warmer than if no snow was present. -->
+  <!-- - Freezing/thawing affects thermal properties and consumes/releases energy -->
+
+<!-- - Big-leaf model for energy exchange -->
 <!-- - Diffusion equations for sensible and latent heat -->
 <!-- - Surface temperature -->
-
-<!-- ## Microclimates -->
-
-<!-- - Rebetez data -->
-
-
-
-
-
+<!-- - Forest vs non-forest climate (Rebetez et al) -->
 
 
 
@@ -557,7 +621,6 @@ knitr::include_graphics("images/seasonal_cycle_radiation.png")
 <!--     - 2-source model -->
 <!-- - Surface water balance, evapotranspiration 2 -->
 <!-- Bonan 10 -->
-<!--     - Bucket model and water stress curves (Teuling et al., Stocker et al., 2023) -->
 <!--     - Priestly-Taylor -->
 <!--         - surface-air temperature difference, see Ning Dong et al., 2013 GEB DOI: 10.1111/geb.12614 -->
 <!--     - Penman-Monteith Eq -->
