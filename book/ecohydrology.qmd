@@ -454,7 +454,7 @@ Another common expression of soil moisture is in *percent saturation* ($100\% \c
 ::: {.callout-caution}
 ## Exercise
 
-- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, and $\theta_\text{WP}$ in @fig-soiltext.
+- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, $\theta_\text{WP}$, porosity, and WHC in @fig-soiltext.
 
 :::
 
