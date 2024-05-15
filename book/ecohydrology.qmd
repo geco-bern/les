@@ -564,6 +564,21 @@ knitr::include_graphics("images/drydownresponse.png")
 
 <!-- - Fig. 16.3 and 16.4 in Schulze (p. 534) -->
 
+::: {.callout-caution}
+## Exercise
+
+- Consider a soil dry down as in @fig-drydownresponse. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+  - Soil water content
+  - Latent heat flux
+  - Sensible heat flux
+  - Bowen ratio
+  - Evaporative fraction
+  - GPP
+  - *R*~eco~
+  - NEE
+  - Tree mortality due to hydraulic failure
+
+:::
 
 ## Water bucket model
 
