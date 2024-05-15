@@ -476,7 +476,7 @@ The rooting depth $z_r$ is measured in units of length (for example in m), while
 
 <!-- For example, common crops, like maize (*Zea Mays L.*) and wheat (*Triticum aestivum*), and a common temperate grass (*Lolium perenne*) have relatively shallow roots. Also some tree species have relatively shallow roots. For example, Norway spruce (*Picea abies*, German: Fichte), coniferous tree that is widely cultivated in as a high-yielding species in temperate forests, has consistently shallow roots. On the other extreme, *Acacia erioloba* - a tropical savannah tree, or *Boscia albitrunca* - have been recorded with extremely deep roots, reaching up to 80 m.   -->
 
-```{r echo=FALSE, fig.width=7, fig.height=10}
+```{r echo=FALSE, fig.width=7, fig.height=12}
 #| label: fig-rootingdepth
 #| fig-cap: "Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from @tumber22newphyt."
 
@@ -567,35 +567,41 @@ knitr::include_graphics("images/drydownresponse.png")
 
 ## Water bucket model
 
-- Fluxes: E, T, interception, ...
-- Bucket model
-- Different effective "buckets" for interception, soil evaporation, and transpiration
-- Lifetime of soil water
-- Water stress curves (Teuling et al., Stocker et al., 2023)
-- Mass curve technique
+Coming soon.
+
+<!-- - Fluxes: E, T, interception, ... -->
+<!-- - Bucket model -->
+<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+<!-- - Lifetime of soil water -->
+<!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
+<!-- - Mass curve technique -->
 
 ## Ecosystem water fluxes
 
-(Contrast moist and dry sites)
+Coming soon.
 
-- Schulze Ch 16
+<!-- (Contrast moist and dry sites) -->
+
+<!-- - Schulze Ch 16 -->
 
 ## Energy and water limitation across the globe
 
-- Start by: constant EF under un-limited conditions, decline as water becomes limiting
+Coming soon.
 
-### (Donohue graph)
+<!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
 
-### Budyko {#sec-budyko}
+<!-- ### (Donohue graph) -->
 
-## Landscape-scape heterogeneity
+<!-- ### Budyko {#sec-budyko} -->
 
+## Landscape-scale heterogeneity
 
 Coming soon.
 
-- Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation
-- Tropical forests:
-  - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008)
-- Material from trial lecture: lecture_et_giub.key
-- Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation.
-- 3.4 Hydrologic Cycle (Bonan)
+<!-- - Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation -->
+<!-- - Tropical forests: -->
+<!--   - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008) -->
+<!-- - Material from trial lecture: lecture_et_giub.key -->
+<!-- - Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation. -->
+<!-- - 3.4 Hydrologic Cycle (Bonan) -->
+
