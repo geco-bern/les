@@ -85,7 +85,7 @@ The ratio of NPP:GPP is commonly referred to as the *ecosystem carbon use effici
 $$
 \begin{aligned}
 \mathrm{CUE} &= \mathrm{NPP} / \mathrm{GPP} \\
-\mathrm{BPE} &= \mathrm{BP} / \mathrm{GPP} \\
+\mathrm{BPE} &= \mathrm{BP} / \mathrm{GPP} 
 \end{aligned}
 $$ {#eq-cue}
 

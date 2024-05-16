@@ -40,10 +40,8 @@ P = P_d + e_a \;.
 $$
 Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is
 $$
-\begin{align}
-P_d &= \rho_d \frac{RT}{M_d} \\
-e_a &= \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
-\end{align}
+P_d = \rho_d \frac{RT}{M_d} \\
+e_a = \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
 $$ {#eq-partialpressures}
 Here, $\rho_d$ is the density of dry air; $\rho_v$ is the density of water vapor, $R$ is the universal gas constant (8.314 J K^-1^ mol^-1^); $T$ is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v = $ 18.02 g mol^–1^) to that of dry air ($M_d = $28.97 g mol^–1^). 
 
@@ -104,7 +102,7 @@ With $R \geq 0$ and $\Delta S = 0$, it follows that $P \geq E$. On a global aver
 
 $E$ in @eq-waterbalance includes contributions from multiples sources and processes (@fig-evapotranspiration-components). Below, we will refer to it as *evapotranspiration*, or short, *ET*. ET is the sum of transpiration by leaves ($T$, corresponding to what is referred to as $E$ in @sec-transpiration), evaporation from soil ($E_S$), evaporation from intercepted water on leaf and branch surfaces ($E_I$), and sublimation ($S$, the phase change from solid water in the form of snow and ice directly to the gaseous phase).
 $$
-\mathrm{ET} = T + E_S + E_I + S
+E = T + E_S + E_I + S
 $$ {#eq-et}
 
 The water balance of the rooting zone has to account for the fact that a portion of precipitation is intercepted and evaporates again as $E_I$. Only the remainder reaches the ground as *throughfall*. *Infiltration* is referred to as the moisture flux that reaches a certain depth in the soil. On annual and longer time scales, snow water mass does not accumulate and snow melt equals the amount of precipitation that falls as snow minus sublimation ($S$). Snow accumulation and melt is therefore not reflected in @eq-waterbalance. However, at sub-seasonal time scales, snow accumulation and melting can substantially affect the water root zone water balance (see below).
@@ -126,7 +124,7 @@ The latent heat flux and precipitation have clear seasonal variations in most bi
 
 ```{r echo=FALSE}
 #| label: fig-cwd
-#| fig-cap: "(a) Mean monthly evapotranspiration (ET) and precipitation (*P*) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - *P*. It is terminated each year when *P* after the dry season has compensated the previously accumuated water deficit. No negative values of CWD are considered by design. The method of CWD calculation is based on @stocker23natgeo."
+#| fig-cap: "(a) Mean monthly evapotranspiration (ET) and precipitation (*P*) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - *P*. It is terminated each year when *P* after the dry season has compensated the previously accumuated water deficit. *Events* of consecutive days with negative water balances and increasing cumulative water deficits are indicated by the grey bands in (b). No negative values of CWD are considered by design. The method of CWD calculation is based on @stocker23natgeo."
 #| out-width: 80%
 # figure created with analysis/plot_cwd.R
 knitr::include_graphics("images/cwd.png")
@@ -206,9 +204,11 @@ Here, $\psi_\text{SAT}$ is the soil matric potential at saturation, that is when
 ```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8}
 #| code-fold: true
 #| label: fig-psisoil
-#| fig-cap: "Soil matric potential and suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan."
+#| fig-cap: "Soil (a) matric potential and (b) suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan. Both panels show the same relationship but the y-axis in (b) is logarithmic. Horizontal dotted lines indicate the the field capacity and the permanent wilting point, which are defined here based on a soil matric potential of -1000 Pa and -150,000 mm."
 
+library(dplyr)
 library(readr)
+library(ggplot2)
 library(cowplot)
 
 # get table of soil parameters by texture class, adopted from Bonan 2015, Table 9.2
@@ -298,7 +298,7 @@ In sandy soils, the size of particles and hence the size of soil pores is large,
 ```{r, message=FALSE, warning=FALSE, fig.height=4}
 #| code-fold: true
 #| label: fig-soiltext
-#| fig-cap: "Soil volume fractions of available and unavailable moisture by texture classes. Data from @clapp72, adopted from @bonan."
+#| fig-cap: "Soil volume fractions of available and unavailable moisture by texture classes. Data from @clapp78wrr, adopted from @bonan."
 #| out-width: 80%
 
 library(readr)
@@ -454,7 +454,7 @@ Another common expression of soil moisture is in *percent saturation* ($100\% \c
 ::: {.callout-caution}
 ## Exercise
 
-- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, and $\theta_\text{WP}$ in @fig-soiltext.
+- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, $\theta_\text{WP}$, porosity, and WHC in @fig-soiltext.
 
 :::
 
@@ -564,6 +564,21 @@ knitr::include_graphics("images/drydownresponse.png")
 
 <!-- - Fig. 16.3 and 16.4 in Schulze (p. 534) -->
 
+::: {.callout-caution}
+## Exercise
+
+- Consider a soil dry down as in @fig-drydownresponse. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+  - Soil water content
+  - Latent heat flux
+  - Sensible heat flux
+  - Bowen ratio
+  - Evaporative fraction
+  - GPP
+  - *R*~eco~
+  - NEE
+  - Tree mortality due to hydraulic failure
+
+:::
 
 ## Water bucket model
 
