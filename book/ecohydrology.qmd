@@ -40,10 +40,8 @@ P = P_d + e_a \;.
 $$
 Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is
 $$
-\begin{align}
-P_d &= \rho_d \frac{RT}{M_d} \\
-e_a &= \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
-\end{align}
+P_d = \rho_d \frac{RT}{M_d} \\
+e_a = \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
 $$ {#eq-partialpressures}
 Here, $\rho_d$ is the density of dry air; $\rho_v$ is the density of water vapor, $R$ is the universal gas constant (8.314 J K^-1^ mol^-1^); $T$ is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v = $ 18.02 g mol^–1^) to that of dry air ($M_d = $28.97 g mol^–1^). 
 
