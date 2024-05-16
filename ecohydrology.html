@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,13 +103,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -65,26 +112,28 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="Land in the Earth System - 8&nbsp; Ecohydrology">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_8_1.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/logo.png" alt="" class="navbar-logo">
     </a>
@@ -99,16 +148,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/les_i/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/geco-bern/les_i/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
@@ -125,23 +173,32 @@ ul.task-list li input[type="checkbox"] {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ecohydrology.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ecohydrology</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ecohydrology.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ecohydrology</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -255,10 +312,29 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#global-water-cycle" id="toc-global-water-cycle" class="nav-link active" data-scroll-target="#global-water-cycle"><span class="header-section-number">8.1</span> Global water cycle</a></li>
+  <li><a href="#ecosystem-water-balance" id="toc-ecosystem-water-balance" class="nav-link" data-scroll-target="#ecosystem-water-balance"><span class="header-section-number">8.2</span> Ecosystem water balance</a>
+  <ul class="collapse">
+  <li><a href="#cumulative-water-deficits" id="toc-cumulative-water-deficits" class="nav-link" data-scroll-target="#cumulative-water-deficits"><span class="header-section-number">8.2.1</span> Cumulative water deficits</a></li>
+  </ul></li>
+  <li><a href="#sec-soilwater" id="toc-sec-soilwater" class="nav-link" data-scroll-target="#sec-soilwater"><span class="header-section-number">8.3</span> Soil water</a>
+  <ul class="collapse">
+  <li><a href="#rooting-zone-water-storage-capacity" id="toc-rooting-zone-water-storage-capacity" class="nav-link" data-scroll-target="#rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</a></li>
+  </ul></li>
+  <li><a href="#plant-hydraulics" id="toc-plant-hydraulics" class="nav-link" data-scroll-target="#plant-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
+  <li><a href="#water-bucket-model" id="toc-water-bucket-model" class="nav-link" data-scroll-target="#water-bucket-model"><span class="header-section-number">8.5</span> Water bucket model</a></li>
+  <li><a href="#ecosystem-water-fluxes" id="toc-ecosystem-water-fluxes" class="nav-link" data-scroll-target="#ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</a></li>
+  <li><a href="#energy-and-water-limitation-across-the-globe" id="toc-energy-and-water-limitation-across-the-globe" class="nav-link" data-scroll-target="#energy-and-water-limitation-across-the-globe"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</a></li>
+  <li><a href="#landscape-scale-heterogeneity" id="toc-landscape-scale-heterogeneity" class="nav-link" data-scroll-target="#landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -278,23 +354,677 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
 
-
-<p>Coming soon.</p>
+<section id="global-water-cycle" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="global-water-cycle"><span class="header-section-number">8.1</span> Global water cycle</h2>
+<p>Water cycles in the Earth system between the atmosphere, the ocean, the land biosphere and the cryosphere. The evaporation of water (H<sub>2</sub>O) from its liquid form to (gaseous) water vapour consumes energy (<a href="landclimate.html#sec-energybalance"><span>Section&nbsp;7.2</span></a>) and its condensation releases the same amount of energy in the form of heat again. Hence, the global water cycle is coupled to large energy transfers. For the Earth as a whole and as an annual average, 80 W m<sup>–2</sup> are consumed for evaporation – more than three-quarters of the 98 W m<sup>–2</sup> net radiation at the surface <span class="citation" data-cites="bonan">(<a href="references.html#ref-bonan" role="doc-biblioref">Bonan 2015</a>)</span>.</p>
+<p>The vast majority (ca. 98%) of water on Earth is saline and is stored in the Oceans, inland seas, and saline groundwater (<a href="#fig-global-water-cycle">Figure&nbsp;<span>8.1</span></a> a). Among the total amount of freshwater, the vast majority is stored as ice. Only a small fraction of water on Earth cycles between the atmosphere, the ocean and land. However, this cycling is relatively rapid (see Exercise below).</p>
+<p>Oceans dominate in total evaporation (470 km<sup>3</sup> yr<sup>-1</sup>, vs.&nbsp;74 km<sup>3</sup> yr<sup>-1</sup> from land, <a href="#fig-global-water-cycle">Figure&nbsp;<span>8.1</span></a> b) and the majority of precipitation falls over oceans. However, since precipitation over oceans is smaller than evaporation from oceans (424 km<sup>3</sup> yr<sup>-1</sup> vs.&nbsp;470 km<sup>3</sup> yr<sup>-1</sup>), a net transfer of water from oceans to land exists. Almost all of the surplus of the land’s water balance runs off as river discharge back into the ocean. A small fraction is discharged into the ocean through groundwater.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-global-water-cycle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_8_1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.1: Depiction of the present-day water cycle. In the atmosphere, which accounts for only 0.001% of all water on Earth, water primarily occurs as a gas (water vapour), but it is also present as ice and liquid water within clouds. The ocean is the primary water reservoir on Earth: it comprises mostly liquid water across much of the globe but also includes areas covered by ice in polar regions. Liquid freshwater on land forms surface water (lakes, rivers) and, together with soil moisture and mostly unusable groundwater stores, accounts for less than 2% of global water. Solid terrestrial water that occurs as ice sheets, glaciers, snow and ice on the surface, and permafrost currently represents nearly 2% of the planet’s water. Water that falls as snow in winter provides soil moisture and streamflow after melting, which are essential for human activities and ecosystem functioning. Note that these best estimates do not lead to a perfectly closed global water budget and that this budget has no reason to be closed given the ongoing human influence through both climate change (e.g., melting of ice sheets and glaciers, see Chapter 9) and water use (e.g., groundwater depletion through pumping into fossil aquifers, see Figure 8.10). Figure and caption from <span class="citation" data-cites="IPCC_2021_WGI_Ch_8">Douville et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_8" role="doc-biblioref">2021</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Evaporation from land is a smaller component than evaporation from oceans, and soils store less than 1% of the unfrozen freshwater on Earth. Yet, land processes are a key regulator of global water cycling and energy fluxes. This is because the majority of evaporation over land occurs through transpiration and is thus affected by the vegetation structure and ecophysiological relations - through effects of LAI (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>), surface conductance (<a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.1</span></a>) and stomatal conductance (<a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>). Another aspect is the fact that, while the amount of water stored in the rooting zone of vegetation is small, it supplies all transpiration. In many climates, the root zone moisture gets substantially depleted during episodic dry spells or regularly recurring dry seasons. The ensuing plant water stress leads to a reduction of transpiration and evaporation, and thus to an alteration also of the surface energy partitioning. This chapter introduces the quantities and mechanisms for understanding how water regulates vegetation and how vegetation shapes the cycling of water and land surface energy partitioning across the globe.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation</li>
-<li>Tropical forests:
-<ul>
-<li>“Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models.” (Bonan 2008)</li>
-</ul></li>
-<li>Material from trial lecture: lecture_et_giub.key</li>
-<li>Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation.</li>
-<li>3.4 Hydrologic Cycle (Bonan)</li>
+<li>Calculate the total freshwater stored as ice as a fraction of total freshwater.</li>
+<li>Calculate the turnover time of water in the atmosphere.</li>
+<li>Calculate the turnover time of water in soils (soil moisture).</li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Atmospheric humidity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<!-- XXX move this to Ch land-climate interactions -->
+<p>We have encountered the vapour pressure deficit (VPD) and its control on transpiration in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a> and on evapotranspiration in <a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.1</span></a>. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air.</p>
+<p>The total pressure of a gas can be expressed as the sum of partial pressures of different components of a gas mixture. For moist air, we can distinguish the partial pressures of water vapor (<span class="math inline">\(e_a\)</span>) and dry air (<span class="math inline">\(P_d\)</span>) and write the total pressure of moist air as <span class="math display">\[
+P = P_d + e_a \;.
+\]</span> Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is <span id="eq-partialpressures"><span class="math display">\[
+P_d = \rho_d \frac{RT}{M_d} \\
+e_a = \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
+\tag{8.1}\]</span></span> Here, <span class="math inline">\(\rho_d\)</span> is the density of dry air; <span class="math inline">\(\rho_v\)</span> is the density of water vapor, <span class="math inline">\(R\)</span> is the universal gas constant (8.314 J K<sup>-1</sup> mol<sup>-1</sup>); <span class="math inline">\(T\)</span> is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v = $ 18.02 g mol<sup>–1</sup>) to that of dry air ($M_d = $28.97 g mol<sup>–1</sup>).</p>
+<p>The specific humidity <span class="math inline">\(q\)</span> can be derived from <a href="#eq-partialpressures">Equation&nbsp;<span>8.1</span></a> as <span class="math display">\[
+q = \frac{\rho_v}{\rho_v + \rho_d} = \frac{0.622 e_a}{P-(1-0.622)e_a}
+\]</span> The vapour pressure deficit (<span class="math inline">\(D\)</span>) is the difference between the actual vapour pressure <span class="math inline">\(e_a\)</span> and the vapour pressure at saturation <span class="math inline">\(e_s(T)\)</span> (where water condensates). <span class="math display">\[
+D = e_s - e_a
+\]</span> The saturation vapour pressure is a function of air temperature (<span class="math inline">\(T\)</span> in °C). This relationship is related to the Clausius-Clapeyron relation of the temperature dependence of vapor pressure. A relatively accurate, yet simple empirical equation for this relationship is the following. <span class="math display">\[
+e_s(T) = 611.0 \; \exp \left( \frac{17.27 \; T}{T + 237.3} \right)
+\]</span> This equation calculates the the saturation vapour pressure <span class="math inline">\(e_s(T)\)</span> in units of Pa.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>calc_e_sat <span class="ot">&lt;-</span> <span class="cf">function</span>(temp){</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">611.0</span> <span class="sc">*</span> <span class="fu">exp</span>( (<span class="fl">17.27</span> <span class="sc">*</span> temp)<span class="sc">/</span>(temp <span class="sc">+</span> <span class="fl">237.3</span>) )</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> calc_e_sat) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">35</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (°C)"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Saturation vapour pressure (Pa)"</span>) <span class="sc">+</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-esat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-esat-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.2: Saturation vapour pressure as a function of air temperature.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The relative humidity (RH) also relates <span class="math inline">\(e_a\)</span> to <span class="math inline">\(e_s\)</span>, but as its ratio and not the difference. <span class="math display">\[
+\mathrm{RH} = 100 \% \; \frac{e_a}{e_s(T)}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="ecosystem-water-balance" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="ecosystem-water-balance"><span class="header-section-number">8.2</span> Ecosystem water balance</h2>
+<p>From the conservation of water mass, it follows that the amount of water inputs into an ecosystem through precipitation must equal its outputs plus a change in ecosystem water storage. Outputs are either evaporation or runoff. The ecosystem water balance can thus be expressed as <span id="eq-waterbalance"><span class="math display">\[
+P = E + R + \Delta S \;,
+\tag{8.2}\]</span></span> where <span class="math inline">\(P\)</span> is precipitation, <span class="math inline">\(E\)</span> is evaporation, which includes different contributions (see below), <span class="math inline">\(R\)</span> is runoff, and <span class="math inline">\(\Delta S\)</span> is the change in water storage, mostly in the form of groundwater. Lateral subsurface flow is accounted for by <span class="math inline">\(R\)</span>. <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a> applies to any system and scale. When considering totals or means of these fluxes over longer periods of time, <span class="math inline">\(\Delta S\)</span> tends to be small and may be neglected. At the scale of a river catchment, <span class="math inline">\(R\)</span> is always zero or positive. At smaller scales, horizontal subsurface water flow convergence could make <span class="math inline">\(R\)</span> negative (“run-on” instead of run-off). <span class="math inline">\(E\)</span> is the same quantity as the <span class="math inline">\(E\)</span> in <a href="landclimate.html#eq-energybalance">Equation&nbsp;<span>7.5</span></a>, but here expressed as a mass flux. (Remember, <span class="math inline">\(\lambda E\)</span> is the latent heat flux expressed in energy units).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most commonly, the components of <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a> are expressed as a mass per unit ground area and time. That is, for example in kg m<sup>-2</sup> yr<sup>-1</sup>. With the density of water <span class="math inline">\(\rho_w = 1000\)</span> kg m<sup>-3</sup>, 1 kg m<sup>-2</sup> is equivalent to 1 mm.</p>
+</div>
+</div>
+<p>With <span class="math inline">\(R \geq 0\)</span> and <span class="math inline">\(\Delta S = 0\)</span>, it follows that <span class="math inline">\(P \geq E\)</span>. On a global average over land, <span class="math inline">\(E/P = 0.65\)</span>. However, <span class="math inline">\(E/P\)</span> varies between about 0.2 and 1 across different ecosystems, catchments, and biomes. The pattern of how this ratio varies across the globe is described and explained in <span class="quarto-unresolved-ref">?sec-budyko</span>.</p>
+<p><span class="math inline">\(E\)</span> in <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a> includes contributions from multiples sources and processes (<a href="#fig-evapotranspiration-components">Figure&nbsp;<span>8.3</span></a>). Below, we will refer to it as <em>evapotranspiration</em>, or short, <em>ET</em>. ET is the sum of transpiration by leaves (<span class="math inline">\(T\)</span>, corresponding to what is referred to as <span class="math inline">\(E\)</span> in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>), evaporation from soil (<span class="math inline">\(E_S\)</span>), evaporation from intercepted water on leaf and branch surfaces (<span class="math inline">\(E_I\)</span>), and sublimation (<span class="math inline">\(S\)</span>, the phase change from solid water in the form of snow and ice directly to the gaseous phase). <span id="eq-et"><span class="math display">\[
+E = T + E_S + E_I + S
+\tag{8.3}\]</span></span></p>
+<p>The water balance of the rooting zone has to account for the fact that a portion of precipitation is intercepted and evaporates again as <span class="math inline">\(E_I\)</span>. Only the remainder reaches the ground as <em>throughfall</em>. <em>Infiltration</em> is referred to as the moisture flux that reaches a certain depth in the soil. On annual and longer time scales, snow water mass does not accumulate and snow melt equals the amount of precipitation that falls as snow minus sublimation (<span class="math inline">\(S\)</span>). Snow accumulation and melt is therefore not reflected in <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a>. However, at sub-seasonal time scales, snow accumulation and melting can substantially affect the water root zone water balance (see below).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-evapotranspiration-components" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ecosystemwaterbalance.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.3: Ecosystem water balance components. The ground in the brown background color indicates the vadose (unsaturated) zone. The ground in the blue background color indicates the aquifer (groundwater). Figure adopted from <span class="citation" data-cites="zhang24scidat">Zhang et al. (<a href="references.html#ref-zhang24scidat" role="doc-biblioref">2024</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The relative contributions of the different components of ET in <a href="#eq-et">Equation&nbsp;<span>8.3</span></a> are difficult to estimate. Model-based estimates for global averages are 48% for transpiration, 36% for soil evaporation, and 16% for canopy evaporation <span class="citation" data-cites="dirmeyer06">(<a href="references.html#ref-dirmeyer06" role="doc-biblioref">Dirmeyer et al. 2006</a>)</span>. A more recent estimate suggests a higher contribution by <span class="math inline">\(T\)</span> <span class="citation" data-cites="wei17grl">(<a href="references.html#ref-wei17grl" role="doc-biblioref">Wei et al. 2017</a>)</span>. The partitioning depends on ecosystem characteristics, primarily LAI. A high LAI is associated with high <span class="math inline">\(T\)</span> and <span class="math inline">\(E_I\)</span>. The higher LAI, the lower the radiation reaching the soil surface (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>) and thus the lower <span class="math inline">\(E_S\)</span> (noting that energy is required for driving evaporation).</p>
+<p>The different components to ET draw water from separate stores - from moisture in the root zone of vegetation for <span class="math inline">\(T\)</span>, from moisture in the top few centimeters of soil for <span class="math inline">\(E_S\)</span>, and from moisture adsorbed on canopy surfaces. Therefore, their evolution over time during dry (rain-free) phases is very different. While <span class="math inline">\(E_I\)</span> drops to zero within 1-3 days as canopy surfaces become dry, <span class="math inline">\(E_S\)</span> declines more slowly since the top soil takes longer to dry out to a degree where <span class="math inline">\(E_S\)</span> becomes zero. In contrast, <span class="math inline">\(T\)</span> takes much longer to decline as plants may draw moisture from much larger belowground stores - from water stored in the soil and sub-soil across the entire rooting zone.</p>
+<section id="cumulative-water-deficits" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="cumulative-water-deficits"><span class="header-section-number">8.2.1</span> Cumulative water deficits</h3>
+<p>The latent heat flux and precipitation have clear seasonal variations in most biomes. As described above, for annual totals, <span class="math inline">\(P \geq E\)</span>. However, over shorter periods of time, ET may exceed precipitation (<span class="math inline">\(E &gt; P\)</span>). Of course, on a rain-free day <span class="math inline">\(P=0\)</span>, while <span class="math inline">\(E&gt;0\)</span>. In some climates, <span class="math inline">\(E &gt; P\)</span> may also be sustained over several weeks to months. For example, in Mediterranean or Monsoonal climates the asynchroneity of precipitation and solar radiation (and thus net radiation) can create a seasonal imbalance of water and energy availability and thus of water inputs and losses. As an example, <a href="#fig-cwd">Figure&nbsp;<span>8.4</span></a> a shows the multi-year average monthly total precipitation (<span class="math inline">\(P\)</span>) and ET (the same as <span class="math inline">\(E\)</span>) for an ecosystem in a Mediterranean climate - a woody savannah in California (eddy covariance measurement site US-Ton). It shows that <span class="math inline">\(E&gt;P\)</span> on average for May-Sep each year. The difference in monthly totals is relatively small - on the order of 10 mm or less. However, considering the cumuluative sum of daily <span class="math inline">\(E-P\)</span> during the dry summer months for calculating the <em>cumulative water deficit</em> (<a href="#fig-cwd">Figure&nbsp;<span>8.4</span></a> b) shows that the maximum attained seasonal water deficit is 40-80 mm for this site (and varies between years). This is a substantial amount. Where does this water come from? Of course, it’s drawn by plants through their roots from the rooting zone, including the soil and potentially also the sub-soil or even the groundwater. How much water can be stored in the soil is the topic of the next section.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-cwd" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/cwd.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.4: (a) Mean monthly evapotranspiration (ET) and precipitation (<em>P</em>) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - <em>P</em>. It is terminated each year when <em>P</em> after the dry season has compensated the previously accumuated water deficit. <em>Events</em> of consecutive days with negative water balances and increasing cumulative water deficits are indicated by the grey bands in (b). No negative values of CWD are considered by design. The method of CWD calculation is based on <span class="citation" data-cites="stocker23natgeo">Stocker et al. (<a href="references.html#ref-stocker23natgeo" role="doc-biblioref">2023</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-soilwater" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="sec-soilwater"><span class="header-section-number">8.3</span> Soil water</h2>
+<p>Soils are an important storage component of water. Soil water (or soil moisture) supplies water for plant transpiration and soil evaporation during dry periods. How much soil moisture is accessible to plants determines how rapidly plants experience water stress during dry periods and affects the surface energy partitioning, near-surface air heating and heat extremes. Soil moisture also acts to buffer the asynchroneity of precipitation and radiation (and thus potential evapotranspiration) and introduces an important memory element in the Earth system <span class="citation" data-cites="seneviratne10">(<a href="references.html#ref-seneviratne10" role="doc-biblioref">Seneviratne et al. 2010</a>)</span>. For example, an anomalously dry spring may aggravate water stress later in the season because soil moisture stores that have re-filled during the wet winter (and may still be relatively moist in spring) get depleted <em>gradually</em> and may reach a critically low moisture level earlier than after a wet spring. The strength of this memory effect and the time it takes for plants to experience water stress during dry periods depends (i.a.) on the capacity for plant-accessible water storage in the rooting zone of vegetation.</p>
+<p>An important determinant for how much water can be stored in a given volume of soil is its texture. The size of soil particles determines their surface area. Water is adsorbed to the surfaces of the soil matrix and it takes work to remove it. Therefore, the size distribution of soil particles determines how much water the soil can bound. Soil particles are distinguished by size into sand (2-0.05 mm), silt (0.05-0.002 mm), and clay (&lt;0.002 mm). A soil is a mixture of size classes and depending on this mixture, it can be classified into a <em>soil texture class</em> (<a href="#fig-soiltext-triangle">Figure&nbsp;<span>8.5</span></a>).</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtern)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Data. (Available in ggtern 1.0.3.0 next version)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(USDA)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Put tile labels at the midpoint of each tile based on https://stackoverflow.com/questions/29136168/add-texture-classes-to-soil-classification-triangle-via-ggplot2</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>USDA.LAB <span class="ot">&lt;-</span> USDA <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Label) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Tweak</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>USDA.LAB<span class="sc">$</span>Angle <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>USDA.LAB<span class="sc">$</span>Angle[<span class="fu">which</span>(USDA.LAB<span class="sc">$</span>Label <span class="sc">==</span> <span class="st">'Loamy Sand'</span>)] <span class="ot">=</span> <span class="sc">-</span><span class="dv">35</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the plot.</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> USDA, <span class="fu">aes</span>(<span class="at">y =</span> Clay, <span class="at">x =</span> Sand, <span class="at">z =</span> Silt)) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_tern</span>(<span class="at">L=</span><span class="st">"x"</span>, <span class="at">T=</span><span class="st">"y"</span>, <span class="at">R=</span><span class="st">"z"</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="fu">aes</span>(<span class="at">color =</span> Label, <span class="at">fill =</span> Label)) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> USDA.LAB,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> Label, <span class="at">angle =</span> Angle),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">'black'</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_rgbw</span>() <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_showsecondary</span>() <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_showarrows</span>() <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">custom_percent</span>(<span class="st">"(%)"</span>) <span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill  =</span> <span class="st">''</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-soiltext-triangle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-soiltext-triangle-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.5: USDA soil texture classes.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In a common soil (not compacted, not an organic - peatland - soil), about 55% of the volume is comprised of solid material. The rest is air and water. The fraction of the soil that is not solid material is referred to as the <em>porosity</em>. When all pores are filled with water, the soil <em>volumetric water content</em> is at <em>saturation</em> (<span class="math inline">\(\theta_\text{SAT}\)</span>). Soil texture classes vary relatively little with respect to porosity, but differ strongly in the strength at which the water is adsorbed to the soil matrix (<a href="#fig-soiltext">Figure&nbsp;<span>8.7</span></a>). Water movement in soil is driven by two distinct forces. The gravitational potential “pushes” water through soil under the influence of gravity. The soil <em>matric potential</em> <span class="math inline">\(\psi_s\)</span> arises from the adsorption of water to soil particles. It takes work to remove water from their adsorption to the soil matrix.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Soil water content and matric potential relationship
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The matric potential is commonly expressed in units of mm or Pa. It can also be expressed as the <em>suction head</em> which is the negative of the matric potential.</p>
+<p>Imagine you stick a straw into the soil and try to suck out the water. When the soil is wet, you initially don’t have to suck hard to withdraw water. The suction head has a small positive value. The matric potential has a small negative value. After you have sucked out some amount water from the soil, you have to start sucking “harder” to extract the same amount again as the soil dries out. That’s because the matric potential declines to more negative numbers (and the suction head increases to larger positive numbers) for drier soils. Staying with the straw analogue, -1 mm matric potential (or 1 mm suction head) is equivalent sucking from your straw such that that 1 mm of water doesn’t drain out of the straw (ignoring capillary forces).</p>
+<p>The same can also be expressed as a pressure - the gravitational force per unit area: <span class="math display">\[
+p = \frac{F_G}{A} = \frac{mg}{A}
+\]</span> 1 mm corresponds to 1 kg m<sup>-2</sup> and <span class="math inline">\(g =\)</span> 9.81 m s<sup>-2</sup>. Therefore <span class="math display">\[
+1 \; \text{mm} = 9.81 \; \text{kg m}^{-1} \text{s}^{-2} = 9.81 \; \text{Pa}
+\]</span></p>
+<p>The soil matric potential <span class="math inline">\(\psi_s\)</span> is related to the soil volumentric water content <span class="math inline">\(\theta\)</span> in a highly non-linear fashion. It stays near zero for a wide range <span class="math inline">\(\theta\)</span> and drops off sharply as <span class="math inline">\(\theta\)</span> falls below a certain range. Reflecting the large variation in how strongly water is bound to the soil matric across different soil texture classes, the relationship <span class="math inline">\(\psi_s(\theta)\)</span> varies strongly across soil types. An empirical equation for this relationship is given by <span class="citation" data-cites="clapp78wrr">Clapp and Hornberger (<a href="references.html#ref-clapp78wrr" role="doc-biblioref">1978</a>)</span> as: <span id="eq-psisoil"><span class="math display">\[
+\psi_s = \psi_\text{SAT} \left( \frac{\theta}{\theta_\text{SAT}} \right)^{-b}
+\tag{8.4}\]</span></span> Here, <span class="math inline">\(\psi_\text{SAT}\)</span> is the soil matric potential at saturation, that is when <span class="math inline">\(\theta = \theta_\text{SAT}\)</span>. The exponent <span class="math inline">\(b\)</span> determines how rapidly the matric potential declines towards low <span class="math inline">\(\theta\)</span>. These parameters have different values depending on the soil texture class, resulting in different functional forms of the relationship between volumetric water content and the matric potential.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get table of soil parameters by texture class, adopted from Bonan 2015, Table 9.2</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_soilpar <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_soilpar.csv"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fc_abs =</span> fc <span class="sc">*</span> porosity,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">wp_abs =</span> wp <span class="sc">*</span> porosity,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">solid =</span> <span class="dv">1</span> <span class="sc">-</span> porosity</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">unavailable =</span> wp_abs,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">available =</span> fc_abs <span class="sc">-</span> wp_abs,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">gravitational =</span> porosity <span class="sc">-</span> fc_abs</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>calc_psi <span class="ot">&lt;-</span> <span class="cf">function</span>(swc, soilclass, df_soilpar){</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  df_soilpar <span class="ot">&lt;-</span> df_soilpar <span class="sc">|&gt;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(soiltext <span class="sc">==</span> soilclass)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  psi <span class="ot">&lt;-</span> df_soilpar<span class="sc">$</span>psi_sat <span class="sc">*</span> (swc <span class="sc">/</span> df_soilpar<span class="sc">$</span>porosity)<span class="sc">^</span>(<span class="sc">-</span>df_soilpar<span class="sc">$</span>exponent)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(psi)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>drop_by_porosity <span class="ot">&lt;-</span> <span class="cf">function</span>(swc, psi, soilclass, df_soilpar){</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  df_soilpar <span class="ot">&lt;-</span> df_soilpar <span class="sc">|&gt;</span> </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(soiltext <span class="sc">==</span> soilclass)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  psi <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(swc <span class="sc">&gt;</span> df_soilpar<span class="sc">$</span>porosity, <span class="cn">NA</span>, psi)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>create_df_swc_bysoil <span class="ot">&lt;-</span> <span class="cf">function</span>(soilclass, df_soilpar){</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">swc =</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">1</span>, <span class="fl">0.001</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">soilclass =</span> soilclass</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">psi =</span> <span class="fu">calc_psi</span>(swc, soilclass, df_soilpar)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">psi =</span> <span class="fu">drop_by_porosity</span>(swc, psi, soilclass, df_soilpar)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>df_swc <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  df_soilpar<span class="sc">$</span>soiltext,</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="fu">create_df_swc_bysoil</span>(., df_soilpar)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> df_swc <span class="sc">|&gt;</span> </span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(swc, psi, <span class="at">color =</span> soilclass)) <span class="sc">+</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1000</span>, <span class="sc">-</span><span class="dv">150000</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>() <span class="sc">+</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volumetric soil water content"</span>,</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Soil matric potential (mm)"</span>))</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.5e6</span>, <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> df_swc <span class="sc">|&gt;</span> </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(swc, <span class="sc">-</span>psi, <span class="at">color =</span> soilclass)) <span class="sc">+</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">150000</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">"Soil texture"</span>) <span class="sc">+</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volumetric soil water content"</span>,</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Suction head (mm)"</span>))</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  gg1,</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  gg2,</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  <span class="at">rel_widths =</span> <span class="fu">c</span>(<span class="fl">0.77</span>, <span class="dv">1</span>)</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-psisoil" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-psisoil-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.6: Soil (a) matric potential and (b) suction head as a function of volumetric water content, based on <a href="#eq-psisoil">Equation&nbsp;<span>8.4</span></a> and soil texture class-specific parameters from <span class="citation" data-cites="clapp78wrr">Clapp and Hornberger (<a href="references.html#ref-clapp78wrr" role="doc-biblioref">1978</a>)</span>, adopted from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>. Both panels show the same relationship but the y-axis in (b) is logarithmic. Horizontal dotted lines indicate the the field capacity and the permanent wilting point, which are defined here based on a soil matric potential of -1000 Pa and -150,000 mm.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In sandy soils, the size of particles and hence the size of soil pores is large, water is only loosely bound to the soil matrix, and can drain rapidly. The <em>field capacity</em> (<span class="math inline">\(\theta_\text{FC}\)</span>) is the volumetric water content that is bound to the soil matrix and does not drain due to the gravitational force. Because the matric potential is comparatively low for a given amount of soil water in sandy soils, more water drains due to the gravitational force compared to other soil texture classes. Therefore, <span class="math inline">\(\theta_\text{FC}\)</span> is lower in sandy soils than in other soils. The higher the field capacity, the more water is retained in the soil and prevented from drainage. However, not all of this water is available for uptake by plants. Depending on the soil texture a certain amount of water is too strongly adsorbed to the soil matrix for plants to “remove” it and mobilise it for uptake through their roots. The <em>permanent wilting point</em> <span class="math inline">\(\theta_\text{PWP}\)</span> measures the volumetric soil water content that is bound to the soil at a matric potential of -150,000 mm which is taken to be too strongly negative for plants to access. Actually, plants start to respond to water stress by closing their stomates and suffering from damage to their transport vessels already earlier. <span class="math inline">\(\theta_\text{PWP}\)</span> varies strongly between soil texture classes. It is high for clay soils, meaning that a relatively large amount of soil water remains inaccessible for plant uptake.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df_soilpar <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_soilpar.csv"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fc_abs =</span> fc <span class="sc">*</span> porosity,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">wp_abs =</span> wp <span class="sc">*</span> porosity,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">solid =</span> <span class="dv">1</span> <span class="sc">-</span> porosity</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">unavailable =</span> wp_abs,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">available =</span> fc_abs <span class="sc">-</span> wp_abs,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">gravitational =</span> porosity <span class="sc">-</span> fc_abs</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Volume fractions</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>df_soilpar <span class="sc">|&gt;</span> </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(unavailable, available, gravitational, solid)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">factor</span>(name, <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"unavailable"</span>, <span class="st">"available"</span>, <span class="st">"gravitational"</span>, <span class="st">"solid"</span>))),</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">soiltext =</span> <span class="fu">factor</span>(soiltext, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Clay"</span>, <span class="st">"Clay loam"</span>, <span class="st">"Loam"</span>, <span class="st">"Sandy loam"</span>, <span class="st">"Sand"</span>))</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(soiltext, value, <span class="at">fill =</span> name)) <span class="sc">+</span> </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"unavailable"</span> <span class="ot">=</span> <span class="st">"#E69F00"</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>      <span class="st">"available"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">"gravitational"</span> <span class="ot">=</span> <span class="st">"#56B4E9"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      <span class="st">"solid"</span> <span class="ot">=</span> <span class="st">"#CC79A7"</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Soil texture class"</span>,</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Volume fraction"</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-soiltext" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-soiltext-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.7: Soil volume fractions of available and unavailable moisture by texture classes. Data from <span class="citation" data-cites="clapp78wrr">Clapp and Hornberger (<a href="references.html#ref-clapp78wrr" role="doc-biblioref">1978</a>)</span>, adopted from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The plant-available soil <em>water holding capacity</em> (WHC) is the difference between the field capacity and permanent wilting point. <span class="math display">\[
+\text{WHC} = \theta_\text{FC} - \theta_\text{PWP}
+\]</span> Soil water storage above <span class="math inline">\(\theta_\text{FC}\)</span> eventually drains and is thus inaccessible for plant uptake and soil water storage water below <span class="math inline">\(\theta_\text{PWP}\)</span> is too strongly bound to the soil matrix and is therefore inaccessible for plant uptake. WHC is an important measure of suitability of soils for supporting vegetation. A low WHC means that a small amount of water can be stored per soil volume and made available for plant uptake during dry periods. However, the WHC varies only relatively little between soil texture classes as shown in <a href="#fig-soiltext">Figure&nbsp;<span>8.7</span></a>. This is because <span class="math inline">\(\theta_\text{PWP}\)</span> and <span class="math inline">\(\theta_\text{FC}\)</span> are correlated across soil texture classes. Soils with a high <span class="math inline">\(\theta_\text{FC}\)</span> (clay soils) also tend to have a high <span class="math inline">\(\theta_\text{PWP}\)</span> and vice versa. However, WHC may vary across different locations also due to other constraints. For example, a large share of gravel (rocks with diameters greater than sand) reduces the WHC.</p>
+<p>In view of the relative constancy of WHC, but large variance of <span class="math inline">\(\theta_\text{PWP}\)</span> and <span class="math inline">\(\theta_\text{FC}\)</span> across soil texture classes, soil moisture is often expressed as a fraction of available water. The <em>soil water index</em> (also often referred to as the <em>soil water scalar</em>) is commonly defined as <span class="math display">\[
+W = \frac{\theta - \theta_\text{PWP}}{\theta_\text{FC} - \theta_\text{PWP}}
+\]</span> Another common expression of soil moisture is in <em>percent saturation</em> (<span class="math inline">\(100\% \cdot \theta / \theta_\text{SAT}\)</span>).</p>
+<!-- ::: {.callout-note} -->
+<!-- ### Soil water index and matric potential relationship -->
+<!-- ```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8} -->
+<!-- #| code-fold: true -->
+<!-- #| label: fig-psisoilindex -->
+<!-- #| fig-cap: "Soil matric potential and suction head as a function of volumetric water content." -->
+<!-- library(readr) -->
+<!-- library(cowplot) -->
+<!-- create_df_swc_bysoil <- function(soilclass, df_soilpar){ -->
+<!--   tibble(swc = seq(0.01, 1, 0.001)) |>  -->
+<!--     mutate( -->
+<!--       soilclass = soilclass -->
+<!--     ) |>  -->
+<!--     rowwise() |>  -->
+<!--     mutate( -->
+<!--       psi = calc_psi(swc, soilclass, df_soilpar) -->
+<!--     ) -->
+<!-- } -->
+<!-- df_swc <- purrr::map_dfr( -->
+<!--   df_soilpar$soiltext, -->
+<!--   ~create_df_swc_bysoil(., df_soilpar) -->
+<!-- ) -->
+<!-- df_swc <- df_swc |>  -->
+<!--   left_join( -->
+<!--     df_soilpar |>  -->
+<!--       rename(soilclass = soiltext), -->
+<!--     by = join_by(soilclass) -->
+<!--   ) |>  -->
+<!--   mutate( -->
+<!--     wscal = (swc - wp)/(fc - wp) -->
+<!--   ) |>  -->
+<!--   filter( -->
+<!--     wscal >= 0 & -->
+<!--     wscal <= 1 -->
+<!--   ) -->
+<!-- gg1 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") + -->
+<!--   khroma::scale_color_okabeito() + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Soil matric potential (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic() + -->
+<!--   # ylim(-0.5e6, 0) +  -->
+<!--   # xlim(0, 1) + -->
+<!--   theme(legend.position="none") -->
+<!-- gg2 <- df_swc |>  -->
+<!--   ggplot(aes(wscal, -psi, color = soilclass)) + -->
+<!--   geom_line() + -->
+<!--   # geom_hline(yintercept = c(1000, 150000), linetype = "dotted") + -->
+<!--   scale_y_log10() + -->
+<!--   khroma::scale_color_okabeito(name = "Soil texture") + -->
+<!--   labs( -->
+<!--     x = "Soil water index", -->
+<!--     y = expression(paste("Suction head (mm)")) -->
+<!--   ) + -->
+<!--   theme_classic()  -->
+<!--   # xlim(0, 0.5) -->
+<!-- plot_grid( -->
+<!--   gg1, -->
+<!--   gg2, -->
+<!--   labels = c("a", "b"), -->
+<!--   rel_widths = c(0.77, 1) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- Two forces act on water in the soil.  -->
+<!-- - Soil moisture -->
+<!--   - volumetric water content (vol per vol, or mm = kg m-2) -->
+<!--   - saturation: percent of water filled pore space -->
+<!--   - field capacity: The amount of water held in the soil after gravitational drainage is its field capacity. -->
+<!--   - wilting point: rapid decline of soil matric potential with SWC at this point -->
+<!--   - plot column for sandy, clayy, and silty soil -->
+<!-- - Water movement: gravitational and matric potential -->
+<!--   - because water is bound to soil particles -->
+<!--   - Darcy’s law -->
+<!-- - Sandy soils: -->
+<!--   - The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. The pores in sandy soil are large, water loosely adheres to soil particles, water movement is rapid, and the soil drains rapidly. Loams are intermediate, draining more slowly than sands and retaining more water. -->
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Label <span class="math inline">\(\theta_\text{SAT}\)</span>, <span class="math inline">\(\theta_\text{FC}\)</span>, <span class="math inline">\(\theta_\text{WP}\)</span>, porosity, and WHC in <a href="#fig-soiltext">Figure&nbsp;<span>8.7</span></a>.</li>
+</ul>
+</div>
+</div>
+<section id="rooting-zone-water-storage-capacity" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</h3>
+<p>All metrics and relationships described above are expressed with a unit soil <em>volume</em> as a reference. For example, the WHC is the amount of water, a given volume of soil can hold. The total amount of water that vegetation has access to - the <em>rooting-zone water-storage capacity</em> <span class="math inline">\(S_0\)</span> - is determined not only by the soil texture across the rooting zone, but also to rooting depth <span class="math inline">\(z_r\)</span>. It can be conceived as the integral of the WHC across the rooting profile. Assuming a constant WHC across the rooting depth, this is simply <span id="eq-s0"><span class="math display">\[
+S_0 = z_r \cdot \text{WHC}\;.
+\tag{8.5}\]</span></span> The rooting depth <span class="math inline">\(z_r\)</span> is measured in units of length (for example in m), while the WHC is a volume fraction (for example m<sup>3</sup> m<sup>-3</sup>). Hence, <span class="math inline">\(S_0\)</span> is in units of length. While the WHC varies relatively little across soil texture classes and across different locations globally, rooting depth <span class="math inline">\(z_r\)</span> varies strongly between species, and plant functional types (<a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a>). It tends to be smaller for grasses and forbs than for trees and shrubs.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Look up species names shown in <a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a> on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in <a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a> a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?</li>
+</ul>
+</div>
+</div>
+<!-- For example, common crops, like maize (*Zea Mays L.*) and wheat (*Triticum aestivum*), and a common temperate grass (*Lolium perenne*) have relatively shallow roots. Also some tree species have relatively shallow roots. For example, Norway spruce (*Picea abies*, German: Fichte), coniferous tree that is widely cultivated in as a high-yielding species in temperate forests, has consistently shallow roots. On the other extreme, *Acacia erioloba* - a tropical savannah tree, or *Boscia albitrunca* - have been recorded with extremely deep roots, reaching up to 80 m.   -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-rootingdepth" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/rootingdepth.png" class="img-fluid figure-img" width="1500"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.8: Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from <span class="citation" data-cites="tumber22newphyt">Tumber-Dávila et al. (<a href="references.html#ref-tumber22newphyt" role="doc-biblioref">2022</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The variations in rooting depth have implications for the rooting-zone water-storage capacity (a consequence of <a href="#eq-s0">Equation&nbsp;<span>8.5</span></a>). This, in turn, variations in <span class="math inline">\(S_0\)</span> are linked to how sensitive different vegetation types and species respond to dry periods - with consequences for surface energy partitioning is altered as the rooting zone dries out. Variations in rooting depth are related not only to species and PFTs, but also to large-scale climate variations and differences in vegetation cover in the different biomes across the globe (<a href="#fig-rootingdepth_maps">Figure&nbsp;<span>8.9</span></a>). As a consequence of the large variations in <span class="math inline">\(z_r\)</span>, the <span class="math inline">\(S_0\)</span> exhibits a large variation across the globe and its variation is largely disconnected to WHC. In other words, variations in <span class="math inline">\(S_0\)</span> are primarily driven by <span class="math inline">\(z_r\)</span>, rather than by WHC.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-rootingdepth_maps" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_whc_s0.png" class="img-fluid figure-img" width="1200"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.9: (a) Total water holding capacity of the top 1 m of soil. (b) Rooting-zone water-storage capacity estimated from the annual maximum cumulative water deficits. Data and methods from <span class="citation" data-cites="stocker23natgeo">Stocker et al. (<a href="references.html#ref-stocker23natgeo" role="doc-biblioref">2023</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plant-hydraulics" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="plant-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</h2>
+<p>Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (<a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>). This water transport along the <em>soil-plant-atmosphere</em> (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable “burden” that is traded off against CO<sub>2</sub> uptake for photosynthesis (<a href="gpp.html#sec-stomatalregulation"><span>Section&nbsp;4.4.3</span></a>).</p>
+<p>Have you thought about how water is transported up tall trees? It’s a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BickMFHAZR0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the <em>leaf water potential</em> (<span class="math inline">\(\psi_l\)</span>). It’s in the same units as the soil matric potential (<span class="math inline">\(\psi_s\)</span>, <a href="#eq-psisoil">Equation&nbsp;<span>8.4</span></a>) and it is related to the soil water potential via a the transpiration stream <span class="math inline">\(T\)</span> and an effective whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> that considers resistance elements in series - from the soil to the leaf. In simplified terms, this can be written as. <span id="eq-hydraulic_simple"><span class="math display">\[
+T = -G_p (\psi_l - \psi_s)
+\tag{8.6}\]</span></span> This equation expresses the “supply” of water from the soil. From <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a>, we know how the “demand” for water is determined by the vapor pressure deficit <span class="math inline">\(D\)</span> and the stomatal conductance <span class="math inline">\(g_s\)</span>. The <span class="math inline">\(T\)</span> in <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> thus has to be equal to the <span class="math inline">\(T\)</span> from <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a> (where it was called <span class="math inline">\(E\)</span>): <span class="math display">\[
+T =  1.6 \; g_s \; D
+\]</span> These equations illustrates three important points. First, a positive (upward) transpiration stream <span class="math inline">\(T\)</span> that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by <span class="math inline">\(D\)</span> and <span class="math inline">\(g_s\)</span>. By setting the two equations for <span class="math inline">\(T\)</span> equal and solving for the leaf water potential <span class="math inline">\(\psi_l\)</span> also illustrates how soil moisture (<span class="math inline">\(\psi_s\)</span>) and VPD (<span class="math inline">\(D\)</span>) have an interactive effect on <span class="math inline">\(\psi_l\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> is a simplification because the whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> is a function of the water potential which drops along the transport pathway from <span class="math inline">\(\psi_s\)</span> to <span class="math inline">\(\psi_l\)</span>. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> can be written as <span class="math display">\[
+T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
+\]</span> where <span class="math inline">\(P(\psi)\)</span> is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is <span class="math display">\[
+P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
+\]</span> where <span class="math inline">\(P_\text{50}\)</span> is the water potential at which <span class="math inline">\(P\)</span> has dropped to 0.5.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vulnerability_curve <span class="ot">&lt;-</span> <span class="cf">function</span>(psi, p50, b){</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.5</span> <span class="sc">^</span> ((psi<span class="sc">/</span>p50)<span class="sc">^</span>b)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="fu">vulnerability_curve</span>(x, <span class="sc">-</span><span class="dv">2000</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">3500</span>, <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2000</span>, <span class="dv">0</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(psi, <span class="st">" (Pa)"</span>)),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="fu">P</span>(psi))))) <span class="sc">+</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-hydraulics" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-hydraulics-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.10: Example plant hydraulic vulnerability cuve. The water potential at which <em>P</em> has dropped to 0.5 is commonly referred to as <em>P<sub>50</sub></em> and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in <em>P</em> is described by a separate parameter (not shown).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create <em>embolisms</em>. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to <em>hydraulic failure</em>.</p>
+<p>Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also <a href="gpp.html#sec-stomatalregulation"><span>Section&nbsp;4.4.3</span></a>). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO<sub>2</sub> assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.</p>
+<p>Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.11</span></a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-drydownresponse" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/drydownresponse.png" class="img-fluid figure-img" width="851"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.11: Response of (a) CO<sub>2</sub> assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted <em>Eucalyptus populnea</em> and <em>Eucalyptus pilularis</em>, which is adapted to more moist climates. The lines represent predictions of the model by <span class="citation" data-cites="joshi22natplants">Joshi et al. (<a href="references.html#ref-joshi22natplants" role="doc-biblioref">2022</a>)</span> where an optimal response of stomata in trading off CO<sub>2</sub> assimilation and the risks associated with negative leaf water potentials is assumed.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ### Water uptake depth -->
+<!-- - Fig. 16.3 and 16.4 in Schulze (p. 534) -->
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Consider a soil dry down as in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.11</span></a>. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+<ul>
+<li>Soil water content</li>
+<li>Latent heat flux</li>
+<li>Sensible heat flux</li>
+<li>Bowen ratio</li>
+<li>Evaporative fraction</li>
+<li>GPP</li>
+<li><em>R</em><sub>eco</sub></li>
+<li>NEE</li>
+<li>Tree mortality due to hydraulic failure</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="water-bucket-model" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="water-bucket-model"><span class="header-section-number">8.5</span> Water bucket model</h2>
+<p>Coming soon.</p>
+<!-- - Fluxes: E, T, interception, ... -->
+<!-- - Bucket model -->
+<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+<!-- - Lifetime of soil water -->
+<!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
+<!-- - Mass curve technique -->
+</section>
+<section id="ecosystem-water-fluxes" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</h2>
+<p>Coming soon.</p>
+<!-- (Contrast moist and dry sites) -->
+<!-- - Schulze Ch 16 -->
+</section>
+<section id="energy-and-water-limitation-across-the-globe" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="energy-and-water-limitation-across-the-globe"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</h2>
+<p>Coming soon.</p>
+<!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
+<!-- ### (Donohue graph) -->
+<!-- ### Budyko {#sec-budyko} -->
+</section>
+<section id="landscape-scale-heterogeneity" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</h2>
+<p>Coming soon.</p>
+<!-- - Forests sustain the hydrologic cycle through evapotranspiration, which cools climate through feedbacks with clouds and precipitation -->
+<!-- - Tropical forests: -->
+<!--   - "Observations show that forest transpiration is sustained during the dry season (11); this is seen also in CO2 fluxes (12) and satellite monitoring of vegetation (13, 14), to a greater extent than represented in many models."  (Bonan 2008) -->
+<!-- - Material from trial lecture: lecture_et_giub.key -->
+<!-- - Geographic patterns of evapotranspira- tion are explained by Budyko’s analysis of the control of evapotranspiration by net radiation and precipitation. -->
+<!-- - 3.4 Hydrologic Cycle (Bonan) -->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bonan" class="csl-entry" role="listitem">
+Bonan, Gordon. 2015. <em>Ecological Climatology: Concepts and Applications</em>. 3rd ed. Cambridge University Press.
+</div>
+<div id="ref-clapp78wrr" class="csl-entry" role="listitem">
+Clapp, Roger B., and George M. Hornberger. 1978. <span>“Empirical Equations for Some Soil Hydraulic Properties.”</span> <em>Water Resources Research</em> 14 (4): 601–4. <a href="https://doi.org/10.1029/WR014i004p00601">https://doi.org/10.1029/WR014i004p00601</a>.
+</div>
+<div id="ref-dirmeyer06" class="csl-entry" role="listitem">
+Dirmeyer, Paul A., Xiang Gao, Mei Zhao, Zhichang Guo, Taikan Oki, and Naota Hanasaki. 2006. <span>“<span>GSWP</span>-2: <span>Multimodel</span> <span>Analysis</span> and <span>Implications</span> for <span>Our</span> <span>Perception</span> of the <span>Land</span> <span>Surface</span>.”</span> <em>Bulletin of the American Meteorological Society</em> 87 (10): 1381–98. <a href="https://doi.org/10.1175/BAMS-87-10-1381">https://doi.org/10.1175/BAMS-87-10-1381</a>.
+</div>
+<div id="ref-IPCC_2021_WGI_Ch_8" class="csl-entry" role="listitem">
+Douville, H., K. Raghavan, J. Renwick, R. P. Allan, P. A. Arias, M. Barlow, R. Cerezo-Mota, et al. 2021. <span>“Water Cycle Changes.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al. Cambridge, UK; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.010">https://doi.org/10.1017/9781009157896.010</a>.
+</div>
+<div id="ref-joshi22natplants" class="csl-entry" role="listitem">
+Joshi, Jaideep, Benjamin D. Stocker, Florian Hofhansl, Shuangxi Zhou, Ulf Dieckmann, and Iain Colin Prentice. 2022. <span>“Towards a Unified Theory of Plant Photosynthesis and Hydraulics.”</span> <em>Nature Plants</em> 8 (11): 1304–16. <a href="https://doi.org/10.1038/s41477-022-01244-5">https://doi.org/10.1038/s41477-022-01244-5</a>.
+</div>
+<div id="ref-seneviratne10" class="csl-entry" role="listitem">
+Seneviratne, Sonia I., Thierry Corti, Edouard L. Davin, Martin Hirschi, Eric B. Jaeger, Irene Lehner, Boris Orlowsky, and Adriaan J. Teuling. 2010. <span>“Investigating Soil Moisture–Climate Interactions in a Changing Climate: <span>A</span> Review.”</span> <em>Earth-Science Reviews</em> 99 (3): 125–61. https://doi.org/<a href="https://doi.org/10.1016/j.earscirev.2010.02.004">https://doi.org/10.1016/j.earscirev.2010.02.004</a>.
+</div>
+<div id="ref-stocker23natgeo" class="csl-entry" role="listitem">
+Stocker, Benjamin D., Shersingh Joseph Tumber-Dávila, Alexandra G. Konings, Martha C. Anderson, Christopher Hain, and Robert B. Jackson. 2023. <span>“Global Patterns of Water Storage in the Rooting Zones of Vegetation.”</span> <em>Nature Geoscience</em>, February, 1–7. <a href="https://doi.org/10.1038/s41561-023-01125-2">https://doi.org/10.1038/s41561-023-01125-2</a>.
+</div>
+<div id="ref-tumber22newphyt" class="csl-entry" role="listitem">
+Tumber-Dávila, Shersingh Joseph, H. Jochen Schenk, Enzai Du, and Robert B. Jackson. 2022. <span>“Plant Sizes and Shapes Above- and Belowground and Their Interactions with Climate.”</span> <em>New Phytologist</em> n/a (n/a). https://doi.org/<a href="https://doi.org/10.1111/nph.18031">https://doi.org/10.1111/nph.18031</a>.
+</div>
+<div id="ref-wei17grl" class="csl-entry" role="listitem">
+Wei, Zhongwang, Kei Yoshimura, Lixin Wang, Diego G. Miralles, Scott Jasechko, and Xuhui Lee. 2017. <span>“Revisiting the Contribution of Transpiration to Global Terrestrial Evapotranspiration.”</span> <em>Geophysical Research Letters</em> 44 (6): 2792–2801. <a href="https://doi.org/10.1002/2016GL072235">https://doi.org/10.1002/2016GL072235</a>.
+</div>
+<div id="ref-zhang24scidat" class="csl-entry" role="listitem">
+Zhang, Kun, Huiling Chen, Ning Ma, Shasha Shang, Yunquan Wang, Qinglin Xu, and Gaofeng Zhu. 2024. <span>“A Global Dataset of Terrestrial Evapotranspiration and Soil Moisture Dynamics from 1982 to 2020.”</span> <em>Scientific Data</em> 11 (1): 445. <a href="https://doi.org/10.1038/s41597-024-03271-7">https://doi.org/10.1038/s41597-024-03271-7</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -338,33 +1068,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -433,15 +1136,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -520,27 +1221,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -550,17 +1234,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -572,130 +1247,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -739,7 +1291,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -765,32 +1316,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -852,18 +1377,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./landclimate.html" class="pagination-link" aria-label="Land-climate interactions">
+      <a href="./landclimate.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./nutrients.html" class="pagination-link" aria-label="Carbon-nutrient cycle interactions">
+      <a href="./nutrients.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Carbon-nutrient cycle interactions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

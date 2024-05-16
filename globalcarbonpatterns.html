@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,7 +58,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -104,13 +103,7 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -119,7 +112,6 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -129,45 +121,19 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 <meta name="twitter:title" content="Land in the Earth System - 6&nbsp; Spatial and temporal patterns of the terrestrial carbon cycle">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/solar_radiation_chelsa.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./images/logo.png" alt="" class="navbar-logo">
     </a>
@@ -182,16 +148,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/les_i/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/geco-bern/les_i/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
@@ -208,23 +173,32 @@ window.Quarto = {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./globalcarbonpatterns.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial and temporal patterns of the terrestrial carbon cycle</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./globalcarbonpatterns.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial and temporal patterns of the terrestrial carbon cycle</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -338,7 +312,7 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -392,13 +366,11 @@ window.Quarto = {
   </div>
   
 
-
 </header>
 
-
-<p>Up to this point, we have considered the global terrestrial C cycle either as a 1-box model in <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>, or as a cascade of boxes in <a href="ecosystemcarbon.html" class="quarto-xref"><span>Chapter 5</span></a>. We have also learned in <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a> and <a href="ecosystemcarbon.html" class="quarto-xref"><span>Chapter 5</span></a> how the CO<sub>2</sub> assimilation and respiration fluxes depend on climatic variables. This implies the fluxes and pools of the terrestrial carbon cycle vary over the course of seasons and days and across geographical space - with different background climates. In this chapter, we delve into these spatial and temporal patterns of the land carbon cycle.</p>
-<p>In <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>, the ecosystem-level photosynthetic CO<sub>2</sub> assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In <a href="gpp.html#sec-constlue" class="quarto-xref"><span>Section 4.5</span></a>, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains about 80% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate “engine” of the C cycle in terrestrial ecosystems and supplies C for all “downstream” fluxes and pools along the C cascade (<a href="ecosystemcarbon.html#sec-ccascade" class="quarto-xref"><span>Section 5.2</span></a>), solar radiation is a major control of the terrestrial carbon cycle.</p>
-<p>After having introduced how photosynthesis and light use efficiency (LUE) are driven by climate, this chapter introduces the spatial and temporal variations of the other two factors of the LUE model: PPFD and fAPAR. <a href="#sec-solar-radiation" class="quarto-xref"><span>Section 6.1</span></a> explains how variations in PPFD received at the top of the canopy at a specific day-of-year and latitude depends on the geometry of how the Earth rotates around the sun. <a href="#sec-phenology" class="quarto-xref"><span>Section 6.2</span></a> introduces patterns and simple models for how phenology of vegetation greenness, and therefore fAPAR, evolve. This focuses on leaf unfolding and shedding, with a focus on winter-dormant temperate and boreal biomes. Water stress-driven vegetation greenness changes will be introduced later. <a href="#sec-flux-variability" class="quarto-xref"><span>Section 6.3</span></a> integrates the introduction of the processes into a description of the emerging patterns of GPP across space and time, while <a href="#sec-fluxepools-spatial" class="quarto-xref"><span>Section 6.4</span></a> will introduce how ecosystem fluxes and carbon pools vary spatially across the globe.</p>
+<p>Up to this point, we have considered the global terrestrial C cycle either as a 1-box model in <a href="gpp.html"><span>Chapter&nbsp;4</span></a>, or as a cascade of boxes in <a href="ecosystemcarbon.html"><span>Chapter&nbsp;5</span></a>. We have also learned in <a href="gpp.html"><span>Chapter&nbsp;4</span></a> and <a href="ecosystemcarbon.html"><span>Chapter&nbsp;5</span></a> how the CO<sub>2</sub> assimilation and respiration fluxes depend on climatic variables. This implies the fluxes and pools of the terrestrial carbon cycle vary over the course of seasons and days and across geographical space - with different background climates. In this chapter, we delve into these spatial and temporal patterns of the land carbon cycle.</p>
+<p>In <a href="gpp.html"><span>Chapter&nbsp;4</span></a>, the ecosystem-level photosynthetic CO<sub>2</sub> assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In <a href="gpp.html#sec-constlue"><span>Section&nbsp;4.5</span></a>, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains about 80% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate “engine” of the C cycle in terrestrial ecosystems and supplies C for all “downstream” fluxes and pools along the C cascade (<a href="ecosystemcarbon.html#sec-ccascade"><span>Section&nbsp;5.2</span></a>), solar radiation is a major control of the terrestrial carbon cycle.</p>
+<p>After having introduced how photosynthesis and light use efficiency (LUE) are driven by climate, this chapter introduces the spatial and temporal variations of the other two factors of the LUE model: PPFD and fAPAR. <a href="#sec-solar-radiation"><span>Section&nbsp;6.1</span></a> explains how variations in PPFD received at the top of the canopy at a specific day-of-year and latitude depends on the geometry of how the Earth rotates around the sun. <a href="#sec-phenology"><span>Section&nbsp;6.2</span></a> introduces patterns and simple models for how phenology of vegetation greenness, and therefore fAPAR, evolve. This focuses on leaf unfolding and shedding, with a focus on winter-dormant temperate and boreal biomes. Water stress-driven vegetation greenness changes will be introduced later. <a href="#sec-flux-variability"><span>Section&nbsp;6.3</span></a> integrates the introduction of the processes into a description of the emerging patterns of GPP across space and time, while <a href="#sec-fluxepools-spatial"><span>Section&nbsp;6.4</span></a> will introduce how ecosystem fluxes and carbon pools vary spatially across the globe.</p>
 <section id="sec-solar-radiation" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="sec-solar-radiation"><span class="header-section-number">6.1</span> Solar radiation</h2>
 <p>PPFD is a fraction of the solar radiation at the top of the atmosphere (<span class="math inline">\(I_\mathrm{TOA}\)</span>). This fraction depends on the planetary albedo for visible light (<span class="math inline">\(\alpha_v\)</span>, unitless), an atmospheric attenuation factor (<span class="math inline">\(\tau\)</span>, unitless) that accounts for the elevation (<span class="math inline">\(z\)</span>)-dependent path length of a light ray travelling through the atmosphere and a factor that accounts for cloud cover <span class="math inline">\(f_c\)</span>. A further reduction by about 50% arises because photosynthesis uses only a range of the spectrum of wavelengths of solar radiation, corresponding to the visible light spectrum. The factor <span class="math inline">\(f_{p}\)</span> accounts for this and for the conversion of <span class="math inline">\(I_\mathrm{TOA}\)</span>, expressed as an energy flux in W m<sup>-2</sup>, to a flux of photons in mol s<sup>-1</sup> m<sup>-2</sup>. <span id="eq-ppfd"><span class="math display">\[
@@ -409,14 +381,10 @@ I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 \tag{6.2}\]</span></span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-solar_radiation" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-solar_radiation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/solar_radiation_chelsa.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solar_radiation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: Map of solar radiation incident at the Earth surface, averaged over 1981-2010, based on <span class="citation" data-cites="chelsa_bioclim">Brun et al. (<a href="references.html#ref-chelsa_bioclim" role="doc-biblioref">2022</a>)</span>. Figure from <a href="https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png">https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png</a>.
-</figcaption>
+<div id="fig-solar_radiation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/solar_radiation_chelsa.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.1: Map of solar radiation incident at the Earth surface, averaged over 1981-2010, based on <span class="citation" data-cites="chelsa_bioclim">Brun et al. (<a href="references.html#ref-chelsa_bioclim" role="doc-biblioref">2022</a>)</span>. Figure from <a href="https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png">https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png</a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -426,18 +394,14 @@ Figure&nbsp;6.1: Map of solar radiation incident at the Earth surface, averaged 
 <p>Let’s first step outside the atmosphere and focus on the solar geometry to understand <span class="math inline">\(I_\mathrm{TOA}\)</span>. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.</p>
 <p><span class="math inline">\(I_\mathrm{TOA}\)</span> scales in proportion with the solar constant <span class="math inline">\(I_S\)</span> (1360.8 W m<sup>-2</sup>) and is inversely proportional to the square of the distance between the Earth and the sun (<span class="math inline">\(r_E\)</span>). <span id="eq-s-toa"><span class="math display">\[
 I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
-\tag{6.3}\]</span></span> <span class="math inline">\(\theta_z\)</span> is the solar zenith angle. The term <span class="math inline">\(\cos \theta_z\)</span> accounts for the dependence of the solar radiation on the angle at which the sun’s rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with <em>hour-of-day</em>) and over the course of a year (with <em>day-of-year</em>). The zenith angle is zero when the sun is directly above the observer - in the zenith (<a href="#fig-solar_geometry" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>). At this point, the intensity of the solar radiation is at its maximum.</p>
+\tag{6.3}\]</span></span> <span class="math inline">\(\theta_z\)</span> is the solar zenith angle. The term <span class="math inline">\(\cos \theta_z\)</span> accounts for the dependence of the solar radiation on the angle at which the sun’s rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with <em>hour-of-day</em>) and over the course of a year (with <em>day-of-year</em>). The zenith angle is zero when the sun is directly above the observer - in the zenith (<a href="#fig-solar_geometry">Figure&nbsp;<span>6.2</span></a>). At this point, the intensity of the solar radiation is at its maximum.</p>
 <p>Note that <span class="math inline">\(r_E\)</span> is not constant over the course of a year as the Earth rotates around the sun not following a perfect circle but an ellipse.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-solar_geometry" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-solar_geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/solar_geometry.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solar_geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.2: Illustration of solar geometry, including the zenith angle, the solar altitude angle, and the azimuth angle. Figure from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>.
-</figcaption>
+<div id="fig-solar_geometry" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/solar_geometry.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.2: Illustration of solar geometry, including the zenith angle, the solar altitude angle, and the azimuth angle. Figure from <span class="citation" data-cites="bonan">Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -450,7 +414,7 @@ Figure&nbsp;6.2: Illustration of solar geometry, including the zenith angle, the
 <li><span class="math inline">\(\delta\)</span> is the solar declination angle. It accounts for the tilt of the Earth relative to the plane in which it moves around the sun. It varies with the day-of-year (<span class="math inline">\(23.5^\circ \pi/180\)</span> on the northern-hemispheric summer solstice, June 21, and <span class="math inline">\(-23.5^\circ \pi/180\)</span> on the northern-hemispheric winter solstice, December 21)</li>
 <li><span class="math inline">\(h\)</span> is the solar hour angle. It varies with the hour-of-day (0 at solar noon, <span class="math inline">\(\pi\)</span> at “solar midnight”, <span class="math inline">\(\pi/12\)</span> at 1 hour after solar noon).</li>
 </ul>
-<p>A derivation of <a href="#eq-solar-zenith-angle" class="quarto-xref">Equation&nbsp;<span>6.4</span></a> is given on <a href="https://en.wikipedia.org/wiki/Solar_zenith_angle">Wikipedia</a>.</p>
+<p>A derivation of <a href="#eq-solar-zenith-angle">Equation&nbsp;<span>6.4</span></a> is given on <a href="https://en.wikipedia.org/wiki/Solar_zenith_angle">Wikipedia</a>.</p>
 </section>
 <section id="sloped-surfaces" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="sloped-surfaces"><span class="header-section-number">6.1.2</span> Sloped surfaces</h3>
@@ -458,9 +422,9 @@ Figure&nbsp;6.2: Illustration of solar geometry, including the zenith angle, the
 </section>
 <section id="variations-in-solar-radiation" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="variations-in-solar-radiation"><span class="header-section-number">6.1.3</span> Variations in solar radiation</h3>
-<p>Variations in the solar zenith angle, as expressed through <a href="#eq-solar-zenith-angle" class="quarto-xref">Equation&nbsp;<span>6.4</span></a>, are shown for different latitudes and a mid-summer diurnal cycle in <a href="#fig-zenith" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>.</p>
+<p>Variations in the solar zenith angle, as expressed through <a href="#eq-solar-zenith-angle">Equation&nbsp;<span>6.4</span></a>, are shown for different latitudes and a mid-summer diurnal cycle in <a href="#fig-zenith">Figure&nbsp;<span>6.3</span></a>.</p>
 <div class="cell">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
@@ -531,21 +495,17 @@ Figure&nbsp;6.2: Illustration of solar geometry, including the zenith angle, the
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-zenith" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-zenith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="globalcarbonpatterns_files/figure-html/fig-zenith-1.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zenith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.3: Cosine of the solar zenith angle at the solar noon and at the northern hemispheric summer solstice for different latitudes. The solar noon (here at 12.00) is indicated by the dotted line.
-</figcaption>
+<div id="fig-zenith" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="globalcarbonpatterns_files/figure-html/fig-zenith-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.3: Cosine of the solar zenith angle at the solar noon and at the northern hemispheric summer solstice for different latitudes. The solar noon (here at 12.00) is indicated by the dotted line.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The areas under the curves in <a href="#fig-zenith" class="quarto-xref">Figure&nbsp;<span>6.3</span></a> are proportional to the daily total solar radiation. Calculating daily totals involves a few integrals. The derivation is not shown here, but is explained in <span class="citation" data-cites="davis17gmd">Davis et al. (<a href="references.html#ref-davis17gmd" role="doc-biblioref">2017</a>)</span>. Daily totals and their variation over the seasons are shown below in <a href="#fig-daily_stoa" class="quarto-xref">Figure&nbsp;<span>6.4</span></a> and <a href="#fig-stoa_hovmoeller" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>.</p>
+<p>The areas under the curves in <a href="#fig-zenith">Figure&nbsp;<span>6.3</span></a> are proportional to the daily total solar radiation. Calculating daily totals involves a few integrals. The derivation is not shown here, but is explained in <span class="citation" data-cites="davis17gmd">Davis et al. (<a href="references.html#ref-davis17gmd" role="doc-biblioref">2017</a>)</span>. Daily totals and their variation over the seasons are shown below in <a href="#fig-daily_stoa">Figure&nbsp;<span>6.4</span></a> and <a href="#fig-stoa_hovmoeller">Figure&nbsp;<span>6.5</span></a>.</p>
 <div class="cell">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use function calc_daily_solar() from Davis et al., 2017 GMD</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"R/solar.R"</span>))</span>
@@ -606,20 +566,16 @@ Figure&nbsp;6.3: Cosine of the solar zenith angle at the solar noon and at the n
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-daily_stoa" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-daily_stoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="globalcarbonpatterns_files/figure-html/fig-daily_stoa-1.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-daily_stoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.4: Daily total top-of-atmosphere solar radiation in J m<sup>-2</sup>. The summer solstice (21 June) is indicated by the dotted line. Note that the curves are not perfectly symmetrical with respect to the summer solstice line. This is because the Earth moves around the sun on an ellipse and hence the distance between the Earth and the sun varies over the year. The distance is at its minimum near the southern-hemispheric summer solstice. Therefore, the mid-summer maximum solar radiation at the southern tropic (23.5° S) is slightly higher than the mid-summer maximum solar radiation at the northern tropic (23.5° N).
-</figcaption>
+<div id="fig-daily_stoa" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="globalcarbonpatterns_files/figure-html/fig-daily_stoa-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.4: Daily total top-of-atmosphere solar radiation in J m<sup>-2</sup>. The summer solstice (21 June) is indicated by the dotted line. Note that the curves are not perfectly symmetrical with respect to the summer solstice line. This is because the Earth moves around the sun on an ellipse and hence the distance between the Earth and the sun varies over the year. The distance is at its minimum near the southern-hemispheric summer solstice. Therefore, the mid-summer maximum solar radiation at the southern tropic (23.5° S) is slightly higher than the mid-summer maximum solar radiation at the northern tropic (23.5° N).</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all combinations of day-of-year and latitude</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
@@ -646,19 +602,15 @@ Figure&nbsp;6.4: Daily total top-of-atmosphere solar radiation in J m<sup>-2</su
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-stoa_hovmoeller" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stoa_hovmoeller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="globalcarbonpatterns_files/figure-html/fig-stoa_hovmoeller-1.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stoa_hovmoeller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.5: Daily total top-of-atmosphere solar radiation in J m<sup>-2</sup> by latitude and day-of-year.
-</figcaption>
+<div id="fig-stoa_hovmoeller" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="globalcarbonpatterns_files/figure-html/fig-stoa_hovmoeller-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.5: Daily total top-of-atmosphere solar radiation in J m<sup>-2</sup> by latitude and day-of-year.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The diurnal (over the course of a day) and seasonal patterns in top-of-atmosphere solar radiation, following from solar geometry and expressed through <a href="#eq-solar-zenith-angle" class="quarto-xref">Equation&nbsp;<span>6.4</span></a>, have direct consequences for CO<sub>2</sub> uptake patterns, as expressed through <a href="gpp.html#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>, <a href="#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>, and <a href="#eq-s-toa" class="quarto-xref">Equation&nbsp;<span>6.3</span></a> and described further in <a href="#sec-global-patterns" class="quarto-xref"><span>Chapter 6</span></a>.</p>
+<p>The diurnal (over the course of a day) and seasonal patterns in top-of-atmosphere solar radiation, following from solar geometry and expressed through <a href="#eq-solar-zenith-angle">Equation&nbsp;<span>6.4</span></a>, have direct consequences for CO<sub>2</sub> uptake patterns, as expressed through <a href="gpp.html#eq-luemodel">Equation&nbsp;<span>4.1</span></a>, <a href="#eq-ppfd">Equation&nbsp;<span>6.1</span></a>, and <a href="#eq-s-toa">Equation&nbsp;<span>6.3</span></a> and described further in <a href="#sec-global-patterns"><span>Chapter&nbsp;6</span></a>.</p>
 <p>Some features are particularly noteworthy about the patterns in <span class="math inline">\(I_\mathrm{TOA}\)</span>:</p>
 <ul>
 <li>The diurnal variation of the instantaneous flux is largest in the tropics.</li>
@@ -673,20 +625,20 @@ Figure&nbsp;6.5: Daily total top-of-atmosphere solar radiation in J m<sup>-2</su
 <section id="long-term-variations-in-solar-radiation" class="level3" data-number="6.1.4">
 <h3 data-number="6.1.4" class="anchored" data-anchor-id="long-term-variations-in-solar-radiation"><span class="header-section-number">6.1.4</span> Long-term variations in solar radiation</h3>
 <p><em>Solar irradiance</em></p>
-<p>The solar constant <span class="math inline">\(I_S\)</span> isn’t actually constant but varies on the order of 0.1% of the course of a <em>solar cycle</em>. One cycle is approximately 11 years. The cyclic behavior is related to the periodic flip of the sun’s magnetic field and the number of sunspots. The radiation emitted from the sun and the number of sunspots are at their minimum after a magnetic flip. There is also a small long-term trend in the solar radiation, having increased by &lt;0.1% since the Maunder Minimum (1645–1715). Solar irradiance is measured at high altitude to minimize the influence of the atmosphere (<span class="math inline">\(\tau\)</span> in Eq. <a href="#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>) and get information about how <span class="math inline">\(I_S\)</span> varies. Reconstructions of solar irradiance changes for the pre-instrumental period are based on the relationship between <span class="math inline">\(I_S\)</span> and the (easily observable) sunspot number. Variations in <span class="math inline">\(I_S\)</span> are small and do not have a dominant effect on climate and the carbon cycle that would override other forcings, especially for the industrial period <span class="citation" data-cites="IPCC_2021_WGI_SPM">(<a href="references.html#ref-IPCC_2021_WGI_SPM" role="doc-biblioref">IPCC 2021</a>)</span>.</p>
+<p>The solar constant <span class="math inline">\(I_S\)</span> isn’t actually constant but varies on the order of 0.1% of the course of a <em>solar cycle</em>. One cycle is approximately 11 years. The cyclic behavior is related to the periodic flip of the sun’s magnetic field and the number of sunspots. The radiation emitted from the sun and the number of sunspots are at their minimum after a magnetic flip. There is also a small long-term trend in the solar radiation, having increased by &lt;0.1% since the Maunder Minimum (1645–1715). Solar irradiance is measured at high altitude to minimize the influence of the atmosphere (<span class="math inline">\(\tau\)</span> in Eq. <a href="#eq-ppfd">Equation&nbsp;<span>6.1</span></a>) and get information about how <span class="math inline">\(I_S\)</span> varies. Reconstructions of solar irradiance changes for the pre-instrumental period are based on the relationship between <span class="math inline">\(I_S\)</span> and the (easily observable) sunspot number. Variations in <span class="math inline">\(I_S\)</span> are small and do not have a dominant effect on climate and the carbon cycle that would override other forcings, especially for the industrial period <span class="citation" data-cites="IPCC_2021_WGI_SPM">(<a href="references.html#ref-IPCC_2021_WGI_SPM" role="doc-biblioref">IPCC 2021</a>)</span>.</p>
 <p><em>Volcanic activity</em></p>
-<p>Volcanic eruptions can influence the solar radiation at the Earth surface. Events that reduce solar radiation by more than 1 W m<sup>-2</sup> occur approximately every 35-40 years <span class="citation" data-cites="IPCC_2021_WGI_Ch_2">(<a href="references.html#ref-IPCC_2021_WGI_Ch_2" role="doc-biblioref">Gulev et al. 2021</a>)</span> and affect climate and the carbon cycle for up to a few years after very large eruptions. The increased aerosol load in the atmosphere reduces the total radiative energy flux (reducing <span class="math inline">\(\tau\)</span> in Eq. <a href="#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>). However, through the strong positive effect of the aerosol load on the share of diffuse versus direct radiation, volcanic aerosols can affect the terrestrial carbon cycle, (somehow surprisingly) leading to a greater land C sink following years of large volcanic eruptions (<a href="gpp.html#sec-light-absorption" class="quarto-xref"><span>Section 4.2</span></a>).</p>
+<p>Volcanic eruptions can influence the solar radiation at the Earth surface. Events that reduce solar radiation by more than 1 W m<sup>-2</sup> occur approximately every 35-40 years <span class="citation" data-cites="IPCC_2021_WGI_Ch_2">(<a href="references.html#ref-IPCC_2021_WGI_Ch_2" role="doc-biblioref">Gulev et al. 2021</a>)</span> and affect climate and the carbon cycle for up to a few years after very large eruptions. The increased aerosol load in the atmosphere reduces the total radiative energy flux (reducing <span class="math inline">\(\tau\)</span> in Eq. <a href="#eq-ppfd">Equation&nbsp;<span>6.1</span></a>). However, through the strong positive effect of the aerosol load on the share of diffuse versus direct radiation, volcanic aerosols can affect the terrestrial carbon cycle, (somehow surprisingly) leading to a greater land C sink following years of large volcanic eruptions (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>).</p>
 <p><em>Orbital parameters</em></p>
 <p>The largest changes in <span class="math inline">\(I_\mathrm{TOA}\)</span> arise over millennial time scales and are related to variations in Earth’s orbit around the sun. These <em>Milankovic cycles</em> are the trigger for the large climate swings between ice ages and warm periods over the course of ~100,000 years. Variations in the orbital parameters affect the latitudinal and seasonal distribution of <span class="math inline">\(I_\mathrm{TOA}\)</span>. Orbital parameters that vary periodically are:</p>
 <ul>
-<li>The <em>eccentricity</em> of the Earth’s elliptical orbit which affects the distance between the Earth and the sun, affecting <span class="math inline">\(I_\mathrm{TOA}\)</span> via <span class="math inline">\(r_E\)</span> in <a href="#eq-s-toa" class="quarto-xref">Equation&nbsp;<span>6.3</span></a>. It varies with a period of approximately 100,000 years.</li>
+<li>The <em>eccentricity</em> of the Earth’s elliptical orbit which affects the distance between the Earth and the sun, affecting <span class="math inline">\(I_\mathrm{TOA}\)</span> via <span class="math inline">\(r_E\)</span> in <a href="#eq-s-toa">Equation&nbsp;<span>6.3</span></a>. It varies with a period of approximately 100,000 years.</li>
 <li>The <em>obliquity</em> - the tilt of the axis of the Earth’s own rotation relative to the plane in which the Earth rotates around the sun. A greater obliquity amplifies seasonal variations in <span class="math inline">\(I_\mathrm{TOA}\)</span>. The obliquity is currently at 23.44°. At its minimum, it’s at 21.1°. Obliquity varies over 41,000 years.</li>
 <li>The <em>precession</em> is the rotation of the Earth’s own rotation axis itself. The effect of precession, in combination with the fact that the Earth’s orbit is elliptical, is that the variation of the sun-Earth distance shifts over the seasons. It varies with a period of about 25,700 years.</li>
 </ul>
 <p>The point of minimal distance coinciding with the summer solstice leads to the largest mid-summer radiation maximum. As a result, the incident solar radiation over the northern-hemispheric summer at 65°N varied by about 83 W m<sup>-2</sup> during the past million years. These changes are much larger than the ones driven by solar irradiance and volcanic activity.</p>
-<p>About 6000 years ago, during the <em>Mid-Holocene Warm Period</em>, a summer maximum insolation for the northern hemisphere was reached (<a href="#fig-stoa_hovmoeller_holo" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>). During this period, temperatures and solar irradiance during the growing season were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimony to this change are reconstructions that document a “Green Sahara” and a northward shift temperate and boreal forest biomes <span class="citation" data-cites="macdonald00qr prentice00biome">(<a href="references.html#ref-macdonald00qr" role="doc-biblioref">MacDonald et al. 2000</a>; <a href="references.html#ref-prentice00biome" role="doc-biblioref">Prentice, Jolly, and Participants 2000</a>)</span> during this period.</p>
+<p>About 6000 years ago, during the <em>Mid-Holocene Warm Period</em>, a summer maximum insolation for the northern hemisphere was reached (<a href="#fig-stoa_hovmoeller_holo">Figure&nbsp;<span>6.6</span></a>). During this period, temperatures and solar irradiance during the growing season were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimony to this change are reconstructions that document a “Green Sahara” and a northward shift temperate and boreal forest biomes <span class="citation" data-cites="macdonald00qr prentice00biome">(<a href="references.html#ref-macdonald00qr" role="doc-biblioref">MacDonald et al. 2000</a>; <a href="references.html#ref-prentice00biome" role="doc-biblioref">Prentice, Jolly, and Participants 2000</a>)</span> during this period.</p>
 <div class="cell">
-<details class="code-fold">
+<details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tmp &lt;- purrr::map(seq(from = -300000, to = 2000, by = 500),</span></span>
@@ -723,14 +675,10 @@ Figure&nbsp;6.5: Daily total top-of-atmosphere solar radiation in J m<sup>-2</su
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-stoa_hovmoeller_holo" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stoa_hovmoeller_holo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="globalcarbonpatterns_files/figure-html/fig-stoa_hovmoeller_holo-1.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stoa_hovmoeller_holo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.6: Mid-Holocene solar radiation anomaly, calculated as the difference in the daily total top-of-atmosphere solar radiation at 6 kyr BP minus present-day (year 2000).
-</figcaption>
+<div id="fig-stoa_hovmoeller_holo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="globalcarbonpatterns_files/figure-html/fig-stoa_hovmoeller_holo-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.6: Mid-Holocene solar radiation anomaly, calculated as the difference in the daily total top-of-atmosphere solar radiation at 6 kyr BP minus present-day (year 2000).</figcaption>
 </figure>
 </div>
 </div>
@@ -746,7 +694,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>High solar radiation during summer drives monsoonal patterns in the tropics and sub-tropics. Considering <a href="#fig-stoa_hovmoeller_holo" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>, how do you expect monsoonal precipitation intensity in the northern part of the African continent to have changed around 6 kyr BP, compared to today.</li>
+<li>High solar radiation during summer drives monsoonal patterns in the tropics and sub-tropics. Considering <a href="#fig-stoa_hovmoeller_holo">Figure&nbsp;<span>6.6</span></a>, how do you expect monsoonal precipitation intensity in the northern part of the African continent to have changed around 6 kyr BP, compared to today.</li>
 </ol>
 </div>
 </div>
@@ -772,9 +720,9 @@ Exercise
 </ol>
 </div>
 </div>
-<p>Leaf phenology is either controlled by temperatures and light availability in temperate, boreal, and tundra ecosystems, or by water availability in warm, seasonally dry climates elsewhere. The water control on vegetation and leaf phenology will be discussed in <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
-<p>In winter-cold climates (temperate, boreal, and tundra climate zones C, D, and E, see <a href="biogeography.html#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a>), leaf phenology of deciduous plants is driven by the seasonal fluctuations of temperature and radiation. Leaves are shed before winter to avoid damage by cold temperatures and because the limited gains by C assimulation during dark and cold winter months does not outweigh the costs for maintenance of vital functions. In seasonally dry climates (mainly climate zones Am, Aw, see <a href="biogeography.html#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a>), leaves are shed to avoid water loss and avoid dangerous desiccation of the plant. Leaf area also varies more gradually in response to seasonal variations in climate. LAI can have a seasonal cycle also in evergreen forests and shrublands. In grasslands, LAI typically has a strong seasonal cycle, with rapid foliage development and senescence during the typically relatively short vegetation period - but without the typical budbreak, leaf unfolding, and leaf shedding as in deciduous trees.</p>
-<p>Photosynthesis and the exchange of CO<sub>2</sub> between the land surface and the atmosphere are very directly affected by the amount of active green leaves - as measured by fAPAR (<a href="gpp.html#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>). Coupled to this exchange is the exchange of water vapour and the surface energy balance. Therefore, leaf phenology is a primary control on land-climate interactions and the carbon cycle. Leaf phenology is not only a driver of land-climate interactions, but is also driven by climate. Different controls act on the leaf unfolding and leaf senescence dates.</p>
+<p>Leaf phenology is either controlled by temperatures and light availability in temperate, boreal, and tundra ecosystems, or by water availability in warm, seasonally dry climates elsewhere. The water control on vegetation and leaf phenology will be discussed in <a href="ecohydrology.html"><span>Chapter&nbsp;8</span></a>.</p>
+<p>In winter-cold climates (temperate, boreal, and tundra climate zones C, D, and E, see <a href="biogeography.html#fig-table_beck">Figure&nbsp;<span>2.22</span></a>), leaf phenology of deciduous plants is driven by the seasonal fluctuations of temperature and radiation. Leaves are shed before winter to avoid damage by cold temperatures and because the limited gains by C assimulation during dark and cold winter months does not outweigh the costs for maintenance of vital functions. In seasonally dry climates (mainly climate zones Am, Aw, see <a href="biogeography.html#fig-table_beck">Figure&nbsp;<span>2.22</span></a>), leaves are shed to avoid water loss and avoid dangerous desiccation of the plant. Leaf area also varies more gradually in response to seasonal variations in climate. LAI can have a seasonal cycle also in evergreen forests and shrublands. In grasslands, LAI typically has a strong seasonal cycle, with rapid foliage development and senescence during the typically relatively short vegetation period - but without the typical budbreak, leaf unfolding, and leaf shedding as in deciduous trees.</p>
+<p>Photosynthesis and the exchange of CO<sub>2</sub> between the land surface and the atmosphere are very directly affected by the amount of active green leaves - as measured by fAPAR (<a href="gpp.html#eq-luemodel">Equation&nbsp;<span>4.1</span></a>). Coupled to this exchange is the exchange of water vapour and the surface energy balance. Therefore, leaf phenology is a primary control on land-climate interactions and the carbon cycle. Leaf phenology is not only a driver of land-climate interactions, but is also driven by climate. Different controls act on the leaf unfolding and leaf senescence dates.</p>
 <section id="leaf-unfolding" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="leaf-unfolding"><span class="header-section-number">6.2.1</span> Leaf unfolding</h3>
 <p>In winter-cold (temperate and boreal) deciduous forests, the timing of leaf unfolding (bud-burst) is sensitive to temperatures prior to the leaf unfolding date. Warm temperatures in early spring accelerate leaf unfolding and can lead to a shift of spring phenology dates by several days or even weeks. Phenology models commonly use the concept of <em>growing degree days</em> (GDD) <span class="citation" data-cites="basler16">(<a href="references.html#ref-basler16" role="doc-biblioref">Basler 2016</a>)</span> and consider a critical GDD (GDD*) for predicting leaf unfolding. Growing degree days on day <span class="math inline">\(j\)</span> is defined as the cumulative sum of temperatures above a specified threshold (<span class="math inline">\(T_0\)</span>, most commonly <span class="math inline">\(T_0 = 5^\circ\)</span>C), counting from a given start date <span class="math inline">\(M\)</span>.</p>
@@ -784,14 +732,10 @@ Exercise
 <p>More complex models consider also abiotic factors leading up to the phase (endodormancy, state of inactivity mediated by factor inside the bud, <span class="citation" data-cites="basler16">(<a href="references.html#ref-basler16" role="doc-biblioref">Basler 2016</a>)</span>) where an increasing GDD drives bud development and leaf unfolding. For example, some models consider the requirement of a <em>chilling phase</em> - a period of cool, but non-freezing temperatures in the range of 2–7°C <span class="citation" data-cites="basler16">(<a href="references.html#ref-basler16" role="doc-biblioref">Basler 2016</a>)</span> - and <em>photoperiod</em> (measuring the seasonal variation of daylength). However, complex models do not generally yield better predictive power than simple GDD-based models <span class="citation" data-cites="basler16">(<a href="references.html#ref-basler16" role="doc-biblioref">Basler 2016</a>)</span>. It should also be noted that models relying purely on temperature for modelling leaf unfolding may have limited applicability for simulating responses to long-term climatic trends. Plant-specific, biotic factors responding to photoperiod impose bounds on the sensitivity of phenology to temperature <span class="citation" data-cites="koernerbasler10">(<a href="references.html#ref-koernerbasler10" role="doc-biblioref">Christian Körner and David Basler 2010</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-lai_seasonality" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lai_seasonality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/lai_seasonality.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lai_seasonality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.7: Mean seasonal cycle of air temperature (a), growing degree days (GDD, b), and leaf area index (LAI, c) at a deciduous temperate forest site in Germany (DE-Hai FLUXNET site). LAI data is from MODIS remote sensing. 5°C is indicated by the dotted line in (a). GDD is calculated with respect to a 5°C base temperature.
-</figcaption>
+<div id="fig-lai_seasonality" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/lai_seasonality.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.7: Mean seasonal cycle of air temperature (a), growing degree days (GDD, b), and leaf area index (LAI, c) at a deciduous temperate forest site in Germany (DE-Hai FLUXNET site). LAI data is from MODIS remote sensing. 5°C is indicated by the dotted line in (a). GDD is calculated with respect to a 5°C base temperature.</figcaption>
 </figure>
 </div>
 </div>
@@ -818,32 +762,24 @@ Note
 </section>
 <section id="phenology-trends-and-spatial-patterns" class="level3" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="phenology-trends-and-spatial-patterns"><span class="header-section-number">6.2.3</span> Phenology trends and spatial patterns</h3>
-<p>Since leaf unfolding and senescence phenology is sensitive to climate, patterns in spring phenology emerge across climatic gradients and over the course of long-term climate change. Phenology is very evident for an observer without technical instruments and the timing of phenological dates can be relatively well determined. This has enabled the recording of phenological dates since centuries and long-term phenological records now impressively document the unprecedented current warming in the context of the last few centuries <a href="#fig-phenology-trends" class="quarto-xref">Figure&nbsp;<span>6.8</span></a>.</p>
+<p>Since leaf unfolding and senescence phenology is sensitive to climate, patterns in spring phenology emerge across climatic gradients and over the course of long-term climate change. Phenology is very evident for an observer without technical instruments and the timing of phenological dates can be relatively well determined. This has enabled the recording of phenological dates since centuries and long-term phenological records now impressively document the unprecedented current warming in the context of the last few centuries <a href="#fig-phenology-trends">Figure&nbsp;<span>6.8</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-phenology-trends" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-phenology-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/IPCC_AR6_WGI_Figure_2_32.png" class="img-fluid figure-img" style="width:90.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phenology-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.8: Phenological indicators of changes in growing season. (a) Cherry blossom peak bloom in Kyoto, Japan; (b) grape harvest in Beaune, France; (c) spring phenology index in eastern China; (d) full flower of Piedmont species in Philadelphia, USA; (e) grape harvest in Central Victoria, Australia; (f) start of growing season in Tibetan Plateau, China. Red lines depict the 25-year moving average (top row) or the nine-year moving average (middle and bottom rows). Figure and caption taken from <span class="citation" data-cites="IPCC_2021_WGI_Ch_2">Gulev et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_2" role="doc-biblioref">2021</a>)</span>.
-</figcaption>
+<div id="fig-phenology-trends" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/IPCC_AR6_WGI_Figure_2_32.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.8: Phenological indicators of changes in growing season. (a) Cherry blossom peak bloom in Kyoto, Japan; (b) grape harvest in Beaune, France; (c) spring phenology index in eastern China; (d) full flower of Piedmont species in Philadelphia, USA; (e) grape harvest in Central Victoria, Australia; (f) start of growing season in Tibetan Plateau, China. Red lines depict the 25-year moving average (top row) or the nine-year moving average (middle and bottom rows). Figure and caption taken from <span class="citation" data-cites="IPCC_2021_WGI_Ch_2">Gulev et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_2" role="doc-biblioref">2021</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Variations in leaf unfolding dates are also evident across space, i.e., across climatic gradients in space. In mountainous regions, climatic gradients are steep and variations in the timing of leaf unfolding can be observed by eye - or from space across a larger region (<a href="#fig-phenology-patterns" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>).</p>
+<p>Variations in leaf unfolding dates are also evident across space, i.e., across climatic gradients in space. In mountainous regions, climatic gradients are steep and variations in the timing of leaf unfolding can be observed by eye - or from space across a larger region (<a href="#fig-phenology-patterns">Figure&nbsp;<span>6.9</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-phenology-patterns" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-phenology-patterns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/phenology_patterns.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phenology-patterns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.9: Spring phenology patterns along elevation in Switzerland. (a) Remotely sensed spring greenup date (day of year, DOY) in 2012 from the MODIS MCD12Q2 product. (b) Relationship of the spring greenup with elevation, derived from the map shown in (a). Figure created based on https://geco-bern.github.io/handfull_of_pixels/.
-</figcaption>
+<div id="fig-phenology-patterns" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/phenology_patterns.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.9: Spring phenology patterns along elevation in Switzerland. (a) Remotely sensed spring greenup date (day of year, DOY) in 2012 from the MODIS MCD12Q2 product. (b) Relationship of the spring greenup with elevation, derived from the map shown in (a). Figure created based on https://geco-bern.github.io/handfull_of_pixels/.</figcaption>
 </figure>
 </div>
 </div>
@@ -872,38 +808,34 @@ Exercise
 </section>
 <section id="sec-flux-variability" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="sec-flux-variability"><span class="header-section-number">6.3</span> Temporal variations of ecosystem C fluxes</h2>
-<p>Solar radiation is the “engine” of photosynthesis and thus of the terrestrial carbon cycle. This is expressed by the light use efficiency model of GPP (<a href="gpp.html#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>). The temporal and spatial patterns of photosynthetic CO<sub>2</sub> uptake are therefore driven by the temporal and spatial patterns in solar radiation. The Earth’s revolution around its own axis within a day, and its revolution around the sun within a year give rise to <em>diurnal</em> and <em>seasonal</em> variations in solar radiation, climate, C fluxes, and biological activity in all its forms. (It’s a fascinating thought that even physiological and psychological circadian rhythms like wake and sleep patterns are a consequence of solar geometry.) The variations of solar radiation over the course of a day and a year are expressed very differently along different latitudinal positions.</p>
-<p>Note that both spatial and temporal variations in the photosynthetic CO<sub>2</sub> uptake are driven not only by solar radiation, but are constrained also by water availability. The ecosystems for which fluxes are shown below (BR-Sa3, DE-Hai, FI-Hyy, and US-ICh, site locations are shown in <a href="biogeography.html#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> and climate diagrams in <a href="biogeography.html#sec-biomes" class="quarto-xref"><span>Section 2.2</span></a>) are all relatively moist and fluxes are rarely limited by water availability. An exception is the tropical forest site BR-Sa3 where months from August to October are relatively dry (<a href="biogeography.html#fig-climate_biome_tropical_moist" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>).</p>
+<p>Solar radiation is the “engine” of photosynthesis and thus of the terrestrial carbon cycle. This is expressed by the light use efficiency model of GPP (<a href="gpp.html#eq-luemodel">Equation&nbsp;<span>4.1</span></a>). The temporal and spatial patterns of photosynthetic CO<sub>2</sub> uptake are therefore driven by the temporal and spatial patterns in solar radiation. The Earth’s revolution around its own axis within a day, and its revolution around the sun within a year give rise to <em>diurnal</em> and <em>seasonal</em> variations in solar radiation, climate, C fluxes, and biological activity in all its forms. (It’s a fascinating thought that even physiological and psychological circadian rhythms like wake and sleep patterns are a consequence of solar geometry.) The variations of solar radiation over the course of a day and a year are expressed very differently along different latitudinal positions.</p>
+<p>Note that both spatial and temporal variations in the photosynthetic CO<sub>2</sub> uptake are driven not only by solar radiation, but are constrained also by water availability. The ecosystems for which fluxes are shown below (BR-Sa3, DE-Hai, FI-Hyy, and US-ICh, site locations are shown in <a href="biogeography.html#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a> and climate diagrams in <a href="biogeography.html#sec-biomes"><span>Section&nbsp;2.2</span></a>) are all relatively moist and fluxes are rarely limited by water availability. An exception is the tropical forest site BR-Sa3 where months from August to October are relatively dry (<a href="biogeography.html#fig-climate_biome_tropical_moist">Figure&nbsp;<span>2.3</span></a>).</p>
 <section id="diurnal-cycle" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="diurnal-cycle"><span class="header-section-number">6.3.1</span> Diurnal cycle</h3>
-<p><a href="#fig-zenith" class="quarto-xref">Figure&nbsp;<span>6.3</span></a> showed the diurnal cycle of the cosine of the solar zenith angle (<span class="math inline">\(\cos \theta_z\)</span>) for different latitudes around summer solstice (21 June). <span class="math inline">\(\cos \theta_z\)</span> is relevant because it linearly scales the top-of-atmosphere solar radiation, as described by <a href="#eq-s-toa" class="quarto-xref">Equation&nbsp;<span>6.3</span></a>. The solar radiation incident at the Earth surface (<span class="math inline">\(I_0\)</span>), that is at the top of the canopy, is shown for four different example sites in <a href="#fig-diurnal_cycle" class="quarto-xref">Figure&nbsp;<span>6.10</span></a>. The same general pattern becomes evident:</p>
+<p><a href="#fig-zenith">Figure&nbsp;<span>6.3</span></a> showed the diurnal cycle of the cosine of the solar zenith angle (<span class="math inline">\(\cos \theta_z\)</span>) for different latitudes around summer solstice (21 June). <span class="math inline">\(\cos \theta_z\)</span> is relevant because it linearly scales the top-of-atmosphere solar radiation, as described by <a href="#eq-s-toa">Equation&nbsp;<span>6.3</span></a>. The solar radiation incident at the Earth surface (<span class="math inline">\(I_0\)</span>), that is at the top of the canopy, is shown for four different example sites in <a href="#fig-diurnal_cycle">Figure&nbsp;<span>6.10</span></a>. The same general pattern becomes evident:</p>
 <ul>
 <li>The sites at high northern latitudes (US-ICh, a tundra heathland in Alaska, and FI-Hyy, a boreal coniferous forest in Finland) have the smallest diurnal cycle amplitude in <span class="math inline">\(I_0\)</span>, but the longest daylight period (<span class="math inline">\(I_0 &gt; 0\)</span>).</li>
-<li>The low-latitude site in the tropics (BR-Sa3, a moist tropical forest) has the shortest duration of daylight (<span class="math inline">\(I_0 &gt; 0\)</span>), but reaches the highest mid-day solar radiation intensity. (Note that for <span class="math inline">\(I_\mathrm{TOA}\)</span>, a site at 23.5°N was shown in <a href="#fig-zenith" class="quarto-xref">Figure&nbsp;<span>6.3</span></a> and has an even higher mid-day peak.)</li>
+<li>The low-latitude site in the tropics (BR-Sa3, a moist tropical forest) has the shortest duration of daylight (<span class="math inline">\(I_0 &gt; 0\)</span>), but reaches the highest mid-day solar radiation intensity. (Note that for <span class="math inline">\(I_\mathrm{TOA}\)</span>, a site at 23.5°N was shown in <a href="#fig-zenith">Figure&nbsp;<span>6.3</span></a> and has an even higher mid-day peak.)</li>
 <li>The temperate site (DE-Hai, a beech forest in Germany) is intermediate in terms of amplitude, peak value, and daylight duration.</li>
 </ul>
-<p>The diurnal cycle in GPP (<a href="#fig-diurnal_cycle" class="quarto-xref">Figure&nbsp;<span>6.10</span></a> b) reflects the diurnal cycle in <span class="math inline">\(I_0\)</span>, but with some notable deviations:</p>
+<p>The diurnal cycle in GPP (<a href="#fig-diurnal_cycle">Figure&nbsp;<span>6.10</span></a> b) reflects the diurnal cycle in <span class="math inline">\(I_0\)</span>, but with some notable deviations:</p>
 <ul>
 <li>The mid-day peak for the tundra site US-ICh is much lower in relation to the mid-day peak of other sites for GPP than for <span class="math inline">\(I_0\)</span>. This is likely due to sparse vegetation cover (low LAI ad fAPAR) and temperature effects on photosynthesis.</li>
 <li>The shapes of the diurnal cycles in <span class="math inline">\(I_0\)</span> and GPP are notably different for BR-Sa3. This may be an indication of water limitation on photosynthesis.</li>
 </ul>
-<p>In absence of disturbances influencing ecosystem C fluxes, the net ecosystem exchange (NEE) is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>. NEE is what the atmosphere “sees” - it is the net C flux between the atmosphere and the land surface (here a forest vegetation). A negative NEE value indicates a net CO<sub>2</sub> uptake by vegetation. Some notable patterns in the diurnal cycle of NEE are:</p>
+<p>In absence of disturbances influencing ecosystem C fluxes, the net ecosystem exchange (NEE) is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep"><span>Section&nbsp;5.1.6</span></a>. NEE is what the atmosphere “sees” - it is the net C flux between the atmosphere and the land surface (here a forest vegetation). A negative NEE value indicates a net CO<sub>2</sub> uptake by vegetation. Some notable patterns in the diurnal cycle of NEE are:</p>
 <ul>
-<li>The diurnal cycle in NEE (<a href="#fig-diurnal_cycle" class="quarto-xref">Figure&nbsp;<span>6.10</span></a> d) is almost identical to the negative of the diurnal cycle in GPP. This reflects that variations in the net C balance of an ecosystem over the course of a day are strongly driven by photosynthetic CO<sub>2</sub> uptake. Ecosystem respiration (<em>R</em><sub>eco</sub>, the sum of autotrophic and heterotrophic respiration) varies less over the course of a day.</li>
+<li>The diurnal cycle in NEE (<a href="#fig-diurnal_cycle">Figure&nbsp;<span>6.10</span></a> d) is almost identical to the negative of the diurnal cycle in GPP. This reflects that variations in the net C balance of an ecosystem over the course of a day are strongly driven by photosynthetic CO<sub>2</sub> uptake. Ecosystem respiration (<em>R</em><sub>eco</sub>, the sum of autotrophic and heterotrophic respiration) varies less over the course of a day.</li>
 <li>Sites with a strong mid-day CO<sub>2</sub> uptake have a higher night-time respiration.</li>
 <li>During nighttime hours, NEE is relatively stable. During that time, GPP is zero. Hence, <em>R</em><sub>eco</sub> is relatively stable during the night.</li>
-<li>The daily total NEE (<a href="#fig-diurnal_cycle" class="quarto-xref">Figure&nbsp;<span>6.10</span></a> c) is smaller than daily totals in GPP and <em>R</em><sub>eco</sub>. At the tropical site, NEE is very small in comparison to GPP and <em>R</em><sub>eco</sub>. This indicates that over the course of one day, the tropical forest site is nearly C neutral. A substantial net C uptake is evident for DE-Hai. This is the C balance for a day in mid July. In general, during summer, temperate, boreal, and tundra ecosystems are a net C sink, and a net C source during winter (see <a href="#sec-seasonal-cycle" class="quarto-xref"><span>Section 6.3.2</span></a>).</li>
+<li>The daily total NEE (<a href="#fig-diurnal_cycle">Figure&nbsp;<span>6.10</span></a> c) is smaller than daily totals in GPP and <em>R</em><sub>eco</sub>. At the tropical site, NEE is very small in comparison to GPP and <em>R</em><sub>eco</sub>. This indicates that over the course of one day, the tropical forest site is nearly C neutral. A substantial net C uptake is evident for DE-Hai. This is the C balance for a day in mid July. In general, during summer, temperate, boreal, and tundra ecosystems are a net C sink, and a net C source during winter (see <a href="#sec-seasonal-cycle"><span>Section&nbsp;6.3.2</span></a>).</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-diurnal_cycle" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-diurnal_cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/diurnal_cycle.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diurnal_cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.10: Mean diurnal (daily) cycle at northern hemispheric mid-summer (15 July) of (a) incident (top-of-canopy) shortwave radiation, (b) gross primary production, and (d) net ecosystem exchange for four different sites - a temperate deciduous forest (DE-Hai), a boreal needle-leaved forest (FI-Hyy), an arctic heathland in the tundra (US-ICh), and an evergreen moist tropical forest (BR-Sa3). Panel (c) shows the daily total GPP, <em>R</em><sub>eco</sub>, and net ecosystem exchange (NEE). NEE is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>. Site locations are shown in <a href="biogeography.html#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.
-</figcaption>
+<div id="fig-diurnal_cycle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/diurnal_cycle.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.10: Mean diurnal (daily) cycle at northern hemispheric mid-summer (15 July) of (a) incident (top-of-canopy) shortwave radiation, (b) gross primary production, and (d) net ecosystem exchange for four different sites - a temperate deciduous forest (DE-Hai), a boreal needle-leaved forest (FI-Hyy), an arctic heathland in the tundra (US-ICh), and an evergreen moist tropical forest (BR-Sa3). Panel (c) shows the daily total GPP, <em>R</em><sub>eco</sub>, and net ecosystem exchange (NEE). NEE is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep"><span>Section&nbsp;5.1.6</span></a>. Site locations are shown in <a href="biogeography.html#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -911,7 +843,7 @@ Figure&nbsp;6.10: Mean diurnal (daily) cycle at northern hemispheric mid-summer 
 </section>
 <section id="sec-seasonal-cycle" class="level3" data-number="6.3.2">
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="sec-seasonal-cycle"><span class="header-section-number">6.3.2</span> Seasonal cycle</h3>
-<p><a href="#fig-daily_stoa" class="quarto-xref">Figure&nbsp;<span>6.4</span></a> shows the seasonal cycle of top-of-atmosphere solar radiation (<span class="math inline">\(I_\mathrm{TOA}\)</span>) for different latitudes. The daily totals exhibits the same general seasonal pattern as measured incident top-of-canopy solar radiation means, measured at four different sites along different latitudes (<a href="#fig-seasonal_cycle" class="quarto-xref">Figure&nbsp;<span>6.11</span></a>):</p>
+<p><a href="#fig-daily_stoa">Figure&nbsp;<span>6.4</span></a> shows the seasonal cycle of top-of-atmosphere solar radiation (<span class="math inline">\(I_\mathrm{TOA}\)</span>) for different latitudes. The daily totals exhibits the same general seasonal pattern as measured incident top-of-canopy solar radiation means, measured at four different sites along different latitudes (<a href="#fig-seasonal_cycle">Figure&nbsp;<span>6.11</span></a>):</p>
 <ul>
 <li>The seasonal cycle amplitude is smallest at low latitudes (at Equator for <span class="math inline">\(I_\mathrm{TOA}\)</span> and site BR-Sa3 for <span class="math inline">\(I_0\)</span>) and highest at high latitudes. Daily solar radiation drops to zero in the Arctic during winter north of the Arctic circle at 66.5°N. (FI-Hyy is located at 61.8°N, US-ICh is located at 68.6°N).</li>
 <li>Mid-summer peak daily solar radiation is highest at high northern latitudes (at the North Pole for <span class="math inline">\(I_\mathrm{TOA}\)</span> and at site US-ICh for <span class="math inline">\(I_0\)</span>).</li>
@@ -922,7 +854,7 @@ Figure&nbsp;6.10: Mean diurnal (daily) cycle at northern hemispheric mid-summer 
 <li>The highest seasonal peak daily GPP values are recorded at the temperate site DE-Hai. This is despite LAI being mostly higher at the tropical (BR-Sa3) than at the temperate site and indicates an very high mid-summer LUE of ecosystem photosynthetic CO<sub>2</sub> uptake at the temperate site.</li>
 <li>The mid-summer peak daily GPP is (by far) lowest at the tundra site US-ICh. This reflects the very low LAI at this site.</li>
 <li>The (deciduous) temperate forest site DE-Hai - a beech forest in Germany - exhibits the largest seasonal variation in LAI. Beech is a deciduous tree and forms forests that are strongly dominated by beech alone with little understorey vegetation. The simultaneous leaf phenology of the dominating tree species drives the rapid and large spring increase and autumn decrease in LAI.</li>
-<li>FI-Hyy is a needle-leaved forest, dominated by pine trees (<em>Pinus sylvestris</em> and <em>Picea abies</em>). Although these tree species are evergreen, a seasonal variation in LAI is recorded by the satellite remote sensing-derived observations shown in <a href="#fig-seasonal_cycle" class="quarto-xref">Figure&nbsp;<span>6.11</span></a> (b). This likely reflects three aspects: (<em>i</em>) the small but not absent actual seasonal variation in leaf area also in evergreens, (<em>ii</em>) the influence of the deciduous understorey vegetation on ecosystem-level greenness, (<em>iii</em>) the snow cover during winter months affecting the remotely sensed signal in surface reflectance which is interpreted by the algorithm for estimating LAI.</li>
+<li>FI-Hyy is a needle-leaved forest, dominated by pine trees (<em>Pinus sylvestris</em> and <em>Picea abies</em>). Although these tree species are evergreen, a seasonal variation in LAI is recorded by the satellite remote sensing-derived observations shown in <a href="#fig-seasonal_cycle">Figure&nbsp;<span>6.11</span></a> (b). This likely reflects three aspects: (<em>i</em>) the small but not absent actual seasonal variation in leaf area also in evergreens, (<em>ii</em>) the influence of the deciduous understorey vegetation on ecosystem-level greenness, (<em>iii</em>) the snow cover during winter months affecting the remotely sensed signal in surface reflectance which is interpreted by the algorithm for estimating LAI.</li>
 </ul>
 <p>As for the diurnal cycle, also for the seasonal cycle, the pattern in NEE strongly resembles the negative of the pattern in GPP. Some notable aspects are:</p>
 <ul>
@@ -932,14 +864,10 @@ Figure&nbsp;6.10: Mean diurnal (daily) cycle at northern hemispheric mid-summer 
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-seasonal_cycle" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-seasonal_cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/seasonal_cycle.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seasonal_cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.11: Mean seasonal cycle of (a) incident (top-of-canopy) shortwave radiation, (b) leaf area index, (c) gross primary production, and (d) net ecosystem exchange (NEE) for four different sites - a temperate deciduous forest (DE-Hai), a boreal needle-leaved forest (FI-Hyy), an arctic heathland in the tundra (US-ICh), and an evergreen moist tropical forest (BR-Sa3). Panel (e) shows the annual total GPP, <em>R</em><sub>eco</sub>, and net ecosystem exchange (NEE). NEE is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>. Site locations are shown in <a href="biogeography.html#fig-biomes_sites_map" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.
-</figcaption>
+<div id="fig-seasonal_cycle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/seasonal_cycle.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.11: Mean seasonal cycle of (a) incident (top-of-canopy) shortwave radiation, (b) leaf area index, (c) gross primary production, and (d) net ecosystem exchange (NEE) for four different sites - a temperate deciduous forest (DE-Hai), a boreal needle-leaved forest (FI-Hyy), an arctic heathland in the tundra (US-ICh), and an evergreen moist tropical forest (BR-Sa3). Panel (e) shows the annual total GPP, <em>R</em><sub>eco</sub>, and net ecosystem exchange (NEE). NEE is largely equivalent to the negative of NEP as defined in <a href="ecosystemcarbon.html#sec-nep"><span>Section&nbsp;5.1.6</span></a>. Site locations are shown in <a href="biogeography.html#fig-biomes_sites_map">Figure&nbsp;<span>2.2</span></a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -958,30 +886,26 @@ Exercise
 <li>At what latitude do you expect the largest diurnal cycle amplitude in top-of-atmosphere solar radiation?</li>
 <li>At what latitude do you expect the largest seasonal amplitude in top-of-atmosphere solar radiation?</li>
 <li>Where do you expect the smallest seasonal variation in the daily net ecosystem productivity.</li>
-<li>Consider mature forest ecosystems (<em>sensu</em> <span class="citation" data-cites="odum69sci">Odum (<a href="references.html#ref-odum69sci" role="doc-biblioref">1969</a>)</span>, <a href="ecosystemcarbon.html#fig-odum" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>) in a moist tropical, temperate and boreal region. Where do you expect the largest annual NEP? Where do you expect the largest daily NEP during the peak growing season?</li>
+<li>Consider mature forest ecosystems (<em>sensu</em> <span class="citation" data-cites="odum69sci">Odum (<a href="references.html#ref-odum69sci" role="doc-biblioref">1969</a>)</span>, <a href="ecosystemcarbon.html#fig-odum">Figure&nbsp;<span>5.7</span></a>) in a moist tropical, temperate and boreal region. Where do you expect the largest annual NEP? Where do you expect the largest daily NEP during the peak growing season?</li>
 </ol>
 </div>
 </div>
 <section id="the-breathing-of-the-earth" class="level4" data-number="6.3.2.1">
 <h4 data-number="6.3.2.1" class="anchored" data-anchor-id="the-breathing-of-the-earth"><span class="header-section-number">6.3.2.1</span> The breathing of the Earth</h4>
-<p>The NEE (equivalent to the negative of NBP, introduced in <a href="ecosystemcarbon.html#sec-nep" class="quarto-xref"><span>Section 5.1.6</span></a>) recorded at the four example sites shown above is representative for similar patterns across all vegetated land of the Earth. Seasonal variations in solar radiation are the underlying driver of the carbon flux variations and similarly affect all photosynthesizing organisms across the planet.</p>
-<p>CO<sub>2</sub> is relatively well-mixed in the atmosphere due to its long lifetime. However the mixing time scale is on the order of a couple years. Hence, more rapid variations in net CO<sub>2</sub> fluxes between the atmosphere and the Earth surface (over the ocean and over the land) are expressed in corresponding variations of the atmospheric CO<sub>2</sub> concentration. As introduced in <a href="intro.html#sec-intro-breathing" class="quarto-xref"><span>Section 1.1.1</span></a>, the atmospheric CO<sub>2</sub> concentration, measured at Mauna Loa (Hawaii) exhibits not only a steady increase since the 1950s, but also a seasonal cycle with lowest value at the end of the northern hemisphere summer. Atmospheric CO<sub>2</sub> is continuously measured at a range of sites along different latitudes. At Point Barrow, the northernmost point of the US in Alaska, the CO<sub>2</sub> seasonal amplitude is even larger than at Mauna Loa (<a href="#fig-co2_seasonal_amplitude" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>). This is the result of the collective net CO<sub>2</sub> uptake in northern ecosystems during summer.</p>
-<p><a href="#fig-co2_seasonal_amplitude" class="quarto-xref">Figure&nbsp;<span>6.12</span></a> shows the seasonal variation in atmospheric CO<sub>2</sub> after the mean and long-term trend are removed from the time series (corresponding to the red curve minus the black curve in <a href="intro.html#fig-mauna-loa-co2" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>). The shape of this seasonal variation is very similar to the shape of the seasonal NEE variation at northern sites (e.g., DE-Hai) - above average during winter months when ecosystem respiration prevails and a rapid draw-down starting in spring to attain a minimum during summer. This shows how the patterns in net ecosystem CO<sub>2</sub> exchange directly affect variations in atmospheric CO<sub>2</sub> over the course of a year.</p>
+<p>The NEE (equivalent to the negative of NBP, introduced in <a href="ecosystemcarbon.html#sec-nep"><span>Section&nbsp;5.1.6</span></a>) recorded at the four example sites shown above is representative for similar patterns across all vegetated land of the Earth. Seasonal variations in solar radiation are the underlying driver of the carbon flux variations and similarly affect all photosynthesizing organisms across the planet.</p>
+<p>CO<sub>2</sub> is relatively well-mixed in the atmosphere due to its long lifetime. However the mixing time scale is on the order of a couple years. Hence, more rapid variations in net CO<sub>2</sub> fluxes between the atmosphere and the Earth surface (over the ocean and over the land) are expressed in corresponding variations of the atmospheric CO<sub>2</sub> concentration. As introduced in <a href="intro.html#sec-intro-breathing"><span>Section&nbsp;1.1.1</span></a>, the atmospheric CO<sub>2</sub> concentration, measured at Mauna Loa (Hawaii) exhibits not only a steady increase since the 1950s, but also a seasonal cycle with lowest value at the end of the northern hemisphere summer. Atmospheric CO<sub>2</sub> is continuously measured at a range of sites along different latitudes. At Point Barrow, the northernmost point of the US in Alaska, the CO<sub>2</sub> seasonal amplitude is even larger than at Mauna Loa (<a href="#fig-co2_seasonal_amplitude">Figure&nbsp;<span>6.12</span></a>). This is the result of the collective net CO<sub>2</sub> uptake in northern ecosystems during summer.</p>
+<p><a href="#fig-co2_seasonal_amplitude">Figure&nbsp;<span>6.12</span></a> shows the seasonal variation in atmospheric CO<sub>2</sub> after the mean and long-term trend are removed from the time series (corresponding to the red curve minus the black curve in <a href="intro.html#fig-mauna-loa-co2">Figure&nbsp;<span>1.1</span></a>). The shape of this seasonal variation is very similar to the shape of the seasonal NEE variation at northern sites (e.g., DE-Hai) - above average during winter months when ecosystem respiration prevails and a rapid draw-down starting in spring to attain a minimum during summer. This shows how the patterns in net ecosystem CO<sub>2</sub> exchange directly affect variations in atmospheric CO<sub>2</sub> over the course of a year.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-co2_seasonal_amplitude" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-co2_seasonal_amplitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/co2_seasonal_amplitude.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-co2_seasonal_amplitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.12: Seasonal CO<sub>2</sub> cycles observed at Barrow (C) and Mauna Loa (D) for the 1961-63 or 1958-63 and 2009-11 time periods. The first six months of the year are repeated. Figure from <span class="citation" data-cites="graven13sci">Graven et al. (<a href="references.html#ref-graven13sci" role="doc-biblioref">2013</a>)</span>.
-</figcaption>
+<div id="fig-co2_seasonal_amplitude" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/co2_seasonal_amplitude.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.12: Seasonal CO<sub>2</sub> cycles observed at Barrow (C) and Mauna Loa (D) for the 1961-63 or 1958-63 and 2009-11 time periods. The first six months of the year are repeated. Figure from <span class="citation" data-cites="graven13sci">Graven et al. (<a href="references.html#ref-graven13sci" role="doc-biblioref">2013</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-co2_seasonal_amplitude" class="quarto-xref">Figure&nbsp;<span>6.12</span></a> also shows that the CO<sub>2</sub> seasonal amplitude has been increasing since measurements started in the early sixties of the 20th century. This increase reflects changes in the terrestrial C cycle <span class="citation" data-cites="graven13sci">(<a href="references.html#ref-graven13sci" role="doc-biblioref">Graven et al. 2013</a>)</span> and is likely driven by the warming climate and the extension of the growing season in northern ecosystems, increasing the photosynthetic CO<sub>2</sub> uptake as a result of the fertilizing effect of rising CO<sub>2</sub>, and seasonal shifts in GPP and <em>R</em><sub>eco</sub> and their relative timing.</p>
+<p><a href="#fig-co2_seasonal_amplitude">Figure&nbsp;<span>6.12</span></a> also shows that the CO<sub>2</sub> seasonal amplitude has been increasing since measurements started in the early sixties of the 20th century. This increase reflects changes in the terrestrial C cycle <span class="citation" data-cites="graven13sci">(<a href="references.html#ref-graven13sci" role="doc-biblioref">Graven et al. 2013</a>)</span> and is likely driven by the warming climate and the extension of the growing season in northern ecosystems, increasing the photosynthetic CO<sub>2</sub> uptake as a result of the fertilizing effect of rising CO<sub>2</sub>, and seasonal shifts in GPP and <em>R</em><sub>eco</sub> and their relative timing.</p>
 <p>The video below shows an animation of the modeled spatial and temporal variations of atmospheric CO<sub>2</sub> over the course of one year. CO<sub>2</sub> sources from fossil fuel combustion by industry, households, and traffic are combined with the modeled terrestrial and oceanic net CO<sub>2</sub> exchange between the Earth surface and the atmosphere. An atmospheric transport model is then used for simulating variations in CO<sub>2</sub> concentrations.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/x1SgmFa0r04" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
@@ -989,25 +913,21 @@ Figure&nbsp;6.12: Seasonal CO<sub>2</sub> cycles observed at Barrow (C) and Maun
 </section>
 <section id="sec-fluxepools-spatial" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="sec-fluxepools-spatial"><span class="header-section-number">6.4</span> Spatial variations of ecosystem C fluxes and stocks</h2>
-<p>C fluxes between the a land ecosystem and the atmosphere vary over the course of a day and over the course of a year, as described above in <a href="#sec-flux-variability" class="quarto-xref"><span>Section 6.3</span></a>. Annual totals vary relatively little between years (not shown). However, annual total C uptake and release fluxes vary very strongly across different geographical locations, climates and types of ecosystems. As much as solar radiation is the driver of <em>temporal</em> variations in photosynthetic CO<sub>2</sub> uptake, it is also a strong driver of its <em>spatial</em> variations across the globe.</p>
+<p>C fluxes between the a land ecosystem and the atmosphere vary over the course of a day and over the course of a year, as described above in <a href="#sec-flux-variability"><span>Section&nbsp;6.3</span></a>. Annual totals vary relatively little between years (not shown). However, annual total C uptake and release fluxes vary very strongly across different geographical locations, climates and types of ecosystems. As much as solar radiation is the driver of <em>temporal</em> variations in photosynthetic CO<sub>2</sub> uptake, it is also a strong driver of its <em>spatial</em> variations across the globe.</p>
 <section id="terrestrial-primary-productivity-patterns" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="terrestrial-primary-productivity-patterns"><span class="header-section-number">6.4.1</span> Terrestrial primary productivity patterns</h3>
-<p>Once more, the light use efficiency model (<a href="gpp.html#eq-luemodel" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>) serves as a guide for understanding the drivers of spatial patterns in terrestrial GPP. In this subsection, we follow the study by <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span> and estimate the magnitude and global distribution of GPP by successively considering physical and physiological constraints on CO<sub>2</sub> assimilation.</p>
-<p>We start by adopting the hypothetical perspective from the top of the atmosphere (TOA). We estimate the geographic pattern of terrestrial photosynthesis if the full energy of solar radiation received at the TOA was used for photosynthetic CO<sub>2</sub> assimilation (<a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a> a). In this case, GPP is equal to the product of the quantum yield (<span class="math inline">\(\varphi_0\)</span>), a factor <span class="math inline">\(\tilde{a}\)</span> that accounts for the incomplete utilization of absorbed light by the light reactions, and the photosynthetically active radiation received at the top of the atmosphere (PAR<sub>TOA</sub> in <a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a>, corresponds to <em>I</em><sub>TOA</sub> in <a href="#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>). In this (hypothetical) case, the global distribution of GPP varies along latitudes, but not along longitudes and is estimated by <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span> at 2960 PgC yr<sup>-1</sup>.</p>
-<p>Next, we consider the attenuation of solar radiation by the atmosphere, considering cloud cover and the elevation of the land surface. This considers <a href="#eq-sin" class="quarto-xref">Equation&nbsp;<span>6.2</span></a> and reflects the geographic pattern of distribution of solar radiation, incident at the land surface (<a href="#fig-solar_radiation" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>). Note that <span class="math inline">\(\varphi_0\)</span> and <span class="math inline">\(\tilde{a}\)</span> are considered here to be global constants. Atmospheric attenuation of photysnthetically active solar radiation reduces terrestrial GPP by over 50% (from 2960 to 1442 PgC yr<sup>-1</sup>, <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>).</p>
-<p>Not all solar radiation that reaches the land surface is absorbed by active green vegetation. The highest radiation intensities coincide with sparsely vegetated land, including major desert regions. The effect of reduced vegetation cover on GPP is quantified by the factor fAPAR which accounts for the fraction of <em>absorbed</em> photosynthetically active radiation (<a href="gpp.html#sec-light-absorption" class="quarto-xref"><span>Section 4.2</span></a>). Limited vegetation cover and light absorption reduces terrestrial GPP further by over 75% (from 1442 to 322 PgC yr<sup>-1</sup>, <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>).</p>
+<p>Once more, the light use efficiency model (<a href="gpp.html#eq-luemodel">Equation&nbsp;<span>4.1</span></a>) serves as a guide for understanding the drivers of spatial patterns in terrestrial GPP. In this subsection, we follow the study by <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span> and estimate the magnitude and global distribution of GPP by successively considering physical and physiological constraints on CO<sub>2</sub> assimilation.</p>
+<p>We start by adopting the hypothetical perspective from the top of the atmosphere (TOA). We estimate the geographic pattern of terrestrial photosynthesis if the full energy of solar radiation received at the TOA was used for photosynthetic CO<sub>2</sub> assimilation (<a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a> a). In this case, GPP is equal to the product of the quantum yield (<span class="math inline">\(\varphi_0\)</span>), a factor <span class="math inline">\(\tilde{a}\)</span> that accounts for the incomplete utilization of absorbed light by the light reactions, and the photosynthetically active radiation received at the top of the atmosphere (PAR<sub>TOA</sub> in <a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a>, corresponds to <em>I</em><sub>TOA</sub> in <a href="#eq-ppfd">Equation&nbsp;<span>6.1</span></a>). In this (hypothetical) case, the global distribution of GPP varies along latitudes, but not along longitudes and is estimated by <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span> at 2960 PgC yr<sup>-1</sup>.</p>
+<p>Next, we consider the attenuation of solar radiation by the atmosphere, considering cloud cover and the elevation of the land surface. This considers <a href="#eq-sin">Equation&nbsp;<span>6.2</span></a> and reflects the geographic pattern of distribution of solar radiation, incident at the land surface (<a href="#fig-solar_radiation">Figure&nbsp;<span>6.1</span></a>). Note that <span class="math inline">\(\varphi_0\)</span> and <span class="math inline">\(\tilde{a}\)</span> are considered here to be global constants. Atmospheric attenuation of photysnthetically active solar radiation reduces terrestrial GPP by over 50% (from 2960 to 1442 PgC yr<sup>-1</sup>, <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>).</p>
+<p>Not all solar radiation that reaches the land surface is absorbed by active green vegetation. The highest radiation intensities coincide with sparsely vegetated land, including major desert regions. The effect of reduced vegetation cover on GPP is quantified by the factor fAPAR which accounts for the fraction of <em>absorbed</em> photosynthetically active radiation (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>). Limited vegetation cover and light absorption reduces terrestrial GPP further by over 75% (from 1442 to 322 PgC yr<sup>-1</sup>, <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>).</p>
 <p>At the global scale, temperature has a relatively weak effect on GPP. Considering that photosynthesis is inhibited by freezing temperatures (below 0°C) does not substantially reduce total terrestrial GPP (from 322 to 300 PgC yr<sup>-1</sup>, corresponding to a 7% reduction, <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>). This is because low temperatures coincide with low PAR (or <span class="math inline">\(I_0\)</span>) and . Situations of high light and low temperatures are relatively rare.</p>
-<p>Finally, physiological effects of CO<sub>2</sub>, temperature, vapour pressure deficit, and the atmospheric pressure are considered. Note that the effect of temperatures below freezing is treated separately by the step described above. The potential maximum rate of the conversion of absorbed photosynthetically active radiation is reduced by the limited diffusion rate of CO<sub>2</sub> through stomatal openings (thus reducing <span class="math inline">\(c_i\)</span> relative to <span class="math inline">\(c_a\)</span>, <a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a> e) and is further reduced by the effects of photorespiration as accounted for by the factor <span class="math inline">\((c_i - \Gamma^\ast)/(c_i + 2\Gamma^\ast)\)</span>. This represents the effect of leaf-internal CO<sub>2</sub> concentration on the electron transport-limited assimilation rate <span class="math inline">\(A_J\)</span> in the FvCB model (<a href="gpp.html#eq-aj" class="quarto-xref">Equation&nbsp;<span>4.9</span></a>). These physiological effects reduce terrestrial GPP from 300 to 211 PgC yr<sup>-1</sup>, corresponding to a 30% reduction <span class="citation" data-cites="wang14bg">(<a href="references.html#ref-wang14bg" role="doc-biblioref">Wang, Prentice, and Davis 2014</a>)</span>. Note that the range of published total annual terrestrial GPP estimates is lower - between 110 and 140 PgC yr<sup>-1</sup> <span class="citation" data-cites="stocker19natgeo">(<a href="references.html#ref-stocker19natgeo" role="doc-biblioref">Benjamin D. Stocker et al. 2019</a>)</span>.</p>
+<p>Finally, physiological effects of CO<sub>2</sub>, temperature, vapour pressure deficit, and the atmospheric pressure are considered. Note that the effect of temperatures below freezing is treated separately by the step described above. The potential maximum rate of the conversion of absorbed photosynthetically active radiation is reduced by the limited diffusion rate of CO<sub>2</sub> through stomatal openings (thus reducing <span class="math inline">\(c_i\)</span> relative to <span class="math inline">\(c_a\)</span>, <a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a> e) and is further reduced by the effects of photorespiration as accounted for by the factor <span class="math inline">\((c_i - \Gamma^\ast)/(c_i + 2\Gamma^\ast)\)</span>. This represents the effect of leaf-internal CO<sub>2</sub> concentration on the electron transport-limited assimilation rate <span class="math inline">\(A_J\)</span> in the FvCB model (<a href="gpp.html#eq-aj">Equation&nbsp;<span>4.9</span></a>). These physiological effects reduce terrestrial GPP from 300 to 211 PgC yr<sup>-1</sup>, corresponding to a 30% reduction <span class="citation" data-cites="wang14bg">(<a href="references.html#ref-wang14bg" role="doc-biblioref">Wang, Prentice, and Davis 2014</a>)</span>. Note that the range of published total annual terrestrial GPP estimates is lower - between 110 and 140 PgC yr<sup>-1</sup> <span class="citation" data-cites="stocker19natgeo">(<a href="references.html#ref-stocker19natgeo" role="doc-biblioref">Benjamin D. Stocker et al. 2019</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-gpp_spatial_patterns" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-gpp_spatial_patterns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/gpp_constraints_wang14.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gpp_spatial_patterns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.13: Patterns of modelled global annual GPP (gC m<sup>-2</sup> yr<sup>-1</sup>) controlled by PAR at the top of atmosphere (a), and modified by a sequence of effects: atmospheric transmissivity and cloud cover (b), vegetation cover (c), low-temperature inhibition (d) and physiological effects of CO<sub>2</sub> (e). PAR<sub>TOA</sub> corresponds to <em>I</em><sub>TOA</sub> in <a href="#eq-ppfd" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>. Figure from <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>.
-</figcaption>
+<div id="fig-gpp_spatial_patterns" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/gpp_constraints_wang14.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.13: Patterns of modelled global annual GPP (gC m<sup>-2</sup> yr<sup>-1</sup>) controlled by PAR at the top of atmosphere (a), and modified by a sequence of effects: atmospheric transmissivity and cloud cover (b), vegetation cover (c), low-temperature inhibition (d) and physiological effects of CO<sub>2</sub> (e). PAR<sub>TOA</sub> corresponds to <em>I</em><sub>TOA</sub> in <a href="#eq-ppfd">Equation&nbsp;<span>6.1</span></a>. Figure from <span class="citation" data-cites="wang14bg">Wang, Prentice, and Davis (<a href="references.html#ref-wang14bg" role="doc-biblioref">2014</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -1030,67 +950,55 @@ Exercise
 </section>
 <section id="global-distribution-of-biomass-carbon" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="global-distribution-of-biomass-carbon"><span class="header-section-number">6.4.2</span> Global distribution of biomass carbon</h3>
-<p>As explained in <a href="ecosystemcarbon.html" class="quarto-xref"><span>Chapter 5</span></a>, photosynthesis is the ultimate source of all C cycling in ecosystems and accumulating in different pools along the C cascade - from live vegetation to litter and soil organic matter. Variations in GPP thus affect all “downstream” fluxes and pools along the C cascade. A reflection of this is the similarity in the global patterns of GPP and aboveground biomass C (<a href="#fig-agc2" class="quarto-xref">Figure&nbsp;<span>6.14</span></a>). In <a href="ecosystemcarbon.html" class="quarto-xref"><span>Chapter 5</span></a>, we considered the C cascade and simulated the dynamics of all pools and fluxes in response to a change in GPP. We showed that, assuming that allocation, SOM partitioning factors, and pool-specific turnover times are constant, GPP linearly scales all downstream fluxes and pools. We also noted that in reality, allocation, SOM partitioning, and turnover times cannot be assumed constant over time. When considering variations across space - across different climates, soils, and ecosystem types - constancy in these factors is probably an even less justified assumption.</p>
-<p>While <a href="#fig-agc2" class="quarto-xref">Figure&nbsp;<span>6.14</span></a> shows an overall similarity between the patterns of GPP and aboveground carbon, it’s also instructive to consider the deviations. Aboveground biomass is by far largest in tropical forest regions. While temperate forest regions attain annual GPP of a similar magnitude as tropical forests (<a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a> e), their aboveground biomass is substantially lower. Even more discrepant are differences between forest versus savannah and grassland regions. While the extent of the tropical forest biome in Africa is clearly reflected by the distribution of aboveground biomass and shows a sharp transition to much lower values at its margins, such a sharp transition is not visible for GPP (<a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a> e). This indicates that grasslands and savannahs can be highly productive, but if assimilated C is not used for wood production, then their high productivity is not translated into high biomass stocks. This aspect is also explained in <a href="ecosystemcarbon.html#sec-allocation" class="quarto-xref"><span>Section 5.1.3</span></a> where the difference in C allocation between forest and grasslands is described and quantified (<a href="ecosystemcarbon.html#tbl-allocation" class="quarto-xref">Table&nbsp;<span>5.1</span></a>).</p>
+<p>As explained in <a href="ecosystemcarbon.html"><span>Chapter&nbsp;5</span></a>, photosynthesis is the ultimate source of all C cycling in ecosystems and accumulating in different pools along the C cascade - from live vegetation to litter and soil organic matter. Variations in GPP thus affect all “downstream” fluxes and pools along the C cascade. A reflection of this is the similarity in the global patterns of GPP and aboveground biomass C (<a href="#fig-agc2">Figure&nbsp;<span>6.14</span></a>). In <a href="ecosystemcarbon.html"><span>Chapter&nbsp;5</span></a>, we considered the C cascade and simulated the dynamics of all pools and fluxes in response to a change in GPP. We showed that, assuming that allocation, SOM partitioning factors, and pool-specific turnover times are constant, GPP linearly scales all downstream fluxes and pools. We also noted that in reality, allocation, SOM partitioning, and turnover times cannot be assumed constant over time. When considering variations across space - across different climates, soils, and ecosystem types - constancy in these factors is probably an even less justified assumption.</p>
+<p>While <a href="#fig-agc2">Figure&nbsp;<span>6.14</span></a> shows an overall similarity between the patterns of GPP and aboveground carbon, it’s also instructive to consider the deviations. Aboveground biomass is by far largest in tropical forest regions. While temperate forest regions attain annual GPP of a similar magnitude as tropical forests (<a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a> e), their aboveground biomass is substantially lower. Even more discrepant are differences between forest versus savannah and grassland regions. While the extent of the tropical forest biome in Africa is clearly reflected by the distribution of aboveground biomass and shows a sharp transition to much lower values at its margins, such a sharp transition is not visible for GPP (<a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a> e). This indicates that grasslands and savannahs can be highly productive, but if assimilated C is not used for wood production, then their high productivity is not translated into high biomass stocks. This aspect is also explained in <a href="ecosystemcarbon.html#sec-allocation"><span>Section&nbsp;5.1.3</span></a> where the difference in C allocation between forest and grasslands is described and quantified (<a href="ecosystemcarbon.html#tbl-allocation">Table&nbsp;<span>5.1</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-agc2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-agc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.14: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>. This is the same figure as <a href="biogeography.html#fig-agc" class="quarto-xref">Figure&nbsp;<span>2.18</span></a>.
-</figcaption>
+<div id="fig-agc2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_agc.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.14: Aboveground biomass carbon, mean over years 1993-2012. Data from <span class="citation" data-cites="liu15natcc">Liu et al. (<a href="references.html#ref-liu15natcc" role="doc-biblioref">2015</a>)</span>. This is the same figure as <a href="biogeography.html#fig-agc">Figure&nbsp;<span>2.18</span></a>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>While the global biomass map in <a href="#fig-agc2" class="quarto-xref">Figure&nbsp;<span>6.14</span></a> shows the overall pattern of highest aboveground biomass C being located in tropical forests, it hides “pockets” of exceptionally high biomass in temperate forests. Some of the worlds highest biomass densities (average biomass per unit ground area in a forest plot) are found in cool and moist temperate forests, including <em>Eucalyptus regnans</em>-dominated forests in southeast Australia, Sequoia-dominated forests in coastal California, Oregon and Chile, and <em>Agathis australis</em>-dominated forests in New Zealand <span class="citation" data-cites="keith09pnas">(<a href="references.html#ref-keith09pnas" role="doc-biblioref">Keith, Mackey, and Lindenmayer 2009</a>)</span>.</p>
+<p>While the global biomass map in <a href="#fig-agc2">Figure&nbsp;<span>6.14</span></a> shows the overall pattern of highest aboveground biomass C being located in tropical forests, it hides “pockets” of exceptionally high biomass in temperate forests. Some of the worlds highest biomass densities (average biomass per unit ground area in a forest plot) are found in cool and moist temperate forests, including <em>Eucalyptus regnans</em>-dominated forests in southeast Australia, Sequoia-dominated forests in coastal California, Oregon and Chile, and <em>Agathis australis</em>-dominated forests in New Zealand <span class="citation" data-cites="keith09pnas">(<a href="references.html#ref-keith09pnas" role="doc-biblioref">Keith, Mackey, and Lindenmayer 2009</a>)</span>.</p>
 </section>
 <section id="global-distribution-of-soil-carbon" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="global-distribution-of-soil-carbon"><span class="header-section-number">6.4.3</span> Global distribution of soil carbon</h3>
-<p>In <a href="ecosystemcarbon.html#sec-littersom" class="quarto-xref"><span>Section 5.1.5</span></a>, we conceived soil C dynamics as a first-order decay process. This assumes that the soil C stock scales linearly with the C inputs. C inputs are determined by litter production which, at long enough time scales, is equal to biomass production which, in turn, is correlated with GPP (<a href="ecosystemcarbon.html#fig-npp_bpe" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>). In summary, a first-order decay model for SOM would predict that soil C stocks scale with GPP and the global distribution of soil C would be similar to the global distribution of GPP (<a href="#fig-gpp_spatial_patterns" class="quarto-xref">Figure&nbsp;<span>6.13</span></a> e).</p>
-<p>However, <a href="#fig-soilc_map" class="quarto-xref">Figure&nbsp;<span>6.15</span></a> shows that the pattern of the global soil C distribution is markedly different from the global pattern of GPP. This suggests that C inputs alone are not a good predictor of soil C stocks. Other factors play important roles, as described below. Note however that in unproductive desert regions, also soil C is low.</p>
+<p>In <a href="ecosystemcarbon.html#sec-littersom"><span>Section&nbsp;5.1.5</span></a>, we conceived soil C dynamics as a first-order decay process. This assumes that the soil C stock scales linearly with the C inputs. C inputs are determined by litter production which, at long enough time scales, is equal to biomass production which, in turn, is correlated with GPP (<a href="ecosystemcarbon.html#fig-npp_bpe">Figure&nbsp;<span>5.3</span></a>). In summary, a first-order decay model for SOM would predict that soil C stocks scale with GPP and the global distribution of soil C would be similar to the global distribution of GPP (<a href="#fig-gpp_spatial_patterns">Figure&nbsp;<span>6.13</span></a> e).</p>
+<p>However, <a href="#fig-soilc_map">Figure&nbsp;<span>6.15</span></a> shows that the pattern of the global soil C distribution is markedly different from the global pattern of GPP. This suggests that C inputs alone are not a good predictor of soil C stocks. Other factors play important roles, as described below. Note however that in unproductive desert regions, also soil C is low.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-soilc_map" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-soilc_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/soilc_map.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-soilc_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.15: Estimated soil organic carbon (SOC) stocks to a depth of 2 m based on data in the WISE30sec dataset <span class="citation" data-cites="batjes16geoderma">(<a href="references.html#ref-batjes16geoderma" role="doc-biblioref">Batjes 2016</a>)</span>. Figure and caption text from <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span>.
-</figcaption>
+<div id="fig-soilc_map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/soilc_map.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.15: Estimated soil organic carbon (SOC) stocks to a depth of 2 m based on data in the WISE30sec dataset <span class="citation" data-cites="batjes16geoderma">(<a href="references.html#ref-batjes16geoderma" role="doc-biblioref">Batjes 2016</a>)</span>. Figure and caption text from <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <section id="controls-on-soil-c-stocks" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="controls-on-soil-c-stocks">Controls on soil C stocks</h4>
-<p><em>Allocation</em> Root inputs are approximately five times more likely than an equivalent mass of aboveground litter to be stabilized as soil organic matter (SOM) <span class="citation" data-cites="jackson17">(<a href="references.html#ref-jackson17" role="doc-biblioref">Jackson et al. 2017</a>)</span>. Thus, allocation and plant growth in different tissues is an important factor determining the link between vegetation productivity, litter production, and soil C. In grasslands and shurblands, a much larger fraction of C is allocated to roots than in forests. Thus, soil C stocks are often higher in natural grasslands and shrublands than in forests. This is also visible in <a href="#fig-soilc_map" class="quarto-xref">Figure&nbsp;<span>6.15</span></a> which indicates high soil C stocks in the Earth’s grassland and shrubland-dominated regions.</p>
-<p><em>Climate</em> The activity of soil organic matter-decomposing microbes (fungi and bacteria) is strongly controlled by abiotic factors in the soil. Under low temperatures, their activity is reduced and soil and litter decomposition rates are slowed (see also <a href="ecosystemcarbon.html#sec-littersom" class="quarto-xref"><span>Section 5.1.5</span></a>). This is reflected in <a href="#fig-soilc_map" class="quarto-xref">Figure&nbsp;<span>6.15</span></a> by the generally high soil organic C stocks in the cold climates of the high northern latitudes - despite the generally low productivity of vegetation in these regions.</p>
+<p><em>Allocation</em> Root inputs are approximately five times more likely than an equivalent mass of aboveground litter to be stabilized as soil organic matter (SOM) <span class="citation" data-cites="jackson17">(<a href="references.html#ref-jackson17" role="doc-biblioref">Jackson et al. 2017</a>)</span>. Thus, allocation and plant growth in different tissues is an important factor determining the link between vegetation productivity, litter production, and soil C. In grasslands and shurblands, a much larger fraction of C is allocated to roots than in forests. Thus, soil C stocks are often higher in natural grasslands and shrublands than in forests. This is also visible in <a href="#fig-soilc_map">Figure&nbsp;<span>6.15</span></a> which indicates high soil C stocks in the Earth’s grassland and shrubland-dominated regions.</p>
+<p><em>Climate</em> The activity of soil organic matter-decomposing microbes (fungi and bacteria) is strongly controlled by abiotic factors in the soil. Under low temperatures, their activity is reduced and soil and litter decomposition rates are slowed (see also <a href="ecosystemcarbon.html#sec-littersom"><span>Section&nbsp;5.1.5</span></a>). This is reflected in <a href="#fig-soilc_map">Figure&nbsp;<span>6.15</span></a> by the generally high soil organic C stocks in the cold climates of the high northern latitudes - despite the generally low productivity of vegetation in these regions.</p>
 <p><em>Stabilisation and saturation</em> of soil organic C depends on the mineralogy of the soil. This suggests that not (only) the C inputs determine stocks, but also the capacity of soil mineral surfaces to sorb organic matter.</p>
 <p><em>Plant-soil interactions</em> via fungi and bacteria strongly influence C and nutrient cycling in soils. Inputs of fresh litter and labile C through root exudates can stimulate the decomposition (<em>priming</em>) of stable C in the soil. These relationships are complex and implications for the global distribution of soil C is not clear, but can undermine a positive and linear relationship between vegetation productivity, litter inputs, and soil C stocks.</p>
 </section>
 <section id="global-soil-c-stocks" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="global-soil-c-stocks">Global soil C stocks</h4>
-<p>The total C stock in soils up to 2 m is estimated 2273 PgC by <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span> - higher than the number provided in the IPCC AR6 <span class="citation" data-cites="canadell21ipcc">(<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">Canadell et al. 2021</a>)</span> and <a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. Global soil C estimates are based on soil organic C content measurements which are available mostly from the top soil and are thus sensitive to assumptions regarding the soil C distribution across the soil profile. In general, the organic matter and thus soil C content declines with depth but the rate of decline depends on vegetation and the distribution of roots. The global soil C stock of 0-3 m is even higher and estimated by <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span> at 2800 PgC. The soil depth-to-bedrock puts a constraint on soil C storage at depth in many places, is very uncertain, and may lead to a substantial reduction of the total 0-2 and 0-3 m soil C estimates.</p>
-<p>The high soil C density in high northern latitudes (<a href="#fig-soilc_map" class="quarto-xref">Figure&nbsp;<span>6.15</span></a>) reflects also the particular functioning and soil C dynamics dynamics and stabilization under conditions where temperatures are below freezing for a large part of the year (in permafrost regions) and under permanently water-logged soil conditions (in peatlands). Contributions of soil C stocks in peatland and permafrost regions are substantial (see <a href="#sec-peatlands" class="quarto-xref"><span>Section 6.4.4</span></a> and <a href="#sec-permafrost" class="quarto-xref"><span>Section 6.4.5</span></a>).</p>
+<p>The total C stock in soils up to 2 m is estimated 2273 PgC by <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span> - higher than the number provided in the IPCC AR6 <span class="citation" data-cites="canadell21ipcc">(<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">Canadell et al. 2021</a>)</span> and <a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a>. Global soil C estimates are based on soil organic C content measurements which are available mostly from the top soil and are thus sensitive to assumptions regarding the soil C distribution across the soil profile. In general, the organic matter and thus soil C content declines with depth but the rate of decline depends on vegetation and the distribution of roots. The global soil C stock of 0-3 m is even higher and estimated by <span class="citation" data-cites="jackson17">Jackson et al. (<a href="references.html#ref-jackson17" role="doc-biblioref">2017</a>)</span> at 2800 PgC. The soil depth-to-bedrock puts a constraint on soil C storage at depth in many places, is very uncertain, and may lead to a substantial reduction of the total 0-2 and 0-3 m soil C estimates.</p>
+<p>The high soil C density in high northern latitudes (<a href="#fig-soilc_map">Figure&nbsp;<span>6.15</span></a>) reflects also the particular functioning and soil C dynamics dynamics and stabilization under conditions where temperatures are below freezing for a large part of the year (in permafrost regions) and under permanently water-logged soil conditions (in peatlands). Contributions of soil C stocks in peatland and permafrost regions are substantial (see <a href="#sec-peatlands"><span>Section&nbsp;6.4.4</span></a> and <a href="#sec-permafrost"><span>Section&nbsp;6.4.5</span></a>).</p>
 </section>
 <section id="link-to-biomass-c-distribution" class="level4" data-number="6.4.3.1">
 <h4 data-number="6.4.3.1" class="anchored" data-anchor-id="link-to-biomass-c-distribution"><span class="header-section-number">6.4.3.1</span> Link to biomass C distribution</h4>
-<p>Taken together, the global distribution of soil C deviates strongly from the distribution of GPP and biomass C. The parallel trends of average biomass and soil C along latitudes is shown in <a href="#fig-soilc_vegc_bylat" class="quarto-xref">Figure&nbsp;<span>6.16</span></a> and illustrates the divergence of their latitudinal patterns. It should be noted that grasslands are typically very soil C rich due to the high allocation to fine root production as discussed above. Yet, aboveground biomass is low in grasslands compared to forests. This largely explains the pattern in <a href="#fig-soilc_vegc_bylat" class="quarto-xref">Figure&nbsp;<span>6.16</span></a>.</p>
+<p>Taken together, the global distribution of soil C deviates strongly from the distribution of GPP and biomass C. The parallel trends of average biomass and soil C along latitudes is shown in <a href="#fig-soilc_vegc_bylat">Figure&nbsp;<span>6.16</span></a> and illustrates the divergence of their latitudinal patterns. It should be noted that grasslands are typically very soil C rich due to the high allocation to fine root production as discussed above. Yet, aboveground biomass is low in grasslands compared to forests. This largely explains the pattern in <a href="#fig-soilc_vegc_bylat">Figure&nbsp;<span>6.16</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-soilc_vegc_bylat" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-soilc_vegc_bylat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/soilc_vegc_bylat.png" class="img-fluid figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-soilc_vegc_bylat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.16: The latitudinal patterns of terrestrial carbon stocks, both aboveground plant biomass (green) and soil carbon stocks (brown). Figure and caption text from <span class="citation" data-cites="crowther19sci">Crowther et al. (<a href="references.html#ref-crowther19sci" role="doc-biblioref">2019</a>)</span>.
-</figcaption>
+<div id="fig-soilc_vegc_bylat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/soilc_vegc_bylat.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.16: The latitudinal patterns of terrestrial carbon stocks, both aboveground plant biomass (green) and soil carbon stocks (brown). Figure and caption text from <span class="citation" data-cites="crowther19sci">Crowther et al. (<a href="references.html#ref-crowther19sci" role="doc-biblioref">2019</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -1099,7 +1007,7 @@ Figure&nbsp;6.16: The latitudinal patterns of terrestrial carbon stocks, both ab
 </section>
 <section id="sec-peatlands" class="level3" data-number="6.4.4">
 <h3 data-number="6.4.4" class="anchored" data-anchor-id="sec-peatlands"><span class="header-section-number">6.4.4</span> Peatlands</h3>
-<p>Under well-drained soil conditions, the organic carbon content of soil tends to stabilise during soil development. At this stage, on average over long time scales, decomposition of organic matter equals litter inputs. A steady-state is reached. However, decomposition by heterotrophic organisms requires oxygen. Under frequent flooding and water-logged soil conditions, oxygen availability becomes limiting for heterotrophic activity and decomposition is strongly reduced. If a long-term imbalance of vegetation productivity and litter inputs vs.&nbsp;decomposition persists, undecomposed litter C can accumulate. Peat and organic soils (<em>histosols</em>) form. Such conditions are given in very particular locations across the globe (<a href="#fig-peatland_map" class="quarto-xref">Figure&nbsp;<span>6.17</span></a>).</p>
+<p>Under well-drained soil conditions, the organic carbon content of soil tends to stabilise during soil development. At this stage, on average over long time scales, decomposition of organic matter equals litter inputs. A steady-state is reached. However, decomposition by heterotrophic organisms requires oxygen. Under frequent flooding and water-logged soil conditions, oxygen availability becomes limiting for heterotrophic activity and decomposition is strongly reduced. If a long-term imbalance of vegetation productivity and litter inputs vs.&nbsp;decomposition persists, undecomposed litter C can accumulate. Peat and organic soils (<em>histosols</em>) form. Such conditions are given in very particular locations across the globe (<a href="#fig-peatland_map">Figure&nbsp;<span>6.17</span></a>).</p>
 <p>Peatlands are extremely C-rich, containing 500-700 PgC on only 3% of the Earth’s land surface <span class="citation" data-cites="page16annrev yu10grl">(<a href="references.html#ref-page16annrev" role="doc-biblioref">Page and Baird 2016</a>; <a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>)</span>. Collectively, peatlands across the globe are also a persistent C sink. Due to their special role in the C cycle, we afford a small excursion into the special world of peatlands.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1126,14 +1034,10 @@ Definitions
 <p>Today, major peatlands are located in the Hudson Bay Lowland (Canada) and in the West Siberian Lowland (Russia). In the tropics, major peatlands are located in Southeast Asia (Indonesia, Malaysia, Papua New Guinea, and Brunei) <span class="citation" data-cites="page16annrev">(<a href="references.html#ref-page16annrev" role="doc-biblioref">Page and Baird 2016</a>)</span> and in the Congo Basin <span class="citation" data-cites="dargie17nat">(<a href="references.html#ref-dargie17nat" role="doc-biblioref">Dargie et al. 2017</a>)</span>. Peatland vegetation is very different in boreal and temperate versus tropical peatlands. The latter occur in forested, often palm-dominated swamps and in coastal mangroves <span class="citation" data-cites="page16annrev">(<a href="references.html#ref-page16annrev" role="doc-biblioref">Page and Baird 2016</a>)</span>. Boreal and temperate peatlands are dominated by sedges or mosses (see box above).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-peatland_map" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-peatland_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/peatland_map.jpeg" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-peatland_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.17: Global peatland distribution derived from PEATMAP. The colour classes indicate percentage peatland cover in Canada, where the source data were provided as grid cells rather than shape files; and regions where peatland cover was estimated from histosols of HWSD v1.2. Elsewhere, where shapefiles are freely available, individual peatlands and peat complexes are shown in solid black. Figure and caption text from <span class="citation" data-cites="xu18catena">Xu et al. (<a href="references.html#ref-xu18catena" role="doc-biblioref">2018</a>)</span>.
-</figcaption>
+<div id="fig-peatland_map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/peatland_map.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.17: Global peatland distribution derived from PEATMAP. The colour classes indicate percentage peatland cover in Canada, where the source data were provided as grid cells rather than shape files; and regions where peatland cover was estimated from histosols of HWSD v1.2. Elsewhere, where shapefiles are freely available, individual peatlands and peat complexes are shown in solid black. Figure and caption text from <span class="citation" data-cites="xu18catena">Xu et al. (<a href="references.html#ref-xu18catena" role="doc-biblioref">2018</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -1141,9 +1045,9 @@ Figure&nbsp;6.17: Global peatland distribution derived from PEATMAP. The colour 
 </section>
 <section id="peatland-establishment" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="peatland-establishment">Peatland establishment</h4>
-<p>The particular pattern of the global distribution of peatlands (<a href="#fig-peatland_map" class="quarto-xref">Figure&nbsp;<span>6.17</span></a>) reflects the environmental constraints on their development. This can be understood as a sequence of criteria that need to be fulfilled for the establishment of a peatland <span class="citation" data-cites="stocker14gmd">(<a href="references.html#ref-stocker14gmd" role="doc-biblioref">B. D. Stocker, Spahni, and Joos 2014</a>)</span>:</p>
+<p>The particular pattern of the global distribution of peatlands (<a href="#fig-peatland_map">Figure&nbsp;<span>6.17</span></a>) reflects the environmental constraints on their development. This can be understood as a sequence of criteria that need to be fulfilled for the establishment of a peatland <span class="citation" data-cites="stocker14gmd">(<a href="references.html#ref-stocker14gmd" role="doc-biblioref">B. D. Stocker, Spahni, and Joos 2014</a>)</span>:</p>
 <ol type="1">
-<li><em>Hydroclimate</em>: The balance of mean annual precipitation (MAP) should be higher than the mean annual potential evapotranspiration (PET, see <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>). PET measures how much radiation is available for evaporating water. A positive ratio of MAP/PET indicates a wet hydroclimate and is a primary prerequisite for the establishment of a peatland.</li>
+<li><em>Hydroclimate</em>: The balance of mean annual precipitation (MAP) should be higher than the mean annual potential evapotranspiration (PET, see <a href="ecohydrology.html"><span>Chapter&nbsp;8</span></a>). PET measures how much radiation is available for evaporating water. A positive ratio of MAP/PET indicates a wet hydroclimate and is a primary prerequisite for the establishment of a peatland.</li>
 <li><em>C balance</em>: Under water-logged conditions, vegetation productivity and litter inputs must outpace soil organic matter decomposition and a long-term C accumulation is necessary to form peat.</li>
 <li><em>Topography and soil drainage</em>: Water-logged soil conditions and a shallow groundwater table depth are present in the landscape where subsurface water flow converges and where drainage is hindered either due to the topographic situation or due to impermeable soil layers or bedrock. Frequent conditions with the groundwater table near the surface or above (inundation) thus occur in low-lying depressions or in poorly drained plains, but less in convex terrain (e.g, ridges).</li>
 </ol>
@@ -1155,17 +1059,13 @@ Figure&nbsp;6.17: Global peatland distribution derived from PEATMAP. The colour 
 </section>
 <section id="peatland-history" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="peatland-history">Peatland history</h4>
-<p>Due to the very slow decay, oldest peat present at a peat dome’s base may date back millennia. Indeed, dated carbon in peatlands across the globe indicate a peak in the initiation of northern peatlands in the early Holocene around 11-9 kyr BP and of tropical peatlands even before - around 20 kyr BP <span class="citation" data-cites="yu10grl macdonald06sci">(<a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>; <a href="references.html#ref-macdonald06sci" role="doc-biblioref">MacDonald et al. 2006</a>)</span> and. The timing of the rapid initiation of northern peatlands coincides with the retreat of the major ice sheets after the Last Glacial Maximum and with a peak in summer insolation (<a href="#fig-stoa_hovmoeller_holo" class="quarto-xref">Figure&nbsp;<span>6.6</span></a> and <a href="#fig-peatland_initiation" class="quarto-xref">Figure&nbsp;<span>6.18</span></a>) and climate seasonality with warm summers in the northern hemisphere, supporting vegetation growth. As new peatlands formed in the early Holocene, old ones that established in the glacial climate, disappeared due to climatic change <span class="citation" data-cites="muller20bg">(<a href="references.html#ref-muller20bg" role="doc-biblioref">Müller and Joos 2020</a>)</span> and were lost to rising sea levels during the melting of the ice sheets <span class="citation" data-cites="dommain14qsr">(<a href="references.html#ref-dommain14qsr" role="doc-biblioref">Dommain et al. 2014</a>)</span>.</p>
+<p>Due to the very slow decay, oldest peat present at a peat dome’s base may date back millennia. Indeed, dated carbon in peatlands across the globe indicate a peak in the initiation of northern peatlands in the early Holocene around 11-9 kyr BP and of tropical peatlands even before - around 20 kyr BP <span class="citation" data-cites="yu10grl macdonald06sci">(<a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>; <a href="references.html#ref-macdonald06sci" role="doc-biblioref">MacDonald et al. 2006</a>)</span> and. The timing of the rapid initiation of northern peatlands coincides with the retreat of the major ice sheets after the Last Glacial Maximum and with a peak in summer insolation (<a href="#fig-stoa_hovmoeller_holo">Figure&nbsp;<span>6.6</span></a> and <a href="#fig-peatland_initiation">Figure&nbsp;<span>6.18</span></a>) and climate seasonality with warm summers in the northern hemisphere, supporting vegetation growth. As new peatlands formed in the early Holocene, old ones that established in the glacial climate, disappeared due to climatic change <span class="citation" data-cites="muller20bg">(<a href="references.html#ref-muller20bg" role="doc-biblioref">Müller and Joos 2020</a>)</span> and were lost to rising sea levels during the melting of the ice sheets <span class="citation" data-cites="dommain14qsr">(<a href="references.html#ref-dommain14qsr" role="doc-biblioref">Dommain et al. 2014</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-peatland_initiation" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-peatland_initiation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/peatland_initiation.jpeg" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-peatland_initiation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.18: Timing of circumarctic peatland establishment compared with June insolation at 60°N, Greenland Ice Sheet Project 2 (GISP2) temperature reconstruction, atmospheric CO<sub>2</sub> and CH<sub>4</sub> concentrations, and estimates of Northern Hemisphere CH<sub>4</sub> emissions derived from the InterPolar CH<sub>4</sub> Gradient (IPG). Atmospheric CO<sub>2</sub> and CH<sub>4</sub> concentrations show ice-core data from European Project for Ice Coring in Antarctica (EPICA) Dome C (red for CO<sub>2</sub> and blue for CH<sub>4</sub>)and GISP2 [green triangles show CH<sub>4</sub>]. Dome C data are shown on the original EPICA Dome C 1 time scale from 0 to 10 ka before present (circles) and on the GISP2 time scale with CH<sub>4</sub> synchronization from 10 to 18 kyr before present (diamonds). Dome C error bars indicate 1sd uncertainty. (A) The occurrence frequency of 1516 radiocarbon dates of basal peat deposits (14) shows the number of calibrated age ranges that occur in any year (black curve). (B) Cumulative curve of 1516 dates (red curve). (C) The oldest basal peat dates within each 2° by 2° grid (gray bars). Figure and caption from <span class="citation" data-cites="macdonald06sci">MacDonald et al. (<a href="references.html#ref-macdonald06sci" role="doc-biblioref">2006</a>)</span>
-</figcaption>
+<div id="fig-peatland_initiation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/peatland_initiation.jpeg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.18: Timing of circumarctic peatland establishment compared with June insolation at 60°N, Greenland Ice Sheet Project 2 (GISP2) temperature reconstruction, atmospheric CO<sub>2</sub> and CH<sub>4</sub> concentrations, and estimates of Northern Hemisphere CH<sub>4</sub> emissions derived from the InterPolar CH<sub>4</sub> Gradient (IPG). Atmospheric CO<sub>2</sub> and CH<sub>4</sub> concentrations show ice-core data from European Project for Ice Coring in Antarctica (EPICA) Dome C (red for CO<sub>2</sub> and blue for CH<sub>4</sub>)and GISP2 [green triangles show CH<sub>4</sub>]. Dome C data are shown on the original EPICA Dome C 1 time scale from 0 to 10 ka before present (circles) and on the GISP2 time scale with CH<sub>4</sub> synchronization from 10 to 18 kyr before present (diamonds). Dome C error bars indicate 1sd uncertainty. (A) The occurrence frequency of 1516 radiocarbon dates of basal peat deposits (14) shows the number of calibrated age ranges that occur in any year (black curve). (B) Cumulative curve of 1516 dates (red curve). (C) The oldest basal peat dates within each 2° by 2° grid (gray bars). Figure and caption from <span class="citation" data-cites="macdonald06sci">MacDonald et al. (<a href="references.html#ref-macdonald06sci" role="doc-biblioref">2006</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -1173,8 +1073,8 @@ Figure&nbsp;6.18: Timing of circumarctic peatland establishment compared with Ju
 </section>
 <section id="peatlands-and-the-global-carbon-cycle" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="peatlands-and-the-global-carbon-cycle">Peatlands and the global carbon cycle</h4>
-<p>As mentioned above, peatlands store 500-700 PgC (more than all biomass C globally) on only 3% of the Earth’s land surface <span class="citation" data-cites="page16annrev yu10grl">(<a href="references.html#ref-page16annrev" role="doc-biblioref">Page and Baird 2016</a>; <a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>)</span>. Since the majority of the peat present today has accumulated over the course of the Holocene, an average C sink of &gt;5 PgC (100 yr)<sup>-1</sup> has persisted over the same duration <span class="citation" data-cites="yu10grl">(<a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>)</span>. This is much smaller than the global fluxes of the anthropogenic C cycle perturbation, as quantified by the global carbon budget in <a href="globalcarbonbudget.html" class="quarto-xref"><span>Chapter 3</span></a>. Yet, its persistent nature and the magnitude of long-term C accumulation has had implications for millennial-scale terrestrial carbon storage changes and atmospheric CO<sub>2</sub> <span class="citation" data-cites="stocker17pnas">(<a href="references.html#ref-stocker17pnas" role="doc-biblioref">B. Stocker et al. 2017</a>)</span>. Due to their susceptibility to hydro-climatic conditions, peatland extent, global distribution, and C storage will likely undergo changes in a future climate. However, current research and model projections indicate unclear trends <span class="citation" data-cites="qiu22">(<a href="references.html#ref-qiu22" role="doc-biblioref">Qiu et al. 2022</a>)</span>.</p>
-<p>Peatlands, as all wetlands, are also a major source of methane (CH<sub>4</sub>). Under anoxic soil conditions, CH<sub>4</sub> is produced, rather than C being oxidized and CO<sub>2</sub> released (<a href="ghg.html" class="quarto-xref"><span>Chapter 10</span></a>).</p>
+<p>As mentioned above, peatlands store 500-700 PgC (more than all biomass C globally) on only 3% of the Earth’s land surface <span class="citation" data-cites="page16annrev yu10grl">(<a href="references.html#ref-page16annrev" role="doc-biblioref">Page and Baird 2016</a>; <a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>)</span>. Since the majority of the peat present today has accumulated over the course of the Holocene, an average C sink of &gt;5 PgC (100 yr)<sup>-1</sup> has persisted over the same duration <span class="citation" data-cites="yu10grl">(<a href="references.html#ref-yu10grl" role="doc-biblioref">Yu et al. 2010</a>)</span>. This is much smaller than the global fluxes of the anthropogenic C cycle perturbation, as quantified by the global carbon budget in <a href="globalcarbonbudget.html"><span>Chapter&nbsp;3</span></a>. Yet, its persistent nature and the magnitude of long-term C accumulation has had implications for millennial-scale terrestrial carbon storage changes and atmospheric CO<sub>2</sub> <span class="citation" data-cites="stocker17pnas">(<a href="references.html#ref-stocker17pnas" role="doc-biblioref">B. Stocker et al. 2017</a>)</span>. Due to their susceptibility to hydro-climatic conditions, peatland extent, global distribution, and C storage will likely undergo changes in a future climate. However, current research and model projections indicate unclear trends <span class="citation" data-cites="qiu22">(<a href="references.html#ref-qiu22" role="doc-biblioref">Qiu et al. 2022</a>)</span>.</p>
+<p>Peatlands, as all wetlands, are also a major source of methane (CH<sub>4</sub>). Under anoxic soil conditions, CH<sub>4</sub> is produced, rather than C being oxidized and CO<sub>2</sub> released (<a href="ghg.html"><span>Chapter&nbsp;10</span></a>).</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1197,32 +1097,24 @@ Exercise
 </section>
 <section id="sec-permafrost" class="level3" data-number="6.4.5">
 <h3 data-number="6.4.5" class="anchored" data-anchor-id="sec-permafrost"><span class="header-section-number">6.4.5</span> Permafrost</h3>
-<p>About 24% of the northern hemisphere’s exposed land surface contains ground that remains frozen for at least two consecutive years - the definition of permafrost <span class="citation" data-cites="schuur18annrev">(<a href="references.html#ref-schuur18annrev" role="doc-biblioref">Schuur and Mack 2018</a>)</span>. The global distriution of permafrost in the northern hemisphere is shown in <a href="#fig-permafrost_map" class="quarto-xref">Figure&nbsp;<span>6.19</span></a>. Organic matter in frozen soils is protected from decomposition - as long as the ground remains frozen. The total amount of C stored in permafrost soils (0-3 m depth) is estimated at 1,035 ± 150 PgC <span class="citation" data-cites="tarnocai09gbc hugelius14bg">(<a href="references.html#ref-tarnocai09gbc" role="doc-biblioref">Tarnocai et al. 2009</a>; <a href="references.html#ref-hugelius14bg" role="doc-biblioref">Hugelius et al. 2014</a>)</span> and substantial additional C (400-500 PgC) is stored at greater depth in particular locations (river sediments) <span class="citation" data-cites="schuur18annrev">(<a href="references.html#ref-schuur18annrev" role="doc-biblioref">Schuur and Mack 2018</a>)</span>. This amount of C adds another 50-100% to the total amount of C stored in soils (<a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>) and suggests that the distribution of permafrost is an important determinant for the global distribution of soil C (<a href="#fig-soilc_map" class="quarto-xref">Figure&nbsp;<span>6.15</span></a>).</p>
+<p>About 24% of the northern hemisphere’s exposed land surface contains ground that remains frozen for at least two consecutive years - the definition of permafrost <span class="citation" data-cites="schuur18annrev">(<a href="references.html#ref-schuur18annrev" role="doc-biblioref">Schuur and Mack 2018</a>)</span>. The global distriution of permafrost in the northern hemisphere is shown in <a href="#fig-permafrost_map">Figure&nbsp;<span>6.19</span></a>. Organic matter in frozen soils is protected from decomposition - as long as the ground remains frozen. The total amount of C stored in permafrost soils (0-3 m depth) is estimated at 1,035 ± 150 PgC <span class="citation" data-cites="tarnocai09gbc hugelius14bg">(<a href="references.html#ref-tarnocai09gbc" role="doc-biblioref">Tarnocai et al. 2009</a>; <a href="references.html#ref-hugelius14bg" role="doc-biblioref">Hugelius et al. 2014</a>)</span> and substantial additional C (400-500 PgC) is stored at greater depth in particular locations (river sediments) <span class="citation" data-cites="schuur18annrev">(<a href="references.html#ref-schuur18annrev" role="doc-biblioref">Schuur and Mack 2018</a>)</span>. This amount of C adds another 50-100% to the total amount of C stored in soils (<a href="globalcarbonbudget.html#fig-carbon-pools-fluxes-ipcc">Figure&nbsp;<span>3.1</span></a>) and suggests that the distribution of permafrost is an important determinant for the global distribution of soil C (<a href="#fig-soilc_map">Figure&nbsp;<span>6.15</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-permafrost_map" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-permafrost_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/permafrost_map.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-permafrost_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.19: Permafrost zone regions shown in shades of blue with percent of ground underlain by permafrost in parentheses. Generalized biome area for tundra and boreal regions shows intersection with permafrost across most, but not all, of these regions. Map created by Chris DeRolph, Oak Ridge National Laboratory, using data from various sources. Figure and caption from <span class="citation" data-cites="schuur18annrev">Schuur and Mack (<a href="references.html#ref-schuur18annrev" role="doc-biblioref">2018</a>)</span>.
-</figcaption>
+<div id="fig-permafrost_map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/permafrost_map.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.19: Permafrost zone regions shown in shades of blue with percent of ground underlain by permafrost in parentheses. Generalized biome area for tundra and boreal regions shows intersection with permafrost across most, but not all, of these regions. Map created by Chris DeRolph, Oak Ridge National Laboratory, using data from various sources. Figure and caption from <span class="citation" data-cites="schuur18annrev">Schuur and Mack (<a href="references.html#ref-schuur18annrev" role="doc-biblioref">2018</a>)</span>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Permafrost occurs (roughly) where the mean annual temperature is below freezing. During summer, the upper soil layers, the <em>active layer</em>, thaw. However, the seasonal fluctuation of soil temperature is attenuated deeper in the soil due to constraints on the rate of thermal diffusion across the soil. At a certain depth, the seasonal cycle of soil temperature disappears and the soil temperature is largely constant and equal to the mean annual air temperature on the ground (<span class="math inline">\(Z^\ast\)</span> in <a href="#fig-soiltemp_depth" class="quarto-xref">Figure&nbsp;<span>6.20</span></a>). Towards greater depth, the temperature increases again due to the geothermal heat flux. Permafrost is zone where temperatures never rise beyond 0°C.</p>
+<p>Permafrost occurs (roughly) where the mean annual temperature is below freezing. During summer, the upper soil layers, the <em>active layer</em>, thaw. However, the seasonal fluctuation of soil temperature is attenuated deeper in the soil due to constraints on the rate of thermal diffusion across the soil. At a certain depth, the seasonal cycle of soil temperature disappears and the soil temperature is largely constant and equal to the mean annual air temperature on the ground (<span class="math inline">\(Z^\ast\)</span> in <a href="#fig-soiltemp_depth">Figure&nbsp;<span>6.20</span></a>). Towards greater depth, the temperature increases again due to the geothermal heat flux. Permafrost is zone where temperatures never rise beyond 0°C.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-soiltemp_depth" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-soiltemp_depth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/permafrost_soiltem_depth_biskaborn19natcomm.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-soiltemp_depth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.20: Thermal regime of permafrost. Schematic showing the maximum (red line) and minimum ground temperature (blue line) during the year, and their convergence to give the mean annual ground temperature <em>T</em> at the depth of zero annual amplitude Z*. Black dots show the schematic mean temperature for permafrost soils. Figure and caption from <span class="citation" data-cites="biskaborn19natcomm">Biskaborn et al. (<a href="references.html#ref-biskaborn19natcomm" role="doc-biblioref">2019</a>)</span>
-</figcaption>
+<div id="fig-soiltemp_depth" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/permafrost_soiltem_depth_biskaborn19natcomm.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.20: Thermal regime of permafrost. Schematic showing the maximum (red line) and minimum ground temperature (blue line) during the year, and their convergence to give the mean annual ground temperature <em>T</em> at the depth of zero annual amplitude Z*. Black dots show the schematic mean temperature for permafrost soils. Figure and caption from <span class="citation" data-cites="biskaborn19natcomm">Biskaborn et al. (<a href="references.html#ref-biskaborn19natcomm" role="doc-biblioref">2019</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -1277,7 +1169,7 @@ Exercise
 <!-- Biomass in different biomes: https://doi.org/10.1073/pnas.0901970106 -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-basler16" class="csl-entry" role="listitem">
 Basler, David. 2016. <span>“Evaluating Phenological Models for the Prediction of Leaf-Out Dates in Six Temperate Tree Species Across Central <span>Europe</span>.”</span> <em>Agricultural and Forest Meteorology</em> 217 (February): 10–21. <a href="https://doi.org/10.1016/j.agrformet.2015.11.007">https://doi.org/10.1016/j.agrformet.2015.11.007</a>.
 </div>
@@ -1434,33 +1326,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1527,15 +1392,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1614,27 +1477,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1644,17 +1490,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1666,130 +1503,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1833,7 +1547,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1859,32 +1572,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1946,18 +1633,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ecosystemcarbon.html" class="pagination-link" aria-label="Ecosystem carbon dynamics">
+      <a href="./ecosystemcarbon.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ecosystem carbon dynamics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./landclimate.html" class="pagination-link" aria-label="Land-climate interactions">
+      <a href="./landclimate.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
