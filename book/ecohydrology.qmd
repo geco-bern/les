@@ -124,7 +124,7 @@ The latent heat flux and precipitation have clear seasonal variations in most bi
 
 ```{r echo=FALSE}
 #| label: fig-cwd
-#| fig-cap: "(a) Mean monthly evapotranspiration (ET) and precipitation (*P*) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - *P*. It is terminated each year when *P* after the dry season has compensated the previously accumuated water deficit. No negative values of CWD are considered by design. The method of CWD calculation is based on @stocker23natgeo."
+#| fig-cap: "(a) Mean monthly evapotranspiration (ET) and precipitation (*P*) for the site US-Ton, a woody savannah in a Mediterranean climate in California. (b) Time series of the cumulative water deficit (CWD) for the same site. The CWD is calculated as the cumulative sum of ET - *P*. It is terminated each year when *P* after the dry season has compensated the previously accumuated water deficit. *Events* of consecutive days with negative water balances and increasing cumulative water deficits are indicated by the grey bands in (b). No negative values of CWD are considered by design. The method of CWD calculation is based on @stocker23natgeo."
 #| out-width: 80%
 # figure created with analysis/plot_cwd.R
 knitr::include_graphics("images/cwd.png")
@@ -204,9 +204,11 @@ Here, $\psi_\text{SAT}$ is the soil matric potential at saturation, that is when
 ```{r, message=FALSE, warning=FALSE, fig.height=3, fig.width=8}
 #| code-fold: true
 #| label: fig-psisoil
-#| fig-cap: "Soil matric potential and suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan."
+#| fig-cap: "Soil (a) matric potential and (b) suction head as a function of volumetric water content, based on @eq-psisoil and soil texture class-specific parameters from @clapp78wrr, adopted from @bonan. Both panels show the same relationship but the y-axis in (b) is logarithmic. Horizontal dotted lines indicate the the field capacity and the permanent wilting point, which are defined here based on a soil matric potential of -1000 Pa and -150,000 mm."
 
+library(dplyr)
 library(readr)
+library(ggplot2)
 library(cowplot)
 
 # get table of soil parameters by texture class, adopted from Bonan 2015, Table 9.2
@@ -296,7 +298,7 @@ In sandy soils, the size of particles and hence the size of soil pores is large,
 ```{r, message=FALSE, warning=FALSE, fig.height=4}
 #| code-fold: true
 #| label: fig-soiltext
-#| fig-cap: "Soil volume fractions of available and unavailable moisture by texture classes. Data from @clapp72, adopted from @bonan."
+#| fig-cap: "Soil volume fractions of available and unavailable moisture by texture classes. Data from @clapp78wrr, adopted from @bonan."
 #| out-width: 80%
 
 library(readr)
