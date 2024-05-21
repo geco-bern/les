@@ -500,36 +500,38 @@ knitr::include_graphics("images/map_whc_s0.png")
 
 Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (@sec-transpiration). This water transport along the *soil-plant-atmosphere* (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable "burden" that is traded off against CO~2~ uptake for photosynthesis (@sec-stomatalregulation). 
 
-Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)
+Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics.
 
 {{< video https://www.youtube.com/watch?v=BickMFHAZR0 >}}
 
-The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf.  In simplified terms, this can be written as.
+The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water up the plant, the water at the level of the leaves is under a strong negative pressure. The taller the plant and the higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure at the leaf-level to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf. Remember that a conductance is the inverse of a resistance. In simplified terms, this can be written as.
 $$
-T = -G_p (\psi_l - \psi_s)
+T = -G_p (\psi_l - \psi_s + \rho g h)
 $$ {#eq-hydraulic_simple}
-This equation expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
+$\rho$ is the density of water (kg m^-3^), $g$ is the gravitational constant (9.81 m s^-2^), and $h$ is the height of the tree (m), measured from the average depth of the roots to the average height of the leaves. With the units of $\psi_l$ and $\psi_s$ in Pa and $T$ in units of (kg m^-2^ s^-1^), $G_p$ is in units of (s m^-1^). @eq-hydraulic_simple expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
 $$
 T =  1.6 \; g_s \; D
-$$
-These equations illustrates three important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by $D$ and $g_s$. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+$$ {#eq-transpiration-demand}
+These equations illustrate some important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere (@eq-transpiration-demand) can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water that is "demanded" by the atmosphere and determined by $D$ and $g_s$. Third, tall trees have to sustain more negative leaf water potentials than short for a given soil dryness and transpiration rate. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+
+Responses of plants to water stress are physiologically triggered through the sensing of leaf water potentials. In other words, $\psi_l$ is the central quantity that drives water stress responses of plants. Understanding how $\psi_l$ responds to environmental factors is thus key to understanding how water stress (stomatal closure, damaging drought stress) is a function of soil and air dryness, modified by plant hydraulic traits determining $G_p$.
 
 :::{.callout-note}
 
-@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
+@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a non-linear function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
 $$
-T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
-$$
-where $P(\psi)$ is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is
+T = -G_{p,0} \int_{\psi_s}^{\psi_l - \rho g h} P(\psi) \; \text{d}\psi  \;,
+$$ {#eq-hydraulicsupply}
+where $G_{p,0}$ is a "base" conductance at zero water potential and $P(\psi)$ is a vulnerability function of the plant conductance. The latter declines towards more negative water potentials. A commonly used functional form is
 $$
 P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
-$$
+$$ {#eq-vulnerabilitycurve}
 where $P_\text{50}$ is the water potential at which $P$ has dropped to 0.5. 
 
 ```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #| code-fold: true
 #| label: fig-hydraulics
-#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a separate parameter (not shown)."
+#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a shape parameter (*b* in @eq-vulnerabilitycurve)."
 
 library(ggplot2)
 
@@ -538,17 +540,68 @@ vulnerability_curve <- function(psi, p50, b){
 }
 
 ggplot() +
-  geom_function(fun = function(x) vulnerability_curve(x, -2000, 5)) +
-  xlim(-3500, 0) +
+  geom_function(fun = function(x) vulnerability_curve(x, -2000, 3)) +
+  xlim(-4000, 0) +
   geom_vline(xintercept = c(-2000, 0), linetype = "dotted") +
   labs(x = expression(paste(psi, " (Pa)")),
        y = expression(paste(italic(P(psi))))) + 
   theme_classic()
 ```
 
+@eq-hydraulicsupply can be regarded as the *hydraulic supply function* for transpiration [@sperrylove15newphyt] and @eq-vulnerabilitycurve is commonly referred to as the hydraulic *vulnerability curve* [@tyree89annrev]. The non-linearity arising from the latter implies that transpiration initially increases with an increasingly negative leaf water potential, but reaches a maximum beyond which transpiration does not further increase despite increasingly negative leaf water potentials. Reaching this point is risky for plants as it bears the danger of potentially lethal hydraulic failure (see below). Stomatal regulation acts to limit leaf water potentials reaching this point, while maximally exploiting soil water that is available for plant uptake without a substantial flattening of the $T(\psi_l)$ curve. What exactly "substantial" means, depends on plant strategies that vary between species.
+
+```{r, message=FALSE, warning=FALSE, fig.width=5, fig.height=3}
+#| code-fold: true
+#| label: fig-hydraulic-supply
+#| fig-cap: "Hydraulic supply function. Transpiration as a function of an increasingly negative leaf water potential for different soil water potential levels. Water potentials are negative values. The x-axis shows the negative of the negative leaf water potential values (thus positive values). The visualisation shows that the leaf water potential is at least as strongly negative as the soil water potential and transpiration only exceeds zero if the leaf water potential becomes even more negative than the soil water potential. It also shows the strong sensitivity of the maximum transpiration rate as a function of the soil water potential. 'Soil water potential' represents the average water potential across the entire rooting zone. Here, the gravitational effect on water potentials is ignored by setting the tree height (*h* in @eq-hydraulicsupply) to zero and the whole-plant base conductance *G*~p,0~ is set to 10^-6^ s m^-1^."
+
+library(dplyr)
+
+hydraulic_supply <- function(psi_leaf, psi_soil, g_plant, p50, b){
+  transpiration <- -g_plant * 
+    integrate(
+      f = vulnerability_curve, 
+      lower = psi_soil,   
+      upper = psi_leaf,
+      p50 = p50,      # argument for f
+      b = b           # argument for f
+      )$value
+  return(transpiration)
+}
+
+tmp <- expand.grid(
+  psi_leaf = seq(-4000, 0, by = 50),
+  psi_soil = seq(-2000, 0, by = 100)
+) |> 
+  as_tibble() |> 
+  rowwise() |> 
+  mutate(
+    transp = hydraulic_supply(
+      psi_leaf = psi_leaf, 
+      psi_soil = psi_soil, 
+      g_plant = 1e-6, 
+      p50 = -2000, 
+      b = 3
+      )
+  )
+
+tmp |> 
+  ggplot(aes(x = -psi_leaf, y = transp, color = psi_soil, group = psi_soil)) +
+  geom_line() +
+  scale_color_viridis_c(
+    name = expression(paste(psi[soil], " (Pa)")),
+    option = "cividis", 
+    direction = -1
+  ) +
+  labs(x = expression(paste(-psi[leaf], " (Pa)")),
+       y = expression(paste(italic(T), " (mm s"^-1, ")"))) + 
+  ylim(0, NA) +
+  theme_classic()
+```
+
 :::
 
-However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
+Sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
 
 Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO~2~ assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
 

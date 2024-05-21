@@ -13,6 +13,7 @@ To publish the book, do:
 ```sh
 quarto publish gh-pages book
 ```
+More info on publishing quarto [here](https://quarto.org/docs/publishing/github-pages.html#publishing).
 
 Author: Benjamin Stocker, Institute of Geography, University of Bern.
 
