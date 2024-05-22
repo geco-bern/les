@@ -496,7 +496,7 @@ knitr::include_graphics("images/map_whc_s0.png")
 ```
 
 
-## Plant hydraulics
+## Plant hydraulics {#sec-hydraulics}
 
 Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (@sec-transpiration). This water transport along the *soil-plant-atmosphere* (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable "burden" that is traded off against CO~2~ uptake for photosynthesis (@sec-stomatalregulation). 
 
@@ -633,13 +633,213 @@ knitr::include_graphics("images/drydownresponse.png")
 
 :::
 
-## Water bucket model
+## Water bucket model and ecohydrological relations
 
-Coming soon.
+In this and in the previous chapter (@sec-landclimate), we have learned about three important points that follow from mass and energy conservation and govern the water balance and its components:
 
-<!-- - Fluxes: E, T, interception, ... -->
-<!-- - Bucket model -->
-<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+- Precipitation $P$ is partitioned into evaporation $E$ and runoff $R$, as described by the ecosystem water balance (@eq-waterbalance).
+- Evaporation is limited by the amount of available water in the rooting zone (@sec-soilwater and @sec-hydraulics). As the soil across the root-penetrated depth dries out, $E$ declines towards zero. If there is no water available, there can be no transpiration or evaporation.
+- Evaporation is also limited by the amount of energy that is available at the land surface for evaporating water. This is described by the dependence of the potential evapotranspiration on net radiation (@sec-pet).
+
+A fourth point is:
+
+- Once the soil is water-saturated, it has no more capacity for absorbing $P$ and storing the water, and $P$ is diverted to runoff ($R$). 
+
+::: {.callout-note}
+
+### Bucket model definition
+
+A simple model that considers these four points is to conceive the ecosystem water balance with the *bucket model*, whereby the rooting zone water storage capacity is determined by a "bucket depth", given by $S_0$ (@eq-s0). Precipitation fills the bucket up to its maximum capacity $S_0$. Once the bucket is full, additional precipitation goes into runoff, while runoff is zero before the bucket is full. The water-unlimited rate of $E$ is PET. $E$ is drawn from the water stored in the bucket and the *actual* ET (here $E$) is reduced as a function of the remaining water in the bucket:
+$$
+E(t) = \text{PET}(t) \frac{S(t)}{S_0}
+$$ {#eq-etmodel}
+Runoff is generated only when the bucket is full.
+$$
+R(t) = \begin{cases}
+P(t) - (S_0 - S(t)) \; & \forall \; P(t) \geq S_0 - S(t) \\
+0 \; & \forall \; P(t) < S_0 - S(t)
+\end{cases}
+$$
+The soil water balance, i.e., the change in the root zone water storage $S$ is given by the balance of water inputs ($P(t)$), and losses (ET: $E(t)$ and runoff: $R(t)$):
+$$
+\frac{\text{d}S}{\text{d}t} = P(t) - E(t) - R(t)
+$$ {#eq-etdecay}
+Note that $S(t)$ is the total soil water content across the rooting zone. It is related to $\theta$ as $S(t) = z_r \theta(t)$. 
+
+:::
+
+From these four points, several key ecohydrological relations, governing the relation of ecosystem water and energy fluxes over time and across the globe, follow.
+
+#### Energy and water-limited ecosystems {-}
+
+In wet climates, where the soils are perennially moist ($S(t)/S_0$ mostly around 1), ET is driven by net radiation (as expressed through PET(*R*~n~), @eq-pet-pt). Such ecosystems are therefore referred to as *energy-limited* and the annual total *acutal ET* (AET) is close to the annual total PET.
+
+In water-limited ecosystems, the annual total ET is substantially lower than the annual total PET. However, not just annual totals of net radiation and precipitation matter, but also their distribution over days and over the seasons (see below).
+
+@fig-waterbucket-pet shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to *energy-limited*. If *P* falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of *P*/PET is (sometimes) referred to as the *moisture index* (and commonly but confusingly often referred to as the *aridity index*). A site's or an ecosystem's *aridity* is commonly quantified by *P*/PET, considering annual totals as done in @fig-waterbucket-pet.
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-pet
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total potential evapotranspiration (PET) for different levels of annual total precipitation (*P*). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above and assuming a root zone water storage capacity (*S*~0~) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_pet <- readRDS(here::here("data/df_pet.rds"))
+
+df_pet |> 
+  ggplot(
+    aes(
+      x = pet,
+      y = aet,
+      group = prec,
+      color = prec
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic("P"), " (mm)")),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = "PET (mm)",
+    y = "AET (mm)"
+  )
+```
+
+#### ET decay {-}
+
+During rain-free periods, *E(t)* gradually declines from its initial value. The shape of this decline over time roughly has the shape of an exponential decay [@teuling06grl]. The decay rate is determined by PET (thus *R*~n~) and the rooting-zone water-storage capacity *S*~0~.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-etdecay
+#| fig-cap: "Decay of evaporanspiration during dry periods at the ecosystem flux measurement site US-Ton, a woody savannah in a Mediterranean climate in California. (a) Evapotranspiration (*E*, in mm) time series for a subset of available measurement years. Dry periods are marked by grey rectangles and are defined as periods of a positive cumulative water deficit. (b) ET overlaid from multiple dry seasons (grey lines) versus days into the dry season. The blue line marks the mean across multiple dry seasons. (c) is the same as (b) but with a logarithmic y-axis. The linear shape of the ET decline in the logarithmic plot of (c) indicates an exponential functional form of *E* over time."
+#| out-width: 100%
+
+# figure produced with analyse/plots_ecohydrology.R
+knitr::include_graphics("images/etdecay.png")
+```
+
+::: {.callout-note}
+The exponential shape of the ET decline during dry periods directly follows from the water bucket model as defined above. During dry (rain-free) periods, $P=0$ and no runoff is generated ($R=0$). @eq-etdecay simplifies to
+$$
+\frac{\text{d}S}{\text{d}t} = - E(t)
+$$ 
+With @eq-etmodel:
+$$
+\frac{\text{d}S}{\text{d}t} = - \frac{\text{PET}(t)}{S_0} \; S(t)
+$$
+Assuming that PET is constant, this equation describes a simple first-order decay and is solved by
+$$
+S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
+$$
+Here, the rate constant of the exponential decay is $\text{PET}/S_0$. In other words, the higher PET, the more rapid the decline. The higher *S*~0~, the slower the decay.
+
+:::
+
+
+#### *S*~0~ as a buffer {-}
+
+The rooting-zone water-storage capacity *S*~0~ "buffers" variations in precipitation and determines how much moisture is plant-available during rain-free periods. Rooting depth, through its influence on *S*~0~, thus has the effect of compensating asynchroneities between water supply through precipitation and demand via PET (thus *R*~n~). A larger *S*~0~ implies a higher ratio of annual total ET over annual total *P*.
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-s0
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total precipitation (*P*) for different levels of the rooting zone water storage capacity (*S*~0~). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above, assuming an annual total PET of 2000 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming 10 wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_s0 <- readRDS(here::here("data/df_s0.rds"))
+
+df_s0 |> 
+  ggplot(
+    aes(
+      x = prec,
+      y = aet,
+      group = s0,
+      color = s0
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 2000, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic("S")[0], " (mm)")),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = expression(paste(italic(P), " (mm)")),
+    y = "AET (mm)"
+  )
+```
+
+
+#### Rainfall distribution {-}
+
+The distribution of rain over time matters. A "constant drizzle" keeps the bucket moist throughout the year and ET will stay close to PET. In contrast, if all annual precipitation falls within a short period of time, the bucket is quickly saturated and a higher fraction of the annual precipitation goes into runoff. In that case, some time after the large rainfall event or the short but intense moist season, the soil dries out again because the excess water has not been stored, and ET starts falling below PET.
+
+If part of the precipitation falls as snow, the timing of its melting and infiltration as liquid water into the rooting zone matters. Snow melt water can be a substantial root zone moisture input during months when $P-E$ is already negative (for example late spring in the Sierras of California).
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-wetd
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total precipitation (*P*) for different distributions of daily precipitation, where the number of wet days per month (*N*~wet~) is varied between (2, 3, 5, 7, 10, 12, 15, 20, 30). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above, assuming an annual total PET of 2000 mm and a rooting-zone water storage capacity (*S*~0~) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming a variable number of wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_wetd <- readRDS(here::here("data/df_wetd.rds"))
+
+df_wetd |> 
+  filter(mwetd != 3) |> 
+  ggplot(
+    aes(
+      x = prec,
+      y = aet,
+      group = mwetd,
+      color = mwetd
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 2000, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic(N)[wet])),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = expression(paste(italic(P), " (mm)")),
+    y = "AET (mm)"
+  )
+```
+
+#### Seasonality of radiation and precipitation {-}
+
+The seasonality of *R*~n~ and *P* matters. If *P* is high in months when *R*~n~ is high, soils remain moist, and ET stays close to PET. In contrast, when *R*~n~ is high during the dry period of the year, and *R*~n~ is low during the moist period of the year (e.g., in Mediterranean climates), a relatively large fraction of annual total *P* goes into runoff despite the ecosystem being water-limited during the dry period of the year. This is the case in Mediterranean climates where the dry period can extend over several months (@fig-cwd).
+
+
+::: {.callout-caution}
+## Exercise
+
+The model described here is a simplification. What empirically known aspects of the ecosystem water balance are ignored in terms of ...
+
+- runoff generation
+- the dependence of $E$ on $S(t)$
+
+...?
+
+:::
+
+
 <!-- - Lifetime of soil water -->
 <!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
 <!-- - Mass curve technique -->
