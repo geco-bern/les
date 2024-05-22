@@ -26,7 +26,7 @@ Evaporation from land is a smaller component than evaporation from oceans, and s
 
 :::
 
-::: {.callout-note}
+::: {.callout-tip icon=false, collapse=true}
 
 ## Atmospheric humidity
 
@@ -454,7 +454,7 @@ Another common expression of soil moisture is in *percent saturation* ($100\% \c
 ::: {.callout-caution}
 ## Exercise
 
-- Label $\theta_\text{SAT}$, $\theta_\text{FC}$, $\theta_\text{WP}$, porosity, and WHC in @fig-soiltext.
+1. Label $\theta_\text{SAT}$, $\theta_\text{FC}$, $\theta_\text{WP}$, porosity, and WHC in @fig-soiltext.
 
 :::
 
@@ -470,7 +470,7 @@ The rooting depth $z_r$ is measured in units of length (for example in m), while
 ::: {.callout-caution}
 ## Exercise
 
-- Look up species names shown in @fig-rootingdepth on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in @fig-rootingdepth a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?
+2. Look up species names shown in @fig-rootingdepth on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in @fig-rootingdepth a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?
 
 :::
 
@@ -620,7 +620,7 @@ knitr::include_graphics("images/drydownresponse.png")
 ::: {.callout-caution}
 ## Exercise
 
-- Consider a soil dry down as in @fig-drydownresponse. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+3. Consider a soil dry down as in @fig-drydownresponse. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
   - Soil water content
   - Latent heat flux
   - Sensible heat flux
@@ -666,6 +666,13 @@ $$
 $$ {#eq-etdecay}
 Note that $S(t)$ is the total soil water content across the rooting zone. It is related to $\theta$ as $S(t) = z_r \theta(t)$. 
 
+```{r echo=FALSE, fig.width=7, fig.height=10}
+#| label: fig-waterbucketmodel-illustration
+#| fig-cap: "Illustration of the water bucket model. Terms are explained in the text above."
+#| out-width: 40%
+knitr::include_graphics("images/waterbucketmodel.png")
+```
+
 :::
 
 From these four points, several key ecohydrological relations, governing the relation of ecosystem water and energy fluxes over time and across the globe, follow.
@@ -676,7 +683,7 @@ In wet climates, where the soils are perennially moist ($S(t)/S_0$ mostly around
 
 In water-limited ecosystems, the annual total ET is substantially lower than the annual total PET. However, not just annual totals of net radiation and precipitation matter, but also their distribution over days and over the seasons (see below).
 
-@fig-waterbucket-pet shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to *energy-limited*. If *P* falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of *P*/PET is (sometimes) referred to as the *moisture index* (and commonly but confusingly often referred to as the *aridity index*). A site's or an ecosystem's *aridity* is commonly quantified by *P*/PET, considering annual totals as done in @fig-waterbucket-pet.
+@fig-waterbucket-pet shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to *energy-limited*. If *P* falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of *P*/PET is (sometimes) referred to as the *moisture index*. Its inverse, PET/*P* is often referred to as the *aridity index* (But beware: sometimes the two former is called 'aridity index' in the literature). A site's or an ecosystem's *aridity* is commonly quantified by *P*/PET, considering annual totals as done in @fig-waterbucket-pet.
 
 ```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
 #| code-fold: true
@@ -711,6 +718,39 @@ df_pet |>
   )
 ```
 
+@fig-waterbucket-pet illustrates that for high PET in relation to *P*, AET is close to *P*. In other words, given sufficient energy, all available water that falls as precipitation is consumed by AET. By dividing the x-axis and the y-axis of @fig-waterbucket-pet by *P*, we control for the effect of *P* on AET. The resulting relationship has a useful interpretation. It means that we can estimate the fraction of *P* that gets "consumed" by AET as a function of the aridity index. 
+
+The emerging pattern is known as the *Budyko* relationship. It illustrates how, for energy-limited systems towards the left end of the x-axis, AET increases with energy availability (measured by PET), largely independent of *P*. Towards the right end of the x-axis are the water-limited systems. Here, PET is much larger than *P* and all available water gets consumed by AET. In between, there is a range of AET/*P* values for a given aridity index. The higher the precipitation (in relation to the root zone water storage capacity), the lower AET/*P*. This is because a larger share is diverted to runoff if precipitation is high and cannot be stored in the limited storage capacity along the rooting zone.
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-budyko
+#| fig-cap: "Budyko relationship. Each point is simulated following the water bucket model described above and assuming a root zone water storage capacity (*S*~0~) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line."
+
+# Budyko
+df_pet |> 
+  ggplot(
+    aes(
+      x = pet/prec,
+      y = aet/prec,
+      color = prec
+    )
+  ) + 
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 1, linetype = "dotted") +
+  scale_color_viridis_c(
+    name = expression(paste(italic("P"), " (mm)")),
+    option = "magma"
+  ) +
+  theme_classic() +
+  xlim(0, 3) +
+  labs(
+    x = expression(paste("PET/", italic(P))),
+    y = expression(paste("AET/", italic(P)))
+  )
+```
+
 #### ET decay {-}
 
 During rain-free periods, *E(t)* gradually declines from its initial value. The shape of this decline over time roughly has the shape of an exponential decay [@teuling06grl]. The decay rate is determined by PET (thus *R*~n~) and the rooting-zone water-storage capacity *S*~0~.
@@ -725,6 +765,7 @@ knitr::include_graphics("images/etdecay.png")
 ```
 
 ::: {.callout-note}
+
 The exponential shape of the ET decline during dry periods directly follows from the water bucket model as defined above. During dry (rain-free) periods, $P=0$ and no runoff is generated ($R=0$). @eq-etdecay simplifies to
 $$
 \frac{\text{d}S}{\text{d}t} = - E(t)
@@ -741,8 +782,7 @@ Here, the rate constant of the exponential decay is $\text{PET}/S_0$. In other w
 
 :::
 
-
-#### *S*~0~ as a buffer {-}
+#### Rooting-zone water-storage as a buffer {-}
 
 The rooting-zone water-storage capacity *S*~0~ "buffers" variations in precipitation and determines how much moisture is plant-available during rain-free periods. Rooting depth, through its influence on *S*~0~, thus has the effect of compensating asynchroneities between water supply through precipitation and demand via PET (thus *R*~n~). A larger *S*~0~ implies a higher ratio of annual total ET over annual total *P*.
 
@@ -832,8 +872,8 @@ The seasonality of *R*~n~ and *P* matters. If *P* is high in months when *R*~n~ 
 
 The model described here is a simplification. What empirically known aspects of the ecosystem water balance are ignored in terms of ...
 
-- runoff generation
-- the dependence of $E$ on $S(t)$
+4. runoff generation
+5. the dependence of $E$ on $S(t)$
 
 ...?
 
@@ -846,13 +886,88 @@ The model described here is a simplification. What empirically known aspects of 
 
 ## Ecosystem water fluxes
 
-Coming soon.
+Water limitation has effects on stomatal conductance through plant hydraulic relations (@sec-hydraulics) and on the amount of active green leaves, measured by the LAI or - from space - by surface greenness indices (@sec-phenology). This affects the surface conductance to water vapor and, in turn, the surface energy partitioning (@sec-energypartitioning). To illustrate the effects of water limitation on the partitioning of net radiation into the turbulent heat fluxes $H$ and $\lambda E$, let's compare the measured fluxes at four temperate sites (@fig-site-info-ecohydrology) with a warm and relatively dry summers.
+
+```{r, message=FALSE, warning=FALSE}
+#| code-fold: true
+#| label: fig-site-info-ecohydrology
+#| fig-cap: "Site meta information. Vegetation types are described in @tbl-vegtype. Climate zones are described in @fig-table_beck."
+
+df_sites <- read_csv(here::here("data/fdk_site_info.csv"))
+
+# chose representative sites
+use_sites <- c(
+      "US-Ton", # Woody savannah, strong sensitivity
+      "FR-Pue", # Evergreen broadleaved, strong sensitivity
+      "US-Me2", # Evergreen needleleaved, low sensitivity
+      "IT-PT1"  # Deciduous broadleaved, low sensitivity
+    )
+
+# subset data
+df_sites |>  
+  filter(sitename %in% use_sites) |> 
+  mutate(
+    lon = format(lon, digits = 3), 
+    lat = format(lat, digits = 3), 
+    elv = format(elv, digits = 3)
+    ) |> 
+  select(
+    Site = sitename, 
+    Longitude = lon, 
+    Latitude = lat, 
+    Elevation = elv, 
+    `Vegetation type` = igbp_land_use,
+    `Climate zone` = koeppen_code
+    ) |> 
+  knitr::kable()
+```
+
+All four sites experience cumulative water deficits during the summer months (@fig-cwd-seasonal) - albeit to a varying degree.
+
+```{r echo=FALSE}
+#| label: fig-cwd-seasonal
+#| fig-cap: "Mean seasonal cycle of the cumulative water deficit (CWD, in mm). The 25% and 75% quantiles across individual years are shown by the grey band, and the median is shown by the black line."
+#| out-width: 100%
+# figure created with analysis/plot_energy_partitioning_ecohydrology.R
+knitr::include_graphics("images/cwd_sites_ecohydrology.png")
+```
+
+```{r echo=FALSE}
+#| label: fig-energypart-seasonal
+#| fig-cap: "Seasonal variations of energy fluxes at four sites with warm and relatively dry summers."
+#| out-width: 100%
+# figure created with analysis/plot_energy_partitioning_ecohydrology.R
+knitr::include_graphics("images/seasonal_cycle_radiation_ecohydrology.png")
+```
+
+::: {.callout-caution}
+## Exercise
+
+6. How does the Bowen ratio and the evaporative fraction change throughout the year at the four sites? Do you see a characteristic pattern of these four sites with relatively dry summers compared to the three temperate sites with relatively moist summers shown in @fig-energy-seasonal?
+7. Compare US-Ton and IT-PT1. At both sites, net radiation reaches around 200 W m^-2^, yet the seasonal course of $H$ differs. Why?
+8. Compare US-Ton and IT-PT1. The seasonal course of $\lambda E$ differs between the two sites. What could be a reason?
+9. The energy partitioning, measured by the Bowen ratio, is similar at US-Me2 and FR-Pue, yet the two sites differ with respect to their average cumulative water deficits. What could be a reason?
+
+:::
+
+
+
+<!-- At the tundra and the boreal site, the Bowen ratio is near one throughout the day, indicating an equal split between $H$ and $\lambda E$. At the tropical forest site, the latent heat flux is much higher than the sensible heat flux. This is likely due to a higher VPD at mid-day at BR-Sa3 than at the other sites, combined with differences in stomatal conductance (and therefore surface conductance) and vegetation height (and therefore roughness and aerodynamic conductance). -->
+
+<!-- Differences among the three temperate sites are also interesting. Despite a higher net radiation, the latent heat flux is lower at the coniferous forest site DE-Tha than at the beech (broadleaf) forest site DE-Hai. This may be due to generally more conservative water use of coniferous trees (gymnosperms) and is related to their water transport system which is distinct from angiosperms (to which beech belongs). Among the temperate sites, the grassland (DE-Gri) shows the highest latent heat flux - despite being short-statured and thus having a lower aerodynamic conductance than its forest counterparts and the same meteorological conditions  -->
+
+<!-- XXX LES 2:  -->
+<!-- - investigate the drivers of LE being higher than H at the tropical forest site, but not in other forests. -->
+<!-- - investigate differences in LE between DE-Hai and DE-Tha (is VPD the cause of differences?) -->
+
+
 
 <!-- (Contrast moist and dry sites) -->
 
 <!-- - Schulze Ch 16 -->
 
-## Energy and water limitation across the globe
+## Energy and water limitation across the globe {#sec-budyko}
+
 
 Coming soon.
 
