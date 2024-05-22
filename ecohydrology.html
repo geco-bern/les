@@ -331,7 +331,7 @@ div.csl-indent {
   <li><a href="#sec-hydraulics" id="toc-sec-hydraulics" class="nav-link" data-scroll-target="#sec-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
   <li><a href="#water-bucket-model-and-ecohydrological-relations" id="toc-water-bucket-model-and-ecohydrological-relations" class="nav-link" data-scroll-target="#water-bucket-model-and-ecohydrological-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</a></li>
   <li><a href="#ecosystem-water-fluxes" id="toc-ecosystem-water-fluxes" class="nav-link" data-scroll-target="#ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</a></li>
-  <li><a href="#energy-and-water-limitation-across-the-globe" id="toc-energy-and-water-limitation-across-the-globe" class="nav-link" data-scroll-target="#energy-and-water-limitation-across-the-globe"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</a></li>
+  <li><a href="#sec-budyko" id="toc-sec-budyko" class="nav-link" data-scroll-target="#sec-budyko"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</a></li>
   <li><a href="#landscape-scale-heterogeneity" id="toc-landscape-scale-heterogeneity" class="nav-link" data-scroll-target="#landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</a></li>
   </ul>
 </nav>
@@ -389,15 +389,17 @@ Exercise
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Atmospheric humidity
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <!-- XXX move this to Ch land-climate interactions -->
 <p>We have encountered the vapour pressure deficit (VPD) and its control on transpiration in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a> and on evapotranspiration in <a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.2</span></a>. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air.</p>
@@ -444,6 +446,7 @@ e_s(T) = 611.0 \; \exp \left( \frac{17.27 \; T}{T + 237.3} \right)
 \]</span></p>
 </div>
 </div>
+</div>
 </section>
 <section id="ecosystem-water-balance" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="ecosystem-water-balance"><span class="header-section-number">8.2</span> Ecosystem water balance</h2>
@@ -463,7 +466,7 @@ Note
 <p>Most commonly, the components of <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a> are expressed as a mass per unit ground area and time. That is, for example in kg m<sup>-2</sup> yr<sup>-1</sup>. With the density of water <span class="math inline">\(\rho_w = 1000\)</span> kg m<sup>-3</sup>, 1 kg m<sup>-2</sup> is equivalent to 1 mm.</p>
 </div>
 </div>
-<p>With <span class="math inline">\(R \geq 0\)</span> and <span class="math inline">\(\Delta S = 0\)</span>, it follows that <span class="math inline">\(P \geq E\)</span>. On a global average over land, <span class="math inline">\(E/P = 0.65\)</span>. However, <span class="math inline">\(E/P\)</span> varies between about 0.2 and 1 across different ecosystems, catchments, and biomes. The pattern of how this ratio varies across the globe is described and explained in <span class="quarto-unresolved-ref">?sec-budyko</span>.</p>
+<p>With <span class="math inline">\(R \geq 0\)</span> and <span class="math inline">\(\Delta S = 0\)</span>, it follows that <span class="math inline">\(P \geq E\)</span>. On a global average over land, <span class="math inline">\(E/P = 0.65\)</span>. However, <span class="math inline">\(E/P\)</span> varies between about 0.2 and 1 across different ecosystems, catchments, and biomes. The pattern of how this ratio varies across the globe is described and explained in <a href="#sec-budyko"><span>Section&nbsp;8.7</span></a>.</p>
 <p><span class="math inline">\(E\)</span> in <a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a> includes contributions from multiples sources and processes (<a href="#fig-evapotranspiration-components">Figure&nbsp;<span>8.3</span></a>). Below, we will refer to it as <em>evapotranspiration</em>, or short, <em>ET</em>. ET is the sum of transpiration by leaves (<span class="math inline">\(T\)</span>, corresponding to what is referred to as <span class="math inline">\(E\)</span> in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>), evaporation from soil (<span class="math inline">\(E_S\)</span>), evaporation from intercepted water on leaf and branch surfaces (<span class="math inline">\(E_I\)</span>), and sublimation (<span class="math inline">\(S\)</span>, the phase change from solid water in the form of snow and ice directly to the gaseous phase). <span id="eq-et"><span class="math display">\[
 E = T + E_S + E_I + S
 \tag{8.3}\]</span></span></p>
@@ -814,9 +817,9 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
+<ol type="1">
 <li>Label <span class="math inline">\(\theta_\text{SAT}\)</span>, <span class="math inline">\(\theta_\text{FC}\)</span>, <span class="math inline">\(\theta_\text{WP}\)</span>, porosity, and WHC in <a href="#fig-soiltext">Figure&nbsp;<span>8.7</span></a>.</li>
-</ul>
+</ol>
 </div>
 </div>
 <section id="rooting-zone-water-storage-capacity" class="level3" data-number="8.3.1">
@@ -834,9 +837,9 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
+<ol start="2" type="1">
 <li>Look up species names shown in <a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a> on the internet. Do you know these plants? Do you find patterns that relate to differences between PFTs shown in <a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a> a, and in how the rooting depth relates to the biomes and climate zones in which these species grow?</li>
-</ul>
+</ol>
 </div>
 </div>
 <!-- For example, common crops, like maize (*Zea Mays L.*) and wheat (*Triticum aestivum*), and a common temperate grass (*Lolium perenne*) have relatively shallow roots. Also some tree species have relatively shallow roots. For example, Norway spruce (*Picea abies*, German: Fichte), coniferous tree that is widely cultivated in as a high-yielding species in temperate forests, has consistently shallow roots. On the other extreme, *Acacia erioloba* - a tropical savannah tree, or *Boscia albitrunca* - have been recorded with extremely deep roots, reaching up to 80 m.   -->
@@ -998,8 +1001,9 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>Consider a soil dry down as in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.12</span></a>. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+<ol start="3" type="1">
+<li>Consider a soil dry down as in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.12</span></a>. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):</li>
+</ol>
 <ul>
 <li>Soil water content</li>
 <li>Latent heat flux</li>
@@ -1010,7 +1014,6 @@ Exercise
 <li><em>R</em><sub>eco</sub></li>
 <li>NEE</li>
 <li>Tree mortality due to hydraulic failure</li>
-</ul></li>
 </ul>
 </div>
 </div>
@@ -1047,6 +1050,16 @@ P(t) - (S_0 - S(t)) \; &amp; \forall \; P(t) \geq S_0 - S(t) \\
 \]</span> The soil water balance, i.e., the change in the root zone water storage <span class="math inline">\(S\)</span> is given by the balance of water inputs (<span class="math inline">\(P(t)\)</span>), and losses (ET: <span class="math inline">\(E(t)\)</span> and runoff: <span class="math inline">\(R(t)\)</span>): <span id="eq-etdecay"><span class="math display">\[
 \frac{\text{d}S}{\text{d}t} = P(t) - E(t) - R(t)
 \tag{8.11}\]</span></span> Note that <span class="math inline">\(S(t)\)</span> is the total soil water content across the rooting zone. It is related to <span class="math inline">\(\theta\)</span> as <span class="math inline">\(S(t) = z_r \theta(t)\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-waterbucketmodel-illustration" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/waterbucketmodel.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.13: Illustration of the water bucket model. Terms are explained in the text above.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 <p>From these four points, several key ecohydrological relations, governing the relation of ecosystem water and energy fluxes over time and across the globe, follow.</p>
@@ -1054,7 +1067,7 @@ P(t) - (S_0 - S(t)) \; &amp; \forall \; P(t) \geq S_0 - S(t) \\
 <h4 class="unnumbered anchored" data-anchor-id="energy-and-water-limited-ecosystems">Energy and water-limited ecosystems</h4>
 <p>In wet climates, where the soils are perennially moist (<span class="math inline">\(S(t)/S_0\)</span> mostly around 1), ET is driven by net radiation (as expressed through PET(<em>R</em><sub>n</sub>), <a href="landclimate.html#eq-pet-pt">Equation&nbsp;<span>7.6</span></a>). Such ecosystems are therefore referred to as <em>energy-limited</em> and the annual total <em>acutal ET</em> (AET) is close to the annual total PET.</p>
 <p>In water-limited ecosystems, the annual total ET is substantially lower than the annual total PET. However, not just annual totals of net radiation and precipitation matter, but also their distribution over days and over the seasons (see below).</p>
-<p><a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.13</span></a> shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to <em>energy-limited</em>. If <em>P</em> falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of <em>P</em>/PET is (sometimes) referred to as the <em>moisture index</em> (and commonly but confusingly often referred to as the <em>aridity index</em>). A site’s or an ecosystem’s <em>aridity</em> is commonly quantified by <em>P</em>/PET, considering annual totals as done in <a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.13</span></a>.</p>
+<p><a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.14</span></a> shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to <em>energy-limited</em>. If <em>P</em> falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of <em>P</em>/PET is (sometimes) referred to as the <em>moisture index</em>. Its inverse, PET/<em>P</em> is often referred to as the <em>aridity index</em> (But beware: sometimes the two former is called ‘aridity index’ in the literature). A site’s or an ecosystem’s <em>aridity</em> is commonly quantified by <em>P</em>/PET, considering annual totals as done in <a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.14</span></a>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -1089,7 +1102,44 @@ P(t) - (S_0 - S(t)) \; &amp; \forall \; P(t) \geq S_0 - S(t) \\
 <div id="fig-waterbucket-pet" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ecohydrology_files/figure-html/fig-waterbucket-pet-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.13: Annual total actual evapotranspiration (AET) versus annual total potential evapotranspiration (PET) for different levels of annual total precipitation (<em>P</em>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above and assuming a root zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.14: Annual total actual evapotranspiration (AET) versus annual total potential evapotranspiration (PET) for different levels of annual total precipitation (<em>P</em>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above and assuming a root zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.14</span></a> illustrates that for high PET in relation to <em>P</em>, AET is close to <em>P</em>. In other words, given sufficient energy, all available water that falls as precipitation is consumed by AET. By dividing the x-axis and the y-axis of <a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.14</span></a> by <em>P</em>, we control for the effect of <em>P</em> on AET. The resulting relationship has a useful interpretation. It means that we can estimate the fraction of <em>P</em> that gets “consumed” by AET as a function of the aridity index.</p>
+<p>The emerging pattern is known as the <em>Budyko</em> relationship. It illustrates how, for energy-limited systems towards the left end of the x-axis, AET increases with energy availability (measured by PET), largely independent of <em>P</em>. Towards the right end of the x-axis are the water-limited systems. Here, PET is much larger than <em>P</em> and all available water gets consumed by AET. In between, there is a range of AET/<em>P</em> values for a given aridity index. The higher the precipitation (in relation to the root zone water storage capacity), the lower AET/<em>P</em>. This is because a larger share is diverted to runoff if precipitation is high and cannot be stored in the limited storage capacity along the rooting zone.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Budyko</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_pet <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> pet<span class="sc">/</span>prec,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet<span class="sc">/</span>prec,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> prec</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"P"</span>), <span class="st">" (mm)"</span>)),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"PET/"</span>, <span class="fu">italic</span>(P))),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"AET/"</span>, <span class="fu">italic</span>(P)))</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-budyko" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-budyko-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.15: Budyko relationship. Each point is simulated following the water bucket model described above and assuming a root zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line.</figcaption>
 </figure>
 </div>
 </div>
@@ -1103,7 +1153,7 @@ P(t) - (S_0 - S(t)) \; &amp; \forall \; P(t) \geq S_0 - S(t) \\
 <div id="fig-etdecay" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/etdecay.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.14: Decay of evaporanspiration during dry periods at the ecosystem flux measurement site US-Ton, a woody savannah in a Mediterranean climate in California. (a) Evapotranspiration (<em>E</em>, in mm) time series for a subset of available measurement years. Dry periods are marked by grey rectangles and are defined as periods of a positive cumulative water deficit. (b) ET overlaid from multiple dry seasons (grey lines) versus days into the dry season. The blue line marks the mean across multiple dry seasons. (c) is the same as (b) but with a logarithmic y-axis. The linear shape of the ET decline in the logarithmic plot of (c) indicates an exponential functional form of <em>E</em> over time.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.16: Decay of evaporanspiration during dry periods at the ecosystem flux measurement site US-Ton, a woody savannah in a Mediterranean climate in California. (a) Evapotranspiration (<em>E</em>, in mm) time series for a subset of available measurement years. Dry periods are marked by grey rectangles and are defined as periods of a positive cumulative water deficit. (b) ET overlaid from multiple dry seasons (grey lines) versus days into the dry season. The blue line marks the mean across multiple dry seasons. (c) is the same as (b) but with a logarithmic y-axis. The linear shape of the ET decline in the logarithmic plot of (c) indicates an exponential functional form of <em>E</em> over time.</figcaption>
 </figure>
 </div>
 </div>
@@ -1128,45 +1178,45 @@ S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
 </div>
 </div>
 </section>
-<section id="s0-as-a-buffer" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="s0-as-a-buffer"><em>S</em><sub>0</sub> as a buffer</h4>
+<section id="rooting-zone-water-storage-as-a-buffer" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="rooting-zone-water-storage-as-a-buffer">Rooting-zone water-storage as a buffer</h4>
 <p>The rooting-zone water-storage capacity <em>S</em><sub>0</sub> “buffers” variations in precipitation and determines how much moisture is plant-available during rain-free periods. Rooting depth, through its influence on <em>S</em><sub>0</sub>, thus has the effect of compensating asynchroneities between water supply through precipitation and demand via PET (thus <em>R</em><sub>n</sub>). A larger <em>S</em><sub>0</sub> implies a higher ratio of annual total ET over annual total <em>P</em>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_s0.rds"</span>))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="sc">|&gt;</span> </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> s0,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> s0</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"S"</span>)[<span class="dv">0</span>], <span class="st">" (mm)"</span>)),</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_s0.rds"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> s0,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> s0</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"S"</span>)[<span class="dv">0</span>], <span class="st">" (mm)"</span>)),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-waterbucket-s0" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ecohydrology_files/figure-html/fig-waterbucket-s0-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.15: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different levels of the rooting zone water storage capacity (<em>S</em><sub>0</sub>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.17: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different levels of the rooting zone water storage capacity (<em>S</em><sub>0</sub>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
 </figure>
 </div>
 </div>
@@ -1179,40 +1229,40 @@ S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_wetd.rds"</span>))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="sc">|&gt;</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mwetd <span class="sc">!=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> mwetd,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> mwetd</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(N)[wet])),</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_wetd.rds"</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="sc">|&gt;</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mwetd <span class="sc">!=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> mwetd,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> mwetd</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(N)[wet])),</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-waterbucket-wetd" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ecohydrology_files/figure-html/fig-waterbucket-wetd-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.16: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different distributions of daily precipitation, where the number of wet days per month (<em>N</em><sub>wet</sub>) is varied between (2, 3, 5, 7, 10, 12, 15, 20, 30). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm and a rooting-zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming a variable number of wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.18: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different distributions of daily precipitation, where the number of wet days per month (<em>N</em><sub>wet</sub>) is varied between (2, 3, 5, 7, 10, 12, 15, 20, 30). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm and a rooting-zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming a variable number of wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
 </figure>
 </div>
 </div>
@@ -1232,10 +1282,10 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>The model described here is a simplification. What empirically known aspects of the ecosystem water balance are ignored in terms of …</p>
-<ul>
+<ol start="4" type="1">
 <li>runoff generation</li>
 <li>the dependence of <span class="math inline">\(E\)</span> on <span class="math inline">\(S(t)\)</span></li>
-</ul>
+</ol>
 <p>…?</p>
 </div>
 </div>
@@ -1246,12 +1296,139 @@ Exercise
 </section>
 <section id="ecosystem-water-fluxes" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</h2>
-<p>Coming soon.</p>
+<p>Water limitation has effects on stomatal conductance through plant hydraulic relations (<a href="#sec-hydraulics"><span>Section&nbsp;8.4</span></a>) and on the amount of active green leaves, measured by the LAI or - from space - by surface greenness indices (<a href="globalcarbonpatterns.html#sec-phenology"><span>Section&nbsp;6.2</span></a>). This affects the surface conductance to water vapor and, in turn, the surface energy partitioning (<a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.2</span></a>). To illustrate the effects of water limitation on the partitioning of net radiation into the turbulent heat fluxes <span class="math inline">\(H\)</span> and <span class="math inline">\(\lambda E\)</span>, let’s compare the measured fluxes at four temperate sites (<a href="#fig-site-info-ecohydrology">Figure&nbsp;<span>8.19</span></a>) with a warm and relatively dry summers.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_sites <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/fdk_site_info.csv"</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># chose representative sites</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>use_sites <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"US-Ton"</span>, <span class="co"># Woody savannah, strong sensitivity</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"FR-Pue"</span>, <span class="co"># Evergreen broadleaved, strong sensitivity</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"US-Me2"</span>, <span class="co"># Evergreen needleleaved, low sensitivity</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"IT-PT1"</span>  <span class="co"># Deciduous broadleaved, low sensitivity</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>df_sites <span class="sc">|&gt;</span>  </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sitename <span class="sc">%in%</span> use_sites) <span class="sc">|&gt;</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> <span class="fu">format</span>(lon, <span class="at">digits =</span> <span class="dv">3</span>), </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">format</span>(lat, <span class="at">digits =</span> <span class="dv">3</span>), </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">elv =</span> <span class="fu">format</span>(elv, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">Site =</span> sitename, </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Longitude =</span> lon, </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">Latitude =</span> lat, </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Elevation =</span> elv, </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Vegetation type</span><span class="st">`</span> <span class="ot">=</span> igbp_land_use,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Climate zone</span><span class="st">`</span> <span class="ot">=</span> koeppen_code</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="fig-site-info-ecohydrology" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Site</th>
+<th style="text-align: left;">Longitude</th>
+<th style="text-align: left;">Latitude</th>
+<th style="text-align: left;">Elevation</th>
+<th style="text-align: left;">Vegetation type</th>
+<th style="text-align: left;">Climate zone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FR-Pue</td>
+<td style="text-align: left;">3.60</td>
+<td style="text-align: left;">43.7</td>
+<td style="text-align: left;">270</td>
+<td style="text-align: left;">EBF</td>
+<td style="text-align: left;">Csa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IT-PT1</td>
+<td style="text-align: left;">9.06</td>
+<td style="text-align: left;">45.2</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">DBF</td>
+<td style="text-align: left;">Cfa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">US-Me2</td>
+<td style="text-align: left;">-121.56</td>
+<td style="text-align: left;">44.5</td>
+<td style="text-align: left;">1253</td>
+<td style="text-align: left;">ENF</td>
+<td style="text-align: left;">Csb</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">US-Ton</td>
+<td style="text-align: left;">-120.97</td>
+<td style="text-align: left;">38.4</td>
+<td style="text-align: left;">177</td>
+<td style="text-align: left;">WSA</td>
+<td style="text-align: left;">Csa</td>
+</tr>
+</tbody>
+</table>
+<figcaption class="figure-caption">Figure&nbsp;8.19: Site meta information. Vegetation types are described in <a href="biogeography.html#tbl-vegtype">Table&nbsp;<span>2.1</span></a>. Climate zones are described in <a href="biogeography.html#fig-table_beck">Figure&nbsp;<span>2.22</span></a>.</figcaption>
+</figure>
+</div>
+</div>
+<p>All four sites experience cumulative water deficits during the summer months (<a href="#fig-cwd-seasonal">Figure&nbsp;<span>8.20</span></a>) - albeit to a varying degree.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-cwd-seasonal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/cwd_sites_ecohydrology.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.20: Mean seasonal cycle of the cumulative water deficit (CWD, in mm). The 25% and 75% quantiles across individual years are shown by the grey band, and the median is shown by the black line.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-energypart-seasonal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/seasonal_cycle_radiation_ecohydrology.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.21: Seasonal variations of energy fluxes at four sites with warm and relatively dry summers.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="6" type="1">
+<li>How does the Bowen ratio and the evaporative fraction change throughout the year at the four sites? Do you see a characteristic pattern of these four sites with relatively dry summers compared to the three temperate sites with relatively moist summers shown in <a href="landclimate.html#fig-energy-seasonal">Figure&nbsp;<span>7.12</span></a>?</li>
+<li>Compare US-Ton and IT-PT1. At both sites, net radiation reaches around 200 W m<sup>-2</sup>, yet the seasonal course of <span class="math inline">\(H\)</span> differs. Why?</li>
+<li>Compare US-Ton and IT-PT1. The seasonal course of <span class="math inline">\(\lambda E\)</span> differs between the two sites. What could be a reason?</li>
+<li>The energy partitioning, measured by the Bowen ratio, is similar at US-Me2 and FR-Pue, yet the two sites differ with respect to their average cumulative water deficits. What could be a reason?</li>
+</ol>
+</div>
+</div>
+<!-- At the tundra and the boreal site, the Bowen ratio is near one throughout the day, indicating an equal split between $H$ and $\lambda E$. At the tropical forest site, the latent heat flux is much higher than the sensible heat flux. This is likely due to a higher VPD at mid-day at BR-Sa3 than at the other sites, combined with differences in stomatal conductance (and therefore surface conductance) and vegetation height (and therefore roughness and aerodynamic conductance). -->
+<!-- Differences among the three temperate sites are also interesting. Despite a higher net radiation, the latent heat flux is lower at the coniferous forest site DE-Tha than at the beech (broadleaf) forest site DE-Hai. This may be due to generally more conservative water use of coniferous trees (gymnosperms) and is related to their water transport system which is distinct from angiosperms (to which beech belongs). Among the temperate sites, the grassland (DE-Gri) shows the highest latent heat flux - despite being short-statured and thus having a lower aerodynamic conductance than its forest counterparts and the same meteorological conditions  -->
+<!-- XXX LES 2:  -->
+<!-- - investigate the drivers of LE being higher than H at the tropical forest site, but not in other forests. -->
+<!-- - investigate differences in LE between DE-Hai and DE-Tha (is VPD the cause of differences?) -->
 <!-- (Contrast moist and dry sites) -->
 <!-- - Schulze Ch 16 -->
 </section>
-<section id="energy-and-water-limitation-across-the-globe" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="energy-and-water-limitation-across-the-globe"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</h2>
+<section id="sec-budyko" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="sec-budyko"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</h2>
 <p>Coming soon.</p>
 <!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
 <!-- ### (Donohue graph) -->
