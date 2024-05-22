@@ -328,8 +328,8 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#rooting-zone-water-storage-capacity" id="toc-rooting-zone-water-storage-capacity" class="nav-link" data-scroll-target="#rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</a></li>
   </ul></li>
-  <li><a href="#plant-hydraulics" id="toc-plant-hydraulics" class="nav-link" data-scroll-target="#plant-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
-  <li><a href="#water-bucket-model" id="toc-water-bucket-model" class="nav-link" data-scroll-target="#water-bucket-model"><span class="header-section-number">8.5</span> Water bucket model</a></li>
+  <li><a href="#sec-hydraulics" id="toc-sec-hydraulics" class="nav-link" data-scroll-target="#sec-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
+  <li><a href="#water-bucket-model-and-ecohydrological-relations" id="toc-water-bucket-model-and-ecohydrological-relations" class="nav-link" data-scroll-target="#water-bucket-model-and-ecohydrological-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</a></li>
   <li><a href="#ecosystem-water-fluxes" id="toc-ecosystem-water-fluxes" class="nav-link" data-scroll-target="#ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</a></li>
   <li><a href="#energy-and-water-limitation-across-the-globe" id="toc-energy-and-water-limitation-across-the-globe" class="nav-link" data-scroll-target="#energy-and-water-limitation-across-the-globe"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</a></li>
   <li><a href="#landscape-scale-heterogeneity" id="toc-landscape-scale-heterogeneity" class="nav-link" data-scroll-target="#landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</a></li>
@@ -371,7 +371,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Evaporation from land is a smaller component than evaporation from oceans, and soils store less than 1% of the unfrozen freshwater on Earth. Yet, land processes are a key regulator of global water cycling and energy fluxes. This is because the majority of evaporation over land occurs through transpiration and is thus affected by the vegetation structure and ecophysiological relations - through effects of LAI (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>), surface conductance (<a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.1</span></a>) and stomatal conductance (<a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>). Another aspect is the fact that, while the amount of water stored in the rooting zone of vegetation is small, it supplies all transpiration. In many climates, the root zone moisture gets substantially depleted during episodic dry spells or regularly recurring dry seasons. The ensuing plant water stress leads to a reduction of transpiration and evaporation, and thus to an alteration also of the surface energy partitioning. This chapter introduces the quantities and mechanisms for understanding how water regulates vegetation and how vegetation shapes the cycling of water and land surface energy partitioning across the globe.</p>
+<p>Evaporation from land is a smaller component than evaporation from oceans, and soils store less than 1% of the unfrozen freshwater on Earth. Yet, land processes are a key regulator of global water cycling and energy fluxes. This is because the majority of evaporation over land occurs through transpiration and is thus affected by the vegetation structure and ecophysiological relations - through effects of LAI (<a href="gpp.html#sec-light-absorption"><span>Section&nbsp;4.2</span></a>), surface conductance (<a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.2</span></a>) and stomatal conductance (<a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>). Another aspect is the fact that, while the amount of water stored in the rooting zone of vegetation is small, it supplies all transpiration. In many climates, the root zone moisture gets substantially depleted during episodic dry spells or regularly recurring dry seasons. The ensuing plant water stress leads to a reduction of transpiration and evaporation, and thus to an alteration also of the surface energy partitioning. This chapter introduces the quantities and mechanisms for understanding how water regulates vegetation and how vegetation shapes the cycling of water and land surface energy partitioning across the globe.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -400,7 +400,7 @@ Atmospheric humidity
 </div>
 <div class="callout-body-container callout-body">
 <!-- XXX move this to Ch land-climate interactions -->
-<p>We have encountered the vapour pressure deficit (VPD) and its control on transpiration in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a> and on evapotranspiration in <a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.1</span></a>. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air.</p>
+<p>We have encountered the vapour pressure deficit (VPD) and its control on transpiration in <a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a> and on evapotranspiration in <a href="landclimate.html#sec-energypartitioning"><span>Section&nbsp;7.2.2</span></a>. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air.</p>
 <p>The total pressure of a gas can be expressed as the sum of partial pressures of different components of a gas mixture. For moist air, we can distinguish the partial pressures of water vapor (<span class="math inline">\(e_a\)</span>) and dry air (<span class="math inline">\(P_d\)</span>) and write the total pressure of moist air as <span class="math display">\[
 P = P_d + e_a \;.
 \]</span> Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is <span id="eq-partialpressures"><span class="math display">\[
@@ -844,7 +844,7 @@ Exercise
 <div class="cell-output-display">
 <div id="fig-rootingdepth" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/rootingdepth.png" class="img-fluid figure-img" width="1500"></p>
+<p><img src="images/rootingdepth.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.8: Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from <span class="citation" data-cites="tumber22newphyt">Tumber-Dávila et al. (<a href="references.html#ref-tumber22newphyt" role="doc-biblioref">2022</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -855,7 +855,7 @@ Exercise
 <div class="cell-output-display">
 <div id="fig-rootingdepth_maps" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/map_whc_s0.png" class="img-fluid figure-img" width="1200"></p>
+<p><img src="images/map_whc_s0.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.9: (a) Total water holding capacity of the top 1 m of soil. (b) Rooting-zone water-storage capacity estimated from the annual maximum cumulative water deficits. Data and methods from <span class="citation" data-cites="stocker23natgeo">Stocker et al. (<a href="references.html#ref-stocker23natgeo" role="doc-biblioref">2023</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -863,16 +863,17 @@ Exercise
 </div>
 </section>
 </section>
-<section id="plant-hydraulics" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="plant-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</h2>
+<section id="sec-hydraulics" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</h2>
 <p>Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (<a href="gpp.html#sec-transpiration"><span>Section&nbsp;4.4</span></a>). This water transport along the <em>soil-plant-atmosphere</em> (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable “burden” that is traded off against CO<sub>2</sub> uptake for photosynthesis (<a href="gpp.html#sec-stomatalregulation"><span>Section&nbsp;4.4.3</span></a>).</p>
-<p>Have you thought about how water is transported up tall trees? It’s a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)</p>
+<p>Have you thought about how water is transported up tall trees? It’s a fascinating aspect of how biology has evolved ways to deal with physics.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BickMFHAZR0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the <em>leaf water potential</em> (<span class="math inline">\(\psi_l\)</span>). It’s in the same units as the soil matric potential (<span class="math inline">\(\psi_s\)</span>, <a href="#eq-psisoil">Equation&nbsp;<span>8.4</span></a>) and it is related to the soil water potential via a the transpiration stream <span class="math inline">\(T\)</span> and an effective whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> that considers resistance elements in series - from the soil to the leaf. In simplified terms, this can be written as. <span id="eq-hydraulic_simple"><span class="math display">\[
-T = -G_p (\psi_l - \psi_s)
-\tag{8.6}\]</span></span> This equation expresses the “supply” of water from the soil. From <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a>, we know how the “demand” for water is determined by the vapor pressure deficit <span class="math inline">\(D\)</span> and the stomatal conductance <span class="math inline">\(g_s\)</span>. The <span class="math inline">\(T\)</span> in <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> thus has to be equal to the <span class="math inline">\(T\)</span> from <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a> (where it was called <span class="math inline">\(E\)</span>): <span class="math display">\[
+<p>The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water up the plant, the water at the level of the leaves is under a strong negative pressure. The taller the plant and the higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure at the leaf-level to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the <em>leaf water potential</em> (<span class="math inline">\(\psi_l\)</span>). It’s in the same units as the soil matric potential (<span class="math inline">\(\psi_s\)</span>, <a href="#eq-psisoil">Equation&nbsp;<span>8.4</span></a>) and it is related to the soil water potential via a the transpiration stream <span class="math inline">\(T\)</span> and an effective whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> that considers resistance elements in series - from the soil to the leaf. Remember that a conductance is the inverse of a resistance. In simplified terms, this can be written as. <span id="eq-hydraulic_simple"><span class="math display">\[
+T = -G_p (\psi_l - \psi_s + \rho g h)
+\tag{8.6}\]</span></span> <span class="math inline">\(\rho\)</span> is the density of water (kg m<sup>-3</sup>), <span class="math inline">\(g\)</span> is the gravitational constant (9.81 m s<sup>-2</sup>), and <span class="math inline">\(h\)</span> is the height of the tree (m), measured from the average depth of the roots to the average height of the leaves. With the units of <span class="math inline">\(\psi_l\)</span> and <span class="math inline">\(\psi_s\)</span> in Pa and <span class="math inline">\(T\)</span> in units of (kg m<sup>-2</sup> s<sup>-1</sup>), <span class="math inline">\(G_p\)</span> is in units of (s m<sup>-1</sup>). <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> expresses the “supply” of water from the soil. From <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a>, we know how the “demand” for water is determined by the vapor pressure deficit <span class="math inline">\(D\)</span> and the stomatal conductance <span class="math inline">\(g_s\)</span>. The <span class="math inline">\(T\)</span> in <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> thus has to be equal to the <span class="math inline">\(T\)</span> from <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a> (where it was called <span class="math inline">\(E\)</span>): <span id="eq-transpiration-demand"><span class="math display">\[
 T =  1.6 \; g_s \; D
-\]</span> These equations illustrates three important points. First, a positive (upward) transpiration stream <span class="math inline">\(T\)</span> that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by <span class="math inline">\(D\)</span> and <span class="math inline">\(g_s\)</span>. By setting the two equations for <span class="math inline">\(T\)</span> equal and solving for the leaf water potential <span class="math inline">\(\psi_l\)</span> also illustrates how soil moisture (<span class="math inline">\(\psi_s\)</span>) and VPD (<span class="math inline">\(D\)</span>) have an interactive effect on <span class="math inline">\(\psi_l\)</span>.</p>
+\tag{8.7}\]</span></span> These equations illustrate some important points. First, a positive (upward) transpiration stream <span class="math inline">\(T\)</span> that satisfies the demand from the atmosphere (<a href="#eq-transpiration-demand">Equation&nbsp;<span>8.7</span></a>) can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water that is “demanded” by the atmosphere and determined by <span class="math inline">\(D\)</span> and <span class="math inline">\(g_s\)</span>. Third, tall trees have to sustain more negative leaf water potentials than short for a given soil dryness and transpiration rate. By setting the two equations for <span class="math inline">\(T\)</span> equal and solving for the leaf water potential <span class="math inline">\(\psi_l\)</span> also illustrates how soil moisture (<span class="math inline">\(\psi_s\)</span>) and VPD (<span class="math inline">\(D\)</span>) have an interactive effect on <span class="math inline">\(\psi_l\)</span>.</p>
+<p>Responses of plants to water stress are physiologically triggered through the sensing of leaf water potentials. In other words, <span class="math inline">\(\psi_l\)</span> is the central quantity that drives water stress responses of plants. Understanding how <span class="math inline">\(\psi_l\)</span> responds to environmental factors is thus key to understanding how water stress (stomatal closure, damaging drought stress) is a function of soil and air dryness, modified by plant hydraulic traits determining <span class="math inline">\(G_p\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -883,11 +884,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> is a simplification because the whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> is a function of the water potential which drops along the transport pathway from <span class="math inline">\(\psi_s\)</span> to <span class="math inline">\(\psi_l\)</span>. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> can be written as <span class="math display">\[
-T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
-\]</span> where <span class="math inline">\(P(\psi)\)</span> is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is <span class="math display">\[
+<p><a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> is a simplification because the whole-plant hydraulic conductance <span class="math inline">\(G_p\)</span> is a non-linear function of the water potential which drops along the transport pathway from <span class="math inline">\(\psi_s\)</span> to <span class="math inline">\(\psi_l\)</span>. As a consequence, the interactive effect of VPD and soil moisture is non-linear. To account for the conductance drop with negative water potential, a more realistic form of <a href="#eq-hydraulic_simple">Equation&nbsp;<span>8.6</span></a> can be written as <span id="eq-hydraulicsupply"><span class="math display">\[
+T = -G_{p,0} \int_{\psi_s}^{\psi_l - \rho g h} P(\psi) \; \text{d}\psi  \;,
+\tag{8.8}\]</span></span> where <span class="math inline">\(G_{p,0}\)</span> is a “base” conductance at zero water potential and <span class="math inline">\(P(\psi)\)</span> is a vulnerability function of the plant conductance. The latter declines towards more negative water potentials. A commonly used functional form is <span id="eq-vulnerabilitycurve"><span class="math display">\[
 P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
-\]</span> where <span class="math inline">\(P_\text{50}\)</span> is the water potential at which <span class="math inline">\(P\)</span> has dropped to 0.5.</p>
+\tag{8.9}\]</span></span> where <span class="math inline">\(P_\text{50}\)</span> is the water potential at which <span class="math inline">\(P\)</span> has dropped to 0.5.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -898,8 +899,8 @@ P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="fu">vulnerability_curve</span>(x, <span class="sc">-</span><span class="dv">2000</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">3500</span>, <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="fu">vulnerability_curve</span>(x, <span class="sc">-</span><span class="dv">2000</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">4000</span>, <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2000</span>, <span class="dv">0</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(psi, <span class="st">" (Pa)"</span>)),</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="fu">P</span>(psi))))) <span class="sc">+</span> </span>
@@ -909,22 +910,78 @@ P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
 <div id="fig-hydraulics" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ecohydrology_files/figure-html/fig-hydraulics-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.10: Example plant hydraulic vulnerability cuve. The water potential at which <em>P</em> has dropped to 0.5 is commonly referred to as <em>P<sub>50</sub></em> and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in <em>P</em> is described by a separate parameter (not shown).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.10: Example plant hydraulic vulnerability cuve. The water potential at which <em>P</em> has dropped to 0.5 is commonly referred to as <em>P<sub>50</sub></em> and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in <em>P</em> is described by a shape parameter (<em>b</em> in <a href="#eq-vulnerabilitycurve">Equation&nbsp;<span>8.9</span></a>).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#eq-hydraulicsupply">Equation&nbsp;<span>8.8</span></a> can be regarded as the <em>hydraulic supply function</em> for transpiration <span class="citation" data-cites="sperrylove15newphyt">(<a href="references.html#ref-sperrylove15newphyt" role="doc-biblioref">Sperry and Love 2015</a>)</span> and <a href="#eq-vulnerabilitycurve">Equation&nbsp;<span>8.9</span></a> is commonly referred to as the hydraulic <em>vulnerability curve</em> <span class="citation" data-cites="tyree89annrev">(<a href="references.html#ref-tyree89annrev" role="doc-biblioref">Tyree and Sperry 1989</a>)</span>. The non-linearity arising from the latter implies that transpiration initially increases with an increasingly negative leaf water potential, but reaches a maximum beyond which transpiration does not further increase despite increasingly negative leaf water potentials. Reaching this point is risky for plants as it bears the danger of potentially lethal hydraulic failure (see below). Stomatal regulation acts to limit leaf water potentials reaching this point, while maximally exploiting soil water that is available for plant uptake without a substantial flattening of the <span class="math inline">\(T(\psi_l)\)</span> curve. What exactly “substantial” means, depends on plant strategies that vary between species.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>hydraulic_supply <span class="ot">&lt;-</span> <span class="cf">function</span>(psi_leaf, psi_soil, g_plant, p50, b){</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  transpiration <span class="ot">&lt;-</span> <span class="sc">-</span>g_plant <span class="sc">*</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">integrate</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">f =</span> vulnerability_curve, </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">lower =</span> psi_soil,   </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">upper =</span> psi_leaf,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">p50 =</span> p50,      <span class="co"># argument for f</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">b =</span> b           <span class="co"># argument for f</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      )<span class="sc">$</span>value</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(transpiration)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">psi_leaf =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4000</span>, <span class="dv">0</span>, <span class="at">by =</span> <span class="dv">50</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">psi_soil =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2000</span>, <span class="dv">0</span>, <span class="at">by =</span> <span class="dv">100</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">transp =</span> <span class="fu">hydraulic_supply</span>(</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">psi_leaf =</span> psi_leaf, </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">psi_soil =</span> psi_soil, </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">g_plant =</span> <span class="fl">1e-6</span>, </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">p50 =</span> <span class="sc">-</span><span class="dv">2000</span>, </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">b =</span> <span class="dv">3</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>tmp <span class="sc">|&gt;</span> </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">-</span>psi_leaf, <span class="at">y =</span> transp, <span class="at">color =</span> psi_soil, <span class="at">group =</span> psi_soil)) <span class="sc">+</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(psi[soil], <span class="st">" (Pa)"</span>)),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"cividis"</span>, </span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="sc">-</span>psi[leaf], <span class="st">" (Pa)"</span>)),</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(T), <span class="st">" (mm s"</span><span class="sc">^-</span><span class="dv">1</span>, <span class="st">")"</span>))) <span class="sc">+</span> </span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-hydraulic-supply" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-hydraulic-supply-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.11: Hydraulic supply function. Transpiration as a function of an increasingly negative leaf water potential for different soil water potential levels. Water potentials are negative values. The x-axis shows the negative of the negative leaf water potential values (thus positive values). The visualisation shows that the leaf water potential is at least as strongly negative as the soil water potential and transpiration only exceeds zero if the leaf water potential becomes even more negative than the soil water potential. It also shows the strong sensitivity of the maximum transpiration rate as a function of the soil water potential. ‘Soil water potential’ represents the average water potential across the entire rooting zone. Here, the gravitational effect on water potentials is ignored by setting the tree height (<em>h</em> in <a href="#eq-hydraulicsupply">Equation&nbsp;<span>8.8</span></a>) to zero and the whole-plant base conductance <em>G</em><sub>p,0</sub> is set to 10<sup>-6</sup> s m<sup>-1</sup>.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create <em>embolisms</em>. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to <em>hydraulic failure</em>.</p>
+<p>Sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create <em>embolisms</em>. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to <em>hydraulic failure</em>.</p>
 <p>Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also <a href="gpp.html#sec-stomatalregulation"><span>Section&nbsp;4.4.3</span></a>). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO<sub>2</sub> assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.</p>
-<p>Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.11</span></a></p>
+<p>Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.12</span></a></p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-drydownresponse" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/drydownresponse.png" class="img-fluid figure-img" width="851"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.11: Response of (a) CO<sub>2</sub> assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted <em>Eucalyptus populnea</em> and <em>Eucalyptus pilularis</em>, which is adapted to more moist climates. The lines represent predictions of the model by <span class="citation" data-cites="joshi22natplants">Joshi et al. (<a href="references.html#ref-joshi22natplants" role="doc-biblioref">2022</a>)</span> where an optimal response of stomata in trading off CO<sub>2</sub> assimilation and the risks associated with negative leaf water potentials is assumed.</figcaption>
+<p><img src="images/drydownresponse.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.12: Response of (a) CO<sub>2</sub> assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted <em>Eucalyptus populnea</em> and <em>Eucalyptus pilularis</em>, which is adapted to more moist climates. The lines represent predictions of the model by <span class="citation" data-cites="joshi22natplants">Joshi et al. (<a href="references.html#ref-joshi22natplants" role="doc-biblioref">2022</a>)</span> where an optimal response of stomata in trading off CO<sub>2</sub> assimilation and the risks associated with negative leaf water potentials is assumed.</figcaption>
 </figure>
 </div>
 </div>
@@ -942,7 +999,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Consider a soil dry down as in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.11</span></a>. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
+<li>Consider a soil dry down as in <a href="#fig-drydownresponse">Figure&nbsp;<span>8.12</span></a>. Sketch qualitatively how the following variables change as a function of the soil water potential (while all other meteorological variables remain constant):
 <ul>
 <li>Soil water content</li>
 <li>Latent heat flux</li>
@@ -958,15 +1015,234 @@ Exercise
 </div>
 </div>
 </section>
-<section id="water-bucket-model" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="water-bucket-model"><span class="header-section-number">8.5</span> Water bucket model</h2>
-<p>Coming soon.</p>
-<!-- - Fluxes: E, T, interception, ... -->
-<!-- - Bucket model -->
-<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+<section id="water-bucket-model-and-ecohydrological-relations" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="water-bucket-model-and-ecohydrological-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</h2>
+<p>In this and in the previous chapter (<a href="landclimate.html"><span>Chapter&nbsp;7</span></a>), we have learned about three important points that follow from mass and energy conservation and govern the water balance and its components:</p>
+<ul>
+<li>Precipitation <span class="math inline">\(P\)</span> is partitioned into evaporation <span class="math inline">\(E\)</span> and runoff <span class="math inline">\(R\)</span>, as described by the ecosystem water balance (<a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a>).</li>
+<li>Evaporation is limited by the amount of available water in the rooting zone (<a href="#sec-soilwater"><span>Section&nbsp;8.3</span></a> and <a href="#sec-hydraulics"><span>Section&nbsp;8.4</span></a>). As the soil across the root-penetrated depth dries out, <span class="math inline">\(E\)</span> declines towards zero. If there is no water available, there can be no transpiration or evaporation.</li>
+<li>Evaporation is also limited by the amount of energy that is available at the land surface for evaporating water. This is described by the dependence of the potential evapotranspiration on net radiation (<a href="landclimate.html#sec-pet"><span>Section&nbsp;7.2.1</span></a>).</li>
+</ul>
+<p>A fourth point is:</p>
+<ul>
+<li>Once the soil is water-saturated, it has no more capacity for absorbing <span class="math inline">\(P\)</span> and storing the water, and <span class="math inline">\(P\)</span> is diverted to runoff (<span class="math inline">\(R\)</span>).</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bucket model definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A simple model that considers these four points is to conceive the ecosystem water balance with the <em>bucket model</em>, whereby the rooting zone water storage capacity is determined by a “bucket depth”, given by <span class="math inline">\(S_0\)</span> (<a href="#eq-s0">Equation&nbsp;<span>8.5</span></a>). Precipitation fills the bucket up to its maximum capacity <span class="math inline">\(S_0\)</span>. Once the bucket is full, additional precipitation goes into runoff, while runoff is zero before the bucket is full. The water-unlimited rate of <span class="math inline">\(E\)</span> is PET. <span class="math inline">\(E\)</span> is drawn from the water stored in the bucket and the <em>actual</em> ET (here <span class="math inline">\(E\)</span>) is reduced as a function of the remaining water in the bucket: <span id="eq-etmodel"><span class="math display">\[
+E(t) = \text{PET}(t) \frac{S(t)}{S_0}
+\tag{8.10}\]</span></span> Runoff is generated only when the bucket is full. <span class="math display">\[
+R(t) = \begin{cases}
+P(t) - (S_0 - S(t)) \; &amp; \forall \; P(t) \geq S_0 - S(t) \\
+0 \; &amp; \forall \; P(t) &lt; S_0 - S(t)
+\end{cases}
+\]</span> The soil water balance, i.e., the change in the root zone water storage <span class="math inline">\(S\)</span> is given by the balance of water inputs (<span class="math inline">\(P(t)\)</span>), and losses (ET: <span class="math inline">\(E(t)\)</span> and runoff: <span class="math inline">\(R(t)\)</span>): <span id="eq-etdecay"><span class="math display">\[
+\frac{\text{d}S}{\text{d}t} = P(t) - E(t) - R(t)
+\tag{8.11}\]</span></span> Note that <span class="math inline">\(S(t)\)</span> is the total soil water content across the rooting zone. It is related to <span class="math inline">\(\theta\)</span> as <span class="math inline">\(S(t) = z_r \theta(t)\)</span>.</p>
+</div>
+</div>
+<p>From these four points, several key ecohydrological relations, governing the relation of ecosystem water and energy fluxes over time and across the globe, follow.</p>
+<section id="energy-and-water-limited-ecosystems" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="energy-and-water-limited-ecosystems">Energy and water-limited ecosystems</h4>
+<p>In wet climates, where the soils are perennially moist (<span class="math inline">\(S(t)/S_0\)</span> mostly around 1), ET is driven by net radiation (as expressed through PET(<em>R</em><sub>n</sub>), <a href="landclimate.html#eq-pet-pt">Equation&nbsp;<span>7.6</span></a>). Such ecosystems are therefore referred to as <em>energy-limited</em> and the annual total <em>acutal ET</em> (AET) is close to the annual total PET.</p>
+<p>In water-limited ecosystems, the annual total ET is substantially lower than the annual total PET. However, not just annual totals of net radiation and precipitation matter, but also their distribution over days and over the seasons (see below).</p>
+<p><a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.13</span></a> shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to <em>energy-limited</em>. If <em>P</em> falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of <em>P</em>/PET is (sometimes) referred to as the <em>moisture index</em> (and commonly but confusingly often referred to as the <em>aridity index</em>). A site’s or an ecosystem’s <em>aridity</em> is commonly quantified by <em>P</em>/PET, considering annual totals as done in <a href="#fig-waterbucket-pet">Figure&nbsp;<span>8.13</span></a>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_pet <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_pet.rds"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_pet <span class="sc">|&gt;</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> pet,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> prec,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> prec</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"P"</span>), <span class="st">" (mm)"</span>)),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"PET (mm)"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-waterbucket-pet" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-waterbucket-pet-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.13: Annual total actual evapotranspiration (AET) versus annual total potential evapotranspiration (PET) for different levels of annual total precipitation (<em>P</em>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above and assuming a root zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="et-decay" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="et-decay">ET decay</h4>
+<p>During rain-free periods, <em>E(t)</em> gradually declines from its initial value. The shape of this decline over time roughly has the shape of an exponential decay <span class="citation" data-cites="teuling06grl">(<a href="references.html#ref-teuling06grl" role="doc-biblioref">Teuling et al. 2006</a>)</span>. The decay rate is determined by PET (thus <em>R</em><sub>n</sub>) and the rooting-zone water-storage capacity <em>S</em><sub>0</sub>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-etdecay" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/etdecay.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.14: Decay of evaporanspiration during dry periods at the ecosystem flux measurement site US-Ton, a woody savannah in a Mediterranean climate in California. (a) Evapotranspiration (<em>E</em>, in mm) time series for a subset of available measurement years. Dry periods are marked by grey rectangles and are defined as periods of a positive cumulative water deficit. (b) ET overlaid from multiple dry seasons (grey lines) versus days into the dry season. The blue line marks the mean across multiple dry seasons. (c) is the same as (b) but with a logarithmic y-axis. The linear shape of the ET decline in the logarithmic plot of (c) indicates an exponential functional form of <em>E</em> over time.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The exponential shape of the ET decline during dry periods directly follows from the water bucket model as defined above. During dry (rain-free) periods, <span class="math inline">\(P=0\)</span> and no runoff is generated (<span class="math inline">\(R=0\)</span>). <a href="#eq-etdecay">Equation&nbsp;<span>8.11</span></a> simplifies to <span class="math display">\[
+\frac{\text{d}S}{\text{d}t} = - E(t)
+\]</span> With <a href="#eq-etmodel">Equation&nbsp;<span>8.10</span></a>: <span class="math display">\[
+\frac{\text{d}S}{\text{d}t} = - \frac{\text{PET}(t)}{S_0} \; S(t)
+\]</span> Assuming that PET is constant, this equation describes a simple first-order decay and is solved by and the following exponential function: <span class="math display">\[
+S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
+\]</span> Here, the rate constant of the exponential decay is <span class="math inline">\(\text{PET}/S_0\)</span>. In other words, the higher PET, the more rapid the decline. The higher <em>S</em><sub>0</sub>, the slower the decay.</p>
+</div>
+</div>
+</section>
+<section id="s0-as-a-buffer" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="s0-as-a-buffer"><em>S</em><sub>0</sub> as a buffer</h4>
+<p>The rooting-zone water-storage capacity <em>S</em><sub>0</sub> “buffers” variations in precipitation and determines how much moisture is plant-available during rain-free periods. Rooting depth, through its influence on <em>S</em><sub>0</sub>, thus has the effect of compensating asynchroneities between water supply through precipitation and demand via PET (thus <em>R</em><sub>n</sub>). A larger <em>S</em><sub>0</sub> implies a higher ratio of annual total ET over annual total <em>P</em>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_s0.rds"</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>df_s0 <span class="sc">|&gt;</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> s0,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> s0</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">"S"</span>)[<span class="dv">0</span>], <span class="st">" (mm)"</span>)),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-waterbucket-s0" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-waterbucket-s0-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.15: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different levels of the rooting zone water storage capacity (<em>S</em><sub>0</sub>). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming 10 wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rainfall-distribution" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="rainfall-distribution">Rainfall distribution</h4>
+<p>The distribution of rain over time matters. A “constant drizzle” keeps the bucket moist throughout the year and ET will stay close to PET. In contrast, if all annual precipitation falls within a short period of time, the bucket is quickly saturated and a higher fraction of the annual precipitation goes into runoff. In that case, some time after the large rainfall event or the short but intense moist season, the soil dries out again because the excess water has not been stored, and ET starts falling below PET.</p>
+<p>If part of the precipitation falls as snow, the timing of its melting and infiltration as liquid water into the rooting zone matters. Snow melt water can be a substantial root zone moisture input during months when <span class="math inline">\(P-E\)</span> is already negative (for example late spring in the Sierras of California).</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data created in analysis/analyse_waterbucketmodel.R</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/df_wetd.rds"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>df_wetd <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mwetd <span class="sc">!=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> prec,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> aet,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> mwetd,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> mwetd</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">2000</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(N)[wet])),</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"magma"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(P), <span class="st">" (mm)"</span>)),</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"AET (mm)"</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-waterbucket-wetd" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ecohydrology_files/figure-html/fig-waterbucket-wetd-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.16: Annual total actual evapotranspiration (AET) versus annual total precipitation (<em>P</em>) for different distributions of daily precipitation, where the number of wet days per month (<em>N</em><sub>wet</sub>) is varied between (2, 3, 5, 7, 10, 12, 15, 20, 30). Each line connects data points of (PET, AET, <em>P</em>) where AET is simulated as a function of PET and <em>P</em>, following the water bucket model described above, assuming an annual total PET of 2000 mm and a rooting-zone water storage capacity (<em>S</em><sub>0</sub>) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. <em>P</em> sequences are generated synthetically assuming a variable number of wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="seasonality-of-radiation-and-precipitation" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="seasonality-of-radiation-and-precipitation">Seasonality of radiation and precipitation</h4>
+<p>The seasonality of <em>R</em><sub>n</sub> and <em>P</em> matters. If <em>P</em> is high in months when <em>R</em><sub>n</sub> is high, soils remain moist, and ET stays close to PET. In contrast, when <em>R</em><sub>n</sub> is high during the dry period of the year, and <em>R</em><sub>n</sub> is low during the moist period of the year (e.g., in Mediterranean climates), a relatively large fraction of annual total <em>P</em> goes into runoff despite the ecosystem being water-limited during the dry period of the year. This is the case in Mediterranean climates where the dry period can extend over several months (<a href="#fig-cwd">Figure&nbsp;<span>8.4</span></a>).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The model described here is a simplification. What empirically known aspects of the ecosystem water balance are ignored in terms of …</p>
+<ul>
+<li>runoff generation</li>
+<li>the dependence of <span class="math inline">\(E\)</span> on <span class="math inline">\(S(t)\)</span></li>
+</ul>
+<p>…?</p>
+</div>
+</div>
 <!-- - Lifetime of soil water -->
 <!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
 <!-- - Mass curve technique -->
+</section>
 </section>
 <section id="ecosystem-water-fluxes" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</h2>
@@ -1011,11 +1287,20 @@ Joshi, Jaideep, Benjamin D. Stocker, Florian Hofhansl, Shuangxi Zhou, Ulf Dieckm
 <div id="ref-seneviratne10" class="csl-entry" role="listitem">
 Seneviratne, Sonia I., Thierry Corti, Edouard L. Davin, Martin Hirschi, Eric B. Jaeger, Irene Lehner, Boris Orlowsky, and Adriaan J. Teuling. 2010. <span>“Investigating Soil Moisture–Climate Interactions in a Changing Climate: <span>A</span> Review.”</span> <em>Earth-Science Reviews</em> 99 (3): 125–61. https://doi.org/<a href="https://doi.org/10.1016/j.earscirev.2010.02.004">https://doi.org/10.1016/j.earscirev.2010.02.004</a>.
 </div>
+<div id="ref-sperrylove15newphyt" class="csl-entry" role="listitem">
+Sperry, John S., and David M. Love. 2015. <span>“What Plant Hydraulics Can Tell Us about Responses to Climate-Change Droughts.”</span> <em>New Phytologist</em> 207 (1): 14–27. <a href="https://doi.org/10.1111/nph.13354">https://doi.org/10.1111/nph.13354</a>.
+</div>
 <div id="ref-stocker23natgeo" class="csl-entry" role="listitem">
 Stocker, Benjamin D., Shersingh Joseph Tumber-Dávila, Alexandra G. Konings, Martha C. Anderson, Christopher Hain, and Robert B. Jackson. 2023. <span>“Global Patterns of Water Storage in the Rooting Zones of Vegetation.”</span> <em>Nature Geoscience</em>, February, 1–7. <a href="https://doi.org/10.1038/s41561-023-01125-2">https://doi.org/10.1038/s41561-023-01125-2</a>.
 </div>
+<div id="ref-teuling06grl" class="csl-entry" role="listitem">
+Teuling, A. J., S. I. Seneviratne, C. Williams, and P. A. Troch. 2006. <span>“Observed Timescales of Evapotranspiration Response to Soil Moisture.”</span> <em>Geophysical Research Letters</em> 33 (23): L23403. <a href="https://doi.org/10.1029/2006GL028178">https://doi.org/10.1029/2006GL028178</a>.
+</div>
 <div id="ref-tumber22newphyt" class="csl-entry" role="listitem">
 Tumber-Dávila, Shersingh Joseph, H. Jochen Schenk, Enzai Du, and Robert B. Jackson. 2022. <span>“Plant Sizes and Shapes Above- and Belowground and Their Interactions with Climate.”</span> <em>New Phytologist</em> n/a (n/a). https://doi.org/<a href="https://doi.org/10.1111/nph.18031">https://doi.org/10.1111/nph.18031</a>.
+</div>
+<div id="ref-tyree89annrev" class="csl-entry" role="listitem">
+Tyree, M. T., and J. S. Sperry. 1989. <span>“Vulnerability of <span>Xylem</span> to <span>Cavitation</span> and <span>Embolism</span>.”</span> <em>Annual Review of Plant Biology</em> 40 (Volume 40, 1989): 19–36. <a href="https://doi.org/10.1146/annurev.pp.40.060189.000315">https://doi.org/10.1146/annurev.pp.40.060189.000315</a>.
 </div>
 <div id="ref-wei17grl" class="csl-entry" role="listitem">
 Wei, Zhongwang, Kei Yoshimura, Lixin Wang, Diego G. Miralles, Scott Jasechko, and Xuhui Lee. 2017. <span>“Revisiting the Contribution of Transpiration to Global Terrestrial Evapotranspiration.”</span> <em>Geophysical Research Letters</em> 44 (6): 2792–2801. <a href="https://doi.org/10.1002/2016GL072235">https://doi.org/10.1002/2016GL072235</a>.
