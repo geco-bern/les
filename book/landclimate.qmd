@@ -267,7 +267,7 @@ knitr::include_graphics("images/canopy_resistance.png")
 Taken together, the spatial distribution of vegetation and other land cover types, and the response of plants to temporal changes in the environment (and thus on LAI and stomatal conductance) influence the energy partitioning at the land surface and near-surface atmospheric conditions. In other words, we have to understand vegetation and its response to the environment in order to understand land-climate interactions and near-surface climate.
 
 
-::: {.callout-note}
+::: {.callout-tip icon=false, collapse=true}
 
 ### Dependency of energy partitioning on conductances
 

@@ -127,7 +127,7 @@ hdf_sub |>
   mutate(sitename = factor(
     sitename, 
     levels = c(
-      "US-ICh",  # Tundra
+      "US-ICh", # Tundra
       "FI-Hyy", # Boreal Forests/Taiga
       "BR-Sa3", # Tropical
       "DE-Hai", # Temperate Broadleaf & Mixed Forests
