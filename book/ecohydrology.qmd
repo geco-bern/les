@@ -733,7 +733,7 @@ With @eq-etmodel:
 $$
 \frac{\text{d}S}{\text{d}t} = - \frac{\text{PET}(t)}{S_0} \; S(t)
 $$
-Assuming that PET is constant, this equation describes a simple first-order decay and is solved by
+Assuming that PET is constant, this equation describes a simple first-order decay and is solved by and the following exponential function:
 $$
 S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
 $$
