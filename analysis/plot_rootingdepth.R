@@ -11,6 +11,8 @@ library(remotes)
 # install_github("geco-bern/rgeco", auth_token = "XXX")
 library(ingestr)
 library(rgeco)
+library(sf)
+library(terra)
 
 df <- read_csv("~/data/rootingdepth/rsip/RSIP_Analysis_sheet_210721.csv") |>
   rename(lon = Long, lat = Lat) |> 
@@ -124,7 +126,10 @@ gg2 <- df |>
     guide = "none"
     ) +
   coord_cartesian(clip = "off") +
-  theme_ridges(center = TRUE)
+  theme_ridges(center = TRUE) +
+  theme(
+    axis.text.y = element_text(face = "italic")
+  )
 
 
 use_species_2 <- c(
@@ -166,7 +171,10 @@ gg2b <- df |>
     guide = "none"
   ) +
   coord_cartesian(clip = "off") +
-  theme_ridges(center = TRUE)
+  theme_ridges(center = TRUE) +
+  theme(
+    axis.text.y = element_text(face = "italic")
+  )
 
 
 ## By PFT ---------------

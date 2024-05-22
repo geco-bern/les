@@ -220,17 +220,17 @@ The sensible and latent heat fluxes are transported vertically, away from or to 
 
 <!-- XXX To add: Box for big-leaf model for heat and vapour fluxes with conductances -->
 
-### Potential evapotranspiration {#sec-energypartitioning}
+### Potential evapotranspiration {#sec-pet}
 
 Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the *partitioning* of net radiation into sensible and latent heat fluxes in @eq-energybalance. In particular, the availability of water for evaporation from the land surface through transpiration or directly from wet surfaces, is decisive for the partitioning of net radiation into $H$ and $\lambda E$.
 
 A useful quantity for understanding the surface energy partitioning and the influence of limiting factors (e.g., water limitation) is the *potential evapotranspiration* (PET). Evapotranspiration is equivalent to the latent heat flux, but expressed in water vapour mass units. (You will learn more about evapotranspiration in @sec-ecohydrology). PET can be understood as the maximum possible $E$, attained under conditions where water supply to evaporation is not limiting. Different methods are available for estimating PET. A physically based and widely used method is the one by @priestleytaylor72 which relates PET to net radiation, considering that net radiation is consumed by the water vapor flux from a water-saturated surface into an air parcel at constant temperature and pressure.
 $$
 \mathrm{PET} = \alpha \frac{s}{s + \gamma} \frac{R_n}{\lambda}
-$$
+$$ {#eq-pet-pt}
 Here, $s$ (Pa K^-2^) is the slope the change in saturation vapor pressure with respect to temperature. $\gamma$ is the psychrometric constant (a representative value is 66.5 Pa K^–1^). The coefficient $\alpha$ is an empirically determined value and is taken to be 1.26 for a wet surface. However, for vegetated surfaces, it is substantially lower, even if the plants are not water-limited. It ranges between 0.82 for tropical and temperate broadleaf forests and 0.55 for boreal conifer forests [@bonan].
 
-### Metrics of energy partitioning
+### Metrics of energy partitioning {#sec-energypartitioning}
 
 Different metrics are used for quantifying the partitioning of net radiation into $H$ and $\lambda E$. When considering totals over longer periods of time (over at least one annual cycle), the ground heat flux $G$ can be neglected since the ground doesn't gradually heat up over time. Hence, the sum of the latent and sensible heat fluxes add up to match net radiation. The *evaporative fraction* quantifies the fraction of available energy from net radiation goes into the latent heat flux.
 $$

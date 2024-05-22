@@ -496,40 +496,42 @@ knitr::include_graphics("images/map_whc_s0.png")
 ```
 
 
-## Plant hydraulics
+## Plant hydraulics {#sec-hydraulics}
 
 Water is transported from the soil, across the soil-root interface, and then inside the plant from the fine roots up and along inside the xylem (the water transport vessels) to the leaves. Water evaporates and diffuses through the stomates (@sec-transpiration). This water transport along the *soil-plant-atmosphere* (SPA) continuum is a passive process. That is, the plant does not invest energy directly in the process of transporting the water. The water evaporation through leaves is rather an unavoidable "burden" that is traded off against CO~2~ uptake for photosynthesis (@sec-stomatalregulation). 
 
-Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics. (You can too.)
+Have you thought about how water is transported up tall trees? It's a fascinating aspect of how biology has evolved ways to deal with physics.
 
 {{< video https://www.youtube.com/watch?v=BickMFHAZR0 >}}
 
-The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water, the water at the level of the leaves is under a strong negative pressure. The higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf.  In simplified terms, this can be written as.
+The driving force of water transport is the negative pressure that the vapor pressure deficit of the surrounding air creates. This force acts against a resistances and the gravitational force. To move the water up the plant, the water at the level of the leaves is under a strong negative pressure. The taller the plant and the higher the resistance along the soil-plant-atmosphere continuum, the more negative the pressure at the leaf-level to sustain a given water flux (transpiration). This negative water pressure at the level of the leaves is the *leaf water potential* ($\psi_l$). It's in the same units as the soil matric potential ($\psi_s$, @eq-psisoil) and it is related to the soil water potential via a the transpiration stream $T$ and an effective whole-plant hydraulic conductance $G_p$ that considers resistance elements in series - from the soil to the leaf. Remember that a conductance is the inverse of a resistance. In simplified terms, this can be written as.
 $$
-T = -G_p (\psi_l - \psi_s)
+T = -G_p (\psi_l - \psi_s + \rho g h)
 $$ {#eq-hydraulic_simple}
-This equation expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
+$\rho$ is the density of water (kg m^-3^), $g$ is the gravitational constant (9.81 m s^-2^), and $h$ is the height of the tree (m), measured from the average depth of the roots to the average height of the leaves. With the units of $\psi_l$ and $\psi_s$ in Pa and $T$ in units of (kg m^-2^ s^-1^), $G_p$ is in units of (s m^-1^). @eq-hydraulic_simple expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
 $$
 T =  1.6 \; g_s \; D
-$$
-These equations illustrates three important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water which is determined by $D$ and $g_s$. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+$$ {#eq-transpiration-demand}
+These equations illustrate some important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere (@eq-transpiration-demand) can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water that is "demanded" by the atmosphere and determined by $D$ and $g_s$. Third, tall trees have to sustain more negative leaf water potentials than short for a given soil dryness and transpiration rate. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+
+Responses of plants to water stress are physiologically triggered through the sensing of leaf water potentials. In other words, $\psi_l$ is the central quantity that drives water stress responses of plants. Understanding how $\psi_l$ responds to environmental factors is thus key to understanding how water stress (stomatal closure, damaging drought stress) is a function of soil and air dryness, modified by plant hydraulic traits determining $G_p$.
 
 :::{.callout-note}
 
-@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is very non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
+@eq-hydraulic_simple is a simplification because the whole-plant hydraulic conductance $G_p$ is a non-linear function of the water potential which drops along the transport pathway from $\psi_s$ to $\psi_l$. As a consequence, the interactive effect of VPD and soil moisture is non-linear. To account for the conductance drop with negative water potential, a more realistic form of @eq-hydraulic_simple can be written as
 $$
-T = -G_p \int_{\psi_s}^{\psi_l} P(\psi) \; \text{d}\psi \;,
-$$
-where $P(\psi)$ is a vulnerability function of the plant conductance. It declines towards more negative water potentials. A commonly assumed functional form is
+T = -G_{p,0} \int_{\psi_s}^{\psi_l - \rho g h} P(\psi) \; \text{d}\psi  \;,
+$$ {#eq-hydraulicsupply}
+where $G_{p,0}$ is a "base" conductance at zero water potential and $P(\psi)$ is a vulnerability function of the plant conductance. The latter declines towards more negative water potentials. A commonly used functional form is
 $$
 P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
-$$
+$$ {#eq-vulnerabilitycurve}
 where $P_\text{50}$ is the water potential at which $P$ has dropped to 0.5. 
 
 ```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #| code-fold: true
 #| label: fig-hydraulics
-#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a separate parameter (not shown)."
+#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a shape parameter (*b* in @eq-vulnerabilitycurve)."
 
 library(ggplot2)
 
@@ -538,17 +540,68 @@ vulnerability_curve <- function(psi, p50, b){
 }
 
 ggplot() +
-  geom_function(fun = function(x) vulnerability_curve(x, -2000, 5)) +
-  xlim(-3500, 0) +
+  geom_function(fun = function(x) vulnerability_curve(x, -2000, 3)) +
+  xlim(-4000, 0) +
   geom_vline(xintercept = c(-2000, 0), linetype = "dotted") +
   labs(x = expression(paste(psi, " (Pa)")),
        y = expression(paste(italic(P(psi))))) + 
   theme_classic()
 ```
 
+@eq-hydraulicsupply can be regarded as the *hydraulic supply function* for transpiration [@sperrylove15newphyt] and @eq-vulnerabilitycurve is commonly referred to as the hydraulic *vulnerability curve* [@tyree89annrev]. The non-linearity arising from the latter implies that transpiration initially increases with an increasingly negative leaf water potential, but reaches a maximum beyond which transpiration does not further increase despite increasingly negative leaf water potentials. Reaching this point is risky for plants as it bears the danger of potentially lethal hydraulic failure (see below). Stomatal regulation acts to limit leaf water potentials reaching this point, while maximally exploiting soil water that is available for plant uptake without a substantial flattening of the $T(\psi_l)$ curve. What exactly "substantial" means, depends on plant strategies that vary between species.
+
+```{r, message=FALSE, warning=FALSE, fig.width=5, fig.height=3}
+#| code-fold: true
+#| label: fig-hydraulic-supply
+#| fig-cap: "Hydraulic supply function. Transpiration as a function of an increasingly negative leaf water potential for different soil water potential levels. Water potentials are negative values. The x-axis shows the negative of the negative leaf water potential values (thus positive values). The visualisation shows that the leaf water potential is at least as strongly negative as the soil water potential and transpiration only exceeds zero if the leaf water potential becomes even more negative than the soil water potential. It also shows the strong sensitivity of the maximum transpiration rate as a function of the soil water potential. 'Soil water potential' represents the average water potential across the entire rooting zone. Here, the gravitational effect on water potentials is ignored by setting the tree height (*h* in @eq-hydraulicsupply) to zero and the whole-plant base conductance *G*~p,0~ is set to 10^-6^ s m^-1^."
+
+library(dplyr)
+
+hydraulic_supply <- function(psi_leaf, psi_soil, g_plant, p50, b){
+  transpiration <- -g_plant * 
+    integrate(
+      f = vulnerability_curve, 
+      lower = psi_soil,   
+      upper = psi_leaf,
+      p50 = p50,      # argument for f
+      b = b           # argument for f
+      )$value
+  return(transpiration)
+}
+
+tmp <- expand.grid(
+  psi_leaf = seq(-4000, 0, by = 50),
+  psi_soil = seq(-2000, 0, by = 100)
+) |> 
+  as_tibble() |> 
+  rowwise() |> 
+  mutate(
+    transp = hydraulic_supply(
+      psi_leaf = psi_leaf, 
+      psi_soil = psi_soil, 
+      g_plant = 1e-6, 
+      p50 = -2000, 
+      b = 3
+      )
+  )
+
+tmp |> 
+  ggplot(aes(x = -psi_leaf, y = transp, color = psi_soil, group = psi_soil)) +
+  geom_line() +
+  scale_color_viridis_c(
+    name = expression(paste(psi[soil], " (Pa)")),
+    option = "cividis", 
+    direction = -1
+  ) +
+  labs(x = expression(paste(-psi[leaf], " (Pa)")),
+       y = expression(paste(italic(T), " (mm s"^-1, ")"))) + 
+  ylim(0, NA) +
+  theme_classic()
+```
+
 :::
 
-However, sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
+Sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
 
 Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO~2~ assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
 
@@ -580,13 +633,213 @@ knitr::include_graphics("images/drydownresponse.png")
 
 :::
 
-## Water bucket model
+## Water bucket model and ecohydrological relations
 
-Coming soon.
+In this and in the previous chapter (@sec-landclimate), we have learned about three important points that follow from mass and energy conservation and govern the water balance and its components:
 
-<!-- - Fluxes: E, T, interception, ... -->
-<!-- - Bucket model -->
-<!-- - Different effective "buckets" for interception, soil evaporation, and transpiration -->
+- Precipitation $P$ is partitioned into evaporation $E$ and runoff $R$, as described by the ecosystem water balance (@eq-waterbalance).
+- Evaporation is limited by the amount of available water in the rooting zone (@sec-soilwater and @sec-hydraulics). As the soil across the root-penetrated depth dries out, $E$ declines towards zero. If there is no water available, there can be no transpiration or evaporation.
+- Evaporation is also limited by the amount of energy that is available at the land surface for evaporating water. This is described by the dependence of the potential evapotranspiration on net radiation (@sec-pet).
+
+A fourth point is:
+
+- Once the soil is water-saturated, it has no more capacity for absorbing $P$ and storing the water, and $P$ is diverted to runoff ($R$). 
+
+::: {.callout-note}
+
+### Bucket model definition
+
+A simple model that considers these four points is to conceive the ecosystem water balance with the *bucket model*, whereby the rooting zone water storage capacity is determined by a "bucket depth", given by $S_0$ (@eq-s0). Precipitation fills the bucket up to its maximum capacity $S_0$. Once the bucket is full, additional precipitation goes into runoff, while runoff is zero before the bucket is full. The water-unlimited rate of $E$ is PET. $E$ is drawn from the water stored in the bucket and the *actual* ET (here $E$) is reduced as a function of the remaining water in the bucket:
+$$
+E(t) = \text{PET}(t) \frac{S(t)}{S_0}
+$$ {#eq-etmodel}
+Runoff is generated only when the bucket is full.
+$$
+R(t) = \begin{cases}
+P(t) - (S_0 - S(t)) \; & \forall \; P(t) \geq S_0 - S(t) \\
+0 \; & \forall \; P(t) < S_0 - S(t)
+\end{cases}
+$$
+The soil water balance, i.e., the change in the root zone water storage $S$ is given by the balance of water inputs ($P(t)$), and losses (ET: $E(t)$ and runoff: $R(t)$):
+$$
+\frac{\text{d}S}{\text{d}t} = P(t) - E(t) - R(t)
+$$ {#eq-etdecay}
+Note that $S(t)$ is the total soil water content across the rooting zone. It is related to $\theta$ as $S(t) = z_r \theta(t)$. 
+
+:::
+
+From these four points, several key ecohydrological relations, governing the relation of ecosystem water and energy fluxes over time and across the globe, follow.
+
+#### Energy and water-limited ecosystems {-}
+
+In wet climates, where the soils are perennially moist ($S(t)/S_0$ mostly around 1), ET is driven by net radiation (as expressed through PET(*R*~n~), @eq-pet-pt). Such ecosystems are therefore referred to as *energy-limited* and the annual total *acutal ET* (AET) is close to the annual total PET.
+
+In water-limited ecosystems, the annual total ET is substantially lower than the annual total PET. However, not just annual totals of net radiation and precipitation matter, but also their distribution over days and over the seasons (see below).
+
+@fig-waterbucket-pet shows AET for different combinations of precipitation and PET. Given sufficient precipitation, AET is close to PET and curves are close to the 1:1 line. Ecosystems located in this part of the domain are referred to *energy-limited*. If *P* falls below PET, AET drops below PET. Such ecosystems are water-limited. The ratio of *P*/PET is (sometimes) referred to as the *moisture index* (and commonly but confusingly often referred to as the *aridity index*). A site's or an ecosystem's *aridity* is commonly quantified by *P*/PET, considering annual totals as done in @fig-waterbucket-pet.
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-pet
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total potential evapotranspiration (PET) for different levels of annual total precipitation (*P*). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above and assuming a root zone water storage capacity (*S*~0~) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming 10 wet days per month. The dotted line is the 1:1 line."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_pet <- readRDS(here::here("data/df_pet.rds"))
+
+df_pet |> 
+  ggplot(
+    aes(
+      x = pet,
+      y = aet,
+      group = prec,
+      color = prec
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic("P"), " (mm)")),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = "PET (mm)",
+    y = "AET (mm)"
+  )
+```
+
+#### ET decay {-}
+
+During rain-free periods, *E(t)* gradually declines from its initial value. The shape of this decline over time roughly has the shape of an exponential decay [@teuling06grl]. The decay rate is determined by PET (thus *R*~n~) and the rooting-zone water-storage capacity *S*~0~.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| label: fig-etdecay
+#| fig-cap: "Decay of evaporanspiration during dry periods at the ecosystem flux measurement site US-Ton, a woody savannah in a Mediterranean climate in California. (a) Evapotranspiration (*E*, in mm) time series for a subset of available measurement years. Dry periods are marked by grey rectangles and are defined as periods of a positive cumulative water deficit. (b) ET overlaid from multiple dry seasons (grey lines) versus days into the dry season. The blue line marks the mean across multiple dry seasons. (c) is the same as (b) but with a logarithmic y-axis. The linear shape of the ET decline in the logarithmic plot of (c) indicates an exponential functional form of *E* over time."
+#| out-width: 100%
+
+# figure produced with analyse/plots_ecohydrology.R
+knitr::include_graphics("images/etdecay.png")
+```
+
+::: {.callout-note}
+The exponential shape of the ET decline during dry periods directly follows from the water bucket model as defined above. During dry (rain-free) periods, $P=0$ and no runoff is generated ($R=0$). @eq-etdecay simplifies to
+$$
+\frac{\text{d}S}{\text{d}t} = - E(t)
+$$ 
+With @eq-etmodel:
+$$
+\frac{\text{d}S}{\text{d}t} = - \frac{\text{PET}(t)}{S_0} \; S(t)
+$$
+Assuming that PET is constant, this equation describes a simple first-order decay and is solved by and the following exponential function:
+$$
+S(t) = S_\text{init} \exp \left(-\frac{\text{PET}}{S_0} \; t \right)
+$$
+Here, the rate constant of the exponential decay is $\text{PET}/S_0$. In other words, the higher PET, the more rapid the decline. The higher *S*~0~, the slower the decay.
+
+:::
+
+
+#### *S*~0~ as a buffer {-}
+
+The rooting-zone water-storage capacity *S*~0~ "buffers" variations in precipitation and determines how much moisture is plant-available during rain-free periods. Rooting depth, through its influence on *S*~0~, thus has the effect of compensating asynchroneities between water supply through precipitation and demand via PET (thus *R*~n~). A larger *S*~0~ implies a higher ratio of annual total ET over annual total *P*.
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-s0
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total precipitation (*P*) for different levels of the rooting zone water storage capacity (*S*~0~). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above, assuming an annual total PET of 2000 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming 10 wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_s0 <- readRDS(here::here("data/df_s0.rds"))
+
+df_s0 |> 
+  ggplot(
+    aes(
+      x = prec,
+      y = aet,
+      group = s0,
+      color = s0
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 2000, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic("S")[0], " (mm)")),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = expression(paste(italic(P), " (mm)")),
+    y = "AET (mm)"
+  )
+```
+
+
+#### Rainfall distribution {-}
+
+The distribution of rain over time matters. A "constant drizzle" keeps the bucket moist throughout the year and ET will stay close to PET. In contrast, if all annual precipitation falls within a short period of time, the bucket is quickly saturated and a higher fraction of the annual precipitation goes into runoff. In that case, some time after the large rainfall event or the short but intense moist season, the soil dries out again because the excess water has not been stored, and ET starts falling below PET.
+
+If part of the precipitation falls as snow, the timing of its melting and infiltration as liquid water into the rooting zone matters. Snow melt water can be a substantial root zone moisture input during months when $P-E$ is already negative (for example late spring in the Sierras of California).
+
+```{r, message=FALSE, warning=FALSE, fig.width=6, fig.height=3}
+#| code-fold: true
+#| label: fig-waterbucket-wetd
+#| fig-cap: "Annual total actual evapotranspiration (AET) versus annual total precipitation (*P*) for different distributions of daily precipitation, where the number of wet days per month (*N*~wet~) is varied between (2, 3, 5, 7, 10, 12, 15, 20, 30). Each line connects data points of (PET, AET, *P*) where AET is simulated as a function of PET and *P*, following the water bucket model described above, assuming an annual total PET of 2000 mm and a rooting-zone water storage capacity (*S*~0~) of 200 mm. The model was forced with synthetic data of meteorological forcing variables. PET is uniformly distributed across all days in a year. *P* sequences are generated synthetically assuming a variable number of wet days per month. The sloped dotted line is the 1:1 line. The horizontal dotted line marks the annual total PET applied for all simulations."
+
+library(ggplot2)
+
+# data created in analysis/analyse_waterbucketmodel.R
+df_wetd <- readRDS(here::here("data/df_wetd.rds"))
+
+df_wetd |> 
+  filter(mwetd != 3) |> 
+  ggplot(
+    aes(
+      x = prec,
+      y = aet,
+      group = mwetd,
+      color = mwetd
+    )
+  ) + 
+  geom_line() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 2000, linetype = "dotted") +
+  theme_classic() +
+  scale_color_viridis_c(
+    name = expression(paste(italic(N)[wet])),
+    option = "magma"
+  ) +
+  coord_equal() +
+  labs(
+    x = expression(paste(italic(P), " (mm)")),
+    y = "AET (mm)"
+  )
+```
+
+#### Seasonality of radiation and precipitation {-}
+
+The seasonality of *R*~n~ and *P* matters. If *P* is high in months when *R*~n~ is high, soils remain moist, and ET stays close to PET. In contrast, when *R*~n~ is high during the dry period of the year, and *R*~n~ is low during the moist period of the year (e.g., in Mediterranean climates), a relatively large fraction of annual total *P* goes into runoff despite the ecosystem being water-limited during the dry period of the year. This is the case in Mediterranean climates where the dry period can extend over several months (@fig-cwd).
+
+
+::: {.callout-caution}
+## Exercise
+
+The model described here is a simplification. What empirically known aspects of the ecosystem water balance are ignored in terms of ...
+
+- runoff generation
+- the dependence of $E$ on $S(t)$
+
+...?
+
+:::
+
+
 <!-- - Lifetime of soil water -->
 <!-- - Water stress curves (Teuling et al., Stocker et al., 2023) -->
 <!-- - Mass curve technique -->
