@@ -329,7 +329,7 @@ div.csl-indent {
   <li><a href="#rooting-zone-water-storage-capacity" id="toc-rooting-zone-water-storage-capacity" class="nav-link" data-scroll-target="#rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</a></li>
   </ul></li>
   <li><a href="#sec-hydraulics" id="toc-sec-hydraulics" class="nav-link" data-scroll-target="#sec-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
-  <li><a href="#water-bucket-model-and-ecohydrological-relations" id="toc-water-bucket-model-and-ecohydrological-relations" class="nav-link" data-scroll-target="#water-bucket-model-and-ecohydrological-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</a></li>
+  <li><a href="#sec-waterbucket-relations" id="toc-sec-waterbucket-relations" class="nav-link" data-scroll-target="#sec-waterbucket-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</a></li>
   <li><a href="#ecosystem-water-fluxes" id="toc-ecosystem-water-fluxes" class="nav-link" data-scroll-target="#ecosystem-water-fluxes"><span class="header-section-number">8.6</span> Ecosystem water fluxes</a></li>
   <li><a href="#sec-budyko" id="toc-sec-budyko" class="nav-link" data-scroll-target="#sec-budyko"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</a></li>
   <li><a href="#landscape-scale-heterogeneity" id="toc-landscape-scale-heterogeneity" class="nav-link" data-scroll-target="#landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</a></li>
@@ -913,7 +913,7 @@ P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
 <div id="fig-hydraulics" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ecohydrology_files/figure-html/fig-hydraulics-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">Figure&nbsp;8.10: Example plant hydraulic vulnerability cuve. The water potential at which <em>P</em> has dropped to 0.5 is commonly referred to as <em>P<sub>50</sub></em> and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in <em>P</em> is described by a shape parameter (<em>b</em> in <a href="#eq-vulnerabilitycurve">Equation&nbsp;<span>8.9</span></a>).</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;8.10: Example plant hydraulic vulnerability curve. The water potential at which <em>P</em> has dropped to 0.5 is commonly referred to as <em>P<sub>50</sub></em> and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in <em>P</em> is described by a shape parameter (<em>b</em> in <a href="#eq-vulnerabilitycurve">Equation&nbsp;<span>8.9</span></a>).</figcaption>
 </figure>
 </div>
 </div>
@@ -1018,8 +1018,8 @@ Exercise
 </div>
 </div>
 </section>
-<section id="water-bucket-model-and-ecohydrological-relations" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="water-bucket-model-and-ecohydrological-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</h2>
+<section id="sec-waterbucket-relations" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sec-waterbucket-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</h2>
 <p>In this and in the previous chapter (<a href="landclimate.html"><span>Chapter&nbsp;7</span></a>), we have learned about three important points that follow from mass and energy conservation and govern the water balance and its components:</p>
 <ul>
 <li>Precipitation <span class="math inline">\(P\)</span> is partitioned into evaporation <span class="math inline">\(E\)</span> and runoff <span class="math inline">\(R\)</span>, as described by the ecosystem water balance (<a href="#eq-waterbalance">Equation&nbsp;<span>8.2</span></a>).</li>
@@ -1429,7 +1429,75 @@ Exercise
 </section>
 <section id="sec-budyko" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="sec-budyko"><span class="header-section-number">8.7</span> Energy and water limitation across the globe</h2>
-<p>Coming soon.</p>
+<p>Ecosystems are commonly distinguished into energy-limited and water-limited systems. This notion relates to the dominant limiting resource and to the relations described in <a href="#sec-waterbucket-relations"><span>Section&nbsp;8.5</span></a>. When the bucket is full, the system is energy-limited. When it gets depleted, the system becomes water-limited. Of course, this is a simplification. The relations described in <a href="#sec-waterbucket-relations"><span>Section&nbsp;8.5</span></a> really refer to a spectrum, rather than a binary classification.</p>
+<p>Furthermore, water-limited conditions may be temporally limited and interspersed by energy-limited periods. Also, the water bucket model, as formulated above, suggests that water-limitation sets in at the point when soil moisture falls below the field capacity. However, as long as the net radiation and the atmospheric vapour pressure deficit are not “excessive”, the demand for transpiration (<a href="#eq-transpiration-demand">Equation&nbsp;<span>8.7</span></a>) may be met by the supply (<a href="#eq-hydraulicsupply">Equation&nbsp;<span>8.8</span></a>) without substantial stomatal closure during the daytime.</p>
+<p>A common classification of ecosystems into <em>aridity classes</em> is given in <a href="#tbl-aridity">Table&nbsp;<span>8.1</span></a> based on <span class="citation" data-cites="unep92">Middleton and Thomas (<a href="references.html#ref-unep92" role="doc-biblioref">1992</a>)</span>. This considers the moisture index as defined by <em>P</em>/PET.</p>
+<div id="tbl-aridity" class="anchored">
+<table class="table">
+<caption>Table&nbsp;8.1: Aridity classes after <span class="citation" data-cites="unep92">Middleton and Thomas (<a href="references.html#ref-unep92" role="doc-biblioref">1992</a>)</span>.</caption>
+<thead>
+<tr class="header">
+<th>Moisture index value</th>
+<th>Aridity class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;0.03</td>
+<td>Hyper arid</td>
+</tr>
+<tr class="even">
+<td>0.03-0.2</td>
+<td>Arid</td>
+</tr>
+<tr class="odd">
+<td>0.2-0.5</td>
+<td>Semi-arid</td>
+</tr>
+<tr class="even">
+<td>0.5-0.65</td>
+<td>Dry sub-humid</td>
+</tr>
+<tr class="odd">
+<td>&gt;0.65</td>
+<td>Humid</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The global distribution of the moisture index (<a href="#fig-ai_map">Figure&nbsp;<span>8.22</span></a>) resembles global distributions of vegetation patterns (<a href="biogeography.html#sec-global-veg-patterns"><span>Section&nbsp;2.5</span></a>). In regions where radiation (and temperature) does not limit vegetation, it may additionally be limited by water, as reflected by the moisture index. When combining the data for the satellite remote-sensing based fAPAR and the moisture index, a similar pattern emerges as described in <a href="#sec-waterbucket-relations"><span>Section&nbsp;8.5</span></a>. The green vegetation cover, measured by fAPAR, initially increases linearly with increasing <em>P</em>/PET for low values of the latter. Beyond a certain value, fAPAR no longer shows a relationship with <em>P</em>/PET (<a href="#fig-donohue">Figure&nbsp;<span>8.23</span></a>).</p>
+<p>The slope of the initial linear increase of fAPAR vs.&nbsp;<em>P</em>/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. Under rising CO<sub>2</sub>, stomatal conductance tends to be reduced (<a href="gpp.html#fig-constant-chi">Figure&nbsp;<span>4.11</span></a>) and the water use efficiency is enhanced (<a href="gpp.html#sec-wue"><span>Section&nbsp;4.4.1</span></a>). In other word, a larger area of green leaves per unit ground area can be sustained for a given level of aridity. Indeed, research has shown that the relationship shown in <a href="#fig-donohue">Figure&nbsp;<span>8.23</span></a> is shifting such that the slope of the initial increase tends to steepen over time <span class="citation" data-cites="donohue13grl ukkola16natcc">(<a href="references.html#ref-donohue13grl" role="doc-biblioref">Donohue et al. 2013</a>; <a href="references.html#ref-ukkola16natcc" role="doc-biblioref">Ukkola et al. 2016</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ai_map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/map_aridityindex.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.22: Moisture index defined as <em>P</em>/PET. This is also commonly referred to as the <em>aridity index</em> (but note: high values mean moist conditions). Data from <span class="citation" data-cites="zomer22scidat">Zomer, Xu, and Trabucco (<a href="references.html#ref-zomer22scidat" role="doc-biblioref">2022</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-donohue" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/donohue.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.23: Vegetation greenness (measured by the fraction of absorbed photosynthetically active radiation, fAPAR) versus the moisture index (measured by the ratio of precipitation over potential evapotranspiration, <em>P</em>/PET). Data for fAPAR is from the MODIS MOD15A2 C006 product and taken as the annual maximum of mean monthly values. The color of hexagons shows the density of points (count per bin). A Data for the moisture index is from <span class="citation" data-cites="zomer22scidat">Zomer, Xu, and Trabucco (<a href="references.html#ref-zomer22scidat" role="doc-biblioref">2022</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Related patterns emerge from the annual sums of ecosystem water fluxes (AET, PET, and <em>P</em>) measured from surface-atmosphere exchange (eddy covariance technique, <a href="#fig-budyko-fluxnet">Figure&nbsp;<span>8.24</span></a>). However, at the scale at which ecosystem fluxes are measured (~1 km<sup>2</sup>), AET is sometimes larger than precipitation, as suggested by <a href="#fig-budyko-fluxnet">Figure&nbsp;<span>8.24</span></a> (b). This may be related to errors in precipitation and latent heat flux estimates, or due to vegetation having access to the groundwater and/or being supplied moisture through lateral subsurface flow.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-budyko-fluxnet" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/budyko_fluxnet.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;8.24: (a) Ecosystems in the AET vs.&nbsp;PET space. (b) Ecosystems in the Bukyko space (AET/<em>P</em> vs.&nbsp;PET/<em>P</em>). Each point represents a site from which flux measurements are available. A selection of sites from which data were used in this and previous chapters are highlighted. AET, PET, and <em>P</em> are multi-year means of annual sums.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
 <!-- ### (Donohue graph) -->
 <!-- ### Budyko {#sec-budyko} -->
@@ -1455,11 +1523,17 @@ Clapp, Roger B., and George M. Hornberger. 1978. <span>“Empirical Equations fo
 <div id="ref-dirmeyer06" class="csl-entry" role="listitem">
 Dirmeyer, Paul A., Xiang Gao, Mei Zhao, Zhichang Guo, Taikan Oki, and Naota Hanasaki. 2006. <span>“<span>GSWP</span>-2: <span>Multimodel</span> <span>Analysis</span> and <span>Implications</span> for <span>Our</span> <span>Perception</span> of the <span>Land</span> <span>Surface</span>.”</span> <em>Bulletin of the American Meteorological Society</em> 87 (10): 1381–98. <a href="https://doi.org/10.1175/BAMS-87-10-1381">https://doi.org/10.1175/BAMS-87-10-1381</a>.
 </div>
+<div id="ref-donohue13grl" class="csl-entry" role="listitem">
+Donohue, Randall J., Michael L. Roderick, Tim R. McVicar, and Graham D. Farquhar. 2013. <span>“Impact of <span>CO</span> <span class="math inline">\(_{\textrm{2}}\)</span> Fertilization on Maximum Foliage Cover Across the Globe’s Warm, Arid Environments: <span>CO</span> <span class="math inline">\(_{\textrm{2}}\)</span> <span>FERTILIZATION</span> <span>AND</span> <span>FOLIAGE</span> <span>COVER</span>.”</span> <em>Geophysical Research Letters</em> 40 (12): 3031–35. <a href="https://doi.org/10.1002/grl.50563">https://doi.org/10.1002/grl.50563</a>.
+</div>
 <div id="ref-IPCC_2021_WGI_Ch_8" class="csl-entry" role="listitem">
 Douville, H., K. Raghavan, J. Renwick, R. P. Allan, P. A. Arias, M. Barlow, R. Cerezo-Mota, et al. 2021. <span>“Water Cycle Changes.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al. Cambridge, UK; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.010">https://doi.org/10.1017/9781009157896.010</a>.
 </div>
 <div id="ref-joshi22natplants" class="csl-entry" role="listitem">
 Joshi, Jaideep, Benjamin D. Stocker, Florian Hofhansl, Shuangxi Zhou, Ulf Dieckmann, and Iain Colin Prentice. 2022. <span>“Towards a Unified Theory of Plant Photosynthesis and Hydraulics.”</span> <em>Nature Plants</em> 8 (11): 1304–16. <a href="https://doi.org/10.1038/s41477-022-01244-5">https://doi.org/10.1038/s41477-022-01244-5</a>.
+</div>
+<div id="ref-unep92" class="csl-entry" role="listitem">
+Middleton, Nick., and David Thomas. 1992. <span>“World Atlas of Desertification.”</span> ix, 69 p. : <a href="http://digitallibrary.un.org/record/246740">http://digitallibrary.un.org/record/246740</a>.
 </div>
 <div id="ref-seneviratne10" class="csl-entry" role="listitem">
 Seneviratne, Sonia I., Thierry Corti, Edouard L. Davin, Martin Hirschi, Eric B. Jaeger, Irene Lehner, Boris Orlowsky, and Adriaan J. Teuling. 2010. <span>“Investigating Soil Moisture–Climate Interactions in a Changing Climate: <span>A</span> Review.”</span> <em>Earth-Science Reviews</em> 99 (3): 125–61. https://doi.org/<a href="https://doi.org/10.1016/j.earscirev.2010.02.004">https://doi.org/10.1016/j.earscirev.2010.02.004</a>.
@@ -1479,11 +1553,17 @@ Tumber-Dávila, Shersingh Joseph, H. Jochen Schenk, Enzai Du, and Robert B. Jack
 <div id="ref-tyree89annrev" class="csl-entry" role="listitem">
 Tyree, M. T., and J. S. Sperry. 1989. <span>“Vulnerability of <span>Xylem</span> to <span>Cavitation</span> and <span>Embolism</span>.”</span> <em>Annual Review of Plant Biology</em> 40 (Volume 40, 1989): 19–36. <a href="https://doi.org/10.1146/annurev.pp.40.060189.000315">https://doi.org/10.1146/annurev.pp.40.060189.000315</a>.
 </div>
+<div id="ref-ukkola16natcc" class="csl-entry" role="listitem">
+Ukkola, Anna M., I. Colin Prentice, Trevor F. Keenan, Albert I. J. M. van Dijk, Neil R. Viney, Ranga B. Myneni, and Jian Bi. 2016. <span>“Reduced Streamflow in Water-Stressed Climates Consistent with <span>CO2</span> Effects on Vegetation.”</span> <em>Nature Climate Change</em> 6 (1): 75–78. <a href="https://doi.org/10.1038/nclimate2831">https://doi.org/10.1038/nclimate2831</a>.
+</div>
 <div id="ref-wei17grl" class="csl-entry" role="listitem">
 Wei, Zhongwang, Kei Yoshimura, Lixin Wang, Diego G. Miralles, Scott Jasechko, and Xuhui Lee. 2017. <span>“Revisiting the Contribution of Transpiration to Global Terrestrial Evapotranspiration.”</span> <em>Geophysical Research Letters</em> 44 (6): 2792–2801. <a href="https://doi.org/10.1002/2016GL072235">https://doi.org/10.1002/2016GL072235</a>.
 </div>
 <div id="ref-zhang24scidat" class="csl-entry" role="listitem">
 Zhang, Kun, Huiling Chen, Ning Ma, Shasha Shang, Yunquan Wang, Qinglin Xu, and Gaofeng Zhu. 2024. <span>“A Global Dataset of Terrestrial Evapotranspiration and Soil Moisture Dynamics from 1982 to 2020.”</span> <em>Scientific Data</em> 11 (1): 445. <a href="https://doi.org/10.1038/s41597-024-03271-7">https://doi.org/10.1038/s41597-024-03271-7</a>.
+</div>
+<div id="ref-zomer22scidat" class="csl-entry" role="listitem">
+Zomer, Robert J., Jianchu Xu, and Antonio Trabucco. 2022. <span>“Version 3 of the <span>Global</span> <span>Aridity</span> <span>Index</span> and <span>Potential</span> <span>Evapotranspiration</span> <span>Database</span>.”</span> <em>Scientific Data</em> 9 (1): 409. <a href="https://doi.org/10.1038/s41597-022-01493-1">https://doi.org/10.1038/s41597-022-01493-1</a>.
 </div>
 </div>
 </section>
