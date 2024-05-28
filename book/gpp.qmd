@@ -737,7 +737,7 @@ Avoidance of dangerous desiccation is enabled by responses at the level of leave
 
 Obviously, such adaptations and the largely instantaneous stomatal response incurs a cost - the opportunity cost of reduced CO~2~ assimilation when stomatal conductance is reduced and the construction cost of building water-stress adapted organs. Hence, plants always have to balance carbon uptake and water loss and a tight *carbon-water coupling* at the level of plants, and ecosystems arises from these leaf-level processes.
 
-### Water use efficiency
+### Water use efficiency {#sec-wue}
 
 The trade-off between transpiration and assimilation can be measured by considering their ratio by combining @eq-photo-fick and @eq-transpiration to define the *instantaneous water-use efficiency*:
 $$

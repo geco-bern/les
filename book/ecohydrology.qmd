@@ -531,7 +531,7 @@ where $P_\text{50}$ is the water potential at which $P$ has dropped to 0.5.
 ```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #| code-fold: true
 #| label: fig-hydraulics
-#| fig-cap: "Example plant hydraulic vulnerability cuve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a shape parameter (*b* in @eq-vulnerabilitycurve)."
+#| fig-cap: "Example plant hydraulic vulnerability curve. The water potential at which *P* has dropped to 0.5 is commonly referred to as *P~50~* and is marked by the vertical dotted line at -2000 Pa (as an example). The abruptness of the drop in *P* is described by a shape parameter (*b* in @eq-vulnerabilitycurve)."
 
 library(ggplot2)
 
@@ -633,7 +633,7 @@ knitr::include_graphics("images/drydownresponse.png")
 
 :::
 
-## Water bucket model and ecohydrological relations
+## Water bucket model and ecohydrological relations {#sec-waterbucket-relations}
 
 In this and in the previous chapter (@sec-landclimate), we have learned about three important points that follow from mass and energy conservation and govern the water balance and its components:
 
@@ -968,8 +968,52 @@ knitr::include_graphics("images/seasonal_cycle_radiation_ecohydrology.png")
 
 ## Energy and water limitation across the globe {#sec-budyko}
 
+Ecosystems are commonly distinguished into energy-limited and water-limited systems. This notion relates to the dominant limiting resource and to the relations described in @sec-waterbucket-relations. When the bucket is full, the system is energy-limited. When it gets depleted, the system becomes water-limited. Of course, this is a simplification. The relations described in @sec-waterbucket-relations really refer to a spectrum, rather than a binary classification. 
 
-Coming soon.
+Furthermore, water-limited conditions may be temporally limited and interspersed by energy-limited periods. Also, the water bucket model, as formulated above, suggests that water-limitation sets in at the point when soil moisture falls below the field capacity. However, as long as the net radiation and the atmospheric vapour pressure deficit are not "excessive", the demand for transpiration (@eq-transpiration-demand) may be met by the supply (@eq-hydraulicsupply) without substantial stomatal closure during the daytime.
+
+A common classification of ecosystems into *aridity classes* is given in @tbl-aridity based on @unep92. This considers the moisture index as defined by *P*/PET.
+
+
+| Moisture index value | Aridity class |
+| -------------------  | ------------- |
+| <0.03                | Hyper arid    |
+| 0.03-0.2             | Arid          |
+| 0.2-0.5              | Semi-arid     |
+| 0.5-0.65             | Dry sub-humid |
+| >0.65                | Humid         |
+
+: Aridity classes after @unep92. {#tbl-aridity}
+
+The global distribution of the moisture index (@fig-ai_map) resembles global distributions of vegetation patterns (@sec-global-veg-patterns). In regions where radiation (and temperature) does not limit vegetation, it may additionally be limited by water, as reflected by the moisture index. When combining the data for the satellite remote-sensing based fAPAR and the moisture index, a similar pattern emerges as described in @sec-waterbucket-relations. The green vegetation cover, measured by fAPAR, initially increases linearly with increasing *P*/PET for low values of the latter. Beyond a certain value, fAPAR no longer shows a relationship with *P*/PET (@fig-donohue).
+
+The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. Under rising CO~2~, stomatal conductance tends to be reduced (@fig-constant-chi) and the water use efficiency is enhanced (@sec-wue). In other word, a larger area of green leaves per unit ground area can be sustained for a given level of aridity. Indeed, research has shown that the relationship shown in @fig-donohue is shifting such that the slope of the initial increase tends to steepen over time [@donohue13grl; @ukkola16natcc].
+
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-ai_map
+#| fig-cap: "Moisture index defined as *P*/PET. This is also commonly referred to as the *aridity index* (but note: high values mean moist conditions). Data from @zomer22scidat."
+#| out-width: 100%
+# plot produced by analysis/plot_map_aridityindex.R
+knitr::include_graphics("images/map_aridityindex.png")
+```
+
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-donohue
+#| fig-cap: "Vegetation greenness (measured by the fraction of absorbed photosynthetically active radiation, fAPAR) versus the moisture index (measured by the ratio of precipitation over potential evapotranspiration, *P*/PET). Data for fAPAR is from the MODIS MOD15A2 C006 product and taken as the annual maximum of mean monthly values. The color of hexagons shows the density of points (count per bin). A  Data for the moisture index is from @zomer22scidat."
+#| out-width: 80%
+# plot produced by analysis/plot_map_aridityindex.R
+knitr::include_graphics("images/donohue.png")
+```
+
+Related patterns emerge from the annual sums of ecosystem water fluxes (AET, PET, and *P*) measured from surface-atmosphere exchange (eddy covariance technique, @fig-budyko-fluxnet). However, at the scale at which ecosystem fluxes are measured (~1 km^2^), AET is sometimes larger than precipitation, as suggested by @fig-budyko-fluxnet (b). This may be related to errors in precipitation and latent heat flux estimates, or due to vegetation having access to the groundwater and/or being supplied moisture through lateral subsurface flow. 
+
+```{r warning=FALSE, message=FALSE, echo = FALSE}
+#| label: fig-budyko-fluxnet
+#| fig-cap: "(a) Ecosystems in the AET vs. PET space. (b) Ecosystems in the Bukyko space (AET/*P* vs. PET/*P*). Each point represents a site from which flux measurements are available. A selection of sites from which data were used in this and previous chapters are highlighted. AET, PET, and *P* are multi-year means of annual sums."
+#| out-width: 100%
+# plot produced by analysis/aridityindex_fluxnet.R
+knitr::include_graphics("images/budyko_fluxnet.png")
+```
 
 <!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
 
