@@ -235,7 +235,7 @@ A changing environment changes the competitiveness of a given species, i.e., of 
 
 <!-- XXX: explain trait variations with leaf N and P - Reich et al. PNAS, Asner et al. -->
 
-## Global vegetation patterns
+## Global vegetation patterns {#sec-global-veg-patterns}
 
 The biome classification is a way to discretize vegetation based on several characteristics (e.g., tree cover fraction). However, many of these characteristics describe observable variables that vary more or less gradually across environmental gradients and each of these variables can be mapped across the globe thanks to Earth observation data. These global patterns of different observable variables reflect how the climate influences vegetation structure and functioning across the globe (independent of a classification into biomes). In much of the remainder of this course, we will investigate these vegetation-climate relationships without considering the biome classification. These relationships are informative for understanding how different processes of terrestrial ecology, plant physiology, the carbon cycle, and land-climate interactions are driven by the environment and vary across the globe.
 
