@@ -985,9 +985,7 @@ A common classification of ecosystems into *aridity classes* is given in @tbl-ar
 
 : Aridity classes after @unep92. {#tbl-aridity}
 
-The global distribution of the moisture index (@fig-ai_map) resembles global distributions of vegetation patterns (@sec-global-veg-patterns). In regions where radiation (and temperature) does not limit vegetation, it may additionally be limited by water, as reflected by the moisture index. When combining the data for the satellite remote-sensing based fAPAR and the moisture index, a similar pattern emerges as described in @sec-waterbucket-relations. The green vegetation cover, measured by fAPAR, initially increases linearly with increasing *P*/PET for low values of the latter. Beyond a certain value, fAPAR no longer shows a relationship with *P*/PET (@fig-donohue).
-
-The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. Under rising CO~2~, stomatal conductance tends to be reduced (@fig-constant-chi) and the water use efficiency is enhanced (@sec-wue). In other word, a larger area of green leaves per unit ground area can be sustained for a given level of aridity. Indeed, research has shown that the relationship shown in @fig-donohue is shifting such that the slope of the initial increase tends to steepen over time [@donohue13grl; @ukkola16natcc].
+The global distribution of the moisture index (@fig-ai_map) resembles global distributions of vegetation patterns (@sec-global-veg-patterns). In regions where radiation (and temperature) does not limit vegetation, it may additionally be limited by water, as reflected by the moisture index and its low values across the worlds drylands. 
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE}
 #| label: fig-ai_map
@@ -996,6 +994,9 @@ The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water
 # plot produced by analysis/plot_map_aridityindex.R
 knitr::include_graphics("images/map_aridityindex.png")
 ```
+When combining the data for the satellite remote-sensing based fAPAR and the moisture index, a similar pattern emerges as described in @sec-waterbucket-relations. The green vegetation cover, measured by fAPAR, initially increases linearly with increasing *P*/PET for low values of the latter. Beyond a certain value, fAPAR no longer shows a relationship with *P*/PET (@fig-donohue).
+
+The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. research has shown that the relationship shown in @fig-donohue is shifting such that the slope of the initial increase tends to steepen over time [@donohue13grl; @ukkola16natcc]. This is related to the fact that under rising CO~2~, stomatal conductance tends to be reduced (@fig-constant-chi) and the water use efficiency is enhanced (@sec-wue). In other words, a larger area of green leaves per unit ground area can be sustained for a given level of aridity.
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE}
 #| label: fig-donohue
