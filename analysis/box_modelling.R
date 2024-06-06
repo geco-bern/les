@@ -333,3 +333,18 @@ df_dist |>
   labs(x = "Time", y = "C pool")
 
 ggsave(here("book/images/disturbance_recovery.png"), width = 4, height = 3)
+
+# for exam
+ggplot() +
+  geom_line(aes(year, co2),
+            data = df_const |> 
+              filter(year >= 1850),
+            color = "black"
+  ) +
+  geom_vline(xintercept = 2023, linetype = "dotted") +
+  theme_classic() +
+  labs(x = "Year", 
+       y = expression(paste("CO"[2], " (ppm)")),
+       subtitle = expression(paste("Atmospheric CO"[2])))
+
+ggsave(here::here("fig/co2_stabilisation.png"), width = 4, height = 3)
