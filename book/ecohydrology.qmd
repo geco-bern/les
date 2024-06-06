@@ -270,6 +270,24 @@ gg1 <- df_swc |>
   xlim(0, 0.5) + 
   theme(legend.position="none")
 
+# # extra plot
+# df_swc |> 
+#   filter(soilclass %in% c("Sand", "Loam", "Clay")) |> 
+#   ggplot(aes(swc, psi, color = soilclass)) +
+#   geom_line() +
+#   geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") +
+#   khroma::scale_color_okabeito() +
+#   labs(
+#     x = "Volumetric soil water content",
+#     y = expression(paste("Soil matric potential (mm)"))
+#   ) +
+#   theme_classic() +
+#   ylim(-0.5e6, 0) + 
+#   xlim(0, 0.5) + 
+#   theme(legend.position="none")
+# 
+# ggsave(here::here("fig/soil_matric_potential_vs_swc.png"), width = 4, height = 3)
+
 gg2 <- df_swc |> 
   ggplot(aes(swc, -psi, color = soilclass)) +
   geom_line() +
@@ -1016,11 +1034,21 @@ Related patterns emerge from the annual sums of ecosystem water fluxes (AET, PET
 knitr::include_graphics("images/budyko_fluxnet.png")
 ```
 
-<!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
+<!-- XXX Add: -->
+<!-- Budyko framework -->
 
-<!-- ### (Donohue graph) -->
+<!-- - Chatchment characteristics -->
+<!-- - Soil -->
+<!-- - Vegetation -->
+<!-- - Topography -->
+<!-- - Groundwater -->
+<!-- - Hydroclimate -->
+<!-- - Precipitation magnitude -->
+<!-- - Precipitation distribution -->
+<!-- - Seasonality of precipitation
+and PET -->
 
-<!-- ### Budyko {#sec-budyko} -->
+<!-- - Fig. 3 in Caracciolo et al. 2018 https://doi.org/10.1007/s11269-018-1984-7 -->
 
 ## Landscape-scale heterogeneity
 

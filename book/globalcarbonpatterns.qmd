@@ -29,6 +29,8 @@ $$
 I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 $$ {#eq-sin}
 
+<!-- XXX give values and units of all variables -->
+
 ```{r echo=FALSE}
 #| label: fig-solar_radiation
 #| fig-cap: "Map of solar radiation incident at the Earth surface, averaged over 1981-2010, based on @chelsa_bioclim. Figure from [https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png](https://en.wikipedia.org/wiki/Solar_irradiance#/media/File:RSDS_wiki.png)."
@@ -46,6 +48,8 @@ $$
 I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
 $$ {#eq-s-toa}
 $\theta_z$ is the solar zenith angle. The term $\cos \theta_z$ accounts for the dependence of the solar radiation on the angle at which the sun's rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with *hour-of-day*) and over the course of a year (with *day-of-year*). The zenith angle is zero when the sun is directly above the observer - in the zenith (@fig-solar_geometry). At this point, the intensity of the solar radiation is at its maximum.
+
+<!-- XXX explain why ~1/r^2 -->
 
 Note that $r_E$ is not constant over the course of a year as the Earth rotates around the sun not following a perfect circle but an ellipse.
 
@@ -489,6 +493,7 @@ knitr::include_graphics("images/seasonal_cycle.png")
 7. Consider mature forest ecosystems (*sensu* @odum69sci, @fig-odum) in a moist tropical, temperate and boreal region. Where do you expect the largest annual NEP? Where do you expect the largest daily NEP during the peak growing season?
 :::
 
+<!-- XXX remove exercise 5: not trivial explanation -->
 
 #### The breathing of the Earth
 
