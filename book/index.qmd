@@ -20,9 +20,11 @@ The book covers a diverse thematic ground - as diverse as the processes of the b
 
 Original sources are attributed. Content without attribution is our own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing or other, please [contact us](https://geco-group.org/contact/) or [report an issue](https://github.com/geco-bern/les_i/issues). Any feedback, positive or negative, is welcome.
 
-<!-- ### How to cite this book {-} -->
+### How to cite this book {-}
 
-<!-- Benjamin Stocker, Koen Hufkens, Pepa Arán, & Pascal Schneider. (2023). Applied Geodata Science (v1.0). Zenodo. [![DOI](https://zenodo.org/badge/569245031.svg)](https://zenodo.org/badge/latestdoi/569245031) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12543104.svg)](https://doi.org/10.5281/zenodo.12543104)
+Benjamin Stocker. (2024). Land in the Earth System (v1.0) (v1.0). Zenodo. https://doi.org/10.5281/zenodo.12543104 
+
 
 ----
 
