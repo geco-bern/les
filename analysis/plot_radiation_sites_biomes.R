@@ -305,3 +305,87 @@ ddf_sub |>
   ) +
   facet_wrap(~sitename)
 
+## Extra plot --------------------
+ddf_sub |> 
+  filter(sitename == "DE-Hai") |> 
+  pivot_longer(cols = c(netrad, heat, le)) |>  # , res
+  ggplot(aes(date, value, color = name)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  geom_line() +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_color_manual(
+    name = "",
+    labels = c(
+      heat = expression(paste(italic("H"))),
+      le = expression(paste(lambda, italic("E"))),
+      netrad = expression(paste(italic("R")[net]))
+      # res = "Residual"
+    ),
+    values = c(
+      heat = "#E69F00",
+      le = "#56B4E9",
+      netrad = "black"
+      # res = "grey70"
+    )
+  ) +
+  theme_classic() +
+  labs(
+    x = "",
+    y = expression(paste("Energy flux (W m"^-2, ")"))
+  )
+
+ggsave(
+  here::here("fig/seasonal_cycle_de-hai.png"),
+  width = 5, 
+  height = 3
+)
+
+hdf_sub |> 
+  filter(sitename == "DE-Hai") |> 
+  pivot_longer(cols = c(netrad, heat, le)) |>  # , res
+  ggplot(aes(hm, value, color = name)) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  geom_line() +
+  scale_x_time() +
+  # scale_x_datetime(date_breaks= "2 hours", date_labels = "%H:%M") +
+  scale_color_manual(
+    name = "",
+    labels = c(
+      heat = expression(paste(italic("H"))),
+      le = expression(paste(lambda, italic("E"))),
+      netrad = expression(paste(italic("R")[net]))
+      # res = "Residual"
+    ),
+    values = c(
+      heat = "#E69F00",
+      le = "#56B4E9",
+      netrad = "black"
+      # res = "grey70"
+    )
+  ) +
+  # scale_linetype_manual(
+  #   name = "",
+  #   labels = c(
+  #     heat = expression(paste(italic("H"))),
+  #     le = expression(paste(lambda, italic("E"))),
+  #     netrad = expression(paste(italic("R")[net])),
+  #     res = "Residual"
+  #   ),
+  #   values = c(
+  #     heat = "solid",
+  #     le = "solid",
+  #     netrad = "solid",
+  #     res = "dashed"
+  #   )
+  # ) +
+  theme_classic() +
+  labs(
+    x = "Time of day",
+    y = expression(paste("Energy flux (W m"^-2, ")"))
+  )
+
+ggsave(
+  here::here("fig/diurnal_cycle_de-hai.png"),
+  width = 6, 
+  height = 3
+)
