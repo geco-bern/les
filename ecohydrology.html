@@ -635,25 +635,43 @@ p = \frac{F_G}{A} = \frac{mg}{A}
 <span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>) <span class="sc">+</span> </span>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span>
 <span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> df_swc <span class="sc">|&gt;</span> </span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(swc, <span class="sc">-</span>psi, <span class="at">color =</span> soilclass)) <span class="sc">+</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">150000</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">"Soil texture"</span>) <span class="sc">+</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volumetric soil water content"</span>,</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Suction head (mm)"</span>))</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  gg1,</span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  gg2,</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  <span class="at">rel_widths =</span> <span class="fu">c</span>(<span class="fl">0.77</span>, <span class="dv">1</span>)</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co"># # extra plot</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co"># df_swc |&gt; </span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(soilclass %in% c("Sand", "Loam", "Clay")) |&gt; </span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot(aes(swc, psi, color = soilclass)) +</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_line() +</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_hline(yintercept = c(-1000, -150000), linetype = "dotted") +</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="co">#   khroma::scale_color_okabeito() +</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co">#     x = "Volumetric soil water content",</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co">#     y = expression(paste("Soil matric potential (mm)"))</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) +</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_classic() +</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="co">#   ylim(-0.5e6, 0) + </span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="co">#   xlim(0, 0.5) + </span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme(legend.position="none")</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(here::here("fig/soil_matric_potential_vs_swc.png"), width = 4, height = 3)</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> df_swc <span class="sc">|&gt;</span> </span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(swc, <span class="sc">-</span>psi, <span class="at">color =</span> soilclass)) <span class="sc">+</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">150000</span>), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>  khroma<span class="sc">::</span><span class="fu">scale_color_okabeito</span>(<span class="at">name =</span> <span class="st">"Soil texture"</span>) <span class="sc">+</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Volumetric soil water content"</span>,</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Suction head (mm)"</span>))</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  gg1,</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>  gg2,</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">rel_widths =</span> <span class="fu">c</span>(<span class="fl">0.77</span>, <span class="dv">1</span>)</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-psisoil" class="quarto-figure quarto-figure-center anchored">
@@ -1385,7 +1403,7 @@ Exercise
 <div class="cell-output-display">
 <div id="fig-cwd-seasonal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/cwd_sites_ecohydrology.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="images/cwd_sites_ecohydrology_SAVE.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.20: Mean seasonal cycle of the cumulative water deficit (CWD, in mm). The 25% and 75% quantiles across individual years are shown by the grey band, and the median is shown by the black line.</figcaption>
 </figure>
 </div>
@@ -1499,9 +1517,19 @@ Exercise
 </div>
 </div>
 </div>
-<!-- - Start by: constant EF under un-limited conditions, decline as water becomes limiting -->
-<!-- ### (Donohue graph) -->
-<!-- ### Budyko {#sec-budyko} -->
+<!-- XXX Add: -->
+<!-- Budyko framework -->
+<!-- - Chatchment characteristics -->
+<!-- - Soil -->
+<!-- - Vegetation -->
+<!-- - Topography -->
+<!-- - Groundwater -->
+<!-- - Hydroclimate -->
+<!-- - Precipitation magnitude -->
+<!-- - Precipitation distribution -->
+<!-- - Seasonality of precipitation
+and PET -->
+<!-- - Fig. 3 in Caracciolo et al. 2018 https://doi.org/10.1007/s11269-018-1984-7 -->
 </section>
 <section id="landscape-scale-heterogeneity" class="level2" data-number="8.8">
 <h2 data-number="8.8" class="anchored" data-anchor-id="landscape-scale-heterogeneity"><span class="header-section-number">8.8</span> Landscape-scale heterogeneity</h2>

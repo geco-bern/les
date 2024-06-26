@@ -379,6 +379,7 @@ div.csl-indent {
 <p>Solar radiation across the full short-wave spectrum emitted by the sun and incident at the land surface (top-of-canopy, <span class="math inline">\(I_\mathrm{0}\)</span>) is similarly related to <span class="math inline">\(I_\mathrm{TOA}\)</span>. A different albedo applies for total short-wave radiation vs.&nbsp;the radiation in the photosynthetically active (and visible) spectrum. <span class="math inline">\(I_\mathrm{0}\)</span> is commonly expressed in energy units (W m<sup>-2</sup>). <span id="eq-sin"><span class="math display">\[
 I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 \tag{6.2}\]</span></span></p>
+<!-- XXX give values and units of all variables -->
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-solar_radiation" class="quarto-figure quarto-figure-center anchored">
@@ -395,6 +396,7 @@ I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 <p><span class="math inline">\(I_\mathrm{TOA}\)</span> scales in proportion with the solar constant <span class="math inline">\(I_S\)</span> (1360.8 W m<sup>-2</sup>) and is inversely proportional to the square of the distance between the Earth and the sun (<span class="math inline">\(r_E\)</span>). <span id="eq-s-toa"><span class="math display">\[
 I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
 \tag{6.3}\]</span></span> <span class="math inline">\(\theta_z\)</span> is the solar zenith angle. The term <span class="math inline">\(\cos \theta_z\)</span> accounts for the dependence of the solar radiation on the angle at which the sun’s rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with <em>hour-of-day</em>) and over the course of a year (with <em>day-of-year</em>). The zenith angle is zero when the sun is directly above the observer - in the zenith (<a href="#fig-solar_geometry">Figure&nbsp;<span>6.2</span></a>). At this point, the intensity of the solar radiation is at its maximum.</p>
+<!-- XXX explain why ~1/r^2 -->
 <p>Note that <span class="math inline">\(r_E\)</span> is not constant over the course of a year as the Earth rotates around the sun not following a perfect circle but an ellipse.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -890,6 +892,7 @@ Exercise
 </ol>
 </div>
 </div>
+<!-- XXX remove exercise 5: not trivial explanation -->
 <section id="the-breathing-of-the-earth" class="level4" data-number="6.3.2.1">
 <h4 data-number="6.3.2.1" class="anchored" data-anchor-id="the-breathing-of-the-earth"><span class="header-section-number">6.3.2.1</span> The breathing of the Earth</h4>
 <p>The NEE (equivalent to the negative of NBP, introduced in <a href="ecosystemcarbon.html#sec-nep"><span>Section&nbsp;5.1.6</span></a>) recorded at the four example sites shown above is representative for similar patterns across all vegetated land of the Earth. Seasonal variations in solar radiation are the underlying driver of the carbon flux variations and similarly affect all photosynthesizing organisms across the planet.</p>
