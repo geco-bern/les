@@ -212,7 +212,7 @@ $$
              &= \mathrm{NPP} - R_h
 \end{align}
 $$ {#eq-nep}
-NEP can be measured by *eddy covariance* flux measurement technique (see also @sec-researchtools). The net CO~2~ exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.
+NEP can be measured by *eddy covariance* flux measurement technique. The net CO~2~ exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.
 
 The classical model of ecological succession and an ecosystem's carbon balance is that it reaches a steady state at time scales of forest stand maturity (shorter for grasslands), where, under constant environmental conditions, the NEP approaches zero. Respiration balances photosynthetic C uptake, biomass turnover balances biomass accumulation, and ecosystems become "C neutral" [@odum69sci]. 
 
