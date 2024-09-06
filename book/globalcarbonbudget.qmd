@@ -10,6 +10,10 @@ format:
 
 # The global carbon budget {#sec-globalcarbonbudget}
 
+<!-- XXX revise: -->
+<!-- - make absolutely clear the difference between fluxes and pools.  -->
+<!-- - ... and that the sink flux decreases to zero once a steady-state is attained. -->
+
 The principles of what drives the carbon cycle, and along with it the energy and mass flow, cannot be better explained than through the words of the late and great Richard Feynman - Nobel Prize laureate in Physics and a gifted teacher.
 
 {{< video https://www.youtube.com/watch?v=ifk6iuLQk28 >}}
