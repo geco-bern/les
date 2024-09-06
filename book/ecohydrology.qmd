@@ -953,7 +953,7 @@ All four sites experience cumulative water deficits during the summer months (@f
 #| fig-cap: "Mean seasonal cycle of the cumulative water deficit (CWD, in mm). The 25% and 75% quantiles across individual years are shown by the grey band, and the median is shown by the black line."
 #| out-width: 100%
 # figure created with analysis/plot_energy_partitioning_ecohydrology.R
-knitr::include_graphics("images/cwd_sites_ecohydrology.png")
+knitr::include_graphics("images/cwd_sites_ecohydrology_SAVE.png")
 ```
 
 ```{r echo=FALSE}
