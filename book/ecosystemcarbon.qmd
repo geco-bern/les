@@ -212,7 +212,7 @@ $$
              &= \mathrm{NPP} - R_h
 \end{align}
 $$ {#eq-nep}
-NEP can be measured by *eddy covariance* flux measurement technique (see also @sec-researchtools). The net CO~2~ exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.
+NEP can be measured by *eddy covariance* flux measurement technique. The net CO~2~ exchange (NEE) between the canopy and the atmosphere is measured. It is termed NEE (and not NEP) because the processes and components are not directly identified by the measurement. For example, chemically dissolved C in the soil solution and particulate organic matter may be laterally transported off-site and is not reflected in the measurements. NEE is defined such that negative values indicate an net C gain by the ecosystem - opposite from the definition of NEP.
 
 The classical model of ecological succession and an ecosystem's carbon balance is that it reaches a steady state at time scales of forest stand maturity (shorter for grasslands), where, under constant environmental conditions, the NEP approaches zero. Respiration balances photosynthetic C uptake, biomass turnover balances biomass accumulation, and ecosystems become "C neutral" [@odum69sci]. 
 
@@ -234,7 +234,9 @@ These dynamics imply that the NEP is rarely zero, but is positive for most of th
 Forest monitoring plots are usually on the order of 20-50 m in radius. Hence, such data is sensitive to whether the observed plots are a representative sample of forest dynamics and forest gap formation across the landscape.
 
 
-### Net biome productivity
+### Net biome productivity {#sec-nbp}
+
+<!-- XXX Explain that NBP can also be quantified at the global scale and corresponds to sink flux minus LUC emissions, however decay of wood products off-site -->
 
 Net biome productivity (NBP, expressed in a mass carbon per unit ground area and time, for example gC m^-2^ yr^-1^) is the net of NEP and C loss by disturbances $\Delta C_\mathrm{dist}$. The NBP is defined for large spatial domains - large enough to contain a representative sample of stochastically occurring disturbances. Across an entire biome, this is given.
 $$
@@ -244,6 +246,8 @@ $$
 \end{align}
 $$ {#eq-nbp}
 Disturbances are commonly referred to as stand-replacing events that drive mortality in a large portion of individual plants of an ecosystem. Causes for disturbances include fire, pests, windthrow, or wood harvesting. A disturbance can be conceived as a re-setting of the "Odum-type" ecosystem succession. In contrast to the forest gap dynamics (@sec-nep), which play out at the level of individual trees, disturbances affect larger spatial extents (ecosystem or forest *patches*, @fig-patches). However, the same aspects of stochasticity across the landscape applies. 
+
+<!-- XXX revise: 1Link to 1-box model: clarify again that the sink flux decreases to zero once a steady-state is attained. -->
 
 ```{r echo=FALSE}
 #| label: fig-patches

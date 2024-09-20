@@ -14,21 +14,25 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - biogeography.qmd
-    - globalcarbonbudget.qmd
-    - gpp.qmd
-    - ecosystemcarbon.qmd
-    - globalcarbonpatterns.qmd
-    - landclimate.qmd
-    - ecohydrology.qmd
-    - nutrients.qmd
-    - ghg.qmd
-    - oceancarbon.qmd
-    - globenvchange.qmd
-    - feedbacks.qmd
-    - landusechange.qmd
-    - researchtools.qmd
-    - reading.qmd
+    - part: part1.qmd
+      chapters:
+      - biogeography.qmd
+      - globalcarbonbudget.qmd
+      - gpp.qmd
+      - ecosystemcarbon.qmd
+      - globalcarbonpatterns.qmd
+      - landclimate.qmd
+      - ecohydrology.qmd
+    - part: part2.qmd
+      chapters:
+      - feedbacks.qmd
+      - landusechange.qmd
+      - nutrients.qmd
+      - ghg.qmd
+      - globenvchange.qmd
+      - oceancarbon.qmd
+    # - researchtools.qmd
+    # - reading.qmd
     - references.qmd
   favicon: "figures/favicon.ico"
   twitter-card: true

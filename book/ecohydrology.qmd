@@ -2,6 +2,12 @@
 
 ## Global water cycle
 
+<!-- XXX to add: -->
+<!-- - explain water control on LAI -->
+<!-- - Explain that water is taken up by roots from the soil (not leaves) -->
+<!-- - Explain the role of plant-internal water storage: how important in comparison to soil water storage? -->
+
+
 Water cycles in the Earth system between the atmosphere, the ocean, the land biosphere and the cryosphere. The evaporation of water (H~2~O) from its liquid form to (gaseous) water vapour consumes energy (@sec-energybalance) and its condensation releases the same amount of energy in the form of heat again. Hence, the global water cycle is coupled to large energy transfers. For the Earth as a whole and as an annual average, 80 W m^–2^ are consumed for evaporation – more than three-quarters of the 98 W m^–2^ net radiation at the surface [@bonan]. 
 
 The vast majority (ca. 98%) of water on Earth is saline and is stored in the Oceans, inland seas, and saline groundwater (@fig-global-water-cycle a). Among the total amount of freshwater, the vast majority is stored as ice. Only a small fraction of water on Earth cycles between the atmosphere, the ocean and land. However, this cycling is relatively rapid (see Exercise below). 
