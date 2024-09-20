@@ -6,17 +6,17 @@ library(cwd)
 library(gghighlight)
 
 # Get site meta info -----------------
-sites <- readr::read_csv("~/data/FluxDataKit/v3.1/fdk_site_info.csv") |>
+sites <- readr::read_csv("~/data_2/FluxDataKit/v3.3/zenodo_upload/fdk_site_info.csv") |>
   filter(!(sitename %in% c("MX-Tes", "US-KS3"))) |>  # failed sites
   left_join(
-    readr::read_csv("~/data/FluxDataKit/v3.1/fdk_site_fullyearsequence.csv"),
+    readr::read_csv("~/data_2/FluxDataKit/v3.3/zenodo_upload/fdk_site_fullyearsequence.csv"),
     by = "sitename"
   ) |> 
   filter(!drop_lecorr) |>  # where no full year sequence was found
   filter(nyears_lecorr >= 3)
 
 # Load data -------------
-path <- "~/data/FluxDataKit/v3.1/zenodo_upload/fluxnet/"  # adjust for your own local use
+path <- "~/data_2/FluxDataKit/v3.3/zenodo_upload/fluxnet/"  # adjust for your own local use
 read_onesite <- function(site, path){
   filename <- list.files(path = path, 
                          pattern = paste0("FLX_", site, "_FLUXDATAKIT_FULLSET_DD"), 
