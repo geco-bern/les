@@ -234,7 +234,7 @@ These dynamics imply that the NEP is rarely zero, but is positive for most of th
 Forest monitoring plots are usually on the order of 20-50 m in radius. Hence, such data is sensitive to whether the observed plots are a representative sample of forest dynamics and forest gap formation across the landscape.
 
 
-### Net biome productivity
+### Net biome productivity {#sec-nbp}
 
 <!-- XXX Explain that NBP can also be quantified at the global scale and corresponds to sink flux minus LUC emissions, however decay of wood products off-site -->
 

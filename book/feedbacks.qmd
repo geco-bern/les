@@ -4,80 +4,131 @@
 
 The Earth system can be regarded as a coupled system in which its elements (atmosphere, ocean, cryosphere,  biosphere, lithosphere) interact on various time scales. A primary goal of Earth System research is to understand the interactions occurring on time scales that are relevant for society in the context of anthropogenic climate change. It is now established with overwhelming evidence that anthropogenic CO~2~ emissions from the combustion of fossil fuels have caused a rise in atmospheric concentrations beyond levels reached over the past 800,000 years, and that this concentration increase is the dominant driver of climate change as observed over the last decades [@IPCC_2021_WGI_TS].
 
-Any prediction of climate change in the coming decades, centuries and millennia relies on an understanding of the processes that are key to the questions: 
+Any prediction of climate change in the coming decades, centuries and millennia relies on an understanding of the processes that are key to the following questions: 
 
 - How fast will anthropogenic CO~2~ emissions and other greenhouse gases accumulate in the atmosphere?
-- Has does the anthropogenic modification of the biosphere through land use change affect greenhouse gases, land-climate interactions, and the carbon cycle?
+- How does the anthropogenic modification of the biosphere through land use change affect greenhouse gas emissions by land ecosystems, land-climate interactions, and the carbon cycle?
 - What is the climate response to changes in atmospheric CO~2~ and other drivers? 
 - What mechanisms does the rise in CO~2~ and the change in climate set in motion and how do they feed back to climate change?
 
-For understanding 
+The land carbon cycle, emissions of several greenhouse gases, and various land surface properties respond to a changing climate and atmospheric CO~2~. The processes responsible for the climate and CO~2~ effect on land ecosystems were introduced in Part I of this book. For example, rising CO~2~ has a fertilising effect on photosynthesis (@sec-fvcb). Rising temperatures accelerate respiration by autotrophs (e.g, plants) and heterotrophs (e.g., microbes and fungi) (@sec-carboncycle_ecosystem) and may shift photosynthesis beyond its temperature optimum (@sec-ftemp). Increasing temperatures drive water loss through evapotranspiration and, potentially aggravated by reduced precipitation, can reduce root zone water availability and induce hydraulic stress in plants (@sec-hydraulics), reduced CO~2~ uptake by photosynthesis (@sec-transpiration), and can trigger tree mortality.
 
-This thesis focuses on the terrestrial biosphere and how it affects atmospheric CO~2~ and climate change through feedbacks and in direct response to anthropogenic impacts. The land carbon cycle, nitrous oxide (N~2~O ) emissions from soils, methane (CH~4~ ) emissions from peatlands and inundated soils, and a multitude of other processes @arneth10ngeo, respond to a changing climate and atmospheric composition. At the same time, emissions of these greenhouse-gases, as well as direct anthropogenic impacts on terrestrial ecosystems through land use change affect climate. In this thesis, I present results from Earth system modeling studies that addressed above mentioned impacts and mechanisms and provide a quantification of their relative potency in affecting future climate change. 
+```{r echo=FALSE}
+#| label: fig-bonan
+#| fig-cap: "Interactions of terrestrial ecosystems (here, in particular forests) with the climate system via surface energy exchange (A), the water cycle (B), and the carbon cycle (C). Diffuse and direct solar radiation is partially reflected or absorbed, as determined by the surface albedo. Energy absorbed from shortwave and longwave radiation, in combination with water available for transpiration and evaporation determines fluxes of heat into the soil, sensible, and latent heat fluxes. Available water is determined by the soil water balance of inputs (infiltrating precipitation and snow melt) and outputs (evaporation, transpiration, surface runoff, drainage, and submilmation). Available water limits the rate of photosynthesis, which acts as the fixation of atmospheric CO~2~ and provides C used for the synthesis of foliage, stem, or root biomass, exudates (not shown) or is directly respired (autotrophic respiration). Assimilated biomass turns over as litterfall, feeds the soil carbon pool, and is remineralized by microbial activity, mobilising nutrients essential for the assimilation of new tissue. The processes and quantities shown in this figure are covered in Part I of this book. Figure from @bonan08sci."
+#| out-width: 100%
+knitr::include_graphics("images/forests_bonan.png")
+```
 
-The conceptual framework of forcings and feedbacks and the quantification formalism adopted and extended here will serve as a guide to describe and quantify the myriad interactions and feedbacks in the terrestrial biosphere. Before turning to the introduction of this framework in @sec-concepts}, I will provide a brief introduction into the processes that shape the role of the terrestrial biosphere in the Earth system and will focus in particular on the interaction of the carbon and nitrogen cycle. 
+The climate and CO~2~-driven responses of land ecosystems and land surface processes affect the C balance of the terrestrial biosphere (its net biome productivity, @sec-nbp) and, through altered surface properties, land-climate interactions, e.g., through altered albedo and conductances to land-atmosphere water vapour fluxes (@sec-landclimate). While Part I of this book introduced the processes by which climate and CO~2~ affect the terrestrial biosphere, the land carbon cycle and land-climate interactions, Part II looks at how this affects the climate system. In addition to the focus on C, energy, and water, Part II extends the scope to the nitrogen (N) cycle, how it affects the C cycle and how emissions of the important greenhouse-gas N~2~O are controlled. Methane (CH~4~), an even stronger contributor to climate change than N~2~O, also has major sources in land ecosystems. Wetlands and fire are natural sources of CH~4~ and respond sensitively to climate change. Because greenhouse gases and land surface properties affect climate and are affected by it, *feedbacks* arise.
 
-<!-- ## The terrestrial biosphere in equilibrium (?) -->
+::: {.callout-note}
 
-<!-- The terrestrial biosphere being in equilibrium with climate and atmospheric CO~2~ is an approximative concept often used as a description for its pre-industrial state. It is motivated by the finding that atmospheric CO~2~ @siegenthaler05, macfarling06grl} and climate have been remarkably stable during the pre-industrial Holocene ($\sim$11 ka BP -- $\sim$1750 AD) and that the terrestrial carbon (C) and nutrient balances and other ecosystem properties (greenhouse-gas emissions, surface energy and water exchange, see @fig-bonan) adjust to perturbations and re-equilibrate on time scales of decades to millennia. These time scales are determined by vegetation dynamics and related shifts in carbon and nutrient cycling (decades to centuries), and the relatively slow turnover times of soil organic matter pools (centuries to millennia). -->
+A feedback arises when the output to a process triggers an amplification (positive feedback) or an attenuation (negative feedback) of the initial input.
 
-<!-- ```{r echo=FALSE} -->
-<!-- #| label: fig-bonan -->
-<!-- #| fig-cap: "Interactions of terrestrial ecosystems with climate]{Interactions of terrestrial ecosystems (here, in particular forests) with the climate system via surface energy exchange (A), the water cycle (B), and the carbon cycle (C). Diffuse and direct solar radiation is partially reflected or absorbed, as determined by the surface albedo. Energy absorbed from shortwave and longwave radiation, in combination with water available for transpiration and evaporation determines fluxes of heat into the soil, sensible, and latent heat fluxes. Available water is determined by the soil water balance of inputs (infiltrating precipitation and snow melt) and outputs (evaporation, transpiration, surface runoff, drainage, and submilmation). Available water limits the rate of photosynthesis, which acts as the fixation of atmospheric CO~2~ and provides C used for the assimilation of foliage, stem, or root biomass, exudates (not shown) or is directly respired (autotrophic respiration). Assimilated biomass turns over as litterfall, feeds the soil carbon pool, and is remineralized by microbial activity, mobilising nutrients essential for the assimilation of new tissue. Figure from @bonan08." -->
-<!-- #| out-width: 100% -->
-<!-- knitr::include_graphics("images/forests_bonan.pdf") -->
-<!-- ``` -->
+```{r echo=FALSE}
+#| label: fig-feedback_schematic
+#| fig-cap: "A feedback loop where an output of a process (P) adds as a causal input to that process. Figure and caption taken from @wikimedia_feedback_2024."
+#| out-width: 60%
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/General_Feedback_Loop.svg/640px-General_Feedback_Loop.svg.png")
+```
 
-<!-- The equilibrium concept implies that no net C fluxes occur between the terrestrial biosphere, the ocean and the atmosphere, and that all other properties remain constant. This is remarkable in the view of the vast C reservoirs on land and the large gross exchange fluxes (see @fig-ccycle). Globally, $\sim$120 PgC yr^-1^\footnote{Unless referenced otherwise, values are from @ciais13ipcc and represent present-day conditions. C fluxes and stocks are given in units of PgC$=$petagramm carbon. 1 PgC = 1 GtC = 10$^{15}$gC} are assimilated by terrestrial photosynthesis (gross primary production, GPP), and $\sim$60 PgC yr^-1^ are retained to assimilate vegetation biomass (net primary production, NPP) @gruber04book. The vegetation C stock amounts to 350 to 550 PgC and is turned over on time scales of years (grass, leaves) to centuries (stems). Turnover feeds soil C stocks (1500 to 2400 PgC), where it is retained for centuries to millennia, and is ultimately respired back to the atmosphere as CO~2~ (heterotrophic respiration, *R*~h~ ). Peatland C stocks ($\sim$600 PgC, @yu10grl) have even longer lifetimes due to anaerobic soil conditions inhibiting decomposition. The turnover time (lifetime) of a given C reservoir determines its time scale of response to a perturbation. Large C stocks are contained in permafrost soils ($\sim$1700 PgC, including yedoma and deltaic deposits, @tarnocai09gbc) where C is practically locked away from the C cycle but can be re-mobilised upon thawing. -->
+:::
 
-<!-- ```{r echo=FALSE} -->
-<!-- #| label: fig-ccycle -->
-<!-- #| fig-cap: "The carbon cycle]{Terrestrial and oceanic carbon cycle. Reservoirs (boxes), gross, and net exchange fluxes, and their anthropogenic perturbation given in red. Figure from @ciais13ipcc" -->
-<!-- #| out-width: 100% -->
-<!-- knitr::include_graphics("images/ccycle_ipcc.pdf") -->
-<!-- ``` -->
-
-<!-- Note that on millennial time scales, the C cycle has only very minor long-term sinks (e.g., oceanic sediment burial, peat buildup), and that any perturbation of the equilibrium induces a {\it redistribution} of C within the different reservoirs. Until equilibration, net fluxes between reservoirs occur mostly in the form of gaseous CO~2~ . In contrast, other greenhouse-gases (e.g., N~2~O , CH~4~ ) have considerable sinks in the atmosphere and, to a lesser degree, in soils. Thus, net land-to-atmosphere and ocean-to-atmosphere fluxes persist also in a C cycle equilibrium and scale atmospheric concentrations. -->
-
-<!-- The concept of a pre-industrial land C cycle equilibrium is approximative because {\it (i)} climate and CO~2~ conditions were not perfectly stable but responded to volcanic activity, changes in solar radiation, and slow changes in orbital configurations @wanner08, {\it (ii)} anthropogenic land use change has had profound impacts on local ecosystem functioning since its first appearance at the turn of the Neolithicum and caused significant global impacts on the carbon cycle and climate probably as early as $\sim$1000 BC (see Chapter @sec-holoLU}), {\it (iii)} a small net C sink in peatlands has persisted even millennia after their establishment at the end of the Last Deglaciation due to the extremely slow turnover rates of soil organic matter under anaerobic conditions (see Chapter @sec-topmodel}), {\it (iv)} dynamics of permafrost buildup are likely to evolve on multi-millennial time scales as well, implying long-term disequilibrium fluxes, and {\it (v)} a small burial flux of terrigenous organic matter in inland lakes and coastal zones causes a continuous sink of C (see @fig-ccycle). -->
-
-<!-- ## The terrestrial response to the anthropogenic perturbation -->
-
-<!-- The pre-industrial ``equilibrium'' has been dramatically perturbed since fossil energy sources have been used and have enabled the development of industrial production and the modern lifestyle. The CO~2~ emitted from the combustion of fossil fuels has accumulated in different reservoirs of the land and ocean carbon cycle (see @fig-ccycle) and has wide ranging consequences for climate, ocean acidification, primary productivity of the biosphere, and the cycling of nutrients. The industrialisation has been accompanied by an increase in global population, a shift in consumption patterns and a growing demand for food. The associated expansion of agricultural land  has transformed $\sim$30\% of the land surface (@hurtt06gcb, see Chapter @sec-lutrans}), while the production of mineral fertilisers, necessary to support today's agricultural production, has fundamentally disrupted the natural nutrient cycles and, e.g., amplified soil N~2~O emissions (see Chapter @sec-multiGHG}). This has led to the accumulation of an array of radiatively active substances in the atmosphere and has contributed to anthropogenic climate change, eutrophication of ecosystems, loss of biodiversity, and impacts on human health @ena,all}. -->
-
-<!-- XXX IPCC radiative forcing figure here  -->
-
-<!-- The terrestrial biosphere affects the most important drivers of the radiative forcing responsible for observed anthropogenic climate change @spm13ipcc. Part of the land-mediated radiative forcings are the direct result of anthropogenic impacts on terrestrial ecosystems. For example, fertilising agricultural soils with reactive N (N~r~ )\footnote{N~r~ refers to all reactive mineral N species (most importantly NH~y~ , NO~x~ ) and N bound in organic compounds.} causes an increase in N~2~O emissions. However, N~2~O emissions are also amplified by changes in climate and atmospheric CO~2~ (see Chapter @sec-multiGHG}). It is thus crucial to conceptually distinguish external forcings and feedbacks. An external forcing is defined here as a perturbation of the Earth system associated with a radiative forcing and not affected by the state of the Earth system. In the context of Earth system modeling, the ``forcing part'' of the N~2~O emission change in the example given above can be assessed when changes in climate and CO~2~ (blue and red arrows in @fig-schematicfb_frc}) are {\it not} communicated to the land model. In contrast, a feedback is triggered by an initial perturbation of the state (e.g., atmospheric CO~2~ or climate) and feeds back to modify the ultimate response of the system to an external forcing (see also @sec-concepts}). Following again above example, including the feedbacks requires a coupled model setup where the land module ``sees'' changes in climate and CO~2~ . The ``feedback part'' is then captured by the difference of the coupled and un-coupled simulations. The mathematical framework of the feedback quantification is explained in @sec-concepts}. -->
+Greenhouse gas emissions from land ecosystems and modifications of land-climate interactions are also the response of a direct anthropogenic *forcing* that would arise also in absence of changes in climate and CO~2~. For example, deforestation leads to a loss of C stored in biomass (and respective CO~2~ emissions) and to a modification of the surface radiation balance [@bala07pnas], nitrogen fertiliser inputs drive enhanced nitrous oxide (N~2~O) emissions [@galloway04], and wetland drainage leads to C loss from soils and associated CO~2~ emissions, but also reduces CH~4~ emissions [@fluet23nat]. To complicate things, human alterations of the land surface and ecosystems also modify the feedbacks between terrestrial systems and climate. For example, deforestation reduces the capacity of the terrestrial biosphere to act as a C sink for anthropogenic CO~2~ emissions. These myriad interactions make the land an intricately coupled element of the earth system and call for a conceptual framework and formalism for separating feedbacks and forcings and measuring their strengths.  
 
 
-<!-- ```{r echo=FALSE} -->
-<!-- #| label: fig-schematic_fb_frc -->
-<!-- #| fig-cap: "Schematic of forcings and feedbacks related with terrestrial biosphere]{Schematic of forcings and feedbacks related with terrestrial greenhouse gas emissions and biogeophysical changes. External forcings to this system are given in yellow, and act either on the terrestrial biosphere directly (land use and land use change, LU and LUC; N~r~ -deposition; air pollution (O~3~^tropos^, sulphate deposition, etc.) or modify the atmospheric composition (direct anthropogenic emissions). Land biogeochemical (greenhouse-gas) emissions and biogeophysical changes are affected by external forcings acting on the land, as well as by the feedback drivers (atmospheric CO~2~ and climate). Changes induced by these drivers imply feedbacks because drivers are mediated by the Earth system response to external forcings." -->
-<!-- #| out-width: 100% -->
-<!-- knitr::include_graphics("images/schematic_feedback_forcing_newstyle-crop.pdf") -->
-<!-- `` -->
+```{r echo=FALSE}
+#| label: fig-schematic_fb_frc
+#| fig-cap: "Schematic of forcings and feedbacks related with terrestrial greenhouse gas emissions and biogeophysical changes. External forcings to this system are given in yellow, and act either on the terrestrial biosphere directly (land use and land use change, LU and LUC ; reactive N deposition (N~r~ -deposition); air pollution (O~3~^tropos^, sulphate deposition, etc.) or modify the atmospheric composition (direct anthropogenic emissions). Land biogeochemical emissions and biogeophysical changes are affected by external forcings acting on the land, as well as by the feedback drivers (atmospheric CO~2~ and climate). 'Biogeochemical emissions' include not only greenhouse-gases, but also several reactive gases that affect aerosols, atmospheric chemistry, and the atmospheric lifetime of CH~2~. BVOC are biogenic volatile organic compounds. Changes induced by these drivers imply feedbacks because drivers are mediated by the Earth system response to external forcings."
+#| out-width: 100%
+knitr::include_graphics("images/schematic_feedback_forcing_newstyle.png")
+```
 
-<!-- ### Climate forcings from the terrestrial biosphere {#sec-terrforc} -->
+## The terrestrial biosphere in equilibrium
 
-<!-- The terrestrial biosphere acts as a forcing element in direct response to anthropogenic land use (LU) and land use change (LUC), N~r~ -deposition, and air pollution (tropospheric ozone, O~3~^tropos^ ; sulphate deposition, etc.). As a consequence, land ecosystems emit radiatively active compounds and affect the surface-atmosphere energy exchange. Effects of LU and LUC on climate are manifold, but are dominated globally by changes in the carbon cycle and the surface albedo. Global modeling results for their respective total historical forcings suggest that on the global scale, the warming effect of CO~2~ emissions (biogeochemical) dominates over the cooling effect of albedo (biogeophysical) changes @pongratz10grl. -->
+A useful staring point is to consider the terrestrial biosphere and the Earth system being in a dynamic equilibrium (@sec-preindustrialcarboncycle). The terrestrial biosphere being in equilibrium with climate and atmospheric CO~2~ is an approximative concept often used as a description for its pre-industrial state. It is motivated by the finding that atmospheric CO~2~ [@siegenthaler05; @macfarling06grl] and climate were remarkably stable during the pre-industrial Holocene (ca. 11 ka BP -- 1750 AD) and that the terrestrial carbon (C) and nutrient balances and other ecosystem properties (greenhouse-gas emissions, surface energy and water exchange, see @fig-bonan) adjust to perturbations and re-equilibrate on time scales of decades to millennia. These time scales are determined by vegetation dynamics and related shifts in carbon and nutrient cycling (decades to centuries), and the relatively slow turnover times of soil organic matter pools (centuries to millennia). We learned about the dynamics of carbon cycling in ecosystems in @sec-carboncycle_ecosystem. 
 
-<!-- The biogeochemical effect of LU and LUC is addressed in this thesis. In particular, historical CO~2~ emissions since the development of early agriculture and their effect on atmospheric concentrations is assessed in Chapter @sec-holoLU}. Chapter @sec-lutrans} presents results from a further development of the representation of LUC, in which the area transitions between different types of land use are simulated in a global vegetation model. Estimates from this study are at the upper range of results presented in earlier studies from our group @strassmann08tel, stocker11bg} due to the additional C source from effects of wood harvesting and shifting cultivation-type agriculture, effects not included before. -->
+The equilibrium concept implies that no net C fluxes occur between the terrestrial biosphere, the ocean and the atmosphere, and that all other properties remain constant. The relatively balanced state of the C cycle during the pre-industrial Holocene is remarkable in the view of the vast C reservoirs on land and the large gross exchange fluxes (@sec-globalcarbonbudget). Globally, ca. 130 PgC yr^-1^ are assimilated by terrestrial photosynthesis (gross primary production, GPP), and ca. 60 PgC yr^-1^ are retained to assimilate vegetation biomass (net primary production, NPP). The vegetation C stock amounts to ca. 450 PgC and is turned over on time scales of years (grass, leaves) to decades (wood). Decomposed litter feeds soil C stocks (ca. 1700 PgC), where it is retained for centuries to millennia, and is ultimately respired back to the atmosphere as CO~2~ through heterotrophic respiration (*R*~h~). Peatland C stocks (ca. 600 PgC, @yu10grl) have even longer lifetimes due to anaerobic soil conditions inhibiting decomposition. The turnover time (lifetime) of a given C reservoir determines its time scale of response to a perturbation (@sec-ccascade). Large C stocks are contained in permafrost soils (ca. 1200 PgC, including yedoma and deltaic deposits, @tarnocai09gbc) where C is practically locked away from the C cycle but can be re-mobilised upon thawing. @fig-carbon-pools-fluxes-ipcc provides an schematic overview of these global C pools and fluxes.
 
-<!-- Different types of models have been applied to simulate the impact of LU and LUC and to quantify related global C emissions @houghton12bg,baccini12,harris12,houghton12bg}. Latest estimates from the Global Carbon Project are in the range of 1.0$\pm$0.5 PgC yr^-1^ for the period 2002-2011 @lequere13essd, which is about 10\% of total anthropogenic CO~2~ emissions at present. Other direct impacts of anthropogenic activities on the carbon cycle (e.g., fire suppression, peat burning) have not yet been implemented in models used for global LUC emission quantifications.  -->
+Note that on millennial time scales, the C cycle has only very minor long-term sinks (e.g., oceanic sediment burial, peat buildup), and that any perturbation of the equilibrium induces a *redistribution* of C within the different reservoirs. Until equilibration, net fluxes between reservoirs occur mostly in the form of gaseous CO~2~. In contrast, other greenhouse-gases (e.g., N~2~O , CH~4~) have considerable sinks in the atmosphere and, to a lesser degree, in soils. Thus, net land-to-atmosphere and ocean-to-atmosphere fluxes persist also in a C cycle equilibrium and maintain atmospheric concentrations.
 
-<!-- The climate forcing by LU and LUC is not fully captured by its effect on the terrestrial C balance and surface albedo. Deforestation by purposely set fires is associated with emissions of a range of radiatively active compounds (e.g., CH~4~ , CO, NO~x~ ). Furthermore, the application of mineral fertilisers and manure on agricultural land causes a large fraction of N~r~ to be lost from soils. This sets in motion a cascade of detrimental environmental effects @galloway03, many of which (e.g., N~2~O emissions) directly or indirectly affect climate @erisman11. This will be further discussed in the context of the N cycle in @sec-ncycle}. -->
+The concept of a land C cycle equilibrium during the pre-industrial Holocene is approximate because *(i)* climate and CO~2~ conditions were not perfectly stable but responded to volcanic activity, changes in solar radiation, and slow changes in orbital configurations @wanner08qsr, *(ii)* anthropogenic land use change has had profound impacts on local ecosystem functioning since the emergence of agriculture at the turn of the Neolithicum and caused significant global impacts on the carbon cycle and climate probably as early as ca. 1000 BC [@stocker17pnas], *(iii)* a small net C sink in peatlands has persisted even millennia after their establishment at the end of the Last Deglaciation due to the extremely slow turnover rates of soil organic matter under anaerobic conditions [@yu10grl], *(iv)* dynamics of permafrost buildup are likely to evolve on multi-millennial time scales as well, implying long-term disequilibrium fluxes, and *(v)* a small burial flux of terrigenous organic matter in inland lakes and coastal zones causes a continuous sink of C.
 
-<!-- Anthropogenic LU and LUC affects climate not only through its direct effects (as a forcing), but also by modifying the land response to changes in CO~2~ and climate (by modifying terrestial feedbacks). E.g., the replacement of woody vegetation with crops implies a reduction in the mean ecosystem turnover time of C and thus reduces the CO~2~ -driven fertilisation sink. This effect can be quantified as a flux (``replaced sources/sinks flux'', see @sec-lucdef}) and is often counted towards LUC emissions. In contrast, ``primary LUC emissions'' as reported in @pongratz09, @stocker11bg, or in @strassmann08tel as ``book-keeping flux'' exclude any feedback effects and can be regarded as a mere forcing. This conceptual difference of the quantification of LUC fluxes implies considerable differences in reported values and has caused confusion in the scientific community as discussed in recent papers @pongratz13 gasserciais13}. This highlights the importance of a conceptual framework to distinguish forcings from feedbacks. While such a distinction can neatly be achieved in the context of Earth system modeling by coupling and de-coupling model components (see @sec-concepts}), it is often impossible in reality, as ecosystems and their observable properties are inevitably affected by changes in climate and CO~2~ . -->
+## The terrestrial response to the anthropogenic perturbation
 
-<!-- Deposition of N~r~ and air pollution are listed in @fig-schematicfb_frc} as an external forcing directly acting on the terrestrial biosphere, although the strength of this forcing is determined by atmospheric concentrations of NO~x~ , and NH~y~ . This is because the effect of climate on atmospheric chemistry is relatively small @dentener06, and thus changes in N~r~ deposition are mainly driven by anthropogenic activities (combustion of fossil fuels, industry) rather than changes in climate. The same is (approximately) valid for O~3~^tropos^ , sulphate, and other reactive substances. This neglects potential feedbacks, e.g., between climate and NO~x~ emissions, a precursor for O~3~^tropos^ , mediated through the response of wildfires or the nitrogen cycle @arneth10ngeo. -->
+The pre-industrial "equilibrium" has been dramatically perturbed since fossil energy sources have been used and have enabled the rapid rise of the global economy and industrial production. The CO~2~ emitted from the combustion of fossil fuels has accumulated in different reservoirs of the land and ocean carbon cycle (@fig-carbon-pools-fluxes-ipcc) and has wide ranging consequences for climate, ocean acidification, primary productivity of the biosphere, and the cycling of nutrients. The industrialisation has been accompanied by an increase in global population, a shift in consumption patterns and a growing demand for food. The associated expansion of agricultural land  has transformed ca. 30% of the land surface [@ramankutty08gbc] and ca. 24% of the total terrestrial net primary production is appropriated by human uses [@vitousek86biosci; @haberl07pnas]. The production of mineral fertilisers, necessary to support today's agricultural output, has fundamentally disrupted the natural nutrient cycles and has amplified soil N~2~O emissions [@galloway04]. This has led to the accumulation of an array of radiatively active substances in the atmosphere and has contributed to anthropogenic climate change, eutrophication of ecosystems, loss of biodiversity, and impacts on human health. 
 
-<!-- The N~r~ forcing (atmospheric deposition and fertiliser application) induces a net climate effect that is mainly determined by the stimulation of land C storage (negative forcing) versus its amplification of N~2~O emissions (positive forcing). Amplified NO~x~ emissions also affect climate by its impacts on aerosols, O~3~^tropos^ , and CH~4~ @erisman11. A modeling study @zaehle11ngeo, and meta-analyses of observational studies indicate an overall negative @vangroenigen11, liugreaver09} or a small non-significant positive net effect of N~r~ on climate @zaehle11ngeo, (see also @sec-ncycle}). -->
+The human-caused accumulation of greenhouse gases in the atmosphere and the increase in other forcing agents is measured by the additional energy input into the climate system as the *effective radiative forcing* (ERF, @fig-radiative-forcing). The ERF is measured as an energy flux in W m^-2^ and reflects the atmospheric concentration of greenhouse gases and their effectiveness in heating the atmosphere over a given time period - here 1750-2019. The influence of *forcing agents* on the Earth's energy balance, e.g., the albedo change caused by land use change, can similarly be measured in terms of its ERF. @fig-radiative-forcing provides an overview of the ERF of different forcing agents since 1750. Among these, CO~2~, CH~4~, N~2~O, and albedo are tightly linked to land processes. The effect of greenhouse gases plays out through their absorption of longwave radiation that would otherwise radiate back into space. Instead, the radiative energy is absorbed and the trapped energy contributes to heating air. The radiative effect of albedo changes play out through the energy balance of the Earth surface (@sec-landclimate).
 
-<!-- Other direct effects on terrestrial biospheric processes are induced by air pollution. E.g., tropospheric ozone has been shown to have detrimental effects on photosynthetic tissues and plant productivity with presumably large implications for the global terrestrial C storage @sitch07,; sulphate deposition can induce carbon cycle effects through soil acidification; and increased atmospheric aerosol loadings affect the photosynthetically active radiation and the fraction of direct and diffuse radiation and may thereby stimulate canopy photosynthesis @mercado09. -->
+```{r echo=FALSE}
+#| label: fig-radiative-forcing
+#| fig-cap: "Change in effective radiative forcing (ERF) from 1750 to 2019 by contributing forcing agents (carbon dioxide, other well-mixed greenhouse gases, ozone, stratospheric water vapour, surface albedo, contrails and aviation-induced cirrus, aerosols, anthropogenic total, and solar). Solid bars represent best estimates, and very likely (5–95%) ranges are given by error bars. Non-CO~2~ well-mixed greenhouse gases are further broken down into contributions from methane (CH~4~), nitrous oxide (N~2~O) and halogenated compounds. Surface albedo is broken down into land-use changes and light-absorbing particles on snow and ice. Aerosols are broken down into contributions from aerosol–cloud interactions and aerosol–radiation interactions. For aerosols and solar, the 2019 single-year values are given (Table 7.8). Volcanic forcing is not shown due to the episodic nature of volcanic eruptions. Further details on data sources and processing are available in the chapter data table (Table 7.SM.14). Figure from @IPCC_2021_WGI_Ch_7."
+#| out-width: 100%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_7_6.png")
+```
 
-<!-- ### Feedbacks from the terrestrial biosphere {#sec-terrfb} -->
+<!-- XXX Box: equations of RF as a function of atmospheric concentrations. -->
 
-<!-- Feedbacks are triggered by terrestrial biogeochemical and biogeophysical effects in response to changes in atmospheric CO~2~ and changes in climate (including all its aspects affecting terrestrial ecosystems, e.g., changes in extremes or cloud cover which affects photosynthesis through modifying share of diffuse versus direct radiation @mercado09, see @fig-schematicfb_frc}). The context of anthropogenic climate change since the industrial era implies large changes in atmospheric CO~2~ . In a narrower sense as outlined in @sec-fbmaths}, feedbacks are triggered only by the change in global mean temperature ($\Delta T$ in Equation @eq-fbpaper). However, the uptake of anthropogenic CO~2~ by land and ocean is commonly treated as a negative feedback @gregory09jclim, since increases in atmospheric CO~2~ are an inherent feature and the dominant cause of anthropogenic climate change. In future climate change scenarios, the strength of this negative feedback is thus ultimately determined by the relative share of CO~2~ versus non-CO~2~ forcings (see @sec-sensitivities}). -->
+## Climate forcings from the terrestrial biosphere {#sec-terrforc}
+
+The terrestrial biosphere acts as a forcing element in direct response to anthropogenic land use (LU) and land use change (LUC), N~r~ -deposition, and air pollution (tropospheric ozone, O~3~^tropos^ ; sulphate deposition, etc.). For example, fertilising agricultural soils with reactive N and atmospheric deposition (N~r~, refers to all reactive mineral N species, most importantly NH~y~ , NO~x~, and N bound in organic compounds.) causes an increase in N~2~O emissions. Global net land use change (LUC) - that is the net of deforestation, afforestation, reforestation, and land abandonment across different regions globally - causes net CO~2~ emissions (@sec-gcb). Fires associated with human activities emit a range of reactive N species, CH~4~, aerosols, and CO~2~. Air pollution, e.g., tropospheric ozone, reduces photosynthesis and thus affects the land C balance [@sitch07nat]. Hence, as a consequence of the anthropogenic forcing, land ecosystems emit radiatively active compounds and affect the surface-atmosphere energy exchange. 
+
+Conceptually, we can consider these influences of human activities as *external forcings* on land and the resulting perturbation of the Earth's energy balance as a *radiative forcing*. As a simplification, we can consider that the strength of these forcings is not directly affected by any other state variable of the Earth system. In @fig-schematic_fb_frc, external forcings are indicated by yellow boxes and arrows. Note that the majority of radiative forcings result from direct emissions (not via affecting terrestrial processes) of greenhouse gases (CO~2~, CH~4~, HFCs), aerosols, and reactive gases that affect the lifetime of greenhouse gases (CO affects the atmospheric lifetime of CH~4~).
+
+
+## Feedbacks from the terrestrial biosphere {#sec-terrfb}
+
+Emissions drive atmospheric concentrations and atmospheric concentrations determine the radiative forcing and thus climate. Land-climate feedback loops arise via the atmospheric concentration of CO~2~ - which affects photosynthesis and thus the carbon balance of terrestrial ecosystems - and via climate - which affects land processes and thereby the emissions of greenhouse gases and albedo (@fig-schematic_fb_frc). The change in climate and CO~2~ caused by the external forcings drive an additional response of land-mediated biogeochemical and biogeophysical forcing agents and the final change in climate is the combined outcome of the initial external forcing and the feedbacks. 
+
+::: {.callout-note}
+
+### Quantifying feedbacks with an Earth System Model
+
+In the context of Earth system modeling, the "forcing part" of land-mediated changes can be assessed by considering the radiative forcing and climate change (global mean surface temperature change, $\Delta T^\text{ctrl}$ in @fig-radiative-forcing-stocker13) in a simulation setup where changes in climate and CO~2~ are *not* communicated to the land model component. In contrast, a feedback is triggered by the perturbation of climate and CO~2~, feeding back to modify land-mediated forcing agents. The final climate change considering forcings and feedbacks is measured by the global mean temperature change in the respective simulation ($\Delta T^\text{CT}$ in @fig-radiative-forcing-stocker13). Including the feedbacks requires a coupled Earth system model setup where the land module "sees" changes in climate and CO~2~. The "feedback part" is then captured by the difference of the coupled and un-coupled simulations.
+
+```{r echo=FALSE}
+#| label: fig-radiative-forcing-stocker13
+#| fig-cap: "Schematic illutstration of two Earth system model setups used for quantifying land-mediated forcings and feedbacks, arising through changes in terrestrial C storage (ΔT), N~O, and CH~4~ emissions, and albedo changes, and triggered by external forcings, including land use, N-deposition, N-fertiliser inputs, and direct emissions of greenhouse gases to the atmosphere (eEXT). Feedbacks arising through atmospheric CO~2~ are denoted with a 'C' and feedbacks arising through climate change are denoted with a 'T'. Figure from @stocker13natcc."
+#| out-width: 60%
+knitr::include_graphics("images/forcings_feedbacks_stocker13.png")
+```
+
+:::
+
+Climate-land feedbacks are a subset among a larger number of climate feedbacks that operate also in the atmosphere, ocean, and the cryosphere. A climate feedback is commonly defined as a process that drives a change of the energy balance of the climate system as a function the global mean temperature. A positive climate feedback drives an additional energy input, while a negative climate feedback drives an additional energy loss. A discrete set of such climate feedbacks are commonly distinguished [@fig-feedbacks-ipcc-ts]. 
+
+### The most important physical climate feedbacks {#sec-climatefeedbacks}
+
+**Planck response**  The energy emitted by the Earth (or any material body) through longwave radiation scales with $T^4$ - with the fourth power of the temperature of the emitting body. Therefore, as the Earth's atmosphere heats up, its loss of radiative energy increases rapidly. The Planck response is therefore a negative feedback and, reflecting the fourth power, it is a particularly strong negative feedback.
+
+**Water vapour plus lapse rate**  More water vapour can be contained in warmer air, following the Clausius-Clapeyron relationship. Greater vapour content leads to more longwave and shortwave radiation to be absorbed, and this effect is greatest in the upper troposphere (over the tropics). Hence, the additional atmospheric warming reduces the lapse rate and increases the radiation of the warmed troposphere into space. The water vapour feedback alone is positive and strong, while the lapse rate feedback alone is negative and less strong. Since they act in combination, they are commonly quantified as a single feedback. Their combined effect is still a strong positive feedback.
+
+**Surface albedo**  Increasing temperatures reduce sea ice and seasonal snow cover - on land and on sea ice. This reduces the albedo (@sec-albedo) and thus increases the absorption of solar radiation  at the surface and decreases its reflection into space. Hence, the surface albedo is a positive feedback.
+
+**Clouds**  Different types of clouds exhibit different responses to warming and lead to different effects on the Earth's energy balance. The uncertainty of this feedback is particularly high.
+
+
+```{r echo=FALSE}
+#| label: fig-feedbacks-ipcc-ts
+#| fig-cap: "An overview of physical and biogeochemical feedbacks in the climate system. (a) Synthesis of physical, biogeophysical and non-carbon dioxide (CO~2~) biogeochemical feedbacks that are included in the definition of equilibrium climate sensitivity (ECS) assessed in this Technical Summary. These feedbacks have been assessed using multiple lines of evidence including observations, models and theory. The net feedback is the sum of the Planck response, water vapour and lapse rate, surface albedo, cloud, and biogeophysical and non-CO~2~ biogeochemical feedbacks. Bars denote the mean feedback values, and uncertainties representvery likely ranges; (b) Estimated values of individual biogeophysical and non-CO~2~ biogeochemical feedbacks. The atmospheric methane (CH~4~) lifetime and other non-CO~2~ biogeochemical feedbacks have been calculated using global Earth system model simulations from AerChemMIP, while the CH~4~ and nitrous oxide (N~2~O) source responses to climate have been assessed for the year 2100 using a range of modelling approaches using simplified radiative forcing equations. The estimates represent the mean and 5–95% range. The level of confidence in these estimates is lowowing to the large model spread. (c) Carbon-cycle feedbacks as simulated by models participating in the C4MIP of the Coupled Model Intercomparison Project Phase 6 (CMIP6). An independent estimate of the additional positive carbon-cycle climate feedbacks from permafrost thaw, which is not considered in most C4MIP models, is added. Note that the scale of the x-axis in (b) is much smaller than the scale of the other panels. Figure and caption text from the IPCC Assessment Report 6, Technical Summary, Figure TS.17 [@IPCC_2021_WGI_TS]."
+#| out-width: 100%
+knitr::include_graphics("images/IPCC_AR6_WGI_TS_Figure_17.png")
+```
+
+### Biogeochemical climate feedbacks {#sec-bgcfeedbacks}
+
+The land and ocean carbon responses to climate and to CO~2~ are commonly distinguished. The responses to CO~2~ induce relatively strong negative feedbacks, but their uncertaintly is large, particularly for the land carbon response to CO~2~. This uncertainty reflects open questions regarding the CO~2~ fertilisation effect on terrestrial carbon storage (@sec-sink). Increasing atmospheric CO~2~ also drives CO~2~ uptake by the ocean (@sec-oceancarbon), leading to a negative feedback. The response to climate induce positive feedbacks - a relatively weakly positive one through the ocean response, and a stronger positive but highly uncertain one through the land response. The positive feedback of ocean carbon to climate arises due to the reduced solubility of CO~2~ in warmed ocean water and reduced ocean mixing in a warm climate. The positive feedback of land carbon to climate arises due to a multitude of processes acting on plant physiology (@sec-ftemp), hydraulic stress through increased vapour pressure deficit of a warmer atmosphere (@sec-hydraulics), tree mortality, enhanced autotrophic and heterotrophic respiration (@sec-carboncycle_ecosystem), and the loss of permafrost (@sec-permafrost). Some land carbon responses to climate also induce negative feedbacks, e.g., the temperature-driven northward expansion of the boreal treeline and associated arctic greening [@keenan18natcc].
+
+Weaker feedbacks arise through additional biogeochemical processes, most importantly through emissions of CH~4~ and N~2~O [@stocker13natcc], but also through reactive gases that affect the lifetime of CH~4~ in the atmopshere [@arneth10natgeo]. Chapter @sec-ghg will focus on these non-CO~2~ greenhouse gases.
+
+The strengths of the feedbacks depend on the state of Earth and on the dominant radiative forcing agents that drive the temperature change. For example, if there was no terrestrial biosphere, the positive feedback of land carbon to climate and the negative feedback to CO~2~ would both be zero. If ecosystems that are currently responsible for the CO~2~ fertilisation effect were lost, then the respective negative feedback would be reduced. In other words, protecting ecosystems that are particularly valuable in the context of mitigating the anthropogenic CO~2~ rise, serves to maintain the strong negative feedback of the land carbon cycle to CO~2~. It should also be noted that the quantification of the land and ocean carbon cycle to CO~2~ feedback strength shown in @fig-feedbacks-ipcc-ts refers to changes in the context of anthropogenic climate change, where the rise in CO~2~ is the dominant driver. For a change in global mean temperature induced by non-CO~2~ forcing agents, the respective negative feedbacks would be accordingly smaller. However, due to the tight coupling of climate and atmospheric CO~2~ also over glacial-interglacial cycles, the negative feedbacks to CO~2~ were at play also in in other climate change contexts.
+
+In view of the large C stocks in permafrost and the potential large-scale soil waterlogging and associated CH~4~ emissions in regions of melting permafrost, the respective climate feedback is potentially strong. However, uncertainties are large (as shown in @fig-feedbacks-ipcc-ts) and effects of different processes induce both positive and negative feedbacks. For example, the melting of permafrost can cause additional - previously frozen - soil organic matter to be decomposed. This leads to additional CO~2~ emissions and a positive feedback to climate. Melting permafrost also enables the northward expansion of the boreal forest biome which leads to increasing C storage in woody biomass and thus to a negative feedback via the carbon balance, but potentially to an additional positive feedback via the associated albedo change. An increase in CH~4~ emissions from waterlogged soils in permafrost regions causes a positive feedback to climate. The permafrost feedback has received also popular attention as an example of a positive climate feedback [@yaffa22newyorker] and a separate box was devoted for it in Chapter 5 of the IPCC AR6 (Box 5.1, @IPCC_2021_WGI_Ch_5). The example of the permafrost climate feedback illustrates the complexity of the land response to climate where a plethora of different processes induce opposing radiative effects, to a varying degree in different regions across the globe.
+
+
+
+<!-- The context of anthropogenic climate change since the industrial era implies large changes in atmospheric CO~2~ . In a narrower sense as outlined in @sec-fbmaths}, feedbacks are triggered only by the change in global mean temperature ($\Delta T$ in Equation @eq-fbpaper). However, the uptake of anthropogenic CO~2~ by land and ocean is commonly treated as a negative feedback @gregory09jclim, since increases in atmospheric CO~2~ are an inherent feature and the dominant cause of anthropogenic climate change. In future climate change scenarios, the strength of this negative feedback is thus ultimately determined by the relative share of CO~2~ versus non-CO~2~ forcings (see @sec-sensitivities}). -->
 
 <!-- @arneth10ngeo provided a comprehensive overview of different feedbacks from land ecosystems and estimated rough values for their strength. @ciais13ipcc updated this compilation with different model estimates which have become available since then. According to these results, the positive feedback from permafrost thaw may have a particularly strong effect in amplifying climate change. Results presented in @sec-multiGHG}, in line with @arneth10ngeo, suggest that climate feedbacks from the terrestrial biosphere are dominated by the negative feedback from the CO~2~ -induced land C sink, and the positive feedback from the temperature-driven land C source. However, this assessment did not include effects of permafrost thaw and assumed a constant extent of wetlands based on present-day observations, which primarily affects the feedback from wetlands CH~4~ emissions. Chapter @sec-topmodel} presents the development of a model that dynamically simulates the spatial extent of wetlands and peatlands in response to variations in climate and CO~2~ , an important mechanism for predicting the CH~4~ feedback @melton13. Results presented in @sec-multiGHG} further indicate that today, the negative land C sink feedback is dominating and that under a business-as-usual future climate change scenario, the negative total feedback will decline due to saturating sinks and decreasing radiative efficiency of CO~2~ under high concentrations. -->
 
@@ -116,7 +167,7 @@ The conceptual framework of forcings and feedbacks and the quantification formal
 
 <!-- N cycles through terrestrial ecosystems in gaseous forms (N~2~ , NO~x~ , NH~3~ ), dissolved in the soil solution (NO~3~, NH~4~ ), or bound in organic compounds. The atmospheric N$_2$ reservoir is practically inexhaustible but due to the high energy requirement to break its triple-bond and convert it into reactive forms, it is like the ocean's salty water to a human dying of thirst. Ecosystems have evolved mechanisms of biological N fixation (BNF) to convert N$_2$ under high energetic requirements into reactive forms, available for the assimilation of organic material. BNF is done as a symbiosis of plants (mostly leguminoses) with soil bacteria (e.g., rhizobium), in free-living soil bacteria (cyanobacteria, heterotrophs, autotrophs) @vitousek02, or by cryptogamic covers @elbert12. In the pre-industrial era, BNF was quantitatively the main pathway of N accrual by ecosystems. Today, this may still be the case only for pristine ecosystems, not affected by the increased N~r~ -deposition @cleveland99. Global estimates of BNF are associated with large uncertainties and have been quantified to be between 100 to 290 TgN yr^-1^ @cleveland99, with a recent ``trend'' towards the lower end (40 to 100 TgN yr^-1^) and a ``best estimate'' of 58 TgN yr^-1^ @vitousek13. BNF is generally viewed as being resource-intensive and is limited by low levels of available energy, high levels of N~r~ in the soil, and low availability of other nutrients (phosphorous, iron, potassium, molybdenum) @vitousek13. -->
 
-<!-- N also enters ecosystems directly in reactive forms (N~r~ ) through atmospheric deposition (preindustrial $\sim$30 TgN yr^-1^) and lightnings ($\sim$5 TgN yr^-1^) @galloway04. In the atmosphere, N~r~ has a short  lifetime (hours - days) @galloway03, and the main sink is depostion, mostly on land @dentener06. N~r~ sources to the atmosphere are NO~x~ emissions from the combustion of fossil fuels, NO~x~ , N~2~O , and NH~3~ from wildfires, and NO~x~ , NO, NH~3~, and N~2~O from  soils. In agricultural regions, ammonium (NH~4~ ) is the dominant form of N~r~ and originates from agricultural NH~3~ emissions. Since the invention of the Haber-Bosch process in the 1920s to convert N~2~\ into ammonium, the increase in fossil fuel burning, and the widespread cultivation of N$_2$ fixing crops, the anthropogenic production of N~r~ has soared (156 TgN yr^-1^) and now outweighs natural terrestrial BNF @galloway04. This N~r~ enters land ecosystems either directly via mineral fertilisers on croplands (today $\sim$100 TgN yr^-1^, @galloway04 zaehle11ngeo}), or indirectly via atmospheric deposition (today $\sim$65 TgN yr^-1^, @galloway04 lamarque11cc}).  -->
+<!-- N also enters ecosystems directly in reactive forms (N~r~ ) through atmospheric deposition (preindustrial ca.30 TgN yr^-1^) and lightnings (ca.5 TgN yr^-1^) @galloway04. In the atmosphere, N~r~ has a short  lifetime (hours - days) @galloway03, and the main sink is depostion, mostly on land @dentener06. N~r~ sources to the atmosphere are NO~x~ emissions from the combustion of fossil fuels, NO~x~ , N~2~O , and NH~3~ from wildfires, and NO~x~ , NO, NH~3~, and N~2~O from  soils. In agricultural regions, ammonium (NH~4~ ) is the dominant form of N~r~ and originates from agricultural NH~3~ emissions. Since the invention of the Haber-Bosch process in the 1920s to convert N~2~\ into ammonium, the increase in fossil fuel burning, and the widespread cultivation of N$_2$ fixing crops, the anthropogenic production of N~r~ has soared (156 TgN yr^-1^) and now outweighs natural terrestrial BNF @galloway04. This N~r~ enters land ecosystems either directly via mineral fertilisers on croplands (today ca.100 TgN yr^-1^, @galloway04 zaehle11ngeo}), or indirectly via atmospheric deposition (today ca.65 TgN yr^-1^, @galloway04 lamarque11cc}).  -->
 
 <!-- ### Nitrogen losses {#sec-nlosses} -->
 
@@ -146,9 +197,9 @@ The conceptual framework of forcings and feedbacks and the quantification formal
 
 <!-- ### Nitrogen limitation controls N~2~O emissions from soils {#sec-n2o} -->
 
-<!-- Atmospheric N~2~O concentrations have increased from $\sim$270 to $\sim$320 ppb since pre-industrial times @meure06, and now contribute about 7.4\% to the total anthropogenic radiative forcing @ciais13ipcc. N~2~O has an atmospheric lifetime of about 122 years and has its sink in the troposphere where it also contributes to ozone depletion @hirsch06gbc. Today, the relative share of terrestrial to total (including oceanic) N~2~O emissions is roughly 64-74\% @hirsch06gbc. Atmospheric inversions cannot constrain this split more precisely and suggest global emissions of 14.1-17.8 TgN yr^-1^\footnote{Numbers reported here refer to the mass of N~2~O -N.} @huang08, in line with a top-down estimate of 15.7$\pm$1.1 TgN yr^-1^ @prather12. Bottom-up estimates have a much higher uncertainty  (8.1-30.7) TgN yr^-1^ with a ``best'' estimate of 17.9 TgN yr^-1^ @ciais13ipcc. -->
+<!-- Atmospheric N~2~O concentrations have increased from ca.270 to ca.320 ppb since pre-industrial times @meure06, and now contribute about 7.4\% to the total anthropogenic radiative forcing @ciais13ipcc. N~2~O has an atmospheric lifetime of about 122 years and has its sink in the troposphere where it also contributes to ozone depletion @hirsch06gbc. Today, the relative share of terrestrial to total (including oceanic) N~2~O emissions is roughly 64-74\% @hirsch06gbc. Atmospheric inversions cannot constrain this split more precisely and suggest global emissions of 14.1-17.8 TgN yr^-1^\footnote{Numbers reported here refer to the mass of N~2~O -N.} @huang08, in line with a top-down estimate of 15.7$\pm$1.1 TgN yr^-1^ @prather12. Bottom-up estimates have a much higher uncertainty  (8.1-30.7) TgN yr^-1^ with a ``best'' estimate of 17.9 TgN yr^-1^ @ciais13ipcc. -->
 
-<!-- Over Glacial-Interglacial cycles, as well as with millennial-scale climate variability (Dansgaard-Oeschger events), atmospheric N~2~O varied between $\sim$220 and $\sim$280 ppb @schilt10qsr. While @schmittnergalbraith08nat suggested that the N~2~O changes related to millennial-scale climate variability during the last Glacial (Dansgaard-Oeschger events) can be fully explained by oceanic source changes, land modeling studies found a considerable positive feedback between terrestrial N~2~O emissions and climate @xuri12nphyt, stocker13natcc} (see also Chapter @sec-multiGHG}), which likely contributed to the variations of atmospheric concentrations on these time scales. -->
+<!-- Over Glacial-Interglacial cycles, as well as with millennial-scale climate variability (Dansgaard-Oeschger events), atmospheric N~2~O varied between ca.220 and ca.280 ppb @schilt10qsr. While @schmittnergalbraith08nat suggested that the N~2~O changes related to millennial-scale climate variability during the last Glacial (Dansgaard-Oeschger events) can be fully explained by oceanic source changes, land modeling studies found a considerable positive feedback between terrestrial N~2~O emissions and climate @xuri12nphyt, stocker13natcc} (see also Chapter @sec-multiGHG}), which likely contributed to the variations of atmospheric concentrations on these time scales. -->
 
 <!-- Land sources of N~2~O are denitrification and nitrification by bacteria, archaea, and fungi in soils. Along the nitrification pathway, where NH~3~ is oxidized to NO~3~ , N~2~O is produced as a by-product. Under denitrification, NO~3~ is sequentially reduced to NO~2~ , NO, N~2~O , and N$_2$, the latter being most reduced form. The ratio of volatile losses of N~2~\ versus N~2~O depends on the soil oxygen status @simek02. In the reduction of NO~3~ , denitrifying bacteria rely on labile C as a source of energy. Given the control of N limitation on root exudation of labile C, this represents a possible negative feedback on N shortage. -->
 
@@ -187,181 +238,136 @@ The conceptual framework of forcings and feedbacks and the quantification formal
 
 <!-- DyN-LPJ and LPX-Bern results can be compared to the results of the O-CN model presented in @zaehle11ngeo. In their study, N~r~ addition induces an additional cumulative C sink of 12 PgC, or 0.2 PgC yr^-1^ for the period 1996-2005 AD. In LPX-Bern, this effect is almost negligibly small (see @fig-betagamma). Respective observational studies tend to support the findings by @zaehle11ngeo. On the other hand, O-CN simulates small effects of 20th century-climatic change and CO~2~ increase on N~2~O emissions. LPX-Bern and DyN-LPJ suggest a positive response to both drivers, in line with findings of a meta-analysis of observational studies @vangroenigen11, and compatible with atmospheric growth rate changes during the 20th century @xuri12nphyt. Using further constraints from benchmarking with more observational data sets will be inevitable for future model development. -->
 
+## Forcings vs. feedbacks
 
-<!-- ## Feedback quantification {#sec-concepts} -->
+The mathematical formalism explained in the blue box below provides a conceptual distinction between forcings and feedbacks. It is often not straight-forward to separate them, especially in an observational setting. In a Earth system model simulation, they can be separated either by uncoupling model components (see @fig-radiative-forcing-stocker13), or by regressing the Earth's top-of-atmosphere energy flux against the global mean surface temperature. In the example illustrated by @fig-toa_fb, the atmospheric CO~2~ concentration is doubled instantaneously. Through the greenhouse effect of CO~2~, this induces an energy imbalance of the Earth, leading to a net radiative energy flux at the top-of-atmosphere. Over time, the combined effect of all feedbacks in the Earth system lead to a re-equilibration of the energy balance (zero energy imbalance) and to an adjustment of the global mean surface temperature. The points in @fig-toa_fb illustrate the trajectory of this re-equilibration. Their regression line can be used to determine the *climate sensitivity* to a doubling of CO~2~ (the x-axis intercept), the effective radiative forcing of a doubling of CO~2~ (the y-axis intercept), and the climate feedback parameter (the slope), representing the sum of all feedbacks operating in the Earth system.
 
-<!-- As discussed in Sections @sec-terrforc} and @sec-terrfb}, the terrestrial biosphere affects climate via its feedbacks and in response to anthropogenic external forcings acting directly on land ecosystems. It is often challenging (if not impossible) to disentangle the respective effects from observations. E.g., the quantification of the share of atmospheric N~2~O increase that is due to higher anthropogenic N~r~ inputs versus the share triggered by climatic and CO~2~ concentration changes is notoriously uncertain @xuri12nphyt, zaehle11ngeo}. In an Earth system modeling context, this separation can be achieved by coupling and de-coupling model components. This section introduces the mathematical framework and model setups applied for the quantification of greenhouse gas feedbacks as presented in @stocker13natcc (Chapter @sec-multiGHG}) and discusses the relation between different feedback parameters used in the literature @friedlingstein06, gregory09jclim, arora13}. The contents of @sec-fbmaths} and @sec-couplings} have been published in the Supplementary Information of @stocker13natcc and are included here almost unchanged, while @sec-sensitivities} is new. -->
+```{r echo=FALSE}
+#| label: fig-toa_fb
+#| fig-cap: "Schematics of the forcing–feedback framework adopted within the assessment, following Equation 7.1. The figure illustrates how the Earth’s top-of-atmosphere (TOA) net energy flux might evolve for a hypothetical doubling of atmospheric CO~2~ concentration above pre-industrial levels, where an initial positive energy imbalance (energy entering the Earth system, shown on the y-axis) is gradually restored towards equilibrium as the surface temperature warms (shown on the x-axis). (a) illustrates the definitions of effective radiative forcing (ERF) for the special case of a doubling of atmospheric CO~2~ concentration, the feedback parameter and the equilibrium climate sensitivity (ECS). (b) illustrates how approximate estimates of these metrics are made within the chapter (IPCC AR6 WG1, Chapter 7) and how these approximations might relate to the exact definitions adopted in panel (a). Figure and caption from @IPCC_2021_WGI_Ch_7."
+#| out-width: 100%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Box_7_1_Figure_1.png")
+```
 
-<!-- In this case, the mere ``forcing'' part of the atmospheric N~2~O increase and its radiative forcing can be quantified in a model setup, where no {\it changes} in climate and CO~2~ relative to a baseline (e.g., pre-industrial) are communicated to the land model component and terrestrial greenhouse-gas emissions and biogeophysical changes are forced only by direct anthropogenic external forcings. The ``feedback'' part is then derived as the difference to the fully coupled setup, where the land is forced by external forcings, as well as changes in climate and CO~2~ . -->
+::: {.callout-note}
 
-<!-- A small array of key variables can be used to characterize the response of the Earth System to its external forcings (xxx footnote: an external forcing is defined here as a perturbation of the Earth system associated with a radiative forcing and not affected by the state of the Earth system.) and provide answers to above questions, although with notorious uncertainty. The {\it climate sensitivity} quantifies the response of the global mean temperature, a measure for 'climate' with all its facettes (variability, precipitation, etc.), to an initial radiation imbalance at the top of the atmosphere (radiative forcing, RF). It thus subsumes all feedbacks operating in the Earth System (see Section \ref{xxx}). The {\it airborne fraction} of CO~2~ emissions quantifies how much of the emitted CO~2~ is left in the atmosphere at a given point in time and captures the response of the oceanic and the terrestrial carbon cycle.  -->
+## Feedback formalism {#sec-concepts}
 
-<!-- The two topics (greenhouse gas feedbacks and land use change) serve as an example to make the distinction between feedbacks and forcings. While greenhouse gas feedbacks shape the response of the climate system to an external forcings, land use change can be considered as an external forcing - not dependent on the state of the climate (Earth) system. However, as will be highlighted in Section\ref{xxx}, land use change, e.g., also acts to reduce the CO~2~ fertilisation effect by replacing forests by grassland-type vegetation, and therefore modifies the feedback element "terrestrial biosphere". -->
+It is often challenging to disentangle the energy input by the radiative forcing from the change in the energy input through the feedbacks. In an Earth system modeling context, this separation can be achieved by coupling and de-coupling model components (see Box above). This section introduces a framework for the quantification of climate feedbacks, based the published literature [@friedlingstein06jclim; @gregory09jclim; @roe09annrev] and by the IPCC AR6 in Chapter 7 [@IPCC_2021_WGI_Ch_7].
 
-<!-- ### Mathematical formalism {#sec-fbmaths} -->
+Consider the Earth's climate to be a system responding to a radiative forcing $F$ with a radiative response $H$, so that in equilibrium, the net energy flux into the system $N$ is zero and no warming or cooling occurs.
+$$
+N = F - H\;,\; N = 0 \; \Rightarrow \; F = H
+$$
 
-<!-- The framework to quantify feedbacks between land and climate follows the formalism applied in physical climate science as presented, e.g., in @roe09annrev and @gregory09jclim. The latter also address feedbacks between climate and the carbon cycle. For the study presented in Chapter @sec-multiGHG}, this concept is  extended to other radiative agents mediated by the terrestrial biosphere (eN~2~O , eCH~4~footnote{eCH~4~ refers to the {\it emissions} of CH~4~ , while cCH~4~ refers to {\it concentrations}. The same goes for other greenhouse-gases.}, and albedo) and affected by environmental conditions (climate; and atmospheric CO~2~ concentrations, cCO~2~ ). I start with a brief introduction into the feedback formalism. Consider the Earth's climate to be a system responding to a radiative forcing $F$ with a radiative response $H$, so that in equilibrium, the net energy flux into the system $N$ is zero and no warming or cooling occurs. -->
-<!-- $$ -->
-<!-- N = F - H\;,\; N = 0 \; \Rightarrow \; F = H -->
-<!-- $$ -->
+Observations confirm that $H$ can be linearized with respect to the temperature change $\Delta T$ [@gregory09jclim], so that
 
-<!-- Observations confirm that $H$ can be linearized with respect to the temperature change $\Delta T$ @gregory09jclim, so that -->
+$$
+F = \lambda \cdot \Delta T %\; \Rightarrow \; \lambda = \frac{F}{\Delta T}
+$$ {#eq-climatesensitivity}
 
-<!-- $$ -->
-<!-- F = \lambda \cdot \Delta T %\; \Rightarrow \; \lambda = \frac{F}{\Delta T}  -->
-<!-- $$ -->
+$\lambda$ is the climate feedback factor given in W m^-2^ K^-1^ and is equal to the inverse of the climate sensitivity factor. $\lambda$ is thus the basic quantity to describe the temperature change of the climate system in response to a given radiative forcing. However, $\lambda$ summarizes all feedbacks that operate in the Earth system. To quantify an individual feedback, we define a reference system, in which the feedback of interest is not operating. The most basic reference system is to consider the Earth as a Black Body. @fig-radiative-forcing-stocker13 illustrates the case where the reference system considers no feedbacks from the terrestrial biosphere in which the radiative forcing $F$ leads to a temperature change $\Delta T^{\text{ctrl}}$ ("ctrl" refers to 'control').
 
-<!-- $\lambda$ is the climate feedback factor given in \wpmmpk\ and is equal to the inverse of the climate sensitivity factor. $\lambda$ is thus the basic quantity to describe the temperature change of the climate system in response to a given radiative forcing. However, $\lambda$ summarizes all feedbacks operating. To quantify an individual feedback, we define a reference system, in which the feedback of interest is not operating. The most basic reference system is to consider the Earth as a Black Body. For the study presented in Chapter @sec-multiGHG}, we chose the reference system to represent the ocean-atmosphere climate system without any interaction with the land. This is the control simulation (termed 'ctrl'), in which the radiative forcing $F$ leads to a temperature change $\Delta T^{\text{ctrl}}$ (see Figure 4 in @stocker13natcc, bottom right, dashed line). -->
+$$
+F = \lambda_0 \cdot \Delta T^{\text{ctrl}}
+$$ {#eq-fb0}
 
-<!-- $$ -->
-<!-- \Delta T^{\text{ctrl}} = \frac{F}{\lambda_0} -->
-<!-- $$ {#eq-fb0} -->
+Here, $\lambda_0$ is the sum of all climate feedbacks that that operate in the reference system. In our case, these are the feedbacks that are not mediated through land processes, including feedbacks from the Black Body response or Planck feedback (BB), water vapor (WV), albedo ($\alpha$), lapse rate (LR), cloud (C), ocean carbon (OC), etc.
 
-<!-- Here, $\lambda_0$ is the sum of all non-land feedbacks operating in the control simulation (the Black Body response or Planck feedback (BB), water vapor (WV), ice-albedo ($\alpha$ ), lapse rate (LR), cloud (C), etc.: $\lambda_0 = \lambda_{\text{BB}} + \lambda_{\text{WV}} + \lambda_\alpha + \lambda_{\text{LR}} + \lambda_{\text{C}} + ... $). Note, that the radiative forcing $F$ depends on the reference system chosen. Note also that in our reference system, the land is still affected by external forcings (land use, N~r~ inputs), which leads to terrestrial greenhouse-gas (GHG) emissions and albedo change, eventually affecting $\Delta T^{\text{ctrl}}$. -->
+$$
+\lambda_0 = \lambda_{\text{BB}} + \lambda_{\text{WV}} + \lambda_\alpha + \lambda_{\text{LR}} + \lambda_{\text{C}} + \lambda_{\text{OC}} + \; ... 
+$$
 
-<!--  When a feedback is included, the system adjusts to a different temperature $\Delta T$ because it now ``sees'' an additional radiative forcing ($\Delta F$) triggered by the feedback. E.g. a warmer climate stimulates terrestrial N~2~O emissions which increase its atmospheric concentration and lead to additionally absorbed energy due to its greenhouse effect. Let us look at ``land'' as a feedback element in the climate system interacting via a multitude of feedbacks. We summarize these as $r_{\text{land}}$. With the additional radiative forcing from all land feedbacks written as $\Delta F = r_{\text{land}} \cdot \Delta T$ we get  -->
+Note that in our reference system, the terrestrial biosphere is still affected by external forcings (land use, N~r~ inputs), which leads to terrestrial greenhouse-gas (GHG) emissions and albedo change, eventually affecting $\Delta T^{\text{ctrl}}$.
 
-<!-- $$ -->
-<!-- \lambda_0 \cdot \Delta T = F + r_{\text{land}} \cdot \Delta T\;. -->
-<!-- $$ {#eq-fb1} -->
+When a feedback is included, the system adjusts to a different temperature $\Delta T$ because it now "sees" an additional energy input triggered by the feedback. E.g. a warmer climate stimulates terrestrial N~2~O emissions which increase its atmospheric concentration and lead to additionally absorbed energy due to its greenhouse effect. In the framework of climate feedbacks, this additional energy input (or loss) is always expressed as being proportional to the global mean surface temperature ($\Delta T$). Note however that in reality, the energy gain/loss is not necessarily linear with respect to $\Delta T$. For example, the energy loss through the Planck response scales with $T^4$. However, considering temperature variations in the context of anthropogenic climate change, this response can be linearised and expressed as a linear function of $\Delta T$ - as is done for all climate feedbacks.
 
-<!-- Here the land response of all affected GHG and biogeophysical changes is linearized with respect to the global mean temperature. This is a simplification, as all agents are affected by climate in all its facettes (extremes, precipitation, etc.). However, a first-order approximation of climatic changes w.r.t. the global mean temperature is a common simplification across the domain of climatic changes expected for the 21st century @hooss01cd. In the context of anthropogenic climate change, changes in atmospheric CO~2~ are an inherent feature (see @sec-terrfb}) and strongly affect terrestrial GHG emissions @vangroenigen11. This implies a scenario dependency of $r$ and will be furter discussed in @sec-sensitivities}. -->
+Let us now look at "land" as a feedback element in the climate system, interacting via a multitude of feedbacks. We summarize these as $r_{\text{land}}$. The additional energy loss/gain ($\Delta F$) through all land-mediated feedbacks combined are expressed as a linear function of $\Delta T$: 
+$$
+\Delta F = r_{\text{land}} \cdot \Delta T
+$$
+$r_{\text{land}}$ is the strength of all land feedbacks combined, is expressed in W m^-2^ K^-1^ - consistent with the values shown in @fig-feedbacks-ipcc-ts. It is positive for positive feedbacks. This additional energy gain/loss is considered separately and in addition to the initial radiative forcing $F$ in @eq-fb0. When included, it yields $\Delta T$ (instead of $\Delta T^\text{ctrl}$ when not considering land feedbacks)
 
-<!-- With $r=-\lambda$ we get the form presented in the paper (Eq. 2, @stocker13natcc, Chapter @sec-multiGHG}) -->
-<!-- $$ -->
-<!-- F = ( \lambda_0 + \lambda_{\text{land}}) \; \Delta T \;. -->
-<!-- $$ {#eq-fbpaper} -->
+$$
+F + r_{\text{land}} \cdot \Delta T = \lambda_0 \cdot \Delta T 
+$$ {#eq-fb1}
 
-<!-- This illustrates that the additional radiative forcing per degree temperature change ($r$) caused by the feedback of interest is equal to the the negative of the feedback factor $\lambda$. Equations (\ref{eqn:fb0}) and (@eq-fbpaper) are combined to derive  $r$ using a control simulation ('ctrl') and a fully coupled simulation ('CT', see Table \ref{tab:simscouplings}). Equation (\ref{eqn:fb1}) can be rewritten as -->
-<!-- $$ -->
-<!-- \Delta T = \frac{F}{\lambda_0} + \frac{r}{\lambda_0}\;\Delta T\;, -->
-<!-- $$ -->
+It is common to use the negative of $r$ ($\lambda = -r$) for expressing the climate feedback factor as the sum of its components. Accordingly:
+$$
+F = ( \lambda_0 + \lambda_{\text{land}}) \; \Delta T \;.
+$$ {#eq-fbpaper}
 
-<!-- illustrating that the feedback arises because a fraction $f=\frac{r}{\lambda_0}$ of the system output $\Delta T$ is fed back into the input. We can take a different perspective and characterise the effect of a feedback with the gain factor $G=\frac{\Delta T}{\Delta T^{\text{ctrl}}}$. By combining Equations (\ref{eqn:fb0}) and (\ref{eqn:fb1}), the gain factor becomes -->
+@eq-fb1 can be rewritten as
+$$
+\Delta T = \frac{F}{\lambda_0} + \frac{r}{\lambda_0}\;\Delta T\;,
+$$
 
-<!-- $$  -->
-<!-- G=\frac{\Delta T}{\Delta T^{\text{ctrl}}} = \frac{\frac{F}{\lambda_0-\lambda_0f}}{\frac{F}{\lambda_0}} = \frac{\lambda_0}{\lambda_0-\lambda_0f} = \frac{1}{1-f}  -->
-<!-- $$ -->
+This illustrates mathematically that the feedback arises because a fraction $f=\frac{r}{\lambda_0}$ of the system output $\Delta T$ is fed back into the input. 
 
-<!-- Note that $f=\frac{r}{\lambda_0}$ is often referred to as the ``feedback factor'', but not here, where the feedback factor is $r = -\lambda$. The advantage of the formulation of Equation (\ref{eqn:fb1}) and (@eq-fbpaper) is that individual feedbacks can be added to derive their combined effect.  -->
+We can take a different perspective and characterise the effect of a feedback with the *gain factor* $G=\frac{\Delta T}{\Delta T^{\text{ctrl}}}$. By combining Equations @eq-fb0 and @eq-fb1, the gain factor becomes
 
-<!-- $$ -->
-<!--    \lambda_0 \cdot \Delta T = F + \Delta T \; \sum_i r_{\text{i}}\;, -->
-<!-- $$ -->
+$$
+G=\frac{\Delta T}{\Delta T^{\text{ctrl}}} = \frac{\frac{F}{\lambda_0-\lambda_0f}}{\frac{F}{\lambda_0}} = \frac{\lambda_0}{\lambda_0-\lambda_0f} = \frac{1}{1-f}
+$$
 
-<!-- or in the form presented in the paper -->
+Note that $f=\frac{r}{\lambda_0}$ is sometimes referred to as the 'feedback factor', but not here, where the feedback factor is $r = -\lambda$. The advantage of the formulation of Equation @eq-fb1 and @eq-fbpaper is that individual feedbacks can be added to derive their combined effect.
 
-<!-- $$ -->
-<!--    F = ( \lambda_0 + \sum_i \lambda_{\text{i}} ) \; \Delta T\;. -->
-<!-- $$ -->
+$$
+F = ( \lambda_0 + \sum_i \lambda_{\text{i}} ) \; \Delta T\;.
+$$
 
-<!-- Note that $f=\frac{1}{\lambda_0}\sum_i r_{\text{i}}$ and that $G\neq\sum_i G_{\text{i}}$. -->
+Note that $f=\frac{1}{\lambda_0}\sum_i r_{\text{i}}$ and that $G\neq\sum_i G_{\text{i}}$.
 
-<!-- ### Model couplings {#sec-couplings} -->
-
-<!-- So far, we have been looking at feedbacks arising simply ``from land''. However, a multitude of processes affecting climate are operating in terrestrial ecosystems. One way is to decompose the total land feedback into contributions from individual {\it forcing agents} (here, eN~2~O , eCH~4~ , \dc , and $\Delta$albedo): -->
-
-<!-- $$ -->
-<!--   \lambda_{\text{land}} = \lambda_{\Delta\text{C}} + \lambda_{\text{CH}_4} + \lambda_{\text{N}_2\text{O}} + \lambda_{\Delta\text{albedo}} + \delta -->
-<!-- $$ -->
-
-<!-- $\delta$ is a non-linearity term. To isolate individual $\lambda$s, the model has to be set up, where only the respective feedback is operating. In practice, we prescribed the time series of global terrestrial emissions from the control run for all non-operating forcing agents. In the case of albedo, we prescribe the monthly two-dimensional field from the control run. Table \ref{tab:simscouplings} provides a full account of all model setups applied. Figure 1 in @stocker13natcc, Chapter @sec-multiGHG} graphically illustrates the model couplings. -->
-
-<!-- \begin{table*}[ht!]\footnotesize -->
-<!-- \caption[Couplings overview]{Couplings overview. Columns $\Delta$CO~2~ and $\Delta$T indicate which {\it drivers} are communicated to the land model LPX. Columns cCO~2~ , cCH~4~ , cN~2~O , and $\Delta \alpha$ (albedo) indicate whether variations in the respective forcing agent affect the climate module in Bern3D (\cmark) or if the climate module responds to variations in respective agents prescribed from the control run ('ctrl').} -->
-<!-- \sffamily -->
-<!-- \label{tab:simscouplings} -->
-<!-- \centering -->
-<!-- \begin{tabular}{lllllll} -->
-<!-- \tophline -->
-<!-- name        	        &$\Delta$T$\;\;\;\;$&$\Delta$CO~2~ &cCO~2~	&cCH~4~	&cN$_2$O & $\Delta \alpha$ \\ -->
-<!-- \middlehline -->
-<!-- \multicolumn{7}{l}{\sl control} \\ -->
-<!-- ctrl    	        &\xmark	&\xmark	&\cmark	&\cmark	&\cmark &\cmark \\ -->
-<!-- \multicolumn{7}{l}{\sl fully coupled} \\ -->
-<!-- CT      	        &\cmark	&\cmark	&\cmark	&\cmark	&\cmark &\cmark \\ -->
-<!-- \multicolumn{7}{l}{\sl cCO~2~ -land coupled} \\ -->
-<!-- C                       &\xmark	&\cmark	&\cmark	&\cmark	&\cmark &\cmark \\ -->
-<!-- \multicolumn{7}{l}{\sl climate-land coupled} \\ -->
-<!-- T       	        &\cmark	&\xmark	&\cmark	&\cmark	&\cmark &\cmark \\ -->
-<!-- \multicolumn{7}{l}{\sl fully coupled - single agent}\\ -->
-<!-- CT-$\Delta$CO$_2$       &\cmark	&\cmark	&\cmark	        &ctrl	&ctrl &ctrl \\ -->
-<!-- CT-$\Delta$CH$_4$       &\cmark	&\cmark	&ctrl	& \cmark    &ctrl	&ctrl \\ -->
-<!-- CT-$\Delta$N$_2$O       &\cmark	&\cmark	&ctrl	& ctrl          &\cmark	&ctrl \\ -->
-<!-- CT-$\Delta \alpha$	&\cmark	&\cmark	&ctrl	&ctrl   	&ctrl   &\cmark \\ -->
-<!-- \multicolumn{7}{l}{\sl fully coupled - CO~2~ /albedo only}\\ -->
-<!-- CT-$\Delta$CO$_2$-$\Delta \alpha$&\cmark	&\cmark	&\cmark	        &ctrl	&ctrl &\cmark \\ -->
-<!-- \bottomhline -->
-<!-- \end{tabular} -->
-<!-- \end{table*} -->
-
-<!-- A further decomposition of $\lambda_{\text{land}}$ can be done by {\it drivers} of land feedbacks. Not only climate (superscript 'T') but also atmospheric cCO~2~ (superscript 'C') affects terrestrial GHG emissions and albedo. We quantify its effects in the same framework.  -->
-
-<!-- $$ -->
-<!--   \lambda_{\text{land}}=\lambda^{\text{C}}+\lambda^{\text{T}}+\delta \equiv \lambda^{\text{CT}} -->
-<!-- $$ {#eq-rCT} -->
-
-<!-- Simulations where only changes of the respective driver is communicated to the land model (see also Figure 1 in @stocker13natcc) are used to quantify $\lambda^{\text{T}}$  and $\lambda^{\text{C}}$. In ``climate-coupled'' simulations, only feedbacks arising from the sensitivity of forcing agents to climate are taken into account and lead to a temperature change $\Delta T^{\text{T}}$: -->
-
-<!-- $$ -->
-<!--    F = ( \lambda_0 + \lambda^{\text{T}}) \; \Delta T^{\text{T}} \;, -->
-<!-- $$ -->
-
-<!-- In ``cCO~2~ -coupled'' simulation, the land sees only changes in cCO~2~ and the system attains a temperature $\Delta T^{\text{C}}$: -->
-
-<!-- $$ -->
-<!--    F = ( \lambda_0 + \lambda^{\text{C}}) \; \Delta T^{\text{C}} \;, -->
-<!-- $$ -->
-
-<!-- Additionally, we quantified the {\it modification} of feedbacks by the individual effects of C-N interactions, peatland C dynamics, anthropogenic land use change, and N~r~ inputs (@fig-feedbackssupp}). Respective feedback factors are quantified identically but with LPX not simulating respective features (see Tab. \ref{tab:simsfeatures}). This requires the full set of coupled as well as 'ctrl' simulations for each setup. Due to non-linearities in the system, the ``expansion'' with respect to the full setup (by turning one of each feature {\it off} in an individual setup) is preferred over an expansion w.r.t. the ``null-''setup (by turning only one of each feature {\it on}). To quantify the modification by C-N interactions, results from a carbon-only version of LPX are used. -->
-
-<!-- ### Feedbacks versus sensitivities {#sec-sensitivities} -->
-
-<!-- The strength of feedbacks as quantified by the feedback factor $r$ is determined by the vigour of the cause-and-response chain depicted in @fig-schematicfb_frc}. Feedback factors can be derived as the product of the sensitivity of greenhouse-gas emissions to temperature ($\partial e\text{GHG}/\partial T$), the sensitivity of atmospheric concentrations to emissions ($\partial c\text{GHG}/\partial e\text{GHG}$), and the sensitivity of the radiative forcing to a change in atmospheric concentrations ($\partial F/\partial c\text{GHG}$). -->
-
-<!-- $$ -->
-<!-- r = \frac{\partial e\text{GHG}}{\partial T} \times \frac{\partial c\text{GHG}}{\partial e\text{GHG}} \times \frac{\partial F}{\partial c\text{GHG}} -->
-<!-- $$ {#eq-fbtrad} -->
-
-<!-- This is a simplification because it neglects that concentrations are also a function of the sinks (not only emissions), which in turn depend on other factors (e.g., $\Delta T$ in the case of CH~4~ ). Furthermore, the $r$ quantified from future RCP scenarios as presented in Chapter @sec-multiGHG} implies that GHG emissions not only respond to changes in climate ($\Delta T$) but also to changes in cCO~2~ , and $\Delta T$ is a function of cCO~2~ and other forcing agents. In other words, the $r$ as presented in @eq-fbtrad is equivalent to $r^{\text{T}}=-\lambda^{\text{T}}$ in @eq-rCT. To account for the full feedback  $r^{\text{CT}}= r^{\text{C}}+r^{\text{T}}$, the sensitivity of GHG emissions to cCO~2~ ($\partial e\text{GHG}/\partial c\text{CO}_2$) has to be included. -->
-
-<!-- $$ -->
-<!-- r^{\text{CT}} = (\frac{\partial e\text{GHG}}{\partial T} + \frac{\partial e\text{GHG}}{\partial c\text{CO}_2} \times \frac{\partial c\text{CO}_2}{\partial T} )\times \frac{\partial c\text{GHG}}{\partial e\text{GHG}} \times \frac{\partial F}{\partial c\text{GHG}}\;\, -->
-<!-- $$ {#eq-fbext} -->
-
-<!-- where $\partial c\text{CO}_2/\partial T$ is determined by the share of the non-CO~2~ forcing in the climate change scenario from which $r^{\text{CT}}$ is derived. -->
-
-<!-- In the carbon cycle feedback literature @friedlingstein06, gregory09jclim, arora13}, sensitivities of terrestrial C storage ($\Delta$C) to cCO~2~ and climate are often referred to as $\beta$ and $\gamma$ and are directly linked to feedback factors $r_{\Delta\text{C}}^{\text{C}}$ and $r_{\Delta\text{C}}^{\text{T}}$ @gregory09jclim. -->
-
-<!-- $$ -->
-<!--   \beta_{\Delta\text{C}}  = \frac{\Delta \text{C}}{\Delta c\text{CO}_2} \sim r_{\Delta\text{C}}^{\text{C}} -->
-<!-- $$ -->
-
-<!-- $$ -->
-<!--   \gamma_{\Delta\text{C}} = \frac{\Delta \text{C}}{\Delta T}            \sim  r_{\Delta\text{C}}^{\text{T}} -->
-<!-- $$ -->
-
-<!-- Such $\beta$ and $\gamma$ sensitivities can be quantified also for other forcing agents and can be derived from offline (land-only) simulations by regressing C storage and other GHG emission changes to prescribed temperature or atmospheric cCO~2~. Thus, more generally: -->
-
-<!-- $$ -->
-<!--   \beta  = \frac{\partial e\text{GHG}}{\partial c\text{CO}_2} \sim r^{\text{C}} -->
-<!-- $$ -->
-<!-- $$ -->
-<!--   \gamma = \frac{\partial e\text{GHG}}{\partial T}            \sim  r^{\text{T}} -->
-<!-- $$ -->
-
-<!-- Estimates for $\beta$ and $\gamma$ can then be used to calculate feedback factors $r^{\text{CT}}$ without having to rely on coupled land-climate models @arneth10ngeo. However, assumptions have to be made.: -->
-
-<!--   - For the conversion of an emission change to a change in concentrations ($\partial c\text{GHG}/\partial e\text{GHG}$), equilibrium of atmospheric concentration after the perturbation of emissions is usually assumed. For GHGs with a long atmospheric lifetime (e.g., N~2~O ), such an equilibrium is only reached on time scales of centuries after a stabilisation of emissions. Feedback factors quantified in @stocker13natcc (Chapter @sec-multiGHG}) are assessed for points in time where no such equilibrium is reached yet, and thus represent {\it transient} feedbacks. For N~2~O this is particularly relevant, as pointed out in @sec-outlook.multighg. For $\Delta$C and associated terrestrial CO~2~ emissions, no such equilibrium can be defined as the airborne fraction of a perturbation $\Delta c\text{CO}_2/\Delta e\text{CO}_2$ depends on the time scale of interest. It is 25$\pm$9\% after 1000 yr @joos13, and declines further to $\sim$8\% after several thousands of years as a result of ocean sediment interactions @archer97grl. Furthermore, the airborne fraction of $\Delta$C depends on the background cCO~2~ due to the non-linearity of ocean carbonate chemistry @joos13.  -->
-<!--   - Relatively simple functions can be applied for $\partial F/\partial c\text{GHG}$ to convert a concentration change into a radiative forcing @joos01gbc. However, the non-linearity of these functions implies that the background (initial) concentration has to be defined. In other words, the radiative forcing of a unit GHG declines at high concentrations and thus reduces the respective feedback factor. -->
-<!--   - Feedback factors $r$ are expressed with respect to $\Delta T$, while values are often derived from observational records where cCO~2~ co-varied with $\Delta T$ (e.g., @tornharte06grl). Thus, derived values for $r$ are subject to the share of CO~2~ versus non-CO~2~ forcings (scenario dependence), as expressed by $\partial c\text{CO}_2/\partial T$ in @eq-fbext.  -->
-<!--   - Atmospheric sink processes of GHGs may depend on climate. This inhibits a linear and constant relationship between emissions and concentrations. -->
-
-<!-- Feedback factors $r$ have the advantage that the feedback strengths of different forcing agents to different drivers (climate and cCO~2~ ) have the same units (Wm$^{-2}$K$^{-1}$) and can be compared. Furthermore, effects of terrestrial processes and features (e.g., anthropogenic land use change, fire, peatlands, permafrost) can be quantified by calculating how $r$ is {\it modified} when these are included/excluded in model simulations (see @sec-alt.feedb}). However, caveats associated with necessary assumptions as mentioned above may inhibit a comparison of values derived from different simulations and observations. $\beta$- and $\gamma$-sensitivities are more robust in that respect as they are normalised to the change in temperature and cCO~2~ individually, but their different units prevent a comparison of their relative importance in the coupled Earth system.  -->
-
-<!-- A way to address the problem of scenario dependency of feedback factors is to apply standard schematic model setups, e.g., a step increase in atmospheric cCO~2~ , or - when carbon cycle feedbacks should be included - a step increase in radiative forcing. Feedback factors can then be quantified after a new equilibrium is reached (see @sec-equil}). However, such setups yield quantities that are not directly indicative for the Earth system response on policy-relevant time scales. Values presented in @stocker13natcc (Chapter @sec-multiGHG}) represent {\it transient} feedback factors for a business-as-usual scenario (RCP 8.5) featuring a strong CO~2~ forcing. -->
+:::
 
 
+::: {.callout-tip icon=false, collapse=true}
+
+### Feedbacks versus sensitivities {#sec-sensitivities}
+
+The strength of feedbacks as quantified by the feedback factor $r$ is determined by the vigour of the cause-and-response chain depicted in @fig-radiative-forcing-stocker13. Feedback factors can be derived as the product of the sensitivity of greenhouse-gas emissions to temperature ($\partial e\text{GHG}/\partial T$), the sensitivity of atmospheric concentrations to emissions ($\partial c\text{GHG}/\partial e\text{GHG}$), and the sensitivity of the radiative forcing to a change in atmospheric concentrations ($\partial F/\partial c\text{GHG}$).
+
+$$
+r = \frac{\partial e\text{GHG}}{\partial T} \times \frac{\partial c\text{GHG}}{\partial e\text{GHG}} \times \frac{\partial F}{\partial c\text{GHG}}
+$$ {#eq-fbtrad}
+
+This is a simplification because it neglects that concentrations are also a function of the sinks (not only emissions), which in turn depend on other factors (e.g., $\Delta T$ in the case of CH~4~ ). Furthermore, the $r$ quantified from observations and model simulations in the context of anthropogenic climate change implies that GHG emissions not only reflect the response to changes in climate ($\Delta T$) but also to changes in atmospheric CO~2~ concentrations (cCO~2~), and that $\Delta T$ is a function of cCO~2~ and other forcing agents. To account for the CO~2~-driven (negative) feedbacks, the sensitivity of GHG emissions to cCO~2~ ($\partial e\text{GHG}/\partial c\text{CO}_2$) has to be included:
+
+$$
+r = (\frac{\partial e\text{GHG}}{\partial T} + \frac{\partial e\text{GHG}}{\partial c\text{CO}_2} \times \frac{\partial c\text{CO}_2}{\partial T} )\times \frac{\partial c\text{GHG}}{\partial e\text{GHG}} \times \frac{\partial F}{\partial c\text{GHG}}\;\,
+$$ {#eq-fbext}
+
+where $\partial c\text{CO}_2/\partial T$ is determined by the share of the non-CO~2~ forcing in the climate change scenario from which $r$ is derived.
+
+In the literature [@friedlingstein06jclim; @gregory09jclim; @roe09annrev], sensitivities of terrestrial C storage ($\Delta$C) to cCO~2~ and climate are often referred to as $\beta$ and $\gamma$ and are directly linked to feedback factors that would arise if the carbon cycle would respond only to atmospheric CO~2~ ($r_{\Delta\text{C}}^{\text{C}}$) and the feedback factor that would arise if the carbon cycle would respond only to climate ($r_{\Delta\text{C}}^{\text{T}}$).
+
+$$
+  \beta_{\Delta\text{C}}  = \frac{\Delta \text{C}}{\Delta c\text{CO}_2} \sim r_{\Delta\text{C}}^{\text{C}}
+$$
+
+$$
+  \gamma_{\Delta\text{C}} = \frac{\Delta \text{C}}{\Delta T}            \sim  r_{\Delta\text{C}}^{\text{T}}
+$$
+
+Such $\beta$ and $\gamma$ sensitivities can be quantified also for other forcing agents and can be derived from offline (land-only) simulations by regressing C storage and other GHG emission changes to prescribed temperature or atmospheric cCO~2~. Thus, more generally:
+
+$$
+  \beta  = \frac{\partial e\text{GHG}}{\partial c\text{CO}_2} \sim r^{\text{C}}
+$$
+$$
+  \gamma = \frac{\partial e\text{GHG}}{\partial T}            \sim  r^{\text{T}}
+$$
+
+Estimates for $\beta$ and $\gamma$ can then be used to calculate feedback factors $r^{\text{CT}}$ without having to rely on coupled land-climate models. However, assumptions have to be made.:
+
+  - For the conversion of an emission change to a change in concentrations ($\partial c\text{GHG}/\partial e\text{GHG}$), equilibrium of atmospheric concentration after the perturbation of emissions is usually assumed. For greenhouse-gases with a long atmospheric lifetime (e.g., N~2~O ), such an equilibrium is only reached on time scales of centuries after a stabilisation of emissions. Feedback factors are often quantified from transient siemulations where no equilibrium is reached yet, and thus represent *transient feedbacks*. For $\Delta$C and associated terrestrial CO~2~ emissions, no such equilibrium can be defined as the airborne fraction of a perturbation $\Delta c\text{CO}_2/\Delta e\text{CO}_2$ depends on the time scale of interest.
+  - Relatively simple functions can be applied for $\partial F/\partial c\text{GHG}$ to convert a concentration change into a radiative forcing [@joos01gbc]. However, the non-linearity of these functions implies that the background (initial) concentration has to be defined. In other words, the radiative forcing of a unit greenhouse gas concentration declines at high concentrations and thus reduces the respective feedback factor.
+  - Feedback factors $r$ are expressed with respect to $\Delta T$, while values are often derived from observational records where cCO~2~ co-varied with $\Delta T$ [@tornharte06]. Thus, derived values for $r$ are subject to the share of CO~2~ versus non-CO~2~ forcings (scenario dependence), as expressed by $\partial c\text{CO}_2/\partial T$ in @eq-fbext.
+  - Atmospheric sink processes of greenhouse gases may depend on climate. This inhibits a linear and constant relationship between emissions and concentrations.
+
+Feedback factors $r$ have the advantage that the feedback strengths of different forcing agents to different drivers (climate and cCO~2~ ) have the same units (Wm$^{-2}$K$^{-1}$) and can be compared. However, Earth system state-dependency and the contribution of CO~2~ to the radiative forcing complicates the comparison of values derived from different simulations and observations. $\beta$- and $\gamma$-sensitivities are more robust in that respect as they are normalised to the change in temperature and cCO~2~ individually, but their different units prevent a comparison of their relative importance in the coupled Earth system.
+
+:::
 
 <!-- IPCC AR6 7.4 -->
 <!-- https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_29.png -->

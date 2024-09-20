@@ -38,7 +38,7 @@ Incident shortwave (solar) radiation $S\downarrow$ was referred to in @sec-globa
 #| out-width: 100%
 knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_7_2.png")
 ```
-### Outgoing shortwave radiation and albedo
+### Outgoing shortwave radiation and albedo {#sec-albedo}
 
 Outgoing shortwave radiation at the land surface ($S\uparrow$) is determined by the albedo ($\alpha$) - the fraction of the incident radiation that gets reflected.
 $$

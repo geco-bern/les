@@ -27,7 +27,7 @@ Van Helmont concluded that the increase in plant mass did not come from the soil
 The C cycling between the atmosphere and the ocean mostly follows very different processes and dynamics than the carbon uptake and release on land. These processes and implications for CO~2~ trajectories are introduced in @sec-oceancarbon. The global pools of the land, ocean, and atmosphere C and the fluxes between them, and how they are changing as a result of anthropogenic fossil fuel combustion, is the topic of this chapter.
 
 
-## The pre-industrial carbon cycle
+## The pre-industrial carbon cycle {#sec-preindustrialcarboncycle}
 
 Carbon is an abundant element, present in all organic matter - matter produced by biota (living organisms) - and in inorganic forms in the atmosphere, the ocean, and the lithosphere. On land, the vast majority of C is present in organic forms in living biomass - mostly of vegetation (450 PgC) and soil organic matter (1700 PgC excluding permafrost). Of the latter, a particularly large stock of C is stored in permafrost soils (1200 PgC). In the ocean, the vast majority of C mass is present in inorganic forms, dissolved in ocean water, of which 900 PgC is stored in the surface ocean (the well-mixed top few hundred meters) and 37,100 PgC is stored in the deep ocean. Dissolved organic carbon in the ocean makes up 700 PgC and 1750 PgC are stored as carbonate shells in ocean floor sediments. In the pre-industrial Earth, 591 PgC were present as CO~2~ in the atmosphere.
 
@@ -311,7 +311,7 @@ df |>
 ggsave(here::here("book/images/globalcarbonbudget.png"), width = 6, height = 6)
 ```
 
-## Understanding the land C sink
+## Understanding the land C sink {#sec-sink}
 
 ### Processes
 

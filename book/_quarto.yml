@@ -29,8 +29,8 @@ book:
       - landusechange.qmd
       - nutrients.qmd
       - ghg.qmd
-      - oceancarbon.qmd
       - globenvchange.qmd
+      - oceancarbon.qmd
     # - researchtools.qmd
     # - reading.qmd
     - references.qmd
