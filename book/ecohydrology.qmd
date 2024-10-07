@@ -8,15 +8,15 @@
 <!-- - Explain the role of plant-internal water storage: how important in comparison to soil water storage? -->
 
 
-Water cycles in the Earth system between the atmosphere, the ocean, the land biosphere and the cryosphere. The evaporation of water (H~2~O) from its liquid form to (gaseous) water vapour consumes energy (@sec-energybalance) and its condensation releases the same amount of energy in the form of heat again. Hence, the global water cycle is coupled to large energy transfers. For the Earth as a whole and as an annual average, 80 W m^–2^ are consumed for evaporation – more than three-quarters of the 98 W m^–2^ net radiation at the surface [@bonan]. 
+Water cycles in the Earth system between the atmosphere, the ocean, the land biosphere and the cryosphere. The evaporation of water (H~2~O) from its liquid form to (gaseous) water vapor consumes energy (@sec-energybalance) and its condensation releases the same amount of energy in the form of heat again. Hence, the global water cycle is coupled to large energy transfers. For the Earth as a whole and as an annual average, 80 W m^–2^ are consumed for evaporation – more than three-quarters of the 98 W m^–2^ net radiation at the surface [@bonan].
 
 The vast majority (ca. 98%) of water on Earth is saline and is stored in the Oceans, inland seas, and saline groundwater (@fig-global-water-cycle a). Among the total amount of freshwater, the vast majority is stored as ice. Only a small fraction of water on Earth cycles between the atmosphere, the ocean and land. However, this cycling is relatively rapid (see Exercise below). 
 
-Oceans dominate in total evaporation (470 km^3^ yr^-1^, vs. 74 km^3^ yr^-1^ from land, @fig-global-water-cycle b) and the majority of precipitation falls over oceans. However, since precipitation over oceans is smaller than evaporation from oceans (424  km^3^ yr^-1^ vs. 470  km^3^ yr^-1^), a net transfer of water from oceans to land exists. Almost all of the surplus of the land's water balance runs off as river discharge back into the ocean. A small fraction is discharged into the ocean through groundwater.
+Oceans dominate in total evaporation (470 km^3^ yr^-1^, vs. 74 km^3^ yr^-1^ from land, @fig-global-water-cycle b) and the majority of precipitation falls over oceans. However, since precipitation over oceans is smaller than evaporation from oceans (424  km^3^ yr^-1^ vs. 470  km^3^ yr^-1^), a net transfer of water from oceans to land exists. Almost all the surplus of the land's water balance runs off as river discharge back into the ocean. A small fraction is discharged into the ocean through groundwater.
 
 ```{r echo=FALSE}
 #| label: fig-global-water-cycle
-#| fig-cap: "Depiction of the present-day water cycle. In the atmosphere, which accounts for only 0.001% of all water on Earth, water primarily occurs as a gas (water vapour), but it is also present as ice and liquid water within clouds. The ocean is the primary water reservoir on Earth: it comprises mostly liquid water across much of the globe but also includes areas covered by ice in polar regions. Liquid freshwater on land forms surface water (lakes, rivers) and, together with soil moisture and mostly unusable groundwater stores, accounts for less than 2% of global water. Solid terrestrial water that occurs as ice sheets, glaciers, snow and ice on the surface, and permafrost currently represents nearly 2% of the planet’s water. Water that falls as snow in winter provides soil moisture and streamflow after melting, which are essential for human activities and ecosystem functioning. Note that these best estimates do not lead to a perfectly closed global water budget and that this budget has no reason to be closed given the ongoing human influence through both climate change (e.g., melting of ice sheets and glaciers, see Chapter 9) and water use (e.g., groundwater depletion through pumping into fossil aquifers, see Figure 8.10). Figure and caption from @IPCC_2021_WGI_Ch_8."
+#| fig-cap: "Depiction of the present-day water cycle. In the atmosphere, which accounts for only 0.001% of all water on Earth, water primarily occurs as a gas (water vapor), but it is also present as ice and liquid water within clouds. The ocean is the primary water reservoir on Earth: it comprises mostly liquid water across much of the globe but also includes areas covered by ice in polar regions. Liquid freshwater on land forms surface water (lakes, rivers) and, together with soil moisture and mostly unusable groundwater stores, accounts for less than 2% of global water. Solid terrestrial water that occurs as ice sheets, glaciers, snow and ice on the surface, and permafrost currently represents nearly 2% of the planet’s water. Water that falls as snow in winter provides soil moisture and streamflow after melting, which are essential for human activities and ecosystem functioning. Note that these best estimates do not lead to a perfectly closed global water budget and that this budget has no reason to be closed given the ongoing human influence through both climate change (e.g., melting of ice sheets and glaciers, see Chapter 9) and water use (e.g., groundwater depletion through pumping into fossil aquifers, see Figure 8.10). Figure and caption from @IPCC_2021_WGI_Ch_8."
 #| out-width: 90%
 knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_8_1.png")
 ```
@@ -38,37 +38,41 @@ Evaporation from land is a smaller component than evaporation from oceans, and s
 
 <!-- XXX move this to Ch land-climate interactions -->
 
-We have encountered the vapour pressure deficit (VPD) and its control on transpiration in @sec-transpiration and on evapotranspiration in @sec-energypartitioning. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air. 
+We have encountered the vapor pressure deficit (VPD) and its control on transpiration in @sec-transpiration and on evapotranspiration in @sec-energypartitioning. VPD is a measure of atmospheric humidity. This box is to explain how VPD relates to other metrics of atmospheric humidity and to the physics of moist air.
 
 The total pressure of a gas can be expressed as the sum of partial pressures of different components of a gas mixture. For moist air, we can distinguish the partial pressures of water vapor ($e_a$) and dry air ($P_d$) and write the total pressure of moist air as
 $$
 P = P_d + e_a \;.
 $$
-Both, the dry air and water vapour follow the ideal gas law. Expressed in molar form, it is
+Both, the dry air and water vapor follow the ideal gas law. Expressed in molar form, they are
 $$
 P_d = \rho_d \frac{RT}{M_d} \\
+\text{ and } \\
 e_a = \rho_v \frac{RT}{M_v} = \rho_v \frac{RT}{0.622 M_d}
 $$ {#eq-partialpressures}
-Here, $\rho_d$ is the density of dry air; $\rho_v$ is the density of water vapor, $R$ is the universal gas constant (8.314 J K^-1^ mol^-1^); $T$ is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v = $ 18.02 g mol^–1^) to that of dry air ($M_d = $28.97 g mol^–1^). 
+<!-- You'd need to use a matrix to display multiple equations in multiple lines. -->
+
+Here, $\rho_d$ is the density of dry air; $\rho_v$ is the density of water vapor, $R$ is the universal gas constant (8.314 J K^-1^ mol^-1^); $T$ is temperature (in K). The factor 0.622 relates the molecular mass of water ($M_v =  18.02$ g mol^–1^) to that of dry air ($M_d = 28.97$ g mol^–1^).
+<!-- You need to write valid latex expressions otherwise they are not properly displayed. -->
 
 The specific humidity $q$ can be derived from @eq-partialpressures as
 $$
 q = \frac{\rho_v}{\rho_v + \rho_d} = \frac{0.622 e_a}{P-(1-0.622)e_a}
 $$
-The vapour pressure deficit ($D$) is the difference between the actual vapour pressure $e_a$ and the vapour pressure at saturation $e_s(T)$ (where water condensates). 
+The vapor pressure deficit ($D$) is the difference between the actual vapor pressure $e_a$ and the vapor pressure at saturation $e_s(T)$ (where water condensates).
 $$
 D = e_s - e_a
 $$
-The saturation vapour pressure is a function of air temperature ($T$ in °C). This relationship is related to the Clausius-Clapeyron relation of the temperature dependence of vapor pressure. A relatively accurate, yet simple empirical equation for this relationship is the following. 
+The saturation vapor pressure is a function of air temperature ($T$ in °C). This relationship is related to the Clausius-Clapeyron relation of the temperature dependence of vapor pressure. A relatively accurate, yet simple empirical equation for this relationship is the following.
 $$
 e_s(T) = 611.0 \; \exp \left( \frac{17.27 \; T}{T + 237.3} \right)
 $$
-This equation calculates the the saturation vapour pressure $e_s(T)$ in units of Pa.
+This equation calculates the the saturation vapor pressure $e_s(T)$ in units of Pa.
 
 ```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #| code-fold: true
 #| label: fig-esat
-#| fig-cap: "Saturation vapour pressure as a function of air temperature."
+#| fig-cap: "Saturation vapor pressure as a function of air temperature."
 
 library(ggplot2)
 
@@ -80,7 +84,7 @@ ggplot() +
   geom_function(fun = calc_e_sat) +
   xlim(0, 35) +
   labs(x = "Temperature (°C)",
-       y = "Saturation vapour pressure (Pa)") + 
+       y = "Saturation vapor pressure (Pa)") +
   theme_classic()
 ```
 
@@ -126,7 +130,7 @@ The different components to ET draw water from separate stores - from moisture i
 
 ### Cumulative water deficits
 
-The latent heat flux and precipitation have clear seasonal variations in most biomes. As described above, for annual totals, $P \geq E$. However, over shorter periods of time, ET may exceed precipitation ($E > P$). Of course, on a rain-free day $P=0$, while $E>0$. In some climates, $E > P$ may also be sustained over several weeks to months. For example, in Mediterranean or Monsoonal climates the asynchroneity of precipitation and solar radiation (and thus net radiation) can create a seasonal imbalance of water and energy availability and thus of water inputs and losses. As an example, @fig-cwd a shows the multi-year average monthly total precipitation ($P$) and ET (the same as $E$) for an ecosystem in a Mediterranean climate - a woody savannah in California (eddy covariance measurement site US-Ton). It shows that $E>P$ on average for May-Sep each year. The difference in monthly totals is relatively small - on the order of 10 mm or less. However, considering the cumuluative sum of daily $E-P$ during the dry summer months for calculating the *cumulative water deficit* (@fig-cwd b) shows that the maximum attained seasonal water deficit is 40-80 mm for this site (and varies between years). This is a substantial amount. Where does this water come from? Of course, it's drawn by plants through their roots from the rooting zone, including the soil and potentially also the sub-soil or even the groundwater. How much water can be stored in the soil is the topic of the next section.
+The latent heat flux and precipitation have clear seasonal variations in most biomes. As described above, for annual totals, $P \geq E$. However, over shorter periods of time, ET may exceed precipitation ($E > P$). Of course, on a rain-free day $P=0$, while $E>0$. In some climates, $E > P$ may also be sustained over several weeks to months. For example, in Mediterranean or Monsoonal climates, the asynchroneity of precipitation and solar radiation (and thus net radiation) can create a seasonal imbalance of water and energy availability and thus of water inputs and losses. As an example, @fig-cwd a shows the multi-year average monthly total precipitation ($P$) and ET (the same as $E$) for an ecosystem in a Mediterranean climate - a woody savannah in California (eddy covariance measurement site US-Ton). It shows that $E>P$ on average for May-Sep each year. The difference in monthly totals is relatively small - on the order of 10 mm or less. However, considering the cumulative sum of daily $E-P$ during the dry summer months for calculating the *cumulative water deficit* (@fig-cwd b) shows that the maximum attained seasonal water deficit is 40-80 mm for this site (and varies between years). This is a substantial amount. Where does this water come from? Of course, it's drawn by plants through their roots from the rooting zone, including the soil and potentially also the sub-soil or even the groundwater. How much water can be stored in the soil is the topic of the next section.
 
 ```{r echo=FALSE}
 #| label: fig-cwd
@@ -190,18 +194,18 @@ In a common soil (not compacted, not an organic - peatland - soil), about 55% of
 
 The matric potential is commonly expressed in units of mm or Pa. It can also be expressed as the *suction head* which is the negative of the matric potential. 
 
-Imagine you stick a straw into the soil and try to suck out the water. When the soil is wet, you initially don't have to suck hard to withdraw water. The suction head has a small positive value. The matric potential has a small negative value. After you have sucked out some amount water from the soil, you have to start sucking "harder" to extract the same amount again as the soil dries out. That's because the matric potential declines to more negative numbers (and the suction head increases to larger positive numbers) for drier soils. Staying with the straw analogue, -1 mm matric potential (or 1 mm suction head) is equivalent sucking from your straw such that that 1 mm of water doesn't drain out of the straw (ignoring capillary forces). 
+Imagine you stick a straw into the soil and try to suck out the water. When the soil is wet, you initially don't have to suck hard to withdraw water. The suction head has a small positive value. The matric potential has a small negative value. After you have sucked out some amount water from the soil, you have to start sucking "harder" to extract the same amount again as the soil dries out. That's because the matric potential declines to more negative numbers (and the suction head increases to larger positive numbers) for drier soils. Staying with the straw analogue, -1 mm matric potential (or 1 mm suction head) is equivalent sucking from your straw such that 1 mm of water doesn't drain out of the straw (ignoring capillary forces).
 
 The same can also be expressed as a pressure - the gravitational force per unit area: 
 $$
 p = \frac{F_G}{A} = \frac{mg}{A}
 $$
-1 mm corresponds to 1 kg m^-2^ and $g =$ 9.81 m s^-2^. Therefore
+1 mm corresponds to 1 kg m^-2^ and $g =$ 9.81 m s^-2^. Therefore,
 $$
 1 \; \text{mm} = 9.81 \; \text{kg m}^{-1} \text{s}^{-2} = 9.81 \; \text{Pa}
 $$
 
-The soil matric potential $\psi_s$ is related to the soil volumentric water content $\theta$ in a highly non-linear fashion. It stays near zero for a wide range $\theta$ and drops off sharply as $\theta$ falls below a certain range. Reflecting the large variation in how strongly water is bound to the soil matric across different soil texture classes, the relationship $\psi_s(\theta)$ varies strongly across soil types. An empirical equation for this relationship is given by @clapp78wrr as:
+The soil matric potential $\psi_s$ is related to the soil volumetric water content $\theta$ in a highly non-linear fashion. It stays near zero for a wide range $\theta$ and drops off sharply as $\theta$ falls below a certain range. Reflecting the large variation in how strongly water is bound to the soil matric across different soil texture classes, the relationship $\psi_s(\theta)$ varies strongly across soil types. An empirical equation for this relationship is given by @clapp78wrr as:
 $$
 \psi_s = \psi_\text{SAT} \left( \frac{\theta}{\theta_\text{SAT}} \right)^{-b}
 $$ {#eq-psisoil}
@@ -532,11 +536,11 @@ The driving force of water transport is the negative pressure that the vapor pre
 $$
 T = -G_p (\psi_l - \psi_s + \rho g h)
 $$ {#eq-hydraulic_simple}
-$\rho$ is the density of water (kg m^-3^), $g$ is the gravitational constant (9.81 m s^-2^), and $h$ is the height of the tree (m), measured from the average depth of the roots to the average height of the leaves. With the units of $\psi_l$ and $\psi_s$ in Pa and $T$ in units of (kg m^-2^ s^-1^), $G_p$ is in units of (s m^-1^). @eq-hydraulic_simple expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$): 
+$\rho$ is the density of water (kg m^-3^), $g$ is the gravitational constant (9.81 m s^-2^), and $h$ is the height of the tree (m), measured from the average depth of the roots to the average height of the leaves. With the units of $\psi_l$ and $\psi_s$ in Pa and $T$ in units of (kg m^-2^ s^-1^), $G_p$ is in units of (s m^-1^). @eq-hydraulic_simple expresses the "supply" of water from the soil. From @eq-transpiration, we know how the "demand" for water is determined by the vapor pressure deficit $D$ and the stomatal conductance $g_s$. The $T$ in @eq-hydraulic_simple thus has to be equal to the $T$ from @eq-transpiration (where it was called $E$):
 $$
 T =  1.6 \; g_s \; D
 $$ {#eq-transpiration-demand}
-These equations illustrate some important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere (@eq-transpiration-demand) can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water that is "demanded" by the atmosphere and determined by $D$ and $g_s$. Third, tall trees have to sustain more negative leaf water potentials than short for a given soil dryness and transpiration rate. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
+These equations illustrate some important points. First, a positive (upward) transpiration stream $T$ that satisfies the demand from the atmosphere (@eq-transpiration-demand) can only be maintained if the leaf water potential is more negative than the soil water potential. Second, as the soil water potential becomes more negative, the leaf water potential also has to become more negative to transport the amount of water that is "demanded" by the atmosphere and determined by $D$ and $g_s$. Third, tall trees have to sustain more negative leaf water potentials than short ones for a given soil dryness and transpiration rate. By setting the two equations for $T$ equal and solving for the leaf water potential $\psi_l$ also illustrates how soil moisture ($\psi_s$) and VPD ($D$) have an interactive effect on $\psi_l$.
 
 Responses of plants to water stress are physiologically triggered through the sensing of leaf water potentials. In other words, $\psi_l$ is the central quantity that drives water stress responses of plants. Understanding how $\psi_l$ responds to environmental factors is thus key to understanding how water stress (stomatal closure, damaging drought stress) is a function of soil and air dryness, modified by plant hydraulic traits determining $G_p$.
 
@@ -625,9 +629,9 @@ tmp |>
 
 :::
 
-Sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*. 
+Sustaining very negative water potentials along the transport pathway can be dangerous for the plant. As described in the box above, the whole-plant conductance declines with increasingly negative water potentials. This is because the very negative water potentials can only be sustained if no air is in contact with the water inside the xylem. As pressures become very negative, air may seep in and create *embolisms*. If the conductance was to drop towards zero, transpiration would collapse and embolisms would be excessive - creating potentially irreversible damage and triggering branch and eventually tree mortality due to *hydraulic failure*.
 
-Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence transpiration, and also CO~2~ assimilation, are decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
+Plants can avoid such water stress and hydraulic failure through stomatal regulation (see also @sec-stomatalregulation). To avoid embolisms, stomata close (stomatal conductance is reduced) when the soil water potential declines to increasingly negative values. As a consequence, transpiration, as well as CO~2~ assimilation, decline. Once soil moisture across the rooting zone is depleted and the soil water potential reach very negative values, vegetation activity (transpiration and assimilation) comes to a halt. However, this rarely happens since water loss cannot be fully avoided even if stomata are fully closed and plants have evolved adaptations and are adjusted through plasticity in various traits to avoid a complete depletion of moisture stores across the rooting zone and to limit water losses. Variations in rooting depth are an expression of this adaptation and acclimation. Leaf properties with thick, waxy leaves that prevent water loss, or a drought-deciduous strategy are other examples.
 
 Different plant species respond differently to water stress (variations in soil water potential) and are characterised with different hydraulic traits that determine the stomatal response to soil and leaf water potentials. Two examples are shown in @fig-drydownresponse
 
@@ -994,7 +998,7 @@ knitr::include_graphics("images/seasonal_cycle_radiation_ecohydrology.png")
 
 Ecosystems are commonly distinguished into energy-limited and water-limited systems. This notion relates to the dominant limiting resource and to the relations described in @sec-waterbucket-relations. When the bucket is full, the system is energy-limited. When it gets depleted, the system becomes water-limited. Of course, this is a simplification. The relations described in @sec-waterbucket-relations really refer to a spectrum, rather than a binary classification. 
 
-Furthermore, water-limited conditions may be temporally limited and interspersed by energy-limited periods. Also, the water bucket model, as formulated above, suggests that water-limitation sets in at the point when soil moisture falls below the field capacity. However, as long as the net radiation and the atmospheric vapour pressure deficit are not "excessive", the demand for transpiration (@eq-transpiration-demand) may be met by the supply (@eq-hydraulicsupply) without substantial stomatal closure during the daytime.
+Furthermore, water-limited conditions may be temporally limited and interspersed by energy-limited periods. Also, the water bucket model, as formulated above, suggests that water-limitation sets in at the point when soil moisture falls below the field capacity. However, as long as the net radiation and the atmospheric vapor pressure deficit are not "excessive", the demand for transpiration (@eq-transpiration-demand) may be met by the supply (@eq-hydraulicsupply) without substantial stomatal closure during the daytime.
 
 A common classification of ecosystems into *aridity classes* is given in @tbl-aridity based on @unep92. This considers the moisture index as defined by *P*/PET.
 
@@ -1020,7 +1024,8 @@ knitr::include_graphics("images/map_aridityindex.png")
 ```
 When combining the data for the satellite remote-sensing based fAPAR and the moisture index, a similar pattern emerges as described in @sec-waterbucket-relations. The green vegetation cover, measured by fAPAR, initially increases linearly with increasing *P*/PET for low values of the latter. Beyond a certain value, fAPAR no longer shows a relationship with *P*/PET (@fig-donohue).
 
-The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. research has shown that the relationship shown in @fig-donohue is shifting such that the slope of the initial increase tends to steepen over time [@donohue13grl; @ukkola16natcc]. This is related to the fact that under rising CO~2~, stomatal conductance tends to be reduced (@fig-constant-chi) and the water use efficiency is enhanced (@sec-wue). In other words, a larger area of green leaves per unit ground area can be sustained for a given level of aridity.
+The slope of the initial linear increase of fAPAR vs. *P*/PET reflects the water-carbon coupling. The amount of active green and transpiring foliage area is limited by water availability. research has shown that the relationship shown in @fig-donohue is shifting such that the slope of the initial increase tends to steepen over time [@donohue13grl; @ukkola16natcc]. This is related to the fact that under rising CO~2~, stomatal conductance tends to increase (@fig-constant-chi) and the water use efficiency is enhanced (@sec-wue). In other words, a larger area of green leaves per unit ground area can be sustained for a given level of aridity.
+<!-- According to the figure, g_s increases with CO2 concentration. -->
 
 ```{r warning=FALSE, message=FALSE, echo = FALSE}
 #| label: fig-donohue

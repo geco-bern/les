@@ -43,7 +43,7 @@ knitr::include_graphics("images/solar_radiation_chelsa.png")
 
 Let's first step outside the atmosphere and focus on the solar geometry to understand $I_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
 
-$I_\mathrm{TOA}$ scales in proportion with the solar constant $I_S$ (1360.8 W m^-2^) and is inversely proportional to the square of the distance between the Earth and the sun ($r_E$).
+$I_\mathrm{TOA}$ scales in proportion to the solar constant $I_S$ (1360.8 W m^-2^) and is inversely proportional to the square of the distance between the Earth and the sun ($r_E$).
 $$
 I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
 $$ {#eq-s-toa}
@@ -257,9 +257,9 @@ The diurnal (over the course of a day) and seasonal patterns in top-of-atmospher
 Some features are particularly noteworthy about the patterns in $I_\mathrm{TOA}$:
 
 - The diurnal variation of the instantaneous flux is largest in the tropics.
-- The seasonal variation of the daily total flux is largest at the north pole.
-- At the summer solstice, the daily total solar radiation is largest at the north pole, ...
-- ... but the daily maximum instantaneous and the daytime mean radiation flux are lower at the north pole than at the equator at the summer solstice.
+- The seasonal variation of the daily total flux is largest at the North Pole.
+- At the summer solstice, the daily total solar radiation is largest at the North Pole, ...
+- ... but the daily maximum instantaneous and the daytime mean radiation flux are lower at the North Pole than at the equator at the summer solstice.
 
 The biology of plants is attuned to the solar radiation patterns across different latitudes. The photosynthetic apparatus is constructed to make best use of the light, even during the hours of peak light intensity at mid-day. The phenological phases of plant growth reflect the light distribution over the seasons - evergreen plants dominate in the moist tropics to make use of the light year-round, while deciduous leaf strategies and annual life history strategies dominate in the northern latitudes where the seasonal fluctuation of light is large.
 
@@ -274,7 +274,7 @@ The solar constant $I_S$ isn't actually constant but varies on the order of 0.1%
 
 *Volcanic activity*
 
-Volcanic eruptions can influence the solar radiation at the Earth surface. Events that reduce solar radiation by more than 1 W m^-2^ occur approximately every 35-40 years [@IPCC_2021_WGI_Ch_2] and affect climate and the carbon cycle for up to a few years after very large eruptions. The increased aerosol load in the atmosphere reduces the total radiative energy flux (reducing $\tau$ in Eq. @eq-ppfd). However, through the strong positive effect of the aerosol load on the share of diffuse versus direct radiation, volcanic aerosols can affect the terrestrial carbon cycle, (somehow surprisingly) leading to a greater land C sink following years of large volcanic eruptions (@sec-light-absorption).
+Volcanic eruptions can influence the solar radiation at the Earth's surface. Events that reduce solar radiation by more than 1 W m^-2^ occur approximately every 35-40 years [@IPCC_2021_WGI_Ch_2] and affect climate and the carbon cycle for up to a few years after very large eruptions. The increased aerosol load in the atmosphere reduces the total radiative energy flux (reducing $\tau$ in Eq. @eq-ppfd). However, through the strong positive effect of the aerosol load on the share of diffuse versus direct radiation, volcanic aerosols can affect the terrestrial carbon cycle, (somehow surprisingly) leading to a greater land C sink following years of large volcanic eruptions (@sec-light-absorption).
 
 *Orbital parameters*
 
@@ -286,7 +286,7 @@ The largest changes in $I_\mathrm{TOA}$ arise over millennial time scales and ar
 
 The point of minimal distance coinciding with the summer solstice leads to the largest mid-summer radiation maximum. As a result, the incident solar radiation over the northern-hemispheric summer at 65°N varied by about 83 W m^-2^ during the past million years. These changes are much larger than the ones driven by solar irradiance and volcanic activity.
 
-About 6000 years ago, during the *Mid-Holocene Warm Period*, a summer maximum insolation for the northern hemisphere was reached (@fig-stoa_hovmoeller_holo). During this period, temperatures and solar irradiance during the growing season were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimony to this change are reconstructions that document a "Green Sahara" and a northward shift temperate and boreal forest biomes [@macdonald00qr; @prentice00biome] during this period.
+About 6000 years ago, during the *Mid-Holocene Warm Period*, a summer maximum insolation for the northern hemisphere was reached (@fig-stoa_hovmoeller_holo). During this period, temperatures and solar irradiance during the growing season were elevated relative to the pre-industrial period and precipitation patterns shifted. This had profound effects on vegetation and the carbon cycle. Testimonies to this change are reconstructions that document a "Green Sahara" and a northward shift temperate and boreal forest biomes [@macdonald00qr; @prentice00biome] during this period.
 
 ```{r}
 #| code-fold: true
@@ -339,7 +339,7 @@ df_holo |>
 
 ## Phenology {#sec-phenology} 
 
-In general, phenology refers to the study of periodic events of biological activity. In most cases, such periodic events are linked the seasonal variations of the climate. In the context of terrestrial photosynthesis and land-climate interactions, the most important phenological event is the leaf unfolding and leaf senescence and shedding in response to seasonal variations in temperature, radiation, and water availability. The presence (or absence) of active green leaves has major implications for CO~2~, water vapour, and energy exchange between the land surface and the atmosphere. 
+In general, phenology refers to the study of periodic events of biological activity. In most cases, such periodic events are linked to the seasonal variations of the climate. In the context of terrestrial photosynthesis and land-climate interactions, the most important phenological event is the leaf unfolding and leaf senescence and shedding in response to seasonal variations in temperature, radiation, and water availability. The presence (or absence) of active green leaves has major implications for CO~2~, water vapor, and energy exchange between the land surface and the atmosphere.
 
 The presence of green leaves is recorded by optical satellite remote sensing and documents the Earth's greenness dynamics that follows the seasons - differently across the globe, as the video below illustrates.  
 
@@ -355,9 +355,9 @@ The presence of green leaves is recorded by optical satellite remote sensing and
 
 Leaf phenology is either controlled by temperatures and light availability in temperate, boreal, and tundra ecosystems, or by water availability in warm, seasonally dry climates elsewhere. The water control on vegetation and leaf phenology will be discussed in @sec-ecohydrology.
 
-In winter-cold climates (temperate, boreal, and tundra climate zones C, D, and E, see @fig-table_beck), leaf phenology of deciduous plants is driven by the seasonal fluctuations of temperature and radiation. Leaves are shed before winter to avoid damage by cold temperatures and because the limited gains by C assimulation during dark and cold winter months does not outweigh the costs for maintenance of vital functions. In seasonally dry climates (mainly climate zones Am, Aw, see @fig-table_beck), leaves are shed to avoid water loss and avoid dangerous desiccation of the plant. Leaf area also varies more gradually in response to seasonal variations in climate. LAI can have a seasonal cycle also in evergreen forests and shrublands. In grasslands, LAI typically has a strong seasonal cycle, with rapid foliage development and senescence during the typically relatively short vegetation period - but without the typical budbreak, leaf unfolding, and leaf shedding as in deciduous trees.
+In winter-cold climates (temperate, boreal, and tundra climate zones C, D, and E, see @fig-table_beck), leaf phenology of deciduous plants is driven by the seasonal fluctuations of temperature and radiation. Leaves are shed before winter to avoid damage by cold temperatures and because the limited gains by C assimilation during dark and cold winter months does not outweigh the costs for maintenance of vital functions. In seasonally dry climates (mainly climate zones Am, Aw, see @fig-table_beck), leaves are shed to avoid water loss and avoid dangerous desiccation of the plant. Leaf area also varies more gradually in response to seasonal variations in climate. LAI can have a seasonal cycle also in evergreen forests and shrublands. In grasslands, LAI typically has a strong seasonal cycle, with rapid foliage development and senescence during the typically relatively short vegetation period - but without the typical budbreak, leaf unfolding, and leaf shedding as in deciduous trees.
 
-Photosynthesis and the exchange of CO~2~ between the land surface and the atmosphere are very directly affected by the amount of active green leaves - as measured by fAPAR (@eq-luemodel). Coupled to this exchange is the exchange of water vapour and the surface energy balance. Therefore, leaf phenology is a primary control on land-climate interactions and the carbon cycle. Leaf phenology is not only a driver of land-climate interactions, but is also driven by climate. Different controls act on the leaf unfolding and leaf senescence dates.
+Photosynthesis and the exchange of CO~2~ between the land surface and the atmosphere are very directly affected by the amount of active green leaves - as measured by fAPAR (@eq-luemodel). Coupled to this exchange is the exchange of water vapor and the surface energy balance. Therefore, leaf phenology is a primary control on land-climate interactions and the carbon cycle. Leaf phenology is not only a driver of land-climate interactions, but is also driven by climate. Different controls act on the leaf unfolding and leaf senescence dates.
 
 ### Leaf unfolding
 
@@ -376,7 +376,7 @@ More complex models consider also abiotic factors leading up to the phase (endod
 #| out-width: 100%
 knitr::include_graphics("images/lai_seasonality.png")
 ```
-Here in Switzerland, most trees start leaf unfolding in the second half of April. Why are leaves of winter-cold deciduous trees not unfolding earlier in the year (given that there is light available for photosynthesis)? Leaf shedding is a protection of plants against frost. At temperatures below freezing, costly cell protection measures against frozen water and excessive photosynthetic light harvesting are required to avoiding damage. Delayed leaf unfolding is a strategy to avoid such damage. 
+Here in Switzerland, most trees start leaf unfolding in the second half of April. Why are leaves of winter-cold deciduous trees not unfolding earlier in the year (given that there is light available for photosynthesis)? Leaf shedding is a protection of plants against frost. At temperatures below freezing, costly cell protection measures against frozen water and excessive photosynthetic light harvesting are required to avoid damage. Delayed leaf unfolding is a strategy to avoid such damage.
 
 ::: {.callout-note}
 Check out our tutorial [here](https://geco-bern.github.io/handfull_of_pixels/phenology_modelling.html) to learn more about phenology modelling and fitting the GDD model to remotely sensed phenology data
@@ -384,13 +384,13 @@ Check out our tutorial [here](https://geco-bern.github.io/handfull_of_pixels/phe
 
 ### Leaf senescence
 
-Leaf senescence in temperate and boreal deciduous forests is - similarly as leaf unfolding - a strategy to avoid stress and damage by low temperatures in winter. Before *leaf abscission* (leaf shedding), the leaf nutrients are resorbed and photosynthetic activity starts declining. Leaves are rich in nutrients. A large fraction of nutrients contained in leaf biomass, in particular nitrogen (N), are linked to photosynthesis - mostly Rubisco. These nutrients are re-mobilised before leaf abscission and resorbed into plant-internal storage compartments. Thereby, the loss of "costly" nutrients can be avoided. A side effect of the nutrient resorption is the change of the leaf color to yellow, reddish, or brown. 
+Leaf senescence in temperate and boreal deciduous forests is - similarly as leaf unfolding - a strategy to avoid stress and damage by low temperatures in winter. Before *leaf abscission* (leaf shedding), the leaf nutrients are resorbed and photosynthetic activity starts declining. Leaves are rich in nutrients. A large fraction of nutrients contained in leaf biomass, in particular nitrogen (N), is linked to photosynthesis - mostly Rubisco. These nutrients are re-mobilised before leaf abscission and resorbed into plant-internal storage compartments. Thereby, the loss of "costly" nutrients can be avoided. A side effect of the nutrient resorption is the change of the leaf color to yellow, reddish, or brown.
 
-Environmental controls on leaf senescence are not the same as for leaf unfolding and vary between tree species. Model predictability for leaf senescence dates is generally lower than for leaf unfolding dates, observed global trends are less clear [@piao19], and drivers less well understood [@richardson13] than for spring phenology. Photoperiod and temperature are considered important abiotic controls on leaf senescence dates. While photoperiod sets the induction of the end-of-season phenology, temperature modulates its progression with cold temperatures accelerating leaf senescence [@koernerbasler10]. Also the timing of leaf unfolding can appears to affect the timing of leaf senescence [@keenan15; marques23natee]. An earlier leaf unfolding in spring appears to induce an earlier leaf senescence in autumn. Processes driving this pattern may be related to cell aging and a conserved leaf longevity, but may also be related to the ecosystem water balance and premature defoliation as a response to dry soil conditions (after vegetation has started consuming water earlier in spring). 
+Environmental controls on leaf senescence are not the same as for leaf unfolding and vary between tree species. Model predictability for leaf senescence dates is generally lower than for leaf unfolding dates, observed global trends are less clear [@piao19], and drivers less well understood [@richardson13] than for spring phenology. Photoperiod and temperature are considered important abiotic controls on leaf senescence dates. While photoperiod sets the induction of the end-of-season phenology, temperature modulates its progression with cold temperatures accelerating leaf senescence [@koernerbasler10]. Also, the timing of leaf unfolding can appear to affect the timing of leaf senescence [@keenan15; marques23natee]. An earlier leaf unfolding in spring appears to induce an earlier leaf senescence in autumn. Processes driving this pattern may be related to cell aging and a conserved leaf longevity, but may also be related to the ecosystem water balance and premature defoliation as a response to dry soil conditions (after vegetation has started consuming water earlier in spring).
 
 ### Phenology trends and spatial patterns
 
-Since leaf unfolding and senescence phenology is sensitive to climate, patterns in spring phenology emerge across climatic gradients and over the course of long-term climate change. Phenology is very evident for an observer without technical instruments and the timing of phenological dates can be relatively well determined. This has enabled the recording of phenological dates since centuries and long-term phenological records now impressively document the unprecedented current warming in the context of the last few centuries @fig-phenology-trends.
+Since leaf unfolding and senescence phenology is sensitive to climate, patterns in spring phenology emerge across climatic gradients and over the course of long-term climate change. Phenology is very evident for an observer without technical instruments, and the timing of phenological dates can be relatively well determined. This has enabled the recording of phenological dates since centuries, and long-term phenological records now impressively document the unprecedented current warming in the context of the last few centuries @fig-phenology-trends.
 
 ```{r echo=FALSE}
 #| label: fig-phenology-trends
@@ -430,7 +430,7 @@ Note that both spatial and temporal variations in the photosynthetic CO~2~ uptak
 
 ### Diurnal cycle
 
-@fig-zenith showed the diurnal cycle of the cosine of the solar zenith angle ($\cos \theta_z$) for different latitudes around summer solstice (21 June). $\cos \theta_z$ is relevant because it linearly scales the top-of-atmosphere solar radiation, as described by @eq-s-toa. The solar radiation incident at the Earth surface ($I_0$), that is at the top of the canopy, is shown for four different example sites in @fig-diurnal_cycle. The same general pattern becomes evident:
+@fig-zenith showed the diurnal cycle of the cosine of the solar zenith angle ($\cos \theta_z$) for different latitudes around summer solstice (21 June). $\cos \theta_z$ is relevant because it linearly scales the top-of-atmosphere solar radiation, as described by @eq-s-toa. The solar radiation incident at the Earth's surface ($I_0$), that is at the top of the canopy, is shown for four different example sites in @fig-diurnal_cycle. The same general pattern becomes evident:
 
 - The sites at high northern latitudes (US-ICh, a tundra heathland in Alaska, and FI-Hyy, a boreal coniferous forest in Finland) have the smallest diurnal cycle amplitude in $I_0$, but the longest daylight period ($I_0 > 0$).
 - The low-latitude site in the tropics (BR-Sa3, a moist tropical forest) has the shortest duration of daylight ($I_0 > 0$), but reaches the highest mid-day solar radiation intensity. (Note that for $I_\mathrm{TOA}$, a site at 23.5°N was shown in @fig-zenith and has an even higher mid-day peak.)
@@ -441,7 +441,7 @@ The diurnal cycle in GPP (@fig-diurnal_cycle b) reflects the diurnal cycle in $I
 - The mid-day peak for the tundra site US-ICh is much lower in relation to the mid-day peak of other sites for GPP than for $I_0$. This is likely due to sparse vegetation cover (low LAI ad fAPAR) and temperature effects on photosynthesis.
 - The shapes of the diurnal cycles in $I_0$ and GPP are notably different for BR-Sa3. This may be an indication of water limitation on photosynthesis.
 
-In absence of disturbances influencing ecosystem C fluxes, the net ecosystem exchange (NEE) is largely equivalent to the negative of NEP as defined in @sec-nep. NEE is what the atmosphere "sees" - it is the net C flux between the atmosphere and the land surface (here a forest vegetation). A negative NEE value indicates a net CO~2~ uptake by vegetation. Some notable patterns in the diurnal cycle of NEE are:
+In the absence of disturbances influencing ecosystem C fluxes, the net ecosystem exchange (NEE) is largely equivalent to the negative of NEP as defined in @sec-nep. NEE is what the atmosphere "sees" - it is the net C flux between the atmosphere and the land surface (here a forest vegetation). A negative NEE value indicates a net CO~2~ uptake by vegetation. Some notable patterns in the diurnal cycle of NEE are:
 
 - The diurnal cycle in NEE (@fig-diurnal_cycle d) is almost identical to the negative of the diurnal cycle in GPP. This reflects that variations in the net C balance of an ecosystem over the course of a day are strongly driven by photosynthetic CO~2~ uptake. Ecosystem respiration (*R*~eco~, the sum of autotrophic and heterotrophic respiration) varies less over the course of a day.
 - Sites with a strong mid-day CO~2~ uptake have a higher night-time respiration.
@@ -458,15 +458,15 @@ knitr::include_graphics("images/diurnal_cycle.png")
 
 ### Seasonal cycle {#sec-seasonal-cycle}
 
-@fig-daily_stoa shows the seasonal cycle of top-of-atmosphere solar radiation ($I_\mathrm{TOA}$) for different latitudes. The daily totals exhibits the same general seasonal pattern as measured incident top-of-canopy solar radiation means, measured at four different sites along different latitudes (@fig-seasonal_cycle):
+@fig-daily_stoa shows the seasonal cycle of top-of-atmosphere solar radiation ($I_\mathrm{TOA}$) for different latitudes. The daily totals exhibit the same general seasonal pattern as measured incident top-of-canopy solar radiation means, measured at four different sites along different latitudes (@fig-seasonal_cycle):
 
-- The seasonal cycle amplitude is smallest at low latitudes (at Equator for $I_\mathrm{TOA}$ and site BR-Sa3 for $I_0$) and highest at high latitudes. Daily solar radiation drops to zero in the Arctic during winter north of the Arctic circle at 66.5°N. (FI-Hyy is located at 61.8°N, US-ICh is located at 68.6°N). 
+- The seasonal cycle amplitude is smallest at low latitudes (at the Equator for $I_\mathrm{TOA}$ and site BR-Sa3 for $I_0$) and highest at high latitudes. Daily solar radiation drops to zero in the Arctic during winter north of the Arctic circle at 66.5°N. (FI-Hyy is located at 61.8°N, US-ICh is located at 68.6°N).
 - Mid-summer peak daily solar radiation is highest at high northern latitudes (at the North Pole for $I_\mathrm{TOA}$ and at site US-ICh for $I_0$).
 - The small seasonal variation in $I_\mathrm{TOA}$ at the Equator does not translate into congruent seasonal variation in $I_0$. 
 
 A similar overall pattern is visible for the seasonal variation in GPP, but with some notable exceptions:
 
-- The highest seasonal peak daily GPP values are recorded at the temperate site DE-Hai. This is despite LAI being mostly higher at the tropical (BR-Sa3) than at the temperate site and indicates an very high mid-summer LUE of ecosystem photosynthetic CO~2~ uptake at the temperate site.
+- The highest seasonal peak daily GPP values are recorded at the temperate site DE-Hai. This is despite LAI being mostly higher at the tropical (BR-Sa3) than at the temperate site and indicates a very high mid-summer LUE of ecosystem photosynthetic CO~2~ uptake at the temperate site.
 - The mid-summer peak daily GPP is (by far) lowest at the tundra site US-ICh. This reflects the very low LAI at this site.
 - The (deciduous) temperate forest site DE-Hai - a beech forest in Germany - exhibits the largest seasonal variation in LAI. Beech is a deciduous tree and forms forests that are strongly dominated by beech alone with little understorey vegetation. The simultaneous leaf phenology of the dominating tree species drives the rapid and large spring increase and autumn decrease in LAI. 
 - FI-Hyy is a needle-leaved forest, dominated by pine trees (*Pinus sylvestris* and *Picea abies*). Although these tree species are evergreen, a seasonal variation in LAI is recorded by the satellite remote sensing-derived observations shown in @fig-seasonal_cycle (b). This likely reflects three aspects: (*i*) the small but not absent actual seasonal variation in leaf area also in evergreens, (*ii*) the influence of the deciduous understorey vegetation on ecosystem-level greenness, (*iii*) the snow cover during winter months affecting the remotely sensed signal in surface reflectance which is interpreted by the algorithm for estimating LAI.
@@ -489,7 +489,7 @@ knitr::include_graphics("images/seasonal_cycle.png")
 
 4. At what latitude do you expect the largest diurnal cycle amplitude in top-of-atmosphere solar radiation? 
 5. At what latitude do you expect the largest seasonal amplitude in top-of-atmosphere solar radiation?
-6. Where do you expect the smallest seasonal variation in the daily net ecosystem productivity.
+6. Where do you expect the smallest seasonal variation in the daily net ecosystem productivity?
 7. Consider mature forest ecosystems (*sensu* @odum69sci, @fig-odum) in a moist tropical, temperate and boreal region. Where do you expect the largest annual NEP? Where do you expect the largest daily NEP during the peak growing season?
 :::
 
@@ -499,7 +499,7 @@ knitr::include_graphics("images/seasonal_cycle.png")
 
 The NEE (equivalent to the negative of NBP, introduced in @sec-nep) recorded at the four example sites shown above is representative for similar patterns across all vegetated land of the Earth. Seasonal variations in solar radiation are the underlying driver of the carbon flux variations and similarly affect all photosynthesizing organisms across the planet.
 
-CO~2~ is relatively well-mixed in the atmosphere due to its long lifetime. However the mixing time scale is on the order of a couple years. Hence, more rapid variations in net CO~2~ fluxes between the atmosphere and the Earth surface (over the ocean and over the land) are expressed in corresponding variations of the atmospheric CO~2~ concentration. As introduced in @sec-intro-breathing, the atmospheric CO~2~ concentration, measured at Mauna Loa (Hawaii) exhibits not only a steady increase since the 1950s, but also a seasonal cycle with lowest value at the end of the northern hemisphere summer. Atmospheric CO~2~ is continuously measured at a range of sites along different latitudes. At Point Barrow, the northernmost point of the US in Alaska, the CO~2~ seasonal amplitude is even larger than at Mauna Loa (@fig-co2_seasonal_amplitude). This is the result of the collective net CO~2~ uptake in northern ecosystems during summer. 
+CO~2~ is relatively well-mixed in the atmosphere due to its long lifetime. However, the mixing time scale is on the order of a couple of years. Hence, more rapid variations in net CO~2~ fluxes between the atmosphere and the Earth surface (over the ocean and over the land) are expressed in corresponding variations of the atmospheric CO~2~ concentration. As introduced in @sec-intro-breathing, the atmospheric CO~2~ concentration, measured at Mauna Loa (Hawaii) exhibits not only a steady increase since the 1950s, but also a seasonal cycle with the lowest value at the end of the northern hemisphere summer. Atmospheric CO~2~ is continuously measured at a range of sites along different latitudes. At Point Barrow, the northernmost point of the US in Alaska, the CO~2~ seasonal amplitude is even larger than at Mauna Loa (@fig-co2_seasonal_amplitude). This is the result of the collective net CO~2~ uptake in northern ecosystems during summer.
 
 @fig-co2_seasonal_amplitude shows the seasonal variation in atmospheric CO~2~ after the mean and long-term trend are removed from the time series (corresponding to the red curve minus the black curve in @fig-mauna-loa-co2). The shape of this seasonal variation is very similar to the shape of the seasonal NEE variation at northern sites (e.g., DE-Hai) - above average during winter months when ecosystem respiration prevails and a rapid draw-down starting in spring to attain a minimum during summer. This shows how the patterns in net ecosystem CO~2~ exchange directly affect variations in atmospheric CO~2~ over the course of a year.
 
@@ -512,7 +512,7 @@ knitr::include_graphics("images/co2_seasonal_amplitude.png")
 
 @fig-co2_seasonal_amplitude also shows that the CO~2~ seasonal amplitude has been increasing since measurements started in the early sixties of the 20th century. This increase reflects changes in the terrestrial C cycle [@graven13sci] and is likely driven by the warming climate and the extension of the growing season in northern ecosystems, increasing the photosynthetic CO~2~ uptake as a result of the fertilizing effect of rising CO~2~, and seasonal shifts in GPP and *R*~eco~ and their relative timing.
 
-The video below shows an animation of the modeled spatial and temporal variations of atmospheric CO~2~ over the course of one year. CO~2~ sources from fossil fuel combustion by industry, households, and traffic are combined with the modeled terrestrial and oceanic net CO~2~ exchange between the Earth surface and the atmosphere. An atmospheric transport model is then used for simulating variations in CO~2~ concentrations.
+The video below shows an animation of the modeled spatial and temporal variations of atmospheric CO~2~ over the course of one year. CO~2~ sources from fossil fuel combustion by industry, households, and traffic are combined with the modeled terrestrial and oceanic net CO~2~ exchange between the Earth's surface and the atmosphere. An atmospheric transport model is then used for simulating variations in CO~2~ concentrations.
 
 {{< video https://www.youtube.com/watch?v=x1SgmFa0r04 >}}
 
@@ -530,9 +530,9 @@ Next, we consider the attenuation of solar radiation by the atmosphere, consider
 
 Not all solar radiation that reaches the land surface is absorbed by active green vegetation. The highest radiation intensities coincide with sparsely vegetated land, including major desert regions. The effect of reduced vegetation cover on GPP is quantified by the factor fAPAR which accounts for the fraction of *absorbed* photosynthetically active radiation (@sec-light-absorption). Limited vegetation cover and light absorption reduces terrestrial GPP further by over 75% (from 1442 to 322 PgC yr^-1^, @wang14bg).
 
-At the global scale, temperature has a relatively weak effect on GPP. Considering that photosynthesis is inhibited by freezing temperatures (below 0°C) does not substantially reduce total terrestrial GPP (from 322 to 300 PgC yr^-1^, corresponding to a 7% reduction, @wang14bg). This is because low temperatures coincide with low PAR (or $I_0$) and . Situations of high light and low temperatures are relatively rare.
+At the global scale, temperature has a relatively weak effect on GPP. Considering that photosynthesis is inhibited by freezing temperatures (below 0°C) does not substantially reduce total terrestrial GPP (from 322 to 300 PgC yr^-1^, corresponding to a 7% reduction, @wang14bg). This is because low temperatures coincide with low PAR (or $I_0$). Situations of high light and low temperatures are relatively rare.
 
-Finally, physiological effects of CO~2~, temperature, vapour pressure deficit, and the atmospheric pressure are considered. Note that the effect of temperatures below freezing is treated separately by the step described above. The potential maximum rate of the conversion of absorbed photosynthetically active radiation is reduced by the limited diffusion rate of CO~2~ through stomatal openings (thus reducing $c_i$ relative to $c_a$, @fig-gpp_spatial_patterns e) and is further reduced by the effects of photorespiration as accounted for by the factor $(c_i - \Gamma^\ast)/(c_i + 2\Gamma^\ast)$. This represents the effect of leaf-internal CO~2~ concentration on the electron transport-limited assimilation rate $A_J$ in the FvCB model (@eq-aj). These physiological effects reduce terrestrial GPP from 300 to 211 PgC yr^-1^, corresponding to a 30% reduction [@wang14bg]. Note that the range of published total annual terrestrial GPP estimates is lower - between 110 and 140 PgC yr^-1^ [@stocker19natgeo]. 
+Finally, physiological effects of CO~2~, temperature, vapor pressure deficit, and the atmospheric pressure are considered. Note that the effect of temperatures below freezing is treated separately by the step described above. The potential maximum rate of the conversion of absorbed photosynthetically active radiation is reduced by the limited diffusion rate of CO~2~ through stomatal openings (thus reducing $c_i$ relative to $c_a$, @fig-gpp_spatial_patterns e) and is further reduced by the effects of photorespiration as accounted for by the factor $(c_i - \Gamma^\ast)/(c_i + 2\Gamma^\ast)$. This represents the effect of leaf-internal CO~2~ concentration on the electron transport-limited assimilation rate $A_J$ in the FvCB model (@eq-aj). These physiological effects reduce terrestrial GPP from 300 to 211 PgC yr^-1^, corresponding to a 30% reduction [@wang14bg]. Note that the range of published total annual terrestrial GPP estimates is lower - between 110 and 140 PgC yr^-1^ [@stocker19natgeo].
 
 ```{r echo=FALSE}
 #| label: fig-gpp_spatial_patterns
@@ -562,7 +562,7 @@ While @fig-agc2 shows an overall similarity between the patterns of GPP and abov
 knitr::include_graphics("images/map_agc.png")
 ```
 
-While the global biomass map in @fig-agc2 shows the overall pattern of highest aboveground biomass C being located in tropical forests, it hides "pockets" of exceptionally high biomass in temperate forests. Some of the worlds highest biomass densities (average biomass per unit ground area in a forest plot) are found in cool and moist temperate forests, including *Eucalyptus regnans*-dominated forests in southeast Australia, Sequoia-dominated forests in coastal California, Oregon and Chile, and *Agathis australis*-dominated forests in New Zealand [@keith09pnas].
+While the global biomass map in @fig-agc2 shows the overall pattern of highest aboveground biomass C being located in tropical forests, it hides "pockets" of exceptionally high biomass in temperate forests. Some of the world's highest biomass densities (average biomass per unit ground area in a forest plot) are found in cool and moist temperate forests, including *Eucalyptus regnans*-dominated forests in southeast Australia, Sequoia-dominated forests in coastal California, Oregon and Chile, and *Agathis australis*-dominated forests in New Zealand [@keith09pnas].
 
 
 ### Global distribution of soil carbon
@@ -580,19 +580,25 @@ knitr::include_graphics("images/soilc_map.png")
 
 #### Controls on soil C stocks {-}
 
-*Allocation*  Root inputs are approximately five times more likely than an equivalent mass of aboveground litter to be stabilized as soil organic matter (SOM) [@jackson17]. Thus, allocation and plant growth in different tissues is an important factor determining the link between vegetation productivity, litter production, and soil C. In grasslands and shurblands, a much larger fraction of C is allocated to roots than in forests. Thus, soil C stocks are often higher in natural grasslands and shrublands than in forests. This is also visible in @fig-soilc_map which indicates high soil C stocks in the Earth's grassland and shrubland-dominated regions.
+**Allocation**
+Root inputs are approximately five times more likely than an equivalent mass of aboveground litter to be stabilized as soil organic matter (SOM) [@jackson17]. Thus, allocation and plant growth in different tissues is an important factor determining the link between vegetation productivity, litter production, and soil C. In grasslands and shurblands, a much larger fraction of C is allocated to roots than in forests. Thus, soil C stocks are often higher in natural grasslands and shrublands than in forests. This is also visible in @fig-soilc_map which indicates high soil C stocks in the Earth's grassland and shrubland-dominated regions.
 
-*Climate*  The activity of soil organic matter-decomposing microbes (fungi and bacteria) is strongly controlled by abiotic factors in the soil. Under low temperatures, their activity is reduced and soil and litter decomposition rates are slowed (see also @sec-littersom). This is reflected in @fig-soilc_map by the generally high soil organic C stocks in the cold climates of the high northern latitudes - despite the generally low productivity of vegetation in these regions.
+**Climate**
+The activity of soil organic matter-decomposing microbes (fungi and bacteria) is strongly controlled by abiotic factors in the soil. Under low temperatures, their activity is reduced, and soil and litter decomposition rates are slowed (see also @sec-littersom). This is reflected in @fig-soilc_map by the generally high soil organic C stocks in the cold climates of the high northern latitudes - despite the generally low productivity of vegetation in these regions.
 
-*Stabilisation and saturation*  of soil organic C depends on the mineralogy of the soil. This suggests that not (only) the C inputs determine stocks, but also the capacity of soil mineral surfaces to sorb organic matter.
+**Soil mineral composition**
+Stabilisation and saturation of soil organic C depends on the mineralogy of the soil. This suggests that not (only) the C inputs determine stocks, but also the capacity of soil mineral surfaces to adsorb organic matter.
 
-*Plant-soil interactions*  via fungi and bacteria strongly influence C and nutrient cycling in soils. Inputs of fresh litter and labile C through root exudates can stimulate the decomposition  (*priming*) of stable C in the soil. These relationships are complex and implications for the global distribution of soil C is not clear, but can undermine a positive and linear relationship between vegetation productivity, litter inputs, and soil C stocks.
+**Plant-soil interactions**
+Plant-soil interactions via fungi and bacteria strongly influence C and nutrient cycling in soils. Inputs of fresh litter and labile C through root exudates can stimulate the decomposition  (*priming*) of stable C in the soil. These relationships are complex and implications for the global distribution of soil C is not clear, but can undermine a positive and linear relationship between vegetation productivity, litter inputs, and soil C stocks.
+
+<!-- Other factors include soil pH, O2 level, 'healthy' biological communities, erosion (enhanced by modern agricultural practices and deforestation). -->
 
 #### Global soil C stocks {-}
 
-The total C stock in soils up to 2 m is estimated 2273 PgC by @jackson17 - higher than the number provided in the IPCC AR6 [@canadell21ipcc] and @fig-carbon-pools-fluxes-ipcc. Global soil C estimates are based on soil organic C content measurements which are available mostly from the top soil and are thus sensitive to assumptions regarding the soil C distribution across the soil profile. In general, the organic matter and thus soil C content declines with depth but the rate of decline depends on vegetation and the distribution of roots. The global soil C stock of 0-3 m is even higher and estimated by @jackson17 at 2800 PgC. The soil depth-to-bedrock puts a constraint on soil C storage at depth in many places, is very uncertain, and may lead to a substantial reduction of the total 0-2 and 0-3 m soil C estimates.
+The total C stock in soils up to 2 m is estimated 2273 PgC by @jackson17 - higher than the number provided in the IPCC AR6 [@canadell21ipcc] and @fig-carbon-pools-fluxes-ipcc. Global soil C estimates are based on soil organic C content measurements which are available mostly from the top soil and are thus sensitive to assumptions regarding the soil C distribution across the soil profile. In general, the organic matter and thus soil C content declines with depth but the rate of decline depends on vegetation and the distribution of roots. The global soil C stock of 0-3 m is even higher and estimated by @jackson17 at 2800 PgC. The soil depth-to-bedrock puts a constraint on soil C storage at depth in many places, which is very uncertain, and may lead to a substantial reduction of the total 0-2 and 0-3 m soil C estimates.
 
-The high soil C density in high northern latitudes (@fig-soilc_map) reflects also the particular functioning and soil C dynamics dynamics and stabilization under conditions where temperatures are below freezing for a large part of the year (in permafrost regions) and under permanently water-logged soil conditions (in peatlands). Contributions of soil C stocks in peatland and permafrost regions are substantial (see @sec-peatlands and @sec-permafrost).
+The high soil C density in high northern latitudes (@fig-soilc_map) reflects also the particular functioning and soil C dynamics and stabilization under conditions where temperatures are below freezing for a large part of the year (in permafrost regions) and under permanently water-logged soil conditions (in peatlands). Contributions of soil C stocks in peatland and permafrost regions are substantial (see @sec-peatlands and @sec-permafrost).
 
 #### Link to biomass C distribution
 
@@ -626,7 +632,7 @@ Peatlands are extremely C-rich, containing 500-700 PgC on only 3% of the Earth�
 
 In view of the frequent flooding and wet soil conditions, peatlands are considered a type of *wetland*. They occur in a wide range of biomes. In the tropics, decomposition rates - even under water logging - are much higher than in the Arctic. Yet, vegetation productivity is much higher, too, and can lead to an imbalance of organic matter inputs and decomposition and a long-term accumulation.
 
-Today, major peatlands are located in the Hudson Bay Lowland (Canada) and in the West Siberian Lowland (Russia). In the tropics, major peatlands are located in Southeast Asia (Indonesia, Malaysia, Papua New Guinea, and Brunei) [@page16annrev] and in the Congo Basin [@dargie17nat]. Peatland vegetation is very different in boreal and temperate versus tropical peatlands. The latter occur in forested, often palm-dominated swamps and in coastal mangroves [@page16annrev]. Boreal and temperate peatlands are dominated by sedges or mosses (see box above).
+Today, major peatlands are located in the Hudson Bay Lowland (Canada) and in the West Siberian Lowland (Russia). In the tropics, major peatlands are located in Southeast Asia (Indonesia, Malaysia, Papua New Guinea, and Brunei) [@page16annrev] and in the Congo Basin [@dargie17nat]. Peatland vegetation is very different in boreal and temperate versus tropical peatlands. The latter occurs in forested, often palm-dominated swamps and in coastal mangroves [@page16annrev]. Boreal and temperate peatlands are dominated by sedges or mosses (see box above).
 
 ```{r echo=FALSE}
 #| label: fig-peatland_map
@@ -651,7 +657,7 @@ Peat layers form in each year by added litter, are subsequently covered by the n
 
 #### Peatland history {-}
 
-Due to the very slow decay, oldest peat present at a peat dome's base may date back millennia. Indeed, dated carbon in peatlands across the globe indicate a peak in the initiation of northern peatlands in the early Holocene around 11-9 kyr BP and of tropical peatlands even before - around 20 kyr BP [@yu10grl; @macdonald06sci] and. The timing of the rapid initiation of northern peatlands coincides with the retreat of the major ice sheets after the Last Glacial Maximum and with a peak in summer insolation (@fig-stoa_hovmoeller_holo and @fig-peatland_initiation) and climate seasonality with warm summers in the northern hemisphere, supporting vegetation growth. As new peatlands formed in the early Holocene, old ones that established in the glacial climate, disappeared due to climatic change [@muller20bg] and were lost to rising sea levels during the melting of the ice sheets [@dommain14qsr].
+Due to the very slow decay, the oldest peat present at a peat dome's base may date back millennia. Indeed, dated carbon in peatlands across the globe indicates a peak in the initiation of northern peatlands in the early Holocene around 11-9 kyr BP and of tropical peatlands even before - around 20 kyr BP [@yu10grl; @macdonald06sci]. The timing of the rapid initiation of northern peatlands coincides with the retreat of the major ice sheets after the Last Glacial Maximum and with a peak in summer insolation (@fig-stoa_hovmoeller_holo and @fig-peatland_initiation) and climate seasonality with warm summers in the northern hemisphere, supporting vegetation growth. As new peatlands formed in the early Holocene, old ones that established in the glacial climate disappeared due to climatic change [@muller20bg] and were lost to rising sea levels during the melting of the ice sheets [@dommain14qsr].
 
 ```{r echo=FALSE}
 #| label: fig-peatland_initiation
@@ -679,7 +685,7 @@ Peatlands, as all wetlands, are also a major source of methane (CH~4~). Under an
 
 ### Permafrost {#sec-permafrost}
 
-About 24% of the northern hemisphere's exposed land surface contains ground that remains frozen for at least two consecutive years - the definition of permafrost [@schuur18annrev]. The global distriution of permafrost in the northern hemisphere is shown in @fig-permafrost_map. Organic matter in frozen soils is protected from decomposition - as long as the ground remains frozen. The total amount of C stored in permafrost soils (0-3 m depth) is estimated at 1,035 ± 150 PgC [@tarnocai09gbc; @hugelius14bg] and substantial additional C (400-500 PgC) is stored at greater depth in particular locations (river sediments) [@schuur18annrev]. This amount of C adds another 50-100% to the total amount of C stored in soils (@fig-carbon-pools-fluxes-ipcc) and suggests that the distribution of permafrost is an important determinant for the global distribution of soil C (@fig-soilc_map).
+About 24% of the northern hemisphere's exposed land surface contains ground that remains frozen for at least two consecutive years - the definition of permafrost [@schuur18annrev]. The global distribution of permafrost in the northern hemisphere is shown in @fig-permafrost_map. Organic matter in frozen soils is protected from decomposition - as long as the ground remains frozen. The total amount of C stored in permafrost soils (0-3 m depth) is estimated at 1,035 ± 150 PgC [@tarnocai09gbc; @hugelius14bg] and substantial additional C (400-500 PgC) is stored at greater depth in particular locations (river sediments) [@schuur18annrev]. This amount of C adds another 50-100% to the total amount of C stored in soils (@fig-carbon-pools-fluxes-ipcc) and suggests that the distribution of permafrost is an important determinant for the global distribution of soil C (@fig-soilc_map).
 
 ```{r echo=FALSE}
 #| label: fig-permafrost_map
@@ -688,7 +694,7 @@ About 24% of the northern hemisphere's exposed land surface contains ground that
 knitr::include_graphics("images/permafrost_map.png")
 ```
 
-Permafrost occurs (roughly) where the mean annual temperature is below freezing. During summer, the upper soil layers, the *active layer*, thaw. However, the seasonal fluctuation of soil temperature is attenuated deeper in the soil due to constraints on the rate of thermal diffusion across the soil. At a certain depth, the seasonal cycle of soil temperature disappears and the soil temperature is largely constant and equal to the mean annual air temperature on the ground ($Z^\ast$ in @fig-soiltemp_depth). Towards greater depth, the temperature increases again due to the geothermal heat flux. Permafrost is zone where temperatures never rise beyond 0°C.
+Permafrost occurs (roughly) where the mean annual temperature is below freezing. During summer, the upper soil layers, the *active layer*, thaw. However, the seasonal fluctuation of soil temperature is attenuated deeper in the soil due to constraints on the rate of thermal diffusion across the soil. At a certain depth, the seasonal cycle of soil temperature disappears, and the soil temperature is largely constant and equal to the mean annual air temperature on the ground ($Z^\ast$ in @fig-soiltemp_depth). Towards greater depth, the temperature increases again due to the geothermal heat flux. Permafrost is the zone where temperatures never rise beyond 0°C.
 
 ```{r echo=FALSE}
 #| label: fig-soiltemp_depth
