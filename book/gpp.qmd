@@ -29,7 +29,7 @@ The linear dependence of GPP on PPFD implies that the variations of solar radiat
 
 Photosynthetic CO~2~ uptake only operates if active (green) leaves are out. The relationship between the amount of leaves and GPP is introduced here. Active leaf area varies across the seasons and space in response to the seasonality of temperature, light and water availability. The seasonal fluctuation of leaf area, most visible for deciduous trees, is referred to as (leaf) phenology. The drivers of temporal and spatial variations of phenology and leaf area are introduced in @sec-phenology.
 
-The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). The total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy. The canopy may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests commonly form a single understorey and attain LAI values of 4-6 m^2^ m^-1^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-1^ (@fig-lai).
+The fraction of absorbed photosynthetically active radiation (fAPAR) increases with the projected (one-sided) surface area of leaves per unit ground area (the *leaf area index*, LAI). The total surface area of leaves is roughly twice the projected surface area. The LAI is an ecosystem-level variable and reflects the leaf area density of the whole canopy. The canopy may be composed of multiple species and organised in multiple canopy layers (@fig-light_absorption). While temperate and boreal forests commonly form a single understorey and attain LAI values of 4-6 m^2^ m^-2^, tropical moist forests may have multiple canopy layers and an LAI of over 6 m^2^ m^-2^ (@fig-lai).
 
 ```{r echo=FALSE}
 #| label: fig-light_absorption
@@ -44,7 +44,7 @@ In brief, canopy radiative transfer is complex. A simple model for how (solar) r
 $$
 I(z_0) = I_0 \; e^{-kL}
 $$
-We have assumed that no light is reflected. Therefore the reduction of light levels at the bottom of the canopy tells us how much light was absorbed by the canopy (and used for photosynthesis). The fraction of absorbed (photosynthetically active) radiation therefore is
+We have assumed that no light is reflected. Therefore, the reduction of light levels at the bottom of the canopy tells us how much light was absorbed by the canopy (and used for photosynthesis). The fraction of absorbed (photosynthetically active) radiation therefore is
 $$
 \begin{align}
 \mathrm{fAPAR} &= 1 - I(z_0)/I_0 \\
@@ -52,7 +52,7 @@ $$
 \end{align}
 $$
 
-The shape of this function is illuatrated in @fig-fapar (a). This implies a dependency of light levels on canopy depth $z$, as illustrated in @fig-fapar (b) - consistent with the observation shown in @fig-light_absorption (b). 
+The shape of this function is illustrated in @fig-fapar (a). This implies a dependency of light levels on canopy depth $z$, as illustrated in @fig-fapar (b) - consistent with the observation shown in @fig-light_absorption (b).
 
 ```{r warning=FALSE, message=FALSE}
 #| code-fold: true
@@ -183,7 +183,7 @@ $c_a$ is the ambient CO~2~ concentration (outside the leaf), and $c_i$ is the CO
 
 ```{r echo=FALSE}
 #| label: fig-stomata
-#| fig-cap: "CO~2~ diffuses into the leaf through stomata, while water vapour diffuses out of the leaf. The water vapour diffusion out of the leaves (transpiration) is introduced in @sec-landclimate."
+#| fig-cap: "CO~2~ diffuses into the leaf through stomata, while water vapor diffuses out of the leaf. The water vapor diffusion out of the leaves (transpiration) is introduced in @sec-landclimate."
 #| out-width: 80%
 knitr::include_graphics("images/stomata.png")
 ```
@@ -194,7 +194,7 @@ knitr::include_graphics("images/stomata.png")
 
 Once inside the leaf, CO~2~ diffuses across mesophyll cells to the chloroplasts - the site of photosynthetic reactions. The conductance to this diffusion step - mesophyll conductance - is often ignored for modelling photosynthesis. Reflecting this, we are referring to "leaf-internal" CO~2~ concentration, $c_i$" here, instead of a more correct CO~2~ concentration *at the chloroplast*.
 
-Photosynthesis can be considered as a sequence of three processes that are serially connected - the three processes run one after the other and the rate of the slowest of the three processes determines the overall process rate of photosynthesis. The following is a condensed description, based on @lambers08 and @bonan.
+Photosynthesis can be considered as a sequence of three processes that are serially connected - the three processes run one after the other, and the rate of the slowest of the three processes determines the overall process rate of photosynthesis. The following is a condensed description, based on @lambers08 and @bonan.
 
 ```{r echo=FALSE}
 #| label: fig-photosynthesis
@@ -223,11 +223,11 @@ The chemical summary equation of photosynthesis is:
 $$
 n\mathrm{CO}_2 + 2n\mathrm{H}_2\mathrm{O} \rightarrow (\mathrm{CH}_2\mathrm{O})_n + n\mathrm{O}_2 + n\mathrm{H}_2\mathrm{O}
 $$ {#eq-photosynthesis-chemical}
-A total of eight photons is consumed to assimilate one molecule of CO~2~. For each molecule of CO~2~, one molecule of O~2~ is produced. And for each molecule of CO~2~, one molecule of H~2~O is consumed (net). Note however, that this water consumption is not the primary reason for why plants use water. A much larger amount of water is consumed by the diffusion of water vapour from the water-saturated air inside the leaves out of the stomata. This *transpiration* flux is further explained in @sec-landclimate.
+A total of eight photons is consumed to assimilate one molecule of CO~2~. For each molecule of CO~2~, one molecule of O~2~ is produced. And for each molecule of CO~2~, one molecule of H~2~O is consumed (net). Note however, that this water consumption is not the primary reason for why plants use water. A much larger amount of water is consumed by the diffusion of water vapor from the water-saturated air inside the leaves out of the stomata. This *transpiration* flux is further explained in @sec-landclimate.
 
 ### Response to light and CO~2~ {#sec-fvcb}
 
-The three steps described above operate in series and each step is potentially rate-limiting and responds differently to the environment. The rates of the processes are coordinated such that they are roughly equal and co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens for example when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
+The three steps described above operate in series, and each step is potentially rate-limiting and responds differently to the environment. The rates of the processes are coordinated such that they are roughly equal and co-limiting for average environmental conditions to which a leaf is exposed during a day. An imbalance of rates can lead to an excess production of electrons and can cause damage to the photosynthetic apparatus. This happens, for example, when leaves are exposed to very cold temperatures and high light during a frost event, or when you move your indoor plant that has been sitting in a dark corner for years suddenly into full sunlight outdoors.
 
 The response of photosynthetic CO~2~ assimilation ($A$) to light (PPFD) and leaf-internal CO~2~ ($c_i$) reflects the serial nature of how the light and dark reactions are connected. $A$ saturates both in response to increasing PPFD as well as to increasing $c_i$. When a leaf is exposed to increasing PPFD, $A$ initially increases and eventually saturates (@fig-photosynthesis_light). The slope of the initial linear increase reflects the efficiency at which photons are used for CO~2~ assimilation in the light reactions (the *quantum yield* $\varphi_0$). Under these conditions, light, i.e. the rate of the light reactions, is limiting, not CO~2~ inside the leaf. Under conditions of very high light, the dark reactions of the Calvin cycle become limiting. The assimilation rate attained under saturating light is commonly referred to as $A_\mathrm{sat}$.
 
@@ -240,7 +240,7 @@ The level at which the light response of $A$ saturates ($A_\mathrm{sat}$) varies
 knitr::include_graphics("images/assim_response_to_light_lambers08.png")
 ```
 
-In a similar fashion, the response of $A$ to $c_i$ initially increase and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve" (@fig-a-ci-curve). Commonly, net assimilation $A_n = A - R_d$ is considered when analysing *A*-*c*~i~ curves. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco. This Rubisco carboxylation-limited functional response of assimilation is commonly denoted $A_C$. 
+In a similar fashion, the response of $A$ to $c_i$ initially increases and saturates at high $c_i$. This is reflected by the so-called "*A*-*c*~i~ curve" (@fig-a-ci-curve). Commonly, net assimilation $A_n = A - R_d$ is considered when analysing *A*-*c*~i~ curves. $A_n$ is initially negative until the photorespiratory compensation point ($\Gamma^\ast$) is reached. Then, $A_n$ increases steeply with $c_i$ as it is limited by the rate of RuBP carboxylation by Rubisco. This Rubisco carboxylation-limited functional response of assimilation is commonly denoted $A_C$.
 
 As $c_i$ increases further, $A$ is no longer limited by RuBP carboxylation, but by the rate at which RuBP becomes available. This, in turn, is governed by the rate at which ATP and NADPH are produced and thus by the rate of electron transport $J$. This functional response of assimilation is commonly denoted $A_J$. A limiting electron transport rate may be due to limiting light or a limiting capacity of electron transport ($J_\mathrm{max}$). A slower further increase of $A$ with $c_i$ in the electron transport-limited range is due to the suppression of RuBP oxygenation at high concentrations of CO~2~ (relative to O~2~). The effective assimilation rate across the full range of $c_i$ is the minimum of the electron transport-limited and the RuBP carboxylation-limited rate:
 $$
@@ -580,11 +580,12 @@ Note that the FvCB model, on its own, does not allow us to model the LUE term in
 
 ### Response to temperature {#sec-ftemp}
 
-All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, the decline of net assimilation rates is even faster at towards high temperatures than that of gross assimilation rates.
+All processes involved in photosynthesis are strongly affected by temperature. Enzymatic rates, like Rubisco carboxylation, have a temperature at which reaction rates have a maximum. As a consequence, assimilation rates also attain a maximum at a certain temperature - the *temperature optimum* (*T*~opt~). In contrast, dark respiration ($R_d$) monotonically increases with temperature. That is, it continues to rise as temperatures go up - without attaining a maximum. As a consequence, the decline of net assimilation rates is even faster towards high temperatures than that of gross assimilation rates.
 
 The temperature dependency of leaf CO~2~ assimilation rates can be measured in the field by exposing a leaf to a range of temperatures (within a relatively short period of time) and measuring assimilation rates for each temperature. When looking at such measurements, a temperature optimum of net photosynthesis is evident. 
 
 The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see Box 'Farquhar von Caemmerer Berry model') and the mathematical description of temperature dependencies of factors therein ($V_\mathrm{cmax}$, $J_\mathrm{max}$, $K_c$, $K_o$, and $\Gamma^\ast$, temperature dependencies not shown here) provide a basis for modelling the temperature dependency of assimilation rates. Such modelled temperature dependencies are shown in @fig-temp_dep. 
+<!-- Vcmax was not introduced to the reader. -->
 
 ```{r}
 #| code-fold: true
@@ -697,9 +698,9 @@ gg3 <- ggplot() +
 cowplot::plot_grid(gg1, gg2, gg3, ncol = 1)
 ```
 
-### Adptation and acclimation of *T*~opt~
+### Adaptation and acclimation of *T*~opt~
 
-The temperature dependencies shown in @fig-temp_dep are *instantaneous* responses. That is, they represent the responses to changes in temperature that evolve over short time scales - minutes to hours. Over longer time scales, the shapes of the instantaneous temperature responses change. The temperature optimum of photosynthesis (*T*~opt~) tends to be higher for plant species that grow in warm climates than for plants that can be found in cold climates (@fig-topt-kumarathunge a). Such variations of *T*~opt~ across different plant species reflects species' *adaptation* to their growth environment which makes them perform well and compete effectively under certain environmental conditions and is related to their genes and is thus passed on from generation to generation. *T*~opt~ can be considered as a plant trait (see @sec-traits). 
+The temperature dependencies shown in @fig-temp_dep are *instantaneous* responses. That is, they represent the responses to changes in temperature that evolve over short time scales - minutes to hours. Over longer time scales, the shapes of the instantaneous temperature responses change. The temperature optimum of photosynthesis (*T*~opt~) tends to be higher for plant species that grow in warm climates than for plants that can be found in cold climates (@fig-topt-kumarathunge a). Such variations of *T*~opt~ across different plant species reflect species' *adaptation* to their growth environment which makes them perform well and compete effectively under certain environmental conditions and is related to their genes and is thus passed on from generation to generation. *T*~opt~ can be considered as a plant trait (see @sec-traits).
 
 *T*~opt~ not only varies between species growing in different climates, but can also vary *within* a given species and even within a given plant when it is exposed to different temperatures for a longer period  [@kumarathunge19newphyt]. Given enough time, the instantaneous temperature response and *T*~opt~ will shift to higher temperatures as a result of persistent exposure to warmer temperatures. Such variations in a plant trait (here *T*~opt~) within species and an individual plant is referred to as *acclimation*. @fig-topt-kumarathunge b shows how *T*~opt~ varies within different species (distinguished by color) over the course of the seasons - a demonstration of acclimation.
 
@@ -710,7 +711,7 @@ The temperature dependencies shown in @fig-temp_dep are *instantaneous* response
 knitr::include_graphics("images/topt-kumarathunge.png")
 ```
 
-Acclimation is relatively common to observe also for other physiological traits than *T*~opt~. For example, photosynthetic capacities (the maximum rate of Rubisco carboxylation - $V_\mathrm{cmax}$ in the FvCB model - or the maximum rate of electron transport - $J_\mathrm{max}$) acclimate over the course of seasons [@jiang20gcb]. Other plant traits are less plastic or not plastic at all. For example phenological strategies (e.g., deciduousness) does not acclimate. The acclimation of physiological traits is important for understanding vegetation and land carbon cycle responses to long-term trends in climate. While it may be exected that plants have a certain capacity for acclimation to a new climate, limits to acclimation must be better understood. 
+Acclimation is relatively common to observe also for other physiological traits than *T*~opt~. For example, photosynthetic capacities (the maximum rate of Rubisco carboxylation - $V_\mathrm{cmax}$ in the FvCB model - or the maximum rate of electron transport - $J_\mathrm{max}$) acclimate over the course of seasons [@jiang20gcb]. Other plant traits are less plastic or not plastic at all. For example, phenological strategies (e.g., deciduousness) do not acclimate. The acclimation of physiological traits is important for understanding vegetation and land carbon cycle responses to long-term trends in climate. While it may be expected that plants have a certain capacity for acclimation to a new climate, limits to acclimation must be better understood.
 
 
 <!-- XXX LES 2: Add box explaining acclimated vs. instantaneous response (Way & Yamori, 2014) -->
@@ -721,19 +722,19 @@ Coming soon.
     
 ## Transpiration and leaf water-carbon coupling {#sec-transpiration}
 
-The opening of stomata is highly sensitive to environmental factors and the CO~2~ assimilation rate feeds back to stomatal opening. By opening and closing stomata, plants regulate the conductance to CO~2~ diffusion from the ambient air into the leaves and to the photosynthesis reaction sites. Simultaneously, when stomata are open, water vapour diffuses out of the leaf - *transpiration*. This link between CO~2~ and water loss is at the core of stomatal regulation to balance C uptake and desiccation.
+The opening of stomata is highly sensitive to environmental factors, and the CO~2~ assimilation rate feeds back to stomatal opening. By opening and closing stomata, plants regulate the conductance to CO~2~ diffusion from the ambient air into the leaves and to the photosynthesis reaction sites. Simultaneously, when stomata are open, water vapor diffuses out of the leaf - *transpiration*. This link between CO~2~ and water loss is at the core of stomatal regulation to balance C uptake and desiccation.
 
 The diffusive supply of CO~2~ to the photosynthetic reaction sites is determined by a series of conductances. The description of the diffusive CO~2~ uptake in @eq-photo-fick resolves this as a single conductance. However, stomatal conductance is only one chain in this series. More realistically, the leaf boundary layer conductance and the mesophyll conductance are treated separately from the stomatal conductance. However, because the leaf boundary layer conductance is much larger than the stomatal conductance, it is not limiting. Furthermore, actively regulated plant physiological responses to the environment arise through the stomatal conductance $g_s$. As described in @sec-photosynthesis, mesophyll conductance is often ignored due to practical limitations for separating it from stomatal conductance in measurements and due to very poorly known dependencies to the environment. Hence, we focus on $g_s$ here and describe the diffusive CO~2~ supply to photosynthesis by @eq-photo-fick.
 
-The diffusive water vapour flux out of the leaf - transpiration - is driven by the difference of water vapour pressure in the leaf-interior air spaces ($e_i$) and the the water vapour pressure at the leaf surface ($e_s$). Their difference is commonly referred to as the *vapour pressure deficit* (VPD), here denoted as $D = e_s - e_i$. Leaf-interior air spaces are water vapour-saturated, while the surrounding air is not. Fick's law predicts that a diffusive flux occurs in presence of a concentration difference, hence transpiration can be described as
+The diffusive water vapor flux out of the leaf - transpiration - is driven by the difference of water vapor pressure in the leaf-interior air spaces ($e_i$) and the the water vapor pressure at the leaf surface ($e_s$). Their difference is commonly referred to as the *vapor pressure deficit* (VPD), here denoted as $D = e_s - e_i$. Leaf-interior air spaces are water vapor-saturated, while the surrounding air is not. Fick's law predicts that a diffusive flux occurs in presence of a concentration difference, hence transpiration can be described as
 $$
 E = 1.6 \; g_s \; D
 $$ {#eq-transpiration}
 The factor 1.6 arises due to the lower diffusivity of CO~2~ compared with H~2~O. Hence, $g_s$ has to be understood as a conductance to CO~2~ diffusion (mol CO~2~ m^-2^ s^-1^). Note that $g_s$ regulates both transpiration (@eq-transpiration) and assimilation (@eq-photo-fick) at the leaf-level. A tight coupling between water and carbon fluxes at the leaf-level follows from the physical principle of diffusion.
 
-Water loss through transpiration poses risks and incurs costs for a plant. The diffusive water vapour flux through stomata has to be maintained by root water uptake from the soil and transport along the xylem in the plant. When the water content in the rooting zone declines, it becomes increasingly hard for plants to extract water from the soil - they have to "suck" out the water with a increasingly negative water potential - a negative pressure. The hydraulic relationships of water transport along the soil-plant-atmosphere continuum will be introduced later. What matters here is that such negative water potentials along the water transport pathway are dangerous for the plant and can lead to lethal desiccation of cells, leaves, branches, or entire plants. 
+Water loss through transpiration poses risks and incurs costs for a plant. The diffusive water vapor flux through stomata has to be maintained by root water uptake from the soil and transport along the xylem in the plant. When the water content in the rooting zone declines, it becomes increasingly hard for plants to extract water from the soil - they have to "suck" out the water with a increasingly negative water potential - a negative pressure. The hydraulic relationships of water transport along the soil-plant-atmosphere continuum will be introduced later. What matters here is that such negative water potentials along the water transport pathway are dangerous for the plant and can lead to lethal desiccation of cells, leaves, branches, or entire plants.
 
-Avoidance of dangerous desiccation is enabled by responses at the level of leaves and the plant which operate at a range of time scales. At time scales of seconds to minutes and at the level of a leaf, stomatal conductance is reduced in response to dry air and dry soil conditions. At time scales of weeks to months, or even years, the the leaf area of a plant may decline under dry conditions. At even longer time scales (albeit this time scale is subject to large unknowns and active research), plants are genetically adapted (or may acclimate within their lifetime) to dry conditions by resistant water transport (resistant xylem) and effective water uptake organs (deeper roots). 
+Avoidance of dangerous desiccation is enabled by responses at the level of leaves and the plant which operate at a range of time scales. At time scales of seconds to minutes and at the level of a leaf, stomatal conductance is reduced in response to dry air and dry soil conditions. At time scales of weeks to months, or even years, the leaf area of a plant may decline under dry conditions. At even longer time scales (albeit this time scale is subject to large unknowns and active research), plants are genetically adapted (or may acclimate within their lifetime) to dry conditions by resistant water transport (resistant xylem) and effective water uptake organs (deeper roots).
 
 Obviously, such adaptations and the largely instantaneous stomatal response incurs a cost - the opportunity cost of reduced CO~2~ assimilation when stomatal conductance is reduced and the construction cost of building water-stress adapted organs. Hence, plants always have to balance carbon uptake and water loss and a tight *carbon-water coupling* at the level of plants, and ecosystems arises from these leaf-level processes.
 
@@ -743,7 +744,7 @@ The trade-off between transpiration and assimilation can be measured by consider
 $$
 \frac{A_n}{E} = \frac{c_a(1 - \chi)}{1.6\;D}\;,
 $$ {#eq-wue-instantaneous}
-where $\chi = c_i/c_a$. The instantaneous water-use efficiency is proportional to $D^{-1}$. In other words, the drier the air, the more transpiration per unit net CO~2~ assimilation a leaf "suffers". This demonstrates the strong effect of atmospheric dryness on the water-carbon trade-off. To remove the effect of vapour pressure deficit ($D$) on transpiration and focus on the biological component of the water-carbon trade-off, the *intrinsic water-use efficiency* (iWUE) is defined by relating net assimilation to stomatal conductance: 
+where $\chi = c_i/c_a$. The instantaneous water-use efficiency is proportional to $D^{-1}$. In other words, the drier the air, the more transpiration per unit net CO~2~ assimilation a leaf "suffers". This demonstrates the strong effect of atmospheric dryness on the water-carbon trade-off. To remove the effect of vapor pressure deficit ($D$) on transpiration and focus on the biological component of the water-carbon trade-off, the *intrinsic water-use efficiency* (iWUE) is defined by relating net assimilation to stomatal conductance:
 $$
 \frac{A_n}{g_s} = \frac{c_a}{1.6}(1 - \chi)
 $$ {#eq-wue-intrinsic}
@@ -751,7 +752,7 @@ Note that @eq-wue-instantaneous and @eq-wue-intrinsic are written as being propo
 
 ```{r echo=FALSE}
 #| label: fig-constant-chi
-#| fig-cap: "Constancy of leaf-internal to ambient CO~2~. (a) Relationship between net photosynthesis (*A*~n~) and stomatal conductance (*g*~s~) of one species (Jack pine) over a range of light conditions. A linear relationship is reflective of a constant *c*~i~:*c*~a~. Figure from @bonan. (b) Response of multiple photosynthesis-related variables to elevated CO~2~ from free-air carbon dioxide enrichment experiments. Figure from @ainsworth05. *c*~i~:*c*~a~"
+#| fig-cap: "Constancy of leaf-internal to ambient CO~2~. (a) Relationship between net photosynthesis (*A*~n~) and stomatal conductance (*g*~s~) of one species (Jack pine) over a range of light conditions. A linear relationship is reflective of a constant *c*~i~:*c*~a~. Figure from @bonan. (b) Response of multiple photosynthesis-related variables to elevated CO~2~ from free-air carbon dioxide enrichment experiments. Figure from @ainsworth05."
 #| out-width: 100%
 knitr::include_graphics("images/constant_chi.png")
 ```
@@ -765,7 +766,7 @@ Coming soon.
 
 The closing of stomates and the reduction of stomatal conductance $g_s$ under dry conditions prevents plants from dangerous desiccation. However, a reduced $g_s$ also leads to a reduction in CO~2~ diffusion into leaves and thus a reduction of photosynthetic CO~2~ assimilation. Hence, plants have to balance a trade-off between carbon gain and the risk of desiccation. A complete stomatal closure under moderately dry conditions (low soil moisture, high VPD)  may be safe in terms of desiccation avoidance but comes at an excessive cost in terms of foregone CO~2~ uptake (and similarly vice-versa). An optimal strategy must lie somewhere in between these extreme strategies.
 
-Observations of leaf and ecosystem fluxes CO~2~ and water vapour fluxes document how stomatal conductance responds to increasing VPD and decreasing soil moisture. @fig-novick16 shows this for measurements taken at the ecosystem-level, quantifying the canopy stomatal conductance (denoted by an uppercase $G_s$), representative for the collective behaviour of all leaves in the canopy. Three important aspects of this relationship stand out. First, $G_s$ declines in response to VPD in a non-linear fashion (high sensitivity to VPD at low VPD, lower sensitivity towards higher VPD). Second, there is an interaction between the effect of VPD and soil moisture. Under conditions of dry soils, $G_s$ is reduced compared to wet soils, given the same VPD. Third, at the most moist site (@fig-novick16 a), $G_s$ under moist conditions (moist soils, low VPD) is highest but declines most rapidly with VPD.
+Observations of leaf and ecosystem fluxes CO~2~ and water vapor fluxes document how stomatal conductance responds to increasing VPD and decreasing soil moisture. @fig-novick16 shows this for measurements taken at the ecosystem-level, quantifying the canopy stomatal conductance (denoted by an uppercase $G_s$), representative for the collective behaviour of all leaves in the canopy. Three important aspects of this relationship stand out. First, $G_s$ declines in response to VPD in a non-linear fashion (high sensitivity to VPD at low VPD, lower sensitivity towards higher VPD). Second, there is an interaction between the effect of VPD and soil moisture. Under conditions of dry soils, $G_s$ is reduced compared to wet soils, given the same VPD. Third, at the moistest site (@fig-novick16 a), $G_s$ under moist conditions (moist soils, low VPD) is highest but declines most rapidly with VPD.
 
 ```{r echo=FALSE}
 #| label: fig-novick16
@@ -784,7 +785,7 @@ Here, $G_{s,\mathrm{ref}}$ is a reference canopy conductance, $D$ is VPD, and $m
 
 ### Stomatal optimization models
 
-The aspect that plants regulate stomatal conductance to balance the trade-off between carbon gain and water loss lends itself to modelling the stomatal response considering *optimality principles*. Indeed, there is empirical evidence that optimality models are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration and is maximized. 
+The aspect that plants regulate stomatal conductance to balance the trade-off between carbon gain and water loss lends itself to modelling the stomatal response considering *optimality principles*. Indeed, there is empirical evidence that optimality models are a good representation of how stomata are regulated. Following this notion, it can be assumed that stomatal conductance is optimised such that the net between the carbon gain by increasing stomatal conductance and the carbon cost by the resulting increased transpiration is maximized.
 
 $$
 A - aE - bV_\mathrm{cmax} = \arg \max
