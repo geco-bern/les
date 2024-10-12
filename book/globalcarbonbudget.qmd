@@ -202,10 +202,17 @@ library(ggplot2)
 # https://globalcarbonbudgetdata.org/latest-data.html
 # Saved tab Global Carbon Budget as a CSV file. 
 # Reading this CSV here.
-df <- read_csv(here("data/Global_Carbon_Budget_2023v1.0_tabGlobalCarbonBudget.csv"))
+df <- read_csv(here("data/Global_Carbon_Budget_2023v1.1_tabHistoricalBudget.csv"))
 
 # (Re-) definitions
 df <- df |> 
+  
+  # consider only years after 1850
+  filter(year >= 1850) |> 
+  
+  # Assume zero cement carbonation sink for years where no data is available 
+  # (pre-1930)
+  mutate(s_cement = ifelse(is.na(s_cement), 0, s_cement)) |> 
   
   # Include the carbonation sink in the fossil fuel emissions
   mutate(e_ff = e_ff - s_cement) |> 
@@ -302,7 +309,7 @@ df |>
     name = "", 
     breaks = "imbalance", 
     values = c("imbalance" = "grey40"),
-    labels = "Budget imbalance"
+    labels = "Difference between residual \nsink minus simulated land sink"
     ) +
   theme_minimal() +
   theme(

@@ -3,17 +3,22 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(lubridate)
-library(cwd)
 library(here)
 library(cowplot)
 library(recipes)
 
+# library(remotes)
+# remotes::install_github("geco-bern/cwd")
+library(cwd)
+
 le_to_et <- function(le, tc, patm){
-  1000 * 30 * 30 * 24 * le / (cwd::calc_enthalpy_vap(tc) * cwd::calc_density_h2o(tc, patm))
+  1000 * 60 * 60 * 24 * le / (cwd::calc_enthalpy_vap(tc) * cwd::calc_density_h2o(tc, patm))
 }
 
 df <- read_csv(paste0(here(), "/data-raw/FLX_US-Ton_FLUXDATAKIT_FULLSET_DD_2001_2014_2-3.csv")) |>
-  select(TIMESTAMP, P_F, TA_F_MDS, PA_F, LE_F_MDS, SW_IN_F_MDS, LW_IN_F_MDS, NETRAD, LE_CORR)
+  select(TIMESTAMP, P_F, TA_F_MDS, PA_F, LE_F_MDS, SW_IN_F_MDS, LW_IN_F_MDS, NETRAD, LE_CORR) |> 
+  # convert to from kPA to Pa (SI units are used for inputs to functions in the package)
+  mutate(PA_F = 1e3 * PA_F)
 
 df <- df |> 
   mutate(
