@@ -77,7 +77,7 @@ The allocation of biomass growth also impacts the demand of nitrogen, due to the
 
 **Plant regulation under low nitrogen conditions**
 
-Plants can also increase the efficiency of their use of nitrogen by resorbing nitrogen from senescing leaves, thus recycling the nitrogen within the plant. Nitrogen resorption is a process that is especially mainly found in colder, drier climates, particularly at higher latitudes with low nitrogen fixation and slow nitrogen cycling (peng2023). This increased efficiency of nutrient use is referred to as Nitrogen Resorption Efficiency (**NRE**). 
+Plants can also increase the efficiency of their use of nitrogen by resorbing nitrogen from senescing leaves, thus recycling the nitrogen within the plant. Nitrogen resorption is a process that is especially mainly found in colder, drier climates, particularly at higher latitudes with low nitrogen fixation and slow nitrogen cycling (@peng2023). This increased efficiency of nutrient use is referred to as Nitrogen Resorption Efficiency (**NRE**). 
  
 
 ```{r echo=FALSE}
@@ -89,7 +89,7 @@ knitr::include_graphics("images/N_demand.png")
 
 **Climate and Environmental Factors** 
 
-Firstly, climate and other environmental factors, such as temperatures and increased light availability are known to impact the photosynthesis and the biomass production of plant species. In Chapter 5 (@sec-gpp), it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the building or maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption (peng2023).
+Firstly, climate and other environmental factors, such as temperatures and increased light availability are known to impact the photosynthesis and the biomass production of plant species. In Chapter 5 (@sec-gpp), it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the building or maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption (@peng2023).
 
 ### Global Nitrogen Uptake in Terrestrial Ecosystems
 
