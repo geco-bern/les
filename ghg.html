@@ -84,6 +84,8 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="Land in the Earth System - 12&nbsp; Terrestrial greenhouse gas emissions">
 <meta name="twitter:description" content="">
@@ -297,8 +299,8 @@ div.csl-indent {
   <li><a href="#terrestrial-methane-ch4-sources" id="toc-terrestrial-methane-ch4-sources" class="nav-link" data-scroll-target="#terrestrial-methane-ch4-sources"><span class="header-section-number">12.2</span> Terrestrial methane (CH<sub>4</sub>) sources</a></li>
   <li><a href="#terrestrial-ntrous-oxide-n2o-sources" id="toc-terrestrial-ntrous-oxide-n2o-sources" class="nav-link" data-scroll-target="#terrestrial-ntrous-oxide-n2o-sources"><span class="header-section-number">12.3</span> Terrestrial ntrous oxide (N<sub>2</sub>O) sources</a></li>
   <li><a href="#history-of-atmospheric-concentrations-of-ch4-and-n2o" id="toc-history-of-atmospheric-concentrations-of-ch4-and-n2o" class="nav-link" data-scroll-target="#history-of-atmospheric-concentrations-of-ch4-and-n2o"><span class="header-section-number">12.4</span> History of atmospheric concentrations of CH<sub>4</sub> and N<sub>2</sub>O</a></li>
-  <li><a href="#atmospheric-sink-of-ch4-and-n2o" id="toc-atmospheric-sink-of-ch4-and-n2o" class="nav-link" data-scroll-target="#atmospheric-sink-of-ch4-and-n2o"><span class="header-section-number">12.5</span> Atmospheric sink of CH<sub>4</sub> and N<sub>2</sub>O</a></li>
-  <li><a href="#atmospheric-lifetime-of-ch4-and-n2o" id="toc-atmospheric-lifetime-of-ch4-and-n2o" class="nav-link" data-scroll-target="#atmospheric-lifetime-of-ch4-and-n2o"><span class="header-section-number">12.6</span> Atmospheric lifetime of CH<sub>4</sub> and N<sub>2</sub>O</a></li>
+  <li><a href="#sec-atmosphericsinks" id="toc-sec-atmosphericsinks" class="nav-link" data-scroll-target="#sec-atmosphericsinks"><span class="header-section-number">12.5</span> Atmospheric sinks of CH<sub>4</sub> and N<sub>2</sub>O</a></li>
+  <li><a href="#sec-n2och4lifetime" id="toc-sec-n2och4lifetime" class="nav-link" data-scroll-target="#sec-n2och4lifetime"><span class="header-section-number">12.6</span> Atmospheric lifetime of CH<sub>4</sub> and N<sub>2</sub>O</a></li>
   <li><a href="#the-evolution-terrestrial-ch4-and-n2o-in-future-scenarios" id="toc-the-evolution-terrestrial-ch4-and-n2o-in-future-scenarios" class="nav-link" data-scroll-target="#the-evolution-terrestrial-ch4-and-n2o-in-future-scenarios"><span class="header-section-number">12.7</span> The evolution terrestrial CH<sub>4</sub> and N<sub>2</sub>O in future scenarios</a></li>
   <li><a href="#emission-concentration-relationships-differ-between-co2-and-ch4-and-n2o" id="toc-emission-concentration-relationships-differ-between-co2-and-ch4-and-n2o" class="nav-link" data-scroll-target="#emission-concentration-relationships-differ-between-co2-and-ch4-and-n2o"><span class="header-section-number">12.8</span> Emission-concentration relationships differ between CO<sub>2</sub> and CH<sub>4</sub> (and N<sub>2</sub>O)</a></li>
   </ul>
@@ -324,6 +326,7 @@ div.csl-indent {
 
 </header>
 
+<p><em>Authored by Ting Tan and Shiyuan Feng. Edited by Benjamin Stocker.</em></p>
 <section id="most-important-greenhouse-gases-with-terrestrial-sources" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="most-important-greenhouse-gases-with-terrestrial-sources"><span class="header-section-number">12.1</span> Most important greenhouse gases with terrestrial sources</h2>
 <p>Greenhouse gases with important sources in terrestrial ecosystems are among the most potent radiative forcing agents (<a href="feedbacks.html#fig-radiative-forcing">Figure&nbsp;<span>9.4</span></a>). Among them, methane (CH<sub>4</sub>) has the highest effective radiative forcing (ERF) since 1700 with 0.54 [0.43-0.65] W m<sup>-2</sup> - comparable in magnitude to the ERF of halogens and ozone. Nitrous oxide (N<sub>2</sub>O) also has a sizable contribution to anthropogenic climate change with an ERF of 0.21 [0.18-0.24] W m<sup>-2</sup>, amounting to roughly 10% of the ERF of CO<sub>2</sub>, which is 2.16 [1.90-2.41] W m<sup>-2</sup>. Note however that both CH<sub>4</sub> and N<sub>2</sub>O are emitted from a large number of natural and anthropogenic sources and it is not straight-forward to separate them because of the use and transformation of natural ecosystems for human activities.</p>
@@ -372,49 +375,170 @@ div.csl-indent {
 </section>
 <section id="history-of-atmospheric-concentrations-of-ch4-and-n2o" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="history-of-atmospheric-concentrations-of-ch4-and-n2o"><span class="header-section-number">12.4</span> History of atmospheric concentrations of CH<sub>4</sub> and N<sub>2</sub>O</h2>
-<p>During glacial periods, atmospheric CH<sub>4</sub> concentrations typically ranged around 320 ppb and were thus substantially lower than during warm (interglacial) periods where concentrations were around 700 ppb. The transitions between glacial and interglacial periods were typically characterised by a sharp increase in CH<sub>4</sub> concentrations, reflecting changes in natural sources such as wetlands and permafrost. Similarly, N<sub>2</sub>O concentrations varied between about 195 ppb during glacial periods and up to 290 ppb during interglacial periods. These variations in atmospheric N<sub>2</sub>O concentrations are also related to natural processes, including soil microbial activity and marine emissions <span class="citation" data-cites="joosspahni08pnas">Joos and Spahni (<a href="references.html#ref-joosspahni08pnas" role="doc-biblioref">2008</a>)</span>.</p>
-<p>The last ice age occurred about 20,000 years ago. Since then, both CH<sub>4</sub> and N<sub>2</sub>O concentrations have increased significantly. For example, CH<sub>4</sub> concentrations have risen from about 350 ppb at the end of the last ice age to more than 1,800 ppb in recent measurements, reflecting the significant contribution of anthropogenic activities since the Industrial Revolution. N<sub>2</sub>O concentrations have also increased from about 200 ppb at the end of the last ice age to about 330 ppb today, driven largely by agricultural practices and fertilizer use ().</p>
-<p>The Industrial Revolution, which began in the late 18th century, marked an important turning point in CH<sub>4</sub> concentrations. The average growth rate of atmospheric CH<sub>4</sub> has been at least six times higher in the last four decades compared to any time in the last 1,800 years prior to the Industrial Era3. This rapid increase is largely due to anthropogenic sources, including agriculture, fossil fuel extraction, and waste management. Similarly, N<sub>2</sub>O concentrations have increased significantly since the Industrial Revolution, with recent growth rates at least twice as high as those observed over the past 1,800 years. The increase in N<sub>2</sub>O is largely attributable to agricultural activities, particularly the use of nitrogen-based fertilizers ().</p>
-<p>The radiative forcing from increases in CH<sub>4</sub> and N<sub>2</sub>O since the Industrial Revolution has been significant. The radiative forcing from CH<sub>4</sub> has increased significantly, resulting in a radiative forcing of about 0.5 W/m² since the end of the 18th century. This increase is due to the high the Global Warming Potential (GWP, see ) of CH<sub>4</sub>, which is much larger than the GWP of CO<sub>2</sub> over a relatively short period of time. The radiative forcing of N<sub>2</sub>O has also increased, contributing about 0.2 W/m² since the industrial revolution. N<sub>2</sub>O has a high GWP and is about 298 times more efficient than CO<sub>2</sub> over a 100-year period ().</p>
-<p>In summary, both CH<sub>4</sub> and N<sub>2</sub>O concentrations have changed significantly over the ice-age-interglacial cycle, with large increases since the Last Glacial Maximum and the Industrial Revolution. Their increased radiative forcing since the Industrial Revolution is noteworthy, with CH<sub>4</sub> contributing ~0.5 W/m² and N<sub>2</sub>O ~0.2 W/m², highlighting their importance in the dynamics of climate change.</p>
-<p>Figure 12.4: Atmospheric concentrations of CO<sub>2</sub>, CH<sub>4</sub> and N<sub>2</sub>O in air bubbles and clathrate crystals in ice cores (800,000 BCE to 1990 CE). Note the variable x-axis range and tick mark intervals for the three columns. Ice core data is over-plotted by atmospheric observations from 1958 to present for CO<sub>2</sub>, from 1984 for CH<sub>4</sub> and from 1994 for N<sub>2</sub>O. The time-integrated, millennial-scale linear growth rates for different time periods (800,000–0 BCE, 0–1900 CE and 1900–2017 CE) are given in each panel. For the BCE period, mean rise and fall rates are calculated for the individual slopes between the peaks (interglacials) and troughs (glacial periods), which are given in the panels in left column. Figure from .</p>
+<p>During glacial periods, atmospheric CH<sub>4</sub> concentrations typically ranged around 320 ppb and were thus substantially lower than during warm (interglacial) periods, when concentrations were around 700 ppb (<a href="#fig-ghg-history">Figure&nbsp;<span>12.4</span></a>). The transitions between glacial and interglacial periods were typically characterised by a sharp increase in CH<sub>4</sub> concentrations, reflecting changes in natural sources, such as wetlands and permafrost. Similarly, N<sub>2</sub>O concentrations varied between about 195 ppb during glacial periods and up to 290 ppb during interglacial periods. These variations in atmospheric N<sub>2</sub>O concentrations were related to varying sources from soils and marine emission changes in response to changes in ocean currents and oxygen availability <span class="citation" data-cites="joosspahni08pnas">(<a href="references.html#ref-joosspahni08pnas" role="doc-biblioref">Joos and Spahni 2008</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ghg-history" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_4.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;12.4: Figure 12.4: Atmospheric concentrations of CO<sub>2</sub>, CH<sub>4</sub> and N<sub>2</sub>O in air bubbles and clathrate crystals in ice cores (800,000 BCE to 1990 CE). Note the variable x-axis range and tick mark intervals for the three columns. Ice core data is over-plotted by atmospheric observations from 1958 to present for CO<sub>2</sub>, from 1984 for CH<sub>4</sub> and from 1994 for N<sub>2</sub>O. The time-integrated, millennial-scale linear growth rates for different time periods (800,000–0 BCE, 0–1900 CE and 1900–2017 CE) are given in each panel. For the BCE period, mean rise and fall rates are calculated for the individual slopes between the peaks (interglacials) and troughs (glacial periods), which are given in the panels in left column. Figure from <span class="citation" data-cites="canadell21ipcc">Canadell et al. (<a href="references.html#ref-canadell21ipcc" role="doc-biblioref">2021</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The last glacial maximum occurred around 20,000 years ago. Since then, both CH<sub>4</sub> and N<sub>2</sub>O concentrations have increased first to typical interglacial levels during the pre-industrial Holocene (between around 11 kyr BP to 1700 CE), and then in a rapidly accelerated fashion to current levels of around 1800 ppb CH<sub>4</sub> and around 330 ppb N<sub>2</sub>O. The growth rates during the industrial period are about 500 times faster than ever recorded during glacial-interglacial cycles. This reflects the significant contribution of anthropogenic activities since the Industrial Revolution. However, rapid changes in atmospheric concentrations occurred also during glacial periods, when CH<sub>4</sub> and N<sub>2</sub>O varied rapidly over the course of (mainly northern-hemispheric) climate oscillations (<a href="intro.html#fig-arneth">Figure&nbsp;<span>1.3</span></a>) associated with variations in the meridional overturning circulation <span class="citation" data-cites="arneth10natgeo">(<a href="references.html#ref-arneth10natgeo" role="doc-biblioref">Arneth et al. 2010</a>)</span>.</p>
+<p>Although atmospheric concentrations of CH<sub>4</sub> and N<sub>2</sub>O are two to three orders of magnitude (factor 100-1000) lower than concentrations of CO<sub>2</sub>, their contribution to anthropogenic climate change, measured by their effective radiative forcing, is disproportionately larger due to the high <em>global warming potential</em> of these greenhouse gases (<a href="#sec-n2och4lifetime"><span>Section&nbsp;12.6</span></a>).</p>
+<p>In summary, both CH<sub>4</sub> and N<sub>2</sub>O concentrations varied strongly over the ice-age-interglacial cycles and have rapidly risen since industrialisation to concentrations far beyond levels ever recorded during the last 800,000 years.</p>
 </section>
-<section id="atmospheric-sink-of-ch4-and-n2o" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="atmospheric-sink-of-ch4-and-n2o"><span class="header-section-number">12.5</span> Atmospheric sink of CH<sub>4</sub> and N<sub>2</sub>O</h2>
-<p>As illustrated in , methane is primarily removed from the atmosphere through chemical loss in the troposphere via oxidation by hydroxyl radicals (OH) at 483-682 Tg CH<sub>4</sub> yr<sup>-1</sup>. Other minor sinks for methane include soil uptake through bacterial oxidation, loss in the stratosphere via reactions with chlorine (Cl) and excited oxygen atoms (O(¹D)), and loss through tropospheric chlorine reactions. Therefor, the concentration of OH, particularly in the troposphere, is a dominant determinant of the rate of CH<sub>4</sub> removal.</p>
-<p>By contrast, as illustrated in , nitrous oxide is predominantly removed in the stratosphere through two principal processes: photolysis, whereby N<sub>2</sub>O molecules are broken down by ultraviolet (UV) radiation, and oxidation by O(¹D) radicals, where reactive oxygen atoms oxidize N<sub>2</sub>O. Stratospheric factors, such as temperature and UV radiation levels, play a major role in N<sub>2</sub>O destruction. Warming could potentially accelerate stratospheric circulation, affecting the distribution and degradation of N<sub>2</sub>O. Furthermore, changes in stratospheric ozone concentrations can influence the rate at which N<sub>2</sub>O is broken down. In addition, the slight negative feedback of N<sub>2</sub>O lifetime to rising N<sub>2</sub>O levels results in a marginally shorter residence time.</p>
+<section id="sec-atmosphericsinks" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="sec-atmosphericsinks"><span class="header-section-number">12.5</span> Atmospheric sinks of CH<sub>4</sub> and N<sub>2</sub>O</h2>
+<p>As illustrated in <a href="#fig-methane-sources">Figure&nbsp;<span>12.1</span></a>, methane is primarily removed from the atmosphere through chemical loss in the troposphere via oxidation by hydroxyl radicals (OH<sup>-</sup>) at 483-682 Tg CH<sub>4</sub> yr<sup>-1</sup>. Other minor sinks for methane include soil uptake through bacterial oxidation, loss in the stratosphere via reactions with chlorine (Cl) and excited oxygen atoms (O(¹D)), and loss through tropospheric chlorine reactions. Therefore, the concentration of OH, particularly in the troposphere, is a dominant determinant of the rate of CH<sub>4</sub> removal.</p>
+<p>By contrast, as illustrated in <a href="#fig-nitrousoxide-sources">Figure&nbsp;<span>12.2</span></a>, nitrous oxide is removed in the stratosphere through two principal processes: photolysis, whereby N<sub>2</sub>O molecules are broken down by ultraviolet (UV) radiation, and oxidation by O(¹D) radicals, where reactive oxygen atoms oxidize N<sub>2</sub>O. Stratospheric factors, such as temperature and UV radiation levels, play a major role in N<sub>2</sub>O destruction. Warming could potentially accelerate stratospheric circulation, affecting the distribution and degradation of N<sub>2</sub>O. Furthermore, changes in stratospheric ozone concentrations can influence the rate at which N<sub>2</sub>O is broken down. In addition, the slight negative feedback of N<sub>2</sub>O lifetime to rising N<sub>2</sub>O levels results in a marginally shorter residence time.</p>
+<p>Common to sink processes for both CH<sub>4</sub> and N<sub>2</sub>O is that, to first order, the sink rates are proportional to the respective atmospheric concentration. The atmospheric concentration of, for example N<sub>2</sub>O, proportionally scales the number of N<sub>2</sub>O molecules exposed to oxidation. Secondary effects modify this rate, but conceiving the sink flux (descruction rate) to be proportional to concentration yields a good approximation.</p>
 </section>
-<section id="atmospheric-lifetime-of-ch4-and-n2o" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="atmospheric-lifetime-of-ch4-and-n2o"><span class="header-section-number">12.6</span> Atmospheric lifetime of CH<sub>4</sub> and N<sub>2</sub>O</h2>
-<p>As shown in Equation 12.1, the atmospheric concentration (in ppb) at steady state is determined by the balance between the source, (the total natural and anthropogenic emissions at time , in ppb yr<sup>-1</sup>), and the sink, which is proportional to the current concentration (). The proportionality constant is , where represents the average lifetime or turnover time (in years) of the greenhouse gas.</p>
-<p>. (Equation 12.1)</p>
-<p>Methane (CH<sub>4</sub>) is a relatively short-lived GHG with an atmospheric lifetime () of about 11.8 ± 1.8 years, while nitrous oxide (N<sub>2</sub>O) is considered a long-lived GHG, persisting in the atmosphere for around 109 ± 10 years (). This means methane has a shorter atmospheric residence time compared to long-lived GHGs, allowing it to reach a steady state more quickly due to its higher rate of removal. In contrast, N<sub>2</sub>O may accumulate in the atmosphere over longer time scales, remaining for more than a century before it is removed.</p>
-<p>To compare the warming effects of emissions from different greenhouse gases, these effects are often measured relative to a reference gas, typically carbon dioxide (CO<sub>2</sub>), in terms of kilograms of CO<sub>2</sub> equivalent. This produces a dimensionless factor known as the Global Warming Potential (GWP). The GWP metric quantifies the cumulative warming effect (or radiative forcing) of 1 kilogram of a greenhouse gas compared to 1 kilogram of CO<sub>2</sub> over a specified time horizon, commonly 20 years (GWP20) or 100 years (GWP100).</p>
-<p>As depicted in the , CH<sub>4</sub> and N<sub>2</sub>O have much higher GWPs than CO<sub>2</sub>, exerting more radiative forcing. As a short-lived GHGs, CH<sub>4</sub> exerts a strong warming effect over a shorter time with higher GWP20 values around 80 than GWP100 values around 30. Therefore, methane’s cumulative warming effect over 100 years is less pronounced. However, N<sub>2</sub>O exert a higher magnitude of warming effect than CH<sub>4</sub> in a longtime scale with both GWP20 and GWP100 values around 273. It remains in the atmosphere for long periods, contributing to accumulated warming over both short-time and long-time scale.</p>
-<p>Table 12.1: Emissions metrics for selected species: global warming potential (GWP), global temperature-change potential (GTP). Table from .</p>
+<section id="sec-n2och4lifetime" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="sec-n2och4lifetime"><span class="header-section-number">12.6</span> Atmospheric lifetime of CH<sub>4</sub> and N<sub>2</sub>O</h2>
+<p>In view of the atmospheric sink processes for CH<sub>4</sub> and N<sub>2</sub>O (<a href="#sec-atmosphericsinks"><span>Section&nbsp;12.5</span></a>) and the proportionality between the sink flux and concentrations, the atmospheric mass balance of CH<sub>4</sub> and N<sub>2</sub>O can be described as <span id="eq-atmospheric_shortlivedghg"><span class="math display">\[
+\frac{\mathrm{d}C(t)}{\mathrm{d}t} = E(t) - \frac{1}{\tau} C(t) \;.
+\tag{12.1}\]</span></span></p>
+<p><span class="math inline">\(C(t)\)</span> is the atmospheric mass or either CH<sub>4</sub> or N<sub>2</sub>O at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(E(t)\)</span> are the respective emissions. The proportionality constant <span class="math inline">\(\tau\)</span> represents the <em>atmospheric lifetime</em> or turnover time (in years) of the greenhouse gas. See <a href="globalcarbonbudget.html#sec-cpooldynamics"><span>Section&nbsp;3.2</span></a> for a more detailed introduction of the concept of the turnover time and the 1st-order decay model.</p>
+<p>Methane (CH<sub>4</sub>) is a relatively short-lived GHG with an atmospheric lifetime (<span class="math inline">\(\tau\)</span>) of about 11.8 ± 1.8 years (<a href="#tbl-gwp">Table&nbsp;<span>12.1</span></a>), while nitrous oxide (N<sub>2</sub>O) is considered a long-lived GHG, persisting in the atmosphere for around 109 ± 10 years <span class="citation" data-cites="IPCC_2021_WGI_Ch_7">(<a href="references.html#ref-IPCC_2021_WGI_Ch_7" role="doc-biblioref">Forster et al. 2021</a>)</span>. This means that methane has a shorter atmospheric residence time compared to long-lived GHGs, allowing it to reach a steady state more quickly due to its higher rate of removal. In contrast, N<sub>2</sub>O may accumulate in the atmosphere over longer time scales, remaining for more than a century before it is removed. This has implications for the effectiveness of emission abatement strategies. Methane is both short-lived and contributes to anthropogenic climate change with a high radiative forcing <a href="feedbacks.html#fig-radiative-forcing">Figure&nbsp;<span>9.4</span></a>. Achieving rapid methane emission reductions is therefore a candidate for effective and rapid climate mitigation.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Global warming potential
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To compare the warming effects of emissions from different greenhouse gases, effects are often measured relative to effects of carbon dioxide (CO<sub>2</sub>), in terms of kilograms of CO<sub>2</sub> equivalent. This produces a dimensionless factor known as the Global Warming Potential (GWP). The GWP metric quantifies the cumulative warming effect (or radiative forcing) of the emission of 1 kilogram of a greenhouse gas compared to the emission of 1 kilogram of CO<sub>2</sub> and considers its removal from the atmosphere over a specified time horizon, commonly 20 years (GWP20), 100 years (GWP100), or 500 years (GWP500). Thus, the GWP considers both the radiative efficiency of the GHG and its atmospheric lifetime.</p>
+<p>It is important to note also that the GWP of the short-lived GHG CH<sub>4</sub> is much at the 20-year time scale, than at longer time scales. This owed to the rapid decay of atmospheric CH<sub>4</sub>, while CO<sub>2</sub> remains airborne for longer (while a small fraction remains in the atmosphere for millennia). In contrast to CH<sub>4</sub>, N<sub>2</sub>O has a similar GWP at the 20 and the 100 year time scale because its atmospheric concentration decline unfolds at a similar rate than that of CO<sub>2</sub> over the first 100 years.</p>
+<div id="tbl-gwp" class="anchored">
+<table class="table">
+<caption>Table&nbsp;12.1: Emissions metrics for selected species: global warming potential (GWP). Table from <span class="citation" data-cites="IPCC_2021_WGI_Ch_7">Forster et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_7" role="doc-biblioref">2021</a>)</span>.</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 31%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Species</th>
+<th>Lifetime (Years)</th>
+<th>Radiative Efficiency (W m⁻² ppb⁻¹)</th>
+<th>GWP-20</th>
+<th>GWP-100</th>
+<th>GWP-500</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CO<sub>2</sub></td>
+<td>Multiple</td>
+<td>1.33 ± 0.16 ×10⁻⁵</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>CH<sub>4</sub>-fossil</td>
+<td>11.8 ± 1.8</td>
+<td>5.7 ± 1.4 ×10⁻⁴</td>
+<td>82.5 ± 25.8</td>
+<td>29.8 ± 11</td>
+<td>10.0 ± 3.8</td>
+</tr>
+<tr class="odd">
+<td>CH<sub>4</sub>-non fossil</td>
+<td>11.8 ± 1.8</td>
+<td>5.7 ± 1.4 ×10⁻⁴</td>
+<td>79.7 ± 25.8</td>
+<td>27.0 ± 11</td>
+<td>7.2 ± 3.8</td>
+</tr>
+<tr class="even">
+<td>N<sub>2</sub>O</td>
+<td>109 ± 10</td>
+<td>2.8 ± 1.1 ×10⁻³</td>
+<td>273 ± 118</td>
+<td>273 ± 130</td>
+<td>130 ± 64</td>
+</tr>
+<tr class="odd">
+<td>HFC-32</td>
+<td>5.4 ± 1.1</td>
+<td>1.1 ± 0.2 ×10⁻¹</td>
+<td>2693 ± 842</td>
+<td>771 ± 292</td>
+<td>220 ± 87</td>
+</tr>
+<tr class="even">
+<td>HFC-134a</td>
+<td>14.0 ± 2.8</td>
+<td>1.67 ± 0.32 ×10⁻¹</td>
+<td>4144 ± 1160</td>
+<td>1526 ± 577</td>
+<td>436 ± 173</td>
+</tr>
+<tr class="odd">
+<td>CFC-11</td>
+<td>52.0 ± 10.4</td>
+<td>2.91 ± 0.65 ×10⁻¹</td>
+<td>8321 ± 2419</td>
+<td>6226 ± 2297</td>
+<td>2093 ± 865</td>
+</tr>
+<tr class="even">
+<td>PFC-14</td>
+<td>50,000</td>
+<td>9.89 ± 0.19 ×10⁻²</td>
+<td>5301 ± 1395</td>
+<td>7380 ± 2430</td>
+<td>10,587 ± 3692</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="the-evolution-terrestrial-ch4-and-n2o-in-future-scenarios" class="level2" data-number="12.7">
 <h2 data-number="12.7" class="anchored" data-anchor-id="the-evolution-terrestrial-ch4-and-n2o-in-future-scenarios"><span class="header-section-number">12.7</span> The evolution terrestrial CH<sub>4</sub> and N<sub>2</sub>O in future scenarios</h2>
-<p>Rising atmospheric CO<sub>2</sub> concentrations, climate change, reactive nitrogen (Nr) inputs, and land-use changes are the primary factors driving increased eCH<sub>4</sub> and eN<sub>2</sub>O. The CO<sub>2</sub> fertilization may lead to an acceleration of carbon and nutrient cycling, including the decomposition of soil litter and organic matter due to increased plant productivity in terrestrial ecosystems. As a consequence of the accelerated element cycling under rising CO<sub>2</sub>, models suggest that N<sub>2</sub>O and CH<sub>4</sub> production may increase (). Climate change and rising CO<sub>2</sub> alter soil moisture and oxygen availability which is a control on both N<sub>2</sub>O and CH<sub>4</sub> emissions from soils. Plant productivity changes under rising CO<sub>2</sub> and climate change affect inorganic soil N pools and thus denitrification rates and N<sub>2</sub>O production. Additionally, the Nr inputs from fertilizers application and atmospheric deposition increase substrate availability for denitrification, leading to higher N<sub>2</sub>O emissions. The net effect of multiple changing factors is simulated by models as an overall increase in emissions of both CH<sub>4</sub> and N<sub>2</sub>O from terrestrial ecosystems.</p>
-<p>Anthropogenic emissions, land-use changes, and Nr inputs are key drivers of future CH<sub>4</sub> and N<sub>2</sub>O emissions under various climate and land-use scenarios. According to , CH<sub>4</sub> and N<sub>2</sub>O emissions are expected to increase throughout the 21st century under a high-emission, business-as-usual scenario (RCP 8.5), while they stabilize in a scenario with limited CO<sub>2</sub> rise and controlled climate change (RCP 2.6). In RCP 8.5, high CO<sub>2</sub> levels are the main driver of increasing CH<sub>4</sub> emissions, with the largest growth occurring in boreal peatlands due to strong polar warming. While climate change and rising CO<sub>2</sub> dominate CH<sub>4</sub> and N<sub>2</sub>O emissions, land-use change and anthropogenic Nr inputs remain secondary drivers.</p>
-<p>Methane and nitrous oxide are potent greenhouse gases that amplify anthropogenic climate change. This means that while the terrestrial biosphere acts as a carbon sink with a negative impact on climate change, it also contributes to increased CH<sub>4</sub> and N<sub>2</sub>O emissions with a positive impact, which partially offset the cooling effect of carbon uptake by land. Under the RCP 2.6 scenario, the negative feedback from CO<sub>2</sub> fertilization remains effective, and the overall land feedback remains broadly neutral. However, in the RCP 8.5 scenario, the negative feedback is largely offset by positive feedbacks from increased eCH<sub>4</sub> and eN<sub>2</sub>O over longer time scales ().</p>
+<p>Rising atmospheric CO<sub>2</sub> concentrations, climate change, increasing reactive nitrogen inputs (atmospheric deposition and N fertiliser applications on croplands) all contribute to changes in terrestrial emissions CH<sub>4</sub> and N<sub>2</sub>O in future scenarios. The CO<sub>2</sub> fertilization may lead to an acceleration of carbon and nutrient cycling, including the decomposition of soil litter and organic matter due to increased plant productivity in terrestrial ecosystems. As a consequence of the accelerated element cycling under rising CO<sub>2</sub>, some models suggest that N<sub>2</sub>O and CH<sub>4</sub> production will increase in a high-emission scenario, but will stabilise in a low-emission scenario <span class="citation" data-cites="stocker13natcc">(<a href="references.html#ref-stocker13natcc" role="doc-biblioref">Stocker et al. 2013</a>)</span>. Additionally, reactive N inputs from fertilizers application and atmospheric deposition increase substrate availability for denitrification, leading to higher N<sub>2</sub>O emissions. However, climate change and rising CO<sub>2</sub> also alter soil moisture and oxygen availability which is a control on both N<sub>2</sub>O and CH<sub>4</sub> emissions from soils. Plant productivity enhancements under rising CO<sub>2</sub> and climate change tend to deplete inorganic soil N pools and may thus reduce denitrification rates and N<sub>2</sub>O production. Therefore, the net effect of multiple changing factors is simulated differently by different models <span class="citation" data-cites="zaehle11natgeo stocker13natcc">(<a href="references.html#ref-zaehle11natgeo" role="doc-biblioref">Zaehle et al. 2011</a>; <a href="references.html#ref-stocker13natcc" role="doc-biblioref">Stocker et al. 2013</a>)</span>.</p>
+<p>Reactive N inputs through atmospheric deposition and fertiliser application are prone to being lost as N<sub>2</sub>O. The fraction of N lost as N<sub>2</sub>O to total N inputs is commonly quantified as an <em>emission factor</em>. Modelling results suggest that the global average emission factor for N<sub>2</sub>O increases in a climate change scenario, and that the rise in N<sub>2</sub>O emissions in a rapid warming scenario could be strongly reduced by limiting reactive N production and inputs to terrestrial systems <span class="citation" data-cites="stocker13natcc">(<a href="references.html#ref-stocker13natcc" role="doc-biblioref">Stocker et al. 2013</a>)</span>.</p>
+<p>Methane and nitrous oxide are potent greenhouse gases that amplify anthropogenic climate change. This means that while the terrestrial biosphere acts as a carbon sink, leading to an attenuation of warming in climate change scenarios, it also contributes to increased CH<sub>4</sub> and N<sub>2</sub>O emissions with an amplifying impact. These positive feedbacks partially offset the cooling effect of carbon uptake by land.</p>
 </section>
 <section id="emission-concentration-relationships-differ-between-co2-and-ch4-and-n2o" class="level2" data-number="12.8">
 <h2 data-number="12.8" class="anchored" data-anchor-id="emission-concentration-relationships-differ-between-co2-and-ch4-and-n2o"><span class="header-section-number">12.8</span> Emission-concentration relationships differ between CO<sub>2</sub> and CH<sub>4</sub> (and N<sub>2</sub>O)</h2>
-<p>The emission-concentration relationships for CO<sub>2</sub>, CH<sub>4</sub>, and N<sub>2</sub>O differ significantly due to their different sources, atmospheric lifetimes, and the mechanisms by which they affect radiative forcing (see , and ).</p>
-<p>CO<sub>2</sub> versus CH<sub>4</sub>: Anthropogenic CO<sub>2</sub> is mainly emitted from fossil fuel combustion, deforestation and other industrial processes, while anthropogenic CH<sub>4</sub> is mainly emitted from agricultural practices (e.g.&nbsp;enteric fermentation of livestock), landfills and fossil fuel extraction. CO<sub>2</sub> has multiple lifetimes as it cycles between different pools. Once emitted, CO<sub>2</sub> in atmosphere can only remove by the gradual redistribution to Land ecosystem and ocean, processes that take hundreds to thousands of years. Critically, a portion of CO<sub>2</sub> remains in the atmosphere indefinitely, leading to a continues buildup in atmospheric concentration over time. In contrast, CH<sub>4</sub> has a shorter atmospheric lifetime of decades and is primarily removed by chemical reactions in atmosphere. Its concentration fluctuates more rapidly as a result of recent emissions. While the radiative forcing of CO<sub>2</sub> increases steadily with its concentration, CH<sub>4</sub> exerts a stronger, short-lived warming effect with a much higher GWP20 than CO<sub>2</sub>. Continuous CO<sub>2</sub> emissions led to an accumulating radiative forcing effect, whereas ongoing CH<sub>4</sub> emissions can establish a dynamic equilibrium without accumulation over several decades.</p>
-<p>CO<sub>2</sub> versus N<sub>2</sub>O: CO<sub>2</sub> emissions are mainly from the industrial processes and land use change, while N<sub>2</sub>O is mainly from agricultural activities, especially the use of synthetic fertilizers and manure management. The warming effects of these two gases differ both in time scale and magnitude. Like CO<sub>2</sub>, atmospheric N<sub>2</sub>O accumulates due to its long atmospheric lifetime, lasting for over a century before it is gradually removed through chemical reactions. N<sub>2</sub>O concentrations may eventually stabilize over several centuries, whereas CO<sub>2</sub> can accumulate indefinitely in the atmosphere without completely removal processes, leading to different dynamics of how concentrations change over time. N<sub>2</sub>O is also an extremely potent greenhouse gas, with a GWP about 273 times greater than CO<sub>2</sub> over a 100-year period. Changes in its concentration are influenced by agricultural practices, which can lead to more abrupt changes than the more gradual increase in CO<sub>2</sub>.</p>
+<p>The emission-concentration relationships for CO<sub>2</sub>, CH<sub>4</sub>, and N<sub>2</sub>O differ significantly due to their different sources, atmospheric lifetimes, and the mechanisms by which atmospheric concentrations are reduced. CO<sub>2</sub> has multiple lifetimes as it cycles between different pools. Once emitted, atmospheric CO<sub>2</sub> is not actually removed (no chemical destruction), but is gradually <em>redistributed</em> among the different spheres in the Earth system - a process that takes hundreds to thousands of years. Critically, a portion of CO<sub>2</sub> remains in the atmosphere at millennial time scales, leading to a continues buildup in atmospheric concentration over time unless emissions are reduced to zero. In contrast, CH<sub>4</sub> has a shorter atmospheric lifetime of decades and is <em>removed</em> by chemical reactions in atmosphere. After a cessation of emissions, atmospheric CH<sub>4</sub> concentrations decline exponentially towards zero. Analogously, when CH<sub>4</sub> emissions are stabilised, concentrations are stabilised as well, while CO<sub>2</sub> concentrations continue rising under positive non-zero emissions. The same dynamics as for CH<sub>4</sub> apply to N<sub>2</sub>O, albeit (considering its longer atmospheric lifetime) with slower dynamics and response time scales of concentration changes in response to emission changes.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-arneth10natgeo" class="csl-entry" role="listitem">
+Arneth, A., S. P. Harrison, S. Zaehle, K. Tsigaridis, S. Menon, P. J. Bartlein, J. Feichter, et al. 2010. <span>“Terrestrial Biogeochemical Feedbacks in the Climate System.”</span> <em>Nature Geoscience</em> 3 (8): 525–32. <a href="https://doi.org/10.1038/ngeo905">https://doi.org/10.1038/ngeo905</a>.
+</div>
 <div id="ref-aryal22envpoll" class="csl-entry" role="listitem">
 Aryal, Babita, Roshni Gurung, Aline F. Camargo, Gislaine Fongaro, Helen Treichel, Bandita Mainali, Michael J. Angove, Huu Hao Ngo, Wenshan Guo, and Shukra Raj Puadel. 2022. <span>“Nitrous Oxide Emission in Altered Nitrogen Cycle and Implications for Climate Change.”</span> <em>Environmental Pollution</em> 314 (December): 120272. <a href="https://doi.org/10.1016/j.envpol.2022.120272">https://doi.org/10.1016/j.envpol.2022.120272</a>.
 </div>
 <div id="ref-canadell21ipcc" class="csl-entry" role="listitem">
 Canadell, J. G., P. M. S. Monteiro, M. H. Costa, L. Cotrim da Cunha, P. M. Cox, A. V. Eliseev, S. Henson, et al. 2021. <span>“Global Carbon and Other Biogeochemical Cycles and Feedbacks.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al., 673–816. Cambridge, United Kingdom; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.007">https://doi.org/10.1017/9781009157896.007</a>.
 </div>
+<div id="ref-IPCC_2021_WGI_Ch_7" class="csl-entry" role="listitem">
+Forster, P., T. Storelvmo, K. Armour, W. Collins, J.-L. Dufresne, D. Frame, D. J. Lunt, et al. 2021. <span>“The Earth’s Energy Budget, Climate Feedbacks, and Climate Sensitivity.”</span> Book Section. In <em>Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</em>, edited by V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Péan, S. Berger, N. Caud, et al., 923–1054. Cambridge, UK; New York, NY, USA: Cambridge University Press. <a href="https://doi.org/10.1017/9781009157896.009">https://doi.org/10.1017/9781009157896.009</a>.
+</div>
 <div id="ref-joosspahni08pnas" class="csl-entry" role="listitem">
 Joos, Fortunat, and Renato Spahni. 2008. <span>“Rates of Change in Natural and Anthropogenic Radiative Forcing over the Past 20,000 Years.”</span> <em>Proceedings of the National Academy of Sciences</em> 105 (5): 1425–30. <a href="https://doi.org/10.1073/pnas.0707386105">https://doi.org/10.1073/pnas.0707386105</a>.
+</div>
+<div id="ref-stocker13natcc" class="csl-entry" role="listitem">
+Stocker, Benjamin, Raphael Roth, Fortunat Joos, Renato Spahni, Marco Steinacher, Soenke Zaehle, Lex Bouwman, Xu-Ri, and Iain Colin Prentice. 2013. <span>“Multiple Greenhouse-Gas Feedbacks from the Land Biosphere Under Future Climate Change Scenarios.”</span> <em>Nature Climate Change</em> 3 (7): 666–72. <a href="https://doi.org/10.1038/nclimate1864">https://doi.org/10.1038/nclimate1864</a>.
+</div>
+<div id="ref-zaehle11natgeo" class="csl-entry" role="listitem">
+Zaehle, Sönke, Philippe Ciais, Andrew D. Friend, and Vincent Prieur. 2011. <span>“Carbon Benefits of Anthropogenic Reactive Nitrogen Offset by Nitrous Oxide Emissions.”</span> <em>Nature Geoscience</em> 4 (9): 601–5. <a href="https://doi.org/10.1038/ngeo1207">https://doi.org/10.1038/ngeo1207</a>.
 </div>
 </div>
 </section>
