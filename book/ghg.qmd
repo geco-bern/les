@@ -1,5 +1,99 @@
 # Terrestrial greenhouse gas emissions {#sec-ghg}
 
-Coming soon.
+## Most important greenhouse gases with terrestrial sources
 
-<!-- - Radiative forcing graph: IPCC AR6 p 959 -->
+Greenhouse gases with important sources in terrestrial ecosystems are among the most potent radiative forcing agents (@fig-radiative-forcing). Among them, methane (CH~4~) has the highest effective radiative forcing (ERF) since 1700 with 0.54 [0.43-0.65] W m^-2^ - comparable in magnitude to the ERF of halogens and ozone. Nitrous oxide (N~2~O) also has a sizable contribution to anthropogenic climate change with an ERF of 0.21 [0.18-0.24] W m^-2^, amounting to roughly 10% of the ERF of CO~2~, which is 2.16 [1.90-2.41] W m^-2^. Note however that both CH~4~ and N~2~O are emitted from a large number of natural and anthropogenic sources and it is not straight-forward to separate them because of the use and transformation of natural ecosystems for human activities. 
+
+<!-- Methane is a much more powerful greenhouse gas than CO~2~ and interacts with tropospheric chemistry. Methane is  The largest natural sources are from wetlands, freshwater and geological processes, while the largest anthropogenic emissions are from enteric fermentation and faecal disposal, landfills and waste disposal, rice cultivation and fossil fuel exploitation. -->
+
+<!-- XXX add: radiative forcing graph -->
+
+## Terrestrial methane (CH~4~) sources
+
+Methane emissions result from multiple sources, linked to both natural processes and human activities. The largest natural sources of methane include wetlands, freshwater systems, and geological processes. As depicted in @fig-methane-sources, wetlands contribute 102-182 Tg CH~4~ yr^-1^, mainly through microbial activity in anaerobic conditions, such as those found in flooded, low-oxygen soils. Freshwater systems, particularly those with sediments rich in organic matter, emit 117-212 Tg CH~4~ yr^-1^ via ebullition ("bubbling") and diffusion through the water column. Terrestrial geological processes emit 18–65 Tg CH~4~ annually from the Earth's crust through faults and fractured rocks and seeps. The ocean contributes a smaller share, with only 4–10 Tg CH~4~ yr^-1^, through biogenic, geological and hydrate emissions from coastal and open ocean, while termites, an insect infraorder, release around 9 Tg CH~4~ yr^-1^.
+
+```{r echo=FALSE}
+#| label: fig-methane-sources
+#| fig-cap: "Global methane (CH~4~) budget (2008–2017). The atmospheric stock is calculated from mean CH~4~ concentration, multiplying a factor of 2.75 ± 0.015 Tg ppb^–1^, which accounts for the uncertainties in global mean CH~4~. Figure and caption taken from @canadell21ipcc."
+#| out-width: 100%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_14.png")
+```
+
+Anthropogenic sources of methane primarily arise from fossil fuel extraction and processing, livestock, waste management, and rice cultivation. Fossil fuel extraction is estimated to contribute 114–116 Tg CH~4~ yr^-1^, with significant emissions coming from countries such as China, the United States, and Russia, which are the leading producers of coal, oil, and gas, globally. Livestock, particularly ruminants, are the largest source linked to agricultural activities, emitting 106–115 Tg CH~4~ yr^-1^ through enteric fermentation and manure management in anaerobic conditions. Similarly, anaerobic decomposition occurs in landfills and during organic waste treatment, as well as in flooded rice paddies (25-37 Tg CH~4~ yr^-1^). Additionally, methane is released during incomplete combustion of organic material in biomass burning. Biomass burning contributes 22-39 Tg CH~4~ yr^-1^, with emissions coming from burning crop residues, savannah fires, forest fires, and stoves. However, distinguishing between natural and human-caused fires is complicated by a variety of factors, including weather conditions, vegetation types and land management practices, which are driven by the interplay of natural and human activities.
+
+## Terrestrial ntrous oxide (N~2~O) sources
+
+Natural sources of nitrous oxide (N~2~O) include soils under natural vegetation and oxygen-deprived zones of the open ocean, with smaller contributions from inland water bodies and atmospheric chemistry (@fig-nitrousoxide-sources). Soils under natural vegetation are the largest natural source, contributing 4.9-6.5 TgN yr^-1^ through microbial nitrification and denitrification, as shown in @fig-nitrousoxidetransformations. A further -0.6-1.1 TgN yr^-1^ could be added to soils in natural ecosystems influenced by human perturbation of nitrogen deposition from land-based agriculture and fossil fuel combustion. The open ocean emits 2.5-4.3 TgN yr^-1^, largely through nitrification in oxygen-rich waters and denitrification in oxygen minimum zones.
+
+```{r echo=FALSE}
+#| label: fig-nitrousoxide-sources
+#| fig-cap: "Global nitrous oxide (N~2~O) budget (2007–2016). The atmospheric stock is calculated from mean N2O concentration, multiplying a factor of 4.79 ± 0.05 Tg ppb^–1^. Pool sizes for the other reservoirs are largely unknown. Figure and caption taken from @canadell21ipcc."
+#| out-width: 100%
+knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_17.png")
+```
+
+Of the anthropogenic N~2~O emissions, agriculture is the most important source, contributing 2.5–5.8 TgN yr^-1^ due to the extensive use of synthetic fertilizers and manure on croplands and pastures, as well as from manure management and aquaculture. Fertilizers and manure enrich the soil nutrition for plants but also increase N~2~O emissions from soil inorganic nitrogen that is not absorbed by plants. Non-agricultural sectors also contribute to anthropogenic N~2~O emissions, particularly from industrial activities such as fossil fuel combustion and chemical processing (0.8-1.1 TgN yr^-1^), and wastewater treatment (0.2-0.5 TgN yr^-1^). Industrial N~2~O emissions, primarily from nitric and adipic acid production, have decreased in North America and Europe since the 1990s due to the adoption of abatement technologies. Additionally, inland water bodies, estuaries, and nitrogen deposition from atmospheric pollution contribute relatively small amounts of N~2~O. Biomass burning, including natural and anthropogenic fires, also contributes 0.5-0.8 TgN per year.
+
+```{r echo=FALSE}
+#| label: fig-nitrousoxidetransformations
+#| fig-cap: "Schematic illustration of the altered nitrogen cycle and nitrous oxide (N~2~O) emissions. Figure from @aryal22envpoll."
+#| out-width: 100%
+knitr::include_graphics("images/nitrousoxidetransformations.png")
+```
+
+
+## History of atmospheric concentrations of CH~4~ and N~2~O
+
+During glacial periods, atmospheric CH~4~ concentrations typically ranged around 320 ppb and were thus substantially lower than during warm (interglacial) periods where concentrations were around 700 ppb. The transitions between glacial and interglacial periods were typically characterised by a sharp increase in CH~4~ concentrations, reflecting changes in natural sources such as wetlands and permafrost. Similarly, N~2~O concentrations varied between about 195 ppb during glacial periods and up to 290 ppb during interglacial periods. These variations in atmospheric N~2~O concentrations are also related to natural processes, including soil microbial activity and marine emissions @joosspahni08pnas.
+
+The last ice age occurred about 20,000 years ago. Since then, both CH~4~ and N~2~O concentrations have increased significantly. For example, CH~4~ concentrations have risen from about 350 ppb at the end of the last ice age to more than 1,800 ppb in recent measurements, reflecting the significant contribution of anthropogenic activities since the Industrial Revolution. N~2~O concentrations have also increased from about 200 ppb at the end of the last ice age to about 330 ppb today, driven largely by agricultural practices and fertilizer use ().
+
+The Industrial Revolution, which began in the late 18th century, marked an important turning point in CH~4~ concentrations. The average growth rate of atmospheric CH~4~ has been at least six times higher in the last four decades compared to any time in the last 1,800 years prior to the Industrial Era3. This rapid increase is largely due to anthropogenic sources, including agriculture, fossil fuel extraction, and waste management. Similarly, N~2~O concentrations have increased significantly since the Industrial Revolution, with recent growth rates at least twice as high as those observed over the past 1,800 years. The increase in N~2~O is largely attributable to agricultural activities, particularly the use of nitrogen-based fertilizers ().
+
+The radiative forcing from increases in CH~4~ and N~2~O since the Industrial Revolution has been significant. The radiative forcing from CH~4~ has increased significantly, resulting in a radiative forcing of about 0.5 W/m² since the end of the 18th century. This increase is due to the high the Global Warming Potential (GWP, see ) of CH~4~, which is much larger than the GWP of CO~2~ over a relatively short period of time. The radiative forcing of N~2~O has also increased, contributing about 0.2 W/m² since the industrial revolution. N~2~O has a high GWP and is about 298 times more efficient than CO~2~ over a 100-year period ().
+
+In summary, both CH~4~ and N~2~O concentrations have changed significantly over the ice-age-interglacial cycle, with large increases since the Last Glacial Maximum and the Industrial Revolution. Their increased radiative forcing since the Industrial Revolution is noteworthy, with CH~4~ contributing ~0.5 W/m² and N~2~O ~0.2 W/m², highlighting their importance in the dynamics of climate change.
+
+
+
+Figure 12.4: Atmospheric concentrations of CO~2~, CH~4~ and N~2~O in air bubbles and clathrate crystals in ice cores (800,000 BCE to 1990 CE). Note the variable x-axis range and tick mark intervals for the three columns. Ice core data is over-plotted by atmospheric observations from 1958 to present for CO~2~, from 1984 for CH~4~ and from 1994 for N~2~O. The time-integrated, millennial-scale linear growth rates for different time periods (800,000–0 BCE, 0–1900 CE and 1900–2017 CE) are given in each panel. For the BCE period, mean rise and fall rates are calculated for the individual slopes between the peaks (interglacials) and troughs (glacial periods), which are given in the panels in left column. Figure from .
+
+## Atmospheric sink of CH~4~ and N~2~O
+
+As illustrated in , methane is primarily removed from the atmosphere through chemical loss in the troposphere via oxidation by hydroxyl radicals (OH) at 483-682 Tg CH~4~ yr^-1^. Other minor sinks for methane include soil uptake through bacterial oxidation, loss in the stratosphere via reactions with chlorine (Cl) and excited oxygen atoms (O(¹D)), and loss through tropospheric chlorine reactions. Therefor, the concentration of OH, particularly in the troposphere, is a dominant determinant of the rate of CH~4~ removal.
+
+By contrast, as illustrated in , nitrous oxide is predominantly removed in the stratosphere through two principal processes: photolysis, whereby N~2~O molecules are broken down by ultraviolet (UV) radiation, and oxidation by O(¹D) radicals, where reactive oxygen atoms oxidize N~2~O. Stratospheric factors, such as temperature and UV radiation levels, play a major role in N~2~O destruction. Warming could potentially accelerate stratospheric circulation, affecting the distribution and degradation of N~2~O. Furthermore, changes in stratospheric ozone concentrations can influence the rate at which N~2~O is broken down. In addition, the slight negative feedback of N~2~O lifetime to rising N~2~O levels results in a marginally shorter residence time.
+
+## Atmospheric lifetime of CH~4~ and N~2~O
+
+As shown in Equation 12.1, the atmospheric concentration (in ppb) at steady state is determined by the balance between the source, (the total natural and anthropogenic emissions at time , in ppb yr^-1^), and the sink, which is proportional to the current concentration (). The proportionality constant is , where  represents the average lifetime or turnover time (in years) of the greenhouse gas.
+
+.                       (Equation 12.1)
+
+Methane (CH~4~) is a relatively short-lived GHG with an atmospheric lifetime () of about 11.8 ± 1.8 years, while nitrous oxide (N~2~O) is considered a long-lived GHG, persisting in the atmosphere for around 109 ± 10 years (). This means methane has a shorter atmospheric residence time compared to long-lived GHGs, allowing it to reach a steady state more quickly due to its higher rate of removal. In contrast, N~2~O may accumulate in the atmosphere over longer time scales, remaining for more than a century before it is removed.
+
+To compare the warming effects of emissions from different greenhouse gases, these effects are often measured relative to a reference gas, typically carbon dioxide (CO~2~), in terms of kilograms of CO~2~ equivalent. This produces a dimensionless factor known as the Global Warming Potential (GWP). The GWP metric quantifies the cumulative warming effect (or radiative forcing) of 1 kilogram of a greenhouse gas compared to 1 kilogram of CO~2~ over a specified time horizon, commonly 20 years (GWP20) or 100 years (GWP100).
+
+As depicted in the , CH~4~ and N~2~O have much higher GWPs than CO~2~, exerting more radiative forcing. As a short-lived GHGs, CH~4~ exerts a strong warming effect over a shorter time with higher GWP20 values around 80 than GWP100 values around 30. Therefore, methane's cumulative warming effect over 100 years is less pronounced. However, N~2~O exert a higher magnitude of warming effect than CH~4~ in a longtime scale with both GWP20 and GWP100 values around 273. It remains in the atmosphere for long periods, contributing to accumulated warming over both short-time and long-time scale.
+
+Table 12.1: Emissions metrics for selected species: global warming potential (GWP), global temperature-change potential (GTP). Table from .
+
+
+## The evolution terrestrial CH~4~ and N~2~O in future scenarios
+
+Rising atmospheric CO~2~ concentrations, climate change, reactive nitrogen (Nr) inputs, and land-use changes are the primary factors driving increased eCH~4~ and eN~2~O. The CO~2~ fertilization may lead to an acceleration of carbon and nutrient cycling, including the decomposition of soil litter and organic matter due to increased plant productivity in terrestrial ecosystems. As a consequence of the accelerated element cycling under rising CO~2~, models suggest that N~2~O and CH~4~ production may increase (). Climate change and rising CO~2~ alter soil moisture and oxygen availability which is a control on both N~2~O and CH~4~ emissions from soils. Plant productivity changes under rising CO~2~ and climate change affect inorganic soil N pools and thus denitrification rates and N~2~O production. Additionally, the Nr inputs from fertilizers application and atmospheric deposition increase substrate availability for denitrification, leading to higher N~2~O emissions. The net effect of multiple changing factors is simulated by models as an overall increase in emissions of both CH~4~ and N~2~O from terrestrial ecosystems.
+
+Anthropogenic emissions, land-use changes, and Nr inputs are key drivers of future CH~4~ and N~2~O emissions under various climate and land-use scenarios. According to , CH~4~ and N~2~O emissions are expected to increase throughout the 21st century under a high-emission, business-as-usual scenario (RCP 8.5), while they stabilize in a scenario with limited CO~2~ rise and controlled climate change (RCP 2.6). In RCP 8.5, high CO~2~ levels are the main driver of increasing CH~4~ emissions, with the largest growth occurring in boreal peatlands due to strong polar warming. While climate change and rising CO~2~ dominate CH~4~ and N~2~O emissions, land-use change and anthropogenic Nr inputs remain secondary drivers.
+
+Methane and nitrous oxide are potent greenhouse gases that amplify anthropogenic climate change. This means that while the terrestrial biosphere acts as a carbon sink with a negative impact on climate change, it also contributes to increased CH~4~ and N~2~O emissions with a positive impact, which partially offset the cooling effect of carbon uptake by land. Under the RCP 2.6 scenario, the negative feedback from CO~2~ fertilization remains effective, and the overall land feedback remains broadly neutral. However, in the RCP 8.5 scenario, the negative feedback is largely offset by positive feedbacks from increased eCH~4~ and eN~2~O over longer time scales ().
+
+## Emission-concentration relationships differ between CO~2~ and CH~4~ (and N~2~O)
+
+The emission-concentration relationships for CO~2~, CH~4~, and N~2~O differ significantly due to their different sources, atmospheric lifetimes, and the mechanisms by which they affect radiative forcing (see ,  and ).
+
+CO~2~ versus CH~4~: Anthropogenic CO~2~ is mainly emitted from fossil fuel combustion, deforestation and other industrial processes, while anthropogenic CH~4~ is mainly emitted from agricultural practices (e.g. enteric fermentation of livestock), landfills and fossil fuel extraction. CO~2~ has multiple lifetimes as it cycles between different pools. Once emitted, CO~2~ in atmosphere can only remove by the gradual redistribution to Land ecosystem and ocean, processes that take hundreds to thousands of years. Critically, a portion of CO~2~ remains in the atmosphere indefinitely, leading to a continues buildup in atmospheric concentration over time. In contrast, CH~4~ has a shorter atmospheric lifetime of decades and is primarily removed by chemical reactions in atmosphere. Its concentration fluctuates more rapidly as a result of recent emissions. While the radiative forcing of CO~2~ increases steadily with its concentration, CH~4~ exerts a stronger, short-lived warming effect with a much higher GWP20 than CO~2~. Continuous CO~2~ emissions led to an accumulating radiative forcing effect, whereas ongoing CH~4~ emissions can establish a dynamic equilibrium without accumulation over several decades.
+
+CO~2~ versus N~2~O: CO~2~ emissions are mainly from the industrial processes and land use change, while N~2~O is mainly from agricultural activities, especially the use of synthetic fertilizers and manure management. The warming effects of these two gases differ both in time scale and magnitude. Like CO~2~, atmospheric N~2~O accumulates due to its long atmospheric lifetime, lasting for over a century before it is gradually removed through chemical reactions. N~2~O concentrations may eventually stabilize over several centuries, whereas CO~2~ can accumulate indefinitely in the atmosphere without completely removal processes, leading to different dynamics of how concentrations change over time. N~2~O is also an extremely potent greenhouse gas, with a GWP about 273 times greater than CO~2~ over a 100-year period. Changes in its concentration are influenced by agricultural practices, which can lead to more abrupt changes than the more gradual increase in CO~2~.
+
+
+
