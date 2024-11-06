@@ -2,21 +2,21 @@
 
 *Authored by Julian Richter, Livio Conzett and Martin Sigrist. Edited by Fabrice Lacroix.*
 
-Nitrogen (N) is a primary nutrient that is essential for life on earth. While it is present in large abundance as N~2~ in the atmosphere, it is unavailable in this form for most organisms on Earth. In the terrestrial ecosystem, the availability of nitrogen is critical for fueling of photosynthesis and production of plant tissue, it also serves as a substrate for a vast number of microbial processes in the soil, under which the N~2~O gas is, for instance, produced. The cycling and availability of nitrogen in soils and vegetation thus both play an important role for the vegetative uptake of carbon from the atmosphere, as well as emissions of carbon and nitrogen greenhouse gases from soils. 
+Nitrogen (N) is a primary nutrient that is essential for life on earth. While it is present in large abundance as N~2~ in the atmosphere, it is unavailable in this form for most organisms on Earth. In the terrestrial ecosystem, the availability of nitrogen is critical for fueling of photosynthesis and production of plant tissue, it also serves as a substrate for a vast number of microbial processes in the soil, under which the N~2~O gas is, for instance, produced [@nevins2020]. The cycling and availability of nitrogen in soils and vegetation thus both play an important role for the vegetative uptake of carbon from the atmosphere, as well as emissions of carbon and nitrogen greenhouse gases from soils. 
 
 ##  Nitrogen Pools in the Earth System 
 
 <!-- XXX Potentially add a visualization of nitrogen pools at a later timepoint -->
 
-Nitrogen pools relevant to the terrestrial ecosystem consist of atmosphere (A), the lithosphere (B), the biosphere (C) and pedosphere (D) pools (@fig-nitrogencycle):
+Nitrogen relevant to the terrestrial ecosystem is found in atmosphere (A), lithosphere (B), biosphere (C) and pedosphere (D) pools (@fig-nitrogencycle):
 
 **(A) Atmosphere**: Nitrogen gas (N~2~) makes up 78% of the atmosphere composition.  Despite constituting an enormous pool, N~2~ is not accessible to most of terrestrial organisms [@myrold1999].
 
-**(B) Lithosphere**: In the upper lithosphere, nitrogen is found in silicate minerals (e.g., clay minerals, mica, feldspar) in the form of NH~4~^+^ [@mysen2019]. This pool is generally not directly accessible to organisms due to strong bonds, but nitrogen stored in minerals can be released to the soil as part of the weathering process.
+**(B) Lithosphere**: In the upper lithosphere, nitrogen is found in silicate minerals in the form of ammonium (NH~4~^+^, [@mysen2019]). This pool is generally not directly accessible to organisms due to strong bonds, but nitrogen stored in minerals can be released as ammonium to the soil as part of the weathering process.
 
-**(C) Biosphere**: Nitrogen is present in tissues of organisms, proteins, amino acids, and nucleic acids. Typical carbon-to-nitrogen stoichiometries in plant material and microbes can be found in Table 1.
+**(C) Biosphere**: Nitrogen is present in tissues, amino acids, and nucleic acids of organisms. 
 
-**(D) Pedosphere**: Soils constitute a large pool of nitrogen [@myrold1999], consisting of both inorganic (e.g., NO~3~^-^) and organic nitrogen (e.g., nitrogen found in soil organic matter). Of the different nitrogen components found in soils, ammonium (NH~4~^+^) and nitrate (NO~3~^-^) are available forms for uptake by plants.
+**(D) Pedosphere**: Soils constitute a large pool of nitrogen [@myrold1999], which is present in the forms of both inorganic (e.g., NO~3~^-^) and organic (e.g., nitrogen found in soil organic matter) nitrogen. Of the different nitrogen components found in soils, ammonia (NH~4~) ammonium (NH~4~^+^) and nitrate (NO~3~^-^) are available forms for uptake by plants.
 
 ## Nitrogen sources, transformation and loss pathways
 
@@ -34,15 +34,15 @@ knitr::include_graphics("images/nitrogen_cycle.png")
 
 ### Sources of nitrogen
 
-(1)	_Nitrogen fixation and deposition_: As mentioned above, N~2~ is naturally unavailable to most organisms in the terrestrial ecosystems. However, two biological (biotic) fixation mechanisms have evolved to enable the fixation of N~2~ from the atmosphere and its transformation into a compound available to microbes and plants (usually NH~3~), The biotic fixation of nitrogen occurs primarily through symbiotic interactions of plant roots and bacteria (rhizobia). Here, microbes enter plant roots (leading to the formation of root nodules) to fix N~2~. The relatively large energetic costs expended during this process is covered using organic carbon supplied by the roots as a vital energy source. This process occurs especially in certain plant species such as legumes (e.g., peanuts or clovers). Soil microbes, such as _Chlorobium_, can however also fix nitrogen non-symbiotically as free-living species. 
+(1)	_Nitrogen fixation and deposition_: As mentioned above, N~2~ is naturally unavailable to most organisms in terrestrial ecosystems. However, two biological N fixation mechanisms have evolved to enable the fixation of N~2~ from the atmosphere and its transformation into a compound available to microbes and plants (usually NH~3~). The biotic fixation of nitrogen occurs primarily through symbiotic interactions of plant roots and bacteria (rhizobia). Here, bacteria enter plant roots (leading to the formation of root nodules) to fix N~2~. The relatively large energetic costs expended during this process is covered using organic carbon supplied by the roots as a vital energy source. This process occurs especially in certain plant species such as legumes (e.g., peanuts or clovers). Soil microbes, such as _Chlorobium_, can however also fix nitrogen non-symbiotically as free-living species. 
 
-A further form of nitrogen fixation occurs through a non-biological abiotic process that brings nitrogen transforms nitrogen largely controlled by lightning sparks (1b). Nitric oxides are produced in the high-energy spark process of lighting are can be dissolved into raindrops, which deposites the nitrogen onto land through rainfall.
+A further form of nitrogen fixation occurs through a non-biological abiotic process that is largely controlled by lightning sparks (1b). Nitric oxides are produced in the high-energy spark process of lightning, which can be dissolved into raindrops, which deposits the nitrogen onto land through rainfall.
 
 ### Microbial processing and plant uptake
 
-(2)	_Immobilization_: Immobilization in the soil occurs when special soil organisms cover their nitrogen need under certain conditions. Usually, microbes take up nitrogen during the decomposition of organic matter (OM). In cases of a low nitrogen content in the OM, they use nitrogen available in the soil in the forms of NO~3~^-^ or NH~4~^+^. 
-(3)	_Litter inputs and N mineralization_: Plants produce litter which contains organic nitrogen that is added to the soil (Myrold, 1999). The degradation process that converts organic N from litter to inorganic NH~4~^+^ is called mineralization. Organic carbon is used by microbes as an energy source, but the nitrogen found in the litter and organic material is also used by microbes to cover their own nitrogen requirements during the decomposition process. Excess nitrogen is then released to the soil as NH~4~^+^, which is a form of nitrogen available to plants.
-(4)	_Nitrification_: Nitrification takes place in two steps. In a first step, ammonia oxidizing microbes use NH4+ under aerobic conditions as energy source, which produces NO~2~^-^. Other types of microbes, such as _Nitrobacter_, can then metabolize the NO~2~^-^ to NO~3~^-^ in a subsequent step. We note that both NH~4~^+^  and NO~3~^-^ are thereby forms of nitrogen available for plant uptake.
+(2)	_Immobilization_: Immobilization in the soil occurs when soil bacteria take up nitrogen to cover their own nitrogen needs. Usually, microbes take up nitrogen during the decomposition process of organic matter. In cases of a low nitrogen content in the organic matter, the bacteria use nitrogen available in the soil in the forms of NO~3~^-^ or NH~4~^+^. 
+(3)	_Litter inputs and N mineralization_: Plants produce litter which contains organic nitrogen. Under litterfall, this nitrogen is thus added to the soil (Myrold, 1999). The degradation process that converts organic N from litter to inorganic NH~4~^+^ is called mineralization. Organic carbon is used by microbes as an energy source, but the nitrogen found in the litter and organic material can also be used by microbes to cover their own nitrogen requirements during the decomposition process. Excess nitrogen is then released to the soil as NH~4~^+^, which is a form of nitrogen available to plants.
+(4)	_Nitrification_: Nitrification is a process that makes up of a weak source of energy for bacteria. It takes place in two steps. In a first step, ammonia oxidizing microbes use NH4+ under aerobic conditions as energy source, which produces NO~2~^-^. Other types of microbes, such as _Nitrobacter_, can then metabolize the NO~2~^-^ to NO~3~^-^ in a subsequent step. We note that both NH~4~^+^  and NO~3~^-^ are thereby forms of nitrogen available for plant uptake.
 
 $$
 \begin{align}
@@ -50,11 +50,11 @@ NH_{4}  \rightarrow NO_{2}  \rightarrow NO_{3}^{-}
 \end{align}
 $$ {#eq-nitrification}
 
-(5)	_Plant nitrogen uptake and cycling_: Plants can take up nitrogen in the forms of nitrate (NO~3~^-^), ammonia (NH~3~) and ammonium (NH~4~^+^). Nitrogen is needed by plants to build their organic tissue, as well as the production of proteins, amino acids and nucleic acids. Plants can thereby regulate their allocation nitrogen into different tissues (e.g., leaves), as well as limit their nitrogen loss, for instance via foliar resorption (see below), under low nitrogen conditions.
+(5)	_Plant nitrogen uptake and cycling_: Plants can take up nitrogen in the forms of nitrate (NO~3~^-^), ammonia (NH~3~) and ammonium (NH~4~^+^). Nitrogen is needed by plants to build their organic tissue, as well as the production of proteins and nucleic acids. Under low nitrogen availability, plants can thereby regulate their allocation nitrogen into different tissues (e.g., leaves), as well as limit their nitrogen loss, for instance via foliar resorption (see sections below).
 
 ### Nitrogen loss pathways
 
-(6)	_Denitrification_: In the absence of oxygen (anaerobic conditions), certain microorganisms can obtain their energy by converting NO~3~^-^ to N~2~, a process known as denitrification. This process happens only in soils saturated with water, where oxygen becomes unavailable as an oxidant. The process undergoes multiple steps of nitrogen reduction, and a disruption to the process chaing can produce and release nitrous oxide (N~2~O), also known as laughing gas, to the atmosphere. From a climate perspective, this is a process of significant importance because N~2~O is a strong greenhouse gas [@tian2024].
+(6)	_Denitrification_: In the absence of oxygen (anaerobic conditions), certain microorganisms can use nitrate (NO~3~^-^) as an oxidate for the degradation of organic matter, thereby by converting NO~3~^-^ to N~2~. This process is called denitrification. For this process to happen, soils need to be saturated with water, where oxygen is thus not available in high enough concentrations to be used as an oxidant. The process undergoes multiple steps of nitrogen reduction (@eq-nitrification). A disruption to the process chain can produce and release nitrous oxide (N~2~O), also known as laughing gas, to the atmosphere. From a climate perspective, this is a process of significant importance because N~2~O is a strong greenhouse gas [@tian2024].
 $$
 \begin{align}
 NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow N{_{2}}  
@@ -62,28 +62,40 @@ NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow 
 $$ {#eq-nitrification}
 
 
-(7)	_Leaching_: Nitrogen can be lost from the terrestrial ecosystem through transport with water through the soil and into groundwater or freshwaters. Nitrogen dissolved in pore water, such as NO~3~^-^, is highly mobile and therefore the most susceptible to this loss pathway. Additionally, surface transports of organic material under heavy rainfall, also removes organic nitrogen from the terrestrial ecosystem via erosion. The nitrogen transported to freshwaters, lakes, and even to the ocean fuels nitrogen source in these downstream systems, but this linkage also carries environmental risks with increasing nitrogen availability due to human activities [@gruber2008].
+(7)	_Leaching_: Nitrogen can be lost from the terrestrial ecosystem through transport with water through the soil and into groundwater or freshwaters. Nitrogen dissolved in pore water, such as NO~3~^-^, is highly mobile and therefore the most susceptible to this loss pathway. Additionally, surface transports of organic material under heavy rainfall, also removes organic nitrogen from the terrestrial ecosystem via erosion. The nitrogen transported to freshwaters, lakes, and even to the ocean, fuels the nitrogen source in these downstream ecosystems. The same linkage however also brings with it substantial environmental risks with increasing nitrogen availability and eutrophication due to human activities [@gruber2008].
 
-## Plant demand and nitrogen regulation of plant dynamics
+## Plant N Dynamics
 
-Nitrogen is a critical element for plant dynamics, influencing the relationship between photosynthesis and growth, and is an essential for building of tissue, amino acids and proteins, and thus playing a critical role in biomass production [@peng2023]. Several factors thereby influence the demand for nitrogen in plants in an interplay between biomass production and maintenance, climate factors, plant tissue stoichiometric constraints, and altered plant dynamics facing low nutrient conditions (@fig-nitrogendemand).
+### Plant N Demand
 
-### Biomass Production
+Nitrogen is a critical element for plant dynamics, influencing the relationship between photosynthesis and growth, and is an essential for building of tissue, amino acids and nucleic acids, and thus playing a critical role in biomass production [@peng2023]. Several factors thereby influence the demand for nitrogen in plants in an interplay between biomass production and maintenance, climate factors, plant tissue stoichiometric constraints, and altered plant dynamics facing low nutrient conditions (@fig-nitrogendemand).
+
+**Biomass Production**
 
 Plants build biomass from the difference between gross primary productivity and autotrophic respiration (See @sec-gpp). The biomass production can thereby be assumed to approximately linearly depend on gross primary productivity (GPP). 
 
-### Tissue Stoichiometry
+**Tissue Stoichiometry**
 
 Tissue stoichiometry and its variations among species and along climatic gradients is significant [@peng2023]. Plants that allocate a higher proportion of leaf biomass relative to total biomass thereby generally require more nitrogen (see @sec-gpp). This is due to higher N stoichiometry of the leaf tissue with comparison to that of e.g. coarse roots. Nitrogen available in the soil, may not always support the demand of the plants. Lower C:N ratio (e.g., 10:1) than plant stochiometric needs indicates relatively higher nitrogen availability, which would fully support plant growth. 
 
-### Allocation
+**Allocation**
 
 The allocation of biomass growth also impacts the demand of nitrogen, due to the differing stoichiometries of different plant compartments. Under low nitrogen conditions, plants can adapt their allocation of biomass, thereby focusing on increasing below-ground growth, which firstly requires less nitrogen, and secondly enables more efficient uptake from the soil through higher root density.
 
+**N Resorption**
+Plants can reuse nitrogen by resorbing them from their different compartments (roots and leaves). This thus decreases the demand for N.
 
-### Plant regulation under low nitrogen conditions
 
-Plants can also increase the efficiency of their use of nitrogen by resorbing nitrogen from senescing leaves, thus recycling the nitrogen within the plant. Nitrogen resorption is a process that is especially mainly found in colder, drier climates, particularly at higher latitudes with low nitrogen fixation and slow nitrogen cycling [@peng2023]. This increased efficiency of nutrient use is referred to as Nitrogen Resorption Efficiency (**NRE**). 
+*Climate and Environmental Factors*
+
+Firstly, climate and other environmental factors, such as atmospheric temperatures and increased light availability impact the photosynthesis and the biomass production of plant species. In @sec-gpp, it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially-relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the production and maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption [@peng2023].
+
+
+### Nitrogen Limitation and Plant Response to Low Nitrogen Conditions
+
+Nitrogen limitation arises when plant N demand be sustained by available soil N and through other sources of N. We note that plant growth can also be co-limited by other nutrients such as P and K. 
+
+In such conditions, plants increasingly invest resources into acquiring more nitrogen (e.g. through increased root biomass). In such conditions, plants increasingly invest resources into acquiring more nitrogen (e.g. through increased root biomass). Plants can also increase the efficiency of their use of nitrogen by resorbing nitrogen from senescing leaves, thus recycling the nitrogen within the plant. Nitrogen resorption is a process that is especially mainly found in colder, drier climates, particularly at higher latitudes with low nitrogen fixation and slow nitrogen cycling [@peng2023]. This increased efficiency of nutrient use is referred to as Nitrogen Resorption Efficiency (**NRE**). 
  
 
 ```{r echo=FALSE, eval=TRUE}
@@ -93,13 +105,9 @@ Plants can also increase the efficiency of their use of nitrogen by resorbing ni
 knitr::include_graphics("images/N_demand.png")
 ```
 
-### Climate and Environmental Factors
-
-Firstly, climate and other environmental factors, such as temperatures and increased light availability are known to impact the photosynthesis and the biomass production of plant species. In Chapter 5 (@sec-gpp), it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the building or maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption [@peng2023].
-
 ### Global Nitrogen Uptake in Terrestrial Ecosystems
 
-@peng2023 calculated an estimation of global nitrogen uptake applying knowledge mentioned in the points above. First, they compiled data from 804 forest and grassland sites to estimate biomass production. Nitrogen content in leaves ($N_{leaf}$), wood, and roots was then calculated using biomass ($BP$) and specific carbon-to-nitrogen ratios ($CNratio_{leaf}$):
+@peng2023 estimated global nitrogen uptake applying knowledge mentioned in the points above. First, they compiled data from 804 forest and grassland sites to estimate biomass production. Nitrogen content in leaves ($N_{leaf}$), wood, and roots was then calculated using biomass ($BP$) and specific carbon-to-nitrogen ratios ($CNratio_{leaf}$):
 
 $$
 \begin{align}
@@ -108,22 +116,23 @@ N_{leaf} = \dfrac{BP_{leaf}}{CNratio_{leaf}}
 $$ {#eq-nitrogen_leaf}
 
 
-The uptake of the individual plant components was then summed globally for all plant components (@eq-nitrogen_uptake). Additionally here, **NRE** was included to account for nitrogen recycling in leaves, adjusting nitrogen uptake by subtracting estimated resorbed nitrogen. Finally, these models were applied globally using spatially-explicit climate and vegetation data, leading to a global estimate of **950±250 Tg** of nitrogen per year [@peng2023]:
-
+The uptake of the individual plant components was then summed globally for all plant components (@eq-nitrogen_uptake): 
 $$
 \begin{align}
 N_{up} = N_{leaf} (1 - NRE) + N_{wood} + N_{root} 
 \end{align}
 $$ {#eq-nitrogen_uptake}
 
+Additionally here, **NRE** was included to account for nitrogen recycling in leaves, adjusting nitrogen uptake by subtracting estimated resorbed nitrogen. Finally, these models were applied globally using spatially-explicit climate and vegetation data, leading to a global estimate of **950±250 Tg** of nitrogen per year [@peng2023].
+
 
 ## Interactions with the Carbon Cycle and Impacts of N Limitation
 
-By impacting photosynthesis and plant growth, nitrogen availability is also a critical factor in determining how effectively terrestrial ecosystems can sequester carbon dioxide (CO~2~).
+By impacting photosynthesis and plant growth, nitrogen availability is also a critical factor in determining how effectively terrestrial ecosystems can sequester carbon dioxide (CO~2~) from the atmosphere.
  
 ### Impact of Nitrogen Availability on vegetation CO~2~ Uptake
 
-Nitrogen vailability significantly influences the effect of CO~2~ fertilization, where elevated atmospheric CO~2~ stimulates plant growth and photosynthesis (see @sec-gpp, @terrer2019). In nitrogen-rich ecosystems, plants can fully exploit elevated CO~2~ levels, leading to greater photosynthesis, biomass accumulation, and long-term carbon storage in plants and soils [@reich2006]. Studies, such as those using free-air CO~2~ enrichment (FACE) experiments, have also shown show stronger CO~2~ responses in ecosystems with higher nitrogen availability, resulting in enhanced plant growth and carbon sequestration (@fig-faceexperiment).
+Nitrogen availability significantly influences the effect of CO~2~ fertilization, in which elevated atmospheric CO~2~ stimulates plant growth and photosynthesis (see @sec-gpp, @terrer2019). In nitrogen-rich ecosystems, plants can fully exploit elevated CO~2~ levels, leading to greater photosynthesis, biomass accumulation, and long-term carbon storage [@reich2006]. Studies, such as those using free-air CO~2~ enrichment (FACE) experiments, have also shown show stronger CO~2~ responses in ecosystems with higher nitrogen availability, resulting in enhanced plant growth and carbon sequestration (@fig-faceexperiment).
 
 Conversely, nitrogen-limited ecosystems experience constrained CO~2~ fertilization effects. In such environments, plants deplete soil nitrogen with increased growth and biomass production, leading to “progressive nitrogen limitation” (**PNL**), where nitrogen availability decreases over time, restricting further growth and CO~2~ uptake [@reich2006]. Without sufficient nitrogen, ecosystems will not maximize carbon sequestration, despite elevated CO~2~ levels [@hungate2003]. In their study, @terrer2019 estimate that about 65% of global vegetation is nitrogen-limited. Low soil carbon-to-nitrogen ratios (C:N) is an indicator of greater nitrogen availability and greater biomass production under elevated CO~2~. Higher C:N ratios indicate nitrogen scarcity, limiting CO~2~ uptake and plant growth.
  
@@ -145,7 +154,7 @@ PNL occurs when soil nitrogen is gradually depleted as plants grow in response t
 A high C:N ratio suggests nitrogen scarcity, as more nitrogen is tied up in organic matter, limiting its availability to plants. In nitrogen-limited ecosystems, higher C:N ratios correlate with reduced plant growth and carbon sequestration [@terrer2019].
 
 **3. Reduced Leaf Nitrogen Content**
-In nitrogen-limited ecosystems, plants may allocate less nitrogen to leaves. Reduced leaf nitrogen content in turn can lead to lower photosynthetic capacity and diminished plant productivity, due to the importance of nitrogen for the Rubisco enzyme [@reich2006]. This is a direct physiological sign of nitrogen limitation.
+In nitrogen-limited ecosystems, plants can allocate less nitrogen to leaves. Reduced leaf nitrogen content in turn can lead to lower photosynthetic capacity and diminished plant productivity, due to the importance of nitrogen for the Rubisco enzyme [@reich2006]. This is a direct physiological sign of nitrogen limitation reflected in the plant leaf C:N ratio.
 
 **4. Stunted Biomass Growth**
 Nitrogen limitation often results in smaller increases in biomass under elevated CO₂, as plants cannot sustain the higher rates of photosynthesis necessary for continued growth [@hungate2003]. Stunted biomass growth is a clear indicator of nitrogen limitation in long-term studies.
@@ -161,7 +170,7 @@ The Leaf Area Index (LAI) represents the total leaf area available for photosynt
 
 ### Globally Increased Sources of Nitrogen to Terrestrial Ecosystems
 
-Since the start of the fossil fuel aera, anthropogenic activities have severely nitrogen availability in terrestrial ecosystems [@gruber2008]. The global nitrogen cycle has thereby been perturbed through two major human activities, where the inputs of nitrogen to the terrestrial ecosystem have been augmented by human activities:
+Since the start of the fossil fuel aera, anthropogenic activities have severely increased nitrogen inputs to the terrestrial ecosystem, globally [@gruber2008]. The global nitrogen cycle has thereby been perturbed through two major human activities, where inputs of nitrogen to the terrestrial ecosystem have been augmented by human activities:
 
 **Fossil fuel emissions through energy production**
 
@@ -169,11 +178,11 @@ Nitrogen is emitted to the atmosphere as a waste product (NO~x~) during the comb
 
 **Food production**
 
-The industrial Haber-Bosch process to convert gaseous N~2~ to NH~3~ was a key advance for global agriculture at beginning of the 20th century. It enabled large scale fertilization of agricultural crops in by applying ammonium nitrate (NH~4~NO~3~), increasing crop yield at relatively low costs. In terms of the nitrogen cycle, this means a strong additional fixation from the atmosphere, that is added to the terrestrial ecosystem [@fig-nitrogen_anth]. 
+The industrial Haber-Bosch process to convert gaseous N~2~ to NH~3~ was a key advance for global agriculture to keep up with a growing population at beginning of the 20th century. It enabled large-scale N fertilization of agricultural crops by applying ammonium nitrate (NH~4~NO~3~), thereby increasing crop yield at relatively low economic costs. In terms of the global nitrogen cycle, the Haber-Bosch process means a strong additional fixation from the atmosphere that is then added to the terrestrial ecosystem as fertilizers [@fig-nitrogen_anth]. 
 
-Livestock breeding on an industrial scale also has an impact on the terrestrial ecosystem nitrogen cycle, especially in areas in proximity to livestock pastures. @zhang2017 estimate an increase in the total manure nitrogen production of over 600 % since preindustrial times. The demand for animal feed results not only in an increased nitrogen input into the ecosystem, but also a spatial redistribution, for instance from the transport of soy. 
+Livestock breeding on an industrial scale also has an impact on the terrestrial ecosystem nitrogen cycle, especially in land areas in proximity to livestock pastures. @zhang2017 estimate an increase in the total manure nitrogen production of over 600 % since preindustrial times. The demand for animal feed results not only in an increased nitrogen input into the ecosystem, but also a spatial redistribution, for instance from the transport of soy. 
 
-Additionally crops typically used in agriculture, such as legumes, often enhance nitrogen fixation with symbiotic N~2~-fixing organisms. Rice cultivation creates anaerobic environments that encourage high rates of BNF (biological nitrogen fixation) by cyanobacteria. 
+Additionally crops typically used in agriculture, such as legumes, often enhance nitrogen fixation in symbiosis with N~2~-fixing bacteria, such as _Rhizobia_. Practices in rice cultivation also lead to anaerobic environments that encourage high rates of biological nitrogen fixation by freeliving cyanobacteria. 
  
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-nitrogen_anth
@@ -186,10 +195,10 @@ knitr::include_graphics("images/nitrogen_cycle_ant_change.jpeg")
 
 The increased availability of reactive nitrogen in the terrestrial ecosystem has, in turn, important environmental consequences, as well as potential feedbacks on the climate @erisman2013:
 
-- Due to increasing sources of nitrogen to terrestrial ecosystems and especially over-fertilization in agriculture, leaching (@fig-nitrogencycle (8)) of higher amounts of nitrogen is transferred to rivers, lakes, coastal systems, potentially causing eutrophication downstream. This is known to affect biological life in these downstream systems, with potentially important consequences for ecosystems, greenhouse gas exchange, as well as regional economies.
+- Due to increasing sources of nitrogen to terrestrial ecosystems and especially over-fertilization in agriculture, the leaching (@fig-nitrogencycle (8)) of large amounts of nitrogen is transferred to rivers, lakes, coastal systems, potentially causing eutrophication downstream. This is known to affect biological source of N in these downstream systems, with potentially important consequences for ecosystems, greenhouse gas exchange, as well as regional economies.
 
 - Increasing nitrogen sources to terrestrial ecosystems could limit reduced CO~2~ uptake in the case of nitrogen limitation. Thus, the nitrogen limitation effect under CO~2~ fertilization described above could be reduced, allowing for more CO~2~ as a consequence of CO~2~ fertilization.
 
-- Increasing N availability in soils due to enhanced inputs to the system, in combination with higher temperatures, has been shown to increase emissions of the strong greenhouse gas N~2~O from terrestrial systems [@tian2024]. 
+- Increasing N availability in soils due to enhanced inputs to the system, in combination with higher temperatures, has been shown to increase emissions of the strong greenhouse gas N~2~O from terrestrial systems [@tian2024]. See @sec-ghg for more information on terrestrial N~2~O emissions.
 
 
