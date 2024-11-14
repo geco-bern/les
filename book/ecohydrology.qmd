@@ -487,7 +487,7 @@ Another common expression of soil moisture is in *percent saturation* ($100\% \c
 :::
 
 
-### Rooting-zone water-storage capacity
+### Rooting-zone water-storage capacity {#sec-rzwsc}
 
 All metrics and relationships described above are expressed with a unit soil *volume* as a reference. For example, the WHC is the amount of water, a given volume of soil can hold. The total amount of water that vegetation has access to - the *rooting-zone water-storage capacity* $S_0$ - is determined not only by the soil texture across the rooting zone, but also to rooting depth $z_r$. It can be conceived as the integral of the WHC across the rooting profile. Assuming a constant WHC across the rooting depth, this is simply
 $$
