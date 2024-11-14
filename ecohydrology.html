@@ -336,7 +336,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#sec-soilwater" id="toc-sec-soilwater" class="nav-link" data-scroll-target="#sec-soilwater"><span class="header-section-number">8.3</span> Soil water</a>
   <ul class="collapse">
-  <li><a href="#rooting-zone-water-storage-capacity" id="toc-rooting-zone-water-storage-capacity" class="nav-link" data-scroll-target="#rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</a></li>
+  <li><a href="#sec-rzwsc" id="toc-sec-rzwsc" class="nav-link" data-scroll-target="#sec-rzwsc"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</a></li>
   </ul></li>
   <li><a href="#sec-hydraulics" id="toc-sec-hydraulics" class="nav-link" data-scroll-target="#sec-hydraulics"><span class="header-section-number">8.4</span> Plant hydraulics</a></li>
   <li><a href="#sec-waterbucket-relations" id="toc-sec-waterbucket-relations" class="nav-link" data-scroll-target="#sec-waterbucket-relations"><span class="header-section-number">8.5</span> Water bucket model and ecohydrological relations</a></li>
@@ -856,8 +856,8 @@ Exercise
 </ol>
 </div>
 </div>
-<section id="rooting-zone-water-storage-capacity" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="rooting-zone-water-storage-capacity"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</h3>
+<section id="sec-rzwsc" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="sec-rzwsc"><span class="header-section-number">8.3.1</span> Rooting-zone water-storage capacity</h3>
 <p>All metrics and relationships described above are expressed with a unit soil <em>volume</em> as a reference. For example, the WHC is the amount of water, a given volume of soil can hold. The total amount of water that vegetation has access to - the <em>rooting-zone water-storage capacity</em> <span class="math inline">\(S_0\)</span> - is determined not only by the soil texture across the rooting zone, but also to rooting depth <span class="math inline">\(z_r\)</span>. It can be conceived as the integral of the WHC across the rooting profile. Assuming a constant WHC across the rooting depth, this is simply <span id="eq-s0"><span class="math display">\[
 S_0 = z_r \cdot \text{WHC}\;.
 \tag{8.5}\]</span></span> The rooting depth <span class="math inline">\(z_r\)</span> is measured in units of length (for example in m), while the WHC is a volume fraction (for example m<sup>3</sup> m<sup>-3</sup>). Hence, <span class="math inline">\(S_0\)</span> is in units of length. While the WHC varies relatively little across soil texture classes and across different locations globally, rooting depth <span class="math inline">\(z_r\)</span> varies strongly between species, and plant functional types (<a href="#fig-rootingdepth">Figure&nbsp;<span>8.8</span></a>). It tends to be smaller for grasses and forbs than for trees and shrubs.</p>
@@ -881,7 +881,7 @@ Exercise
 <div class="cell-output-display">
 <div id="fig-rootingdepth" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/rootingdepth.png" class="img-fluid figure-img"></p>
+<p><img src="images/rootingdepth.png" class="img-fluid figure-img" width="1500"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.8: Distribution of plant rooting depth (a) across different plant functional types, and (b, c) across different selected species. Note the distinct ranges of the x-axis in the three panels. Curves in (a) represent the density distribution of individual plant-level observations, represented as tick marks along the bottom of each curve. Boxplots in (b) and (c) cover the inter-quartile range with boxes and 1.5 times the inter-quartile range extended above and below the quartiles with the whiskers. Individual plant-level observations are shown by points. Data from <span class="citation" data-cites="tumber22newphyt">Tumber-Dávila et al. (<a href="references.html#ref-tumber22newphyt" role="doc-biblioref">2022</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -892,7 +892,7 @@ Exercise
 <div class="cell-output-display">
 <div id="fig-rootingdepth_maps" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/map_whc_s0.png" class="img-fluid figure-img"></p>
+<p><img src="images/map_whc_s0.png" class="img-fluid figure-img" width="1200"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.9: (a) Total water holding capacity of the top 1 m of soil. (b) Rooting-zone water-storage capacity estimated from the annual maximum cumulative water deficits. Data and methods from <span class="citation" data-cites="stocker23natgeo">Stocker et al. (<a href="references.html#ref-stocker23natgeo" role="doc-biblioref">2023</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -1017,7 +1017,7 @@ P(\psi) = 0.5^{(\psi/P_{50})^b} \;,
 <div class="cell-output-display">
 <div id="fig-drydownresponse" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/drydownresponse.png" class="img-fluid figure-img"></p>
+<p><img src="images/drydownresponse.png" class="img-fluid figure-img" width="851"></p>
 <figcaption class="figure-caption">Figure&nbsp;8.12: Response of (a) CO<sub>2</sub> assimilation and (b) stomatal conductance to a declining soil water potential for two contrasting species - the drought-adapted <em>Eucalyptus populnea</em> and <em>Eucalyptus pilularis</em>, which is adapted to more moist climates. The lines represent predictions of the model by <span class="citation" data-cites="joshi22natplants">Joshi et al. (<a href="references.html#ref-joshi22natplants" role="doc-biblioref">2022</a>)</span> where an optimal response of stomata in trading off CO<sub>2</sub> assimilation and the risks associated with negative leaf water potentials is assumed.</figcaption>
 </figure>
 </div>

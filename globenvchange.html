@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,7 +87,8 @@ ul.task-list li input[type="checkbox"] {
 
 <meta name="twitter:title" content="Land in the Earth System - 13&nbsp; Global environmental change">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/methods_phenology.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -269,7 +289,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#phenology-changes" id="toc-phenology-changes" class="nav-link active" data-scroll-target="#phenology-changes"><span class="header-section-number">13.1</span> Phenology changes</a>
+  <ul class="collapse">
+  <li><a href="#plant-phenology" id="toc-plant-phenology" class="nav-link" data-scroll-target="#plant-phenology"><span class="header-section-number">13.1.1</span> Plant phenology</a></li>
+  <li><a href="#methods-of-plant-phenology" id="toc-methods-of-plant-phenology" class="nav-link" data-scroll-target="#methods-of-plant-phenology"><span class="header-section-number">13.1.2</span> Methods of plant phenology</a></li>
+  <li><a href="#recent-trends-in-plant-phenology" id="toc-recent-trends-in-plant-phenology" class="nav-link" data-scroll-target="#recent-trends-in-plant-phenology"><span class="header-section-number">13.1.3</span> Recent trends in plant phenology</a></li>
+  <li><a href="#main-drivers-of-plant-phenology" id="toc-main-drivers-of-plant-phenology" class="nav-link" data-scroll-target="#main-drivers-of-plant-phenology"><span class="header-section-number">13.1.4</span> Main drivers of plant phenology</a></li>
+  <li><a href="#phenology-feedbacks-on-climate-change" id="toc-phenology-feedbacks-on-climate-change" class="nav-link" data-scroll-target="#phenology-feedbacks-on-climate-change"><span class="header-section-number">13.1.5</span> Phenology feedbacks on climate change</a></li>
+  <li><a href="#other-impacts-of-phenological-changes" id="toc-other-impacts-of-phenological-changes" class="nav-link" data-scroll-target="#other-impacts-of-phenological-changes"><span class="header-section-number">13.1.6</span> Other impacts of phenological changes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -291,16 +325,256 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon.</p>
 <!-- IPCC AR6 SPM: -->
 <!-- A.1.8: Changes in the land biosphere since 1970 are consistent with global warming: climate zones have shifted poleward in both hemispheres, and the growing season has on average lengthened by up to two days per decade since the 1950s in the Northern Hemisphere extratropics (high confidence). {2.3, TS.2.6} -->
 <!-- https://www.nature.com/articles/s41586-019-1541-4 -->
 <!-- Global biomass trends: https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021EF002560 -->
-<!-- Phenology trends: https://onlinelibrary.wiley.com/doi/10.1111/gcb.14619 -->
 <!-- peatland trends: Qiu -->
 <!-- Water cycle change: IPCC AR6 Ch 8 -->
+<section id="phenology-changes" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="phenology-changes"><span class="header-section-number">13.1</span> Phenology changes</h2>
+<p><em>Authored by Lucas Gsponer, Fabio Jakob and Rasheed Abdelsamed. Edited by Laura Marqués.</em></p>
+<p>In <a href="globalcarbonpatterns.html#sec-phenology"><span>Section&nbsp;6.2</span></a>, we provided a basis for phenology. In this section, we present some insights on recent changes observed in plant phenology, their main drivers, and the climatic feedbacks of vegetation phenology.</p>
+<section id="plant-phenology" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="plant-phenology"><span class="header-section-number">13.1.1</span> Plant phenology</h3>
+<p>Plant phenology is the study of the timing of periodic biological events in plants, such as leaf unfolding and leaf senescence. These events are commonly influenced by environmental factors like temperature, radiation, and water availability. A phenological event is described as a point in the annual life cycle of a plant, generally marking the start or endpoint of a phenophase, and can be recorded as a calendar date. The start of the season (SOS) or spring phenology refers to the time when plants first exhibit significant biological activity after a period of dormancy. This is often marked by the leaf-out or leaf unfolding. The end of the season (EOS) or autumn phenology denotes the point at which plants transition back to a state of dormancy or reduced biological activity. This period is typically marked by leaf senescence, defined as leaf coloring and shedding. SOS and EOS are commonly expressed as day-of-year (DOY) with values ranging from 1 (1 January) to 365 (366 in leap years; 31 December). Defining the precise start and end of the season can vary depending on the specific plant species and local environmental conditions.</p>
+</section>
+<section id="methods-of-plant-phenology" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="methods-of-plant-phenology"><span class="header-section-number">13.1.2</span> Methods of plant phenology</h3>
+<p>Phenology observations are measured at different scales through various methods (<a href="#fig-methods-phenology">Figure&nbsp;<span>13.1</span></a>), ranging from ground-based to remote sensing technologies.</p>
+<p><em>Ground-based observations</em> involve manually recording specific phenophases. Observers, including scientists and citizen scientists, track these changes on the ground, which provides detailed local data. These observations can be unevenly distributed across regions and may lack consistency due to varying methods among observers. Efforts have been made to compile large-scale and uniform observations. The PEP725 (Pan European Phenology Project) is a collaborative database that collects and shares phenological data across Europe <span class="citation" data-cites="templ2018pan">(<a href="references.html#ref-templ2018pan" role="doc-biblioref">Templ et al. 2018</a>)</span> and is especially helpful in investigating trends, comparing seasonal shifts, and analyzing regional responses of species to environmental changes. The phenological events can be described using the European-based BBCH coding system (Bilogische Bundesanstalt, Bundessortenamt und Chemische Industrie) which provides a standardized scale for identifying plant stages <span class="citation" data-cites="meier2009bbch">(<a href="references.html#ref-meier2009bbch" role="doc-biblioref">Meier et al. 2009</a>)</span>.</p>
+<p><em>Remotely sensed solar-induced chlorophyll fluorescence (SIF)</em> measures light re-emitted by chlorophyll during photosynthesis thus representing photosynthetic activity and more accurately capturing seasonal GPP dynamics, particularly in evergreen forests <span class="citation" data-cites="smith2018gsl">(<a href="references.html#ref-smith2018gsl" role="doc-biblioref">Smith et al. 2018</a>)</span>. However, the temporal and spatial resolution of SIF data is still very coarse <span class="citation" data-cites="sun2017science">(<a href="references.html#ref-sun2017science" role="doc-biblioref">Sun et al. 2017</a>)</span>.</p>
+<p><em>PhenoCams</em> are time-lapse cameras that allow monitoring of seasonal vegetation changes and offer high-frequency data at the community level <span class="citation" data-cites="richardson2018sd">(<a href="references.html#ref-richardson2018sd" role="doc-biblioref">Richardson et al. 2018</a>)</span>. These camera-based phenology networks are currently located in many carbon flux sites to be linked with measures of ecosystem structure and functions <span class="citation" data-cites="tang2016ecosphere">(<a href="references.html#ref-tang2016ecosphere" role="doc-biblioref">Tang et al. 2016</a>)</span>.</p>
+<p><em>Unmanned aerial vehicles (UAVs)</em> are equipped with multispectral or hyperspectral cameras, providing high-resolution imagery of vegetation from tree to landscape level. This enables a direct link between field-based and remote-sensing observations <span class="citation" data-cites="klosterman2018afm">(<a href="references.html#ref-klosterman2018afm" role="doc-biblioref">Klosterman et al. 2018</a>)</span>.</p>
+<p>In recent decades, <em>remote sensing techniques</em> have significantly enhanced traditional observations of plant phenology. Satellite remote sensing data, particularly from indices like the Normalized Difference Vegetation Index (NDVI) and the Enhanced Vegetation Index (EVI), are used to detect the timing of key phenological events based on vegetation greenness across landscapes <span class="citation" data-cites="liu2018gcc">(<a href="references.html#ref-liu2018gcc" role="doc-biblioref">Liu, Fu, et al. 2018</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-methods-phenology" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/methods_phenology.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.1: Multi-scale methods on plant phenology. Adapted from <span class="citation" data-cites="piao2019gcb">Piao et al. (<a href="references.html#ref-piao2019gcb" role="doc-biblioref">2019</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="recent-trends-in-plant-phenology" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="recent-trends-in-plant-phenology"><span class="header-section-number">13.1.3</span> Recent trends in plant phenology</h3>
+<section id="evidence-from-ground-based-observations" class="level4" data-number="13.1.3.1">
+<h4 data-number="13.1.3.1" class="anchored" data-anchor-id="evidence-from-ground-based-observations"><span class="header-section-number">13.1.3.1</span> Evidence from ground-based observations</h4>
+<p>Over the past few decades, spring phenology has consistently advanced across the Northern Hemisphere. In Europe, spring leaf-out significantly advanced during the period 1982–2011 at an average rate of -0.47 days yr<sup>-1</sup> for deciduous trees <span class="citation" data-cites="fu2014geb">(<a href="references.html#ref-fu2014geb" role="doc-biblioref">Fu et al. 2014</a>)</span> (<a href="#fig-pheno-trends-ground">Figure&nbsp;<span>13.2</span></a>), based on data from the PEP725 network <span class="citation" data-cites="templ2018pan">(<a href="references.html#ref-templ2018pan" role="doc-biblioref">Templ et al. 2018</a>)</span>. Similarly, in China, the mean advance of spring leaf unfolding was -0.42 days yr<sup>-1</sup> for the same period <span class="citation" data-cites="ge2015gcb">(<a href="references.html#ref-ge2015gcb" role="doc-biblioref">Ge et al. 2015</a>)</span> (<a href="#fig-pheno-trends-ground">Figure&nbsp;<span>13.2</span></a>). In North America, the trend was slower, with the SOS advancing by -0.09 days yr<sup>-1</sup> for the period 1982-2011 (<a href="#fig-pheno-trends-ground">Figure&nbsp;<span>13.2</span></a>), based on stations of the USA National Phenology Network (US-NPN data).</p>
+<p>In contrast, autumn leaf senescence has shown a weaker and less consistent trend <span class="citation" data-cites="piao2019gcb">(<a href="references.html#ref-piao2019gcb" role="doc-biblioref">Piao et al. 2019</a>)</span>, and fewer studies have investigated in situ EOS trends <span class="citation" data-cites="gallinat2015tee">(<a href="references.html#ref-gallinat2015tee" role="doc-biblioref">Gallinat, Primack, and Wagner 2015</a>)</span>. In Europe, autumnal events have been delayed by only 0.01 days yr<sup>-1</sup> between 1982 and 2011 <span class="citation" data-cites="fu2014geb">(<a href="references.html#ref-fu2014geb" role="doc-biblioref">Fu et al. 2014</a>)</span> (<a href="#fig-pheno-trends-ground">Figure&nbsp;<span>13.2</span></a>), using records from the PEP725 network <span class="citation" data-cites="templ2018pan">(<a href="references.html#ref-templ2018pan" role="doc-biblioref">Templ et al. 2018</a>)</span>. In China, the EOS was delayed more substantially, by 0.26 days yr<sup>-1</sup> for this period <span class="citation" data-cites="ge2015gcb">(<a href="references.html#ref-ge2015gcb" role="doc-biblioref">Ge et al. 2015</a>)</span> (<a href="#fig-pheno-trends-ground">Figure&nbsp;<span>13.2</span></a>). Although there was not enough data for leaf senescence in the US-NPN, other studies showed leaf coloring in the USA has also been delayed ranging from 0.24 to 0.36 days yr<sup>-1</sup> <span class="citation" data-cites="jeong2014geb">(<a href="references.html#ref-jeong2014geb" role="doc-biblioref">Jeong and Medvigy 2014</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pheno-trends-ground" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/pheno_trends_ground.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.2: Phenological trends in Europe, China and the US for spring leaf unfolding (a, c, e) and autumn leaf senescence (b, d) during the period 1982-2011 based on ground observations. <span class="citation" data-cites="piao2019gcb">Piao et al. (<a href="references.html#ref-piao2019gcb" role="doc-biblioref">2019</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="evidence-from-remote-sensing-data" class="level4" data-number="13.1.3.2">
+<h4 data-number="13.1.3.2" class="anchored" data-anchor-id="evidence-from-remote-sensing-data"><span class="header-section-number">13.1.3.2</span> Evidence from remote-sensing data</h4>
+<p>An early onset of the SOS has been observed also from satellite NDVI records from the Global Inventory Modeling and Mapping Studies (GIMMS) during 1982–2011 in approximately 75% of the Northern Hemisphere, while a delay was found in other regions, primarily in western North America (<a href="#fig-pheno-trends-satellite">Figure&nbsp;<span>13.3</span></a>). Some recent satellite‐based studies suggest that the trend of advancing SOS has decelerated since 2000 <span class="citation" data-cites="park2018rse">(<a href="references.html#ref-park2018rse" role="doc-biblioref">Park et al. 2018</a>)</span>. Altogether, the advancement of the SOS has an average rate of 0.21 days yr<sup>-1</sup> <span class="citation" data-cites="piao2019gcb">(<a href="references.html#ref-piao2019gcb" role="doc-biblioref">Piao et al. 2019</a>)</span>.</p>
+<p>A delay in the EOS was reported over the past decades, with an overall trend of 0.18 days yr<sup>-1</sup> <span class="citation" data-cites="liu2016gcb">(<a href="references.html#ref-liu2016gcb" role="doc-biblioref">Liu et al. 2016</a>)</span>. Spatially, EOS trends were less homogeneous than SOS trends, with ~65% of the Northern Hemisphere showing a delay in EOS while an advance was found in ~35% of the territory, mainly in Siberia and arid/semi‐arid regions (<a href="#fig-pheno-trends-satellite">Figure&nbsp;<span>13.3</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pheno-trends-satellite" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/pheno_trends_satellite.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.3: Phenological trends in the Northern Hemisphere for SOS (a) and EOS (b) during the period 1982-2011 based on remote-sensing observations. <span class="citation" data-cites="piao2019gcb">Piao et al. (<a href="references.html#ref-piao2019gcb" role="doc-biblioref">2019</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Both ground-based observations and satellite‐based studies are consistent and generally show an advance in spring phenology and a delay in autumn leaf senescence over the past decades. However, these changes in SOS and especially on EOS are not consistent across the globe <span class="citation" data-cites="piao2019gcb">(<a href="references.html#ref-piao2019gcb" role="doc-biblioref">Piao et al. 2019</a>)</span> and differ by regions, periods considered, and plant species (<a href="#fig-sos-species">Figure&nbsp;<span>13.4</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-sos-species" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/sos_species.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.4: Species-specific leaf unfolding changes for 1960-2016 from the PEP725 database. Adapted from <span class="citation" data-cites="renner2018rew">Renner and Zohner (<a href="references.html#ref-renner2018rew" role="doc-biblioref">2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="main-drivers-of-plant-phenology" class="level3" data-number="13.1.4">
+<h3 data-number="13.1.4" class="anchored" data-anchor-id="main-drivers-of-plant-phenology"><span class="header-section-number">13.1.4</span> Main drivers of plant phenology</h3>
+<p>The timing of plant phenology events is determined by various biological and environmental drivers. As we discussed in <a href="globalcarbonpatterns.html#sec-phenology"><span>Section&nbsp;6.2</span></a>, the way how these factors influence plant phenology varies between phenophases.</p>
+<p>Spring temperatures, photoperiod and winter chilling are the most important factors controlling plant phenology in temperate and boreal forests <span class="citation" data-cites="flynn2018np">(<a href="references.html#ref-flynn2018np" role="doc-biblioref">Flynn and Wolkovich 2018</a>)</span>. Experimental studies have shown that warmer temperatures, longer photoperiods, and additional chilling all caused large advances in spring leaf-out (<a href="#fig-drivers-pheno">Figure&nbsp;<span>13.5</span></a>). In addition, the interaction between drivers also affects the timing of the phenophases. For example, insufficient winter chilling may be compensated by warmer temperatures. Yet, phenological responses to climatic factors appear to be species-specific <span class="citation" data-cites="korner2010science">(<a href="references.html#ref-korner2010science" role="doc-biblioref">Körner and Basler 2010</a>)</span> and vary across latitudes <span class="citation" data-cites="alecrim2023jeco">(<a href="references.html#ref-alecrim2023jeco" role="doc-biblioref">Alecrim, Sargent, and Forrest 2023</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-drivers-pheno" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/drivers_pheno.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.5: Effects of multiple environmental drivers and their interaction on spring leaf-out from a experimental study across 28 species. Adapted from <span class="citation" data-cites="flynn2018np">Flynn and Wolkovich (<a href="references.html#ref-flynn2018np" role="doc-biblioref">2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Leaf senescence is also positively correlated with temperature. In the Northern Hemisphere, remote-sensing data has shown a positive correlation between EOS and temperature in more than 70% of the territory (<a href="#fig-drivers-temp-prec">Figure&nbsp;<span>13.6</span></a>). Plant phenology can also be influenced by water and nutrient availability, particularly in regions where these resources are limited. Partial correlations between precipitation and EOS were negative at high latitudes, but positive in dry regions, suggesting that higher water availability might delay autumn senescence (<a href="#fig-drivers-temp-prec">Figure&nbsp;<span>13.6</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-drivers-temp-prec" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/drivers_temp_prec.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.6: Correlation of EOS with (a) temperature and (b) precipitation from remote-sensing data. Partial correlation was calculated after controlling for other climatic factors. Adapted from <span class="citation" data-cites="liu2016gcb">Liu et al. (<a href="references.html#ref-liu2016gcb" role="doc-biblioref">2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In addition to the environmental factors, the timing of the autumn senescence is also affected by the timing of spring phenology <a href="#fig-drivers-sos">Figure&nbsp;<span>13.7</span></a>. An earlier SOS in spring appears to induce an earlier EOS in autumn. The mechanism behind this pattern may be related to leaf longevity and cell aging <span class="citation" data-cites="lim2007rev">(<a href="references.html#ref-lim2007rev" role="doc-biblioref">Lim, Kim, and Gil Nam 2007</a>)</span> but may also be associated with an increase in soil water loss earlier in the growing season inducing a premature defoliation due to drier soil conditions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-drivers-sos" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/drivers_sos.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.7: Relationship between SOS and EOS from (a) ground-based observations and (b) satellite data. Partial correlation was calculated after controlling for climatic factors. Adapted from <span class="citation" data-cites="keenan2015gcb">Keenan and Richardson (<a href="references.html#ref-keenan2015gcb" role="doc-biblioref">2015</a>)</span> and <span class="citation" data-cites="liu2016gcb">Liu et al. (<a href="references.html#ref-liu2016gcb" role="doc-biblioref">2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="phenology-feedbacks-on-climate-change" class="level3" data-number="13.1.5">
+<h3 data-number="13.1.5" class="anchored" data-anchor-id="phenology-feedbacks-on-climate-change"><span class="header-section-number">13.1.5</span> Phenology feedbacks on climate change</h3>
+</section>
+<section id="other-impacts-of-phenological-changes" class="level3" data-number="13.1.6">
+<h3 data-number="13.1.6" class="anchored" data-anchor-id="other-impacts-of-phenological-changes"><span class="header-section-number">13.1.6</span> Other impacts of phenological changes</h3>
+<section id="increased-frost-events-during-the-growing-season" class="level4" data-number="13.1.6.1">
+<h4 data-number="13.1.6.1" class="anchored" data-anchor-id="increased-frost-events-during-the-growing-season"><span class="header-section-number">13.1.6.1</span> Increased frost events during the growing season</h4>
+<p>Climate warming is driving an advance of leaf unfolding in trees, promoting longer growing seasons. However, the advance of the SOS can also increase the risk of frost events <span class="citation" data-cites="augspurger2013ecology">(<a href="references.html#ref-augspurger2013ecology" role="doc-biblioref">Augspurger 2013</a>)</span>. These frost events after the SOS can affect the structure and function of terrestrial ecosystems and have important environmental and economic consequences <span class="citation" data-cites="hufkens2012gcb">(<a href="references.html#ref-hufkens2012gcb" role="doc-biblioref">Hufkens et al. 2012</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pheno-frost" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/pheno_frost.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.8: Changes in average frost days during the growing season (SOS-EOS) for (a) the entire period 1980s-2000s, and for the subperiods (b) 1980s-1990s and (c) 1990s-2000s. Adapted from <span class="citation" data-cites="liu2018natcomm">Liu, Piao, et al. (<a href="references.html#ref-liu2018natcomm" role="doc-biblioref">2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Still, no agreement exists on whether frost risks increase or decrease under global warming <span class="citation" data-cites="vitasse2014front">(<a href="references.html#ref-vitasse2014front" role="doc-biblioref">Vitasse, Lenz, and Körner 2014</a>)</span>. An empirical study in Swiss forests found sufficient time between the last spring frost and leaf unfolding <span class="citation" data-cites="bigler2018sci">(<a href="references.html#ref-bigler2018sci" role="doc-biblioref">Bigler and Bugmann 2018</a>)</span>. These safety margins (calculated as the difference between DOY~leaf unfolding~ and DOY~last frost~) varied between species and across elevations. Further, they showed generally negative trends, i.e., decreasing safety margins and increasing frost risk over the last decades.</p>
+</section>
+<section id="plantpollinator-phenological-mismatches" class="level4" data-number="13.1.6.2">
+<h4 data-number="13.1.6.2" class="anchored" data-anchor-id="plantpollinator-phenological-mismatches"><span class="header-section-number">13.1.6.2</span> Plant–pollinator phenological mismatches</h4>
+<p>Changes in the phenological synchrony of plant-animal interactions have the potential to significantly impact the structure and dynamics of plant communities <span class="citation" data-cites="kharouba2018pnas">(<a href="references.html#ref-kharouba2018pnas" role="doc-biblioref">Kharouba et al. 2018</a>)</span>. Plant–pollinator systems are expected to be particularly vulnerable to phenological mismatches due to their mutualistic interactions <span class="citation" data-cites="benadi2014jae">(<a href="references.html#ref-benadi2014jae" role="doc-biblioref">Benadi et al. 2014</a>)</span>. However, there is little evidence for mismatches involving plants and pollinators <span class="citation" data-cites="hegland2009ecolett">(<a href="references.html#ref-hegland2009ecolett" role="doc-biblioref">Hegland et al. 2009</a>)</span>. The onset of ﬂowering in plants and ﬁrst appearance dates of pollinators appear to advance at similar rates in response to warmer temperatures, maintaining their phenological synchrony <span class="citation" data-cites="bartomeus2011pnas bartomeus2013ecolett">(<a href="references.html#ref-bartomeus2011pnas" role="doc-biblioref">Bartomeus et al. 2011</a>, <a href="references.html#ref-bartomeus2013ecolett" role="doc-biblioref">2013</a>)</span>. A recent empirical study on plant-pollinator interactions in Germany and the UK showed higher phenological shifts in plants compared to insect groups (<a href="#fig-pheno-pollinators">Figure&nbsp;<span>13.9</span></a>). These shifts resulted in an increase in plant-pollinator synchrony with some insect groups during the last decades (<a href="#fig-pheno-pollinators">Figure&nbsp;<span>13.9</span></a>) <span class="citation" data-cites="freimuth2022prs">(<a href="references.html#ref-freimuth2022prs" role="doc-biblioref">Freimuth et al. 2022</a>)</span>. In fact, Most of the empirical studies have not detected phenological mismatches pointing out the high synchronization mechanisms between different pollinators and their floral hosts <span class="citation" data-cites="renner2018rew">(<a href="references.html#ref-renner2018rew" role="doc-biblioref">Renner and Zohner 2018</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pheno-pollinators" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/pheno_pollinators.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;13.9: Phenological shifts of plants and insect pollinators from an empirical study during 1980-2020. (a) Temporal trends of plants and pollinator groups. (b) Shifts in asynchrony of plant–pollinator interactions over time. Asynchrony is the difference in the estimated yearly mean DOY of activity between the plant and the pollinator species. Adapted from <span class="citation" data-cites="freimuth2022prs">Freimuth et al. (<a href="references.html#ref-freimuth2022prs" role="doc-biblioref">2022</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-alecrim2023jeco" class="csl-entry" role="listitem">
+Alecrim, Evelyn F, Risa D Sargent, and Jessica RK Forrest. 2023. <span>“Higher-Latitude Spring-Flowering Herbs Advance Their Phenology More Than Trees with Warming Temperatures.”</span> <em>Journal of Ecology</em> 111 (1): 156–69.
+</div>
+<div id="ref-augspurger2013ecology" class="csl-entry" role="listitem">
+Augspurger, Carol K. 2013. <span>“Reconstructing Patterns of Temperature, Phenology, and Frost Damage over 124 Years: Spring Damage Risk Is Increasing.”</span> <em>Ecology</em> 94 (1): 41–50.
+</div>
+<div id="ref-bartomeus2011pnas" class="csl-entry" role="listitem">
+Bartomeus, Ignasi, John S Ascher, David Wagner, Bryan N Danforth, Sheila Colla, Sarah Kornbluth, and Rachael Winfree. 2011. <span>“Climate-Associated Phenological Advances in Bee Pollinators and Bee-Pollinated Plants.”</span> <em>Proceedings of the National Academy of Sciences</em> 108 (51): 20645–49.
+</div>
+<div id="ref-bartomeus2013ecolett" class="csl-entry" role="listitem">
+Bartomeus, Ignasi, Mia G Park, Jason Gibbs, Bryan N Danforth, Alan N Lakso, and Rachael Winfree. 2013. <span>“Biodiversity Ensures Plant–Pollinator Phenological Synchrony Against Climate Change.”</span> <em>Ecology Letters</em> 16 (11): 1331–38.
+</div>
+<div id="ref-benadi2014jae" class="csl-entry" role="listitem">
+Benadi, Gita, Thomas Hovestadt, Hans-Joachim Poethke, and Nico Blüthgen. 2014. <span>“Specialization and Phenological Synchrony of Plant–Pollinator Interactions Along an Altitudinal Gradient.”</span> <em>Journal of Animal Ecology</em> 83 (3): 639–50.
+</div>
+<div id="ref-bigler2018sci" class="csl-entry" role="listitem">
+Bigler, C, and H Bugmann. 2018. <span>“Climate-Induced Shifts in Leaf Unfolding and Frost Risk of European Trees and Shrubs, Sci. Rep., 8, 9865.”</span>
+</div>
+<div id="ref-flynn2018np" class="csl-entry" role="listitem">
+Flynn, DFB, and EM Wolkovich. 2018. <span>“Temperature and Photoperiod Drive Spring Phenology Across All Species in a Temperate Forest Community.”</span> <em>New Phytologist</em> 219 (4): 1353–62.
+</div>
+<div id="ref-freimuth2022prs" class="csl-entry" role="listitem">
+Freimuth, Jonas, Oliver Bossdorf, JF Scheepens, and Franziska M Willems. 2022. <span>“Climate Warming Changes Synchrony of Plants and Pollinators.”</span> <em>Proceedings of the Royal Society B</em> 289 (1971): 20212142.
+</div>
+<div id="ref-fu2014geb" class="csl-entry" role="listitem">
+Fu, Yongshuo H, Shilong Piao, Maarten Op de Beeck, Nan Cong, Hongfang Zhao, Yuan Zhang, Annette Menzel, and Ivan A Janssens. 2014. <span>“Recent Spring Phenology Shifts in Western c Entral e Urope Based on Multiscale Observations.”</span> <em>Global Ecology and Biogeography</em> 23 (11): 1255–63.
+</div>
+<div id="ref-gallinat2015tee" class="csl-entry" role="listitem">
+Gallinat, Amanda S, Richard B Primack, and David L Wagner. 2015. <span>“Autumn, the Neglected Season in Climate Change Research.”</span> <em>Trends in Ecology &amp; Evolution</em> 30 (3): 169–76.
+</div>
+<div id="ref-ge2015gcb" class="csl-entry" role="listitem">
+Ge, Quansheng, Huanjiong Wang, This Rutishauser, and Junhu Dai. 2015. <span>“Phenological Response to Climate Change in China: A Meta-Analysis.”</span> <em>Global Change Biology</em> 21 (1): 265–74.
+</div>
+<div id="ref-hegland2009ecolett" class="csl-entry" role="listitem">
+Hegland, Stein Joar, Anders Nielsen, Amparo Lázaro, Anne-Line Bjerknes, and Ørjan Totland. 2009. <span>“How Does Climate Warming Affect Plant-Pollinator Interactions?”</span> <em>Ecology Letters</em> 12 (2): 184–95.
+</div>
+<div id="ref-hufkens2012gcb" class="csl-entry" role="listitem">
+Hufkens, Koen, Mark A Friedl, Trevor F Keenan, Oliver Sonnentag, Amey Bailey, John O’Keefe, and Andrew D Richardson. 2012. <span>“Ecological Impacts of a Widespread Frost Event Following Early Spring Leaf-Out.”</span> <em>Global Change Biology</em> 18 (7): 2365–77.
+</div>
+<div id="ref-jeong2014geb" class="csl-entry" role="listitem">
+Jeong, Su-Jong, and David Medvigy. 2014. <span>“Macroscale Prediction of Autumn Leaf Coloration Throughout the Continental u Nited s Tates.”</span> <em>Global Ecology and Biogeography</em> 23 (11): 1245–54.
+</div>
+<div id="ref-keenan2015gcb" class="csl-entry" role="listitem">
+Keenan, Trevor F, and Andrew D Richardson. 2015. <span>“The Timing of Autumn Senescence Is Affected by the Timing of Spring Phenology: Implications for Predictive Models.”</span> <em>Global Change Biology</em> 21 (7): 2634–41.
+</div>
+<div id="ref-kharouba2018pnas" class="csl-entry" role="listitem">
+Kharouba, Heather M, Johan Ehrlén, Andrew Gelman, Kjell Bolmgren, Jenica M Allen, Steve E Travers, and Elizabeth M Wolkovich. 2018. <span>“Global Shifts in the Phenological Synchrony of Species Interactions over Recent Decades.”</span> <em>Proceedings of the National Academy of Sciences</em> 115 (20): 5211–16.
+</div>
+<div id="ref-klosterman2018afm" class="csl-entry" role="listitem">
+Klosterman, Stephen, Eli Melaas, Jonathan A Wang, Arturo Martinez, Sidni Frederick, John O’Keefe, David A Orwig, et al. 2018. <span>“Fine-Scale Perspectives on Landscape Phenology from Unmanned Aerial Vehicle (UAV) Photography.”</span> <em>Agricultural and Forest Meteorology</em> 248: 397–407.
+</div>
+<div id="ref-korner2010science" class="csl-entry" role="listitem">
+Körner, Christian, and David Basler. 2010. <span>“Phenology Under Global Warming.”</span> <em>Science</em> 327 (5972): 1461–62.
+</div>
+<div id="ref-lim2007rev" class="csl-entry" role="listitem">
+Lim, Pyung Ok, Hyo Jung Kim, and Hong Gil Nam. 2007. <span>“Leaf Senescence.”</span> <em>Annu. Rev. Plant Biol.</em> 58 (1): 115–36.
+</div>
+<div id="ref-liu2018gcc" class="csl-entry" role="listitem">
+Liu, Qiang, Yongshuo H Fu, Yongwen Liu, Ivan A Janssens, and Shilong Piao. 2018. <span>“Simulating the Onset of Spring Vegetation Growth Across the Northern Hemisphere.”</span> <em>Global Change Biology</em> 24 (3): 1342–56.
+</div>
+<div id="ref-liu2016gcb" class="csl-entry" role="listitem">
+Liu, Qiang, Yongshuo H Fu, Zaichun Zhu, Yongwen Liu, Zhuo Liu, Mengtian Huang, Ivan A Janssens, and Shilong Piao. 2016. <span>“Delayed Autumn Phenology in the Northern Hemisphere Is Related to Change in Both Climate and Spring Phenology.”</span> <em>Global Change Biology</em> 22 (11): 3702–11.
+</div>
+<div id="ref-liu2018natcomm" class="csl-entry" role="listitem">
+Liu, Qiang, Shilong Piao, Ivan A Janssens, Yongshuo Fu, Shushi Peng, XU Lian, Philippe Ciais, Ranga B Myneni, Josep Peñuelas, and Tao Wang. 2018. <span>“Extension of the Growing Season Increases Vegetation Exposure to Frost.”</span> <em>Nature Communications</em> 9 (1): 426.
+</div>
+<div id="ref-meier2009bbch" class="csl-entry" role="listitem">
+Meier, Uwe, Hermann Bleiholder, Liselotte Buhr, Carmen Feller, Helmut Hack, Martin Heß, Peter D Lancashire, et al. 2009. <span>“The BBCH System to Coding the Phenological Growth Stages of Plants–History and Publications.”</span> <em>Journal f<span>ü</span>r Kulturpflanzen</em> 61 (2): 41–52.
+</div>
+<div id="ref-park2018rse" class="csl-entry" role="listitem">
+Park, Hoonyoung, Su-Jong Jeong, Chang-Hoi Ho, Chang-Eui Park, and Jinwon Kim. 2018. <span>“Slowdown of Spring Green-up Advancements in Boreal Forests.”</span> <em>Remote Sensing of Environment</em> 217: 191–202.
+</div>
+<div id="ref-piao2019gcb" class="csl-entry" role="listitem">
+Piao, Shilong, Qiang Liu, Anping Chen, Ivan A. Janssens, Yongshuo Fu, Junhu Dai, Lingli Liu, Xu Lian, Miaogen Shen, and Xiaolin Zhu. 2019. <span>“Plant Phenology and Global Climate Change: Current Progresses and Challenges.”</span> <em>Global Change Biology</em> 25 (6): 1922–40. https://doi.org/<a href="https://doi.org/10.1111/gcb.14619">https://doi.org/10.1111/gcb.14619</a>.
+</div>
+<div id="ref-renner2018rew" class="csl-entry" role="listitem">
+Renner, Susanne S, and Constantin M Zohner. 2018. <span>“Climate Change and Phenological Mismatch in Trophic Interactions Among Plants, Insects, and Vertebrates.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 49 (1): 165–82.
+</div>
+<div id="ref-richardson2018sd" class="csl-entry" role="listitem">
+Richardson, Andrew D, Koen Hufkens, Tom Milliman, Donald M Aubrecht, Min Chen, Josh M Gray, Miriam R Johnston, et al. 2018. <span>“Tracking Vegetation Phenology Across Diverse North American Biomes Using PhenoCam Imagery.”</span> <em>Scientific Data</em> 5 (1): 1–24.
+</div>
+<div id="ref-smith2018gsl" class="csl-entry" role="listitem">
+Smith, WK, JA Biederman, Russell L Scott, DJP Moore, M He, JS Kimball, D Yan, et al. 2018. <span>“Chlorophyll Fluorescence Better Captures Seasonal and Interannual Gross Primary Productivity Dynamics Across Dryland Ecosystems of Southwestern North America.”</span> <em>Geophysical Research Letters</em> 45 (2): 748–57.
+</div>
+<div id="ref-sun2017science" class="csl-entry" role="listitem">
+Sun, Ying, Christian Frankenberg, Jeffery D Wood, DS Schimel, Martin Jung, Luis Guanter, DT Drewry, et al. 2017. <span>“OCO-2 Advances Photosynthesis Observation from Space via Solar-Induced Chlorophyll Fluorescence.”</span> <em>Science</em> 358 (6360): eaam5747.
+</div>
+<div id="ref-tang2016ecosphere" class="csl-entry" role="listitem">
+Tang, Jianwu, Christian Körner, Hiroyuki Muraoka, Shilong Piao, Miaogen Shen, Stephen J Thackeray, and Xi Yang. 2016. <span>“Emerging Opportunities and Challenges in Phenology: A Review.”</span> <em>Ecosphere</em> 7 (8): e01436.
+</div>
+<div id="ref-templ2018pan" class="csl-entry" role="listitem">
+Templ, Barbara, Elisabeth Koch, Kjell Bolmgren, Markus Ungersböck, Anita Paul, Helfried Scheifinger, This Rutishauser, et al. 2018. <span>“Pan European Phenological Database (PEP725): A Single Point of Access for European Data.”</span> <em>International Journal of Biometeorology</em> 62: 1109–13.
+</div>
+<div id="ref-vitasse2014front" class="csl-entry" role="listitem">
+Vitasse, Yann, Armando Lenz, and Christian Körner. 2014. <span>“The Interaction Between Freezing Tolerance and Phenology in Temperate Deciduous Trees.”</span> <em>Frontiers in Plant Science</em> 5: 541.
+</div>
+</div>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
