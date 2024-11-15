@@ -493,6 +493,15 @@ plot_grid(gg1, gg2, ncol = 1)
 
 This illustrates that a forest is only a net C sink during its establishment. Once a new steady state is reached, biomass C no longer increases and NEP declines to zero. Forest plantations do not provide sustained CO~2~ removal. A mature forests tends towards becoming "C-neutral". 
 
+Observations-based forest biomass regrowth curves, and curves simulated by a Dynamic Global Vegetation Model (DGVM) for different biomes are shown in @fig-forest_regeneration_pugh19pnas.
+
+```{r echo=FALSE}
+#| label: fig-forest_regeneration_pugh19pnas
+#| fig-cap: "Comparison of biomass regrowth trajectories calculated with the LPJ-GUESS DGVM with observations for forests types dominated by different plant functional types (TrBE is tropical broadleaved evergreen, TeBD is temperate broadleaved deciduous, NE is needleleaved evergreen, ND is needleleaved deciduous, and MX is mixed forest). The red lines are median aboveground biomass (AGB) for 20 year age bins for locations within the area of that forest type. Error bars show the 10th and 90th percentiles of the data. The median of LPJ-GUESS results for simulations at the same locations is plotted as a black line with 10th and 90th percentiles in grey. Figure from @pugh19pnas."
+#| out-width: 100%
+knitr::include_graphics("images/forest_regeneration_pugh19pnas.png")
+```
+
 ::: 
 
 ::: {.callout-caution}

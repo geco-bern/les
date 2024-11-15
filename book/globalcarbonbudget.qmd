@@ -135,23 +135,23 @@ $$
 E_\mathrm{FF} + E_\mathrm{LUC} = G_\mathrm{atm} + S_\mathrm{ocean} + S_\mathrm{land}
 $$ {#eq-carbon_budget}
 
-This terminology is adopted from the [Global Carbon Budget](https://globalcarbonbudget.org/) [@friedlingstein23essd] and is expressed as global annual total fluxes. The separation of $E_\mathrm{LUC}$ and $S_\mathrm{land}$ is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in @sec-landusechange.
+This terminology is adopted from the [Global Carbon Budget](https://globalcarbonbudget.org/) [@friedlingstein24essd] and is expressed as global annual total fluxes. The separation of $E_\mathrm{LUC}$ and $S_\mathrm{land}$ is not straight-forward, but can be understood in a simplified fashion as spatially separated fluxes, whereby the land sink occurs only on areas that are not affected by land use change (LUC). In reality, LUC affects the land sink which complicates a separation of the two components. This is further resolved in @sec-landusechange.
 
-The values of the global carbon budget components are given in @fig-carbon-pools-fluxes-ipcc for an average across years 2010-2019, where $S_\mathrm{ocean}$ corresponds to the 'net ocean flux' and $S_\mathrm{land}$ corresponds to the 'net land flux' in @fig-carbon-pools-fluxes-ipcc. $E_\mathrm{LUC}$ corresponds to 'net land-use change'. The 'net' indicates that $E_\mathrm{LUC}$ is the net effect between CO~2~ emissions from deforestation and C uptake by re-growing forests and afforestation. Note that the annual atmospheric growth rate is not resolved in @fig-carbon-pools-fluxes-ipcc. The most recent update of the global carbon budget from @friedlingstein23essd is given in @tbl-gcb2023 as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.
+The values of the global carbon budget components are given in @fig-carbon-pools-fluxes-ipcc for an average across years 2010-2019, where $S_\mathrm{ocean}$ corresponds to the 'net ocean flux' and $S_\mathrm{land}$ corresponds to the 'net land flux' in @fig-carbon-pools-fluxes-ipcc. $E_\mathrm{LUC}$ corresponds to 'net land-use change'. The 'net' indicates that $E_\mathrm{LUC}$ is the net effect between CO~2~ emissions from deforestation and C uptake by re-growing forests and afforestation. Note that the annual atmospheric growth rate is not resolved in @fig-carbon-pools-fluxes-ipcc. The most recent update of the global carbon budget from @friedlingstein24essd is given in @tbl-gcb2024 as 10-year averages of annual fluxes for years 2013-2022 and cumulative fluxes for the industrial era - years 1750-2022.
 
 <!-- xxx update -->
 
-| Component          | Cumulative 1750-2022 | Annual 2013-2022 |
+| Component          | Cumulative 1750-2023 | Annual 2014-2023 |
 | ----               | ----                 | -----            |
-| $E_\mathrm{FF}$    | 480 $\pm$ 25         | 9.6 $\pm$ 0.5    |
-| $E_\mathrm{LUC}$   | 250 $\pm$ 75         | 1.3 $\pm$ 0.7    |
-| $G_\mathrm{atm}$   | 300 $\pm$ 5          | 5.2 $\pm$ 0.02   |
-| $S_\mathrm{ocean}$ | 190 $\pm$ 40         | 2.8 $\pm$ 0.4    |
-| $S_\mathrm{land}$  | 245 $\pm$ 60         | 3.3 $\pm$ 0.8    |
+| $E_\mathrm{FF}$    | 490 $\pm$ 25         | 9.7 $\pm$ 0.5    |
+| $E_\mathrm{LUC}$   | 255 $\pm$ 75         | 1.1 $\pm$ 0.7    |
+| $G_\mathrm{atm}$   | 305 $\pm$ 5          | 5.2 $\pm$ 0.02   |
+| $S_\mathrm{ocean}$ | 195 $\pm$ 40         | 2.9 $\pm$ 0.4    |
+| $S_\mathrm{land}$  | 245 $\pm$ 65         | 3.2 $\pm$ 0.9    |
 
-: Global carbon budget (in PgC and PgC yr^-1^) from the 2023 update by @friedlingstein23essd {#tbl-gcb2023}
+: Global carbon budget (in PgC and PgC yr^-1^) from the 2024 update by @friedlingstein24essd {#tbl-gcb2024}
 
-Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. $E_\mathrm{FF}$ estimates are based on energy statistics and cement production data. Values reported by @friedlingstein23essd include the cement carbonation sink. Without that sink, the value of $E_\mathrm{FF}$ for 2022 would be about 0.2 PgC yr^-1^ higher. $E_\mathrm{LUC}$ estimates are based on land-use and land-use change data from national statistics and forest carbon "bookkeeping models". These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO~2~ concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO~2~ uptake models and observation-based products. In @friedlingstein23essd, the land sink is estimated from dynamic global vegetation models.
+Estimates of each global carbon budget compenent are largely independent from each other and rely on different types of observations, data, and methods. $E_\mathrm{FF}$ estimates are based on energy statistics and cement production data. Values reported by @friedlingstein24essd include the cement carbonation sink. Without that sink, the value of $E_\mathrm{FF}$ for 2022 would be about 0.2 PgC yr^-1^ higher. $E_\mathrm{LUC}$ estimates are based on land-use and land-use change data from national statistics and forest carbon "bookkeeping models". These models use information about vegetation C stocks, forest C re-growth curves, and the fate of C after deforestation and harvesting (e.g., wood products lifetime). Atmospheric CO~2~ concentration, and hence the accumulation of C in the atmosphere, is measured directly and bears the least uncertainty among all carbon budget components. The ocean sink is estimated from global ocean CO~2~ uptake models and observation-based products. In @friedlingstein24essd, the land sink is estimated from dynamic global vegetation models.
 
 Advances in observations and modelling in recent years now enable the land and ocean sink to be estimated in a "bottom-up fashion" - using models of land and ocean C uptake. Since every component of the global carbon budget is thereby estimated independently, a *budget imbalance* term $B_\mathrm{IM}$ can be defined. A value of zero indicates that models of the land and ocean C uptake exactly match the (better known) emission terms minus the atmospheric growth rate.
 $$
@@ -178,7 +178,7 @@ In a mathematical sense, the constraint from atmospheric oxygen can be understoo
 knitr::include_graphics("images/land_c_balance_holocene_elsig09nat.png")
 ```
 
-We can adopt the perspective of C cycle science stated in earlier publications. @falkowski00sci wrote: "*Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO~2~ and O~2~ [...].*" In that sense, let's consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, @tbl-gcb2023). Visually contrasting emissions and their redistribution reveals an interesting pattern (@fig-carbon_budget). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.   
+We can adopt the perspective of C cycle science stated in earlier publications. @falkowski00sci wrote: "*Direct determination of changes in terrestrial carbon storage has proven extremely difficult. Rather, the contribution of terrestrial ecosystems to carbon storage is inferred from changes in the concentrations of atmospheric gases, especially CO~2~ and O~2~ [...].*" In that sense, let's consider the land sink to be the budget residual and assume that the ocean sink estimate is accurate (indeed, its uncertainty is only about half the uncertainty in bottom-up land sink estimates, @tbl-gcb2024). Visually contrasting emissions and their redistribution reveals an interesting pattern (@fig-carbon_budget). The substantial year-to-year (interannual) variations in the land sink are almost exclusively responsible for interannual variations in the atmospheric growth rate. Total emissions and the ocean sink exhibit little interannual variation. By definition, the sum of the atmospheric growth rate, land and ocean sink is equal to the sum of emissions from fossil fuels and land use change.   
 
 ::: {.callout-caution}
 ## Exercise
@@ -189,7 +189,7 @@ We can adopt the perspective of C cycle science stated in earlier publications. 
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| label: fig-carbon_budget
-#| fig-cap: "Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to @friedlingstein23essd, the land sink is defined here as the carbon budget residual. The budget imbalance term - the difference between *S*~land~ calculated as the budget residual vs. bottom-up using land C cycle models - is shown by the separate fine grey line."
+#| fig-cap: "Annual carbon emissions (positive) and their redistribution between the ocean, land, and atmosphere (negative). The black line in the positive domain represents total emissions and is mirrored by the black line in the negative domain which represents the total of the land sink, ocean sink, and atmospheric growth. Design and data are based on the Global Carbon Budget. In contrast to @friedlingstein24essd, the land sink is defined here as the carbon budget residual. The budget imbalance term - the difference between *S*~land~ calculated as the budget residual vs. bottom-up using land C cycle models - is shown by the separate fine grey line."
 #| out-width: 80%
 library(readr)
 library(here)
@@ -197,12 +197,12 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-# Data from Friedlingstein et al. 2023. Downloaded excel file 'Global 
-# Carbon Budget v2023' from
-# https://globalcarbonbudgetdata.org/latest-data.html
+# Data from Friedlingstein et al. 2024. Downloaded excel file 'Global 
+# Carbon Budget v2024 from
+# https://www.icos-cp.eu/science-and-impact/global-carbon-budget/2024
 # Saved tab Global Carbon Budget as a CSV file. 
 # Reading this CSV here.
-df <- read_csv(here("data/Global_Carbon_Budget_2023v1.1_tabHistoricalBudget.csv"))
+df <- read_csv(here("data/Global_Carbon_Budget_2024v1_tabHistoricalBudget.csv"))
 
 # (Re-) definitions
 df <- df |> 
@@ -309,7 +309,7 @@ df |>
     name = "", 
     breaks = "imbalance", 
     values = c("imbalance" = "grey40"),
-    labels = "Difference between residual \nsink minus simulated land sink"
+    labels = "Difference between land \nsink, defined as budget residual, \nminus simulated land sink"
     ) +
   theme_minimal() +
   theme(
