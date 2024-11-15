@@ -32,7 +32,7 @@ knitr::include_graphics("images/cropland_change_potapov.png")
 
 From 2000 to 2012, a total of 2.3 million km^2^ of forest was lost globally, while 0.8 million km^2^ of new forest was established, indicating a net loss of forest cover [@hansen13sci]. This trend has led to substantial associated CO~2~ emissions, especially from carbon-dense forests, as agricultural production, particularly for cereals and oil crops, has intensified [@friedlingstein24essd; @pongratz21].
 
-### CO~2~ emissions
+### CO~2~ emissions {#sec-luc_emissions}
 
 CO~2~ emissions from land use change have been substantial in recent decades, largely driven by deforestation and the conversion of forests and other natural ecosystems into agricultural land. These changes, particularly the clearing of carbon-dense tropical forests, have led to significant carbon losses. Estimates suggest that LUC has contributed approximately 10-25 % of global anthropogenic CO~2~ emissions [@friedlingstein24essd]. In recent decades, the gross emissions from LUC have remained relatively stable (@fig-luc_emissions), with recent estimates showing gross annual emissions around 3.8 ± 0.6 PgC yr^-1^ between 2011 and 2020 [@pongratz21]. The overall trend in LUC emissions, however, shows a slight decline compared to earlier decades, reflecting efforts in land management and forest regrowth in some regions [@friedlingstein24essd]. Despite these efforts, LUC emissions remain a substantial part of global CO~2~ emissions
 
@@ -45,21 +45,39 @@ knitr::include_graphics("images/luc_emissions_friedlingstein23essd.png")
 
 Deforestation remains the largest contributor, but other factors such as peatland degradation and land conversion to agriculture have also played important roles. While fossil fuel emissions have risen sharply, LUC continues to represent a major source of emissions, though its share has slightly declined in recent years [@friedlingstein24essd].
 
+By comparing estimates for current actual vegetation C stocks with C stocks under potential natural vegetation (@sec-luc_methods), total land use change-induced C loss has been estimated at 447 PgC [@erb18nat]. This can be understood as being equal to the cumulative sum of related emissions since the advent of agriculture (@sec-hololu). During the industrial period (1750-2023), cumulative emissions from land use change are estimated at 255 $\pm$ 75 PgC (@tbl-gcb2024), which corresponds to around 34% of total industrial-era anthropogenic CO~2~ emissions, including emissions from fossil fuels.
 
-## Land use change since the Neolithic Revolution
+## Land use change since the Neolithic Revolution {#sec-hololu}
 
-### Patterns in time and space
+### Patterns in time and space {#sec-hololu_patterns}
 
-The land use changes since the Neolithic Revolution, which began around 10,000 years ago, have been significant, driven by the transition from hunter-gatherer societies to agricultural practices. The spread of agriculture occurred independently in various regions, including the Fertile Crescent, East Asia, and the Americas, at different times, leading to diverse agricultural landscapes. A substantial part of the agricultural expansion occurred before the Industrial era, particularly during the Bronze Age and the subsequent centuries, as societies developed agricultural techniques that facilitated productivity and land conversion. For instance, regions like the Fertile Crescent experienced early agricultural development, while other areas, such as Sub-Saharan Africa and parts of the Americas, transitioned to agriculture later. 
+A sedentary lifestyle and the adoption of farming (the *neolithic revolution*) emerged independently in multiple centers on the different continents and spread to other regions over the course of the mid-to-late Holocene (@fig-neolithic). Although diverse crops and livestock were domesticated across the different regions, the demand for agricultural land for crop cultivation and livestock grazing came at the expense of natural vegetation, and, with the expansion of agriculture into naturally forested regions, increasingly drove deforestation. 
 
-Improvements in land productivity through innovations in agriculture enabled a decline in the land used per capita over time [@boserup65; @mazoyer06]. Hence, the pre-industrial extent of land use likely is disproportionately large, considering comparatively small human population numbers. However, the extent of pre-industrial vs. industrial-era land use change is subject to large uncertainties. In particular, the extent of pre-Columbian land conversion in the Americas is poorly known, but could have been substantial as indicated by emerging  archaeological and palaeobotanical evidence [@lewismaslin15nat].
+```{r echo=FALSE}
+#| label: fig-neolithic
+#| fig-cap: "The spread of agricultural crops. Domesticated crops originated during the early Holocene from 12,000 to 8200 years ago and in the middle Holocene from 8200 to 4200 years ago. Numbers along dispersion pathways represent ages in thousands of years. Figure and caption from @ruddiman16."
+#| out-width: 80%
+knitr::include_graphics("images/neolithic_ruddiman.png")
+```
 
+The extent of early agriculture and the timing of its expansion is subject to relatively large uncertainties. Reconstructions of cropland and pasture areas through time and space over the course of the pre-historical (and pre-industrial) Holocene are commonly based on reconstructions of regional population counts, assumptions regarding the per-capita land use, and constraints on the timing of the neolithic revolution from archaeological evidence [@harrison20gmd; @stocker17pnas]. Improvements in land productivity through innovations in agriculture enabled a decline in per-capita land use over time [@boserup65; @mazoyer06]. Hence, the pre-industrial extent of land use likely is disproportionately large, considering the comparatively small human population numbers. 
+
+```{r echo=FALSE}
+#| label: fig-luc_1ad_gaillard10cp
+#| fig-cap: "Global anthropogenic land use at AD 1 reconstructed following three different approaches: (a), @kaplan09qsr; (b), HYDE [History Database of the Global Environment] version 3.1 [@kleingoldewijk10holo]; and (c), @olofsson08. Note that the colour scale is relevant for maps (a) and (b). Map (c) has its own colour legend. Figure and caption from @gaillard10cp."
+#| out-width: 80%
+knitr::include_graphics("images/luc_1ad_gaillard10cp.png")
+```
+
+However, the extent of pre-industrial vs. industrial-era land use change is subject to large uncertainties, as indicated by contrasting recostructions (@fig-luc_1ad_gaillard10cp). In particular, the extent of pre-Columbian land conversion in the Americas is poorly known, but could have been substantial as indicated by some archaeological and palaeobotanical evidence [@lewismaslin15nat]. The fingerprint of human land cover change and deforestation is recorded, e.g., in lake sediments (@fig-pollen). The timing of charcoal counts and the switch from a dominance of tree pollen to cereal pollen can be interpreted as the consequence of local deforestation and increasing areas of crop cultivation [@gaillard10cp]. This information can be used as a constraint on reconstructions of croplands and pastures for the pre-industrial Holocene.
+
+Land use intensification and cropland productivity increases enabled a decline of per-capita land use. This was also accompanied by a tendency towards increasingly shorter cultivation-fallow cycles and the replacement of shifting cultivation with increasingly permanent croplands [@boserup65; @mazoyer06]. Shifting cultivation with long rotation cycles is still practiced today in some tropical forest regions and causes particularly large impacts on the landscape, forest structure, and C stocks [@arneth17natgeo]. 
 
 ### Impact on the carbon cycle
 
-TBC.
+The relatively large cumulative emissions from land use change (@sec-luc_emissions) and the disproportionate extent of pre-industrial vs. industrial-era agricultural expansion (@sec-hololu_patterns) implies a substantial impact on the C cycle and atmospheric CO~2~ of the pre-industrial Holocene. However, C isotope-based reconstructions of the terrestrial C balance (@fig-land_c_balance_past) indicate relatively small changes after the mid-Holocene - when agriculture spread across the continents. A detailed analysis of the timing multiple terrestrial C sources and sinks during the Holocene indicates that a planetary-scale impacts of human activities emerged only in the most recent centuries [@stocker17pnas]. It also indicates that C sequestration northern peatlands that established and expanded after the onset of the Holocene is of an equal magnitude as the early-Holocene net terrestrial C balance and that substantial terrestrial C sources existed after the mid-Holocene.
 
-## Biogeophysical effects
+## Biogeophysical effects {#sec-biogeophysical}
 
 Land use change affects the Earth system via two pathways. The net release of C contributes to CO~2~ accumulation in the atmosphere where it acts as a greenhouse gas and drives climate change (@sec-feedbacks). This is referred to as the *biogeochemical* effect of land use change. In contrast, *biogeophysical* effects arise through changes in the energy and water exchange between the (altered) land surface and the atmosphere. These also affect near surface temperatures. The net effect of land use change on climate warming thus has to consider both biogeochemical and biogeophysical effects.
 
@@ -79,7 +97,7 @@ Implications of reduced evapotranspiration on (local) climate are linked to the 
 @fig-luc_biogeophysical D shows that the albedo change due to deforestation varies depending on the region. In boreal regions and higher latitudes, deforestation leads to a significantly higher albedo. In tropical regions, the albedo remains largely constant despite the brightening of the surface due to the reduction in evapotranspiration and cloud formation.
 
 
-## Direct and indirect effects on the carbon cycle
+## Direct and indirect effects on the carbon cycle {#sec-luc-direct-indirect}
 
 Land use change influences the carbon storage capacity in multiple, direct and indirect ways. The following components of land use change effects on the C cycle can be distinguished.
 
@@ -94,48 +112,39 @@ Land use change influences the carbon storage capacity in multiple, direct and i
 knitr::include_graphics("images/eluc_components.png")
 ```
 
-## Quantification methods
+## Quantification methods {#sec-luc_methods}
 
 Three main methods for quantifying CO~2~ emissions from land use change can be distinguished.
 
 1. **Remote sensing-based models**: C stocks in aboveground biomass and land cover types can be estimated from remotely sensed information. Using additional information (for example about the delineation of protected areas), the potential natural vegetation (PNV) and its aboveground biomass stocks can be estimated across the globe [@erb18nat]. By comparing the PNV and actual aboveground biomass stocks, an estimate can be made for the cumulative loss of C from aboveground biomass, caused by anthropogenic land use and how it evolved until its present state. Additional assumptions about the relations of above to belowground biomass and soil C stocks enable an estimation of the cumulative land use change C emissions. This method does not generally enable the consideration of temporal dynamics in land use change and the emission rates per unit time. It also doesn't account for delayed emission and uptake which may arise in view of the relatively long turnover times of C in soil and wood products. The advantage of remote sensing-based models is that they consider observations-informed C stock estimates and provide a spatially-explicit picture of land use change emissions.
-2. **Bookkeeping models**: Using information about country and sub-country-level forest area changes and forest C density (C stock per unit area in different ecoystem types, including forest, croplands, and pastures), bookkeeping models simulate the dynamics of biomass and soil C loss upon deforestation and harvesting and upon recovery after agricultural land abandonment. These models do not resolve the spatial dimension, but do the accounting ("bookkeeping") on the basis of political units at which forest areal data is provided. Bookeeping models also do not commonly consider the effects of environmental change on the C balance of forest and agricultural ecosystems. However, they do account for the full dynamics and the fate of C in different pools, considering also the the lifetime of wood products.
-3. **Dynamic Global Vegetation Models** (DGVMs): These models simulate the exchange of carbon, water, and energy between the land surface and the atmosphere by representing the CO~2~ uptake by photosynthesis, the dynamics along the C cascade [@sec-ccascade], biogeophysical properties and processes. All processes are simulated dynamically over time and across a spatial grid that commonly spans the globe. DGVMs commonly represent multiple land portions within each gridcell, distinguishing natural vegetation, croplands, pastures, and built-up land. Land use change is implemented by dynamically altering the relative portions of these land use types. E.g., an expansion of the cropland portion at the expense of the natural vegetation portion would lead to a diversion of a corresponding fraction of the woody biomass C from the natural gridcell portion into litter pools and into wood product pools from where the C is subject to further decay and emission as CO~2~. Emissions attributed to land use change are then calculated as the difference of the net C balance (net biome productivity, NBP, see @sec-nbp) between a simulation with dynamically changing land use change and a simulation where the distribution of land use is held constant.
+
+```{r echo=FALSE}
+#| label: fig-luc_pnv_erb18nat
+#| fig-cap: "Potential biomass (a), actual biomass (c), and their difference due to land conversion (c) from @erb18nat. The potential biomass map is from their remote-sensing derived map (their Extended Data Figure 4e). The acutal biomass map is from their remote-sensing derived maximum (their Extended Data Figure 3f. The difference is from their Extended Data Figure 5a.)"
+#| out-width: 100%
+knitr::include_graphics("images/luc_pnv_erb18nat.png")
+```
+
+2. **Bookkeeping models**: Using information about country and sub-country-level forest area changes and forest C density (C stock per unit area in different ecoystem types, including forest, croplands, and pastures), bookkeeping models simulate the dynamics of biomass and soil C loss upon deforestation and harvesting and upon recovery after agricultural land abandonment. The basis for simulating these dynamics are empirical forest regrowth curves (@fig-forest_regeneration_pugh19pnas). Bookkeeping models do not resolve the spatial dimension, but do the accounting ("bookkeeping") on the basis of political units at which forest areal data is provided. Bookeeping models also do not commonly consider the effects of environmental change on the C balance of forest and agricultural ecosystems. However, they do account for the full dynamics and the fate of C in different pools, considering also the the lifetime of wood products.
+3. **Dynamic Global Vegetation Models** (DGVMs): These models simulate the exchange of carbon, water, and energy between the land surface and the atmosphere by representing the CO~2~ uptake by photosynthesis, the dynamics along the C cascade [@sec-ccascade], biogeophysical properties and processes. All processes are simulated dynamically over time and across a spatial grid that commonly spans the globe. DGVMs commonly represent multiple land portions within each gridcell, distinguishing natural vegetation, croplands, pastures, and built-up land. Land use change is implemented by dynamically altering the relative portions of these land use types. E.g., an expansion of the cropland portion at the expense of the natural vegetation portion would lead to a diversion of a corresponding fraction of the woody biomass C from the natural gridcell portion into litter pools and into wood product pools (@fig-luc_schematic_strassmann08) from where the C is subject to further decay and emission as CO~2~. Conversely, abandonment of agricultural land is simulated as an expansion of the non-agricultural gridcell portion, enabling natural vegetation regrowth. In response, models then dynamically simulate (if the gridcell's climate is suitable for tree establishment) forest regrowth and the accumulation of C in biomass stocks. Emissions attributed to land use change are then calculated as the difference of the net C balance (net biome productivity, NBP, see @sec-nbp) between a simulation with dynamically changing land use change and a simulation where the distribution of land use is held constant. Depending on whether model forcings (climate, CO~2~) are temporally varying or not, indirect land use change effects on the carbon cycle are included in DGVM-based estimates or not (see @sec-luc-direct-indirect).
+
+```{r echo=FALSE}
+#| label: fig-luc_schematic_strassmann08
+#| fig-cap: "Redistribution of carbon during the transformation of natural land to cropland and pasture. The horizontal axis indicates the split of a given cell into natural vegetation and agricultural land (built-up area is omitted for simplicity). The vertical axes indicate carbon density on natural or used land in different compartments. Thus, the carbon content per grid cell of each pool corresponds to the area of the individual boxes. The arrow on the horizontal axis indicates a reduction of natural and expansion of used land (conversion). The state before the conversion is shown by the bold lines. The state immediately after the conversion is shown by gray boxes. Carbon densities on used land change upon conversion as indicated by the vertical arrows on the right-hand side. Figure and caption text from @strassmann08tellus."
+#| out-width: 60%
+knitr::include_graphics("images/luc_schematic_strassmann08.png")
+```
 
 
-<!-- represent both natural and ecosystems and land use changes, incorporating climate variability, ecosystem productivity, and disturbances like deforestation. -->
+## The potential of forest regeneration and afforestation as climate mitigation
 
-<!-- Global CO~2~ emission can be estimated using different methods. The first is by remote sensing. This is done by multiplying satellite-based information on area changes of different land use-land cover changes with estimates of soil and vegetation carbon densities. An example would be to use satellite-based forest loss observations and estimates of aboveground carbon densities.   -->
+Forest regeneration and afforestation have a significant potential to sequester C over the coming decades at relatively low cost. The biophysical potential total carbon uptake is estimated to range between 72 PgC [@taylormarconi20] to 226 PgC [@mo23nat]. The large range of estimates is likely linked to differences in the consideration of soil C changes with varying tree cover and indicates a relatively large uncertainty in estimates. In addition, a holistic assessment of the potential of forest regeneration and afforestation as climate mitigation has to additionally consider biogeophysical effects (deforestation tends cool near surface air temperatures in some regions, @sec-biogeophysical), socio-economic constraints, and legal, political, and cultural aspects of human land use. The following points summarise these limitations:
 
-<!-- However, satellite data lack the ability to directly distinguish between natural and anthropogenic processes on large scales (globally), which is crucial for certain monitoring systems. Since land use and land cover changes occur simultaneously with natural processes, it is hard to attribute a certain shift in either of these 2. This holds for both climate change and CO~2~-related processes. Modeling is the only possible solution to separate the result into its causes. Additional data, such as the shape of the land use change, can be used to train the model (Pongratz et al, 2021).  -->
-
-<!-- LUC emissions can also be estimated from so-called dynamic global vegetation models (DGVMs).  Here's how DGVMs estimate LUC emissions (Pongratz et al, 2021):  -->
-
-<!-- -	Vegetation and Soil Carbon: DGVMs track carbon stored in vegetation and soils. When LUC occurs (e.g., deforestation, conversion to agriculture), they simulate the loss of carbon from these reservoirs as CO₂ emissions.  -->
-<!-- -	Disturbances and Regrowth: They include processes like forest clearing and regrowth. DGVMs model how vegetation regrows after land use change, sequestering CO₂, and how land management affects carbon storage.  -->
-<!-- -	Climate Interactions: These models also account for climate feedbacks on the carbon cycle, such as how temperature and precipitation influence carbon uptake and release from ecosystems.  -->
-<!-- -	Scenarios of LUC: DGVMs use historical and projected LUC scenarios (e.g., deforestation rates) to estimate emissions  -->
-
-<!-- A third method is to use bookkeeping models. Bookkeeping models estimate LUC emissions by calculating the carbon lost from ecosystems due to land use changes and tracking subsequent regrowth or degradation over time. These models differ from DGVMs in that they use empirical data and simplified assumptions, rather than simulating ecosystem dynamics in detail. Key steps include (Pongratz et al, 2021):  -->
-
-<!-- -	Carbon Stock Accounting: Bookkeeping models use estimates of carbon stocks in vegetation and soils before and after land use change (e.g., tropical forests cleared for agriculture) to calculate the CO₂ emitted.  -->
-<!-- -	Historical Land Use Data: They rely on historical land use data (such as forest clearing rates) to estimate how much land has been converted and how much carbon has been released as a result.  -->
-<!-- -	Regrowth and Degradation: Bookkeeping models track how much carbon is sequestered as forests or other ecosystems regrow after land use change, but often with simpler assumptions compared to DGVMs.  -->
-<!-- -	Emission Factors: These models use emission factors, which are the amount of CO₂ released per hectare of land cleared, based on empirical studies.  -->
-
-<!-- ## The potential of forest regeneration and afforestation as climate mitigation -->
-
-<!-- Forest regeneration and afforestation have significant potential to sequester carbon over the coming decades. Cumulative carbon uptake by 2050 is estimated to range between 30 to 200 petagrams of carbon (PgC), depending on various economic, technical, and biophysical factors. This estimate reflects the long-term capacity of forests to act as carbon sinks, rather than short-term annual fluxes.  -->
-<!-- The broad range is influenced by:  -->
-<!-- -	Land Availability: The amount of land that can be dedicated to afforestation or regeneration depends on competing land uses, such as agriculture, urbanization, and bioenergy production. Economic and political factors also play a role in determining how much land will be available for large-scale projects.  -->
-<!-- -	Forest Management Practices: Active management practices, such as selective logging or conservation policies, significantly impact the ability of forests to sequester carbon in the long term. Poor management could lead to lower-than-expected uptake, while optimal practices could enhance sequestration potential.  -->
-<!-- -	Biophysical and Ecological Constraints: Climate and soil conditions affect tree growth rates and carbon storage potential. In some regions, degradation, poor soils, or water scarcity could limit regeneration success and long-term carbon uptake. Furthermore, the non-linear nature of carbon sequestration—with uptake slowing as forests mature—needs to be accounted for.  -->
-<!-- Limitations and Concerns: Several concerns and limitations influence the long-term potential of forest regeneration:  -->
-<!-- -	Saturation of Carbon Uptake: It is still debated whether forests will saturate in their ability to sequester carbon. While younger, regenerating forests initially sequester more carbon, uptake slows down as forests mature. However, some studies indicate that even old-growth forests can continue to sequester carbon, challenging the traditional view of saturation.  -->
-<!-- -	Uncertainty of CO₂ Fertilization Effect: Higher atmospheric CO₂ concentrations may enhance plant growth and carbon sequestration in the short term, but this effect is uncertain and could be constrained by nutrient availability, water stress, or climate change impacts (e.g., increased drought or wildfires).  -->
-<!-- -	Permanence and Risk of Disturbance: The potential carbon gains from regeneration and afforestation are at risk from natural and human-induced disturbances such as wildfires, insect outbreaks, deforestation, and land conversion. These events could release significant amounts of stored carbon back into the atmosphere, undermining long-term sequestration goals.  -->
-<!-- -	Delayed Benefits: Forests take decades to centuries to reach their full sequestration potential. In the near term, forest carbon uptake may be insufficient to offset emissions from other sectors, requiring immediate emissions reductions alongside afforestation efforts.  -->
-
+-	Land use conflict: The amount of land that can be dedicated to afforestation or regeneration is subject to competing land uses, including wood harvesting and other uses of forest products. Furthermore, global estimates [@mo23nat] assume complete availability of extensively used lands for forest plantations (e.g., low-productivity grasslands currently used for ranging). The use of land for biomass C stock maximisation also creates a use conflict with land for bioenergy production.
+-	Water use conflict: Climate and soil conditions affect tree growth rates and carbon storage potential. Enhanced evapotranspiration on afforested land may lead to streamflow reductions and reduced water availability for human use, creating a water use conflict [@peng24natwater].
+-	Permanence and risk of disturbance: The potential carbon gains from regeneration and afforestation are at risk from natural disturbances such as wildfires, insect outbreaks, [@anderegg20sci]. Limited permanency of C (the turnover time of C in forest biomass is on the order of decades to centuries) indicates that forest regeneration and afforestation should not be used to compensate C released from fossil fuels where C had stored in organic matter for millions of years.
+-	Forest management and protection: Long-term permanency of C in afforestations and regenerated forests is subject to management practices and the long-term protection from logging and other human-induced disturbances. This implies that the economic, political, and legal context is critical for guaranteeing long-term permanency. However, such guarantees may not be given at the time when decisions about compensating C emissions fossil fuels are made.
+-	Delayed benefits: Forests take decades to centuries to reach their full potential C stocks (@fig-forest_regeneration_pugh19pnas). This implies a limited potential as a near-term (within the next 1-3 decades) climate mitigation solution at scale.
 
 
 
