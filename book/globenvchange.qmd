@@ -42,7 +42,7 @@ knitr::include_graphics("images/methods_phenology.png")
 
 ### Recent trends in plant phenology
 #### Evidence from ground-based observations
-Over the past few decades, spring phenology has consistently advanced across the Northern Hemisphere. In Europe, spring leaf-out significantly advanced during the period 1982–2011 at an average rate of -0.47 days yr^-1^ for deciduous trees [@fu2014geb] (@fig-pheno-trends-ground), based on data from the PEP725 network [@templ2018pan]. Similarly, in China, the mean advance of spring leaf unfolding was -0.42 days yr^-1^ for the same period [@ge2015gcb] (@fig-pheno-trends-ground). In North America, the trend was slower, with the SOS advancing by -0.09 days yr^-1^ for the period 1982-2011 (@fig-pheno-trends-ground), based on stations of the USA National Phenology Network (US-NPN data). 
+Over the past few decades, spring phenology has consistently advanced across the Northern Hemisphere. In Europe, spring leaf-out significantly advanced during the period 1982–2011 at an average rate of -0.47 days yr^-1^ for deciduous trees [@fu2014geb] (@fig-pheno-trends-ground a), based on data from the PEP725 network [@templ2018pan]. Similarly, in China, the mean advance of spring leaf unfolding was -0.42 days yr^-1^ for the same period [@ge2015gcb] (@fig-pheno-trends-ground). In North America, the trend was slower, with the SOS advancing by -0.09 days yr^-1^ for the period 1982-2011 (@fig-pheno-trends-ground), based on stations of the USA National Phenology Network (US-NPN data). 
 
 In contrast, autumn leaf senescence has shown a weaker and less consistent trend [@piao2019gcb], and fewer studies have investigated in situ EOS trends [@gallinat2015tee]. In Europe, autumnal events have been delayed by only  0.01 days yr^-1^  between 1982 and 2011 [@fu2014geb] (@fig-pheno-trends-ground), using records from the PEP725 network [@templ2018pan]. In China, the EOS was delayed more substantially, by 0.26 days yr^-1^ for this period [@ge2015gcb] (@fig-pheno-trends-ground). Although there was not enough data for leaf senescence in the US-NPN, other studies showed leaf coloring in the USA has also been delayed ranging from 0.24 to 0.36 days yr^-1^ [@jeong2014geb]. 
 
@@ -107,7 +107,26 @@ knitr::include_graphics("images/drivers_sos.png")
 
 ### Phenology feedbacks on climate change
 
+Leaf phenology is not only driven by climate but also controls many feedbacks of vegetation to the climate system by influencing their seasonality. The feedbacks of the earth system have been extensively addressed on @sec-feedbacks. Here, @fig-pheno-feedbacks illustrates the primary feedbacks of plant phenological changes to the climate system [@richardson2013afm].
 
+*Surface roughness length* is the height at which the wind speed theoretically reduces to zero and modulates land-surface energy fluxes. An extension of the growing season, and thus a longer presence of green cover, will generally increase the surface roughness length, leading to wetter and cooler conditions. For deciduous forests, however, the impact of phenology on surface roughness appears to be rather small [@schmid2000afm].
+
+*Surface albedo*, the fraction of incident solar radiation that is reflected by the land surface, is altered with changes in the growing season. Although the impact of phenology changes on albedo varies among ecosystem types, in temperate and boreal deciduous forests, an advance of leaf unfolding will increase surface albedo [@hollinger2010gcc]. 
+
+*Canopy conductance*, the product of leaf area and stomatal conductance per unit leaf area, regulates transpiration rates. Higher foliage cover is commonly accompanied by increases in canopy conductance, as seen in various ecosystems, including grasslands and deciduous forests [@blanken2004hyd].
+
+Spring phenology also drives increases in *latent heat flux* (moist air), and decreases in *sensible heat flux* (dry air) and therefore in the *Bowen ratio* (the ratio of sensible to latent heat). As a result, the increased transpiration cools and moistens the air, as has been observed in temperate and boreal deciduous forests [@barr2007gcc].
+
+The extended plant activity further increases the fluxes of *biogenic volatile organic compounds* (BVOCs) [@penuelas2003trends]. These organic compounds produced by plants have the potential to cool or warm the climate. On the one hand, BVOCs generate organic aerosols that help form clouds and cool the surface. On the other hand, BVOCs increase production levels and extend the lifetime of methane in the atmosphere, enhancing the greenhouse effect of these gases.
+
+Lastly, phenology changes can affect the *microclimate* and the timing of *litterfall* and subsequent *carbon and nutrient cycling*. These changes can also influence growth and competition among individuals, affecting the *community structure*, and thus feedback to larger-scale land-climate interactions.
+
+```{r echo=FALSE}
+#| label: fig-pheno-feedbacks
+#| fig-cap: "Conceptual model illustrating the primary feedbacks between vegetation and the climate system that are influenced by vegetation phenology. Figure and caption from @richardson2013afm."
+#| out-width: 90%
+knitr::include_graphics("images/pheno_feedbacks.png")
+```
 
 ### Other impacts of phenological changes
 
