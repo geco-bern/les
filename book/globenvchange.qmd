@@ -21,7 +21,7 @@ In @sec-phenology, we provided a basis for phenology. In this section, we presen
 Plant phenology is the study of the timing of periodic biological events in plants, such as leaf unfolding and leaf senescence. These events are commonly influenced by environmental factors like temperature, radiation, and water availability. A phenological event is described as a point in the annual life cycle of a plant, generally marking the start or endpoint of a phenophase, and can be recorded as a calendar date. The start of the season (SOS) or spring phenology refers to the time when plants first exhibit significant biological activity after a period of dormancy. This is often marked by the leaf-out or leaf unfolding. The end of the season (EOS) or autumn phenology denotes the point at which plants transition back to a state of dormancy or reduced biological activity. This period is typically marked by leaf senescence, defined as leaf coloring and shedding. SOS and EOS are commonly expressed as day-of-year (DOY) with values ranging from 1 (1 January) to 365 (366 in leap years; 31 December). Defining the precise start and end of the season can vary depending on the specific plant species and local environmental conditions. 
 
 ### Methods of plant phenology
-Phenology observations are measured at different scales through various methods (@fig-methods-phenology), ranging from ground-based to remote sensing technologies. 
+Phenology observations are measured at different scales through various methods, ranging from ground-based to remote sensing technologies (@fig-methods-phenology). 
 
 *Ground-based observations* involve manually recording specific phenophases.  Observers, including scientists and citizen scientists, track these changes on the ground, which provides detailed local data. These observations can be unevenly distributed across regions and may lack consistency due to varying methods among observers. Efforts have been made to compile large-scale and uniform observations. The PEP725 (Pan European Phenology Project) is a collaborative database that collects and shares phenological data across Europe [@templ2018pan] and is especially helpful in investigating trends, comparing seasonal shifts, and analyzing regional responses of species to environmental changes. The phenological events can be described using the European-based BBCH coding system (Bilogische Bundesanstalt, Bundessortenamt und Chemische Industrie) which provides a standardized scale for identifying plant stages [@meier2009bbch].
 
@@ -35,8 +35,8 @@ In recent decades, *remote sensing techniques* have significantly enhanced tradi
 
 ```{r echo=FALSE}
 #| label: fig-methods-phenology
-#| fig-cap: "Multi-scale methods on plant phenology. Adapted from @piao2019gcb."
-#| out-width: 100%
+#| fig-cap: "Multi-scale methods on plant phenology. Figure from @piao2019gcb."
+#| out-width: 75%
 knitr::include_graphics("images/methods_phenology.png")
 ```
 
@@ -48,7 +48,7 @@ In contrast, autumn leaf senescence has shown a weaker and less consistent trend
 
 ```{r echo=FALSE}
 #| label: fig-pheno-trends-ground
-#| fig-cap: "Phenological trends in Europe, China and the US for spring leaf unfolding (a, c, e) and autumn leaf senescence (b, d) during the period 1982-2011 based on ground observations. @piao2019gcb."
+#| fig-cap: "Phenological trends in Europe, China and the US for spring leaf unfolding (a, c, e) and autumn leaf senescence (b, d) during the period 1982-2011 based on ground observations. Figure from @piao2019gcb."
 #| out-width: 100%
 knitr::include_graphics("images/pheno_trends_ground.png")
 ```
@@ -60,7 +60,7 @@ A delay in the EOS was reported over the past decades, with an overall trend of 
 
 ```{r echo=FALSE}
 #| label: fig-pheno-trends-satellite
-#| fig-cap: "Phenological trends in the Northern Hemisphere for SOS (a) and EOS (b) during the period 1982-2011 based on remote-sensing observations. @piao2019gcb."
+#| fig-cap: "Phenological trends in the Northern Hemisphere for SOS (a) and EOS (b) during the period 1982-2011 based on remote-sensing observations. Figure from @piao2019gcb."
 #| out-width: 100%
 knitr::include_graphics("images/pheno_trends_satellite.png")
 ```
@@ -69,8 +69,8 @@ Both ground-based observations and satellite‐based studies are consistent and 
 
 ```{r echo=FALSE}
 #| label: fig-sos-species
-#| fig-cap: "Species-specific leaf unfolding changes for 1960-2016 from the PEP725 database. Adapted from @renner2018rew."
-#| out-width: 100%
+#| fig-cap: "Species-specific leaf unfolding changes for 1960-2016 from the PEP725 database. Figure from @renner2018rew."
+#| out-width: 90%
 knitr::include_graphics("images/sos_species.png")
 ```
 
@@ -82,7 +82,7 @@ Spring temperatures, photoperiod and winter chilling are the most important fact
 
 ```{r echo=FALSE}
 #| label: fig-drivers-pheno
-#| fig-cap: "Effects of multiple environmental drivers and their interaction on spring leaf-out from a experimental study across 28 species. Adapted from @flynn2018np."
+#| fig-cap: "Effects of multiple environmental drivers and their interaction on spring leaf-out from a experimental study across 28 species. Figure from @flynn2018np."
 #| out-width: 100%
 knitr::include_graphics("images/drivers_pheno.png")
 ```
@@ -91,8 +91,8 @@ Leaf senescence is also positively correlated with temperature. In the Northern 
 
 ```{r echo=FALSE}
 #| label: fig-drivers-temp-prec
-#| fig-cap: "Correlation of EOS with (a) temperature and (b) precipitation from remote-sensing data. Partial correlation was calculated after controlling for other climatic factors. Adapted from  @liu2016gcb."
-#| out-width: 100%
+#| fig-cap: "Correlation of EOS with (a) temperature and (b) precipitation from remote-sensing data. Partial correlation was calculated after controlling for other climatic factors. Figure from  @liu2016gcb."
+#| out-width: 90%
 knitr::include_graphics("images/drivers_temp_prec.png")
 ```
 
@@ -100,8 +100,8 @@ In addition to the environmental factors, the timing of the autumn senescence is
 
 ```{r echo=FALSE}
 #| label: fig-drivers-sos
-#| fig-cap: "Relationship between SOS and EOS from (a) ground-based observations and (b) satellite data. Partial correlation was calculated after controlling for climatic factors.  Adapted from  @keenan2015gcb and @liu2016gcb."
-#| out-width: 100%
+#| fig-cap: "Relationship between SOS and EOS from (a) ground-based observations and (b) satellite data. Partial correlation was calculated after controlling for climatic factors.  Figure adapted from  @keenan2015gcb and @liu2016gcb."
+#| out-width: 90%
 knitr::include_graphics("images/drivers_sos.png")
 ```
 
@@ -113,12 +113,12 @@ knitr::include_graphics("images/drivers_sos.png")
 
 #### Increased frost events during the growing season
 
-Climate warming is driving an advance of leaf unfolding in trees, promoting longer growing seasons. However, the advance of the SOS can also increase the risk of frost events [@augspurger2013ecology]. These frost events after the SOS can affect the structure and function of terrestrial ecosystems and have important environmental and economic consequences [@hufkens2012gcb].
+Climate warming is driving an advance of leaf unfolding in trees, promoting longer growing seasons. However, the advance of the SOS can also increase the risk of frost events [@augspurger2013ecology]. These frost events after the SOS can affect the structure and function of terrestrial ecosystems and have important environmental and economic consequences [@hufkens2012gcb]. Remote sensing studies suggest that the number of frost days during the growing season has generally increased with the lengthening of the growing season [@liu2018natcomm]. This increase was visible in ~43% of temperate and boreal forests in the Northern Hemisphere, and especially in Europe. Furthermore, the number of frost days was smaller in the 2000s compared to previous decades, probably due to the deceleration of SOS advances during the warming hiatus periods.  
 
 ```{r echo=FALSE}
 #| label: fig-pheno-frost
-#| fig-cap: "Changes in average frost days during the growing season (SOS-EOS) for (a) the entire period 1980s-2000s, and for the subperiods (b) 1980s-1990s and (c) 1990s-2000s. Adapted from @liu2018natcomm."
-#| out-width: 100%
+#| fig-cap: "Changes in average frost days during the growing season (SOS-EOS) for (a) the entire period 1980s-2000s, and for the subperiods (b) 1980s-1990s and (c) 1990s-2000s. Figure adapted from @liu2018natcomm."
+#| out-width: 90%
 knitr::include_graphics("images/pheno_frost.png")
 ```
 
@@ -129,8 +129,8 @@ Changes in the phenological synchrony of plant-animal interactions have the pote
 
 ```{r echo=FALSE}
 #| label: fig-pheno-pollinators
-#| fig-cap: "Phenological shifts of plants and insect pollinators from an empirical study during 1980-2020. (a) Temporal trends of plants and pollinator groups. (b) Shifts in asynchrony of plant–pollinator interactions over time. Asynchrony is the difference in the estimated yearly mean DOY of activity between the plant and the pollinator species. Adapted from @freimuth2022prs."
-#| out-width: 100%
+#| fig-cap: "Phenological shifts of plants and insect pollinators from an empirical study during 1980-2020. (a) Temporal trends of plants and pollinator groups. (b) Shifts in asynchrony of plant–pollinator interactions over time. Asynchrony is the difference in the estimated yearly mean DOY of activity between the plant and the pollinator species. Figure adapted from @freimuth2022prs."
+#| out-width: 85%
 knitr::include_graphics("images/pheno_pollinators.png")
 ```
 
