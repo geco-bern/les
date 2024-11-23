@@ -54,9 +54,9 @@ knitr::include_graphics("images/pheno_trends_ground.png")
 ```
 
 #### Evidence from remote-sensing data
-An early onset of the SOS has been observed also from satellite NDVI records from the Global Inventory Modeling and Mapping Studies (GIMMS) during 1982–2011 in approximately 75% of the Northern Hemisphere, while a delay was found in other regions, primarily in western North America (@fig-pheno-trends-satellite). Some recent satellite‐based studies suggest that the trend of advancing SOS has decelerated since 2000 [@park2018rse]. Altogether, the advancement of the SOS has an average rate of 0.21 days yr^-1^ [@piao2019gcb].
+An early onset of the SOS has been observed also from satellite NDVI records from the Global Inventory Modeling and Mapping Studies (GIMMS) during 1982–2011 in approximately 75% of the Northern Hemisphere, while a delay was found in other regions, primarily in western North America (@fig-pheno-trends-satellite a). Some recent satellite‐based studies suggest that the trend of advancing SOS has decelerated since 2000 [@park2018rse]. Altogether, the advancement of the SOS has an average rate of 0.21 days yr^-1^ [@piao2019gcb].
 
-A delay in the EOS was reported over the past decades, with an overall trend of 0.18 days yr^-1^ [@liu2016gcb]. Spatially, EOS trends were less homogeneous than SOS trends, with ~65% of the Northern Hemisphere showing a delay in EOS while an advance was found in ~35% of the territory, mainly in Siberia and arid/semi‐arid regions (@fig-pheno-trends-satellite).
+A delay in the EOS was reported over the past decades, with an overall trend of 0.18 days yr^-1^ [@liu2016gcb]. Spatially, EOS trends were less homogeneous than SOS trends, with ~65% of the Northern Hemisphere showing a delay in EOS while an advance was found in ~35% of the territory, mainly in Siberia and arid/semi‐arid regions (@fig-pheno-trends-satellite b).
 
 ```{r echo=FALSE}
 #| label: fig-pheno-trends-satellite
@@ -87,7 +87,7 @@ Spring temperatures, photoperiod and winter chilling are the most important fact
 knitr::include_graphics("images/drivers_pheno.png")
 ```
 
-Leaf senescence is also positively correlated with temperature. In the Northern Hemisphere, remote-sensing data has shown a positive correlation between EOS and temperature in more than 70% of the territory (@fig-drivers-temp-prec). Plant phenology can also be influenced by water and nutrient availability, particularly in regions where these resources are limited. Partial correlations between precipitation and EOS were negative at high latitudes, but positive in dry regions, suggesting that higher water availability might delay autumn senescence (@fig-drivers-temp-prec). 
+Leaf senescence is also positively correlated with temperature. In the Northern Hemisphere, remote-sensing data has shown a positive correlation between EOS and temperature in more than 70% of the territory (@fig-drivers-temp-prec a). Plant phenology can also be influenced by water and nutrient availability, particularly in regions where these resources are limited. Partial correlations between precipitation and EOS were negative at high latitudes, but positive in dry regions, suggesting that higher water availability might delay autumn senescence (@fig-drivers-temp-prec b). 
 
 ```{r echo=FALSE}
 #| label: fig-drivers-temp-prec
@@ -132,7 +132,7 @@ Lastly, phenology changes can affect the *microclimate* and the timing of *litte
 
 #### Increased frost events during the growing season
 
-Climate warming is driving an advance of leaf unfolding in trees, promoting longer growing seasons. However, the advance of the SOS can also increase the risk of frost events [@augspurger2013ecology]. These frost events after the SOS can affect the structure and function of terrestrial ecosystems and have important environmental and economic consequences [@hufkens2012gcb]. Remote sensing studies suggest that the number of frost days during the growing season has generally increased with the lengthening of the growing season [@liu2018natcomm]. This increase was visible in ~43% of temperate and boreal forests in the Northern Hemisphere, and especially in Europe. Furthermore, the number of frost days was smaller in the 2000s compared to previous decades, probably due to the deceleration of SOS advances during the warming hiatus periods.  
+Climate warming is driving an advance of leaf unfolding in trees, promoting longer growing seasons. However, the advance of the SOS can also increase the risk of frost events [@augspurger2013ecology]. These frost events after the SOS can affect the structure and function of terrestrial ecosystems and have important environmental and economic consequences [@hufkens2012gcb]. Remote sensing studies suggest that the number of frost days during the growing season has generally increased with the lengthening of the growing season [@liu2018natcomm]. This increase was visible in ~43% of temperate and boreal forests in the Northern Hemisphere, and especially in Europe (@fig-pheno-frost a). Furthermore, the number of frost days was smaller in the 2000s (@fig-pheno-frost c) compared to previous decades (@fig-pheno-frost b), probably due to the deceleration of SOS advances during the warming hiatus periods.  
 
 ```{r echo=FALSE}
 #| label: fig-pheno-frost
@@ -144,7 +144,7 @@ knitr::include_graphics("images/pheno_frost.png")
 Still, no agreement exists on whether frost risks increase or decrease under global warming [@vitasse2014front]. An empirical study in Swiss forests found sufficient time between the last spring frost and leaf unfolding [@bigler2018sci]. These safety margins (calculated as the difference between DOY~leaf-unfolding~ and DOY~last-frost~) varied between species and across elevations. Further, they showed generally negative trends,  i.e., decreasing safety margins and increasing frost risk over the last decades.
 
 #### Plant–pollinator phenological mismatches
-Changes in the phenological synchrony of plant-animal interactions have the potential to significantly impact the structure and dynamics of plant communities [@kharouba2018pnas]. Plant–pollinator systems are expected to be particularly vulnerable to phenological mismatches due to their mutualistic interactions [@benadi2014jae]. However, there is little evidence for mismatches involving plants and pollinators [@hegland2009ecolett]. The onset of ﬂowering in plants and ﬁrst appearance dates of pollinators appear to advance at similar rates in response to warmer temperatures, maintaining their phenological synchrony [@bartomeus2011pnas; @bartomeus2013ecolett]. A recent empirical study on plant-pollinator interactions in Germany and the UK showed higher phenological shifts in plants compared to insect groups (@fig-pheno-pollinators). These shifts resulted in an increase in plant-pollinator synchrony with some insect groups during the last decades (@fig-pheno-pollinators) [@freimuth2022prs]. In fact, Most of the empirical studies have not detected phenological mismatches pointing out the high synchronization mechanisms between different pollinators and their floral hosts [@renner2018rew]. 
+Changes in the phenological synchrony of plant-animal interactions have the potential to significantly impact the structure and dynamics of plant communities [@kharouba2018pnas]. Plant–pollinator systems are expected to be particularly vulnerable to phenological mismatches due to their mutualistic interactions [@benadi2014jae]. However, there is little evidence for mismatches involving plants and pollinators [@hegland2009ecolett]. The onset of ﬂowering in plants and ﬁrst appearance dates of pollinators appear to advance at similar rates in response to warmer temperatures, maintaining their phenological synchrony [@bartomeus2011pnas; @bartomeus2013ecolett]. A recent empirical study on plant-pollinator interactions in Germany and the UK [@freimuth2022prs] showed higher phenological shifts in plants compared to insect groups (@fig-pheno-pollinators a). These shifts resulted in an increase in plant-pollinator synchrony with some insect groups during the last decades (@fig-pheno-pollinators b). In fact, most of the empirical studies have not detected phenological mismatches pointing out the high synchronization mechanisms between different pollinators and their floral hosts [@renner2018rew]. 
 
 ```{r echo=FALSE}
 #| label: fig-pheno-pollinators
@@ -152,4 +152,53 @@ Changes in the phenological synchrony of plant-animal interactions have the pote
 #| out-width: 85%
 knitr::include_graphics("images/pheno_pollinators.png")
 ```
+
+## CO~2~ fertilization
+
+*Authored by Patricia Gribi, Patricia Helpap, Nils Tinner, and Michael Weatherford. Edited by Laura Marqués.*
+
+### What is CO~2~ fertilization?
+The term CO~2~ fertilization here refers to the hypothesis that plants respond to increasing atmospheric CO~2~ concentration by increasing terrestrial carbon storage which in turn creates a negative feedback on atmospheric CO~2~growth [@walker2021np]. This definition explicitly mentions the feedback on atmospheric CO~2~ growth as a mechanism to potentially slow anthropogenic climate change. The relevant scales for such processes are hence global in space and decadal to centennial in time. Consequently, net ecosystem production (NEP) needs to be positive at the global scale and over a specified period for the CO~2~fertilization hypothesis to be true [@walker2021np]. Many processes and feedbacks take place at different scales (@fig-co2fert-scales) that eventually influence the terrestrial carbon storage. In the following sections, we lay out and describe whether CO~2~fertilization effects scale to the globe. 
+
+```{r echo=FALSE}
+#| label: fig-co2fert-scales
+#| fig-cap: "..."
+#| out-width: 90%
+knitr::include_graphics("images/co2fert_scales.png")
+```
+
+### CO~2~ fertilization at the leaf scale
+At the leaf level, rising CO~2~ increases photosynthesis and reduces stomatal conductance. The CO~2~ fertilization at this level is theoretically well understood and consistently observed.
+
+Photosynthesis is either limited by light or CO~2~ [@farquhar1980planta]. As shown in section sec-fvcb, the *A-ci* curve (@fig-a-ci-curve) relates the photosynthetic CO~2~ assimilated into the plant structure (*A*) versus the CO~2~ inside the plant (*c~i~*). When CO~2~ is limiting, theory predicts that higher CO~2~ increases net carbon assimilation (*A~n~*) by increasing the carboxylation rate of Rubisco (*A~C~*). The enzyme Rubisco fixes CO~2~ but also catalyzes the oxygenation of RuBP (Ribulose-1,5-bisphosphate) which consumes O~2~ and produces CO~2~ as part of photorespiration. Elevated CO~2~ also reduces photorespiration due to higher CO~2~:O~2~ratios in the leaf. So, the suppression of photorespiration by higher levels of CO~2~ increases A~n~ also when light is limiting. Elevated CO~2~ also enhances the RuBP availability, as the photosynthetic system can use ATP and NADPH more efficiently when less energy is lost to photorespiration. This can raise the electron-transport limited CO2 assimilation rate (*A~J~*), thus increasing the light-saturated assimilation rate at high *c~i~*. Free-air CO2enrichment (FACE) experiments showed that exposure to elevated CO~2~ concentration ([CO~2~]) increases light-saturated leaf photosynthetic rate (*A~sat~*) [@ainsworth2005np]. Historical evidence based on deuterium isotopes in glucose from plant archives suggests that the leaf-scale photorespiration to assimilation ratio has decreased since pre-industrial times which would correlate to an increase in photosynthesis [@ehlers2015pnas]. 
+
+CO~2~ fertilization also decreases stomatal conductance (*g~s~*) and increased water use efficiency (WUE). This can be understood through Fick’s Law (@eq-photo-fick), which states that the assimilation rate (*A*) is proportional to the difference in [CO~2~] between the inside (*c~i~*) and outside (*c~a~*)of the leaf. Higher atmospheric CO~2~ allows plants to partially close their stomata to avoid losing water while taking up the same amount of CO~2~ for photosynthesis and thus increasing WUE. Experimental evidence has demonstrated reduced leaf-scale *g~s~* [@medlyn2001nf] and increased WUE [@ainsworth2005np] in response to elevated CO~2~. Optimization theory also supports this conclusion and predicts a change in the A~n~:g~s~ ratio proportional to the change in [CO~2~] for both C~3~ [@medlyn2011gcb] and C~4~ plants [@lin2015ncc].
+
+### CO~2~ fertilization at the plant scale
+At the plant-level, increasing CO~2~ enhances biomass production (BP, gC m^-2^ yr^-1^), i.e., plant growth [@walker2019natcomm]. This is influenced by increasing photosynthetic rates and water use efficiency [@walker2021np] but it also depends on resource availability and allocation strategies [@norby2024ncc]. Evidence for the CO~2~ fertilization at this level exists from diverse sources of data, and although findings are mixed, there is high confidence that enhanced CO~2~ can stimulate BP.
+
+Multiple FACE experiments show BP gains [@walker2019natcomm] commonly in young stands [@norby2005pnas], rather than in old, mature forests [@ellsworth2017ncc, but see @norby2024ncc]. Tree-ring studies have found little evidence for increases in wood BP, with either no significant changes in tree-ring width across biomes [@penuelas2011geb], or contrasting trends in boreal forests [@girardin2016pnas]. A large number of forest inventory networks suggest increases in plant growth in tropical forests [@brienen2015nat;  @hubau2020nat, see @fig-co2fert-growth b] and other regions [@yu2019pnas]. Furthermore, @mcmahon2010pnas observed higher than expected growth in temperate forests, and CO~2~ fertilization was proposed as a possible mechanism.
+
+```{r echo=FALSE}
+#| label: fig-co2fert-growth
+#| fig-cap: "Long-term carbon dynamics of old growth tropical forests. (a) Changes in net  aboveground biomass carbon, (b) carbon gains from wood production, and (c) carbon losses from the system from tree mortality over time. Figure from @hubau2020nat."
+#| out-width: 90%
+knitr::include_graphics("images/co2fert_growth.png")
+```
+
+However, the CO~2~ fertilization effect on plant growth can be also mitigated by water [@hubau2020nat] and nutrient limitation [@walker2021np]. In fact, many studies show higher BP responses to CO~2~ fertilization at sites with higher nutrient availability [@terrer2018nphy]. The progressive nitrogen limitation (PNL) suggests that the long-term positive effects of elevated atmospheric CO~2~ on plant growth can be constrained over time as nitrogen becomes less available [@luo2004bio]. This could also explain why most positive BP responses to rising CO~2~ have been observed in earlier-succession, which tend to have higher nutrient availability [@korner2006nphy], rather than later-succession forests  [@ellsworth2017ncc]. However, experimental evidence of nitrogen limitation as a hindering factor for plant growth under elevated CO~2~ is limited [@norby2010pnas].
+
+### CO~2~ fertilization at the forest scale
+At the forest-level, enhanced growth rates due to rising CO~2~ might translate to increased biomass accumulation. However, biomass stocks are influenced by changes in tree growth and also in tree mortality [@walker2021np]. Changes in mortality are difficult to assess [@mcmahon2019eco] since they can be caused directly by changes in environmental conditions and drought events[@desoto2020natcomm] or directly by changes in growth, with higher growth rates accelerating competition and increasing mortality risk [@trugman2018gcc]. Little evidence exists on tree mortality responses to CO~2~fertilization due to data and modeling limitations[@walker2021np]. Forest inventories have shown long-term increases in mortality rates in Amazon forests [@brienen2015nat;@hubau2020nat] with no detectable change in African tropical forests [@hubau2020nat] (@fig-co2fert-growth c). This led to a decreasing trend in the net above-ground biomass in Amazonian tropical forests [@brienen2015nat;@hubau2020nat]and no significant change in African forests [@hubau2020nat] (@fig-co2fert-growtha).
+
+Further, evidence of CO~2~fertilization at this scale affecting biomass accumulation appears conflicting. On the one hand, increased biomass stocks have been reported in forests around the globe [@pan2011science]. However, it is still uncertain whether the observed increase in biomass stocks results from accelerated tree growth driven by CO~2~fertilization or recovery from past disturbances [@mcmahon2010pnas]. On the other hand, a line of work has argued that enhanced tree growth is associated with a reduction of tree longevity and carbon residence time, offsetting any possible gain in biomass stocks over longer timescales [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm; @korner2017science], as claimed by the *grow-fast-die-young* (GFDY) hypothesis. While much empirical support for the GFDY hypothesis is based on variations across species (interspecific) [@brienen2015nat; @bugmann2011oec],growth-longevity trade-offs within species (intraspecific) have also been found previously [bigler2009oikos; difilippo2012gcc] but are less clear [@cailleret2017gcb].
+
+Although empirical evidence is scarce, a FACE experiment in a young forest suggested stand biomass increases under higher CO~2~, analyzed as a shift in the self-thinning trajectories, i.e., the negative relationship between stand density and average size that emerges as the forest develops. A recent study combined model simulations with inventory analysis in temperate forests to demonstrate that enhanced tree growth leads to increases in biomass stocks and changes in the self-thinning relationship despite simultaneous decreases in carbon residence time and tree longevity [@marques2023agu]. These findings reconciles reports of tree longevity reductions [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm]with model predictions of increased forest biomass [@pugh2020biogeo; @terrer2019ncc; @yu2019pnas].
+
+### CO~2~ fertilization at the ecosystem scale
+
+### CO~2~ fertilization at the landscape scale
+
+### Measurements of CO~2~ fertilization across scales
+
 
