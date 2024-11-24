@@ -78,7 +78,8 @@ knitr::include_graphics("images/sos_species.png")
 
 The timing of plant phenology events is determined by various biological and environmental drivers. As we discussed in @sec-phenology, the way how these factors influence plant phenology varies between phenophases.  
 
-Spring temperatures, photoperiod and winter chilling are the most important factors controlling plant phenology in temperate and boreal forests [@flynn2018np]. Experimental studies have shown that warmer temperatures, longer photoperiods, and additional chilling all caused large advances in spring leaf-out (@fig-drivers-pheno). In addition, the interaction between drivers also affects the timing of the phenophases. For example, insufficient winter chilling may be compensated by warmer temperatures. Yet, phenological responses to climatic factors appear to be species-specific [@korner2010science] and vary across latitudes [@alecrim2023jeco]. 
+Drivers of SOS\
+Spring temperatures, photoperiod and winter chilling are the most important factors controlling spring phenology in temperate and boreal forests [@flynn2018np]. Experimental studies have shown that warmer temperatures, longer photoperiods, and additional chilling all caused large advances in spring leaf-out (@fig-drivers-pheno). In addition, the interaction between drivers also affects the timing of the phenophases. For example, insufficient winter chilling may be compensated by warmer temperatures. Yet, phenological responses to climatic factors appear to be species-specific [@korner2010science] and vary across latitudes [@alecrim2023jeco]. 
 
 ```{r echo=FALSE}
 #| label: fig-drivers-pheno
@@ -87,6 +88,7 @@ Spring temperatures, photoperiod and winter chilling are the most important fact
 knitr::include_graphics("images/drivers_pheno.png")
 ```
 
+Drivers of EOS\
 Leaf senescence is also positively correlated with temperature. In the Northern Hemisphere, remote-sensing data has shown a positive correlation between EOS and temperature in more than 70% of the territory (@fig-drivers-temp-prec a). Plant phenology can also be influenced by water and nutrient availability, particularly in regions where these resources are limited. Partial correlations between precipitation and EOS were negative at high latitudes, but positive in dry regions, suggesting that higher water availability might delay autumn senescence (@fig-drivers-temp-prec b). 
 
 ```{r echo=FALSE}
@@ -126,7 +128,9 @@ Early spring onset increases annual *evapotranspiration* [@zha2010afm] and *phot
 
 The extended plant activity further increases the fluxes of *biogenic volatile organic compounds* (BVOCs) [@penuelas2003trends]. These organic compounds produced by plants have the potential to cool or warm the climate. On the one hand, BVOCs generate organic aerosols that help form clouds and cool the surface. On the other hand, BVOCs increase production levels and extend the lifetime of methane in the atmosphere, enhancing the greenhouse effect of these gases.
 
-Lastly, phenology changes can affect the *microclimate* and the timing of *litterfall* and subsequent *carbon and nutrient cycling*. These changes can also influence growth and competition among individuals, affecting the *community structure*, and thus feedback to larger-scale land-climate interactions.
+All these mechanisms affect the *structure and composition of the atmosphere* which influence the *weather* and eventually the *climate*, feeding back again to *phenology*.
+
+On the vegetation side, phenology changes can affect the *microclimate* and the timing of *litterfall* and subsequent *carbon and nutrient cycling*. These changes can also influence growth and competition among individuals, affecting the *community structure*, and thus feedback to larger-scale land-climate interactions.
 
 ### Other impacts of phenological changes
 
