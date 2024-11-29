@@ -170,7 +170,7 @@ The term CO~2~ fertilization here refers to the hypothesis that plants respond t
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-scales
-#| fig-cap: "..."
+#| fig-cap: "Spatial scales responding to CO~2~ fertilization"
 #| out-width: 90%
 knitr::include_graphics("images/co2fert_scales.png")
 ```
@@ -212,8 +212,21 @@ knitr::include_graphics("images/co2fert_standstl.png")
 
 ### CO~2~ fertilization at the ecosystem scale
 
+At the ecosystem-level, elevated CO~2~ can impact soil carbon dynamics, including changes in soil organic matter (SOM) decomposition and soil respiration rates [@walker2021np]. Evidence from FACE experiments has shown that elevated CO~2~ increases plant litter production [@iversen2012gcb], soil C inputs and SOM decomposition rates [@van2014science] (@fig-co2fert-soilc a). Still, findings from ecosystem-scale experiments show no clear results and studies in the long-term are scarce. For example, no significant increases in soil respiration were found in response to CO~2~ enrichment over 3 years experiment [@drake2018bio] (@fig-co2fert-soilc b). 
+
+```{r echo=FALSE}
+#| label: fig-co2fert-soilc
+#| fig-cap: "Changes in soil  carbon dynamics in response to elevated CO~2~. (a) Increases in soil C inputs and decomposition rate (*k*) under CO~2~ in a meta-analysis and (b) differences in soil respiration in a mature eucalypt forest exposed to ambient (*A*) or elevated (*E*) atmospheric CO~2~ concentrations. Figure adapted from @van2014science and @drake2018bio."
+#| out-width: 90%
+knitr::include_graphics("images/co2fert_soilc.png")
+```
+
+Additionally, faster SOM decomposition due to higher CO~2~ could increase nutrient availability in soils and hence reduce plant nutrient limitation [@walker2015gbc]. Mycorrhizal associations and other root–microbe interactions involved in plant nutrient acquisition are likely important mediators of this process [@terrer2018np].
+
 ### CO~2~ fertilization at the landscape scale
+
+At the landscape scale, CO~2~ fertilization can influence different type of ecosystems (e.g., forests, grasslands, wetlands). Variations in vegetation types and soil properties affect how CO~2~ fertilization landscape carbon stocks. Natural disturbances and anthropogenic land-use changes such as deforestation can cause soil erosion, affecting carbon cycling at the landscape scale [@walker2021np]. Further, increased plant productivity due to CO~2~ fertilization can result in more organic matter entering soils, potentially leading to higher DOC production (dissolved organic carbon in water that can be transported through rivers, lakes, and soils) at this scale [@nakhavali2024stoten].
 
 ### Measurements of CO~2~ fertilization across scales
 
-
+TBA
