@@ -318,6 +318,7 @@ df |>
     )
 
 ggsave(here::here("book/images/globalcarbonbudget.png"), width = 6, height = 6)
+ggsave(here::here("book/images/globalcarbonbudget.pdf"), width = 6, height = 6)
 ```
 
 ## Understanding the land C sink {#sec-sink}
