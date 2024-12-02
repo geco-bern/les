@@ -211,7 +211,7 @@ knitr::include_graphics("images/co2fert_growth.png")
 However, the CO~2~ fertilization effect on plant growth can be also mitigated by water [@hubau2020nat] and nutrient limitation [@walker2021np]. In fact, many studies show higher BP responses to CO~2~ fertilization at sites with higher nutrient availability [@terrer2018nphy]. The *Progressive Nitrogen Limitation* (PNL) suggests that the long-term positive effects of elevated atmospheric CO~2~ on plant growth can be constrained over time as nitrogen becomes less available [@luo2004bio]. This could also explain why most positive BP responses to rising CO~2~ have been observed in earlier-succession, which tend to have higher nutrient availability [@korner2006nphy], rather than later-succession forests  [@ellsworth2017ncc]. However, experimental evidence of nitrogen limitation as a hindering factor for plant growth under elevated CO~2~ is limited [@norby2010pnas].
 
 ### CO~2~ fertilization at the forest scale
-At the forest-level, enhanced growth rates due to rising CO~2~ might lead to increased biomass accumulation. However, biomass stocks are influenced by changes in tree growth and also in tree mortality [@walker2021np]. Changes in mortality are difficult to assess [@mcmahon2019eco] since they can be caused directly by changes in environmental conditions and drought events [@desoto2020natcomm] or directly by changes in growth, with higher growth rates accelerating competition and increasing mortality risk [@trugman2018gcc]. Little evidence exists on tree mortality responses to CO~2~ fertilization due to data and modeling limitations [@walker2021np]. Forest inventories have shown long-term increases in mortality rates in Amazon forests [@brienen2015nat;@hubau2020nat] with no detectable change in African tropical forests [@hubau2020nat] (@fig-co2fert-growth c). This led to a decreasing trend in the net above-ground biomass in Amazonian tropical forests [@brienen2015nat;@hubau2020nat] and no significant change in African forests [@hubau2020nat] (@fig-co2fert-growth a).
+At the forest-level, enhanced growth rates due to rising CO~2~ might lead to increased biomass accumulation. However, biomass stocks are influenced by changes in tree growth and also in tree mortality [@walker2021np]. Changes in mortality are difficult to assess [@mcmahon2019eco] since they can be caused directly by changes in environmental conditions and drought events [@desoto2020natcomm] or indirectly by changes in growth, with higher growth rates accelerating competition and increasing mortality risk [@trugman2018gcc]. Little evidence exists on tree mortality responses to CO~2~ fertilization due to data and modeling limitations [@walker2021np]. Forest inventories have shown long-term increases in mortality rates in Amazon forests [@brienen2015nat;@hubau2020nat] with no detectable change in African tropical forests [@hubau2020nat] (@fig-co2fert-growth c). This led to a decreasing trend in the net above-ground biomass in Amazonian tropical forests [@brienen2015nat;@hubau2020nat] and no significant change in African forests [@hubau2020nat] (@fig-co2fert-growth a).
 
 Further, evidence of CO~2~ fertilization at this scale affecting biomass accumulation appears conflicting. On the one hand, increased biomass stocks have been reported in forests around the globe [@pan2011science]. However, it is still uncertain whether the observed increase in biomass stocks results from accelerated tree growth driven by CO~2~ fertilization or recovery from past disturbances [@mcmahon2010pnas]. On the other hand, a line of work has argued that enhanced tree growth is associated with a reduction of tree longevity and carbon residence time, offsetting any possible gain in biomass stocks over longer timescales [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm; @korner2017science], as claimed by the *grow-fast-die-young* (GFDY) hypothesis. While much support for the GFDY hypothesis is based on variations across species (interspecific) [@brienen2015nat; @bugmann2011oec], growth-longevity trade-offs within species (intraspecific) have also been found previously [@bigler2009oikos; @difilippo2012gcc] but are less clear [@cailleret2017gcb].
 
@@ -230,16 +230,29 @@ At the ecosystem-level, elevated CO~2~ can impact soil carbon dynamics, includin
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-soilc
-#| fig-cap: "Changes in soil  carbon dynamics in response to elevated CO~2~. (a) Increases in soil C inputs and decomposition rate (*k*) under CO~2~ in a meta-analysis and (b) differences in soil respiration in a mature eucalypt forest exposed to ambient (*A*) or elevated (*E*) atmospheric CO~2~ concentrations. Figure adapted from @van2014science and @drake2018bio."
+#| fig-cap: "Changes in soil  carbon dynamics in response to elevated CO~2~. (a) Increases in soil C inputs and decomposition rate (*k*) under CO~2~ in a meta-analysis and (b) differences in soil respiration in a mature eucalypt forest exposed to ambient (A) or elevated (E) atmospheric CO~2~ concentrations. Figure adapted from @van2014science and @drake2018bio."
 #| out-width: 85%
 knitr::include_graphics("images/co2fert_soilc.png")
 ```
 
 Additionally, faster SOM decomposition due to higher CO~2~ could increase nutrient availability in soils and hence reduce plant nutrient limitation [@walker2015gbc]. Mycorrhizal associations and other root–microbe interactions involved in plant nutrient acquisition are likely important mediators of this process [@terrer2018np].
 
+Net Ecosystem Production (NEP), calculated as the difference between Gross Primary Production (GPP) and ecosystem respiration (ER) can be measured directly from eddy-covariance flux towers. A multi-site study indicated increases in NEP and GPP while unchanged ER (@fig-co2fert-nep), with high CO~2~ sensitivity [@fernandez2017scirep].
+
+```{r echo=FALSE}
+#| label: fig-co2fert-nep
+#| fig-cap: "Long-term trends in C fluxes for 23 forests (1992–2013). Most of the forests presented increasing trends in (a) NEP and (b) GPP, whereas (c) respiration remained fairly constant. Figure and caption from @fernandez2017scirep."
+#| out-width: 85%
+knitr::include_graphics("images/co2fert_nep.png")
+```
+
 ### CO~2~ fertilization at the landscape scale
 
-At the landscape scale, CO~2~ fertilization can influence different type of ecosystems (e.g., forests, grasslands, wetlands). Variations in vegetation types and soil properties affect how CO~2~ fertilization landscape carbon stocks. Natural disturbances and anthropogenic land-use changes such as deforestation can cause soil erosion, affecting carbon cycling at the landscape scale [@walker2021np]. Further, increased plant productivity due to CO~2~ fertilization can result in more organic matter entering soils, potentially leading to higher DOC production (dissolved organic carbon in water that can be transported through rivers, lakes, and soils) at this scale [@nakhavali2024stoten]. @fig-co2fert-landscape represents the main processes and feedbacks from the leaf to the landscape scales.
+At the landscape scale, CO~2~ fertilization can influence different type of ecosystems (e.g., forests, grasslands, wetlands). Variations in vegetation types and soil properties affect how CO~2~ fertilization influence landscape and global carbon stocks. Natural disturbances and anthropogenic land-use changes such as deforestation can cause soil erosion, affecting carbon cycling at the landscape scale [@walker2021np]. Further, increased plant productivity due to CO~2~ fertilization can result in more organic matter entering soils, potentially leading to higher DOC production (dissolved organic carbon in water that can be transported through rivers, lakes, and soils) at this scale [@nakhavali2024stoten]. 
+
+Generally, satellite data shows greening trends over large areas of the globe (as seen from LAI values) and are predominanly attributed to rising CO~2~ levels.
+
+@fig-co2fert-landscape represents the main processes and feedbacks from the leaf to the landscape scales.
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-landscape
@@ -247,6 +260,7 @@ At the landscape scale, CO~2~ fertilization can influence different type of ecos
 #| out-width: 90%
 knitr::include_graphics("images/co2fert_landscape.png")
 ```
+
 
 ### Measurements of CO~2~ fertilization across scales
 
