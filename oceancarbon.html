@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Land in the Earth System - 14&nbsp; Ocean CO2 uptake and emission-concentration trajectories</title>
+<title>Land in the Earth System - 14&nbsp; The Ocean and its CO2 uptake</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,10 +84,13 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Land in the Earth System - 14&nbsp; Ocean CO2 uptake and emission-concentration trajectories">
+<meta name="twitter:title" content="Land in the Earth System - 14&nbsp; The Ocean and its CO2 uptake">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/ocean_circulation.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -125,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part2.html">Part II</a></li><li class="breadcrumb-item"><a href="./oceancarbon.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ocean CO~2~ uptake and emission-concentration trajectories</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part2.html">Part II</a></li><li class="breadcrumb-item"><a href="./oceancarbon.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The Ocean and its CO~2~ uptake</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -252,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oceancarbon.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ocean CO<sub>2</sub> uptake and emission-concentration trajectories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The Ocean and its CO<sub>2</sub> uptake</span></span></a>
   </div>
 </li>
       </ul>
@@ -269,14 +291,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ocean-role-in-the-climate-system" id="toc-ocean-role-in-the-climate-system" class="nav-link active" data-scroll-target="#ocean-role-in-the-climate-system"><span class="header-section-number">14.1</span> Ocean Role in the Climate System</a></li>
+  <li><a href="#ocean-circulation" id="toc-ocean-circulation" class="nav-link" data-scroll-target="#ocean-circulation"><span class="header-section-number">14.2</span> Ocean Circulation</a></li>
+  <li><a href="#ocean-heat-uptake" id="toc-ocean-heat-uptake" class="nav-link" data-scroll-target="#ocean-heat-uptake"><span class="header-section-number">14.3</span> Ocean Heat Uptake</a></li>
+  <li><a href="#ocean-carbon-fluxes" id="toc-ocean-carbon-fluxes" class="nav-link" data-scroll-target="#ocean-carbon-fluxes"><span class="header-section-number">14.4</span> Ocean Carbon Fluxes</a>
+  <ul class="collapse">
+  <li><a href="#carbonate-chemistry-solubility-pump" id="toc-carbonate-chemistry-solubility-pump" class="nav-link" data-scroll-target="#carbonate-chemistry-solubility-pump"><span class="header-section-number">14.4.1</span> Carbonate chemistry (Solubility Pump)</a></li>
+  <li><a href="#biological-fluxes-biological-pump" id="toc-biological-fluxes-biological-pump" class="nav-link" data-scroll-target="#biological-fluxes-biological-pump"><span class="header-section-number">14.4.2</span> Biological Fluxes (Biological Pump)</a></li>
+  </ul></li>
+  <li><a href="#ocean-carbon-uptake" id="toc-ocean-carbon-uptake" class="nav-link" data-scroll-target="#ocean-carbon-uptake"><span class="header-section-number">14.5</span> Ocean Carbon Uptake</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-oceancarbon" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ocean CO<sub>2</sub> uptake and emission-concentration trajectories</span></span></h1>
+<h1 class="title"><span id="sec-oceancarbon" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The Ocean and its CO<sub>2</sub> uptake</span></span></h1>
 </div>
 
 
@@ -291,9 +327,166 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Coming soon.</p>
+<section id="ocean-role-in-the-climate-system" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="ocean-role-in-the-climate-system"><span class="header-section-number">14.1</span> Ocean Role in the Climate System</h2>
+<p>The ocean constitutes of around 70 % of the Earth’s surface and plays a vital role in the climate system through its large storage of heat and carbon <span class="citation" data-cites="talley2011a">(<a href="references.html#ref-talley2011a" role="doc-biblioref">Talley et al. 2011a</a>)</span>. Since the preindustrial time period, the ocean has stored over 90 % of excess anthropogenic heat. It also has taken up 22 % of global anthropogenic carbon emissions <span class="citation" data-cites="friedlingstein24essd">(<a href="references.html#ref-friedlingstein24essd" role="doc-biblioref">Friedlingstein et al. 2024</a>)</span>. Both of characteristics mean that increasing atmospheric CO<sub>2</sub> concentrations and climate warming would be much more severe without the role of the ocean in the climate system.</p>
+<p>In addition to this, the ocean serves as a habitat for marine species, and is important for human socioeconomic activities. Climate warming and other human-caused disruptions, such as eutrophication, are affecting this vital space on Earth, and endangering species such as corals.</p>
+</section>
+<section id="ocean-circulation" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="ocean-circulation"><span class="header-section-number">14.2</span> Ocean Circulation</h2>
+<p>The circulation of the ocean plays a large role for transports of heat and carbon between latitudes, but also from surface to deeper ocean. The ocean is generally well stratified, meaning that the exchange between surface and deeper ocean is limited, thus also constraining the amount of heat and carbon that can reach the deeper ocean and be stored in this large volume. However, areas where surface waters are mixed into the deeper ocean are found in the North Atlantic and Southern Ocean. Ocean circulation in the surface ocean is largely driven by winds (<a href="#fig-circulation">Figure&nbsp;<span>14.1</span></a> a), whereas slower, long-term circulation in the deeper ocean is driven by density differences within the ocean (<a href="#fig-circulation">Figure&nbsp;<span>14.1</span></a> b). This slow circulation with a timescale of over one thousand years is referred to as thermohaline circulation, and it constitutes of both flows at the surface (for instance the Gulf Stream), which convects into the deeper ocean in both Atlantic and Southern Ocean (<a href="#fig-circulation">Figure&nbsp;<span>14.1</span></a> b).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-circulation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_circulation.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.1: Drivers of ocean circulation. Panel a shows the mechanisms leading to wind-driven circulation and mixing, from <span class="citation" data-cites="talley2011b">Talley et al. (<a href="references.html#ref-talley2011b" role="doc-biblioref">2011b</a>)</span>. Panel b shows the slow circulation through the entire ocean driven by density gradients (thermohaline circulation), Source WikiComms.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ocean-heat-uptake" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="ocean-heat-uptake"><span class="header-section-number">14.3</span> Ocean Heat Uptake</h2>
+<p>The ocean has taken up hundreds of ZJ of heat since the preindustrial time period as a result of the increasing Earth energy imbalance caused by greenhouse gas emissions (<a href="#fig-heatuptake">Figure&nbsp;<span>14.2</span></a>). The large potential for heat storage is due to the physical characteristics of water and storage volume. For instance, its large heat capacity (C<sub>p</sub> = 4’184 J kg<sup>-1</sup> °C<sup>-1</sup>) allows for stronger storage of heat at a given temperature than all other liquids and solids (except NH<sub>3</sub>). Heat is taken up through air-sea exchange at the ocean’s surface, thus being the largest storage term of anthropogenic heat, but part of it is also transferred to the voluminous deeper ocean, where it is stored over the long-term due to very slow circulation at greater depths. This heat in the deep ocean remains isolated from any contact with the atmosphere for centuries. Due to expansion of water with increasing temperature, the large ocean heat uptake is responsible for around half of historical changes in sea level. Increases in temperature also can have adverse effects on marine organisms, such as corals.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-heatuptake" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_heatuptake.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.2: Change in energy inventory for different components of the Earth’s climate system from 1960 to 2018, in ZJ. From <span class="citation" data-cites="schuckmann2023">Schuckmann et al. (<a href="references.html#ref-schuckmann2023" role="doc-biblioref">2023</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ocean-carbon-fluxes" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="ocean-carbon-fluxes"><span class="header-section-number">14.4</span> Ocean Carbon Fluxes</h2>
+<p>Carbon fluxes between ocean and the atmosphere, and thus the dissolution of atmospheric CO<sub>2</sub> into seawater, is heavily driven by two distinct processes pathways: carbonate chemistry and the biological fluxes. The former comprises of the chemical balance of inorganic carbon in seawater, whereas the latter is driven by uptake of carbon via photosynthesis and the degradation (remineralization) of this organic matter in the ocean. Both are greatly important for natural carbon fluxes in the ocean, but the uptake of anthropogenic CO<sub>2</sub> is dominated by the solubility pump that is driven by carbonate chemistry.</p>
+<section id="carbonate-chemistry-solubility-pump" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="carbonate-chemistry-solubility-pump"><span class="header-section-number">14.4.1</span> Carbonate chemistry (Solubility Pump)</h3>
+<p>Carbonate chemistry is a major driver of carbon storage in the ocean and the dominant pathway of anthropogenic CO<sub>2</sub> uptake by the ocean through its “Solubility Pump” <a href="#fig-carbonatechem">Figure&nbsp;<span>14.3</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-carbonatechem" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_carbonate_chemistry.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.3: Carbonate chemistry and the solubility pump of the ocean, based on <span class="citation" data-cites="williams2011">Williams and Follows (<a href="references.html#ref-williams2011" role="doc-biblioref">2011</a>)</span> .</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Firstly, gaseous CO<sub>2</sub> in the atmosphere can dissolve into seawater. This process is driven through the equilibrium states of gaseous CO<sub>2</sub> and dissolved CO<sub>2</sub> concentration in sea water. The equilibrium of gaseous CO<sub>2</sub> in the atmosphere and dissolved CO<sub>2</sub> in seawater is dictated by Henry’s law:</p>
+<p><span id="eq-henry_law"><span class="math display">\[
+\begin{align}
+\frac{CO_{2,(aq)}}{pCO_{2}} \Leftrightarrow K_{H}
+\end{align}
+\tag{14.1}\]</span></span></p>
+<p>Applying only Henry’s law with K<sub>H</sub> = 3.4 × 10<sup>−2</sup> and pCO<sub>2</sub> = 400 ppm would however lead to a 100-fold underestimation of carbon storage in the ocean. This is because of the buffer effect caused by the carbonate system. Dissolved CO<sub>2</sub> and water firstly form H<sub>2</sub>CO<sub>3</sub>. At sea water pH levels however, the majority of newly formed H<sub>2</sub>CO<sub>3</sub> dissociates to bicarbonate HCO<sub>3</sub><sup>-</sup>:</p>
+<p><span id="eq-h2co3"><span class="math display">\[
+\begin{align}
+CO_{2} + H_{2}O  \Leftrightarrow H_{2}CO_{3}
+\end{align}
+\tag{14.2}\]</span></span></p>
+<p><span id="eq-hco3"><span class="math display">\[
+\begin{align}
+H_{2}CO_{3} \Leftrightarrow HCO_{3}^{-} + H^{+}
+\end{align}
+\tag{14.3}\]</span></span></p>
+<p>This reaction is very favorable at oceanic pH levels with a pKa of 3. The bicarbonate can further dissociate to CO3<sup>2-</sup>:</p>
+<p><span id="eq-co3"><span class="math display">\[
+\begin{align}
+HCO_{3}^{-} \Leftrightarrow CO_{3}^{2-} + H^{+}
+\end{align}
+\tag{14.4}\]</span></span></p>
+<p>Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3. The sum of all carbonate species (CO<sub>2(aq)</sub>, H<sub>2</sub>CO<sub>3</sub>, HCO<sub>3</sub><sup>-</sup>, CO3<sup>2-</sup>) comprises dissolved inorganic carbon (DIC). <a href="#fig-dicspeciation">Figure&nbsp;<span>14.4</span></a> shows the fraction of the different DIC species to the total DIC as a function of solute pH. The figure shows that at a pH level typical for seawater (around pH=8.2), the majority of DIC is present under the form of HCO<sub>3</sub><sup>-</sup>. This means that with higher atmospheric CO<sub>2</sub>, the increased CO2(aq) will quickly react to form HCO<sub>3</sub><sup>-</sup>, allowing for more atmospheric CO<sub>2</sub> to be dissolved in the water. The mechanism is referred to as carbonate buffering.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dicspeciation" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_dic_speciation.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.4: Fraction of different DIC species (O<sub>2(aq)</sub>, H<sub>2</sub>CO<sub>3</sub>, HCO<sub>3</sub><sup>-</sup>, CO3<sup>2-</sup>) to total DIC, from <span class="citation" data-cites="barker2012">Barker and Ridgwell (<a href="references.html#ref-barker2012" role="doc-biblioref">2012</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A byproduct of equations <a href="#eq-h2co3">Equation&nbsp;<span>14.2</span></a> and <a href="#eq-hco3">Equation&nbsp;<span>14.3</span></a> is the increase of seawater hydrogen ions (H<sup>+</sup>) concentrations are increased, which is referred to as acidification. Acidification is notable to reduce rates of CO<sub>2</sub> uptake due to reducing the carbonate buffer of the ocean, and have adverse effects on organisms such as corals.</p>
+<p>Generally, the buffering capacity of the ocean through carbonate chemistry is referred to as carbonate alkalinity. While alkalinity in general is the sum of bases minus acids in a solution, carbonate alkalinity (A<sub>c</sub>) can be reduced to:</p>
+<p><span id="eq-ac"><span class="math display">\[
+\begin{align}
+A_{c} = HCO_{3}^{-} + CO_{3}^{2-}  + OH^{-} - H^{+}
+\end{align}
+\tag{14.5}\]</span></span></p>
+<p>Higher alkalinity means that the ocean can better compensate for an increase of H<sup>+</sup>.</p>
+<p>The carbonate system is firstly affected by temperature, which pushes the speciation equilibrium of <a href="#fig-dicspeciation">Figure&nbsp;<span>14.4</span></a> to the left, meaning that less CO<sub>2</sub> can be stored in seawater with higher temperatures. In addition, <a href="#fig-dicspeciation">Figure&nbsp;<span>14.4</span></a> also directly shows that a lower pH, meaning higher acidification, the buffer capacity of the ocean is reduced, reducing its potential to take up CO<sub>2</sub>.</p>
+</section>
+<section id="biological-fluxes-biological-pump" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="biological-fluxes-biological-pump"><span class="header-section-number">14.4.2</span> Biological Fluxes (Biological Pump)</h3>
+<p>Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO2 from the sea water. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality, by zooplankton or bacteria, and returned to the ocean as dissolved inorganic carbon (remineralization, <a href="#fig-biopump">Figure&nbsp;<span>14.5</span></a>). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer . This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the “biological pump”.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-biopump" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_biological_pump.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.5: Biological carbon uptake and mineralization in the ocean. The total loss of carbon from the atmosphere through this pathway is called the biological pump. Source: US-OCB.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Biological productivity in the ocean is strongly limited by light availability and nutrient concentrations. As a result, biological productivity is only found in the euphotic zone of the ocean, which is defined as depths to which light penetrates into the ocean and usually reaches around 100 m depth. <a href="https://svs.gsfc.nasa.gov/vis/a030000/a030700/a030786/modis_chlor_a_perceptual_720p.mp4">Spatial patterns of productivity</a> in the ocean show a large degree of seasonality due to the light limitation. However, “deserts” of biological productivity can be found in multiple areas of the ocean, which then owes to lack of nutrient supply. For instance, subtropical areas remain extremely low in productivity all year around due to low nutrient availability. In contrast, coastal areas where deeper waters supply vast amounts of nutrients (e.g.&nbsp;Californian coast, around the Canary islands, coast of Peru and Namibia) are some of the most biologically active areas in the ocean.</p>
+<p>Past and future changes in the biological drawdown and storage of carbon in the ocean remains strongly uncertain, despite it’s large natural fluxes. While models generally agree that the biological productivity will decrease with additional climate warming, the magnitude of this decrease is strongly variable.</p>
+</section>
+</section>
+<section id="ocean-carbon-uptake" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="ocean-carbon-uptake"><span class="header-section-number">14.5</span> Ocean Carbon Uptake</h2>
+<p>The ocean is responsible for around 25 % (2.7 Pg C yr<sup>-1</sup>) of anthropogenic carbon uptake. This carbon sink has steadily increased over time with atmospheric CO<sub>2</sub> concentrations, the primary driver of this increasing carbon flux to the ocean. Historical model and inversion data show minor saturation of the carbon sink can be observed over the historical time period (<span class="citation" data-cites="gruber2022">Gruber et al. (<a href="references.html#ref-gruber2022" role="doc-biblioref">2023</a>)</span>), which could owe to impacts of increasing temperature and acidification on the sink driven by carbonate chemistry. Figure <a href="#fig-spatialcarbon">Figure&nbsp;<span>14.7</span></a> shows areas of the natural CO<sub>2</sub> flux in different basins of the ocean (blue) and the anthropogenic perturbation of the CO<sub>2</sub> flux (red).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-carbonuptake" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_carbon_sink.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.6: Ocean carbon uptake. Panel a shows the cumulative global ocean carbon uptake over time. Panel b shows the cumulative global ocean carbon uptake in different basins. Panel c shows the relationship of cumulative global ocean carbon uptake with atmospheric CO<sub>2</sub> levels, from <span class="citation" data-cites="gruber2022">Gruber et al. (<a href="references.html#ref-gruber2022" role="doc-biblioref">2023</a>)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Research has shown that ocean areas that contribute disproportionally to the ocean carbon sink are regions where waters are cooled by the atmosphere and which can generate very deep mixing. For instance, in the North Atlantic and Southern Ocean, surface waters can be mixed to hundreds of meters below the surface. The response of such regions to atmospheric warming, or increased stratification with icesheet melting, which could disrupt the deep mixing of these waters, could strongly disrupt the ocean storage of carbon, and is thus an important area of research.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-spatialcarbon" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ocean_spatial_sink.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.7: Basin profile showing natural carbon exchange of ocean regions with atmosphere (blue arrows), anthropogenic carbon uptake (red arrow), and anthropogenic carbon storage in the ocean (concentrations in the profile), from <span class="citation" data-cites="gruber2022">Gruber et al. (<a href="references.html#ref-gruber2022" role="doc-biblioref">2023</a>)</span> .</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-barker2012" class="csl-entry" role="listitem">
+Barker, S., and A. Ridgwell. 2012. <span>“Ocean Acidification.”</span> <em>Nature Education</em>.
+</div>
+<div id="ref-friedlingstein24essd" class="csl-entry" role="listitem">
+Friedlingstein, P., M. O’Sullivan, M. W. Jones, R. M. Andrew, J. Hauck, P. Landschützer, C. Le Quéré, et al. 2024. <span>“Global Carbon Budget 2024.”</span> <em>Earth System Science Data Discussions</em> 2024: 1–133. <a href="https://doi.org/10.5194/essd-2024-519">https://doi.org/10.5194/essd-2024-519</a>.
+</div>
+<div id="ref-gruber2022" class="csl-entry" role="listitem">
+Gruber, Nicolas, Dorothee C. E. Bakker, Tim DeVries, Luke Gregor, Judith Hauck, Peter Landschützer, Galen A. McKinley, and Jens Daniel Müller. 2023. <span>“Trends and Variability in the Ocean Carbon Sink.”</span> <em>Nature Reviews Earth &amp; Environment</em> 4 (2): 119–34. <a href="https://doi.org/10.1038/s43017-022-00381-x">https://doi.org/10.1038/s43017-022-00381-x</a>.
+</div>
+<div id="ref-schuckmann2023" class="csl-entry" role="listitem">
+Schuckmann, K. von, A. Minière, F. Gues, F. J. Cuesta-Valero, G. Kirchengast, S. Adusumilli, F. Straneo, et al. 2023. <span>“Heat Stored in the Earth System 1960–2020: Where Does the Energy Go?”</span> <em>Earth System Science Data</em> 15 (4): 1675–1709. <a href="https://doi.org/10.5194/essd-15-1675-2023">https://doi.org/10.5194/essd-15-1675-2023</a>.
+</div>
+<div id="ref-talley2011a" class="csl-entry" role="listitem">
+Talley, Lynne D., George L. Pickard, William J. Emery, and James H. Swift. 2011a. <span>“Chapter 5 - Mass, Salt, and Heat Budgets and Wind Forcing.”</span> In <em>Descriptive Physical Oceanography (Sixth Edition)</em>, edited by Lynne D. Talley, George L. Pickard, William J. Emery, and James H. Swift, Sixth Edition, 111–45. Boston: Academic Press. https://doi.org/<a href="https://doi.org/10.1016/B978-0-7506-4552-2.10005-8">https://doi.org/10.1016/B978-0-7506-4552-2.10005-8</a>.
+</div>
+<div id="ref-talley2011b" class="csl-entry" role="listitem">
+———. 2011b. <span>“Chapter 7 - Dynamical Processes for Descriptive Ocean Circulation.”</span> In <em>Descriptive Physical Oceanography (Sixth Edition)</em>, edited by Lynne D. Talley, George L. Pickard, William J. Emery, and James H. Swift, Sixth Edition, 187–221. Boston: Academic Press. https://doi.org/<a href="https://doi.org/10.1016/B978-0-7506-4552-2.10007-1">https://doi.org/10.1016/B978-0-7506-4552-2.10007-1</a>.
+</div>
+<div id="ref-williams2011" class="csl-entry" role="listitem">
+Williams, Richard G., and Michael J. Follows. 2011. <em>Ocean Dynamics and the Carbon Cycle: Principles and Mechanisms</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
