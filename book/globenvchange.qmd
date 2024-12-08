@@ -166,7 +166,7 @@ knitr::include_graphics("images/pheno_pollinators.png")
 *Authored by Patricia Gribi, Patricia Helpap, Nils Tinner, and Michael Weatherford. Edited by Laura Marqués.*
 
 ### What is CO~2~ fertilization?
-The term CO~2~ fertilization here refers to the hypothesis that plants respond to increasing atmospheric CO~2~ concentration by increasing terrestrial carbon storage which in turn creates a negative feedback on atmospheric CO~2~ [@walker2021np]. This definition explicitly mentions the feedback on CO~2~ concentrations as a mechanism to potentially slow anthropogenic climate change. The relevant scales for such processes are hence global in space and decadal to centennial in time. Consequently, net ecosystem production (NEP) needs to be positive at the global scale and over a specified period for the CO~2~ fertilization hypothesis to be true [@walker2021np]. Many processes and feedbacks take place at different scales (@fig-co2fert-scales) that eventually influence the terrestrial carbon storage. In the following sections, we lay out and describe how CO~2~ fertilization effects scale to the globe. 
+The term CO~2~ fertilization here refers to the hypothesis that plants respond to increasing atmospheric CO~2~ concentration by increasing terrestrial carbon storage which in turn creates a negative feedback on atmospheric CO~2~ [@walker2021np]. This definition explicitly mentions the feedback on CO~2~ concentrations as a mechanism to potentially slow anthropogenic climate change. The relevant scales for such processes are hence global in space and decadal to centennial in time. Consequently, net ecosystem production (NEP) needs to be positive at the global scale and over a specified period for the CO~2~ fertilization hypothesis to be true [@walker2021np]. Many processes and feedbacks take place at different scales (@fig-co2fert-scales) that eventually influence the terrestrial carbon storage. In the following sections, we lay out and describe how CO~2~ fertilization scale from the leaf to the globe. 
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-scales
@@ -174,6 +174,36 @@ The term CO~2~ fertilization here refers to the hypothesis that plants respond t
 #| out-width: 100%
 knitr::include_graphics("images/co2fert_scales.png")
 ```
+
+### How to measure CO~2~ fertilization across scales?
+
+Evidence for CO~2~ fertilization comes from data measured at the different spatial scales and provide information about the responses and main processes. 
+
+*Elevated CO~2~ experiments*\
+Experiments in which plants grow under elevated CO~2~ conditions are the only direct evidence at the leaf to ecosystem scale. Ecosystem-scale open-top chambers (OTCs) and larger free-air CO~2~ enrichment (FACE) experiments (@fig-co2fert-face) provide evidence for the direct CO~2~ effect on photosynthesis and stomatal conductance and valuable information on biomass production, growth allocation, and transpiration. Such experiments do not last longer than 10 years, meaning the evidence for CO~2~ effects on mortality or carbon stock dynamics remains limited [@walker2021np]. 
+
+```{r echo=FALSE}
+#| label: fig-co2fert-face
+#| fig-cap: "BIFoR FACE (Birmingham Institute for Forest Research Free Air Carbon Dioxide Enrichment) facility. Circular arrays of pipes surround mature oak trees. These pipes release elevated levels of carbon dioxide (CO₂) directly into the forest canopy. Figure from BIFoR."
+#| out-width: 80%
+knitr::include_graphics("images/co2fert_face.png")
+```
+
+*Tree-level measurements*\
+Evidence on CO~2~ affecting individual tree growth stems mostly from tree growth measurements using tree rings and forest inventories which provide long-term estimates of wood BP in forests [@hubau2020nat]. Tree ring data offers insight into annually resolved individual stem growth over millennia, informing on tree growth variability relating to environmental changes [@walker2021np]. Their downside includes the sampling bias (focuses on old, healthy trees) and the use of the one-dimensional tree-ring width as a proxy for wood BP. Besides, tree-ring analyses offer insights into tree growth, but not into forest dynamics. Forest inventories record information every 5-10 years and have the advantage of capturing forest dynamics and demographic processes such as growth, mortality and recruitment over decades [@pretzsch2014natcomm]. 
+
+*Ecosystem monitoring*\
+Ecosystem scale processes can be captured using ecosystem monitoring methods such as eddy-covariance measurements (@fig-co2fert-flux) and global remote sensing. This captures carbon, water, and energy fluxes from the covariance of gas concentrations, and vertical wind velocities, as well as changes in vegetation cover, leaf area, and biomass through reflectance of wavelengths from earth’s surface [@walker2021np]. 
+
+```{r echo=FALSE}
+#| label: fig-co2fert-flux
+#| fig-cap: "Global fluxnet tower network included in the FLUXNET 2015 dataset. Figure from www.fluxnet.org."
+#| out-width: 80%
+knitr::include_graphics("images/co2fert_flux.png")
+```
+
+*Regional-to-global records*\
+At larger scales, several long-term data streams provide information on the global carbon stocks and their change over time. These data streams include near-surface and vertical profiles of atmospheric CO~2~ concentration and δ^13^C, global water-cycle measurements, and atmospheric composition from ice cores [@walker2021np]. Also, the Global Carbon Budget estimates provide details of land carbon uptake [@friedlingstein2024global]. Global carbon assimilation can be inferred from carbonyl sulfide (OCS) measurements as it is taken up through plant stomata and transformed into carbonic anhydrase [@whelan2018bio]. 
 
 ### CO~2~ fertilization at the leaf scale
 At the leaf level, rising CO~2~ increases photosynthesis and reduces stomatal conductance. The CO~2~ fertilization at this level is theoretically well understood and consistently observed.
@@ -192,7 +222,7 @@ CO~2~ fertilization also decreases stomatal conductance (*g~s~*) and increases w
 ```{r echo=FALSE}
 #| label: fig-co2fert-anetmod
 #| fig-cap: "Modelled theoretical responses to atmospheric CO~2~ concentration (ppm) of photosynthesis, *A~n~* (μmol m^−2^ s^−1^) and  photorespiration (μmol m^−2^ s^−1^); intrinsic water-use efficiency (iWUE, μmol mol^−1^) and stomatal conductance, *g~s~* (mol m^−2^ s^−1^) at the leaf (left column) and canopy (right column) levels. Figure and caption adpoted from @walker2021np."
-#| out-width: 90%
+#| out-width: 80%
 knitr::include_graphics("images/co2fert_anetmod.png")
 ```
 
@@ -213,9 +243,9 @@ However, the CO~2~ fertilization effect on plant growth can be also mitigated by
 ### CO~2~ fertilization at the forest scale
 At the forest-level, enhanced growth rates due to rising CO~2~ might lead to increased biomass accumulation. However, biomass stocks are influenced by changes in tree growth and also in tree mortality [@walker2021np]. Changes in mortality are difficult to assess [@mcmahon2019eco] since they can be caused directly by changes in environmental conditions and drought events [@desoto2020natcomm] or indirectly by changes in growth, with higher growth rates accelerating competition and increasing mortality risk [@trugman2018gcc]. Little evidence exists on tree mortality responses to CO~2~ fertilization due to data and modeling limitations [@walker2021np]. Forest inventories have shown long-term increases in mortality rates in Amazon forests [@brienen2015nat;@hubau2020nat] with no detectable change in African tropical forests [@hubau2020nat] (@fig-co2fert-growth c). This led to a decreasing trend in the net above-ground biomass in Amazonian tropical forests [@brienen2015nat;@hubau2020nat] and no significant change in African forests [@hubau2020nat] (@fig-co2fert-growth a).
 
-Further, evidence of CO~2~ fertilization at this scale affecting biomass accumulation appears conflicting. On the one hand, increased biomass stocks have been reported in forests around the globe [@pan2011science]. However, it is still uncertain whether the observed increase in biomass stocks results from accelerated tree growth driven by CO~2~ fertilization or recovery from past disturbances [@mcmahon2010pnas]. On the other hand, a line of work has argued that enhanced tree growth is associated with a reduction of tree longevity and carbon residence time, offsetting any possible gain in biomass stocks over longer timescales [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm; @korner2017science], as claimed by the *grow-fast-die-young* (GFDY) hypothesis. While much support for the GFDY hypothesis is based on variations across species (interspecific) [@brienen2015nat; @bugmann2011oec], growth-longevity trade-offs within species (intraspecific) have also been found previously [@bigler2009oikos; @difilippo2012gcc] but are less clear [@cailleret2017gcb].
+Further, evidence of CO~2~ fertilization at this scale affecting biomass accumulation appears conflicting. On the one hand, increased biomass stocks have been reported in forests around the globe [@pan2011science; pan2024nature]. However, it is still uncertain whether the observed increase in biomass stocks results from accelerated tree growth driven by CO~2~ fertilization or recovery from past disturbances [@mcmahon2010pnas]. On the other hand, a line of work has argued that enhanced tree growth is associated with a reduction of tree longevity and carbon residence time, offsetting any possible gain in biomass stocks over longer timescales [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm; @korner2017science], as claimed by the *grow-fast-die-young* (GFDY) hypothesis. While much support for the GFDY hypothesis is based on variations across species (interspecific) [@brienen2015nat; @bugmann2011oec], growth-longevity trade-offs within species (intraspecific) have also been found previously [@bigler2009oikos; @difilippo2012gcc] but are less clear [@cailleret2017gcb].
 
-Although direct evidence is scarce, a FACE experiment in a young forest suggested stand biomass increases, analyzed as a shift in the self-thinning trajectories, i.e., the negative relationship between stand density and average size that emerges as forest develops [@kubiske2019jfor]. An upward shift in the self-thinning line indicates increased carbon carrying capacity in the stand across tree size classes (@fig-co2fert-standstl a) and was recently found in temperate forests [@marques2023agu]. Higher biomass accumulation than expected from natural recovery was also found(@fig-co2fert-standstl b) using repeated recent censuses of stands of different ages[@mcmahon2010pnas]. Recent vegetation models have improved the representation of tree mortality showing the potential of biomass increases [@needham2020gcc] under elevated CO~2~. Model simulations combined with forest inventories supported that enhanced tree growth leads to increases in biomass stocks and changes in the self-thinning relationship despite simultaneous decreases in carbon residence time and tree longevity [@marques2023agu]. These findings reconcile reports of tree longevity reductions [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm] with model predictions of increased forest biomass [@pugh2020biogeo; @terrer2019ncc; @yu2019pnas].
+Although direct evidence is scarce, a FACE experiment in a young forest suggested stand biomass increases, analyzed as a shift in the self-thinning trajectories, i.e., the negative relationship between stand density and average size that emerges as forest develops [@kubiske2019jfor]. An upward shift in the self-thinning line indicates increased carbon carrying capacity in the stand across tree size classes (@fig-co2fert-standstl a) and was recently found in temperate forests [@marques2023agu]. Higher biomass accumulation than expected from natural recovery was also found using repeated recent censuses of stands of different ages (@fig-co2fert-standstl b) [@mcmahon2010pnas]. Recent vegetation models have improved the representation of tree mortality showing the potential of biomass increases [@needham2020gcc] under elevated CO~2~. Model simulations combined with forest inventories supported that enhanced tree growth leads to increases in biomass stocks and changes in the self-thinning relationship despite simultaneous decreases in carbon residence time and tree longevity [@marques2023agu]. These findings reconcile reports of tree longevity reductions [@brienen2020natcomm; @bugmann2011oec; @buntgen2019natcomm] with model predictions of increased forest biomass [@pugh2020biogeo; @terrer2019ncc; @yu2019pnas].
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-standstl
@@ -226,69 +256,133 @@ knitr::include_graphics("images/co2fert_standstl.png")
 
 ### CO~2~ fertilization at the ecosystem scale
 
-At the ecosystem-level, elevated CO~2~ can impact soil carbon dynamics, including changes in soil organic matter (SOM) decomposition and soil respiration rates [@walker2021np]. Evidence from FACE experiments has shown that elevated CO~2~ increases plant litter production [@iversen2012gcb], soil C inputs and SOM decomposition rates [@van2014science] (@fig-co2fert-soilc a). Still, findings from ecosystem-scale experiments show no clear results and studies in the long-term are scarce. For example, no significant increases in soil respiration were found in response to CO~2~ enrichment over 3 years experiment [@drake2018bio] (@fig-co2fert-soilc b). 
+At the ecosystem-level, elevated CO~2~ can impact soil carbon dynamics, including changes in soil organic matter (SOM) decomposition and soil respiration rates [@walker2021np]. Evidence from FACE experiments has shown that elevated CO~2~ increases plant litter production [@iversen2012gcb], soil C inputs and SOM decomposition rates [@van2014science] (@fig-co2fert-soilc a). Still, findings from ecosystem-scale experiments show no clear results and studies in the long-term are scarce. For example, no significant increases in soil respiration were found in response to CO~2~ enrichment over 3 years experiment [@drake2018bio] (@fig-co2fert-soilc b). Additionally, faster SOM decomposition due to higher CO~2~ could increase nutrient availability in soils and hence reduce plant nutrient limitation [@walker2015gbc]. Mycorrhizal associations and other root–microbe interactions involved in plant nutrient acquisition are likely important mediators of this process [@terrer2018np].
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-soilc
 #| fig-cap: "Changes in soil  carbon dynamics in response to elevated CO~2~. (a) Increases in soil C inputs and decomposition rate (*k*) under CO~2~ in a meta-analysis and (b) differences in soil respiration in a mature eucalypt forest exposed to ambient (A) or elevated (E) atmospheric CO~2~ concentrations. Figure adapted from @van2014science and @drake2018bio."
-#| out-width: 85%
+#| out-width: 80%
 knitr::include_graphics("images/co2fert_soilc.png")
 ```
-
-Additionally, faster SOM decomposition due to higher CO~2~ could increase nutrient availability in soils and hence reduce plant nutrient limitation [@walker2015gbc]. Mycorrhizal associations and other root–microbe interactions involved in plant nutrient acquisition are likely important mediators of this process [@terrer2018np].
 
 Net Ecosystem Production (NEP), calculated as the difference between Gross Primary Production (GPP) and ecosystem respiration (ER) can be measured directly from eddy-covariance flux towers. A multi-site study indicated increases in NEP and GPP while unchanged ER (@fig-co2fert-nep), with high CO~2~ sensitivity [@fernandez2017scirep].
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-nep
 #| fig-cap: "Long-term trends in C fluxes for 23 forests (1992–2013). Most of the forests presented increasing trends in (a) NEP and (b) GPP, whereas (c) respiration remained fairly constant. Figure and caption from @fernandez2017scirep."
-#| out-width: 85%
+#| out-width: 75%
 knitr::include_graphics("images/co2fert_nep.png")
 ```
 
-### CO~2~ fertilization at the landscape scale
+### CO~2~ fertilization at the landscape and global scales
 
-At the landscape scale, CO~2~ fertilization can influence different type of ecosystems (e.g., forests, grasslands, wetlands). Variations in vegetation types and soil properties affect how CO~2~ fertilization influence landscape and global carbon stocks. Natural disturbances and anthropogenic land-use changes such as deforestation can cause soil erosion, affecting carbon cycling at the landscape scale [@walker2021np]. Further, increased plant productivity due to CO~2~ fertilization can result in more organic matter entering soils, potentially leading to higher DOC production (dissolved organic carbon in water that can be transported through rivers, lakes, and soils) at this scale [@nakhavali2024stoten]. 
-
-Generally, satellite data shows greening trends over large areas of the globe (as seen from LAI values) and are predominanly attributed to rising CO~2~ levels.
-
-@fig-co2fert-landscape represents the main processes and feedbacks from the leaf to the landscape scales.
+At the landscape scale, CO~2~ fertilization can influence different type of ecosystems (e.g., forests, grasslands, wetlands). Variations in vegetation types and soil properties affect how CO~2~ fertilization influence landscape and global carbon stocks. Natural disturbances and anthropogenic land-use changes such as deforestation can cause soil erosion, affecting carbon cycling at the landscape scale [@walker2021np]. Further, increased plant productivity due to CO~2~ fertilization can result in more organic matter entering soils, potentially leading to higher DOC production (dissolved organic carbon in water that can be transported through rivers, lakes, and soils) at this scale [@nakhavali2024stoten]. @fig-co2fert-landscape represents the main processes and feedbacks from the leaf to the landscape scales.
 
 ```{r echo=FALSE}
 #| label: fig-co2fert-landscape
 #| fig-cap: "Multiscale diagram of the influence of the CO~2~ fertilization processes and drivers. Figure from @walker2021np."
-#| out-width: 90%
+#| out-width: 80%
 knitr::include_graphics("images/co2fert_landscape.png")
 ```
 
+Generally, satellite data shows greening trends over large areas of the globe (as seen from LAI values) and are predominanly attributed to rising CO~2~ levels (@fig-greening-drivers).
 
-### Measurements of CO~2~ fertilization across scales
-
-Evidence for CO~2~ fertilization comes from observations and data across scales that support the theory behind the CO~2~ fertilization mechanism. 
-
-*Elevated CO2 experiments*
-Experiments in which plants grow under elevated CO~2~ conditions are the only direct evidence at the leaf to ecosystem scale. Ecosystem-scale open-top chambers (OTCs) and larger free-air CO~2~ enrichment (FACE) experiments (@fig-co2fert-face) provide evidence for the direct CO~2~ effect on photosynthesis and stomatal conductance and valuable information on biomass production, growth allocation, and transpiration. Such experiments do not last longer than 10 years, meaning the evidence for CO~2~ effects on mortality or carbon stock dynamics remains limited [@walker2021np]. 
+At the global scale, the Global Carbon Budget has shown increases in land C sink in most of the regions (@fig-co2fert-gcb), with a few exceptions in areas where the negative effects of climate variability and climate change counterbalance CO~2~ effects [@friedlingstein2024global].
 
 ```{r echo=FALSE}
-#| label: fig-co2fert-face
-#| fig-cap: "BIFoR FACE (Birmingham Institute for Forest Research Free Air Carbon Dioxide Enrichment) facility. Circular arrays of pipes surround mature oak trees. These pipes release elevated levels of carbon dioxide (CO₂) directly into the forest canopy. Figure from BIFoR."
-#| out-width: 90%
-knitr::include_graphics("images/co2fert_face.png")
+#| label: fig-co2fert-gcb
+#| fig-cap: "Land CO~2~ sink averaged for the period 2014-2023. Positive values represent a flux from the atmosphere to the land (carbon sink). Results from the Global Carbon Budget 2024. Figure from @friedlingstein2024global."
+#| out-width: 80%
+knitr::include_graphics("images/co2fert_gcb.png")
 ```
+ 
+## Land Surface Greening
 
-*Tree growth measurements*
-Evidence on CO~2~ affecting individual tree growth stems mostly from tree growth measurements using tree rings and forest inventories which provide long-term estimates of wood BP in forests [@hubau2020nat]. Tree ring data offers insight into annually resolved individual stem growth over millennia, informing on tree growth variability relating to environmental changes [@walker2021np]. Their downside includes the sampling bias (focuses on old, healthy trees) and the use of the one-dimensional tree-ring width as a proxy for wood BP. Besides, tree-ring analyses offer insights into tree growth, but not into forest dynamics. Forest inventories further capture forest-scale dynamics and demographic processes such as growth, mortality and recruitment over decades [@pretzsch2014natcomm]. 
+*Authored by Florence Hammer, Joris Amiet and Meret Weh. Edited by Laura Marqués.*
 
-*Ecosystem monitoring*
-Ecosystem scale processes can be captured using ecosystem monitoring methods such as eddy-covariance measurements (@fig-co2fert-flux) and global remote sensing. This captures carbon, water, and energy fluxes from the covariance of gas concentrations, and vertical wind velocities, as well as changes in vegetation cover, leaf area, and biomass through reflectance of wavelengths from earth’s surface [@walker2021np]. 
+### What is global greening?
+Land surface greening refers to the expansion of vegetation greenness resulting from increased plant coverage, density, and species composition [@piao2020natrew]. This phenomenon has been typically observed across the globe since the early 1980s (@fig-greening-globe) and measured by satellite observations of vegetation indices such as the NDVI and the LAI. 
 
 ```{r echo=FALSE}
-#| label: fig-co2fert-flux
-#| fig-cap: "Global fluxnet tower network included in the FLUXNET 2015 dataset. Figure from www.fluxnet.org."
-#| out-width: 90%
-knitr::include_graphics("images/co2fert_flux.png")
+#| label: fig-greening-globe
+#| fig-cap: "Spatial patterns of the growing season integrated LAI for the period 1982–2009. LAI trends were derived from the average of GIMMS, GLOBMAP and GLASS LAI. Figure from @zhu2016ncc."
+#| out-width: 85%
+knitr::include_graphics("images/greening_globe.png")
 ```
 
-*Regional-to-global records*
-At larger scales, several long-term data streams provide information on the global carbon stocks and their change over time. These data streams include near-surface and vertical profiles of atmospheric CO~2~ concentration and δ^13^C, global water-cycle measurements, and atmospheric composition from ice cores [@walker2021np]. Also, the Global Carbon Budget estimates provide details of land carbon uptake [@friedlingstein2024global]. Global carbon assimilation can be inferred from carbonyl sulfide (OCS) measurements as it is taken up through plant stomata and transformed into carbonic anhydrase [@whelan2018bio]. 
+### How to detect land surface greening?
 
+#### Satellite sensors
+Photosynthetic pigments in plants, such as chlorophyll and carotenoids, strongly absorb light in the visible spectrum (400-700nm), particularly in the red wavelengths (620-700nm) (RED). In the near-infrared range (700-1300nm) (NIR) leaf constituents absorb little, leading to high NIR reflectance [@piao2020natrew]. This distinct spectral signature, unique to vegetation, is used to calculate vegetation indices (VIs) for assessing vegetation greenness and health (@fig-greening-spec). Satellite-based remote sensing has enabled continuous estimation of vegetation greenness since the 1980s [@piao2020natrew]. Different satellite sensors have been used like the Advanced Very-High Resolution Radiometer (AVHRR), Moderate Resolution Imaging Spectroradiometer (MODIS), Vegetation, Medium Resolution Imaging Spectrometer (MERIS) and Visible Infrared Imaging Radiometer Suite (VIIRS). They operate with varying temporal coverage and provide VIs using different spectral-band specifications and data processing techniques (@fig-greening-spec). 
+
+```{r echo=FALSE}
+#| label: fig-greening-spec
+#| fig-cap: "Spectral reflection and absorption characteristics of vegetation (upper figure) and satellite sensors used to monitor global greening (lower figure). Figure from @piao2020natrew"
+#| out-width: 80%
+knitr::include_graphics("images/greening_spec.png")
+```
+
+#### Vegetation indices
+The most common variables and indices in detecting land surface greening are:
+
+The *Normalized Difference Vegetation Index* (NDVI) is calculated by comparing the reflectance in the NIR and RED, which are differently absorbed and reflected by plants [@piao2020natrew]. The index (unitless) ranges from -1 to +1 and is used to indicate the health of vegetation based on light reflectance. Healthy vegetation reflects more NIR and absorbs more RED, resulting in higher NDVI values (@fig-greening-lai-ndvi b), whereas values approaching zero or negative indicate non-vegetated surfaces, barren land, or water. The *Enhanced Vegetation Index* (EVI) is calculated using reflectance in the blue, red, and near-infrared bands. EVI is a modified NDVI with improved sensitivity, particularly in areas with dense vegetation, where NDVI tends to saturate. The *Near-Infrared Reflectance of Terrestrial Vegetation* (NIRv) is a vegetation index that combines the NIR with the NDVI to provide a more accurate measure of photosynthetic activity and vegetation greenness. 
+
+$$
+\begin{align}
+NDVI = \frac{NIR-RED}{NIR+RED} 
+\end{align}
+$$ {#eq-henry_law}
+
+The *Leaf Area Index* (LAI) is a key vegetation metric that measures the total leaf area per unit ground area (@sec-light-absorption). LAI is defined as the  one-sided green leaf area per unit vegetated ground area in broadleaf canopies and as one-half the total  needle surface area per unit vegetated ground area in coniferous canopies [@zhu2013rs]. LAI values are commonly derived from vegetation indices such as NDVI. A higher LAI value indicates greater leaf area, reflecting greater photosynthetic potential and plant density (@fig-greening-lai-ndvi a).
+
+The *fraction of Absorbed Photosynthetically Active Radiation* (fAPAR) measures the fraction (unitless) of incoming solar radiation in the photosynthetically active spectrum that is absorbed by the vegetation (@light-use-efficiency-model). fAPAR can be calculated through models based on vegetation indices like NDVI or EVI. Unlike FPAR, which includes all intercepted PAR (including non-photosynthetic components like stems and dead leaves), fAPAR specifically measures the radiation absorbed by chlorophyll [@zhu2013rs], making it directly tied to photosynthetic activity and vegetation growth and greenness.
+
+```{r echo=FALSE}
+#| label: fig-greening-lai-ndvi
+#| fig-cap: "Trends in satellite-derived global vegetation indices over time. (a) Leaf area index (LAI) from four products: GIMMS13, GLASS192, GLOBMAP23 and MODIS C6. (b) NDVI from three products: GIMMS194, MODIS C6 and SPOT. Only measurements during the growing season were considered. Figure and caption from @piao2020natrew."
+#| out-width: 80%
+knitr::include_graphics("images/greening_lai_ndvi.png")
+```
+
+### Global greening trends
+
+In the last four decades, contrasting greening trends have been reported [@piao2020natrew] (@fig-greening-trends). While many studies have highlighted a global land surface greening since the 1980s [@zhu2016ncc; @piao2014natcomm; @chen2019natsus], others have suggested a slowdown of the greening trends [@winkler2021biogeo], particularly after 2000 [@dejong2012gcb; wang2020science]. However, recent evidence has claimed that these findings may result from technical issues in the AVHRR NIRv datasets [@zhu2021science; @frankenberg2021science] and sensor degradation in the older collection MODIS C5 [@zhang2017rs]. These studies highlighted the importance of rigorous data processing to minimize the *artifacts* that may lead to temporal inconsistencies [@tian2015rs], affecting long-term greening trends. 
+
+```{r echo=FALSE}
+#| label: fig-greening-trends
+#| fig-cap: "Spatial patterns of the growing season mean LAI trends (a) with AVHRR LAI averaged from three different products: GIMMS, GLOBMAP and GLASS during 1982-2009, and (b) with LAI calculated from MODIS C6 product during 2000-2018. Figure from @piao2020natrew."
+#| out-width: 80%
+knitr::include_graphics("images/greening_trends.png")
+```
+
+A study published this year has highlighted ongoing issues with temporal inconsistencies in AVHRR vegetation index datasets [@jeong2024rs]. The first issue is the systematic biases between AVHRR sensors at pseudo-invariant calibration sites (e.g., desert regions with lower variability over time), introducing temporal inconsistency linked to spurious instrumental biases rather than actual vegetation changes [@frankenberg2021science]. The second issue concerns the orbital drifting, which changes the timing of satellites' passes over specific locations. This shift affects the solar zenith angle and influences the amount of light reflected by the vegetation [@tian2015rs]. The third issue is the incomplete harmonization of AVHRR vegetation indices with other satellite data, like the MODIS NDVI. @jeong2024rs addressed the temporal inconsistencies produced by these three issues and revealed a persistent greening trend in the harmonized AVHRR NDVI and NIRv for 1982–2021. These discrepancies in vegetation index trends have caused an overestimation of the greening trend before 2000 and an underestimation after 2000 (@fig-greening-jeong).
+
+```{r echo=FALSE}
+#| label: fig-greening-jeong
+#| fig-cap: "Annual growing season anomaly of four NDVI datasets (AVHRRLTDR, AVHRRharmonized, GIMMS3g, and MODIS). Figure adapted from @jeong2024rs."
+#| out-width: 80%
+knitr::include_graphics("images/greening_jeong.png")
+```
+
+### Main drivers of global greening
+
+Vegetation greening has been attributed to several factors, including indirect factors such as rising atmospheric CO~2~ levels, climate change, nitrogen deposition, and direct factors like land-use changes. While vegetation greenness has generally increased globally, the drivers of this change vary regionally (@fig-greening-drivers). 
+
+*CO~2~ fertilization*\ 
+Higher atmospheric CO~2~ levels enhance photosynthesis, leading to increased plant growth, especially in C3 plants [@walker2021np]. As shown in chapter @co2-fertilization, the processes and responses CO~2~ fertilization vary among spatial scales (@fig-co2fert-scales) and eventually influence terrestrial greening. FACE experiments have generally shown that elevated CO~2~ significantly enhances vegetation productivity and leaf area. However, the strength of the CO~2~ fertilization effect can be limited by extreme weather events and nutrient and water availability [@norby2010pnas; terrer2019ncc]. Further, changes in mortality and biomass accumulation are still uncertain [@co2-fertilization-at-the-forest-scale]. Although tropical regions are generally greening, some areas have shown browning trends [@piao2020natrew] due to deforestation [@chen2019natsus]. In semi-arid regions, where water is the limiting factor to vegetation growth, an increase in WUE due to rising CO~2~ has led to increases in foliage cover and thus contributing to greening trends [@donohue2013geo].
+
+*Climate change*\
+Warmer temperatures can enhance greenness in boreal and Arctic regions by enhancing photosynthesis and extending the growing season [@zhu2016ncc]. The high northern latitudes have experienced widespread vegetation greening, but browning trends are growing, especially in boreal forests affected by disturbances like fires, harvesting, and insect defoliation [@goetz2005pnas]. In water-limited ecosystems, precipitation changes are the primary drivers of greening and browning. This is most evident in semi-arid areas of southern Africa and Australia, where increased precipitation has stimulated vegetation growth [@donohue2009gcc]. 
+
+*Land-use change*\
+Human land-use management is a significant driver of global greening [@zhu2016ncc], contributing to about one-third (or more) of the observed increase in LAI [@chen2019natsus]. Agricultural areas, particularly in India, and afforested areas in China, are driving this trend. Recent satellite data from 2000–2017 highlight substantial greening in China and India, which together for over 30% of the total global increase in LAI globally (China 25% and India 6.8%). This greening in China comes primarily from forests (42%) and croplands (32%), whereas in India, it is largely due to croplands (82%), with a smaller contribution from forests (4.4%) [@chen2019natsus]. The so-called "Green Revolution" has been facilitated by agricultural intensification, including practices such as multiple cropping and the use of irrigation, fertilizers, and mechanization.
+
+*Nitrogen deposition*\
+Insufficient nitrogen can limit plant growth, potentially slowing greening or causing browning, while excess nitrogen can boost growth in nitrogen-limited ecosystems [@penuelas2013natcomm]. However, the few DGVMs that incorporate the nitrogen cycle suggest that nitrogen deposition does not play a dominant role in global or regional greening trends [@zhu2016ncc]. 
+
+```{r echo=FALSE}
+#| label: fig-greening-drivers
+#| fig-cap: "Main drivers of growing season mean LAI trends attributed to rising CO~2~ (CO~2~), climate change (CLI), nitrogen deposition (NDE) and land cover change (LCC) during the period 1982–2009. Other factors (OF) is defined by the fraction of the observed LAI trends not accounted for by modelled factors. Figure and caption from @piao2020natrew"
+#| out-width: 80%
+knitr::include_graphics("images/greening_drivers.png")
+```
