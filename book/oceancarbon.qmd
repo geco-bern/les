@@ -1,7 +1,7 @@
 # The Ocean and its CO~2~ uptake  {#sec-oceancarbon}
 ## Ocean Role in the Climate System
 
-The ocean constitutes of around 70 % of the Earth’s surface and plays a vital role in the climate system through its large storage of heat and carbon [@talley2011a]. Since the preindustrial time period, the ocean has stored over 90 % of excess anthropogenic heat. It also has taken up 22 % of global anthropogenic carbon emissions [@friedlingstein24essd]. Both of characteristics mean that increasing atmospheric CO~2~ concentrations and climate warming would be much more severe without the role of the ocean in the climate system. 
+The ocean constitutes of around 70 % of the Earth’s surface and plays a vital role in the climate system through its large storage of heat and carbon [@talley2011a]. Since the preindustrial time period, the ocean has stored over 90 % of excess anthropogenic heat. It is also taking up around 25 % of global anthropogenic carbon emissions [@friedlingstein24essd]. Both of characteristics mean that increasing atmospheric CO~2~ concentrations and climate warming would be much more severe without the role of the ocean in the climate system. 
 
 In addition to this, the ocean serves as a habitat for marine species, and is important for human socioeconomic activities. Climate warming and other human-caused disruptions, such as eutrophication, are affecting this vital space on Earth, and endangering species such as corals.
 
@@ -74,7 +74,7 @@ HCO_{3}^{-} \Leftrightarrow CO_{3}^{2-} + H^{+}
 \end{align}
 $$ {#eq-co3}
 
-Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3. The sum of all carbonate species (CO~2(aq)~, H~2~CO~3~, HCO~3~^-^, CO3^2-^) comprises dissolved inorganic carbon (DIC). @fig-dicspeciation shows the fraction of the different DIC species to the total DIC as a function of solute pH. The figure shows that at a pH level typical for seawater (around pH=8.2), the majority of DIC is present under the form of HCO~3~^-^. This means that with higher atmospheric CO~2~, the increased CO2(aq) will quickly react to form HCO~3~^-^, allowing for more atmospheric CO~2~ to be dissolved in the water. The mechanism is referred to as carbonate buffering. 
+Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3. The sum of all carbonate species (CO~2(aq)~, H~2~CO~3~, HCO~3~^-^, CO3^2-^) comprises dissolved inorganic carbon (DIC). @fig-dicspeciation shows the fraction of the different DIC species to the total DIC as a function of solute pH. The figure shows that at a pH level typical for seawater (around pH=8.1), the majority of DIC is present under the form of HCO~3~^-^. This means that with higher atmospheric CO~2~, the increased CO2(aq) will quickly react to form HCO~3~^-^, allowing for more atmospheric CO~2~ to be dissolved in the water. The mechanism is referred to as carbonate buffering. 
 
 
 ```{r echo=FALSE, eval=TRUE}
@@ -100,7 +100,7 @@ The carbonate system is firstly affected by temperature, which pushes the specia
 
 ### Biological Fluxes (Biological Pump)
 
-Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO2 from the sea water. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality, by zooplankton or bacteria, and returned to the ocean as dissolved inorganic carbon (remineralization, @fig-biopump). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer . This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the "biological pump".
+Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO~2~ from the sea water. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality, by zooplankton or bacteria, and returned to the ocean as dissolved inorganic carbon (remineralization, @fig-biopump). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer . This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the "biological pump".
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-biopump
