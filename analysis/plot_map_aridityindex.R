@@ -63,7 +63,7 @@ ggmap <- ggplot() +
   
   # coastline
   geom_sf(
-    data = coast,
+    data = layer_coast,
     colour = 'black',
     linewidth = 0.1
   ) +

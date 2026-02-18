@@ -56,7 +56,7 @@ le_to_et <- function(le, tc, patm){
 adf <- ddf |> 
   mutate(
     # convert latent heat flux into mass flux in mm day-1
-    le_mm = le_to_et(LE_F_MDS, TA_F_MDS, PA_F),
+    le_mm = le_to_et(LE_F_MDS, TA_F_MDS, PA_F),   # LE_CORR
     pet = 60 * 60 * 24 * cwd::pet(NETRAD, TA_F_MDS, PA_F)
   ) |> 
   mutate(year = year(TIMESTAMP)) |> 

@@ -672,6 +672,8 @@ As mentioned above, peatlands store 500-700 PgC (more than all biomass C globall
 
 Peatlands, as all wetlands, are also a major source of methane (CH~4~). Under anoxic soil conditions, CH~4~ is produced, rather than C being oxidized and CO~2~ released (@sec-ghg). 
 
+<!-- XXX to be added : erosion and the C cycle https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2023RG000829 -->
+
 ::: {.callout-caution}
 ## Exercise
 

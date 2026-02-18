@@ -98,6 +98,8 @@ Higher alkalinity means that the ocean can better compensate for an increase of 
 
 The carbonate system is firstly affected by temperature, which pushes the speciation equilibrium of @fig-dicspeciation to the left, meaning that less CO~2~ can be stored in seawater with higher temperatures. In addition, @fig-dicspeciation also directly shows that a lower pH, meaning higher acidification, the buffer capacity of the ocean is reduced, reducing its potential to take up CO~2~.  
 
+<!-- XXX include numeric example and the definition of pH -->
+
 ### Biological Fluxes (Biological Pump)
 
 Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO~2~ from the sea water. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality, by zooplankton or bacteria, and returned to the ocean as dissolved inorganic carbon (remineralization, @fig-biopump). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer . This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the "biological pump".

@@ -45,7 +45,7 @@ knitr::include_graphics("images/luc_emissions_friedlingstein23essd.png")
 
 Deforestation remains the largest contributor, but other factors such as peatland degradation and land conversion to agriculture have also played important roles. While fossil fuel emissions have risen sharply, LUC continues to represent a major source of emissions, though its share has slightly declined in recent years [@friedlingstein24essd].
 
-By comparing estimates for current actual vegetation C stocks with C stocks under potential natural vegetation (@sec-luc_methods), total land use change-induced C loss has been estimated at 447 PgC [@erb18nat]. This can be understood as being equal to the cumulative sum of related emissions since the advent of agriculture (@sec-hololu). During the industrial period (1750-2023), cumulative emissions from land use change are estimated at 255 $\pm$ 75 PgC (@tbl-gcb2024), which corresponds to around 34% of total industrial-era anthropogenic CO~2~ emissions, including emissions from fossil fuels.
+By comparing estimates for current actual vegetation C stocks with C stocks under potential natural vegetation (@sec-luc_methods), total land use change-induced C loss has been estimated at 447 PgC [@erb18nat]. This can be understood as being equal to the cumulative sum of related emissions since the advent of agriculture (@sec-hololu). During the industrial period (1750-2023), cumulative emissions from land use change are estimated at 255 $\pm$ 75 PgC (@tbl-gcb), which corresponds to around 34% of total industrial-era anthropogenic CO~2~ emissions, including emissions from fossil fuels.
 
 ## Land use change since the Neolithic Revolution {#sec-hololu}
 
