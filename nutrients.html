@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Land in the Earth System - 11&nbsp; Nitrogen Cycle and Interactions with the Carbon Cycle</title>
+<title>11&nbsp; Nitrogen Cycle and Interactions with the Carbon Cycle – Land in the Earth System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -52,24 +53,34 @@ div.csl-indent {
 <link href="./ghg.html" rel="next">
 <link href="./landusechange.html" rel="prev">
 <link href="./figures/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-55abac0465d10ec823624cc1da9df1de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -78,60 +89,252 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Land in the Earth System - 11&nbsp; Nitrogen Cycle and Interactions with the Carbon Cycle">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="11&nbsp; Nitrogen Cycle and Interactions with the Carbon Cycle – Land in the Earth System">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="images/nitrogen_cycle.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo.png" alt="" class="navbar-logo">
+    <img src="./images/logo.png" alt="" class="navbar-logo light-content">
+    <img src="./images/logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title"></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/les_i/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/geco-bern/les_i/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -139,32 +342,23 @@ div.csl-indent {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part2.html">Part II</a></li><li class="breadcrumb-item"><a href="./nutrients.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Nitrogen Cycle and Interactions with the Carbon Cycle</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part2.html">Part II</a></li><li class="breadcrumb-item"><a href="./nutrients.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Nitrogen Cycle and Interactions with the Carbon Cycle</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -183,7 +377,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part I</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -236,7 +430,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part II</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -288,7 +482,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -324,7 +518,8 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part2.html">Part II</a></li><li class="breadcrumb-item"><a href="./nutrients.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Nitrogen Cycle and Interactions with the Carbon Cycle</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-nutrients" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Nitrogen Cycle and Interactions with the Carbon Cycle</span></span></h1>
 </div>
@@ -339,14 +534,16 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <p><em>Authored by Julian Richter, Livio Conzett and Martin Sigrist. Edited by Fabrice Lacroix.</em></p>
 <p>Nitrogen (N) is a primary nutrient that is essential for life on earth. While it is present in large abundance as N<sub>2</sub> in the atmosphere, it is unavailable in this form for most organisms on Earth. In the terrestrial ecosystem, the availability of nitrogen is critical for fueling of photosynthesis and production of plant tissue, it also serves as a substrate for a vast number of microbial processes in the soil, under which the N<sub>2</sub>O gas is, for instance, produced <span class="citation" data-cites="nevins2020">(<a href="references.html#ref-nevins2020" role="doc-biblioref">Nevins, Strauss, and Inglett 2020</a>)</span>. The cycling and availability of nitrogen in soils and vegetation thus both play an important role for the vegetative uptake of carbon from the atmosphere, as well as emissions of carbon and nitrogen greenhouse gases from soils.</p>
 <section id="nitrogen-pools-in-the-earth-system" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="nitrogen-pools-in-the-earth-system"><span class="header-section-number">11.1</span> Nitrogen Pools in the Earth System</h2>
 <!-- XXX Potentially add a visualization of nitrogen pools at a later timepoint -->
-<p>Nitrogen relevant to the terrestrial ecosystem is found in atmosphere (A), lithosphere (B), biosphere (C) and pedosphere (D) pools (<a href="#fig-nitrogencycle">Figure&nbsp;<span>11.1</span></a>):</p>
+<p>Nitrogen relevant to the terrestrial ecosystem is found in atmosphere (A), lithosphere (B), biosphere (C) and pedosphere (D) pools (<a href="#fig-nitrogencycle" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>):</p>
 <p><strong>(A) Atmosphere</strong>: Nitrogen gas (N<sub>2</sub>) makes up 78% of the atmosphere composition. Despite constituting an enormous pool, N<sub>2</sub> is not accessible to most of terrestrial organisms <span class="citation" data-cites="myrold1999">(<a href="references.html#ref-myrold1999" role="doc-biblioref">Myrold 1999</a>)</span>.</p>
 <p><strong>(B) Lithosphere</strong>: In the upper lithosphere, nitrogen is found in silicate minerals in the form of ammonium (NH<sub>4</sub><sup>+</sup>, <span class="citation" data-cites="mysen2019">(<a href="references.html#ref-mysen2019" role="doc-biblioref">Mysen 2019</a>)</span>). This pool is generally not directly accessible to organisms due to strong bonds, but nitrogen stored in minerals can be released as ammonium to the soil as part of the weathering process.</p>
 <p><strong>(C) Biosphere</strong>: Nitrogen is present in tissues, amino acids, and nucleic acids of organisms.</p>
@@ -354,14 +551,18 @@ div.csl-indent {
 </section>
 <section id="nitrogen-sources-transformation-and-loss-pathways" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="nitrogen-sources-transformation-and-loss-pathways"><span class="header-section-number">11.2</span> Nitrogen sources, transformation and loss pathways</h2>
-<p>Here, we underline seven processes in the nitrogen cycle of terrestrial ecosystems that determine its availability and influence on vegetation and microbe dynamics, as well as the terrestrial greenhouse gas exchange. In <a href="#fig-nitrogencycle">Figure&nbsp;<span>11.1</span></a>, inputs to the terrestrial ecosystem are represented in green, soil processing and vegetation dynamics are represented in blue, losses from the terrestrial ecosystem are shown in orange and anthropogenic perturbations are illustrated in purple.</p>
+<p>Here, we underline seven processes in the nitrogen cycle of terrestrial ecosystems that determine its availability and influence on vegetation and microbe dynamics, as well as the terrestrial greenhouse gas exchange. In <a href="#fig-nitrogencycle" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, inputs to the terrestrial ecosystem are represented in green, soil processing and vegetation dynamics are represented in blue, losses from the terrestrial ecosystem are shown in orange and anthropogenic perturbations are illustrated in purple.</p>
 <p>In terms of inputs to the terrestrial ecosystem, nitrogen fixation and deposition from the atmosphere serve as natural sources of nitrogen to the terrestrial ecosystem (1). Immobilization (2), mineralization of organic nitrogen from plant litter (3) and nitrification (4) transform nitrogen and can increase or reduce the availability of nitrogen forms available to plants or microbes (5). Nitrogen is finally lost from the terrestrial ecosystem via denitrification (6) and the leaching (7). Additionally, weathering has recently been found to be a significant additional source of nitrogen to soils (8) <span class="citation" data-cites="houlton2018">(<a href="references.html#ref-houlton2018" role="doc-biblioref">Houlton, Morford, and Dahlgren 2018</a>)</span>. Anthropogenic activities (9) have greatly perturbed sources of nitrogen to the terrestrial ecosystem <span class="citation" data-cites="galloway2004">(<a href="references.html#ref-galloway2004" role="doc-biblioref">Galloway et al. 2004</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nitrogencycle" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/nitrogen_cycle.png" class="img-fluid figure-img" style="width:85.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.1: Nitrogen cycling in the terrestrial ecosystem. Letters represent Earth system pools, whereas numbers stand for processes, which are both described in this Chapter’s text.</figcaption>
+<div id="fig-nitrogencycle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogencycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/nitrogen_cycle.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogencycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Nitrogen cycling in the terrestrial ecosystem. Letters represent Earth system pools, whereas numbers stand for processes, which are both described in this Chapter’s text.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -392,7 +593,7 @@ NH_{4}  \rightarrow NO_{2}  \rightarrow NO_{3}^{-}
 <section id="nitrogen-loss-pathways" class="level3" data-number="11.2.3">
 <h3 data-number="11.2.3" class="anchored" data-anchor-id="nitrogen-loss-pathways"><span class="header-section-number">11.2.3</span> Nitrogen loss pathways</h3>
 <ol start="6" type="1">
-<li><p><em>Denitrification</em>: In the absence of oxygen (anaerobic conditions), certain microorganisms can use nitrate (NO<sub>3</sub><sup>-</sup>) as an oxidate for the degradation of organic matter, thereby by converting NO<sub>3</sub><sup>-</sup> to N<sub>2</sub>. This process is called denitrification. For this process to happen, soils need to be saturated with water, where oxygen is thus not available in high enough concentrations to be used as an oxidant. The process undergoes multiple steps of nitrogen reduction (<a href="#eq-nitrification">Equation&nbsp;<span>11.2</span></a>). A disruption to the process chain can produce and release nitrous oxide (N<sub>2</sub>O), also known as laughing gas, to the atmosphere. From a climate perspective, this is a process of significant importance because N<sub>2</sub>O is a strong greenhouse gas <span class="citation" data-cites="tian2024">(<a href="references.html#ref-tian2024" role="doc-biblioref">Tian et al. 2024</a>)</span>. <span id="eq-nitrification"><span class="math display">\[
+<li><p><em>Denitrification</em>: In the absence of oxygen (anaerobic conditions), certain microorganisms can use nitrate (NO<sub>3</sub><sup>-</sup>) as an oxidate for the degradation of organic matter, thereby by converting NO<sub>3</sub><sup>-</sup> to N<sub>2</sub>. This process is called denitrification. For this process to happen, soils need to be saturated with water, where oxygen is thus not available in high enough concentrations to be used as an oxidant. The process undergoes multiple steps of nitrogen reduction (<a href="#eq-nitrification" class="quarto-xref">Equation&nbsp;<span>11.2</span></a>). A disruption to the process chain can produce and release nitrous oxide (N<sub>2</sub>O), also known as laughing gas, to the atmosphere. From a climate perspective, this is a process of significant importance because N<sub>2</sub>O is a strong greenhouse gas <span class="citation" data-cites="tian2024">(<a href="references.html#ref-tian2024" role="doc-biblioref">Tian et al. 2024</a>)</span>. <span id="eq-nitrification"><span class="math display">\[
 \begin{align}
 NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow N{_{2}}  
 \end{align}
@@ -405,16 +606,16 @@ NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow 
 <h2 data-number="11.3" class="anchored" data-anchor-id="plant-n-dynamics"><span class="header-section-number">11.3</span> Plant N Dynamics</h2>
 <section id="plant-n-demand" class="level3" data-number="11.3.1">
 <h3 data-number="11.3.1" class="anchored" data-anchor-id="plant-n-demand"><span class="header-section-number">11.3.1</span> Plant N Demand</h3>
-<p>Nitrogen is a critical element for plant dynamics, influencing the relationship between photosynthesis and growth, and is an essential for building of tissue, amino acids and nucleic acids, and thus playing a critical role in biomass production <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>. Several factors thereby influence the demand for nitrogen in plants in an interplay between biomass production and maintenance, climate factors, plant tissue stoichiometric constraints, and altered plant dynamics facing low nutrient conditions (<a href="#fig-nitrogendemand">Figure&nbsp;<span>11.2</span></a>).</p>
+<p>Nitrogen is a critical element for plant dynamics, influencing the relationship between photosynthesis and growth, and is an essential for building of tissue, amino acids and nucleic acids, and thus playing a critical role in biomass production <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>. Several factors thereby influence the demand for nitrogen in plants in an interplay between biomass production and maintenance, climate factors, plant tissue stoichiometric constraints, and altered plant dynamics facing low nutrient conditions (<a href="#fig-nitrogendemand" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>).</p>
 <p><strong>Biomass Production</strong></p>
-<p>Plants build biomass from the difference between gross primary productivity and autotrophic respiration (See <a href="gpp.html"><span>Chapter&nbsp;4</span></a>). The biomass production can thereby be assumed to approximately linearly depend on gross primary productivity (GPP).</p>
+<p>Plants build biomass from the difference between gross primary productivity and autotrophic respiration (See <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>). The biomass production can thereby be assumed to approximately linearly depend on gross primary productivity (GPP).</p>
 <p><strong>Tissue Stoichiometry</strong></p>
-<p>Tissue stoichiometry and its variations among species and along climatic gradients is significant <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>. Plants that allocate a higher proportion of leaf biomass relative to total biomass thereby generally require more nitrogen (see <a href="gpp.html"><span>Chapter&nbsp;4</span></a>). This is due to higher N stoichiometry of the leaf tissue with comparison to that of e.g.&nbsp;coarse roots. Nitrogen available in the soil, may not always support the demand of the plants. Lower C:N ratio (e.g., 10:1) than plant stochiometric needs indicates relatively higher nitrogen availability, which would fully support plant growth.</p>
+<p>Tissue stoichiometry and its variations among species and along climatic gradients is significant <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>. Plants that allocate a higher proportion of leaf biomass relative to total biomass thereby generally require more nitrogen (see <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>). This is due to higher N stoichiometry of the leaf tissue with comparison to that of e.g.&nbsp;coarse roots. Nitrogen available in the soil, may not always support the demand of the plants. Lower C:N ratio (e.g., 10:1) than plant stochiometric needs indicates relatively higher nitrogen availability, which would fully support plant growth.</p>
 <p><strong>Allocation</strong></p>
 <p>The allocation of biomass growth also impacts the demand of nitrogen, due to the differing stoichiometries of different plant compartments. Under low nitrogen conditions, plants can adapt their allocation of biomass, thereby focusing on increasing below-ground growth, which firstly requires less nitrogen, and secondly enables more efficient uptake from the soil through higher root density.</p>
 <p><strong>N Resorption</strong> Plants can reuse nitrogen by resorbing them from their different compartments (roots and leaves). This thus decreases the demand for N.</p>
 <p><em>Climate and Environmental Factors</em></p>
-<p>Firstly, climate and other environmental factors, such as atmospheric temperatures and increased light availability impact the photosynthesis and the biomass production of plant species. In <a href="gpp.html"><span>Chapter&nbsp;4</span></a>, it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially-relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the production and maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>.</p>
+<p>Firstly, climate and other environmental factors, such as atmospheric temperatures and increased light availability impact the photosynthesis and the biomass production of plant species. In <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>, it is shown that photosynthesis and growth are constrained by radiation, as well as temperature. Other potentially-relevant climate factors are precipitation, winds and elevation. Higher primary productivity and biomass production also mean a greater nitrogen demand for the production and maintaining of plant tissue. Climate factors can also impact plant tissue stoichiometry, allocation, as well as foliar resorption <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>.</p>
 </section>
 <section id="nitrogen-limitation-and-plant-response-to-low-nitrogen-conditions" class="level3" data-number="11.3.2">
 <h3 data-number="11.3.2" class="anchored" data-anchor-id="nitrogen-limitation-and-plant-response-to-low-nitrogen-conditions"><span class="header-section-number">11.3.2</span> Nitrogen Limitation and Plant Response to Low Nitrogen Conditions</h3>
@@ -422,10 +623,14 @@ NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow 
 <p>In such conditions, plants increasingly invest resources into acquiring more nitrogen (e.g.&nbsp;through increased root biomass). In such conditions, plants increasingly invest resources into acquiring more nitrogen (e.g.&nbsp;through increased root biomass). Plants can also increase the efficiency of their use of nitrogen by resorbing nitrogen from senescing leaves, thus recycling the nitrogen within the plant. Nitrogen resorption is a process that is especially mainly found in colder, drier climates, particularly at higher latitudes with low nitrogen fixation and slow nitrogen cycling <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>. This increased efficiency of nutrient use is referred to as Nitrogen Resorption Efficiency (<strong>NRE</strong>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nitrogendemand" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/N_demand.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.2: Factors impacting nitrogen demand.</figcaption>
+<div id="fig-nitrogendemand" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogendemand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/N_demand.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogendemand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Factors impacting nitrogen demand.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -439,7 +644,7 @@ NO_{3}^{-} \rightarrow NO_{2}^{-} \rightarrow NO \rightarrow N_{2}O \rightarrow 
 N_{leaf} = \dfrac{BP_{leaf}}{CNratio_{leaf}}
 \end{align}
 \tag{11.3}\]</span></span></p>
-<p>The uptake of the individual plant components was then summed globally for all plant components (<a href="#eq-nitrogen_uptake">Equation&nbsp;<span>11.4</span></a>): <span id="eq-nitrogen_uptake"><span class="math display">\[
+<p>The uptake of the individual plant components was then summed globally for all plant components (<a href="#eq-nitrogen_uptake" class="quarto-xref">Equation&nbsp;<span>11.4</span></a>): <span id="eq-nitrogen_uptake"><span class="math display">\[
 \begin{align}
 N_{up} = N_{leaf} (1 - NRE) + N_{wood} + N_{root}
 \end{align}
@@ -452,14 +657,18 @@ N_{up} = N_{leaf} (1 - NRE) + N_{wood} + N_{root}
 <p>By impacting photosynthesis and plant growth, nitrogen availability is also a critical factor in determining how effectively terrestrial ecosystems can sequester carbon dioxide (CO<sub>2</sub>) from the atmosphere.</p>
 <section id="impact-of-nitrogen-availability-on-vegetation-co2-uptake" class="level3" data-number="11.4.1">
 <h3 data-number="11.4.1" class="anchored" data-anchor-id="impact-of-nitrogen-availability-on-vegetation-co2-uptake"><span class="header-section-number">11.4.1</span> Impact of Nitrogen Availability on vegetation CO<sub>2</sub> Uptake</h3>
-<p>Nitrogen availability significantly influences the effect of CO<sub>2</sub> fertilization, in which elevated atmospheric CO<sub>2</sub> stimulates plant growth and photosynthesis (see <a href="gpp.html"><span>Chapter&nbsp;4</span></a>, <span class="citation" data-cites="terrer2019">Terrer et al. (<a href="references.html#ref-terrer2019" role="doc-biblioref">2019</a>)</span>). In nitrogen-rich ecosystems, plants can fully exploit elevated CO<sub>2</sub> levels, leading to greater photosynthesis, biomass accumulation, and long-term carbon storage <span class="citation" data-cites="reich2006">(<a href="references.html#ref-reich2006" role="doc-biblioref">Reich, Hungate, and Luo 2006</a>)</span>. Studies, such as those using free-air CO<sub>2</sub> enrichment (FACE) experiments, have also shown show stronger CO<sub>2</sub> responses in ecosystems with higher nitrogen availability, resulting in enhanced plant growth and carbon sequestration (<a href="#fig-faceexperiment">Figure&nbsp;<span>11.3</span></a>).</p>
+<p>Nitrogen availability significantly influences the effect of CO<sub>2</sub> fertilization, in which elevated atmospheric CO<sub>2</sub> stimulates plant growth and photosynthesis (see <a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>, <span class="citation" data-cites="terrer2019">Terrer et al. (<a href="references.html#ref-terrer2019" role="doc-biblioref">2019</a>)</span>). In nitrogen-rich ecosystems, plants can fully exploit elevated CO<sub>2</sub> levels, leading to greater photosynthesis, biomass accumulation, and long-term carbon storage <span class="citation" data-cites="reich2006">(<a href="references.html#ref-reich2006" role="doc-biblioref">Reich, Hungate, and Luo 2006</a>)</span>. Studies, such as those using free-air CO<sub>2</sub> enrichment (FACE) experiments, have also shown show stronger CO<sub>2</sub> responses in ecosystems with higher nitrogen availability, resulting in enhanced plant growth and carbon sequestration (<a href="#fig-faceexperiment" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>).</p>
 <p>Conversely, nitrogen-limited ecosystems experience constrained CO<sub>2</sub> fertilization effects. In such environments, plants deplete soil nitrogen with increased growth and biomass production, leading to “progressive nitrogen limitation” (<strong>PNL</strong>), where nitrogen availability decreases over time, restricting further growth and CO<sub>2</sub> uptake <span class="citation" data-cites="reich2006">(<a href="references.html#ref-reich2006" role="doc-biblioref">Reich, Hungate, and Luo 2006</a>)</span>. Without sufficient nitrogen, ecosystems will not maximize carbon sequestration, despite elevated CO<sub>2</sub> levels <span class="citation" data-cites="hungate2003">(<a href="references.html#ref-hungate2003" role="doc-biblioref">Hungate et al. 2003</a>)</span>. In their study, <span class="citation" data-cites="terrer2019">Terrer et al. (<a href="references.html#ref-terrer2019" role="doc-biblioref">2019</a>)</span> estimate that about 65% of global vegetation is nitrogen-limited. Low soil carbon-to-nitrogen ratios (C:N) is an indicator of greater nitrogen availability and greater biomass production under elevated CO<sub>2</sub>. Higher C:N ratios indicate nitrogen scarcity, limiting CO<sub>2</sub> uptake and plant growth.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-faceexperiment" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/FACE_nutrients.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.3: Figure 3. The biomass response to CO2 enrichment in the FACE experiments as a function of soil C/N ratios and soil-available phosphorus <span class="citation" data-cites="terrer2019">(<a href="references.html#ref-terrer2019" role="doc-biblioref">Terrer et al. 2019</a>)</span>.</figcaption>
+<div id="fig-faceexperiment" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-faceexperiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/FACE_nutrients.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-faceexperiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: Figure 3. The biomass response to CO2 enrichment in the FACE experiments as a function of soil C/N ratios and soil-available phosphorus <span class="citation" data-cites="terrer2019">(<a href="references.html#ref-terrer2019" role="doc-biblioref">Terrer et al. 2019</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -482,17 +691,21 @@ N_{up} = N_{leaf} (1 - NRE) + N_{wood} + N_{root}
 <h3 data-number="11.5.1" class="anchored" data-anchor-id="globally-increased-sources-of-nitrogen-to-terrestrial-ecosystems"><span class="header-section-number">11.5.1</span> Globally Increased Sources of Nitrogen to Terrestrial Ecosystems</h3>
 <p>Since the start of the fossil fuel aera, anthropogenic activities have severely increased nitrogen inputs to the terrestrial ecosystem, globally <span class="citation" data-cites="gruber2008">(<a href="references.html#ref-gruber2008" role="doc-biblioref">Gruber and Galloway 2008</a>)</span>. The global nitrogen cycle has thereby been perturbed through two major human activities, where inputs of nitrogen to the terrestrial ecosystem have been augmented by human activities:</p>
 <p><strong>Fossil fuel emissions through energy production</strong></p>
-<p>Nitrogen is emitted to the atmosphere as a waste product (NO<sub>x</sub>) during the combustion of fossil fuels. This happens either through the oxidation of atmospheric N<sub>2</sub> or organic N in the fuel. These NO<sub>x</sub> gases can dissolve in raindrops and act towards increasing N deposition to terrestrial ecosystems <a href="#fig-nitrogen_anth">Figure&nbsp;<span>11.4</span></a>.</p>
+<p>Nitrogen is emitted to the atmosphere as a waste product (NO<sub>x</sub>) during the combustion of fossil fuels. This happens either through the oxidation of atmospheric N<sub>2</sub> or organic N in the fuel. These NO<sub>x</sub> gases can dissolve in raindrops and act towards increasing N deposition to terrestrial ecosystems <a href="#fig-nitrogen_anth" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>.</p>
 <p><strong>Food production</strong></p>
-<p>The industrial Haber-Bosch process to convert gaseous N<sub>2</sub> to NH<sub>3</sub> was a key advance for global agriculture to keep up with a growing population at beginning of the 20th century. It enabled large-scale N fertilization of agricultural crops by applying ammonium nitrate (NH<sub>4</sub>NO<sub>3</sub>), thereby increasing crop yield at relatively low economic costs. In terms of the global nitrogen cycle, the Haber-Bosch process means a strong additional fixation from the atmosphere that is then added to the terrestrial ecosystem as fertilizers <a href="#fig-nitrogen_anth">Figure&nbsp;<span>11.4</span></a>.</p>
+<p>The industrial Haber-Bosch process to convert gaseous N<sub>2</sub> to NH<sub>3</sub> was a key advance for global agriculture to keep up with a growing population at beginning of the 20th century. It enabled large-scale N fertilization of agricultural crops by applying ammonium nitrate (NH<sub>4</sub>NO<sub>3</sub>), thereby increasing crop yield at relatively low economic costs. In terms of the global nitrogen cycle, the Haber-Bosch process means a strong additional fixation from the atmosphere that is then added to the terrestrial ecosystem as fertilizers <a href="#fig-nitrogen_anth" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>.</p>
 <p>Livestock breeding on an industrial scale also has an impact on the terrestrial ecosystem nitrogen cycle, especially in land areas in proximity to livestock pastures. <span class="citation" data-cites="zhang2017">Zhang et al. (<a href="references.html#ref-zhang2017" role="doc-biblioref">2017</a>)</span> estimate an increase in the total manure nitrogen production of over 600 % since preindustrial times. The demand for animal feed results not only in an increased nitrogen input into the ecosystem, but also a spatial redistribution, for instance from the transport of soy.</p>
 <p>Additionally crops typically used in agriculture, such as legumes, often enhance nitrogen fixation in symbiosis with N<sub>2</sub>-fixing bacteria, such as <em>Rhizobia</em>. Practices in rice cultivation also lead to anaerobic environments that encourage high rates of biological nitrogen fixation by freeliving cyanobacteria.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-nitrogen_anth" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/nitrogen_cycle_ant_change.jpeg" class="img-fluid figure-img" style="width:85.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;11.4: Anthropogenic changes to global nitrogen cycle <span class="citation" data-cites="canfield2010">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010</a>)</span>.</figcaption>
+<div id="fig-nitrogen_anth" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen_anth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/nitrogen_cycle_ant_change.jpeg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen_anth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.4: Anthropogenic changes to global nitrogen cycle <span class="citation" data-cites="canfield2010">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -502,13 +715,13 @@ N_{up} = N_{leaf} (1 - NRE) + N_{wood} + N_{root}
 <h3 data-number="11.5.2" class="anchored" data-anchor-id="consequences-for-terrestrial-ecosystems-and-feedback-on-climate"><span class="header-section-number">11.5.2</span> Consequences for terrestrial ecosystems and feedback on climate</h3>
 <p>The increased availability of reactive nitrogen in the terrestrial ecosystem has, in turn, important environmental consequences, as well as potential feedbacks on the climate <span class="citation" data-cites="erisman2013">Erisman et al. (<a href="references.html#ref-erisman2013" role="doc-biblioref">2013</a>)</span>:</p>
 <ul>
-<li><p>Due to increasing sources of nitrogen to terrestrial ecosystems and especially over-fertilization in agriculture, the leaching (<a href="#fig-nitrogencycle">Figure&nbsp;<span>11.1</span></a> (8)) of large amounts of nitrogen is transferred to rivers, lakes, coastal systems, potentially causing eutrophication downstream. This is known to affect biological source of N in these downstream systems, with potentially important consequences for ecosystems, greenhouse gas exchange, as well as regional economies.</p></li>
+<li><p>Due to increasing sources of nitrogen to terrestrial ecosystems and especially over-fertilization in agriculture, the leaching (<a href="#fig-nitrogencycle" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> (8)) of large amounts of nitrogen is transferred to rivers, lakes, coastal systems, potentially causing eutrophication downstream. This is known to affect biological source of N in these downstream systems, with potentially important consequences for ecosystems, greenhouse gas exchange, as well as regional economies.</p></li>
 <li><p>Increasing nitrogen sources to terrestrial ecosystems could limit reduced CO<sub>2</sub> uptake in the case of nitrogen limitation. Thus, the nitrogen limitation effect under CO<sub>2</sub> fertilization described above could be reduced, allowing for more CO<sub>2</sub> as a consequence of CO<sub>2</sub> fertilization.</p></li>
-<li><p>Increasing N availability in soils due to enhanced inputs to the system, in combination with higher temperatures, has been shown to increase emissions of the strong greenhouse gas N<sub>2</sub>O from terrestrial systems <span class="citation" data-cites="tian2024">(<a href="references.html#ref-tian2024" role="doc-biblioref">Tian et al. 2024</a>)</span>. See <a href="ghg.html"><span>Chapter&nbsp;12</span></a> for more information on terrestrial N<sub>2</sub>O emissions.</p></li>
+<li><p>Increasing N availability in soils due to enhanced inputs to the system, in combination with higher temperatures, has been shown to increase emissions of the strong greenhouse gas N<sub>2</sub>O from terrestrial systems <span class="citation" data-cites="tian2024">(<a href="references.html#ref-tian2024" role="doc-biblioref">Tian et al. 2024</a>)</span>. See <a href="ghg.html" class="quarto-xref"><span>Chapter 12</span></a> for more information on terrestrial N<sub>2</sub>O emissions.</p></li>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-canfield2010" class="csl-entry" role="listitem">
 Canfield, Donald E., Alexander N. Glazer, and Paul G. Falkowski. 2010. <span>“The Evolution and Future of Earth’s Nitrogen Cycle.”</span> <em>Science</em> 330 (6001): 192–96. <a href="https://doi.org/10.1126/science.1186120">https://doi.org/10.1126/science.1186120</a>.
 </div>
@@ -557,158 +770,71 @@ Zhang, B., H. Tian, C. Lu, S. R. S. Dangal, J. Yang, and S. Pan. 2017. <span>“
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -716,207 +842,360 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./landusechange.html" class="pagination-link">
+      <a href="./landusechange.html" class="pagination-link" aria-label="Land use change">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Land use change</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ghg.html" class="pagination-link">
+      <a href="./ghg.html" class="pagination-link" aria-label="Terrestrial greenhouse gas emissions">
         <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Terrestrial greenhouse gas emissions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

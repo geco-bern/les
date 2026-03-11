@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Land in the Earth System - 7&nbsp; Land-climate interactions</title>
+<title>7&nbsp; Land-climate interactions – Land in the Earth System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -58,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -86,24 +88,34 @@ div.csl-indent {
 <link href="./ecohydrology.html" rel="next">
 <link href="./globalcarbonpatterns.html" rel="prev">
 <link href="./figures/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-55abac0465d10ec823624cc1da9df1de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -112,60 +124,252 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Land in the Earth System - 7&nbsp; Land-climate interactions">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="7&nbsp; Land-climate interactions – Land in the Earth System">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="images/energybalance.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo.png" alt="" class="navbar-logo">
+    <img src="./images/logo.png" alt="" class="navbar-logo light-content">
+    <img src="./images/logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title"></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/geco-bern/les_i/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/geco-bern/les_i/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -173,32 +377,23 @@ div.csl-indent {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part1.html">Part I</a></li><li class="breadcrumb-item"><a href="./landclimate.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part1.html">Part I</a></li><li class="breadcrumb-item"><a href="./landclimate.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -217,7 +412,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part I</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -270,7 +465,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./part2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part II</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -322,7 +517,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -352,7 +547,8 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./part1.html">Part I</a></li><li class="breadcrumb-item"><a href="./landclimate.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-landclimate" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land-climate interactions</span></span></h1>
 </div>
@@ -367,21 +563,27 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
+
 <p>In previous chapters, we have investigated the interactions between the atmosphere and the land surface through the exchange of CO<sub>2</sub>. In this chapter, we focus on interactions through physical processes, including the radiative energy balance and heat fluxes at the land surface. Since these Earth system interactions are also mediated to a large degree through biology, they are referred to as <em>biogeophysical</em> processes. This is in contrast to the exchange of CO<sub>2</sub> and nutrient fluxes, referred to as <em>biogeochemical</em> processes.</p>
-<p>The partitioning of heat fluxes into sensible (hot air) and latent (moist air) heat fluxes is strongly affected by the availability of water for evaporation and transpiration. All aspects that relate to the water cycle, how it is affected by vegetation, and how it affects the surface energy balance and limits vegetation activity, are introduced in <a href="ecohydrology.html"><span>Chapter&nbsp;8</span></a>. However, land-climate interactions are also important in the absence of effects by water limitation. The surface properties, determined by the land cover type, its roughness, and (for vegetation) its conduciveness to evaporating water, have a strong influence on the atmosphere and climatic conditions, especially near the surface - where life happens. Climate and numerical weather prediction models require the fluxes of energy, momentum, and water vapor for simulating atmospheric processes. This chapter introduces how properties of the vegetated land surface affect these fluxes.</p>
+<p>The partitioning of heat fluxes into sensible (hot air) and latent (moist air) heat fluxes is strongly affected by the availability of water for evaporation and transpiration. All aspects that relate to the water cycle, how it is affected by vegetation, and how it affects the surface energy balance and limits vegetation activity, are introduced in <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>. However, land-climate interactions are also important in the absence of effects by water limitation. The surface properties, determined by the land cover type, its roughness, and (for vegetation) its conduciveness to evaporating water, have a strong influence on the atmosphere and climatic conditions, especially near the surface - where life happens. Climate and numerical weather prediction models require the fluxes of energy, momentum, and water vapor for simulating atmospheric processes. This chapter introduces how properties of the vegetated land surface affect these fluxes.</p>
 <section id="components-of-surface-radiation" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="components-of-surface-radiation"><span class="header-section-number">7.1</span> Components of surface radiation</h2>
-<p>Analogous to solar radiation being the “engine” of biogeochemical processes through its control on photosynthesis, net radiation is the engine of energy and water vapor fluxes between the atmosphere and the land surface. Net radiation (<span class="math inline">\(R_n\)</span>) is the net of incoming (or incident) shortwave radiation (<span class="math inline">\(S\downarrow\)</span>) minus outgoing shortwave (solar) radiation (<span class="math inline">\(S\uparrow\)</span>) and longwave radiation (<span class="math inline">\(L\downarrow\)</span> and <span class="math inline">\(L\uparrow\)</span>) at the land surface (<a href="#fig-netrad">Figure&nbsp;<span>7.1</span></a> a). <span id="eq-netrad"><span class="math display">\[
+<p>Analogous to solar radiation being the “engine” of biogeochemical processes through its control on photosynthesis, net radiation is the engine of energy and water vapor fluxes between the atmosphere and the land surface. Net radiation (<span class="math inline">\(R_n\)</span>) is the net of incoming (or incident) shortwave radiation (<span class="math inline">\(S\downarrow\)</span>) minus outgoing shortwave (solar) radiation (<span class="math inline">\(S\uparrow\)</span>) and longwave radiation (<span class="math inline">\(L\downarrow\)</span> and <span class="math inline">\(L\uparrow\)</span>) at the land surface (<a href="#fig-netrad" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> a). <span id="eq-netrad"><span class="math display">\[
 R_n = S\downarrow - S\uparrow + L\downarrow - L\uparrow
 \tag{7.1}\]</span></span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-netrad" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/energybalance.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.1: Land surface energy partitioning. (a) Components of net radiation. (b) Energy balance of the land surface.</figcaption>
+<div id="fig-netrad" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-netrad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/energybalance.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-netrad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Land surface energy partitioning. (a) Components of net radiation. (b) Energy balance of the land surface.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -389,13 +591,17 @@ R_n = S\downarrow - S\uparrow + L\downarrow - L\uparrow
 <!-- fig (b) is only discussed much later in section 7.2. Maybe it should be moved there? -->
 <section id="incident-shortwave-radiation" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="incident-shortwave-radiation"><span class="header-section-number">7.1.1</span> Incident shortwave radiation</h3>
-<p>Incident shortwave (solar) radiation <span class="math inline">\(S\downarrow\)</span> was referred to in <a href="globalcarbonpatterns.html"><span>Chapter&nbsp;6</span></a> as <span class="math inline">\(I_\mathrm{0}\)</span>. (Nomenclature will be homogenized across chapters in future issues of this book.) It varies over the course of a day and a year, and is affected by the presence of clouds and the altitude of the land surface above sea level, as described in <a href="globalcarbonpatterns.html"><span>Chapter&nbsp;6</span></a>. As shown in <a href="#fig-surface-energy-balance">Figure&nbsp;<span>7.2</span></a>, the presence of clouds is a strong determinant of the incoming solar radiation energy flux, when considering global means (including the sea surface) under actual conditions and under cloud-free conditions (160 vs.&nbsp;214 W m<sup>-2</sup>).</p>
+<p>Incident shortwave (solar) radiation <span class="math inline">\(S\downarrow\)</span> was referred to in <a href="globalcarbonpatterns.html" class="quarto-xref"><span>Chapter 6</span></a> as <span class="math inline">\(I_\mathrm{0}\)</span>. (Nomenclature will be homogenized across chapters in future issues of this book.) It varies over the course of a day and a year, and is affected by the presence of clouds and the altitude of the land surface above sea level, as described in <a href="globalcarbonpatterns.html" class="quarto-xref"><span>Chapter 6</span></a>. As shown in <a href="#fig-surface-energy-balance" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, the presence of clouds is a strong determinant of the incoming solar radiation energy flux, when considering global means (including the sea surface) under actual conditions and under cloud-free conditions (160 vs.&nbsp;214 W m<sup>-2</sup>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-surface-energy-balance" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_7_2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: Schematic representation of the global mean energy budget of the Earth (upper panel), and its equivalent without considerations of cloud effects (lower panel). Numbers indicate best estimates for the magnitudes of the globally averaged energy balance components in W m<sup>-2</sup> together with their uncertainty ranges in parentheses (5–95% confidence range), representing climate conditions at the beginning of the 21st century. Note that the cloud-free energy budget shown in the lower panel is not the one that Earth would achieve in equilibrium when no clouds could form. It rather represents the global mean fluxes as determined solely by removing the clouds but otherwise retaining the entire atmospheric structure. This enables the quantification of the effects of clouds on the Earth energy budget and corresponds to the way clear-sky fluxes are calculated in climate models. Thus, the cloud-free energy budget is not closed and therefore the sensible and latent heat fluxes are not quantified in the lower panel. Figure and caption from <span class="citation" data-cites="IPCC_2021_WGI_Ch_7">Forster et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_7" role="doc-biblioref">2021</a>)</span>.</figcaption>
+<div id="fig-surface-energy-balance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-surface-energy-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_7_2.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-surface-energy-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Schematic representation of the global mean energy budget of the Earth (upper panel), and its equivalent without considerations of cloud effects (lower panel). Numbers indicate best estimates for the magnitudes of the globally averaged energy balance components in W m<sup>-2</sup> together with their uncertainty ranges in parentheses (5–95% confidence range), representing climate conditions at the beginning of the 21st century. Note that the cloud-free energy budget shown in the lower panel is not the one that Earth would achieve in equilibrium when no clouds could form. It rather represents the global mean fluxes as determined solely by removing the clouds but otherwise retaining the entire atmospheric structure. This enables the quantification of the effects of clouds on the Earth energy budget and corresponds to the way clear-sky fluxes are calculated in climate models. Thus, the cloud-free energy budget is not closed and therefore the sensible and latent heat fluxes are not quantified in the lower panel. Figure and caption from <span class="citation" data-cites="IPCC_2021_WGI_Ch_7">Forster et al. (<a href="references.html#ref-IPCC_2021_WGI_Ch_7" role="doc-biblioref">2021</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -406,11 +612,11 @@ R_n = S\downarrow - S\uparrow + L\downarrow - L\uparrow
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="sec-albedo"><span class="header-section-number">7.1.2</span> Outgoing shortwave radiation and albedo</h3>
 <p>Outgoing shortwave radiation at the land surface (<span class="math inline">\(S\uparrow\)</span>) is determined by the albedo (<span class="math inline">\(\alpha\)</span>) - the fraction of the incident radiation that gets reflected. <span id="eq-albedo"><span class="math display">\[
 S\uparrow = \alpha S\downarrow
-\tag{7.2}\]</span></span> The albedo varies across different vegetation and other types of Earth surface covers. Values range from 0.8-0.95 for fresh snow, to 0.2-0.45 for a desert surface, 0.05–0.40 for bare soil, 0.05-0.26 for vegetation, and 0.03–0.10 for water <span class="citation" data-cites="oke87">(<a href="references.html#ref-oke87" role="doc-biblioref">Oke 1987</a>)</span>. Variations across different vegetation types are substantial as shown also in <a href="#fig-albedo-vegtypes">Figure&nbsp;<span>7.3</span></a>. This indicates that the amount of outgoing shortwave radiation, and with it, net radiation, is strongly affected by vegetation types.</p>
+\tag{7.2}\]</span></span> The albedo varies across different vegetation and other types of Earth surface covers. Values range from 0.8-0.95 for fresh snow, to 0.2-0.45 for a desert surface, 0.05–0.40 for bare soil, 0.05-0.26 for vegetation, and 0.03–0.10 for water <span class="citation" data-cites="oke87">(<a href="references.html#ref-oke87" role="doc-biblioref">Oke 1987</a>)</span>. Variations across different vegetation types are substantial as shown also in <a href="#fig-albedo-vegtypes" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>. This indicates that the amount of outgoing shortwave radiation, and with it, net radiation, is strongly affected by vegetation types.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -427,13 +633,17 @@ S\uparrow = \alpha S\downarrow
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Vegetation type"</span>,</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Albedo"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-albedo-vegtypes" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landclimate_files/figure-html/fig-albedo-vegtypes-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.3: Albedo values for different vegetation types. Each point represents a site where surface radiation fluxes were measured. Vegetation types are described in <a href="biogeography.html#tbl-vegtype">Table&nbsp;<span>2.1</span></a>. Data from <span class="citation" data-cites="cescatti12rse">Cescatti et al. (<a href="references.html#ref-cescatti12rse" role="doc-biblioref">2012</a>)</span>.</figcaption>
+<div id="fig-albedo-vegtypes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-albedo-vegtypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="landclimate_files/figure-html/fig-albedo-vegtypes-1.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-albedo-vegtypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Albedo values for different vegetation types. Each point represents a site where surface radiation fluxes were measured. Vegetation types are described in <a href="biogeography.html#tbl-vegtype" class="quarto-xref">Table&nbsp;<span>2.1</span></a>. Data from <span class="citation" data-cites="cescatti12rse">Cescatti et al. (<a href="references.html#ref-cescatti12rse" role="doc-biblioref">2012</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -442,23 +652,27 @@ S\uparrow = \alpha S\downarrow
 <p>Over the seasons, land surface albedo is affected by variations in LAI and by the presence of snow. During winter and in the presence of snow, the albedo of a grassland or a cropland can reach very high values - determined by the albedo of snow. In contrast, the albedo of a forest, even in the presence of snow, remains much lower (0.2-0.4, <span class="citation" data-cites="zhao14ecolmono">Zhao and Jackson (<a href="references.html#ref-zhao14ecolmono" role="doc-biblioref">2014</a>)</span>). This is because trees are not fully “submerged” in the snow pack, as opposed to grasses, and the exposed canopy absorbs a substantial fraction of the incident radiation. This effect of forest vs.&nbsp;non-forest covers on the surface energy balance during winter is referred to as the <em>snow masking effect</em>. Climate model simulations suggest that the low surface albedo during winter warms climate compared to a snow-covered grassland. Thus, deforestation/afforestation of boreal forest has the greatest biogeophysical effect of all biomes on temperatures <span class="citation" data-cites="bonan08sci">(<a href="references.html#ref-bonan08sci" role="doc-biblioref">G. B. Bonan 2008</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-snow-masking" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/snow_masking_bonan.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.4: Snow-free vs.&nbsp;snow-covered surface albedo for different vegetation types. Figure from <span class="citation" data-cites="bonan08sci">G. B. Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.</figcaption>
+<div id="fig-snow-masking" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-snow-masking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/snow_masking_bonan.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-snow-masking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: Snow-free vs.&nbsp;snow-covered surface albedo for different vegetation types. Figure from <span class="citation" data-cites="bonan08sci">G. B. Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Note that albedo also depends on the wavelength of the radiation, on the solar zenith angle (lower at noon), and on whether the solar radiation is diffuse or direct. Thus, albedo varies over time following a U-shaped diurnal variation - high at sunrise and sunset, and lower in between. <span class="math inline">\(\alpha\)</span> in <a href="#eq-albedo">Equation&nbsp;<span>7.2</span></a> represents the albedo for shortwave radiation, and values shown in <a href="#fig-albedo-vegtypes">Figure&nbsp;<span>7.3</span></a> are averages across the seasons.</p>
+<p>Note that albedo also depends on the wavelength of the radiation, on the solar zenith angle (lower at noon), and on whether the solar radiation is diffuse or direct. Thus, albedo varies over time following a U-shaped diurnal variation - high at sunrise and sunset, and lower in between. <span class="math inline">\(\alpha\)</span> in <a href="#eq-albedo" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> represents the albedo for shortwave radiation, and values shown in <a href="#fig-albedo-vegtypes" class="quarto-xref">Figure&nbsp;<span>7.3</span></a> are averages across the seasons.</p>
 </section>
 <section id="longwave-radiation" class="level3" data-number="7.1.3">
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="longwave-radiation"><span class="header-section-number">7.1.3</span> Longwave radiation</h3>
 <p>Every material body with a temperature above the absolute zero (0 K <span class="math inline">\(= -\)</span> 273.15°C) emits radiative energy. The total radiative energy flux (integrated across wavelengths) and the wavelengths at which radiation is emitted depend on the temperature of the body and its emissivity. The surface of the sun is about 6000 K and emits radiation in the shorwave spectrum which is visible to the human eye. The Earth’s surface is on average 288 K and emits radiation in the longwave spectrum which is not visible to the eye.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Formula for Planck's Law</span></span>
@@ -506,23 +720,27 @@ S\uparrow = \alpha S\downarrow
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  gg1,</span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  gg2,</span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>)</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-wavelengths" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landclimate_files/figure-html/fig-wavelengths-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.5: Spectral distribution of the radiative energy flux (a) for a body of 6000 K (the sun) and (b) a body of 288 K (the Earth), assuming an emissivity of 1. <em>Emittance</em> (the y-axis) is the density of the radiative energy flux per unit wavelength spectrum. Note the different magnitudes of the emittances and wavelengths for the two bodies. Example following <span class="citation" data-cites="bonan">G. Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>.</figcaption>
+<div id="fig-wavelengths" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wavelengths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="landclimate_files/figure-html/fig-wavelengths-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wavelengths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: Spectral distribution of the radiative energy flux (a) for a body of 6000 K (the sun) and (b) a body of 288 K (the Earth), assuming an emissivity of 1. <em>Emittance</em> (the y-axis) is the density of the radiative energy flux per unit wavelength spectrum. Note the different magnitudes of the emittances and wavelengths for the two bodies. Example following <span class="citation" data-cites="bonan">G. Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>According to the Stefan-Boltzmann law, the total radiative energy flux scales with the temperature of the body <span class="math inline">\(T\)</span> and an emissivity <span class="math inline">\(\varepsilon\)</span>: <span id="eq-boltzmann"><span class="math display">\[
 R = \varepsilon \sigma T^4
-\tag{7.3}\]</span></span> <span class="math inline">\(\sigma\)</span> is the Stefan Boltzmann constant and has a value of <span class="math inline">\(5.670\times 10^{-8}\)</span> W m<sup>-2</sup> K<sup>-4</sup>. Here, <span class="math inline">\(T\)</span> is expressed in Kelvin. <span class="math inline">\(R\)</span> is the integral under the curve in <a href="#fig-wavelengths">Figure&nbsp;<span>7.5</span></a>. <span class="math inline">\(R\)</span> stands for either longwave or shortwave radiation, as referred to as <span class="math inline">\(L\)</span> and <span class="math inline">\(S\)</span> in <a href="#eq-netrad">Equation&nbsp;<span>7.1</span></a>.</p>
-<p>The longwave radiation components are a substantial fraction of net radiation. In <a href="#fig-surface-energy-balance">Figure&nbsp;<span>7.2</span></a>, they are referred to as “thermal”. The outgoing longwave radiation <span class="math inline">\(L\uparrow\)</span> is on average 398 W m<sup>-2</sup> and is a function of the Earth’s surface temperature and emissivity, following the Stefan-Boltzmann law (<a href="#eq-boltzmann">Equation&nbsp;<span>7.3</span></a>), plus the incident longwave radiation reflected (not absorbed) by the surface: <span id="eq-longwave-up"><span class="math display">\[
+\tag{7.3}\]</span></span> <span class="math inline">\(\sigma\)</span> is the Stefan Boltzmann constant and has a value of <span class="math inline">\(5.670\times 10^{-8}\)</span> W m<sup>-2</sup> K<sup>-4</sup>. Here, <span class="math inline">\(T\)</span> is expressed in Kelvin. <span class="math inline">\(R\)</span> is the integral under the curve in <a href="#fig-wavelengths" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>. <span class="math inline">\(R\)</span> stands for either longwave or shortwave radiation, as referred to as <span class="math inline">\(L\)</span> and <span class="math inline">\(S\)</span> in <a href="#eq-netrad" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>.</p>
+<p>The longwave radiation components are a substantial fraction of net radiation. In <a href="#fig-surface-energy-balance" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, they are referred to as “thermal”. The outgoing longwave radiation <span class="math inline">\(L\uparrow\)</span> is on average 398 W m<sup>-2</sup> and is a function of the Earth’s surface temperature and emissivity, following the Stefan-Boltzmann law (<a href="#eq-boltzmann" class="quarto-xref">Equation&nbsp;<span>7.3</span></a>), plus the incident longwave radiation reflected (not absorbed) by the surface: <span id="eq-longwave-up"><span class="math display">\[
 L\uparrow = \varepsilon \sigma T^4 + (1-\varepsilon) L\downarrow
-\tag{7.4}\]</span></span> Note that <span class="math inline">\(\varepsilon\)</span> is used in <a href="#eq-longwave-up">Equation&nbsp;<span>7.4</span></a> as the absorbtivity and in <a href="#eq-boltzmann">Equation&nbsp;<span>7.3</span></a> as the emissivity. This is because the two are equal.</p>
+\tag{7.4}\]</span></span> Note that <span class="math inline">\(\varepsilon\)</span> is used in <a href="#eq-longwave-up" class="quarto-xref">Equation&nbsp;<span>7.4</span></a> as the absorbtivity and in <a href="#eq-boltzmann" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> as the emissivity. This is because the two are equal.</p>
 <p>Clouds absorb radiation emitted by the Earth’s surface and re-emit a large fraction of it. In the absence of clouds, much less radiation is absorbed and re-emitted by the atmosphere. Therefore, the incoming longwave radiation depends strongly on the presence of clouds.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -530,11 +748,11 @@ L\uparrow = \varepsilon \sigma T^4 + (1-\varepsilon) L\downarrow
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Net radiation
+<span class="screen-reader-only">Note</span>Net radiation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Using <a href="#eq-albedo">Equation&nbsp;<span>7.2</span></a> and <a href="#eq-longwave-up">Equation&nbsp;<span>7.4</span></a>, the net radiation at the Earth surface (<a href="#eq-netrad">Equation&nbsp;<span>7.1</span></a>) can be expressed as <span class="math display">\[
+<p>Using <a href="#eq-albedo" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> and <a href="#eq-longwave-up" class="quarto-xref">Equation&nbsp;<span>7.4</span></a>, the net radiation at the Earth surface (<a href="#eq-netrad" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>) can be expressed as <span class="math display">\[
 R_n = (1-\alpha) S\downarrow + \varepsilon L\downarrow - \varepsilon \sigma T^4
 \]</span></p>
 </div>
@@ -545,12 +763,12 @@ R_n = (1-\alpha) S\downarrow + \varepsilon L\downarrow - \varepsilon \sigma T^4
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+<span class="screen-reader-only">Caution</span>Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Calculate the albedo from ‘all sky’ conditions in <a href="#fig-surface-energy-balance">Figure&nbsp;<span>7.2</span></a>.</li>
+<li>Calculate the albedo from ‘all sky’ conditions in <a href="#fig-surface-energy-balance" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>.</li>
 </ol>
 </div>
 </div>
@@ -558,15 +776,15 @@ Exercise
 </section>
 <section id="sec-energybalance" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="sec-energybalance"><span class="header-section-number">7.2</span> Surface energy balance and partitioning</h2>
-<p>The energy available from radiative fluxes is converted into a sensible heat flux (<span class="math inline">\(H\)</span>), a latent heat flux (<span class="math inline">\(\lambda E\)</span>), and a ground heat flux (<span class="math inline">\(G\)</span>, <a href="#fig-netrad">Figure&nbsp;<span>7.1</span></a> b). Following energy conservation, net radiation is equal to the sum of these three heat fluxes. <span id="eq-energybalance"><span class="math display">\[
+<p>The energy available from radiative fluxes is converted into a sensible heat flux (<span class="math inline">\(H\)</span>), a latent heat flux (<span class="math inline">\(\lambda E\)</span>), and a ground heat flux (<span class="math inline">\(G\)</span>, <a href="#fig-netrad" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> b). Following energy conservation, net radiation is equal to the sum of these three heat fluxes. <span id="eq-energybalance"><span class="math display">\[
 R_n = H + \lambda E + G
 \tag{7.5}\]</span></span></p>
-<p>The components of the surface energy balance (<a href="#eq-energybalance">Equation&nbsp;<span>7.5</span></a>) are commonly expressed in energy units (W m<sup>-2</sup>). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux (<span class="math inline">\(\lambda E\)</span>) is the product of the mass flux of water vapor (<span class="math inline">\(E\)</span>), expressed in units of g m<sup>-2</sup> s<sup>-1</sup>, and the latent heat of vaporization (<span class="math inline">\(\lambda\)</span>), converting the mass units back into energy units. <span class="math inline">\(\lambda\)</span> measures how much energy (Joules, J) is needed to vaporize 1 g of water at constant temperature. <span class="math inline">\(\lambda\)</span> is 2.466 MJ kg<sup>-1</sup> at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C.</p>
+<p>The components of the surface energy balance (<a href="#eq-energybalance" class="quarto-xref">Equation&nbsp;<span>7.5</span></a>) are commonly expressed in energy units (W m<sup>-2</sup>). Sensible heat is determined by the temperature of air. Latent heat is the energy contained by evaporated water. The latent heat flux (<span class="math inline">\(\lambda E\)</span>) is the product of the mass flux of water vapor (<span class="math inline">\(E\)</span>), expressed in units of g m<sup>-2</sup> s<sup>-1</sup>, and the latent heat of vaporization (<span class="math inline">\(\lambda\)</span>), converting the mass units back into energy units. <span class="math inline">\(\lambda\)</span> measures how much energy (Joules, J) is needed to vaporize 1 g of water at constant temperature. <span class="math inline">\(\lambda\)</span> is 2.466 MJ kg<sup>-1</sup> at 15°C and has a slight dependence on temperature, decreasing linearly by about 3% from an air temperature of 0°C to 30°C.</p>
 <!-- XXX to change: make this a curve vs. temperature -->
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function adopted from function bigleaf::latent.heat.vaporization</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns latent heat of vaporization (J g-1)</span></span>
@@ -585,26 +803,30 @@ R_n = H + \lambda E + G
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">35</span>) <span class="sc">+</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (°C)"</span>,</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Latent heat of vaporization (J g"</span><span class="sc">^-</span><span class="dv">1</span>, <span class="st">")"</span>))) <span class="sc">+</span> </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-latentheat" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landclimate_files/figure-html/fig-latentheat-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.6: Latent heat of vaporization as a function of air temperature.</figcaption>
+<div id="fig-latentheat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-latentheat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="landclimate_files/figure-html/fig-latentheat-1.png" class="img-fluid figure-img" width="384">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-latentheat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Latent heat of vaporization as a function of air temperature.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <!-- Add from Bonan: -->
 <!-- The latent heat of vaporization decreases with warmer temperatures because water mol- ecules contain more internal energy at warmer temperatures and less energy is required for them to evaporate. -->
-<p>The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see <a href="#fig-energy-diurnal">Figure&nbsp;<span>7.11</span></a> and <a href="#fig-energy-seasonal">Figure&nbsp;<span>7.12</span></a>) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass <em>condensates</em> at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance.</p>
+<p>The sensible and latent heat fluxes are transported vertically, away from or to the land surface through convective transport. That is, through turbulences that mix the air and lead to a net vertical transport of heat and water vapor. Whether net fluxes are pointed upwards or downwards depends on the sign of the net radiation (see <a href="#fig-energy-diurnal" class="quarto-xref">Figure&nbsp;<span>7.11</span></a> and <a href="#fig-energy-seasonal" class="quarto-xref">Figure&nbsp;<span>7.12</span></a>) and typically changes between night and daytime. Note that the latent heat flux can be negative, leading to a net flux of water vapor towards the surface. The respective water mass <em>condensates</em> at the surface (of leaves) and can be a considerable fraction of the ecosystem water balance.</p>
 <p>Finally, the ground heat flux <span class="math inline">\(G\)</span> buffers variations of net radiation, absorbing energy and removing heat from the surface during the day and summer and releasing heat during night and winter.</p>
 <!-- XXX To add: Box for big-leaf model for heat and vapor fluxes with conductances -->
 <section id="sec-pet" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-pet"><span class="header-section-number">7.2.1</span> Potential evapotranspiration</h3>
-<p>Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the <em>partitioning</em> of net radiation into sensible and latent heat fluxes in <a href="#eq-energybalance">Equation&nbsp;<span>7.5</span></a>. In particular, the availability of water for evaporation from the land surface through transpiration, or directly from wet surfaces, is decisive for the partitioning of net radiation into <span class="math inline">\(H\)</span> and <span class="math inline">\(\lambda E\)</span>.</p>
-<p>A useful quantity for understanding the surface energy partitioning and the influence of limiting factors (e.g., water limitation) is the <em>potential evapotranspiration</em> (PET). Evapotranspiration is equivalent to the latent heat flux, but expressed in water vapor mass units. (You will learn more about evapotranspiration in <a href="ecohydrology.html"><span>Chapter&nbsp;8</span></a>). PET can be understood as the maximum possible <span class="math inline">\(E\)</span>, attained under conditions where water supply to evaporation is not limiting. Different methods are available for estimating PET. A physically based and widely used method is the one by <span class="citation" data-cites="priestleytaylor72">Priestley and Taylor (<a href="references.html#ref-priestleytaylor72" role="doc-biblioref">1972</a>)</span> which relates PET to net radiation, considering that net radiation is consumed by the water vapor flux from a water-saturated surface into an air parcel at constant temperature and pressure. <span id="eq-pet-pt"><span class="math display">\[
+<p>Physical and biological properties of the land surface determine not only the net radiation through (mainly) effects of the albedo, but also strongly influence the <em>partitioning</em> of net radiation into sensible and latent heat fluxes in <a href="#eq-energybalance" class="quarto-xref">Equation&nbsp;<span>7.5</span></a>. In particular, the availability of water for evaporation from the land surface through transpiration, or directly from wet surfaces, is decisive for the partitioning of net radiation into <span class="math inline">\(H\)</span> and <span class="math inline">\(\lambda E\)</span>.</p>
+<p>A useful quantity for understanding the surface energy partitioning and the influence of limiting factors (e.g., water limitation) is the <em>potential evapotranspiration</em> (PET). Evapotranspiration is equivalent to the latent heat flux, but expressed in water vapor mass units. (You will learn more about evapotranspiration in <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>). PET can be understood as the maximum possible <span class="math inline">\(E\)</span>, attained under conditions where water supply to evaporation is not limiting. Different methods are available for estimating PET. A physically based and widely used method is the one by <span class="citation" data-cites="priestleytaylor72">Priestley and Taylor (<a href="references.html#ref-priestleytaylor72" role="doc-biblioref">1972</a>)</span> which relates PET to net radiation, considering that net radiation is consumed by the water vapor flux from a water-saturated surface into an air parcel at constant temperature and pressure. <span id="eq-pet-pt"><span class="math display">\[
 \mathrm{PET} = \alpha \frac{s}{s + \gamma} \frac{R_n}{\lambda}
 \tag{7.6}\]</span></span> Here, <span class="math inline">\(s\)</span> (Pa K<sup>-2</sup>) is the slope of the change in saturation vapor pressure with respect to temperature. <span class="math inline">\(\gamma\)</span> is the psychrometric constant (a representative value is 66.5 Pa K<sup>–1</sup>). The coefficient <span class="math inline">\(\alpha\)</span> is an empirically determined value and is taken to be 1.26 for a wet surface. However, for vegetated surfaces, it is substantially lower, even if the plants are not water-limited. It ranges between 0.82 for tropical and temperate broadleaf forests and 0.55 for boreal conifer forests <span class="citation" data-cites="bonan">(<a href="references.html#ref-bonan" role="doc-biblioref">G. Bonan 2015</a>)</span>.</p>
 </section>
@@ -615,13 +837,17 @@ R_n = H + \lambda E + G
 \]</span> The remainder goes into the sensible heat flux. The Bowen ratio expresses the same relation and is defined as <span class="math display">\[
 B = H/\lambda E
 \]</span> The ratio of actual over potential evapotranspiration (<span class="math inline">\(E/\mathrm{PET}\)</span>, also referred to as ‘AET/PET’) is often used, but measurements of actual evapotranspiration are scarce and model-based estimates are subject to strong assumptions.</p>
-<p>Quantifications of <span class="math inline">\(EF\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(E/\mathrm{PET}\)</span> give important and readily interpretable insights. Variations of these quantities across space and time reflect water limitation to <span class="math inline">\(E\)</span>, biophysical surface properties and vegetation activity. For example, in forests, the evaporative fraction is typically lower compared to certain crops, and it’s even lower in conifer forests than in deciduous broadleaf forests (<a href="#fig-surface-resistance">Figure&nbsp;<span>7.8</span></a>). The evaporative fraction declines as water becomes more limiting during dry (rain-free) periods. An example for the application of <span class="math inline">\(E/\mathrm{PET}\)</span> is the Evaporative Stress Index product (<a href="#fig-evaporative-stress">Figure&nbsp;<span>7.7</span></a>), generated by the ECOSTRESS satellite mission <span class="citation" data-cites="fisher20wrr">(<a href="references.html#ref-fisher20wrr" role="doc-biblioref">Fisher et al. 2020</a>)</span>.</p>
+<p>Quantifications of <span class="math inline">\(EF\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(E/\mathrm{PET}\)</span> give important and readily interpretable insights. Variations of these quantities across space and time reflect water limitation to <span class="math inline">\(E\)</span>, biophysical surface properties and vegetation activity. For example, in forests, the evaporative fraction is typically lower compared to certain crops, and it’s even lower in conifer forests than in deciduous broadleaf forests (<a href="#fig-surface-resistance" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>). The evaporative fraction declines as water becomes more limiting during dry (rain-free) periods. An example for the application of <span class="math inline">\(E/\mathrm{PET}\)</span> is the Evaporative Stress Index product (<a href="#fig-evaporative-stress" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>), generated by the ECOSTRESS satellite mission <span class="citation" data-cites="fisher20wrr">(<a href="references.html#ref-fisher20wrr" role="doc-biblioref">Fisher et al. 2020</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-evaporative-stress" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA22839.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.7: ECOSTRESS evaporative stress index for the Guanacaste region of Costa Rica (in red on inset map, left) a few months after the onset of a major Central American drought. Red indicates high plant water stress, yellow is moderate stress and greens/blues are low stress. Light gray is cloud cover. The index measures how much water plants are using relative to how much they would use under optimal conditions; low numbers correlate with high stress. Figure from <a href="https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought">https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought</a>.</figcaption>
+<div id="fig-evaporative-stress" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-evaporative-stress-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA22839.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evaporative-stress-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: ECOSTRESS evaporative stress index for the Guanacaste region of Costa Rica (in red on inset map, left) a few months after the onset of a major Central American drought. Red indicates high plant water stress, yellow is moderate stress and greens/blues are low stress. Light gray is cloud cover. The index measures how much water plants are using relative to how much they would use under optimal conditions; low numbers correlate with high stress. Figure from <a href="https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought">https://www.jpl.nasa.gov/images/pia22839-ecostress-focuses-on-costa-rican-drought</a>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -629,26 +855,30 @@ B = H/\lambda E
 </section>
 <section id="combining-energy-atmospheric-and-biophysical-controls-on-lambda-e" class="level3" data-number="7.2.3">
 <h3 data-number="7.2.3" class="anchored" data-anchor-id="combining-energy-atmospheric-and-biophysical-controls-on-lambda-e"><span class="header-section-number">7.2.3</span> Combining energy, atmospheric, and biophysical controls on <span class="math inline">\(\lambda E\)</span></h3>
-<p>Not only the availability of water for evaporation, but also the atmospheric condition (specifically, the vapor pressure deficit) and biophysical surface properties determine the latent heat flux and the surface energy partitioning. The key biophysical surface properties are the aerodynamic conductance to heat transfer (<span class="math inline">\(G_\mathrm{ah}\)</span>) and the surface conductance to water vapor transport (<span class="math inline">\(G_\mathrm{sw}\)</span>). How energy, atmospheric, and biophysical controls drive the latent heat flux <span class="math inline">\(\lambda E\)</span> is described by the Penman-Monteith equation (<a href="#eq-pm">Equation&nbsp;<span>7.7</span></a>), as shown in the box below and <a href="#fig-penmanmonteith">Figure&nbsp;<span>7.9</span></a>. The aerodynamic conductance depends on the roughness of the surface and on wind speed. Taller vegetation has a higher roughness and a higher aerodynamic conductance. Roughness also increases with LAI.</p>
-<p>On vegetated surfaces, the surface conductance to water vapor transport is strongly influenced by the stomatal conductance (<span class="math inline">\(g_s\)</span>, <a href="gpp.html#eq-photo-fick">Equation&nbsp;<span>4.5</span></a> and <a href="gpp.html#eq-transpiration">Equation&nbsp;<span>4.11</span></a>) and by the LAI. Water evaporation from rock, soil, leaf, or branch surfaces contributes to surface conductance and occurs also from non-vegetated surfaces. In a closed canopy, surface conductance is dominated by the signal by stomatal conductance. When leaves are active and photosynthesizing (high light), and when water stress is low (high soil moisture, low VPD), stomatal conductance is high. How water availability and vegetation regulate stomatal conductance, and thus the latent heat flux and energy partitioning at the land surface is introduced in <a href="ecohydrology.html"><span>Chapter&nbsp;8</span></a>.</p>
+<p>Not only the availability of water for evaporation, but also the atmospheric condition (specifically, the vapor pressure deficit) and biophysical surface properties determine the latent heat flux and the surface energy partitioning. The key biophysical surface properties are the aerodynamic conductance to heat transfer (<span class="math inline">\(G_\mathrm{ah}\)</span>) and the surface conductance to water vapor transport (<span class="math inline">\(G_\mathrm{sw}\)</span>). How energy, atmospheric, and biophysical controls drive the latent heat flux <span class="math inline">\(\lambda E\)</span> is described by the Penman-Monteith equation (<a href="#eq-pm" class="quarto-xref">Equation&nbsp;<span>7.7</span></a>), as shown in the box below and <a href="#fig-penmanmonteith" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>. The aerodynamic conductance depends on the roughness of the surface and on wind speed. Taller vegetation has a higher roughness and a higher aerodynamic conductance. Roughness also increases with LAI.</p>
+<p>On vegetated surfaces, the surface conductance to water vapor transport is strongly influenced by the stomatal conductance (<span class="math inline">\(g_s\)</span>, <a href="gpp.html#eq-photo-fick" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> and <a href="gpp.html#eq-transpiration" class="quarto-xref">Equation&nbsp;<span>4.11</span></a>) and by the LAI. Water evaporation from rock, soil, leaf, or branch surfaces contributes to surface conductance and occurs also from non-vegetated surfaces. In a closed canopy, surface conductance is dominated by the signal by stomatal conductance. When leaves are active and photosynthesizing (high light), and when water stress is low (high soil moisture, low VPD), stomatal conductance is high. How water availability and vegetation regulate stomatal conductance, and thus the latent heat flux and energy partitioning at the land surface is introduced in <a href="ecohydrology.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-surface-resistance" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/canopy_resistance.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.8: Surface resistance and normalized latent heat flux for different vegetation types. Normalization removes effects of different net radiation on latent heat fluxes. Canopy resistance is equivalent to the inverse of surface conductance described in this chapter. Figure from <span class="citation" data-cites="bonan08sci">G. B. Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.</figcaption>
+<div id="fig-surface-resistance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-surface-resistance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/canopy_resistance.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-surface-resistance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Surface resistance and normalized latent heat flux for different vegetation types. Normalization removes effects of different net radiation on latent heat fluxes. Canopy resistance is equivalent to the inverse of surface conductance described in this chapter. Figure from <span class="citation" data-cites="bonan08sci">G. B. Bonan (<a href="references.html#ref-bonan08sci" role="doc-biblioref">2008</a>)</span>.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Taken together, the spatial distribution of vegetation and other land cover types, and the response of plants to temporal changes in the environment (and thus on LAI and stomatal conductance) influence the energy partitioning at the land surface and near-surface atmospheric conditions. In other words, we have to understand vegetation and its response to the environment in order to understand land-climate interactions and near-surface climate.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Dependency of energy partitioning on conductances
+<span class="screen-reader-only">Tip</span>Dependency of energy partitioning on conductances
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -666,9 +896,9 @@ Dependency of energy partitioning on conductances
 <p>A derivation of the Penman-Monteith equation is given by <span class="citation" data-cites="bonan">G. Bonan (<a href="references.html#ref-bonan" role="doc-biblioref">2015</a>)</span>, Ch. 12.7.</p>
 <p>With this, and given the atmospheric condition, we can visualise the dependency of the latent heat flux on the aerodynamic and the surface conductances. Let’s assume <span class="math inline">\(R_n =\)</span> 400 W m<sup>-1</sup>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bigleaf)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
@@ -806,18 +1036,22 @@ Dependency of energy partitioning on conductances
 <span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  gg2,</span>
 <span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
 <span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>  <span class="at">rel_widths =</span> <span class="fu">c</span>(<span class="fl">0.77</span>, <span class="dv">1</span>)</span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-penmanmonteith" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landclimate_files/figure-html/fig-penmanmonteith-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.9: Dependency of the latent heat flux on (a) the aerodynamic conductance and (b) the surface conductance following the Penman-Monteith equation (<a href="#eq-pm">Equation&nbsp;<span>7.7</span></a>).</figcaption>
+<div id="fig-penmanmonteith" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-penmanmonteith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="landclimate_files/figure-html/fig-penmanmonteith-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-penmanmonteith-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.9: Dependency of the latent heat flux on (a) the aerodynamic conductance and (b) the surface conductance following the Penman-Monteith equation (<a href="#eq-pm" class="quarto-xref">Equation&nbsp;<span>7.7</span></a>).
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-penmanmonteith">Figure&nbsp;<span>7.9</span></a> shows an interesting interactive effect of aerodynamic conductance and the VPD of ambient air. At low VPD, plant transpiration is reduced, thus limiting the latent heat flux (<span class="math inline">\(\lambda E\)</span>). Under such conditions, the <span class="math inline">\(\lambda E\)</span> declines with increasing aerodynamic conductance. This is because <span class="math inline">\(H\)</span> rises faster than <span class="math inline">\(\lambda E\)</span> with increasing aerodynamic conductance and consumes a larger share of the net radiation. Under moderate-to-high VPD (above ~1 kPa in this example), <span class="math inline">\(\lambda E\)</span> rises with increasing aerodynamic conductance. <!-- $\sim$ does not appear in the text as it is not by itself a valid latex expression. --></p>
+<p><a href="#fig-penmanmonteith" class="quarto-xref">Figure&nbsp;<span>7.9</span></a> shows an interesting interactive effect of aerodynamic conductance and the VPD of ambient air. At low VPD, plant transpiration is reduced, thus limiting the latent heat flux (<span class="math inline">\(\lambda E\)</span>). Under such conditions, the <span class="math inline">\(\lambda E\)</span> declines with increasing aerodynamic conductance. This is because <span class="math inline">\(H\)</span> rises faster than <span class="math inline">\(\lambda E\)</span> with increasing aerodynamic conductance and consumes a larger share of the net radiation. Under moderate-to-high VPD (above ~1 kPa in this example), <span class="math inline">\(\lambda E\)</span> rises with increasing aerodynamic conductance. <!-- $\sim$ does not appear in the text as it is not by itself a valid latex expression. --></p>
 <p>Under conditions of very low aerodynamic conductance (e.g., in a short-statured grassland that has a low surface roughness and under stable atmospheric conditions, e.g., during an inversion), the latent heat flux does not approach zero. This is because as long as there is positive net radiation (here 400 W m<sup>-2</sup>), the surface (skin temperature) heats up relative to the ambient air and creates a positive VPD at the leaf surface (even if VPD of ambient air is zero). These aspects drive a continued positive <span class="math inline">\(H\)</span> and <span class="math inline">\(\lambda E\)</span> and the rise of the surface boundary layer.</p>
 </div>
 </div>
@@ -826,11 +1060,11 @@ Dependency of energy partitioning on conductances
 </section>
 <section id="energy-fluxes-across-biomes" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="energy-fluxes-across-biomes"><span class="header-section-number">7.3</span> Energy fluxes across biomes</h2>
-<p>As for C fluxes in <a href="globalcarbonpatterns.html"><span>Chapter&nbsp;6</span></a>, we turn to investigating diurnal and seasonal patterns in fluxes - this time the energy fluxes. The patterns observed at the same sites as used before illustrate general differences across biomes and how different characteristics of the vegetation cover affect the surface energy balance and flux partitioning. In addition to the temperate broadleaved forest site (Hainich Forest, DE-Hai), we consider a coniferous forest (DE-Tha) and a grassland site (DE-Gri) that are located close by (and thus experience largely identical meteorological conditions, ignoring feedbacks from vegetation-atmosphere fluxes that affect near-surface climate).</p>
+<p>As for C fluxes in <a href="globalcarbonpatterns.html" class="quarto-xref"><span>Chapter 6</span></a>, we turn to investigating diurnal and seasonal patterns in fluxes - this time the energy fluxes. The patterns observed at the same sites as used before illustrate general differences across biomes and how different characteristics of the vegetation cover affect the surface energy balance and flux partitioning. In addition to the temperate broadleaved forest site (Hainich Forest, DE-Hai), we consider a coniferous forest (DE-Tha) and a grassland site (DE-Gri) that are located close by (and thus experience largely identical meteorological conditions, ignoring feedbacks from vegetation-atmosphere fluxes that affect near-surface climate).</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sites <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/fdk_site_info.csv"</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sites <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/fdk_site_info.csv"</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># chose representative sites</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>use_sites <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
@@ -858,11 +1092,12 @@ Dependency of energy partitioning on conductances
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Vegetation type</span><span class="st">`</span> <span class="ot">=</span> igbp_land_use,</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Climate zone</span><span class="st">`</span> <span class="ot">=</span> koeppen_code</span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="fig-site-info" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<table class="table table-sm table-striped small">
+<div id="fig-site-info" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-site-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Site</th>
@@ -924,7 +1159,10 @@ Dependency of energy partitioning on conductances
 </tr>
 </tbody>
 </table>
-<figcaption class="figure-caption">Figure&nbsp;7.10: Site meta information. Vegetation types are described in <a href="biogeography.html#tbl-vegtype">Table&nbsp;<span>2.1</span></a>. Climate zones are described in <a href="biogeography.html#fig-table_beck">Figure&nbsp;<span>2.22</span></a>.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-site-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.10: Site meta information. Vegetation types are described in <a href="biogeography.html#tbl-vegtype" class="quarto-xref">Table&nbsp;<span>2.1</span></a>. Climate zones are described in <a href="biogeography.html#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -933,10 +1171,14 @@ Dependency of energy partitioning on conductances
 <!-- The diurnal course of energy fluxes is considered for an average day in July for each site. The mid-day peak of net radiation is highest at the tropical site (BR-Sa3) and lowest at the tundra site (US-ICh). This reflects patterns in solar radiation (@fig-diurnal_cycle). Within the temperate sites, the mid-day peak is highest in the coniferous forest site and lowest in the grassland site. This reflects the differences in albedo between different vegetation cover types (@fig-albedo-vegtypes). Net radiation drops to negative values during the night. This is because solar radiation is zero and the land surface is warmer than the ambient air. This drives a negative (upward) heat flux, gradually cooling the surface during the course of the night. Within temperate sites, this night-time cooling is stronger at the forest sites (DE-Hai and DE-Tha) than at the grassland site (DE-Gri). -->
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-energy-diurnal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/diurnal_cycle_radiation.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.11: Diurnal variations of energy fluxes at sites representing different biomes, taken as the average for each half-hour of a day in July.</figcaption>
+<div id="fig-energy-diurnal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-energy-diurnal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/diurnal_cycle_radiation.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-energy-diurnal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.11: Diurnal variations of energy fluxes at sites representing different biomes, taken as the average for each half-hour of a day in July.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -947,13 +1189,13 @@ Dependency of energy partitioning on conductances
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+<span class="screen-reader-only">Caution</span>Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The diurnal course of energy fluxes is considered for an average day in July for each site. Describe key patterns and differences between sites and relate them to your knowledge about radiation, energy partitioning, and land surface and vegetation properties.</p>
 <ol start="2" type="1">
-<li>How does net radiation compare across sites in the top row of <a href="#fig-energy-diurnal">Figure&nbsp;<span>7.11</span></a>? What component of the net radiation (<a href="#fig-netrad">Figure&nbsp;<span>7.1</span></a> a) do you think is responsible for the observed differences? What surface property may contribute to the differences in net radiation, and does it explain why the tropical site has a higher mid-day net radiation peak than the boreal site?</li>
+<li>How does net radiation compare across sites in the top row of <a href="#fig-energy-diurnal" class="quarto-xref">Figure&nbsp;<span>7.11</span></a>? What component of the net radiation (<a href="#fig-netrad" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> a) do you think is responsible for the observed differences? What surface property may contribute to the differences in net radiation, and does it explain why the tropical site has a higher mid-day net radiation peak than the boreal site?</li>
 <li>How does net radiation compare across the three sites in the temperate biome? Can vegetation properties that affect the reflectance explain why the mid-day peak net radiation is lower for DE-Gri han for DE-Tha?</li>
 <li>During night-time, net radiation is negative at all sites. Which of the four components of net radiation is largest during nighttime?</li>
 <li>Is the land surface losing or gaining energy during the night? What flux drives this gain/loss (<span class="math inline">\(H\)</span> or <span class="math inline">\(\lambda E\)</span>)?</li>
@@ -977,10 +1219,14 @@ Exercise
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="seasonal-variations"><span class="header-section-number">7.3.2</span> Seasonal variations</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-energy-seasonal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/seasonal_cycle_radiation.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.12: Seasonal variations of energy fluxes at sites representing different biomes.</figcaption>
+<div id="fig-energy-seasonal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-energy-seasonal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/seasonal_cycle_radiation.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-energy-seasonal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.12: Seasonal variations of energy fluxes at sites representing different biomes.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -991,7 +1237,7 @@ Exercise
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+<span class="screen-reader-only">Caution</span>Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1061,7 +1307,7 @@ Exercise
 <!-- - Big-leaf model (Knauer et al., 2018) -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-bonan" class="csl-entry" role="listitem">
 Bonan, Gordon. 2015. <em>Ecological Climatology: Concepts and Applications</em>. 3rd ed. Cambridge University Press.
 </div>
@@ -1092,158 +1338,71 @@ Zhao, Kaiguang, and Robert B. Jackson. 2014. <span>“Biophysical Forcings of La
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1251,207 +1410,360 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./globalcarbonpatterns.html" class="pagination-link">
+      <a href="./globalcarbonpatterns.html" class="pagination-link" aria-label="Spatial and temporal patterns of the terrestrial carbon cycle">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial and temporal patterns of the terrestrial carbon cycle</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ecohydrology.html" class="pagination-link">
+      <a href="./ecohydrology.html" class="pagination-link" aria-label="Ecohydrology">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Ecohydrology</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
