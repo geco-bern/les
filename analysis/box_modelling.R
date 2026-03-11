@@ -200,7 +200,17 @@ df_exp <- df_exp |>
 # https://globalcarbonbudgetdata.org/latest-data.html
 # Saved tab Global Carbon Budget as a CSV file. 
 # Reading this CSV here.
-df_gcb <- read_csv(here("data/Global_Carbon_Budget_2023v1.0_tabGlobalCarbonBudget.csv"))
+df_gcb <- read_csv(here("data/Global_Carbon_Budget_2024v1_tabHistoricalBudget.csv")) |> 
+  rename(
+    year = Year,
+    e_ff = `fossil emissions excluding carbonation`,
+    e_luc = `land-use change emissions`,
+    g_atm = `atmospheric growth`,
+    s_ocean = `ocean sink`,
+    s_land = `land sink`,
+    s_cement = `cement carbonation sink`,
+    imbalance = `budget imbalance`
+  )
 
 # (Re-) definitions
 df_gcb <- df_gcb |> 

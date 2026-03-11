@@ -21,8 +21,10 @@ onebox <- function( c_influx, tau, cpool0, return_cpool = TRUE, dist = NA) {
   for (yr in seq(len) ) {
     
     print(paste("yr, dist: ", yr, dist))
-    if (yr == dist){
-      cpool <- 0 
+    if (!is.na(dist)){
+      if (yr == dist){
+        cpool <- 0 
+      }
     }
 
     # copy current pool size to output time series
