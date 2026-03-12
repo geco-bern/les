@@ -18,9 +18,9 @@ In @sec-globalcarbonbudget, we conceived the global carbon cycle as a system of 
 $$
 \mathrm{GPP} = \mathrm{PPFD} \cdot \mathrm{fAPAR} \cdot \mathrm{LUE}
 $$ {#eq-luemodel}
-GPP is expressed as a C flux per unit ground area and per unit time (e.g., gC m^-2^ s^-1^). PPFD measures the solar radiation flux, incident at the top of the canopy. It is expressed, e.g., in units of mol (photons) m^-2^ s^-1^. The light use efficiency model (@eq-luemodel) is also often formulated using the photosynthetically active (solar) radiation (PAR) in units of an energy flux per unit ground area (e.g., W m^-2^), instead of PPFD. This is equivalent to the expression with respect to PPFD, considering that each photon (light quantum) bears a certain amount of radiation energy (see, e.g., [here](https://en.wikipedia.org/wiki/Photon_energy)). fAPAR is the fraction (unitless) of absorbed photosynthetically active radiation. It depends on the total ecosystem-level (or canopy-level) surface area of green leaves (@sec-light-absorption). LUE is the light use efficiency, measuring the efficiency with which photons are harvested and used for assimilating CO~2~ by the photosynthetic machinery (@sec-photosynthesis). It is expressed, e.g., in units of gC (mol CO~2~)^-1^. See @tbl-symbols-gpp for an overview of symbols and abbreviations used in this chapter.
+GPP is expressed as a C flux per unit ground area and per unit time (e.g., gC m^-2^ s^-1^). PPFD measures the solar radiation flux, incident at the top of the canopy. It is expressed, e.g., in units of mol (photons) m^-2^ s^-1^. The light use efficiency model (@eq-luemodel) is also often formulated using the photosynthetically active (solar) radiation (PAR) in units of an energy flux per unit ground area (e.g., W m^-2^), instead of PPFD. This is equivalent to the expression with respect to PPFD, considering that each photon (light quantum) bears a certain amount of radiation energy. fAPAR is the fraction (unitless) of absorbed photosynthetically active radiation. It depends on the total ecosystem-level (or canopy-level) surface area of green leaves (@sec-light-absorption). LUE is the light use efficiency, measuring the efficiency with which photons are harvested and used for assimilating CO~2~ by the photosynthetic machinery (@sec-photosynthesis). It is expressed, e.g., in units of gC (mol CO~2~)^-1^. See @tbl-symbols-gpp for an overview of symbols and abbreviations used in this chapter.
 
-Of course, a relationship with biomass productivity, as observed by @monteith72 should not be equated with a relationship with GPP. However, again, over longer periods of time, a given plant converts assimilated carbon into biomass at a relatively constant rate (see @sec-carboncycle_ecosystem). Therefore, the observation by @monteith72 is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of @eq-luemodel and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by @monteith72 were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are - for now - ignoring the effects by limited root-zone water availability. We will relieve this simplification in @sec-landclimate and @sec-ecohydrology.
+Of course, a relationship with biomass productivity, as observed by @monteith72 should not be equated with a relationship with GPP. However, again, over longer periods of time, a plant converts assimilated carbon into biomass at a relatively constant rate (see @sec-carboncycle_ecosystem). Therefore, the observation by @monteith72 is instructive for our understanding. Indeed, models of terrestrial GPP are often formulated in the form of @eq-luemodel and are useful for estimating how GPP values over space and time (at the scale of weeks to months). The aspect that the observations by @monteith72 were made under well-watered conditions is a further caveat. However, it shall serve us in this chapter as we are--for now--ignoring the effects by limited root-zone water availability. We will relieve this simplification in @sec-landclimate and @sec-ecohydrology.
 
 The linear dependence of GPP on PPFD implies that the variations of solar radiation over the seasons and across latitude directly translate to how GPP varies across these scales. This will be further described in @sec-global-patterns. Note that at shorter time scales, GPP is no longer linearly related to PAR. Through its influence on GPP, as described by @eq-luemodel, solar radiation is the "engine" of photosynthetic CO~2~ uptake by the terrestrial ecosystems. Temporal and spatial patterns of GPP are strongly driven by patterns in solar radiation. The astronomical mechanics responsible for temporal and spatial (latitudinal) patterns in solar radiation will be introduced in @sec-global-patterns. For now, let's remember that the incoming (incident) solar radiation is an energy flux that varies strongly over the course of a day and a year. These diurnal and seasonal patterns are different along different latitudes (position north or south of the Equator). In the following, we delve deeper into the two factors fAPAR and LUE in @eq-luemodel.
 
@@ -38,7 +38,7 @@ The fraction of absorbed photosynthetically active radiation (fAPAR) increases w
 knitr::include_graphics("images/light_absorption_bonan.png")
 ```
 
-While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. The penetration of radiation into a canopy is referred to as canopy *radiative transfer*. Each of the processes - reflection, absorption, and transmittance - affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
+While the intensity of shortwave (solar) radiation is highest at the top of the canopy, it is progressively attenuated as it penetrates into the canopy. Radiation gets reflected, absorbed and transmitted by individual leaves. The penetration of radiation into a canopy is referred to as canopy *radiative transfer*. Each of the processes--reflection, absorption, and transmittance--affects light differently in different wavelengths, depends on the solar zenith angle, on the three-dimensional arrangement of leaves in the canopy (angles, "clumping"), and on the pigments on the leaf surfaces that are responsible for light absorption. Pigments change across species and may vary in response to stress (e.g., by frost, heat, or water limitation). 
 
 In brief, canopy radiative transfer is complex. A simple model for how (solar) radiation (light) is attenuated as it penetrates into the canopy is given by the *Beer-Lambert law*. To apply it for canopy radiative transfer, we assume that a leaf only *absorbs* light, but does not reflect or transmit it. Following this model, the light intensity $I$ at the bottom of the canopy ($z_0$) is an exponential function of LAI ($L$). The rate of decline of the light intensity is given by the light extinction coefficient $k$. A typical value of $k$ in the visible (photosynthetically active) wavelength spectrum is 0.5. 
 $$
@@ -331,7 +331,6 @@ out_pmodel <- rpmodel(
   beta           = beta,
   fapar          = fapar,
   ppfd           = ppfd,
-  method_optci   = "prentice14",
   method_jmaxlim = "wang17",
   do_ftemp_kphio = FALSE
   )
@@ -463,7 +462,6 @@ out_pmodel_lo <- rpmodel(
   beta           = beta,
   fapar          = fapar,
   ppfd           = ppfd*0.5,
-  method_optci   = "prentice14",
   method_jmaxlim = "wang17",
   do_ftemp_kphio = FALSE
   )
@@ -478,7 +476,6 @@ out_pmodel_me <- rpmodel(
   beta           = beta,
   fapar          = fapar,
   ppfd           = ppfd,
-  method_optci   = "prentice14",
   method_jmaxlim = "wang17",
   do_ftemp_kphio = FALSE
   )
@@ -493,7 +490,6 @@ out_pmodel_hi <- rpmodel(
   beta           = beta,
   fapar          = fapar,
   ppfd           = ppfd*2,
-  method_optci   = "prentice14",
   method_jmaxlim = "wang17",
   do_ftemp_kphio = FALSE
   )
@@ -596,8 +592,8 @@ The Farquhar-von Caemmerer Berry model for C~3~ photosynthesis (see Box 'Farquha
 df_temp <- tibble(
   temp = seq(0, 40, length.out = 100)) |> 
   rowwise() |> 
-  mutate(gammastar = gammastar(temp, patm = 101325),
-         kmm = kmm(temp, patm = 101325),
+  mutate(gammastar = calc_gammastar(temp, patm = 101325),
+         kmm = calc_kmm(temp, patm = 101325),
          vcmax = out_pmodel$vcmax25 * ftemp_inst_vcmax(temp, tcgrowth = 15),
          jmax = 1.7 * out_pmodel$vcmax25 * ftemp_inst_jmax(temp, tcgrowth = 15),
          rd = 0.05 * out_pmodel$vcmax25 * ftemp_inst_rd(temp)
