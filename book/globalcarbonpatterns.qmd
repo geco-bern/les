@@ -11,9 +11,9 @@ format:
 
 # Spatial and temporal patterns of the terrestrial carbon cycle {#sec-global-patterns}
  
-Up to this point, we have considered the global terrestrial C cycle either as a 1-box model in @sec-gpp, or as a cascade of boxes in @sec-carboncycle_ecosystem. We have also learned in @sec-gpp and @sec-carboncycle_ecosystem how the CO~2~ assimilation and respiration fluxes depend on climatic variables. This implies the fluxes and pools of the terrestrial carbon cycle vary over the course of seasons and days and across geographical space - with different background climates. In this chapter, we delve into these spatial and temporal patterns of the land carbon cycle.
+Up to this point, we have considered the global terrestrial C cycle either as a 1-box model in @sec-gpp, or as a cascade of boxes in @sec-carboncycle_ecosystem. We have also learned in @sec-gpp and @sec-carboncycle_ecosystem how the CO~2~ assimilation and respiration fluxes depend on climatic variables. This implies the fluxes and pools of the terrestrial carbon cycle vary over the course of seasons and days and across geographical space, that is across with different background climates and biomes. In this chapter, we delve into these spatial and temporal patterns of the land carbon cycle.
 
-In @sec-gpp, the ecosystem-level photosynthetic CO~2~ assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In @sec-constlue, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains about 80% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate "engine" of the C cycle in terrestrial ecosystems and supplies C for all "downstream" fluxes and pools along the C cascade (@sec-ccascade), solar radiation is a major control of the terrestrial carbon cycle. 
+In @sec-gpp, the ecosystem-level photosynthetic CO~2~ assimilation flux, GPP, was described as a linear function of solar radiation (measured by PPFD), modified by the light use efficiency (LUE) and the fraction of absorbed photosynthetically active radiation (fAPAR). In @sec-constlue, we found that such a linear relationship (assuming a temporally constant and spatially uniform LUE) explains around 75% of the variations in GPP across sites and over time (aggregated data to weeks) in the dataset. Since GPP is the ultimate "engine" of the C cycle in terrestrial ecosystems and supplies C for all "downstream" fluxes and pools along the C cascade (@sec-ccascade), solar radiation is a major control of the terrestrial carbon cycle. 
 
 After having introduced how photosynthesis and light use efficiency (LUE) are driven by climate, this chapter introduces the spatial and temporal variations of the other two factors of the LUE model: PPFD and fAPAR. @sec-solar-radiation explains how variations in PPFD received at the top of the canopy at a specific day-of-year and latitude depends on the geometry of how the Earth rotates around the sun. @sec-phenology introduces patterns and simple models for how phenology of vegetation greenness, and therefore fAPAR, evolve. This focuses on leaf unfolding and shedding, with a focus on winter-dormant temperate and boreal biomes. Water stress-driven vegetation greenness changes will be introduced later. @sec-flux-variability integrates the introduction of the processes into a description of the emerging patterns of GPP across space and time, while @sec-fluxepools-spatial will introduce how ecosystem fluxes and carbon pools vary spatially across the globe.
  
@@ -24,7 +24,7 @@ $$
 \mathrm{PPFD} = (1-\alpha_{v})\; \tau(z, f_c) \; f_{p}  \; I_\mathrm{TOA}
 $$ {#eq-ppfd}
 
-Solar radiation across the full short-wave spectrum emitted by the sun and incident at the land surface (top-of-canopy, $I_\mathrm{0}$) is similarly related to $I_\mathrm{TOA}$. A different albedo applies for total short-wave radiation vs. the radiation in the photosynthetically active (and visible) spectrum. $I_\mathrm{0}$ is commonly expressed in energy units (W m^-2^).
+@eq-ppfd is expressed in units of photon flux. The corresponding relation, expressed in energy units (more common in climatology) is very similar. Solar radiation across the full short-wave spectrum emitted by the sun and incident at the land surface (top-of-canopy, $I_\mathrm{0}$) is similarly related to $I_\mathrm{TOA}$. A different albedo applies for total short-wave radiation vs. the radiation in the photosynthetically active (and visible) spectrum. The factor $f_{p}$ does not apply here, and $I_\mathrm{0}$ is commonly expressed in energy units (W m^-2^).
 $$
 I_\mathrm{0} = (1-\alpha_\mathrm{sw})\; \tau(z, f_c) \; I_\mathrm{TOA}
 $$ {#eq-sin}
@@ -41,17 +41,17 @@ knitr::include_graphics("images/solar_radiation_chelsa.png")
 
 ### Solar geometry
 
-Let's first step outside the atmosphere and focus on the solar geometry to understand $I_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and how the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
+Let's first step outside the atmosphere and focus on the solar geometry to understand $I_\mathrm{TOA}$. Solar geometry describes the cyclical movement of the Earth around the sun and the resulting cyclically varying amount of solar energy that reaches the Earth. The top-of-the atmosphere perspective is relevant to separate atmospheric effects from planetary effects.
 
 $I_\mathrm{TOA}$ scales in proportion to the solar constant $I_S$ (1360.8 W m^-2^) and is inversely proportional to the square of the distance between the Earth and the sun ($r_E$).
 $$
 I_\mathrm{TOA} = I_S r_E^{-2} \cos \theta_z
 $$ {#eq-s-toa}
-$\theta_z$ is the solar zenith angle. The term $\cos \theta_z$ accounts for the dependence of the solar radiation on the angle at which the sun's rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with *hour-of-day*) and over the course of a year (with *day-of-year*). The zenith angle is zero when the sun is directly above the observer - in the zenith (@fig-solar_geometry). At this point, the intensity of the solar radiation is at its maximum.
+$\theta_z$ is the solar zenith angle. The term $\cos \theta_z$ accounts for the dependence of the solar radiation on the angle at which the sun's rays reach the Earth surface (no terrain considered). It varies cyclically over the course of a day (with *hour-of-day*) and over the course of a year (with *day-of-year*). The zenith angle is zero when the sun is directly above the observer--in the zenith (@fig-solar_geometry). At this point, the intensity of the solar radiation is at its maximum.
 
 <!-- XXX explain why ~1/r^2 -->
 
-Note that $r_E$ is not constant over the course of a year as the Earth rotates around the sun not following a perfect circle but an ellipse.
+Note that $r_E$ is not constant over the course of a year. This is because the Earth rotates around the sun not following a perfect circle, but an ellipse.
 
 ```{r echo=FALSE}
 #| label: fig-solar_geometry

@@ -350,6 +350,7 @@ The relative change in each pool can be quantified by comparing the pool sizes, 
 #| out-width: 60%
 
 library(tidyr)
+
 df_plot <- df |> 
   filter(year == 2500) |> 
   pivot_longer(2:10, names_to = "variable", values_to = "value_2500") |> 
@@ -388,7 +389,7 @@ How does this relate to the C cascade description of ecosystem C dynamics in thi
 
 Of course, C in woody biomass has a much longer turnover time than C in leaves and fine roots. Therefore, following the logic of the box modelling and 1st-order decay, the steady-state C stock in biomass is larger in a forest than in a grassland despite GPP being similar.
 
-How effective are forest plantations for compensating CO~2~ emissions? Again, let's turn to the box model. We may assume that GPP is 1500 gC m^-2^ yr^-1^ and that a forest is planted in simulation year 10 - implemented in the model by increasing the allocation fraction to wood from zero initially (in a grassland) to 0.5 from year 10 onwards. The turnover time of leaves and fine roots is 2 years and 50 years for woody biomass.
+How effective are forest plantations for compensating CO~2~ emissions? Again, let's turn to the box model. We may assume that GPP is 1500 gC m^-2^ yr^-1^ and that a forest is planted in simulation year 10--implemented in the model by increasing the allocation fraction to wood from zero initially (in a grassland) to 0.5 from year 10 onwards. The turnover time of leaves and fine roots is 2 years and 50 years for woody biomass.
 
 The model simulation below shows the accumulation of vegetation biomass (leaf, root, and wood C) over time and the net ecosystem productivity - measuring the C balance of the ecosystem.
 
@@ -517,7 +518,7 @@ $$
   What is the ratio of steady-state ecosystem C storage in the two ecosystems? 
 5. Discuss whether the C cascade model and the result obtained for (4.) is an accurate model for the real world. Do you expect the ratio of steady-state C storage in response to a 20% increase in GPP to be higher or lower than 20%? Do you expect BPE, allocation fractions $\alpha_i$, and decay constants $k_i$ to change in response to increases in GPP?
 6. What quantity do you consider for measuring the annual C balance of an ecosystem?
-7, What quantity do you consider for measuring the annual C balance of forests, grasslands, and agricultural lands in Switzerland?
+7. What quantity do you consider for measuring the annual C balance of all forests, grasslands, and agricultural lands across Switzerland?
 
 :::
 
