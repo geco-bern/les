@@ -11,6 +11,13 @@ The ocean serves as a habitat for numerous marine species, and is important for 
 
 The importance of the ocean in regulating the climate and its multidimensional anthropogenic drivers change, is essential for a closer understanding of how the climate is changing and its impacts. 
 
+```{r echo=FALSE, eval=TRUE}
+#| label: fig-globalocean
+#| fig-cap: "Global ocean basins (left subfigure) and distribution of ocean depths (negative values) versus land elevations (positive values), shown in right subfigure. From @talley2011b"
+#| out-width: 100%
+knitr::include_graphics("images/ocean_intro_figure.png")
+```
+
 ## Stratification and Ocean Circulation
 
 Ocean mixing and circulation governs its uptake, transport and storage of heat and carbon between latitudes. It is also important for its transfer from the surface ocean, which is in close exchange with the atmosphere, to the deeper ocean, which consists of the long-term storage component of the ocean. Since the ocean is for the most part well stratified, meaning that waters of low density sit above waters of low density @fig-stratification. In such a case, the exchange between surface and deeper ocean is limited. The amount of heat and carbon that can reach the deeper ocean and be stored in this large deeper volume, is thus strongly limited. However, there are also areas where surface waters are mixed into the deeper ocean, called areas of deep convection, which play a significant role for ocean carbon and heat storage. These areas, where waters can penetrate to over 1000m depth (usually the mixed surface layer is around 100m on average), are found in the North Atlantic and Southern Ocean[@talley2011a]. Here, the cooling of surface waters increase their densities, making them heavier and more likely to sink. Changes in salinity, owing to precipitation, evaporation or sea ice melt/formation, also impact water densities and the rate to which surface waters can enter the ocean. 
@@ -35,7 +42,18 @@ knitr::include_graphics("images/ocean_circulation.png")
 
 ## Ocean Heat Uptake
 
-The ocean has taken up hundreds of ZJs of heat since the preindustrial time period as a result of the increasing Earth energy imbalance caused by greenhouse gas emissions (@fig-heatuptake). The ocean's large role for heat storage is due to the physical characteristics of water, combined with its large-scale circulation and vast storage volume. Its large heat capacity (C~p~ = 4’184 J kg^-1^ °C^-1^) allows for larger storage of heat per volume at a given temperature than all other liquids and solids, with the sole exception of NH~3~. 
+The ocean has taken up hundreds of zetajoules of heat since the preindustrial time period as a result of the increasing Earth energy imbalance caused by greenhouse gas emissions (@fig-heatuptake). The ocean's large role for heat storage is due to the physical characteristics of water, combined with its large-scale circulation and vast storage volume. Its large heat capacity (C~p~ = 4’184 J kg^-1^ °C^-1^) allows for larger storage of heat per volume at a given temperature than all other liquids and solids, with the sole exception of NH~3~. 
+
+| Physical Properties  | Air | Seawater |
+|---------------  |------------------|------------------------------------|
+| Density [kg m^-3^] | 1.225         | 1026   |
+| Dynamic Viscosity [ kg m^-1^ s^-1^] | 1.789 * 10^-5^  | 1.230 * 10^-3^ |
+| Thermal Conductivity [W m^-1^ K^-1^] | 0.026  | 0.596 |                   
+| Specific Heat Capacities J kg^-1^ °C^-1^ | 1005        | 4184 | 
+| Sound Velocity [m s^-1^]       | 349.0       |  1543.0  | 
+: Key ocean water characteristics compared to air, at a 20°C reference temperature and 1 atm reference pressure {#tbl-water_char}
+
+
 
 Heat is taken up through air-sea exchange at the ocean's surface. The surface ocean is thus the largest storage term of anthropogenic heat, but part of it is also transferred to the voluminous deeper ocean, where it is stored over the long-term due to very slow circulation at greater depths. This heat in the deep ocean remains isolated from any contact with the atmosphere for centuries, making the process very important in the context of climate change. 
 
@@ -80,7 +98,7 @@ $$
 \end{align}
 $$ {#eq-henry_law}
 
-Applying only Henry’s law with K~H~ = 3.4 × 10^−2^  and pCO~2~ = 400 ppm would however lead to a 100-fold underestimation of carbon storage in the ocean. This is because of the buffer effect caused by the carbonate system. Dissolved CO~2~ and water firstly form H~2~CO~3~. At sea water pH levels however, the majority of newly formed H~2~CO~3~ dissociates to bicarbonate HCO~3~^-^:
+Applying only Henry’s law with K~H~ = 3.4 × 10^−2^  and pCO~2~ = 400 ppm would however lead to a 100-fold underestimation of carbon storage in the ocean. This is because of the buffer effect caused by the carbonate system. Dissolved $CO_{2}$ and water firstly form $H_{2}CO_{3}$. At sea water pH levels however, the majority of newly formed $H_{2}CO_{3}$ dissociates to bicarbonate $HCO_{3}^{-}$:
 
 $$
 \begin{align}
@@ -98,13 +116,13 @@ The equilibrium of the reaction is thus given by:
 
 $$
 \begin{align}
-pK_{a} =  \frac{[HCO_{3}^{-}] * [H^{+}]}{CO_{2}]} = 3
+pK_{1} =  \frac{[HCO_{3}^{-}] * [H^{+}]}{CO_{3}^{-2}]} = 3
 \end{align}
-$$ {eq-eq_hco3}
+$$ {#eq-hco3}
 
-This reaction is very favorable at oceanic pH levels with a pKa of 3, meaning a much larger fraction of $HCO_{3}^{-}$ than $H^{+}]}{CO_{2}$. 
+This reaction is very favorable at oceanic pH levels with a pKa of 3, meaning a much larger fraction of $HCO_{3}^{-}$ than $H_{2}CO_{3}$. 
 
-The bicarbonate ($HCO_{3}^{-}$) can further dissociate to CO3^2-^:
+The $HCO_{3}^{-}$ can further dissociate to $CO_{3}^{-2}$:
 
 $$
 \begin{align}
@@ -184,24 +202,26 @@ knitr::include_graphics("images/ocean_spatial_sink.png")
 ::: {.callout-caution}
 ## Exercise
 
-1. Compute wind stress for different wind speeds of 0,5,10,15,25,30 ms^-1^ with the following equation:
+1. Compute wind stress for different wind speeds of 0,5,10,15,25,30 m s^-1^ with the following equation:
 $$
 τ = ρ * C_{d} * W 
 $$
 
      with density of air = 1.3 kg m^-3^ 
-     Cd = Drag coefficient = 1.4 x 10^-3^ m^-3^
-     W = wind speed in ms^-1^
 
-Make a plot with windspeed on X-axis and wind stress on Y-axis.
+     C~d~ (Drag coefficient) = 1.4 x 10^-3^ m^-3^
+
+     W = wind speed in m s^-1^
+
+     Make a plot with wind speed on X-axis and wind stress on Y-axis.
 
 2. Compute the heat uptake of the surface ocean since 1960 assuming: a density of 1,025 kg/m^-3^, a volume of 3.6 × 10^16^ m^-3^, and a temperature rise of 0.5 °C. 
 
-3. How much DIC would be dissolved in the ocean following solely Henry's law, thus ignoring further buffering through carbonate chemistry?
+3. How much DIC would be dissolved in the ocean following solely Henry's law (@eq-henry_law), thus ignoring further buffering through carbonate chemistry?
 
-4. What is the concentration of DIC (in [mol kg^-1^]) dissolved in the surface ocean in mol kg^−1^ (assuming full carbonate chemistry, and neglecting biological fluxes), assuming an equilibrium state, pCO~2~ = 278 10^-6^ atm and a pH of 8.1. Combine both equations \@ref(eq-eq_hco3) and \@ref(eq-eq_co3). Compare this answer with the answer in 3. 
+4. What is the concentration of DIC (in [mol kg^-1^]) dissolved in the surface ocean in mol kg^−1^ (assuming full carbonate chemistry, and neglecting biological fluxes), assuming an equilibrium state, pCO~2~ = 278 10^-6^ atm and a pH of 8.1. To do this, combine equations @eq-hco3) and @eq-eq_co3). Compare this answer with the answer in 3 without carbonate system buffering. 
 
-5. How much DIC (in [g C]) is stored in the surface ocean in absolute terms? Assume a surface ocean depth of 100 m, a surface of 3.16 × 10^14^ m^2^, a density of density of seawater ρ0 = 1024.5 kg m^−3^, and a molmass of 12 g C mol^-1^. Use the DIC concentration calculated in 3., or if not solved, use [DIC]= 2000 × 10^−6^ mol kg^−1^. (1 P)
+5. How much DIC (in [g C]) is stored in the surface ocean in absolute terms? Assume a surface ocean depth of 100 m, a surface of 3.16 × 10^14^ m^2^, a density of density of seawater ρ0 = 1024.5 kg m^−3^, and a molmass of 12 g C mol^-1^. Use the DIC concentration calculated in 3., or if not solved, use [DIC]= 2000 × 10^−6^ mol kg^−1^.
 
 6. Describe how the oceanic biological carbon pump can respond to climate warming? What are the implications of this change?
  
