@@ -26,10 +26,10 @@ book:
     - part: part2.qmd
       chapters:
       - feedbacks.qmd
-      - landusechange.qmd
+    #  - landusechange.qmd
       - nutrients.qmd
       - ghg.qmd
-      - globenvchange.qmd
+    #  - globenvchange.qmd
       - oceancarbon.qmd
     # - researchtools.qmd
     # - reading.qmd

@@ -1,7 +1,8 @@
 # The Ocean and its CO~2~ uptake  {#sec-oceancarbon}
-## Role in the Climate System
 
 Author: Fabrice Lacroix
+
+## Role in the Climate System
 
 The ocean constitutes of around 70 % of the Earth’s surface. It plays a vital role in the climate system through its large storage of heat and carbon [@talley2011a], provides a basis for enormous amounts of marine species, and provides important socioeconomic services vital to both regional and global economies, global food supply and human wellbeing. 
 
