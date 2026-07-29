@@ -50,8 +50,8 @@ jobs:
       - name: Install spatial dependencies
         run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
 
-      # - name: Install further dependencies
-      #   run: sudo apt-get install libfontconfig1-dev libharfbuzz-dev libfribidi-dev libsecret-1-dev
+      - name: Install further dependencies
+        run: sudo apt-get install libfontconfig1-dev libharfbuzz-dev libfribidi-dev libsecret-1-dev
 
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
