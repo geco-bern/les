@@ -1,0 +1,64 @@
+# based on https://github.com/quarto-dev/quarto-actions/blob/main/examples/quarto-publish-example.yml
+# and on https://github.com/r-lib/actions/blob/v2/examples/blogdown.yaml
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+  workflow_dispatch:
+
+name: Render (no Publish)
+
+# you need these permissions to publish to GitHub pages
+# permissions:
+#     contents: write
+#     pages: write
+
+jobs:
+  quarto-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    # Only restrict concurrency for non-PR jobs
+    concurrency:
+      group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RSPM: "https://packagemanager.posit.co/cran/__linux__/noble/latest"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # To install LaTeX to build PDF book
+          tinytex: true
+          # uncomment below and fill to pin a version
+          # version: SPECIFIC-QUARTO-VERSION-HERE
+
+      # add software dependencies here and any libraries
+      # From https://github.com/r-lib/actions/tree/v2-branch/setup-r
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        # with:
+        #   use-public-rspm: true
+        #   r-version: '4.5.1'
+
+      # - name: Install spatial dependencies
+      #   run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
+      #
+      # - name: Install further dependencies
+      #   run: sudo apt-get install libfontconfig1-dev libharfbuzz-dev libfribidi-dev libsecret-1-dev
+
+      - name: Install R Dependencies
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
+
+      # following: https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-04-render-no-publish.md
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
