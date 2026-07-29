@@ -25,8 +25,8 @@ create_map_byvar <- function(path,
     rasta_lo$vars[[varnam]] <- t(rasta_lo$vars[[varnam]])
   }
   
-  # GECOr package from https://github.com/geco-bern/GECOr
-  gg <- GECOr::plot_map4(rasta_lo,
+  # use plot_map4 from the rgeco package (compatible with GECOr version)
+  gg <- rgeco::plot_map4(rasta_lo,
                          varnam = varnam,
                          latmin = -60, 
                          latmax = 85,
