@@ -61,3 +61,5 @@ jobs:
       # following: https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-04-render-no-publish.md
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: book
