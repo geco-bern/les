@@ -14,21 +14,19 @@ knitr::include_graphics("images/radiative_forcing.png")
 
 ## Terrestrial sinks and sources of atmospheric greenhouse gases
 
-While the source of anthropogenic CO~2~ to the atmosphere is dominated by the direct burning of fossil fuel, terrestrial emission pathways from natural systems as well as managed lands have also emerged as sources of CO~2~, CH~4~ and N~2~O to the atmosphere (see al@sec-globalcarbonbudget). Land use change is in particular known to be an important contributor of CO~2~ to the atmosphere since the preindustrial time period (@friedlingstein25essd). Thawing of permafrost, disturbances such as fire, as well as drainage of wetlands can cause substantial local sources of CO~2~ emissions to the atmosphere. Overall however, unmanaged and covered land areas are still an increasing sink globally of CO~2~ owing largely to the effect of CO~2~ fertilization, which dominates over sources.
+@sec-globalcarbonbudget that increasing anthropogenic CO~2~ to the atmosphere, which are dominated by the direct burning of fossil fuel, are partly compensated by terrestrial and oceanic sinks. Despite this sink, land also has emissionpathways from natural systems as well as managed lands, which can be sources of CO~2~, CH~4~ and N~2~O to the atmosphere. Land use change, in particular, is known to be an important contributor of CO~2~ to the atmosphere since the preindustrial time period (@friedlingstein25essd). Thawing of permafrost, disturbances such as fire, as well as drainage of wetlands can cause substantial local sources of CO~2~ emissions to the atmosphere. Overall however, unmanaged and covered land areas are still an increasing sink globally of CO~2~ owing largely to the effect of CO~2~ fertilization, which dominates over sources.
 
-Terrestrial systems can be important net sources of the non-CO~2~ greenhouse gases CH~4~ and N~2~O, which are amongst the most potent radiative forcing agents (@fig-radiative-forcing). Although atmospheric concentrations of CH~4~ and N~2~O are two to three orders of magnitude lower than concentrations of CO~2~ (factor 100-1000), their contribution to anthropogenic climate change, measured by their effective radiative forcing, is still significant due to their high *global warming potential* (@sec-n2och4lifetime).  Amongst them, methane (CH~4~) has the highest effective radiative forcing (ERF) since 1700 with 0.54 [0.43-0.65] W m^-2^, which is comparable in magnitude to the ERF of halogens and ozone. Nitrous oxide (N~2~O) also has a sizable contribution to anthropogenic climate change with an ERF of 0.21 [0.18-0.24] W m^-2^, amounting to roughly 10% of the ERF of CO~2~, which is 2.16 [1.90-2.41] W m^-2^. Both CH~4~ and N~2~O are emitted from a large number of natural and anthropogenic sources. It is however currently difficult to distinguish between unperturbed, natural fluxes from ecosystems, and emissions arising from the use and transformation of natural ecosystems for human activities. 
+Terrestrial systems are important for the budgets of the non-CO~2~ greenhouse gases CH~4~ and N~2~O, which are amongst the most potent radiative forcing agents (@fig-radiative-forcing), by providing important source terms to the atmosphere. Although atmospheric concentrations of CH~4~ and N~2~O are two to three orders of magnitude lower than concentrations of CO~2~ (factor 100-1000), their contribution to anthropogenic climate change, measured by their effective radiative forcing, in particular, is still significant due to their high *global warming potential* (see @sec-n2och4lifetime below).  Amongst them, methane (CH~4~) has the highest effective radiative forcing (ERF) since 1700 with 0.54 [0.43-0.65] W m^-2^, which is comparable in magnitude to the ERF of halogens and ozone. Nitrous oxide (N~2~O) also has a sizable contribution to anthropogenic climate change with an ERF of 0.21 [0.18-0.24] W m^-2^, amounting to roughly 10% of the ERF of CO~2~, which is 2.16 [1.90-2.41] W m^-2^. Both CH~4~ and N~2~O are emitted from a large number of natural and anthropogenic sources. It is however currently difficult to distinguish between unperturbed, natural fluxes from ecosystems, and emissions arising from the use and transformation of natural ecosystems for human activities. 
 
-## Terrestrial CO~2~ Exchange
+## Global CO~2~ Budget
 
 As shown in the Global Carbon Budget (@sec-globalcarbonbudget), the terrestrial sphere plays an important role in the global CO~2~ budget: The terrestrial Earth system component accounts for part of global emissions from land use change, but it has taken up around 21% of total emissions, absorbing atmospheric CO~2~. This sink is of similar magnitude to its counterpart: the ocean sink (@sec-oceancarbon). The terrestrial CO~2~ sink is thought to be majorly driven by the CO~2~-fertilization effect on the vegetation growth and carbon uptake based on model simulations (@friedlingstein25essd). This effect of CO~2~ fertilization may explain a large part of observed greening trends around the globe, and has been demonstrated in elevated CO~2~ experiments (@walker2015gbc), as well as tree ring records (@hubau2020nat). Climate change-driven effects can have in turn different signs of change on the terrestrial sink. It largely acts towards reducing this sink, especially through the enhancement of soil emissions and decreased plant growth in the tropics (@friedlingstein25essd). However, in the high latitudes, warming is increasing terrestrial CO2 uptake by providing better (warmer) plant growth conditions, as well as longer growing seasons (@berner)  More details on the global carbon budget and spatial CO~2~ patterns can be found in its dedicated Chapter @sec-globalcarbonbudget.
 
+## Global Methane (CH~4~) Budget
 
-## Global Methane Budget (CH~4~) and its Terrestrial sources
+Generally, methane is produced through fossil fuel burning, in wet soils and freshwaters, as well as through agricultural activities. Methane emissions arise from both natural processes (dark cyan in @fig-methane), contributing to its atmospheric concentrations, but concentrations have been increasing due to enhanced emissions from human activities, as well as through human-caused warming. The atmosphere is a sink of methane primarily through tropospheric hydroxyl loss, and other minor tropospheric and stratospheric consumption processes (dark red in @fig-methane). A certain amount of methane is also sequestered through its oxidation in soils.
 
-Generally, methane is produced through fossil fuel burning, in wet soils and freshwaters, as well as in agricultural activities. Methane emissions arise from both natural processes (dark cyan in @fig-methane), contributing to its atmospheric concentrations, but concentrations have been increasing due to enhanced emissions from human activities, as well as through human-caused warming. The atmosphere is a sink of methane primarily through tropospheric hydroxyl loss, and other minor tropospheric and stratospheric consumption processes (dark red in @fig-methane). A certain amount of methane is also sequestered through its oxydation in soils.
-
-The largest natural terrestrial sources of methane include emissions from wetlands, freshwater systems, and geological processes. For the former two, these sources of methane, which arise in conditions where oxygen levels are very low (anaerobic conditions), are thereby the residual of production of methane within the ecosystem and its oxydation within the soil or water column. As depicted in @fig-methane, wetlands contribute 102-182 Tg CH~4~ yr^-1^, mainly through microbial activity in anaerobic conditions. Methane emissions are particularly high in tropical wetlands, where red and warm conditions provide ideal production conditions. There are also substantial emissions arising in carbon-rich wetlands of higher latitudes. Further global emissions of methane arise from freshwater systems, particularly lakes with sediments rich in organic matter, which emit 117-212 Tg CH~4~ yr^-1^ via ebullition (bubble formation) and diffusion to the surface through the water column. Low latitude areas are also dominant for freshwater emissions due to warm conditions, while high latitude freshwaters can also account for globally-significant sources due to large carbon concentrations in the water. Terrestrial geological processes furthermore emit 18–65 Tg CH~4~ annually from the Earth's crust through faults and fractured rocks and seeps. The ocean contributes a smaller share, with only 4–10 Tg CH~4~ yr^-1^, through biogenic, geological and hydrate emissions from coastal and open ocean, while termites, an insect infraorder, release around 9 Tg CH~4~ yr^-1^.
-
+The largest natural terrestrial sources of methane include emissions from wetlands, freshwater systems, and geological processes. For the former two, these sources of methane, which arise in conditions where oxygen levels are very low (anaerobic conditions), are thereby the residual of production of methane within the ecosystem and its oxidation within the soil or water column. As depicted in @fig-methane, wetlands contribute 102-182 Tg CH~4~ yr^-1^, mainly through microbial production under anaerobic conditions. Methane emissions are particularly high in tropical wetlands, where red and warm conditions provide ideal production conditions. There are also substantial emissions arising in carbon-rich wetlands of higher latitudes. Further global emissions of methane arise from freshwater systems, particularly lakes with sediments rich in organic matter, which emit 117-212 Tg CH~4~ yr^-1^ via ebullition (bubble formation) and diffusion to the surface through the water column. Low latitude areas are also dominant for freshwater emissions due to warm conditions, while high latitude freshwaters can also account for globally-significant sources due to large carbon concentrations in the water. Terrestrial geological processes furthermore emit 18–65 Tg CH~4~ annually from the Earth's crust through faults and fractured rocks and seeps. The ocean contributes a smaller share, with only 4–10 Tg CH~4~ yr^-1^, through biogenic, geological and hydrate emissions from coastal and open ocean, while termites, an insect infraorder, release around 9 Tg CH~4~ yr^-1^.
 
 Changes in soil conditions (warming, soil moisture change), in freshwater temperatures, as well as warming of ocean waters and changes in circulation can affect methane production and oxygation, although these changes remain strongly uncertain at the global scale. Particularly, the thawing of permafrost and changes in wetland areas may be causing changes in CH~4~ emissions. Thawing of the permafrost, for instances, is exposing large amounts of organic carbon to degratation. Previously, this carbon had been immobilized for thausends of years at freezing temperatures. The potential release of CH~4~ following the thawing process may cause a positive (warming) climate feedback with future warming, that could have significant impacts on the global climate (see @sec-feedbacks). 
 
@@ -38,6 +36,26 @@ Changes in soil conditions (warming, soil moisture change), in freshwater temper
 #| out-width: 100%
 knitr::include_graphics("images/global_methane_budget.png")
 ```
+::: {.callout-note}
+
+## Soil CH~4~ Emissions
+
+CH~4~ emissions are produced by microbes ("methanogens") under wet and anaerobic (low oxygen) conditions. This process takes place in completely saturated soils, or wetlands. Production follows the net equation: 
+
+CO~2~ + H~2~ -> CH~4~ + H~2~O 
+
+This CH~4~ can be oxidized within the soil (often in the shallow part of the soil), following the equation:
+
+CH~4~ + O~2~ -> CO~2~ + 2H~2~ 
+
+```{r echo=FALSE}
+#| label: fig-soilmethane
+#| fig-cap: "Schematic figure showing the methane formation pathway in water-saturated soils (panel a) and in non-saturated soils (panel b). From @riley2011bgc."
+#| out-width: 100%
+knitr::include_graphics("images/soilmethane.png")
+```
+
+:::
 
 Direct anthropogenic sources of methane primarily arise from fossil fuel extraction and processing, livestock, waste management, and rice cultivation. Fossil fuel extraction is estimated to contribute 114–116 Tg CH~4~ yr^-1^, with significant emissions arising from countries such as China, the United States, and Russia, which are the leading producers of coal, oil, and gas, globally. Livestock, particularly ruminants, are the largest source linked to agricultural activities, emitting 106–115 Tg CH~4~ yr^-1^ through enteric fermentation and manure management in anaerobic conditions. Similarly, anaerobic decomposition occurs in landfills and during organic waste treatment, as well as in flooded rice paddies (25-37 Tg CH~4~ yr^-1^). Additionally, methane is released during incomplete combustion of organic material in biomass burning. Biomass burning contributes 22-39 Tg CH~4~ yr^-1^, with emissions coming from burning crop residues, savannah fires, forest fires, and stoves. However, distinguishing between natural and human-caused fires is complicated by a variety of factors, including weather conditions, vegetation types and land management practices.
 
@@ -58,12 +76,31 @@ knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IP
 
 Of the anthropogenic N~2~O emissions, agriculture is the most important source, contributing 2.5–5.8 TgN yr^-1^ due to the extensive use of synthetic fertilizers and manure on croplands and pastures, as well as from manure management and aquaculture. Fertilizers and manure enrich the soil nutrition for plants but also increase N~2~O emissions from soil inorganic nitrogen that is not absorbed by plants. A further -0.6-1.1 TgN yr^-1^ could be added to soils in natural ecosystems influenced by human perturbation of nitrogen deposition. Non-agricultural sectors also contribute to anthropogenic N~2~O emissions, particularly from industrial activities such as fossil fuel combustion and chemical processing (0.8-1.1 TgN yr^-1^), and wastewater treatment (0.2-0.5 TgN yr^-1^). Industrial N~2~O emissions, primarily from nitric and adipic acid production, have decreased in North America and Europe since the 1990s due to the adoption of abatement technologies. Additionally, inland water bodies, estuaries, and nitrogen deposition from atmospheric pollution contribute relatively small amounts of N~2~O. Biomass burning, including natural and anthropogenic fires, also contributes 0.5-0.8 TgN yr^-1^.
 
+::: {.callout-note}
+
+## Soil N~2~O Emissions
+
+During the soil N cycle (see @sec-nutrients), N2O emissions can be produced during two distinct processes. Firstly, it can be produced during nitrification as a secondary product: 
+
+2NH~3~ + 2O~2~ -> NO~3~^-^ + H^+^
+
+Secondly, it is also a byproduct of denitrification, where nitrate (NO~3~) is used as an oxidant. This process takes place under wet and anaerobic (low oxygen) conditions:
+
+NO~3~ -> N~2~O
+
+This N~2~O can however also further react in the complete denitrification process, which can also cause a soil sink in N~2~O: 
+
+N~2~O -> N~2~ 
+
 ```{r echo=FALSE}
 #| label: fig-nitrousoxidetransformations
 #| fig-cap: "Schematic illustration of the altered nitrogen cycle and nitrous oxide (N~2~O) emissions. Figure from @aryal22envpoll."
 #| out-width: 100%
 knitr::include_graphics("images/nitrousoxidetransformations.png")
 ```
+
+:::
+
 
 ## History of atmospheric concentrations of CH~4~ and N~2~O
 
