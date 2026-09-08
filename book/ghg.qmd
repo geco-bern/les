@@ -71,7 +71,8 @@ Other than terrestrial sources, fossil fuel burning produces a source of 2.5-4.3
 #| label: fig-nitrousoxide-sources
 #| fig-cap: "Global nitrous oxide (N~2~O) budget (2007–2016). The atmospheric stock is calculated from mean N~2~O concentration, multiplying a factor of 4.79 ± 0.05 Tg ppb^–1^. Pool sizes for the other reservoirs are largely unknown. Figure and caption taken from @canadell21ipcc."
 #| out-width: 100%
-knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_17.png")
+# Figure from https://www.ipcc.ch/report/ar6/wg1/figures/chapter-5/figure-5-17/
+knitr::include_graphics("images/IPCC_AR6_WGI_Figure_5_17.png")
 ```
 
 Of the anthropogenic N~2~O emissions, agriculture is the most important source, contributing 2.5–5.8 TgN yr^-1^ due to the extensive use of synthetic fertilizers and manure on croplands and pastures, as well as from manure management and aquaculture. Fertilizers and manure enrich the soil nutrition for plants but also increase N~2~O emissions from soil inorganic nitrogen that is not absorbed by plants. A further -0.6-1.1 TgN yr^-1^ could be added to soils in natural ecosystems influenced by human perturbation of nitrogen deposition. Non-agricultural sectors also contribute to anthropogenic N~2~O emissions, particularly from industrial activities such as fossil fuel combustion and chemical processing (0.8-1.1 TgN yr^-1^), and wastewater treatment (0.2-0.5 TgN yr^-1^). Industrial N~2~O emissions, primarily from nitric and adipic acid production, have decreased in North America and Europe since the 1990s due to the adoption of abatement technologies. Additionally, inland water bodies, estuaries, and nitrogen deposition from atmospheric pollution contribute relatively small amounts of N~2~O. Biomass burning, including natural and anthropogenic fires, also contributes 0.5-0.8 TgN yr^-1^.
@@ -114,7 +115,8 @@ In the the transitions between glacial and interglacial periods were typically c
 #| label: fig-ghg-history
 #| fig-cap: "Figure 12.4: Atmospheric concentrations of CO~2~, CH~4~ and N~2~O in air bubbles and clathrate crystals in ice cores (800,000 BCE to 1990 CE). Note the variable x-axis range and tick mark intervals for the three columns. Ice core data is over-plotted by atmospheric observations from 1958 to present for CO~2~, from 1984 for CH~4~ and from 1994 for N~2~O. The time-integrated, millennial-scale linear growth rates for different time periods (800,000–0 BCE, 0–1900 CE and 1900–2017 CE) are given in each panel. For the BCE period, mean rise and fall rates are calculated for the individual slopes between the peaks (interglacials) and troughs (glacial periods), which are given in the panels in left column. Figure from @canadell21ipcc."
 #| out-width: 100%
-knitr::include_graphics("https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_4.png")
+# Figure from https://www.ipcc.ch/report/ar6/wg1/figures/chapter-5/figure-5-4/
+knitr::include_graphics("images/IPCC_AR6_WGI_Figure_5_4.png")
 ```
 
 The last glacial maximum occurred around 20,000 years ago. Since then, both CH~4~ and N~2~O concentrations have increased first to typical interglacial levels during the pre-industrial Holocene (between around 11 kyr BP to 1700 CE), and then in a rapidly accelerated fashion to current levels of around 1800 ppb CH~4~ and around 330 ppb N~2~O. The growth rates during the industrial period are about 500 times faster than ever recorded during glacial-interglacial cycles. This underlines the significant contribution of anthropogenic activities since the Industrial Revolution. However, rapid changes in atmospheric concentrations occurred also during glacial periods, when CH~4~ and N~2~O varied rapidly over the course of (mainly northern-hemispheric) climate oscillations (@fig-arneth) associated with variations in the meridional overturning circulation [@arneth10natgeo].
