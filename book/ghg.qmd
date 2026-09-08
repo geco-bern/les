@@ -1,6 +1,6 @@
-# Terrestrial greenhouse gas exchange {#sec-ghg}
+# Terrestrial greenhouse gases {#sec-ghg}
 
-Author: Fabrice Lacroix
+*Author: Fabrice Lacroix*
 
 ## Atmospheric greenhouse gases and the Earth's Energy Budget
 Greenhouse gases are gases that absorb longwave radiation while letting shortwave radiation bypass, thus trapping heat within the atmosphere. The rise in concentration of such gases, such as CO~2~, CH~4~ and N~2~O, since the preindustrial time period has caused an energy surplus in the atmosphere and substantial warming of the climate (@fig-radiative-forcing). Understanding their sources and sinks, for which terrestrial sources and sinks play an important role, and how these are changing with climate and other anthropogenic change, is key to understand current and project future warming of the planet due to human activities.

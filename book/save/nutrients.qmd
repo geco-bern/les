@@ -1,6 +1,6 @@
 # Nitrogen Cycle and Interactions with the Carbon Cycle {#sec-nutrients}
 
-*Authored by Julian Richter, Livio Conzett and Martin Sigrist. Edited by Fabrice Lacroix.*
+<!-- *Authored by Julian Richter, Livio Conzett and Martin Sigrist. Edited by Fabrice Lacroix.*
 
 Nitrogen (N) is a primary nutrient that is essential for life on earth. While it is present in large abundance as N~2~ in the atmosphere, it is unavailable in this form for most organisms on Earth. In the terrestrial ecosystem, the availability of nitrogen is critical for fueling of photosynthesis and production of plant tissue, it also serves as a substrate for a vast number of microbial processes in the soil, under which the N~2~O gas is, for instance, produced [@nevins2020]. The cycling and availability of nitrogen in soils and vegetation thus both play an important role for the vegetative uptake of carbon from the atmosphere, as well as emissions of carbon and nitrogen greenhouse gases from soils. 
 
@@ -200,5 +200,5 @@ The increased availability of reactive nitrogen in the terrestrial ecosystem has
 - Increasing nitrogen sources to terrestrial ecosystems could limit reduced CO~2~ uptake in the case of nitrogen limitation. Thus, the nitrogen limitation effect under CO~2~ fertilization described above could be reduced, allowing for more CO~2~ as a consequence of CO~2~ fertilization.
 
 - Increasing N availability in soils due to enhanced inputs to the system, in combination with higher temperatures, has been shown to increase emissions of the strong greenhouse gas N~2~O from terrestrial systems [@tian2024]. See @sec-ghg for more information on terrestrial N~2~O emissions.
-
+ -->
 
