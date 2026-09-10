@@ -30,7 +30,7 @@ A feedback arises when the output to a process triggers an amplification (positi
 #| label: fig-feedback_schematic
 #| fig-cap: "A feedback loop where an output of a process (P) adds as a causal input to that process. Figure and caption taken from @wikimedia_feedback_2024."
 #| out-width: 60%
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/General_Feedback_Loop.svg/640px-General_Feedback_Loop.svg.png")
+knitr::include_graphics("https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/General_Feedback_Loop.svg/500px-General_Feedback_Loop.svg.png")
 ```
 
 :::
