@@ -81,7 +81,7 @@ Of the anthropogenic N~2~O emissions, agriculture is the most important source, 
 
 ## Soil N~2~O Emissions
 
-During the soil N cycle (see @sec-nutrients), N2O emissions can be produced during two distinct processes. Firstly, it can be produced during nitrification as a secondary product: 
+During the soil N cycle (see @sec-nitrogen), N2O emissions can be produced during two distinct processes. Firstly, it can be produced during nitrification as a secondary product: 
 
 2NH~3~ + 2O~2~ -> NO~3~^-^ + H^+^
 
