@@ -1,0 +1,300 @@
+---
+title: "A point model of Earth system feedbacks"
+subtitle: "CO₂ doubling, the Planck response, and ocean heat uptake"
+format:
+  html:
+    toc: true
+    number-sections: true
+    embed-resources: true
+    code-fold: false
+execute:
+  warning: false
+  message: false
+---
+
+## What this demonstration explains
+
+Why does increasing CO₂ warm the surface air? Why does warming slow down even while CO₂ remains elevated? And why does the ocean delay the adjustment without changing the final temperature in this model?
+
+We answer these questions with a global **point energy balance model (EBM)**, following sections 2.2 and 2.4 of [Thomas Stocker's *Introduction to Climate Modelling* (2024)](https://climatehomes.unibe.ch/~stocker/stocker24icm.pdf). We extend its heat storage to include the global ocean. This is a companion demonstration for Chapter 9 of the LES Book, particularly its Figure 9.7 (`fig-toa_fb` in `book/feedbacks.qmd`).
+
+The model has two temperatures but no geographical dimensions. The surface-air temperature $T$ is assumed equal to the temperature of the ocean mixed layer; $T_d$ represents the deep ocean. The only physical climate feedback is the **Planck response**: warmer Earth emits more longwave radiation. CO₂ is prescribed, so there is no carbon-cycle feedback.
+
+To reproduce all simulations, plots, and checks, run from the repository root:
+
+```sh
+Rscript analysis/earth_system_feedbacks.R
+quarto render vignettes/earth_system_feedbacks.qmd
+```
+
+The analysis uses the tidyverse packages dplyr, tidyr, purrr, readr, tibble, and ggplot2, plus here and cowplot. Rendering uses Quarto and knitr. The numerical functions in `R/earth_system_model.R` use base R. Generated figures and CSV files are written to `fig/earth_system_feedbacks/`. Rendering this vignette also reruns the analysis, so its figures and numerical results are generated from the same implementation.
+
+```{r}
+#| label: setup
+#| include: false
+source(here::here("analysis", "earth_system_feedbacks.R"))
+```
+
+## Start with the radiation balance
+
+### Incoming sunlight and reflected radiation
+
+Earth intercepts sunlight over a disk of area $\pi R^2$, but redistributes energy over the sphere's area $A_E=4\pi R^2$. Therefore, the globally averaged incident flux is $S_0/4$, where $S_0$ is the solar constant. With planetary albedo $\alpha$, the absorbed shortwave flux is
+
+$$
+Q_{\mathrm{SW}}=(1-\alpha)\frac{S_0}{4}.
+$$
+
+Here $S_0=1361\ \mathrm{W\,m^{-2}}$ and $\alpha=0.3$, giving $Q_{\mathrm{SW}}=238.175\ \mathrm{W\,m^{-2}}$. The reflected flux is $\alpha S_0/4=102.075\ \mathrm{W\,m^{-2}}$. Both fluxes are per unit **total Earth area**, including land. We keep albedo constant, so there is no ice–albedo feedback.
+
+### Outgoing longwave radiation and the greenhouse effect
+
+Following Stocker's equation 2.1, baseline outgoing longwave radiation is represented by
+
+$$
+Q_{\mathrm{LW},0}(T)=\epsilon\sigma T^4,
+$$
+
+where $\sigma=5.67\times10^{-8}\ \mathrm{W\,m^{-2}\,K^{-4}}$ and $\epsilon$ is an **effective planetary emissivity**. It represents the combined effect of emission and atmospheric absorption/back radiation. It is not the material emissivity of the ocean surface. Temperature in this expression must be in kelvin.
+
+We choose the initial equilibrium temperature $T_0=287.15\ \mathrm{K}$ (14 °C) and set
+
+$$
+\epsilon=\frac{(1-\alpha)S_0}{4\sigma T_0^4}.
+$$
+
+This makes the initial radiation budget close exactly, following Stocker's equation 2.2. Tuning $\epsilon$ to reproduce $T_0$ is a calibration, not an independent validation of the model.
+
+**Scope of the atmospheric representation.** The model parameterises the net effects of atmospheric radiation on the atmosphere–surface system. It does not calculate separate atmospheric and surface absorption of sunlight, upward/downward longwave streams, an atmospheric emission temperature, or convection. Its two heat reservoirs are ocean reservoirs, not Stocker's two radiating levels in equations 2.3–2.4. Surface air and the mixed layer share a temperature by assumption; atmospheric and land heat capacities are neglected.
+
+### Perturb the system by doubling CO₂
+
+Stocker's equations 2.43–2.44 give the logarithmic forcing
+
+$$
+\Delta Q=5.35\ln\left(\frac{[\mathrm{CO_2}]}{[\mathrm{CO_2}]_0}\right)
+\quad\mathrm{W\,m^{-2}}.
+$$
+
+We prescribe an instantaneous increase from 280 to 560 ppm at $t=0$, then keep CO₂ fixed. This produces $\Delta Q_{2\times}=5.35\ln2\approx3.708\ \mathrm{W\,m^{-2}}$. Temperature cannot jump instantaneously because the ocean has finite heat capacity.
+
+We implement forcing as a reduction in net outgoing longwave radiation at a given temperature:
+
+$$
+Q_{\mathrm{LW}}(T,[\mathrm{CO_2}])=\epsilon\sigma T^4-\Delta Q.
+$$
+
+This is an additive forcing parameterisation, consistent with Stocker's perturbed energy balance. We do not also change $\epsilon$ when CO₂ doubles, which would count the forcing twice. Rapid atmospheric adjustments are not resolved separately.
+
+The net downward top-of-atmosphere (TOA) radiation is consequently
+
+$$
+N(T)=Q_{\mathrm{SW}}-Q_{\mathrm{LW}}
+     =\Delta Q-\epsilon\sigma(T^4-T_0^4).
+$$ {#eq-toa}
+
+Positive $N$ means Earth gains heat. Immediately after doubling, $T=T_0$, so $N=\Delta Q$. Subsequently, warming increases longwave emission and reduces $N$.
+
+```{r}
+# Inspect the forcing and fluxes at the instant just after CO2 doubles.
+co2_radiative_forcing(560, p)
+earth_system_fluxes(T = p$T0, Td = p$T0, co2 = 560, p = p) |>
+  as_tibble() |>
+  select(forcing, solar_absorbed, longwave_out, net_toa)
+```
+
+## The Planck response is the only feedback
+
+Write $T=T_0+\Delta T$ and linearise @eq-toa about $T_0$:
+
+$$
+N\approx\Delta Q+\lambda_P\Delta T,
+\qquad
+\lambda_P=\left.\frac{\partial N}{\partial T}\right|_{T_0}
+         =-4\epsilon\sigma T_0^3.
+$$ {#eq-linear}
+
+The parameter $\lambda_P$ has units $\mathrm{W\,m^{-2}\,K^{-1}}$. It is negative because warming increases energy loss to space: a **stabilising feedback**. Here $\lambda_P=$ `r round(p$lambda_P, 3)` $\mathrm{W\,m^{-2}\,K^{-1}}$, consistent with Stocker's approximate value of $-3.3$ for this point model (equation 2.34). The simulation retains the full $T^4$ term; linearisation is used only to interpret the response.
+
+There are no temperature-dependent changes in water vapour, lapse rate, clouds, albedo, CO₂, or mixing. The small change in the slope $-4\epsilon\sigma T^3$ as Earth warms is still the Planck response, not a second feedback.
+
+::: {.callout-note}
+## Two sign conventions in the teaching materials
+
+Stocker writes $N=\Delta Q+\lambda\Delta T$, with **negative** $\lambda$ for a stable climate. The LES Book's feedback-formalism box instead writes the radiative restoring response as $H_{\mathrm{rad}}=\lambda_{\mathrm{LES}}\Delta T$ and $N=F-H_{\mathrm{rad}}$. Thus $F=\Delta Q$ and $\lambda_{\mathrm{LES}}=-\lambda_P>0$ in this demonstration. The slope of the TOA radiation–temperature plot remains negative in either convention.
+
+The IPCC diagram uses its own symbol for feedback. In this vignette $\alpha$ always means **planetary albedo**, never the feedback slope. We use $H$ below for **deep-ocean heat exchange**, distinct from the radiative response $H_{\mathrm{rad}}$ in the LES box.
+:::
+
+## Put the ocean's heat capacity into the model
+
+### Partition the global ocean volume
+
+We approximate the total ocean volume by $V_o=1.332\times10^{18}\ \mathrm{m^3}$, with seawater density $\rho_w=1025\ \mathrm{kg\,m^{-3}}$ and specific heat $c_w=3990\ \mathrm{J\,kg^{-1}\,K^{-1}}$. These are rounded teaching parameters, added to Stocker's radiation model.
+
+An ocean area fraction $f_o=0.71$ and mixed-layer depth $h_m=50\ \mathrm{m}$ define
+
+$$
+V_m=f_o A_E h_m,\qquad V_d=V_o-V_m.
+$$
+
+The corresponding heat capacities per unit Earth area are
+
+$$
+C_m=\frac{\rho_w c_w V_m}{A_E},\qquad
+C_d=\frac{\rho_w c_w V_d}{A_E}.
+$$
+
+They have units $\mathrm{J\,m^{-2}\,K^{-1}}$. Their sum satisfies $(C_m+C_d)A_E=\rho_wc_wV_o$: every cubic metre of ocean is counted once. The total heat capacity is about $5.45\times10^{24}\ \mathrm{J\,K^{-1}}$.
+
+### Couple the mixed layer to the deep ocean
+
+Define a heat transfer flux from the mixed layer into the deep ocean,
+
+$$
+H=\kappa(T-T_d),\qquad \kappa=\frac{C_d}{\tau_{\mathrm{mix}}},
+$$
+
+where $\tau_{\mathrm{mix}}$ is expressed in seconds and $\kappa$ in $\mathrm{W\,m^{-2}\,K^{-1}}$. The default mixing time is 500 years. The temperature equations are
+
+$$
+C_m\frac{dT}{dt}=N-H,
+\qquad
+C_d\frac{dT_d}{dt}=H.
+$$ {#eq-ocean}
+
+A positive $H$ removes heat from the mixed layer and adds precisely the same heat to the deep reservoir. Adding these equations gives the conservation law
+
+$$
+\frac{d}{dt}\left[C_m(T-T_0)+C_d(T_d-T_0)\right]=N.
+$$
+
+Thus TOA imbalance is **total ocean heat uptake** in this model. Deep-ocean uptake $H$ alone is not equal to $N$ while the mixed layer is warming; their difference heats the mixed layer. Ocean exchange redistributes heat internally and is not an additional radiative climate feedback.
+
+The meaning of $\tau_{\mathrm{mix}}$ follows by holding $T$ fixed:
+
+$$
+T_d(t)-T=[T_d(0)-T]e^{-t/\tau_{\mathrm{mix}}}.
+$$
+
+It is the deep ocean's relaxation time toward a **fixed** surface temperature. With both temperatures evolving, the coupled system has a fast and a slow mode; $\tau_{\mathrm{mix}}$ alone is not the climate equilibration time. The mixed layer warms first; the deep ocean then takes up heat over centuries to millennia.
+
+```{r}
+# Changing mixing time automatically recalculates the exchange coefficient.
+p <- earth_system_parameters(mixing_years = 500, mixed_layer_depth = 50)
+tibble(
+  parameter = c("Mixed-layer capacity", "Deep-ocean capacity", "Exchange coefficient"),
+  value = c(p$C_m, p$C_d, p$kappa),
+  unit = c("J m-2 K-1", "J m-2 K-1", "W m-2 K-1")
+)
+```
+
+## Simulate the readjustment
+
+We start both reservoirs at $T_0$. The function integrates @eq-ocean with a fourth-order Runge–Kutta scheme, converting the specified timestep from years to seconds. The default step is 0.25 years. Each output row contains temperatures, radiation fluxes, heat exchange, and accumulated ocean heat.
+
+```{r}
+# The forcing is already applied in the t = 0 row, but temperatures are unchanged.
+example_run <- simulate_earth_system(years = 3000, dt = 0.25, co2 = 560, p = p) |>
+  as_tibble()
+example_run |>
+  filter(year %in% c(0, 10, 100, 500, 1000, 3000)) |>
+  select(year, delta_T, delta_Td, net_toa, deep_ocean_uptake)
+```
+
+```{r}
+#| label: fig-adjustment
+#| echo: false
+#| fig-width: 11
+#| fig-height: 8
+#| fig-cap: "Adjustment to a permanent CO₂ doubling. Surface air shares the mixed-layer temperature. Slower mixing (1500 versus 500 years) reduces early deep-ocean uptake and allows more rapid surface warming. The equilibrium temperature is unchanged. A zettajoule (ZJ) is 10²¹ J."
+plot_overview
+```
+
+With the default parameters, surface warming after 100 years is `r round(warming$delta_T[warming$year == 100], 3)` K, while the deep ocean has warmed by only `r round(warming$delta_Td[warming$year == 100], 3)` K. The remaining positive TOA imbalance means further warming is still committed under fixed doubled CO₂. “Constant forcing” does not mean “constant net radiation”: forcing remains positive while the negative Planck response grows.
+
+## Calculate the final equilibrium
+
+At equilibrium neither reservoir gains heat, so $H=0$, $T=T_d$, and $N=0$. The exact final temperature is
+
+$$
+T_\infty=\left[\frac{Q_{\mathrm{SW}}+\Delta Q}{\epsilon\sigma}\right]^{1/4},
+\qquad
+\Delta T_{2\times}=T_\infty-T_0.
+$$
+
+Using the linearised radiation balance instead gives Stocker's relation
+
+$$
+\Delta T_{2\times}\approx-\frac{\Delta Q_{2\times}}{\lambda_P}.
+$$
+
+The exact Planck-only warming is `r round(delta_T_eq, 3)` K; the linearised estimate is `r round(-delta_Q / p$lambda_P, 3)` K. The difference arises from the $T^4$ nonlinearity. Ocean volume and mixing do not appear in these equilibrium expressions: they determine the **path and rate of adjustment**, not its destination.
+
+This is the equilibrium sensitivity of the deliberately restricted Planck-only model. It is not an estimate of Earth's full equilibrium climate sensitivity, which includes other feedbacks. Also, the last simulated row is close to equilibrium but is not the exact equilibrium solution.
+
+## Read the TOA radiation–temperature plot
+
+The plot below uses the same axes and forcing–feedback interpretation as LES Figure 9.7, reproduced there from [IPCC AR6 WGI, Box 7.1, Figure 1](https://www.ipcc.ch/report/ar6/wg1/figures/chapter-7/box-7-1-figure-1/). The horizontal axis is **surface-air temperature change relative to the initial equilibrium**, rather than absolute temperature. A 1 K change equals a 1 °C change.
+
+```{r}
+#| label: fig-gregory
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6.5
+#| fig-cap: "The forcing–feedback (Gregory) plot. Net TOA radiation is positive downward. The solid curve is the exact nonlinear radiation balance; points are instantaneous annual samples of the deterministic simulation. The dashed line is a regression over years 1–150. The cross marks the exact Planck-only equilibrium."
+plot_gregory
+```
+
+Read three features of @fig-gregory:
+
+1. **Vertical intercept: forcing.** Just after doubling, warming is zero and $N=\Delta Q_{2\times}\approx3.708\ \mathrm{W\,m^{-2}}$.
+2. **Slope: feedback.** Increasing temperature reduces net incoming radiation. At $T_0$, the slope is $\lambda_P\approx-3.318\ \mathrm{W\,m^{-2}\,K^{-1}}$. A more negative slope means a stronger restoring response and less equilibrium warming for a given forcing.
+3. **Horizontal intercept: equilibrium warming.** Where $N=0$, radiation has rebalanced. In this model the final state also requires the deep ocean to reach the surface temperature. The exact intercept is about 1.111 K.
+
+The arrow indicates the direction of time. Unlike the IPCC schematic, these model points have no weather noise or internal variability. They lie on a deterministic, slightly curved $N(T)$ relation. Points become closely spaced as warming slows near equilibrium.
+
+For illustration, we also fit the first 150 annual samples, analogous to the regression approach in the IPCC figure:
+
+```{r}
+# A straight line estimates N = intercept + slope * delta_T.
+gregory_fit <- lm(net_toa ~ delta_T, data = filter(annual, year <= 150))
+tibble(
+  quantity = c("Fitted forcing (W m-2)", "Fitted feedback (W m-2 K-1)",
+               "Extrapolated equilibrium warming (K)"),
+  estimate = c(unname(coef(gregory_fit)),
+               unname(-coef(gregory_fit)[1] / coef(gregory_fit)[2]))
+)
+```
+
+The regression is an approximation: the exact curve is fourth-order, so a finite-window fitted slope need not equal the derivative at $T_0$. Here this distinction is small. The model has no separate rapid-adjustment calculation, so its prescribed forcing should not be interpreted as an independently diagnosed effective radiative forcing from a comprehensive atmosphere model.
+
+Changing only the mixing time leaves $N(T)$ unchanged because $T_d$ and $\kappa$ do not enter @eq-toa. It changes how quickly the simulated points move along the curve. For a curved relation, a finite-time regression can nevertheless change slightly because its temperature sampling changes.
+
+## Check the calculation and explore
+
+The analysis script checks that the unforced control remains at equilibrium, the initial TOA imbalance equals the CO₂ forcing, warming approaches the independently calculated equilibrium, and the heat budget closes. It integrates $\int N\,dt$ using the same Runge–Kutta stages as the temperatures and compares this with the change in stored ocean heat. That is a budget-consistency check; a separate timestep-halving check tests numerical convergence over the first 100 years.
+
+```{r}
+# Residual is per unit Earth area; convergence compares coincident output times.
+tibble(
+  check = c("Maximum heat-budget residual (J m-2)",
+            "Maximum warming difference after halving dt (K)"),
+  value = c(max(abs(warming$energy_residual_J_m2)),
+            max(abs(convergence$fine - convergence$coarse)))
+)
+```
+
+Try changing the mixing time or mixed-layer depth and rerunning the simulation:
+
+```{r}
+#| eval: false
+p_experiment <- earth_system_parameters(mixing_years = 1000, mixed_layer_depth = 100)
+experiment <- simulate_earth_system(p = p_experiment) |> as_tibble()
+experiment |>
+  ggplot(aes(year, delta_T)) +
+  geom_line() +
+  labs(x = "Years after CO2 doubling", y = "Surface-air warming (K)")
+```
+
+Predict the result before running it: a deeper mixed layer has greater heat capacity and slows the initial warming; increasing the mixing time weakens deep-ocean exchange and allows greater early surface warming. Neither change alters the final equilibrium for the same radiation parameters. If a parameter choice makes the timestep too large for the fast adjustment, the function requests a smaller `dt`.
