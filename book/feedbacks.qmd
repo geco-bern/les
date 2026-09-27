@@ -374,3 +374,15 @@ Feedback factors $r$ have the advantage that the feedback strengths of different
 <!-- IPCC AR6 7.4 -->
 <!-- https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_Figure_5_29.png -->
 <!-- https://www.ipcc.ch/report/ar6/wg1/downloads/figures/IPCC_AR6_WGI_TS_Figure_17.png -->
+
+::: {.callout-caution}
+## Exercise
+
+1. What distinguishes an external climate forcing from a climate feedback? Illustrate the distinction considering the combustion of fossil fuels, warming-induced soil carbon loss, and deforestation.
+2. Why does the terrestrial carbon cycle generally induce a negative feedback in response to rising atmospheric CO~2~, but a positive feedback in response to warming? Describe the main processes responsible for each response.
+3. What climate feedback (positive or negative) from the terrestrial carbon cycle do you expect for a climate change scenario in which climatic change is exclusively driven by changes in solar radiation?
+4. Permafrost thaw can trigger several climate feedbacks, related to different forcing agents and processes. Explain which forcing agents and processes are at play and whether they induce a positive or negative climate feedback.
+5. Following an instantaneous doubling of atmospheric CO~2~, how can a plot of the top-of-atmosphere net energy flux against global mean surface temperature change be used to estimate the effective radiative forcing and equilibrium climate sensitivity? What does the slope represent?
+6. Using $F + r_{\text{land}}\Delta T = \lambda_0\Delta T$, derive the equilibrium temperature change and the gain factor relative to a reference system without land feedbacks. For $0 < r_{\text{land}} < \lambda_0$, is warming amplified or attenuated? How does the result change when $r_{\text{land}} < 0$?
+
+:::
