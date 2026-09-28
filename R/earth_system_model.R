@@ -19,18 +19,30 @@
 # heat redistribution process, not an additional radiative climate feedback.
 # Ocean heat capacity replaces Stocker's atmospheric h*rho*c. The two reservoirs
 # partition the FULL ocean volume. Atmospheric/land heat capacities are neglected.
-# Fixed albedo, emissivity and exchange: only the Planck (T^4) feedback operates.
+# By default only the Planck feedback operates; optional ice-albedo feedback
+# makes planetary albedo a bounded, decreasing function of surface temperature.
 
 # Construct the constants and derived parameters used by all model functions.
-# Inputs: deep-ocean relaxation time (years) and mixed-layer depth (metres).
-# Returns a named list; changing either input also updates capacities/exchange.
-earth_system_parameters <- function(mixing_years = 500, mixed_layer_depth = 50) {
-  # Both inputs must be finite positive scalars, not vectors or missing values.
+# Inputs: deep-ocean relaxation time (years), mixed-layer depth (metres), and
+# optional bounded ice-albedo response (amplitude dimensionless, scale in K).
+# Returns a named list; capacities, exchange and local feedbacks are derived.
+earth_system_parameters <- function(mixing_years = 500, mixed_layer_depth = 50,
+                                    ice_albedo = FALSE, albedo_amplitude = 0.02,
+                                    albedo_temperature_scale = 10) {
+  # Validate scalar controls and keep the planetary albedo bounds inside (0, 1).
   stopifnot(length(mixing_years) == 1L, is.finite(mixing_years), mixing_years > 0,
             length(mixed_layer_depth) == 1L, is.finite(mixed_layer_depth),
-            mixed_layer_depth > 0)
+            mixed_layer_depth > 0,
+            is.logical(ice_albedo), length(ice_albedo) == 1L, !is.na(ice_albedo),
+            length(albedo_amplitude) == 1L, is.finite(albedo_amplitude),
+            albedo_amplitude >= 0, albedo_amplitude < 0.3,
+            length(albedo_temperature_scale) == 1L, is.finite(albedo_temperature_scale),
+            albedo_temperature_scale > 0)
   p <- list(
     S0 = 1361,                       # Solar irradiance normal to the beam (W m-2).
+    ice_albedo = ice_albedo,
+    albedo_amplitude = albedo_amplitude, # Maximum absolute albedo anomaly.
+    albedo_temperature_scale = albedo_temperature_scale, # Saturation scale (K).
     alpha = 0.3,                     # Fraction of incident sunlight reflected.
     sigma = 5.67e-8,                 # Stefan-Boltzmann constant (W m-2 K-4).
     T0 = 287.15,                     # Initial surface-air temperature (K; 14 C).
@@ -64,6 +76,9 @@ earth_system_parameters <- function(mixing_years = 500, mixed_layer_depth = 50) 
   # Stocker's sign convention: stabilising feedback has negative lambda.
   # Chapter 9 sometimes uses the opposite sign for its damping coefficient.
   p$lambda_P <- -4 * p$epsilon * p$sigma * p$T0^3
+  p$lambda_ice <- if (ice_albedo) p$S0 / 4 * albedo_amplitude / albedo_temperature_scale else 0
+  # This demonstration considers a stable reference climate, not a tipping model.
+  stopifnot(p$lambda_P + p$lambda_ice < 0)
   # Return both prescribed and derived parameters for inspection/reuse.
   p
 }
@@ -76,20 +91,31 @@ co2_radiative_forcing <- function(co2, p = earth_system_parameters()) {
   5.35 * log(co2 / p$co2_0)
 }
 
+# Illustrative instantaneous ice/snow response, expressed as planetary albedo.
+# alpha(T0) = alpha0; tanh bounds the response as reflective cover is depleted.
+# No explicit ice area, latent heat, seasonal cycle or ice-sheet dynamics.
+earth_system_albedo <- function(T, p) {
+  if (!p$ice_albedo) return(rep(p$alpha, length(T)))
+  p$alpha - p$albedo_amplitude * tanh((T - p$T0) / p$albedo_temperature_scale)
+}
+
 # Diagnose fluxes at given surface-air and deep-ocean temperatures (kelvin).
 # T and Td may be equal-length vectors; co2 may be a scalar or matching vector.
-# Returns a data frame of globally averaged fluxes, all in W m-2.
+# Returns planetary albedo (dimensionless) and globally averaged fluxes (W m-2).
 earth_system_fluxes <- function(T, Td, co2, p) {
   # Prescribed CO2 forcing is independent of temperature: it is not a feedback.
   forcing <- co2_radiative_forcing(co2, p)
   # The disk intercepting sunlight has one quarter of the sphere's surface area.
-  solar_absorbed <- (1 - p$alpha) * p$S0 / 4
+  albedo <- earth_system_albedo(T, p)
+  solar_absorbed <- (1 - albedo) * p$S0 / 4
   # Effective net outgoing longwave at TOA. At fixed T, increasing CO2
   # reduces OLR; baseline greenhouse absorption is embedded in epsilon.
   longwave_out <- p$epsilon * p$sigma * T^4 - forcing
   data.frame(
+    albedo = albedo,
+    ice_albedo_response = (p$alpha - albedo) * p$S0 / 4,
     forcing = forcing,                         # Positive forcing adds energy.
-    solar_reflected = p$alpha * p$S0 / 4,       # Shortwave returned to space.
+    solar_reflected = albedo * p$S0 / 4,       # Shortwave returned to space.
     solar_absorbed = solar_absorbed,             # Shortwave retained by Earth.
     longwave_out = longwave_out,                 # Net longwave loss to space.
     # Warming increases emission: this anomaly is negative for T > T0.
@@ -101,12 +127,19 @@ earth_system_fluxes <- function(T, Td, co2, p) {
 
 # Solve the stationary radiation balance exactly; returns temperature in kelvin.
 earth_system_equilibrium <- function(co2, p = earth_system_parameters()) {
-  # At equilibrium H = 0, T = Td, and emission balances sunlight plus forcing.
-  absorbed <- (1 - p$alpha) * p$S0 / 4 + co2_radiative_forcing(co2, p)
-  # A positive emission is required to obtain a physical positive temperature.
+  # At equilibrium H = 0 and T = Td. Preserve the analytic baseline solution.
+  forcing <- co2_radiative_forcing(co2, p)
+  absorbed <- (1 - p$alpha) * p$S0 / 4 + forcing
   stopifnot(all(absorbed > 0))
-  # Invert Stefan-Boltzmann; equilibrium does not depend on ocean mixing/capacity.
-  (absorbed / (p$epsilon * p$sigma))^0.25
+  if (!p$ice_albedo) return((absorbed / (p$epsilon * p$sigma))^0.25)
+  # Albedo bounds bracket the radiative root independently of the time integration.
+  vapply(forcing, function(F) {
+    inputs <- (1 - p$alpha + c(-1, 1) * p$albedo_amplitude) * p$S0 / 4 + F
+    stopifnot(all(inputs > 0))
+    bracket <- (inputs / (p$epsilon * p$sigma))^0.25 + c(-1e-6, 1e-6)
+    uniroot(function(T) (1 - earth_system_albedo(T, p)) * p$S0 / 4 -
+      p$epsilon * p$sigma * T^4 + F, interval = bracket, tol = 1e-10)$root
+  }, numeric(1))
 }
 
 # Instantaneous, permanent CO2 step at t=0; initial temperatures are the
@@ -141,11 +174,11 @@ simulate_earth_system <- function(years = 3000, dt = 0.25, co2 = 560,
   # CO2 jumps instantly; temperatures and stored heat cannot jump instantly.
   state[1, ] <- c(p$T0, p$T0, 0)
   # These inputs are constant throughout the permanent step experiment.
-  solar_absorbed <- (1 - p$alpha) * p$S0 / 4
   forcing <- co2_radiative_forcing(co2, p)
   # Right-hand side of the ODE: rates in K s-1, K s-1, and J m-2 s-1.
   rhs <- function(x) {
     # The TOA budget is absorbed solar minus emitted longwave plus CO2 forcing.
+    solar_absorbed <- (1 - earth_system_albedo(x[1], p)) * p$S0 / 4
     net_toa <- solar_absorbed - p$epsilon * p$sigma * x[1]^4 + forcing
     # Deep uptake removes exactly the heat that is added to the deep reservoir.
     uptake <- p$kappa * (x[1] - x[2])
