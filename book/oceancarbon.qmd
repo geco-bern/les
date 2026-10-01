@@ -1,6 +1,6 @@
 # The Ocean and its CO~2~ uptake  {#sec-oceancarbon}
 
-Author: Fabrice Lacroix
+*Author: Fabrice Lacroix*
 
 ## Role in the Climate System
 
