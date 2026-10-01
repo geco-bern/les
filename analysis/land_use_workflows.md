@@ -82,3 +82,11 @@ plotting. Figures are saved as PNG and PDF, with the prefix
 
 Credit: Hansen/UMD/Google/USGS/NASA, GFC v1.13, CC BY 4.0; Hansen et al. (2013),
 Science 342, 850–853, DOI: 10.1126/science.1244693.
+
+## Global irrigation, crop types and grazing management
+
+`Rscript analysis/plot_luh2_agriculture.R` adds three consistent LUH2 historical
+2015 maps using the satellite overview's visual style. The native grid is 0.25°.
+Crop types are functional groups; managed pasture and rangeland are shown as
+separate supplied grid-cell fractions, not measured grazing intensity. See [methods](luh2_agriculture.md).
+Figures are saved in `fig/luh2_agriculture_2015/`.

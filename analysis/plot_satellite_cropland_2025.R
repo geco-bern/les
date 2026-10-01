@@ -2,6 +2,7 @@
 # Rscript analysis/plot_satellite_cropland_2025.R [all|regions|global|plot]
 # Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, gtable, terra, httr,
 # jsonlite, here, sf, rnaturalearth, rnaturalearthdata.
+# Companion global irrigation/crop/grazing maps: plot_luh2_agriculture.R.
 # Sentinel-2 land-cover classification, Impact Observatory / Microsoft / Esri.
 # 2025 data; Crops = class 5. See satellite_cropland_2025.md for limitations.
 # Global: nearest-neighbour service overview at 0.01 degrees, then aggregate
