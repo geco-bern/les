@@ -4,15 +4,16 @@ Run these independently from the repository root:
 
 | Subject | Script | Figures |
 | --- | --- | --- |
-| Past land use: HYDE 3.5, 0 / 1850 / 2025 CE | `Rscript analysis/plot_hyde_land_use.R` | `fig/hyde/` |
-| Present-day cropland: Sentinel-2, 2025 | `Rscript analysis/plot_satellite_cropland_2025.R` | `fig/satellite_cropland_2025/` |
-| Forest loss and gain: Hansen GFC v1.13 | `Rscript analysis/plot_hansen_forest_change.R` | `fig/hansen_forest_change_2025/` |
+| Past land use: HYDE 3.5, 0 / 1850 / 2025 CE | `Rscript --vanilla analysis/plot_hyde_land_use.R` | `book/images/` |
+| Present-day cropland: Sentinel-2, 2025 | `Rscript --vanilla analysis/plot_satellite_cropland_2025.R` | `book/images/` |
+| Forest loss and gain: Hansen GFC v1.13 | `Rscript --vanilla analysis/plot_hansen_forest_change.R` | `book/images/` |
 
 The four active workflows use tidyverse conventions: tibbles and dplyr/tidyr for
 tables, purrr for iteration, readr for CSV files, and ggplot2 for every figure.
 Package namespaces are explicit; attaching the entire tidyverse is unnecessary.
 Terra retains raster processing, and PSOCK clusters retain compatibility with
-Positron. The gtable package arranges ggplot panels. Spatial grids, classifications,
+Positron. The cowplot package arranges ggplot panels and adds lowercase panel labels.
+Plot titles and subtitles are omitted; source and method details belong in the book captions. Spatial grids, classifications,
 aggregation rules, time periods, and unsmoothed annual series are preserved.
 
 HYDE is conservatively remapped from 5 arc minutes to 0.1°, matching the grid
@@ -23,10 +24,10 @@ The former Sentinel-2 cropland-change experiment and its documentation are
 preserved under `analysis/archive/`; its data and figures remain available.
 
 A separate carbon-emissions analysis complements these three spatial workflows:
-`Rscript analysis/plot_regional_land_use_emissions.R` downloads GCB 2025 national
+`Rscript --vanilla analysis/plot_regional_land_use_emissions.R` downloads GCB 2025 national
 estimates and plots regional histories for 1850–2024. See
 [regional_land_use_emissions.md](regional_land_use_emissions.md) for aggregation,
-model spread and averaging definitions. Figures are in `fig/gcb_luc_2025/`.
+model spread and averaging definitions. Figures are in `book/images/`.
 
 ## Hansen forest maps
 
@@ -34,7 +35,7 @@ Source: [Hansen Global Forest Change v1.13](https://developers.google.com/earth-
 with [public GeoTIFF downloads and release notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/download.html).
 No Earth Engine account is required. The R script uses terra/GDAL HTTP range
 reads to download regional windows, caches them, and can redraw without network
-access using `Rscript analysis/plot_hansen_forest_change.R plot`.
+access using `Rscript --vanilla analysis/plot_hansen_forest_change.R plot`.
 
 **Loss covers 2001–2025; gain covers only 2000–2012.** The gain band was never
 updated for later releases. The two periods are labelled separately throughout;
@@ -56,7 +57,7 @@ east–west spacing varies with latitude), usually described as the Landsat-base
 full-resolution pixel exports. Use the cached GeoTIFFs for native detail.
 Scale bars are approximate distances at each region's middle latitude.
 
-The combined figure has a 2 × 2 layout with one panel per region: orange for loss
+The combined figure has a 2 × 2 layout with panels a–d for Paraguay, Indonesia, USA, and Russia: orange for loss
 only, blue for gain only, and purple for both gain and loss. All panels use 2000 canopy cover as a continuous light-grey-to-green background,
 with water light blue and missing data white. That background is a baseline,
 not forest cover remaining in 2025. Individual region figures are also supplied.
@@ -85,8 +86,32 @@ Science 342, 850–853, DOI: 10.1126/science.1244693.
 
 ## Global irrigation, crop types and grazing management
 
-`Rscript analysis/plot_luh2_agriculture.R` adds three consistent LUH2 historical
+`Rscript --vanilla analysis/plot_luh2_agriculture.R` adds three consistent LUH2 historical
 2015 maps using the satellite overview's visual style. The native grid is 0.25°.
 Crop types are functional groups; managed pasture and rangeland are shown as
 separate supplied grid-cell fractions, not measured grazing intensity. See [methods](luh2_agriculture.md).
-Figures are saved in `fig/luh2_agriculture_2015/`.
+Figures are saved in `book/images/`.
+
+## Book figure presentation
+
+All land-use plotting workflows write PNG and PDF files directly to
+`book/images/`, which is also where the chapter reads them. No copying from
+`fig/` is needed after regeneration. Nitrogen figures use the existing
+`book/images/nitrogen/` subdirectory. Cached input data and numerical summaries
+remain under `data/`; HYDE totals and its source manifest are saved in
+`data/hyde_3.5/` as `hyde_land_use_totals.csv` and `sources.csv`.
+
+Figures omit plot titles and subtitles. Captions in `book/landusechange.qmd`
+identify panels, dates, regions, sources, and methodological limitations.
+Multi-panel layouts and lowercase letters are produced with `cowplot::plot_grid`.
+
+`Rscript --vanilla analysis/plot_luc_published_panels.R` also arranges the three
+reproduced Erb, Bala, and direct/indirect-effects composites. It preserves the
+original image files and writes separate `_cowplot.png` and `_cowplot.pdf`
+outputs in `book/images/`. It reuses published map pixels rather than estimating
+unavailable source data; crops, legend placement, and replacement of the original
+panel letters are recorded in the script.
+
+The nitrogen figures are regenerated by `Rscript --vanilla analysis/plot_nitrogen.R`
+and `Rscript --vanilla analysis/plot_nitrogen_cycle.R`; each writes SVG, PNG, and
+PDF outputs directly into `book/images/nitrogen/`.

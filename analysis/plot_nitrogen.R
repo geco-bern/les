@@ -2,7 +2,7 @@
 # Run from the repository root:
 # R --vanilla -q -e 'source("analysis/plot_nitrogen.R")'
 # The ecosystem and decomposition figures are in plot_nitrogen_cycle.R.
-# Requires ggplot2; uses base R graphics devices, not svglite.
+# Requires ggplot2 and cowplot; uses base R graphics devices, not svglite.
 library(ggplot2)
 library(grid)
 
@@ -23,21 +23,25 @@ theme_set(theme_classic(base_size = 12, base_family = font_family) +
         axis.text = element_text(colour = ink),
         axis.line = element_line(colour = ink, linewidth = .4),
         axis.ticks = element_line(colour = ink, linewidth = .4),
-        plot.title = element_text(face = "bold", size = 14),
+        plot.title = element_blank(), plot.subtitle = element_blank(),
+        plot.margin = margin(14, 10, 8, 10),
         legend.position = "bottom"))
 
 save_figure <- function(name, width, height, draw) {
-
-  svg(file.path(out, paste0(name, ".svg")), width, height,
-      family = font_family, bg = "white")
-  draw()
-  dev.off()
-
-  png(file.path(out, paste0(name, ".png")), width = width, height = height,
-      units = "in", res = 180, type = "cairo", family = font_family, bg = "white")
-  draw()
-  dev.off()
-  
+  draw_file <- function(extension) {
+    path <- file.path(out, paste0(name, ".", extension))
+    if (extension == "svg") {
+      svg(path, width, height, family = font_family, bg = "white")
+    } else if (extension == "pdf") {
+      cairo_pdf(path, width, height, family = font_family, bg = "white")
+    } else {
+      png(path, width = width, height = height, units = "in", res = 180,
+          type = "cairo", family = font_family, bg = "white")
+    }
+    on.exit(dev.off())
+    draw()
+  }
+  invisible(lapply(c("svg", "png", "pdf"), draw_file))
 }
 
 # NOAA Global Monitoring Laboratory, approximate mid-2020 dry-air composition:
@@ -65,17 +69,14 @@ air_plot <- function(d, xmax, breaks) {
 p_all <- air_plot(air, 100, seq(0, 100, 20)) +
   annotate("text", x = 1, y = 39, label = "Nitrogen (N₂)\n78.09%", colour = "white", size = 4.5, family = font_family) +
   annotate("text", x = 1, y = 88.5, label = "Oxygen (O₂)\n20.936%", size = 4, colour = ink, family = font_family) +
-  labs(title = "A  |  Dry lower atmosphere", subtitle = "Approximate composition at mid-2020") +
   theme(legend.position = "none")
 p_minor <- air_plot(air[3:5, ], .974, c(0, .2, .4, .6, .8)) +
   annotate("text", x = 1, y = .44, label = "Argon (Ar)  0.930%", size = 4.5, colour = ink, family = font_family) +
-  labs(title = "B  |  The remaining 0.974%, enlarged",
-       subtitle = "CO₂: 0.0413% (413 ppm)     •     Other gases: 0.0027% (27 ppm)") +
   guides(fill = guide_legend(nrow = 1))
 save_figure("atmospheric_composition", 10, 5.8, function() {
-  grid.newpage()
-  print(p_all, vp = viewport(x = .5, y = .75, width = .98, height = .48))
-  print(p_minor, vp = viewport(x = .5, y = .25, width = .98, height = .49))
+  print(cowplot::plot_grid(p_all, p_minor, ncol = 1, align = "v", axis = "lr",
+                          labels = c("a", "b"), label_size = 14,
+                          label_fontfamily = font_family))
 })
 
 # Teaching curves, not a reproduction of DyN or rsofun.
@@ -108,32 +109,21 @@ p_rate <- ggplot(nitrogen_rates, aes(wfps, rate, colour = pathway)) +
   geom_line(linewidth = 1.2) +
   scale_colour_manual(values = c("Nitrification" = blue, "Denitrification" = green)) +
   scale_x_continuous(breaks = seq(0, 100, 20)) +
-  labs(title = "A  |  N transformation", subtitle = "Each pathway scaled to its own maximum",
-       x = "Water-filled pore space (%)", y = "Relative rate", colour = NULL)
+  labs(x = "Water-filled pore space (%)", y = "Relative N transformation rate", colour = NULL)
 
 p_gas <- ggplot(gas_rates, aes(wfps, rate, colour = pathway, linetype = pathway)) +
   geom_line(linewidth = 1.15) +
   scale_colour_manual(values = c("From nitrification" = blue, "From denitrification" = green, "Total" = vermillion)) +
   scale_linetype_manual(values = c("From nitrification" = "dashed", "From denitrification" = "dotted", "Total" = "solid")) +
   scale_x_continuous(breaks = seq(0, 100, 20)) +
-  labs(title = "B  |  Net N₂O production", subtitle = "After reduction to N₂; illustrative common scale",
-       x = "Water-filled pore space (%)", y = "Arbitrary units", colour = NULL, linetype = NULL) +
+  labs(x = "Water-filled pore space (%)", y = "Net N₂O production (arbitrary units)",
+       colour = NULL, linetype = NULL) +
   guides(colour = guide_legend(ncol = 1), linetype = guide_legend(ncol = 1))
 
 save_figure("moisture_response", 11, 5, function() {
-  # Align the plotting areas despite different numbers of legend entries.
-  g_rate <- ggplotGrob(p_rate)
-  g_gas <- ggplotGrob(p_gas)
-  common_heights <- unit.pmax(g_rate$heights, g_gas$heights)
-  g_rate$heights <- common_heights
-  g_gas$heights <- common_heights
-  grid.newpage()
-  pushViewport(viewport(x = .25, y = .5, width = .48, height = .98))
-  grid.draw(g_rate)
-  popViewport()
-  pushViewport(viewport(x = .75, y = .5, width = .48, height = .98))
-  grid.draw(g_gas)
-  popViewport()
+  print(cowplot::plot_grid(p_rate, p_gas, nrow = 1, align = "h", axis = "tb",
+                          labels = c("a", "b"), label_size = 14,
+                          label_fontfamily = font_family))
 })
 
 # Original schematic. Gas escape is distinct from a chemical transformation.

@@ -1,11 +1,11 @@
 # Recreate the three nitrogen figures formerly generated in Python.
 # From the repository root:
-#   Rscript analysis/plot_nitrogen_cycle.R
+#   Rscript --vanilla analysis/plot_nitrogen_cycle.R
 #   R --vanilla -q -e 'source("analysis/plot_nitrogen_cycle.R")'
 # Rscript also accepts this script's absolute path from another directory.
-# Requires ggplot2; grid and the graphics devices are included with R.
+# Requires ggplot2 and cowplot; grid and the graphics devices are included with R.
 # Outputs: ecosystem_n_cycle, mineralisation_stoichiometry, and
-# nutrient_release_curves, each as SVG and PNG in book/images/nitrogen/.
+# nutrient_release_curves, each as SVG, PNG, and PDF in book/images/nitrogen/.
 #
 # The schematic follows the process framework in Stocker et al. (2016),
 # doi:10.1111/nph.13997. The illustrative stoichiometric balance follows
@@ -42,7 +42,7 @@ theme_nitrogen <- theme_classic(base_size = 12, base_family = font_family) +
         axis.text = element_text(colour = ink),
         axis.line = element_line(colour = ink, linewidth = .4),
         axis.ticks = element_line(colour = ink, linewidth = .4),
-        plot.title = element_text(face = "bold", size = 14),
+        plot.title = element_blank(), plot.subtitle = element_blank(),
         plot.caption = element_text(hjust = 0, size = 10),
         legend.title = element_text(size = 10),
         legend.background = element_blank())
@@ -55,6 +55,9 @@ save_figure <- function(name, width, height, draw) {
     if (extension == "svg") {
       svg(path, width = width, height = height,
           family = font_family, bg = "white")
+    } else if (extension == "pdf") {
+      cairo_pdf(path, width = width, height = height,
+                family = font_family, bg = "white")
     } else {
       png(path, width = width, height = height, units = "in", res = 220,
           type = "cairo", family = font_family, bg = "white")
@@ -62,7 +65,7 @@ save_figure <- function(name, width, height, draw) {
     on.exit(dev.off())
     draw()
   }
-  invisible(lapply(c("svg", "png"), draw_file))
+  invisible(lapply(c("svg", "png", "pdf"), draw_file))
 }
 
 ecosystem_cycle <- function() {
@@ -233,7 +236,6 @@ mineralisation_stoichiometry <- function() {
              parse = parse, ...)
   }
   note <- ggplot() +
-    note_text(.97, "The stoichiometric balance", 14, fontface = "bold") +
     note_text(.855, "'Decomposed litter carbon: '*D", parse = TRUE) +
     note_text(.745, "'N supplied by litter: '*D/R[L]", parse = TRUE) +
     note_text(.635, "'New microbial carbon: '*epsilon*D", parse = TRUE) +
@@ -251,15 +253,11 @@ mineralisation_stoichiometry <- function() {
           axis.text = element_blank(), axis.title = element_blank(),
           plot.margin = margin(10, 15, 10, 10))
 
-  # Compose two ggplots with grid, keeping ggplot2 the only external package.
+  # The companion panel gives the accounting behind the response curves.
   function() {
-    grid.newpage()
-    print(plot, vp = viewport(x = .315, y = .55, width = .62, height = .87))
-    print(note, vp = viewport(x = .81, y = .55, width = .36, height = .87))
-    grid.text(paste("Illustrative mass balance, not observations. Fixed microbial C:N and C-use efficiency;",
-                    "mineral N can be immobilised when required."),
-              x = .075, y = .04, just = "left",
-              gp = gpar(fontfamily = font_family, fontsize = 9.2, col = ink))
+    print(cowplot::plot_grid(plot, note, nrow = 1, rel_widths = c(.64, .36),
+                            labels = c("a", "b"), label_size = 14,
+                            label_fontfamily = font_family))
   }
 }
 
@@ -317,4 +315,4 @@ nutrient_release_curves <- function() {
 save_figure("ecosystem_n_cycle", 13.5, 9.2, function() print(ecosystem_cycle()))
 save_figure("mineralisation_stoichiometry", 12, 7.1, mineralisation_stoichiometry())
 save_figure("nutrient_release_curves", 8.9, 6.15, function() print(nutrient_release_curves()))
-message("Wrote SVG and PNG figures to ", out)
+message("Wrote SVG, PNG, and PDF figures to ", out)

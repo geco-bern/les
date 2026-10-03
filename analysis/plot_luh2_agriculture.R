@@ -1,7 +1,7 @@
 # Global irrigation, crop functional types and grazing land fractions, LUH2 v2h.
-# Run from repository root: Rscript analysis/plot_luh2_agriculture.R [all|plot]
+# Run from repository root: Rscript --vanilla analysis/plot_luh2_agriculture.R [all|plot]
 # Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, ncdf4, terra,
-# here, sf, rnaturalearth, rnaturalearthdata, jsonlite, curl, cowplot.
+# here, sf, rnaturalearth, jsonlite, curl, cowplot.
 # Historical 2015, native 0.25 degrees; see luh2_agriculture.md for definitions.
 luh_year <- 2015L
 luh_base <- "https://luh.umd.edu/LUH2/LUH2_v2h/"
@@ -131,54 +131,68 @@ derive_luh <- function(r, data_dir) {
 
 plot_luh <- function(d, output_dir) {
   borders <- rnaturalearth::ne_countries(scale = 110, returnclass = "sf")
-  frame <- function(title, subtitle, caption) {
+  # Subject, year, source and method notes belong in the book figure captions.
+  frame <- function() {
     ggplot2::ggplot() +
       ggplot2::geom_sf(data = borders, fill = "#eceee9", colour = NA) +
-      ggplot2::labs(title = title, subtitle = subtitle, x = NULL, y = NULL,
-        caption = paste0(caption, "\nSource: LUH2 v2h / HYDE 3.2 | Hurtt et al. (2020), doi:10.5194/gmd-13-5425-2020")) +
+      ggplot2::labs(x = NULL, y = NULL) +
       ggplot2::theme_void(base_size = 11) +
-      ggplot2::theme(legend.position = "bottom", plot.title = ggplot2::element_text(face = "bold", hjust = .5),
-        plot.subtitle = ggplot2::element_text(hjust = .5, size = 10),
-        plot.caption = ggplot2::element_text(hjust = 0, size = 9),
+      ggplot2::theme(legend.position = "bottom",
         plot.margin = ggplot2::margin(12, 12, 12, 12))
   }
   outlines <- ggplot2::geom_sf(data = borders, fill = NA, colour = "#7b8279", linewidth = .09)
   extent <- function() ggplot2::coord_sf(crs = sf::st_crs(4326), datum = NA,
     xlim = c(-180, 180), ylim = c(-60, 85), expand = FALSE)
   brown <- grDevices::colorRampPalette(c("#eceee9", "#fff0b7", "#e7af38", "#aa6017", "#542b0e"))(101)
-  irrigation <- frame("Global irrigated cropland | 2015", "LUH2 historical reconstruction | native 0.25-degree grid",
-    "Irrigated crop area as a percentage of the full grid cell; crop areas weighted by their irrigated fractions.") +
-    ggplot2::geom_raster(data = d, ggplot2::aes(x, y, fill = irrigation_percent)) + outlines +
-    ggplot2::scale_fill_gradientn(colours = brown, limits = c(0, 100), na.value = "transparent",
-      oob = scales::squish, name = "Irrigated grid-cell area (%)", breaks = c(0, 25, 50, 75, 100)) + extent()
-  crops <- frame("Dominant crop functional type | 2015", "LUH2 historical reconstruction | native 0.25-degree grid",
-    "Largest crop group in cells with at least 1% cropland. Broad functional groups, not individual crop species.") +
+  blue <- grDevices::colorRampPalette(
+    c("#eceee9", "#dce8ff", "#91b5f5", "royalblue", "#10245c")
+  )(101)
+  irrigation <- frame() +
+    ggplot2::geom_raster(
+      data = d,
+      ggplot2::aes(x, y, fill = irrigation_percent)
+    ) +
+    outlines +
+    ggplot2::scale_fill_gradientn(
+      colours = blue,
+      limits = c(0, 100),
+      na.value = "transparent",
+      oob = scales::squish,
+      name = "Irrigated grid-cell area (%)",
+      breaks = c(0, 25, 50, 75, 100)
+    ) +
+    extent()
+
+  crops <- frame() +
     ggplot2::geom_raster(data = d, ggplot2::aes(x, y, fill = factor(crop_type, levels = 1:5)), na.rm = TRUE) + outlines +
     ggplot2::scale_fill_manual(values = c("#d9a441", "#914b16", "#168b80", "#7954a3", "#c95372"),
       labels = luh_labels, na.value = "transparent", na.translate = FALSE, drop = FALSE, name = NULL) +
     ggplot2::guides(fill = ggplot2::guide_legend(nrow = 2, byrow = TRUE)) + extent()
   # Plot the two supplied fractional-area variables directly, without
   # dominance thresholds or a synthetic mixed class. Mask only ice/water cells.
-  grazing_maps <- purrr::map2(c("pastr", "range"), c("Managed pasture", "Rangeland"),
-    function(variable, label) {
+  grazing_maps <- purrr::map(c("pastr", "range"), function(variable) {
       pixels <- d |> dplyr::mutate(fraction = dplyr::if_else(icwtr < 1,
         .data[[variable]], NA_real_))
-      frame(paste0(label, " | 2015"),
-        paste0("LUH2 variable: ", variable, " | native 0.25-degree grid"),
-        "Supplied fractional area coverage of the full grid cell; all positive fractions retained.") +
+      frame() +
         ggplot2::geom_raster(data = pixels, ggplot2::aes(x, y, fill = fraction), na.rm = TRUE) +
         outlines + ggplot2::scale_fill_gradientn(colours = brown, limits = c(0, 1),
           breaks = c(0, .25, .5, .75, 1), na.value = "transparent",
           oob = scales::squish, name = "Grid-cell fraction") + extent()
     }) |> purrr::set_names(c("managed_pasture", "rangeland"))
-  grazing <- cowplot::plot_grid(plotlist = grazing_maps, ncol = 1)
+  grazing_legend <- cowplot::get_legend(grazing_maps[[1]])
+  grazing_panels <- cowplot::plot_grid(
+    plotlist = purrr::map(grazing_maps, function(p) p + ggplot2::theme(legend.position = "none")),
+    ncol = 1, labels = c("a", "b"), label_size = 14,
+    label_x = .01, label_y = .99, hjust = 0, vjust = 1)
+  grazing <- cowplot::plot_grid(grazing_panels, grazing_legend,
+    ncol = 1, rel_heights = c(1, .06))
   # Retain the existing filename so documents referencing it get the new figure.
   plots <- c(list(irrigated_cropland = irrigation, dominant_crop_types = crops,
     grazing_management_proxy = grazing), grazing_maps)
   purrr::iwalk(plots, function(plot, stem) {
     purrr::walk(c("png", "pdf"), function(extension) {
       ggplot2::ggsave(file.path(output_dir, paste0(stem, "_2015.", extension)), plot,
-        width = 14, height = if (stem == "grazing_management_proxy") 15 else 7.5, dpi = 300, bg = "white",
+        width = 14, height = if (stem == "grazing_management_proxy") 12.5 else 6.5, dpi = 300, bg = "white",
         device = if (extension == "pdf") grDevices::cairo_pdf else "png")
     })
   })
@@ -187,7 +201,7 @@ plot_luh <- function(d, output_dir) {
 main_luh <- function(mode = "all") {
   stopifnot(mode %in% c("all", "plot"))
   data_dir <- here::here("data", "luh2_agriculture_2015")
-  output_dir <- here::here("fig", "luh2_agriculture_2015")
+  output_dir <- here::here("book", "images")
   purrr::walk(c(data_dir, output_dir), dir.create, recursive = TRUE, showWarnings = FALSE)
   cache <- file.path(data_dir, "luh2_2015_inputs.tif")
   if (mode == "plot" && !file.exists(cache)) stop("Run 'all' first to cache the 2015 layers.")

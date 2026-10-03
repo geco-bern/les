@@ -1,6 +1,6 @@
 # Run from the repository root:
-# Rscript analysis/plot_satellite_cropland_2025.R [all|regions|global|plot]
-# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, gtable, terra, httr,
+# Rscript --vanilla analysis/plot_satellite_cropland_2025.R [all|regions|global|plot]
+# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, cowplot, terra, httr,
 # jsonlite, here, sf, rnaturalearth, rnaturalearthdata.
 # Companion global irrigation/crop/grazing maps: plot_luh2_agriculture.R.
 # Sentinel-2 land-cover classification, Impact Observatory / Microsoft / Esri.
@@ -13,7 +13,7 @@ service_url <- paste0("https://ic.imagery1.arcgis.com/arcgis/rest/services/",
                       "Sentinel2_10m_LandCover/ImageServer")
 crop_year <- 2025L
 crop_regions <- tibble::tibble(
-  id = c("A", "B", "C", "D"),
+  id = letters[2:5],
   name = c("Iowa, USA", "Mato Grosso, Brazil", "Punjab, India", "Beauce, France"),
   slug = c("iowa", "mato_grosso", "punjab", "beauce"),
   lon = c(-93.7, -55.9, 75.2, 1.5),
@@ -168,20 +168,12 @@ draw_crop_world <- function(data_dir) {
       terra::ymin(r), terra::ymax(r), interpolate = FALSE) +
     ggplot2::geom_sf(data = borders, inherit.aes = FALSE, fill = NA,
       colour = "#7b8279", linewidth = .09) +
-    ggplot2::geom_point(data = crop_regions, ggplot2::aes(lon, lat), inherit.aes = FALSE,
-      shape = 21, fill = "white", colour = "#9f261b", size = 2) +
-    ggplot2::geom_text(data = crop_regions, ggplot2::aes(lon, lat, label = id),
-      inherit.aes = FALSE, nudge_y = 5, fontface = "bold", colour = "#9f261b", size = 3) +
     ggplot2::scale_fill_gradientn(colours = colours, limits = c(0, 100),
       name = "% crops", na.value = "white", oob = scales::squish) +
     ggplot2::coord_sf(crs = sf::st_crs(4326), datum = NA, xlim = c(-180, 180),
       ylim = c(-60, 85), expand = FALSE) +
-    ggplot2::labs(title = "Cropland in 2025 | global satellite overview",
-      subtitle = "0.1-degree grid: share of valid 0.01-degree service-overview samples; not an exact 10 m area fraction") +
     ggplot2::theme_void(base_size = 11) +
-    ggplot2::theme(plot.title = ggplot2::element_text(face = "bold", hjust = .5),
-      plot.subtitle = ggplot2::element_text(hjust = .5, size = 9),
-      plot.margin = ggplot2::margin(12, 12, 12, 12))
+    ggplot2::theme(plot.margin = ggplot2::margin(6, 6, 6, 6))
 }
 
 draw_crop_region <- function(i, data_dir) {
@@ -199,31 +191,39 @@ draw_crop_region <- function(i, data_dir) {
     ggplot2::annotate("segment", x = c(1, 6), xend = c(1, 6), y = .85, yend = 1.15, linewidth = .5) +
     ggplot2::annotate("text", x = 3.5, y = 1.65, label = "5 km", size = 3.5) +
     ggplot2::coord_fixed(xlim = c(0, 20), ylim = c(0, 20), expand = FALSE) +
-    ggplot2::labs(title = paste(region$id, region$name),
-      subtitle = sprintf("2025 | 10 m | 20 x 20 km | %.2f°, %.2f°", region$lat, region$lon),
-      caption = "Ochre: crops | Grey: other land | Blue: water | White: cloud / no data") +
     ggplot2::theme_void(base_size = 11) +
-    ggplot2::theme(plot.title = ggplot2::element_text(face = "bold", hjust = .5, size = 16),
-      plot.subtitle = ggplot2::element_text(hjust = .5),
-      plot.caption = ggplot2::element_text(hjust = .5, size = 9),
-      plot.margin = ggplot2::margin(12, 12, 12, 12))
+    ggplot2::theme(plot.margin = ggplot2::margin(8, 8, 8, 8))
+}
+
+draw_crop_legend <- function() {
+  keys <- c("Crops" = "#c58b22", "Other land" = "#e3e5df",
+    "Water" = "#aec8d4", "Cloud / no data" = "white")
+  legend_plot <- ggplot2::ggplot(
+    tibble::tibble(category = factor(names(keys), levels = names(keys))),
+    ggplot2::aes(x = category, y = 1, fill = category)) +
+    ggplot2::geom_point(shape = 22, size = 4, colour = "#666666", stroke = .3) +
+    ggplot2::scale_fill_manual(values = keys, name = NULL) +
+    ggplot2::theme_void(base_size = 11) +
+    ggplot2::theme(legend.position = "bottom")
+  cowplot::get_legend(legend_plot)
 }
 
 save_crop_plots <- function(data_dir, output_dir) {
   world <- draw_crop_world(data_dir)
   regions <- purrr::map(seq_len(nrow(crop_regions)), draw_crop_region, data_dir = data_dir)
-  # gtable arranges ggplot grobs; no base-graphics device state is needed.
-  combined <- gtable::gtable(widths = grid::unit(c(1, 1), "null"),
-    heights = grid::unit(c(.8, 1, 1), "null"))
-  combined <- gtable::gtable_add_grob(combined, ggplot2::ggplotGrob(world), t = 1, l = 1, r = 2)
-  combined <- gtable::gtable_add_grob(combined, purrr::map(regions, ggplot2::ggplotGrob),
-    t = c(2, 2, 3, 3), l = c(1, 2, 1, 2))
-  combined <- gtable::gtable_add_rows(combined, grid::unit(.5, "in"))
-  credit <- ggplot2::ggplot() +
-    ggplot2::annotate("text", x = 0, y = 0,
-      label = "Sentinel-2 10m Land Use/Land Cover Time Series, 2025 | Impact Observatory, Microsoft and Esri | CC BY 4.0", size = 3.5) +
-    ggplot2::theme_void()
-  combined <- gtable::gtable_add_grob(combined, ggplot2::ggplotGrob(credit), t = 4, l = 1, r = 2)
+  # Regional locators belong only to the composite that includes those panels.
+  world_with_regions <- world +
+    ggplot2::geom_point(data = crop_regions, ggplot2::aes(lon, lat), inherit.aes = FALSE,
+      shape = 21, fill = "white", colour = "#9f261b", size = 2) +
+    ggplot2::geom_text(data = crop_regions, ggplot2::aes(lon, lat, label = id),
+      inherit.aes = FALSE, nudge_y = 5, fontface = "bold", colour = "#9f261b", size = 3)
+  regional_panels <- cowplot::plot_grid(plotlist = regions, ncol = 2,
+    labels = crop_regions$id, label_size = 16)
+  map_panels <- cowplot::plot_grid(world_with_regions, regional_panels, ncol = 1,
+    rel_heights = c(.8, 2), labels = c("a", ""), label_size = 16)
+  legend <- draw_crop_legend()
+  combined <- cowplot::plot_grid(map_panels, legend, ncol = 1,
+    rel_heights = c(1, .035))
   save <- function(plot, stem, width, height) {
     purrr::walk(c("png", "pdf"), function(extension) {
       ggplot2::ggsave(file.path(output_dir, paste0(stem, ".", extension)), plot,
@@ -233,18 +233,19 @@ save_crop_plots <- function(data_dir, output_dir) {
   }
   save(world, "cropland_2025_global", 14, 7)
   purrr::walk2(regions, crop_regions$slug, function(plot, slug) {
-    save(plot, paste0("cropland_2025_", slug), 8, 8)
+    panel <- cowplot::plot_grid(plot, legend, ncol = 1, rel_heights = c(1, .07))
+    save(panel, paste0("cropland_2025_", slug), 8, 8)
   })
   save(combined, "cropland_2025_global_and_regions", 16, 20)
 }
 
 main <- function(mode = "all") {
-  required <- c("dplyr", "tidyr", "purrr", "readr", "tibble", "ggplot2", "gtable", "sf", "terra", "httr", "jsonlite", "here", "rnaturalearth", "rnaturalearthdata")
+  required <- c("dplyr", "tidyr", "purrr", "readr", "tibble", "ggplot2", "cowplot", "sf", "terra", "httr", "jsonlite", "here", "rnaturalearth")
   missing <- purrr::discard(required, requireNamespace, quietly = TRUE)
   if (length(missing)) stop("Missing packages: ", paste(missing, collapse = ", "))
   stopifnot(mode %in% c("all", "regions", "global", "plot"))
   data_dir <- here::here("data", "satellite_cropland_2025")
-  output_dir <- here::here("fig", "satellite_cropland_2025")
+  output_dir <- here::here("book", "images")
   dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   terra::terraOptions(progress = 0, memfrac = 0.3)

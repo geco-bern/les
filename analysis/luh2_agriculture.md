@@ -3,9 +3,9 @@
 Run from the repository root:
 
 ```sh
-Rscript analysis/plot_luh2_agriculture.R
+Rscript --vanilla analysis/plot_luh2_agriculture.R
 # Redraw entirely from the compact extracted cache:
-Rscript analysis/plot_luh2_agriculture.R plot
+Rscript --vanilla analysis/plot_luh2_agriculture.R plot
 ```
 
 This companion to `plot_satellite_cropland_2025.R` uses the same map extent
@@ -26,7 +26,7 @@ that compact cache. It also writes derived layers to
 unthresholded area totals to `global_areas.csv`. Downloads are written to `.part`
 files and validated before becoming reusable source files.
 
-PNG and PDF figures are saved in `fig/luh2_agriculture_2015/`:
+PNG and PDF figures are saved in `book/images/`:
 
 - `irrigated_cropland_2015`: irrigated crop area / full grid-cell area.
 - `dominant_crop_types_2015`: largest of five crop functional groups.
