@@ -126,7 +126,12 @@ Within terrestrial ecosystems, N moves with biomass production, turnover, litter
 
 Two recycling routes are distinct (@fig-nitrogen-ecosystem). Plants recover N from senescing tissues, store it, and reallocate it to new growth. At ecosystem scale, decomposers release N from organic matter, and plants reacquire part of the N remaining after microbial immobilisation. This second route is associated with *net mineralisation* (@sec-nitrogen-mineralisation). Nitrate is especially susceptible to leaching because it is generally less strongly retained on soil surfaces than ammonium [@stocker_terrestrial_2016].
 
-![Nitrogen pools and transfers in a terrestrial ecosystem. Original schematic based on the process framework in Fig. 1 of @stocker_terrestrial_2016. Resorption conserves N within the plant; uptake, litterfall, mineralisation, and immobilisation redistribute it within the ecosystem. Fixation and deposition supply N, while gaseous emissions and leaching remove it. Organic N transfer includes small organic compounds and mycorrhizal mobilisation; fire, harvest, and ammonia volatilisation are additional losses not shown. Arrow widths do not represent flux magnitudes.](images/nitrogen/ecosystem_n_cycle.svg){#fig-nitrogen-ecosystem width=100% fig-alt="Schematic connecting atmospheric inputs, plant nitrogen, organic soil pools and mineral nitrogen, with internal recycling and external losses."}
+```{r echo=FALSE}
+#| label: fig-nitrogen-ecosystem
+#| fig-cap: "Nitrogen pools and transfers in a terrestrial ecosystem. Original schematic based on Fig. 1 of @stocker_terrestrial_2016. Resorption conserves N within the plant. Uptake, litterfall, mineralisation, and immobilisation redistribute it within the ecosystem. Fixation and deposition supply N, while gaseous emissions and leaching remove it. Organic N transfer includes small organic compounds and mycorrhizal mobilisation. Fire and harvest are additional losses not shown."
+#| out-width: 100%
+knitr::include_graphics("images/ncycle_state0_col_180305.png")
+```
 
 
 ### Nitrogen demand, tissue stoichiometry, and photosynthesis
@@ -137,22 +142,46 @@ $$
 U_N = \sum_i \frac{\mathrm{BP}_i}{R_i} - F_{\mathrm{resorb}}.
 $$ {#eq-nitrogen-demand}
 
-Here $F_{\mathrm{resorb}}$ is N recovered from senescing tissues. If production is expressed in g C m^-2^ yr^-1^, $U_N$ has units of g N m^-2^ yr^-1^. Acquisition includes soil uptake and, for fixing plants, symbiotic supply. An increasing internal store adds to this requirement; drawing down a store reduces it. At fixed total production, allocating more to N-rich foliage requires more N than allocating the same C to wood (@tbl-nitrogen-cn).
+Here $F_{\mathrm{resorb}}$ is N recovered from senescing tissues. If production is expressed in g C m^-2^ yr^-1^, $U_N$ has units of g N m^-2^ yr^-1^. Acquisition includes soil uptake and, for fixing plants, symbiotic supply. An increasing internal store adds to this requirement. Reducing a store reduces it. At fixed total production, allocating more to N-rich foliage requires more N than allocating the same C to wood (@tbl-nitrogen-cn).
 
-Over intervals long enough that leaf biomass is approximately stationary, leaf turnover equals leaf production. If $r_N$ is the fraction of leaf N resorbed, the leaf replacement contribution becomes $(1-r_N)\mathrm{BP}_{\mathrm{leaf}}/R_{\mathrm{leaf}}$.
+Over intervals long enough that leaf biomass is approximately stationary, leaf turnover equals leaf production. If $r_N$ is the fraction of leaf N resorbed, the leaf replacement contribution becomes $F_{\mathrm{resorb}} = (1-r_N)\mathrm{BP}_{\mathrm{leaf}}/R_{\mathrm{leaf}}$.
 
-| Compartment | C:N by mass | Interpretation |
-|:--|:--|:--|
-| Green grassland leaves | 18 | Median used by @peng2023 |
-| Forest leaves | Variable; 23.5 in the example | A leaf with 47% C and 2% N by dry mass has C:N = 0.47/0.02 |
-| Grassland roots | 41 | Median used by @peng2023 |
-| Forest roots | 94 | Bulk root-production ratio used by @peng2023; not a universal ratio for absorptive fine roots |
-| Wood | 319 | Mean trunk ratio used by @peng2023; species and wood fractions differ |
-| Leaf litter | 50 in the worked example below | Resorption and leaf mass loss alter the ratio before abscission |
-| Bulk soil organic material | About 12 | C:N implied by the global molar soil ratio 186:13:1 in @clevelandliptzin2007 |
-| Soil microbial biomass | About 7 | C:N implied by the global molar microbial ratio 60:7:1 in @clevelandliptzin2007 |
+The observations assembled in @tbl-nitrogen-cn show both systematic differences among compartments and substantial variation within them (@fig-nitrogen-cn-distributions). Senesced leaves have a higher median C:N than green leaves, consistent with N resorption before abscission. Coarse roots and wood generally contain less N per unit C than foliage and fine roots. Microbial biomass has a much lower C:N than most plant substrates, creating a demand for additional N during decomposition. These distributions describe the available records; unequal sampling among species, sites, and biomes prevents interpreting them as area-weighted global distributions.
 
-: Contrasting C:N ratios of vegetation and soil compartments. Values illustrate compartment differences, not fixed stoichiometry for every ecosystem. The last two entries convert molar C:N to mass C:N by multiplying by 12/14; bulk soil and microbial ratios are distinct from litter ratios. {#tbl-nitrogen-cn}
+<!-- BEGIN generated C:N table: analysis/plot_nitrogen_cn.R -->
+
+| Compartment | Median C:N | 25th–75th percentile | 5th–95th percentile | $n$ | Source |
+|:--|--:|:--|:--|--:|:--|
+| Green leaves | 24.3 | 19.5–32.0 | 14.5–46.7 | 171 | [@vergutz2012data] |
+| Senesced leaves | 44.6 | 34.7–63.2 | 25.0–96.8 | 171 | [@vergutz2012data] |
+| Fine roots (living) | 40.5 | 28.7–56.1 | 19.8–91.0 | 2,976 | [@nikitin2026fred4] |
+| Coarse roots (living) | 93.8 | 61.8–134.5 | 29.1–225.2 | 494 | [@nikitin2026fred4] |
+| Wood (initial samples) | 201.4 | 130.5–307.7 | 71.1–495.4 | 82 | [@wijas2024data; @wijas2025] |
+| Leaf litter (0–9 yr) | 31.3 | 20.3–58.6 | 14.5–97.5 | 381 | [@harmon2016lidet] |
+| Fine-root litter (0–9 yr) | 41.7 | 33.3–53.6 | 24.6–66.8 | 148 | [@harmon2016lidet] |
+| Bulk SOM (soil OC/total N, 0–30 cm) | 12.6 | 10.0–17.2 | 6.8–36.7 | 78,408 | [@calisto2023wosis; @batjes2024wosis] |
+| Microbial biomass | 6.4 | 5.1–8.6 | 2.3–13.5 | 1,225 | [@xu2014microbialdata] |
+| Fungi (species means) | 11.7 | 9.5–14.5 | 5.9–37.2 | 252 | [@zhangelser2017] |
+
+: C:N by mass (g C per g N), calculated from the cited data. Intervals are empirical percentiles, not confidence intervals or the full range. $n$ counts retained records for leaves, roots, and microbial biomass; initial wood samples; litter samples after averaging repeat assays; soil horizons; and fungal species means. These are not counts of independent ecosystems. SOM denotes soil organic matter; OC denotes organic carbon. Selection and conversion details are given below. {#tbl-nitrogen-cn}
+
+<!-- END generated C:N table -->
+
+![Distributions of mass C:N for the observations in @tbl-nitrogen-cn. White points mark medians, thick bars the 25th–75th percentiles, and thin bars the 5th–95th percentiles. Violin widths show density in log C:N space, scaled to the same maximum width for each compartment; they do not represent sample size. All retained positive ratios enter the distributions, including extreme archive values that warrant caution. Sources, sampling units, and qualifications are given in the table and accompanying text.](images/nitrogen/cn_distributions.svg){#fig-nitrogen-cn-distributions width=100% fig-alt="Horizontal violin plots comparing C:N distributions across ten plant, litter, soil, and microbial compartments. Wood has the highest median ratio, while microbial biomass has the lowest."}
+
+::: {.callout-note collapse="true"}
+## Data selection and comparability
+
+**Leaves and roots.** The Vergutz archive contains 171 records with paired C and N concentrations for both green and senesced leaves, representing 13 source studies. Records lacking C were excluded rather than assigned a standard carbon fraction. FRED 4 supplies living roots explicitly classified as fine or coarse; mixed classes, flagged duplicates, and identified non-control treatments were excluded. Controls, observational gradients, and records without a reported treatment were retained. C:N was calculated from paired concentrations where available, otherwise taken from the reported mass ratio. These subsets are narrower than the full coverage of either archive.
+
+**Wood and litter.** The open wood dataset contains initial samples of two stem sizes from 22 tree species studied at one temperate forest near Sydney; it illustrates regional variation [@wijas2025]. LIDET values are for identified leaf and fine-root materials, including initial material and harvests after up to nine years of decomposition [@harmon2016lidet]. They are not measurements of mixed forest-floor litter. The global litter compilation of @holland2015litterdata reports litter dry mass and N, but obtaining C:N from these quantities requires an assumed carbon fraction. We therefore use the measured, compartment-specific LIDET data here.
+
+**Soil and microorganisms.** WoSIS organic C and total N were paired within the same horizon, retaining horizons lying wholly within 0–30 cm, including organic surface horizons. The resulting 78,408 horizons belong to 53,352 profiles in 154 countries. This bulk-soil ratio approximates SOM C:N; it does not isolate organic N or distinguish SOM fractions. Microbial concentrations in the Xu archive are in mmol kg^-1^, so their C:N ratios were multiplied by $12/14$ to obtain mass ratios [@xu2013microbial; @xu2014microbialdata]. The fungal distribution comprises 252 species means from Appendix S2 of @zhangelser2017, likewise converted from molar to mass ratios. That synthesis includes ratios calculated using an assumed 44% C where C measurements were unavailable, and its field evidence draws heavily on fruiting bodies. It should not be treated as a distribution specifically for soil fungal mycelium.
+
+The R scripts `analysis/prepare_nitrogen_cn.R` and `analysis/plot_nitrogen_cn.R`, with the source manifest and selection notes in `data/nitrogen_cn/`, reproduce the calculations and figure. Positive archive values were not removed solely for having an unusual C:N. Such extremes may reflect analytical or data-entry problems as well as ecological variation.
+:::
+
+Some useful distinctions are absent from these datasets. Bacterial biomass commonly has a mass C:N around 4–6 [@stricklandrousk2010]. Within SOM, particulate organic matter (POM) retains more of the composition of plant residues, whereas mineral-associated organic matter (MAOM) contains a larger contribution from microbial products. Literature ranges of approximately 10–40 for POM and 8–13 for MAOM illustrate this contrast [@lavallee2020]; they are not percentiles calculated from the WoSIS data used here.
 
 Leaf N can be divided conceptually into *metabolic N*, invested in enzymes and other components of metabolism, and N in structural and storage functions. Rubisco-associated N is directly linked to maximum carboxylation capacity, $V_{\mathrm{cmax}}$. At a given temperature and Rubisco activation state, more functional Rubisco supports greater $V_{\mathrm{cmax}}$. Total leaf N, however, is not equivalent to Rubisco N. Leaves can change N partitioning among carboxylation, electron transport, light harvesting, structural proteins, and storage. Light environment, temperature, CO~2~, and leaf construction all affect these investments [@xu_toward_2012; @stocker_empirical_2025].
 

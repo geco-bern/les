@@ -1,6 +1,8 @@
-# Reproduce the three figures added in the nitrogen-chapter revision.
+# Reproduce the nitrogen-chapter figures and the full-model moisture comparison.
 # Run from the repository root:
 # R --vanilla -q -e 'source("analysis/plot_nitrogen.R")'
+# To export only the book moisture figure, set options(nitrogen.figures = "moisture_response").
+# The retained full-model plot is exported as "moisture_response_full".
 # The ecosystem and decomposition figures are in plot_nitrogen_cycle.R.
 # Requires ggplot2 and cowplot; uses base R graphics devices, not svglite.
 library(ggplot2)
@@ -28,6 +30,8 @@ theme_set(theme_classic(base_size = 12, base_family = font_family) +
         legend.position = "bottom"))
 
 save_figure <- function(name, width, height, draw) {
+  selected <- getOption("nitrogen.figures")
+  if (!is.null(selected) && !name %in% selected) return(invisible(NULL))
   draw_file <- function(extension) {
     path <- file.path(out, paste0(name, ".", extension))
     if (extension == "svg") {
@@ -99,7 +103,7 @@ nitrogen_rates <- data.frame(
 gas_rates <- data.frame(
   wfps = rep(100*w, 3), 
   rate = c(pn, pd, pn + pd),
-  pathway = rep(c("From nitrification", "From denitrification", "Total"), 
+  pathway = rep(c("From nitrification", "From denitrification", "Total"),
   each = length(w))
 )
 
@@ -121,6 +125,70 @@ p_gas <- ggplot(gas_rates, aes(wfps, rate, colour = pathway, linetype = pathway)
   guides(colour = guide_legend(ncol = 1), linetype = guide_legend(ncol = 1))
 
 save_figure("moisture_response", 11, 5, function() {
+  print(cowplot::plot_grid(p_rate, p_gas, nrow = 1, align = "h", axis = "tb",
+                          labels = c("a", "b"), label_size = 14,
+                          label_fontfamily = font_family))
+})
+
+# Full rsofun ntransform.mod.f90, evaluated independently for each moisture.
+# See ntransform.R for the pinned source and complete daily pool updates.
+source(file.path("analysis", "ntransform.R"))
+# Explicit demonstration parameters, not a calibrated site simulation.
+# maxnitr = 0.1 d-1 follows the value reported by Xu-Ri & Prentice (2008).
+# Other values follow analysis/example_cnmodel.R at the pinned commit.
+# Its maxnitr = 0.00005 is labelled as reinterpreted for the SIMPLE routine;
+# that decay coefficient is not used here as a full-model nitrification rate.
+moisture_params <- list(maxnitr = 0.1, non = 0.01, n2on = 0.0005,
+                        kn = 83, kdoc = 17, docmax = 1, dnitr2n2o = 0.01)
+moisture_initial <- ntransform_state(nh4 = 1, no3 = 1, doc = 10)
+w <- seq(0, 1, length.out = 1001)
+moisture_steps <- lapply(w, function(water) {
+  ntransform_full(moisture_initial, temp = 20, wscal = water,
+                  aprec = 1000, params = moisture_params)
+})
+moisture_fluxes <- t(vapply(moisture_steps, function(step) step$fluxes,
+                            moisture_steps[[1]]$fluxes))
+n <- moisture_fluxes[, "dnitr"]
+d <- moisture_fluxes[, "ddenitr"]
+# Production is in g N m-2 d-1; convert to mg N for a readable axis.
+# Do not multiply by the escape fraction: emission is a separate output (dn2o).
+pn <- 1000 * moisture_fluxes[, "n2o_nitrification"]
+pd <- 1000 * moisture_fluxes[, "n2o_denitrification"]
+
+nitrogen_rates <- data.frame(
+  water = rep(100*w, 2),
+  rate = c(n / max(n), d / max(d)),
+  pathway = rep(c("Nitrification", "Denitrification"),
+  each = length(w))
+)
+
+gas_rates <- data.frame(
+  water = rep(100*w, 3),
+  rate = c(pn, pd, pn + pd),
+  pathway = rep(c("From nitrification", "From denitrification", "Total"),
+  each = length(w))
+)
+
+stopifnot(all(n >= 0), all(d >= 0), all(pd >= 0), all(pn >= 0))
+
+p_rate <- ggplot(nitrogen_rates, aes(water, rate, colour = pathway)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(values = c("Nitrification" = blue, "Denitrification" = green)) +
+  scale_x_continuous(breaks = seq(0, 100, 20)) +
+  labs(x = "Plant-available water (% of capacity)",
+       y = "Relative N transformation rate", colour = NULL)
+
+p_gas <- ggplot(gas_rates, aes(water, rate, colour = pathway, linetype = pathway)) +
+  geom_line(linewidth = 1.15) +
+  scale_colour_manual(values = c("From nitrification" = blue, "From denitrification" = green, "Total" = vermillion)) +
+  scale_linetype_manual(values = c("From nitrification" = "dashed", "From denitrification" = "dotted", "Total" = "solid")) +
+  scale_x_continuous(breaks = seq(0, 100, 20)) +
+  labs(x = "Plant-available water (% of capacity)",
+       y = "N₂O production (mg N m⁻² d⁻¹)",
+       colour = NULL, linetype = NULL) +
+  guides(colour = guide_legend(ncol = 1), linetype = guide_legend(ncol = 1))
+
+save_figure("moisture_response_full", 11, 5, function() {
   print(cowplot::plot_grid(p_rate, p_gas, nrow = 1, align = "h", axis = "tb",
                           labels = c("a", "b"), label_size = 14,
                           label_fontfamily = font_family))
