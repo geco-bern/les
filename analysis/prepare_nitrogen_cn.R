@@ -10,6 +10,7 @@ suppressPackageStartupMessages({
 
 raw <- "data/nitrogen_cn/raw"
 out <- "data/nitrogen_cn/derived"
+
 dir.create(out, recursive = TRUE, showWarnings = FALSE)
 num <- function(x) suppressWarnings(as.numeric(x))
 positive <- function(x) is.finite(x) & x > 0
@@ -43,9 +44,8 @@ stopifnot(!anyDuplicated(leaf_data[c("compartment", "source_id")]))
 fred <- read_source("FRED4_Entire_Database_2026.csv") |>
   filter(!is.na(num(F00002))) |>
   mutate(reported_cn = num(F00413), c = num(F00253), n = num(F00261),
-         paired_cn = valid_ratio(c, n),
-         cn_mass = coalesce(paired_cn,
-                            ifelse(positive(reported_cn), reported_cn, NA_real_)),
+         cn_mass = coalesce(ifelse(positive(reported_cn), reported_cn, NA_real_),
+                            valid_ratio(c, n)),
          treatment_type = tolower(coalesce(F01159, "")),
          treatment = tolower(coalesce(F01160, "")))
 # Accept observational gradients and controls. Non-control experimental and
@@ -60,24 +60,13 @@ roots <- fred |>
          positive(cn_mass)) |>
   transmute(compartment = ifelse(F00055 == "FR", "Fine roots", "Coarse roots"),
             source = "FRED 4 (2026)", source_id = F00002, study = F00003,
-            species = ifelse(!is.na(coalesce(F01287, F00019)),
-                 paste(coalesce(F01286, F00018), coalesce(F01287, F00019)), NA_character_),
-            site = F00008,
+            species = coalesce(F01287, F00019), site = F00008,
             latitude = num(F01185), longitude = num(F01186), group = F00032,
             carbon = c, nitrogen = n, source_units = "mg/g dry root",
-            cn_mass, reported_cn,
-            derivation = ifelse(positive(paired_cn),
-                                 "paired measured C/N", "reported mass C:N"),
+            cn_mass, derivation = ifelse(positive(reported_cn),
+                                        "reported mass C:N", "paired measured C/N"),
             n_source_records = 1L)
 stopifnot(!anyDuplicated(roots$source_id))
-# Prefer the ratio of paired concentrations consistently with the other tissue
-# datasets. Some reported root ratios differ by about a factor of 100 from the
-# paired C/N. Save these discrepancies, plus very low ratios, for inspection;
-# do not silently infer units or delete a positive archive value.
-root_checks <- roots |>
-  filter(cn_mass < 2 | (positive(reported_cn) &
-           (cn_mass / reported_cn > 5 | cn_mass / reported_cn < .2)))
-write_csv(root_checks, file.path(out, "root_ratio_checks.csv"), na = "")
 
 # Initial samples only: pooling harvests would mix living-tissue chemistry with
 # changing stoichiometry during decay. Match C and N on the original sample ID.
@@ -161,8 +150,8 @@ stopifnot(nrow(fungi) == 252L,
           abs(median(fungi$cn_mass) - 13.65 * 12 / 14) < .01)
 
 # LIDET wet-chemistry table: A/B and other types are not assumed to mean leaves.
-# Type codes are interpreted from the accompanying EML metadata. Sample numbers
-# recur across species, so retain the material/site/harvest identifiers as well.
+# Type codes are interpreted from the accompanying EML metadata. This block is
+# completed by the explicit material selection below, not by inferred C content.
 lidet_file <- file.path(raw, "TD02303.csv")
 if (!file.exists(lidet_file)) stop("LIDET TD02303.csv is required; see data/nitrogen_cn/README.md")
 lidet_raw <- read_source("TD02303.csv")
@@ -174,8 +163,7 @@ lidet <- lidet_raw |>
   summarise(cn_mass = mean(cn), carbon = mean(c), nitrogen = mean(n),
             n_source_records = n(), .groups = "drop") |>
   transmute(compartment = ifelse(TYPE1 == "L", "Leaf litter (LIDET)", "Root litter (LIDET)"),
-            source = "LIDET (Harmon 2016)",
-            source_id = paste(TYPE1, NIR_NUM, SPECIES, SITE, DURATION, REP, sep = ":"),
+            source = "LIDET (Harmon 2016)", source_id = paste(TYPE1, NIR_NUM, sep = ":"),
             study = "LIDET", species = SPECIES, site = SITE,
             group = TYPE1, carbon, nitrogen, source_units = "% dry mass",
             cn_mass, derivation = "mean of paired wet-chemistry C/N within sample",

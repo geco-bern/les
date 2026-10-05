@@ -67,10 +67,10 @@ palette <- setNames(c("#009E73", "#E69F00", "#0072B2", "#56B4E9", "#D55E00",
                       "#E69F00", "#E69F00", "#000000", "#CC79A7", "#56B4E9"),
                     compartments)
 plot_labels <- setNames(c("Green leaves", "Senesced leaves", "Fine roots",
-                         "Coarse roots", "Wood (initial samples)",
+                         "Coarse roots", "Wood",
                          "Leaf litter", "Fine-root litter",
                          "Bulk SOM (0–30 cm)", "Microbial biomass",
-                         "Fungi (species means)"), compartments)
+                         "Fungi"), compartments)
 
 # Log transformation precedes density estimation. All positive observations
 # enter the violin, including extreme soil ratios; no ratio cutoffs are applied.

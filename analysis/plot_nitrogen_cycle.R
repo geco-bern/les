@@ -255,9 +255,16 @@ mineralisation_stoichiometry <- function() {
 
   # The companion panel gives the accounting behind the response curves.
   function() {
-    print(cowplot::plot_grid(plot, note, nrow = 1, rel_widths = c(.64, .36),
-                            labels = c("a", "b"), label_size = 14,
-                            label_fontfamily = font_family))
+    # print(cowplot::plot_grid(
+    #   plot,
+    #   note,
+    #   nrow = 1,
+    #   rel_widths = c(.64, .36),
+    #   labels = c("a", "b"),
+    #   label_size = 14,
+    #   label_fontfamily = font_family
+    # ))
+    print(plot)
   }
 }
 
