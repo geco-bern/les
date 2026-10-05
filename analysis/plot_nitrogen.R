@@ -52,13 +52,26 @@ save_figure <- function(name, width, height, draw) {
 # https://gml.noaa.gov/ccgg/about/co2_measurements.html
 # Other = Ne 18 + He 5 + CH4 2 + Kr 1 + remaining trace gases 1 ppm.
 air <- data.frame(
-  gas = c("Nitrogen", "Oxygen", "Argon", "Carbon dioxide", "Other"),
-  ppm = c(780900, 209360, 9300, 413, 27))
+  # gas = c("Nitrogen", "Oxygen", "Argon", "Carbon dioxide", "Other"),
+  gas = c("Nitrogen", "Oxygen", "Other"),
+  # ppm = c(780900, 209360, 9300, 413, 27))
+  ppm = c(780900, 209360, 9740)
+)
 stopifnot(sum(air$ppm) == 1e6)
 air$gas <- factor(air$gas, levels = air$gas)
 air$pct <- air$ppm / 10000
-palette <- c("Nitrogen" = blue, "Oxygen" = sky_blue, "Argon" = orange,
-             "Carbon dioxide" = vermillion, "Other" = purple)
+# palette <- c(
+#   "Nitrogen" = blue,
+#   "Oxygen" = sky_blue,
+#   "Argon" = orange,
+#   "Carbon dioxide" = vermillion,
+#   "Other" = purple
+# )
+palette <- c(
+  "Nitrogen" = blue,
+  "Oxygen" = sky_blue,
+  "Other" = orange
+)
 air_plot <- function(d, xmax, breaks) {
   ggplot(d, aes(x = 1, y = pct, fill = gas)) +
     geom_col(width = .48, position = position_stack(reverse = TRUE)) +
@@ -70,17 +83,35 @@ air_plot <- function(d, xmax, breaks) {
     labs(x = NULL, y = "Percentage of all dry-air molecules", fill = NULL) +
     theme(axis.line.y = element_blank(), axis.ticks.y = element_blank())
 }
+
 p_all <- air_plot(air, 100, seq(0, 100, 20)) +
   annotate("text", x = 1, y = 39, label = "Nitrogen (N₂)\n78.09%", colour = "white", size = 4.5, family = font_family) +
-  annotate("text", x = 1, y = 88.5, label = "Oxygen (O₂)\n20.936%", size = 4, colour = ink, family = font_family) +
-  theme(legend.position = "none")
+  annotate("text", x = 1, y = 88.5, label = "Oxygen (O₂)\n20.936%", size = 4, colour = ink, family = font_family)
+  # theme(legend.position = "none")
+
 p_minor <- air_plot(air[3:5, ], .974, c(0, .2, .4, .6, .8)) +
   annotate("text", x = 1, y = .44, label = "Argon (Ar)  0.930%", size = 4.5, colour = ink, family = font_family) +
   guides(fill = guide_legend(nrow = 1))
-save_figure("atmospheric_composition", 10, 5.8, function() {
-  print(cowplot::plot_grid(p_all, p_minor, ncol = 1, align = "v", axis = "lr",
-                          labels = c("a", "b"), label_size = 14,
-                          label_fontfamily = font_family))
+
+save_figure("atmospheric_composition", 10, 3, function() {
+  print(cowplot::plot_grid(
+    p_all,
+    ncol = 1,
+    align = "v",
+    axis = "lr",
+    label_size = 14,
+    label_fontfamily = font_family
+  ))
+  # print(cowplot::plot_grid(
+  #   p_all,
+  #   p_minor,
+  #   ncol = 1,
+  #   align = "v",
+  #   axis = "lr",
+  #   labels = c("a", "b"),
+  #   label_size = 14,
+  #   label_fontfamily = font_family
+  # ))
 })
 
 # Teaching curves, not a reproduction of DyN or rsofun.
