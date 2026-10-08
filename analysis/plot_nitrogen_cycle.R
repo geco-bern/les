@@ -195,6 +195,7 @@ mineralisation_stoichiometry <- function() {
   thresholds <- data.frame(efficiency = efficiencies, r_l = r_b / efficiencies)
   thresholds$series <- factor(thresholds$efficiency, levels = efficiencies)
   thresholds$label <- format(round(thresholds$r_l, 1), trim = TRUE, nsmall = 0)
+  
   # Check the accounting at the zero crossings and in the chapter's example.
   stopifnot(all(abs(1 / thresholds$r_l - efficiencies / r_b) < 1e-12),
             abs(100 * (1 / 50 - .4 / r_b) - (-3)) < 1e-12)
@@ -204,7 +205,7 @@ mineralisation_stoichiometry <- function() {
     geom_line(linewidth = 1) +
     geom_segment(data = thresholds,
                  aes(x = r_l, xend = r_l, y = -.075, yend = 0, colour = series),
-                 inherit.aes = FALSE, linetype = "dashed", linewidth = .4,
+                 inherit.aes = FALSE, linetype = "dotted", linewidth = .4,
                  show.legend = FALSE) +
     geom_point(data = thresholds, aes(x = r_l, y = 0, colour = series),
                inherit.aes = FALSE, size = 2.4, show.legend = FALSE) +
@@ -218,7 +219,7 @@ mineralisation_stoichiometry <- function() {
              family = font_family, colour = ink, size = 12 / (72.27 / 25.4)) +
     annotate("text", x = 97, y = -.070, label = "Threshold C:N", hjust = 1,
              family = font_family, colour = ink, size = 9.5 / (72.27 / 25.4)) +
-    scale_colour_manual(values = c(blue, green, vermillion),
+    scale_colour_manual(values = c(blue, green, purple),
                          labels = parse(text = paste0("epsilon == ", efficiencies))) +
     scale_x_continuous(breaks = seq(20, 100, 20), expand = expansion(mult = 0)) +
     scale_y_continuous(breaks = seq(-.06, .10, .02), expand = expansion(mult = 0)) +
@@ -292,34 +293,83 @@ nutrient_release_curves <- function() {
             all(dat$n[dat$lost == 1] == 0), all(dat$n >= 0))
 
   ggplot(dat, aes(lost, n, colour = series)) +
-    geom_hline(yintercept = 1, colour = ink, linetype = "dashed", linewidth = .45) +
+    geom_hline(
+      yintercept = 1,
+      colour = ink,
+      linetype = "dotted",
+      linewidth = .45
+    ) +
     geom_line(linewidth = 1.1) +
-    geom_point(data = peaks, aes(lost, n, colour = series), size = 2.5, show.legend = FALSE) +
-    annotate("text", x = .06, y = 1.93, label = "Peak: onset of net N release",
-             family = font_family, colour = ink, hjust = 0, size = 10.5 / (72.27 / 25.4)) +
-    annotate("segment", x = .24, y = 1.87, xend = largest_peak$lost,
-             yend = largest_peak$n, colour = vermillion, linewidth = .45) +
-    annotate("text", x = .99, y = 1.045, label = "Initial N content",
-             family = font_family, colour = ink, hjust = 1, size = 10 / (72.27 / 25.4)) +
-    scale_colour_manual(values = c(blue, green, vermillion),
-                         labels = parse(text = paste0("R[L*','*0] == ", initial_cn))) +
+    geom_point(
+      data = peaks,
+      aes(lost, n, colour = series),
+      size = 2.5,
+      show.legend = FALSE
+    ) +
+    annotate(
+      "text",
+      x = .06,
+      y = 1.93,
+      label = "Peak: onset of net N release",
+      family = font_family,
+      colour = ink,
+      hjust = 0,
+      size = 10.5 / (72.27 / 25.4)
+    ) +
+    annotate(
+      "segment",
+      x = .24,
+      y = 1.87,
+      xend = largest_peak$lost,
+      yend = largest_peak$n,
+      colour = purple,
+      linewidth = .45
+    ) +
+    annotate(
+      "text",
+      x = .99,
+      y = 1.045,
+      label = "Initial N content",
+      family = font_family,
+      colour = ink,
+      hjust = 1,
+      size = 10 / (72.27 / 25.4)
+    ) +
+    scale_colour_manual(
+      values = c(blue, green, purple),
+      labels = parse(text = paste0("R[L*','*0] == ", initial_cn))
+    ) +
     scale_x_continuous(breaks = seq(0, 1, .2), expand = expansion(mult = 0)) +
     scale_y_continuous(breaks = seq(0, 2, .25), expand = expansion(mult = 0)) +
     coord_cartesian(xlim = c(0, 1), ylim = c(0, 2.02)) +
-    labs(x = expression("Fraction of initial litter C lost, " * 1 - C/C[0]),
-         y = expression("N remaining relative to initial litter N, " * N/N[0]),
-         colour = "Initial litter C:N\n(g C per g N)",
-         caption = paste("Illustrative fixed parameters: microbial C:N = 8; C-use efficiency = 0.4. No observations shown.",
-                         "Rising curves indicate net immobilisation; falling curves indicate net release.",
-                         "The horizontal axis tracks decomposition progress, not elapsed time.", sep = "\n")) +
+    # labs(
+    #   x = expression("Fraction of initial litter C lost, " * 1 - C / C[0]),
+    #   y = expression("N remaining relative to initial litter N, " * N / N[0]),
+    #   colour = "Initial litter C:N\n(g C per g N)",
+    #   caption = paste(
+    #     "Illustrative fixed parameters: microbial C:N = 8; C-use efficiency = 0.4. No observations shown.",
+    #     "Rising curves indicate net immobilisation; falling curves indicate net release.",
+    #     "The horizontal axis tracks decomposition progress, not elapsed time.",
+    #     sep = "\n"
+    #   )
+    # ) +
+    labs(
+      x = expression("Fraction of initial litter C lost, " * 1 - C / C[0]),
+      y = expression("N remaining relative to initial litter N, " * N / N[0]),
+      colour = "Initial litter C:N\n(g C per g N)",
+        sep = "\n"
+      ) +
     theme_nitrogen +
-    theme(legend.position = "inside", legend.position.inside = c(.99, .99),
-          legend.justification = c(1, 1),
-          plot.caption = element_text(margin = margin(t = 12)),
-          plot.margin = margin(12, 14, 12, 12))
+    theme(
+      legend.position = "inside",
+      legend.position.inside = c(.99, .99),
+      legend.justification = c(1, 1)
+      # plot.caption = element_text(margin = margin(t = 12)),
+      # plot.margin = margin(12, 14, 12, 12)
+    )
 }
 
 save_figure("ecosystem_n_cycle", 13.5, 9.2, function() print(ecosystem_cycle()))
-save_figure("mineralisation_stoichiometry", 12, 7.1, mineralisation_stoichiometry())
-save_figure("nutrient_release_curves", 8.9, 6.15, function() print(nutrient_release_curves()))
+save_figure("mineralisation_stoichiometry", 12*0.7, 7.1*0.7, mineralisation_stoichiometry())
+save_figure("nutrient_release_curves", 8.9*0.8, 6.15*0.8, function() print(nutrient_release_curves()))
 message("Wrote SVG, PNG, and PDF figures to ", out)
