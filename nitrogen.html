@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -48,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-55abac0465d10ec823624cc1da9df1de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-1b664e6692268865ac8c350bc2db6ed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,10 +99,41 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta name="twitter:title" content="11&nbsp; Nitrogen cycle – Land in the Earth System">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="images/global_n_flows.png">
+<meta name="twitter:image:alt" content="The global nitrogen cycle on land and in the ocean.">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -434,8 +488,39 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#earth-system-perspective" id="toc-earth-system-perspective" class="nav-link active" data-scroll-target="#earth-system-perspective"><span class="header-section-number">11.1</span> Earth system perspective</a>
+  <ul class="collapse">
+  <li><a href="#reservoirs" id="toc-reservoirs" class="nav-link" data-scroll-target="#reservoirs"><span class="header-section-number">11.1.1</span> Reservoirs</a></li>
+  <li><a href="#sec-nitrogen-global" id="toc-sec-nitrogen-global" class="nav-link" data-scroll-target="#sec-nitrogen-global"><span class="header-section-number">11.1.2</span> Global flows</a></li>
+  <li><a href="#sec-nitrogen-history" id="toc-sec-nitrogen-history" class="nav-link" data-scroll-target="#sec-nitrogen-history"><span class="header-section-number">11.1.3</span> Nitrogen cycle in Earth’s history</a></li>
+  </ul></li>
+  <li><a href="#sec-nitrogen-ecosystems" id="toc-sec-nitrogen-ecosystems" class="nav-link" data-scroll-target="#sec-nitrogen-ecosystems"><span class="header-section-number">11.2</span> N cycling in terrestrial ecosystems</a>
+  <ul class="collapse">
+  <li><a href="#sec-nitrogen-demand" id="toc-sec-nitrogen-demand" class="nav-link" data-scroll-target="#sec-nitrogen-demand"><span class="header-section-number">11.2.1</span> Nitrogen demand and tissue stoichiometry</a></li>
+  <li><a href="#sec-turnover-resorption" id="toc-sec-turnover-resorption" class="nav-link" data-scroll-target="#sec-turnover-resorption"><span class="header-section-number">11.2.2</span> Turnover and resorption</a></li>
+  <li><a href="#sec-nitrogen-mineralisation" id="toc-sec-nitrogen-mineralisation" class="nav-link" data-scroll-target="#sec-nitrogen-mineralisation"><span class="header-section-number">11.2.3</span> Mineralisation</a></li>
+  <li><a href="#sec-nitrogen-uptake" id="toc-sec-nitrogen-uptake" class="nav-link" data-scroll-target="#sec-nitrogen-uptake"><span class="header-section-number">11.2.4</span> Plant uptake</a></li>
+  <li><a href="#sec-nitrogen-sources" id="toc-sec-nitrogen-sources" class="nav-link" data-scroll-target="#sec-nitrogen-sources"><span class="header-section-number">11.2.5</span> Biological nitrogen fixation (BNF)</a></li>
+  <li><a href="#sec-nitrogen-deposition" id="toc-sec-nitrogen-deposition" class="nav-link" data-scroll-target="#sec-nitrogen-deposition"><span class="header-section-number">11.2.6</span> Atmospheric deposition</a></li>
+  <li><a href="#sec-nitrogen-transformations" id="toc-sec-nitrogen-transformations" class="nav-link" data-scroll-target="#sec-nitrogen-transformations"><span class="header-section-number">11.2.7</span> Soil inorganic N dynamics and N losses</a></li>
+  <li><a href="#sec-nitrogen-budget" id="toc-sec-nitrogen-budget" class="nav-link" data-scroll-target="#sec-nitrogen-budget"><span class="header-section-number">11.2.8</span> Ecosystem N balance and openness</a></li>
+  <li><a href="#soil-development-and-nitrogen" id="toc-soil-development-and-nitrogen" class="nav-link" data-scroll-target="#soil-development-and-nitrogen"><span class="header-section-number">11.2.9</span> Soil development and nitrogen</a></li>
+  </ul></li>
+  <li><a href="#sec-n-perturbation" id="toc-sec-n-perturbation" class="nav-link" data-scroll-target="#sec-n-perturbation"><span class="header-section-number">11.3</span> Anthropogenic perturbation</a>
+  <ul class="collapse">
+  <li><a href="#additional-n-fixation-and-nr-inputs" id="toc-additional-n-fixation-and-nr-inputs" class="nav-link" data-scroll-target="#additional-n-fixation-and-nr-inputs"><span class="header-section-number">11.3.1</span> Additional N fixation and N<sub>r</sub> inputs</a></li>
+  <li><a href="#sec-nitrogen-n2o" id="toc-sec-nitrogen-n2o" class="nav-link" data-scroll-target="#sec-nitrogen-n2o"><span class="header-section-number">11.3.2</span> N<sub>2</sub>O emissions</a></li>
+  <li><a href="#sec-npollution" id="toc-sec-npollution" class="nav-link" data-scroll-target="#sec-npollution"><span class="header-section-number">11.3.3</span> Pollution and the nitrogen cascade</a></li>
+  <li><a href="#nitrogen-transfers-through-trade" id="toc-nitrogen-transfers-through-trade" class="nav-link" data-scroll-target="#nitrogen-transfers-through-trade"><span class="header-section-number">11.3.4</span> Nitrogen transfers through trade</a></li>
+  </ul></li>
+  <li><a href="#sec-nitrogen-carbon" id="toc-sec-nitrogen-carbon" class="nav-link" data-scroll-target="#sec-nitrogen-carbon"><span class="header-section-number">11.4</span> C–N interactions and terrestrial biosphere models</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -460,9 +545,935 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>TBC</p>
+<p>Nitrogen (N) is needed for the synthesis of biomass and is thus essential for life and for sustaining the carbon cycle. N is abundant in the atmosphere, however it is present mostly as molecular nitrogen, N<sub>2</sub>, whereas organisms generally require <em>reactive nitrogen</em>, N<sub>r</sub>, to build biomass and sustain vital functions. Converting N<sub>2</sub> into these usable forms requires specialised biological or physical processes. Nitrogen can therefore be scarce for organisms despite them being surrounded by a vast atmospheric reservoir.</p>
+<p>Under natural conditions, new inputs of reactive N to terrestrial ecosystems are small compared with the amount of N used each year in terrestrial primary production. Most of this demand is met by recycling: plants recover N from senescing tissues and by renewed uptake of mineralised dead organic matter. Only a relatively small fraction of N enters the terrestrial cycling through biological fixation and deposition of reactive N species.</p>
+<p>Human activities have greatly increased new N<sub>r</sub> inputs into the terrestrial biosphere through industrial fixation, cultivation of N-fixing crops, and combustion of biomass. This perturbation has increased N pollution and emissions of the greenhouse gas N<sub>2</sub>O, while additional N<sub>r</sub> inputs have enabled the rapid growth in crop yields and may have contributed to the sustained C sink in the terrestrial biosphere <span class="citation" data-cites="devries09">(<a href="references.html#ref-devries09" role="doc-biblioref">Vries et al. 2009</a>)</span>. The chapter first introduces N species, reservoirs, transformations, and the (re-)cycling of N in terrestrial ecosystems. Then, an overview of global budgets and interactions with the C cycle is given.</p>
+<section id="earth-system-perspective" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="earth-system-perspective"><span class="header-section-number">11.1</span> Earth system perspective</h2>
+<section id="reservoirs" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="reservoirs"><span class="header-section-number">11.1.1</span> Reservoirs</h3>
+<p>About half of all N on Earth is present as N<sub>2</sub> gas in the atmosphere, while the other half is contained in the Earth’s mantle and crust. The cycling between these compartments is extremely slow at a turnover time of about 1 biollion years <span class="citation" data-cites="canfield10sci">(<a href="references.html#ref-canfield10sci" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010b</a>)</span>.</p>
+<div id="tbl-nitrogen-reservoirs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nitrogen-reservoirs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11.1: Selected Earth system nitrogen reservoirs. Estimates differ in date, method, and spatial coverage. The modelled mineral-soil pool is not a component measured within the soil inventory above. Ocean stocks exclude sediments.
+</figcaption>
+<div aria-describedby="tbl-nitrogen-reservoirs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Reservoir and form</th>
+<th style="text-align: right;">Stock (Tg N)</th>
+<th style="text-align: left;">Scope and source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Atmospheric N<sub>2</sub></td>
+<td style="text-align: right;"><span class="math inline">\(4\times10^9\)</span></td>
+<td style="text-align: left;">Global atmosphere <span class="citation" data-cites="johnsongoldblatt2015">(<a href="references.html#ref-johnsongoldblatt2015" role="doc-biblioref">Johnson and Goldblatt 2015</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ocean dissolved N<sub>2</sub></td>
+<td style="text-align: right;"><span class="math inline">\(2.4\times10^7\)</span></td>
+<td style="text-align: left;">Global ocean; approximate inventory <span class="citation" data-cites="johnsongoldblatt2015">(<a href="references.html#ref-johnsongoldblatt2015" role="doc-biblioref">Johnson and Goldblatt 2015</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ocean nitrate</td>
+<td style="text-align: right;"><span class="math inline">\(5.9\times10^5\)</span></td>
+<td style="text-align: left;">World Ocean Atlas inventory, 0–5500 m <span class="citation" data-cites="garcia24">(<a href="references.html#ref-garcia24" role="doc-biblioref">Garcia et al. 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ocean dissolved organic N</td>
+<td style="text-align: right;"><span class="math inline">\(7.7\times10^4\)</span></td>
+<td style="text-align: left;">Approximate inventory, uncertainty about ±30% <span class="citation" data-cites="gruber_marine_2008">(<a href="references.html#ref-gruber_marine_2008" role="doc-biblioref">Gruber 2008</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ocean particulate organic N</td>
+<td style="text-align: right;"><span class="math inline">\(4\times10^2\)</span></td>
+<td style="text-align: left;">Living and detrital particles; uncertainty about ±50% <span class="citation" data-cites="gruber_marine_2008">(<a href="references.html#ref-gruber_marine_2008" role="doc-biblioref">Gruber 2008</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Soil total N, predominantly organic</td>
+<td style="text-align: right;"><span class="math inline">\(1.4\times10^5\)</span></td>
+<td style="text-align: left;">Upper 1 m; global soil inventory <span class="citation" data-cites="batjes1996">(<a href="references.html#ref-batjes1996" role="doc-biblioref">Niels H. Batjes 1996</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Live terrestrial vegetation</td>
+<td style="text-align: right;"><span class="math inline">\(3.8\times10^3\)</span></td>
+<td style="text-align: left;">Approximate global stock <span class="citation" data-cites="schulze19 schlesingerbernhardt13">(<a href="references.html#ref-schulze19" role="doc-biblioref">Schulze et al. 2019</a>; <a href="references.html#ref-schlesingerbernhardt13" role="doc-biblioref">William H. Schlesinger and Emily S. Bernhardt 2013</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Soil ammonium + nitrate</td>
+<td style="text-align: right;"><span class="math inline">\(9.4\times10^2\)</span></td>
+<td style="text-align: left;">Model estimate for natural vegetation, soil depth 1.5 m <span class="citation" data-cites="xu-ri_terrestrial_2008">(<a href="references.html#ref-xu-ri_terrestrial_2008" role="doc-biblioref">Xu-Ri and Prentice 2008</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="atmosphere" class="level4" data-number="11.1.1.1">
+<h4 data-number="11.1.1.1" class="anchored" data-anchor-id="atmosphere"><span class="header-section-number">11.1.1.1</span> Atmosphere</h4>
+<p>About 78% of dry air by volume consists of N<sub>2</sub>. The atmospheric stock is about <span class="math inline">\(4\times10^{9}\)</span> Tg N. This is an enormous reservoir compared with the N in vegetation (3.8 Pg N) and soils (95-140 Pg N) <span class="citation" data-cites="schulze19 schlesingerbernhardt13">(<a href="references.html#ref-schulze19" role="doc-biblioref">Schulze et al. 2019</a>; <a href="references.html#ref-schlesingerbernhardt13" role="doc-biblioref">William H. Schlesinger and Emily S. Bernhardt 2013</a>)</span>. Comparing the atmospheric N stock with the rate of removal by terrestrial and oceanic N fixation (0.11 Pg N yr<sup>-1</sup> for terrestrial and 0.14 Pg N yr<sup>-1</sup> for oceanic N fixation, <span class="citation" data-cites="gruber2008">Gruber and Galloway (<a href="references.html#ref-gruber2008" role="doc-biblioref">2008</a>)</span>) yields a turnover rate of 16 mio. years.</p>
+<p>A set of further N-containing molecules are contained in the atmosphere (<a href="#tbl-nitrogen-species" class="quarto-xref">Table&nbsp;<span>11.2</span></a>), but at much lower concentrations. Yet, they have important roles as agents in atmospheric chemical transformations, including aerosol production and ozone depletion. In addition, N<sub>2</sub>O is a strong greenhouse gas (<a href="ghg.html" class="quarto-xref"><span>Chapter 12</span></a>). In view of their role in atmospheric chemical transformations, as well as biological processes (<a href="#sec-nitrogen-ecosystems" class="quarto-xref"><span>Section 11.2</span></a>), these species are referred to as <em>reactive nitrogen</em> (N<sub>r</sub>).</p>
+<p>The ultimate reason for the strong dominance of N present as N<sub>2</sub> vs N<sub>r</sub> is the strong triple bond in N<sub>2</sub>, which presents an energetic barrier to its conversion and implies a tendency of chemical reactions to convert N<sub>r</sub> back to N<sub>2</sub> in view of its lower chemical energetic state.</p>
+<!-- Over evolutionary time scale, the capacity for biological N~2~ fixation, that is the transformation of gaseous N~2~ into reactive forms, arose in only a restricted set of bacteria and archaea. Most organisms obtain the products of fixation, directly or after further transformations, rather than breaking this bond themselves. -->
+<div id="tbl-nitrogen-species" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nitrogen-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11.2: Principal nitrogen species and commonly used atmospheric groupings. NO<sub>x</sub> comprises NO + NO<sub>2</sub>; NO<sub>y</sub> includes NO<sub>x</sub> and its oxidised reaction products; NH<sub>x</sub> comprises NH<sub>3</sub> + NH<sub>4</sub><sup>+</sup> <span class="citation" data-cites="fowler_effects_2015">(<a href="references.html#ref-fowler_effects_2015" role="doc-biblioref">D. Fowler et al. 2015</a>)</span>.
+</figcaption>
+<div aria-describedby="tbl-nitrogen-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Formula</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Atmospheric grouping or role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N<sub>2</sub></td>
+<td style="text-align: left;">Molecular nitrogen, or dinitrogen</td>
+<td style="text-align: left;">Outside N<sub>r</sub></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NH<sub>3</sub></td>
+<td style="text-align: left;">Ammonia</td>
+<td style="text-align: left;">NH<sub>x</sub>; gas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NH<sub>4</sub><sup>+</sup></td>
+<td style="text-align: left;">Ammonium</td>
+<td style="text-align: left;">NH<sub>x</sub>; dissolved or particle-bound</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">Nitric oxide</td>
+<td style="text-align: left;">NO<sub>x</sub> and NO<sub>y</sub></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NO<sub>2</sub></td>
+<td style="text-align: left;">Nitrogen dioxide</td>
+<td style="text-align: left;">NO<sub>x</sub> and NO<sub>y</sub></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HNO<sub>3</sub></td>
+<td style="text-align: left;">Nitric acid</td>
+<td style="text-align: left;">NO<sub>y</sub></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NO<sub>3</sub><sup>-</sup></td>
+<td style="text-align: left;">Nitrate</td>
+<td style="text-align: left;">NO<sub>y</sub> when in atmospheric particles or droplets</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NO<sub>2</sub><sup>-</sup></td>
+<td style="text-align: left;">Nitrite</td>
+<td style="text-align: left;">Important aqueous/soil intermediate; distinct from NO<sub>2</sub> gas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N<sub>2</sub>O</td>
+<td style="text-align: left;">Nitrous oxide</td>
+<td style="text-align: left;">Treated separately from NO<sub>y</sub></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ocean" class="level4" data-number="11.1.1.2">
+<h4 data-number="11.1.1.2" class="anchored" data-anchor-id="ocean"><span class="header-section-number">11.1.1.2</span> Ocean</h4>
+<p>The ocean contains dissolved N<sub>2</sub>, dissolved inorganic reactive N, dissolved organic N, and N in organisms and sinking particles. Molecular N<sub>2</sub>, around 24,000 Pg N <span class="citation" data-cites="johnsongoldblatt2015">(<a href="references.html#ref-johnsongoldblatt2015" role="doc-biblioref">Johnson and Goldblatt 2015</a>)</span> is the dominant oceanic N species by mass. Nitrate is a major reservoir of biologically available N below the sunlit surface (around 590 Pg N <span class="citation" data-cites="garcia24">(<a href="references.html#ref-garcia24" role="doc-biblioref">Garcia et al. 2024</a>)</span>). Other N species in the ocean make up a much smaller portion of the total inventory.</p>
+</section>
+<section id="soils-and-vegetation" class="level4" data-number="11.1.1.3">
+<h4 data-number="11.1.1.3" class="anchored" data-anchor-id="soils-and-vegetation"><span class="header-section-number">11.1.1.3</span> Soils and vegetation</h4>
+<p>Most N in the terrestrial biosphere is organic N in dead and living material, with soil organic matter dominating the stock (95-140 Pg N), compared to around 3.8 Pg N in live vegetation <span class="citation" data-cites="schulze19 schlesingerbernhardt13 batjes16geoderma">(<a href="references.html#ref-schulze19" role="doc-biblioref">Schulze et al. 2019</a>; <a href="references.html#ref-schlesingerbernhardt13" role="doc-biblioref">William H. Schlesinger and Emily S. Bernhardt 2013</a>; <a href="references.html#ref-batjes16geoderma" role="doc-biblioref">N. H. Batjes 2016</a>)</span>. Plants use N in nucleic acids and proteins, including enzymes and structural proteins. Cellulose and lignin themselves contain no N. Soil microorganisms and animals also contain N, but much soil organic N is in microbial residues and other non-living material. These stocks must be distinguished from the small pool of inorganic N species contained in the soil, which rapidly turn over and are the principal supply for plant uptake (<a href="#sec-nitrogen-uptake" class="quarto-xref"><span>Section 11.2.4</span></a>).</p>
+<p>A model-based quantitative example is the global natural-vegetation simulation of <span class="citation" data-cites="xu-ri_terrestrial_2008">Xu-Ri and Prentice (<a href="references.html#ref-xu-ri_terrestrial_2008" role="doc-biblioref">2008</a>)</span>. This model simulation produced 5.3 Pg N in vegetation, 4.6 Pg N in litter, 56.8 Pg N in soil organic matter down to 1.5 m, and 0.94 Pg N in inorganic soil pools – the sum of ammonium and nitrate. This illustrates the dominance of organic N over inorganic N in the soil.</p>
+</section>
+<section id="lithosphere-and-the-deeper-earth" class="level4" data-number="11.1.1.4">
+<h4 data-number="11.1.1.4" class="anchored" data-anchor-id="lithosphere-and-the-deeper-earth"><span class="header-section-number">11.1.1.4</span> Lithosphere and the deeper Earth</h4>
+<p>Nitrogen also resides in sediments and rocks, as organic N and as ammonium incorporated in minerals. Burial transfers biologically fixed N into sediments. Metamorphism, weathering, subduction, and volcanic degassing redistribute N over geological time. The mantle and core are additional deep-Earth reservoirs, beyond the lithosphere. Their inventories are uncertain, but estimates indicate that the solid Earth contains similar <span class="citation" data-cites="canfield2010">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010a</a>)</span>, or about 7 times more N than the atmosphere <span class="citation" data-cites="johnsongoldblatt2015">(<a href="references.html#ref-johnsongoldblatt2015" role="doc-biblioref">Johnson and Goldblatt 2015</a>)</span>. Most of this N is inaccessible on ecological timescales. The smaller flux released by weathering of N-bearing rocks can nevertheless matter locally <span class="citation" data-cites="houlton18sci">(<a href="references.html#ref-houlton18sci" role="doc-biblioref">Houlton, Morford, and Dahlgren 2018b</a>)</span>.</p>
+</section>
+</section>
+<section id="sec-nitrogen-global" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="sec-nitrogen-global"><span class="header-section-number">11.1.2</span> Global flows</h3>
+<p>Biological fixation dominates natural production of N<sub>r</sub> on land and in the ocean. Lightning supplies a smaller flux directly to the atmosphere. Denitrification and related microbial pathways return fixed N to N<sub>2</sub>, while nitrification and denitrification also supply atmospheric N<sub>2</sub>O – a strong greenhouse gas (<a href="ghg.html" class="quarto-xref"><span>Chapter 12</span></a>). Rivers connect terrestrial and marine reservoirs, and sediment burial removes N from active ocean cycling. <a href="#fig-nitrogen-global" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> summarises magnitudes, including the anthropogenic perturbation at present-day, which are further introduced in <a href="#sec-n-perturbation" class="quarto-xref"><span>Section 11.3</span></a>. Terrestrial mechanisms are described in <a href="#sec-nitrogen-ecosystems" class="quarto-xref"><span>Section 11.2</span></a>.</p>
+<div id="fig-nitrogen-global" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The global nitrogen cycle on land and in the ocean.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-global-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/global_n_flows.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;11.1: The global nitrogen cycle on land and in the ocean. Major processes that transform molecular nitrogen into reactive nitrogen, and back, are shown. Also shown is the tight coupling between the nitrogen cycles on land and in the ocean with those of carbon and phosphorus. Blue fluxes denote ‘natural’ (unperturbed) fluxes; orange fluxes denote anthropogenic perturbation. The numbers (in Tg N per year) are values for the 1990s [@galloway04]. Few of these flux estimates are known to better than ±20%, and many have uncertainties of ±50% and larger. Figure from @gruber2008."><img src="images/global_n_flows.png" class="img-fluid figure-img" style="width:100.0%" alt="The global nitrogen cycle on land and in the ocean."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-global-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: The global nitrogen cycle on land and in the ocean. Major processes that transform molecular nitrogen into reactive nitrogen, and back, are shown. Also shown is the tight coupling between the nitrogen cycles on land and in the ocean with those of carbon and phosphorus. Blue fluxes denote ‘natural’ (unperturbed) fluxes; orange fluxes denote anthropogenic perturbation. The numbers (in Tg N per year) are values for the 1990s <span class="citation" data-cites="galloway04">(<a href="references.html#ref-galloway04" role="doc-biblioref">Galloway et al. 2004</a>)</span>. Few of these flux estimates are known to better than ±20%, and many have uncertainties of ±50% and larger. Figure from <span class="citation" data-cites="gruber2008">Gruber and Galloway (<a href="references.html#ref-gruber2008" role="doc-biblioref">2008</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<!-- 
+| Flow | Tg N yr^-1^ | Reference period and scope |
+|:--|--:|:--|
+| Lightning → atmospheric NO~x~ | 5.4 | 1860 reconstruction [@galloway04] |
+| Natural terrestrial biological N fixation | 120 | 1860 reconstruction [@galloway04]; alternatives discussed below |
+| Marine biological N fixation | 131 (94–175) | Preindustrial inverse estimate; median and 5th–95th percentiles [@eugster2012] |
+| Continental return to N~2~ | ≤98 | 1860 budget residual; upper bound if no N accumulates on land [@galloway04] |
+| Marine N removal by denitrification and anammox | ≈145 | Preindustrial inverse estimate: 52 in the water column + 93 in sediments [@eugster2012] |
+| Terrestrial N~2~O emission | 8.1 | 1860 reconstruction [@galloway04] |
+| Marine N~2~O emission | 3.9 | 1860 reconstruction [@galloway04] |
+| Atmospheric inorganic N deposition to land | 17.4 | 1860, including local ammonia redeposition [@galloway04] |
+| Atmospheric inorganic N deposition to ocean | 14.2 | Same reconstruction [@galloway04] |
+| River N export to coastal waters | 27 | 1860 reconstruction [@galloway04] |
+| Organic N burial in marine sediments | 14 | Prescribed sink in a preindustrial budget [@eugster2012] |
+| Chemical weathering of rock N | 11–18 | Modern global estimate, not an 1860 reconstruction [@houlton2018] |
+
+: Selected global N flows. The estimates illustrate scale and are not a single closed budget. The 1860 reference already includes human influence. N~2~O fluxes combine pathways rather than resolving nitrification and denitrification separately. Deposition, rivers, and weathering redistribute previously fixed N and must not be added to fixation as new global N~r~ production. {#tbl-nitrogen-global-flows} -->
+<p>Natural fixation and N<sub>2</sub> losses are among the least certain terms. Estimates of terrestrial fixation range from 195 Tg N yr<sup>-1</sup> (100–290) for potential natural vegetation <span class="citation" data-cites="cleveland_global_1999">(<a href="references.html#ref-cleveland_global_1999" role="doc-biblioref">C. C. Cleveland et al. 1999</a>)</span>, through 58 (40–100) for preindustrial conditions <span class="citation" data-cites="vitousek_biological_2013">(<a href="references.html#ref-vitousek_biological_2013" role="doc-biblioref">Peter M. Vitousek et al. 2013</a>)</span>, to a median of 88 (52–130) from field-data upscaling <span class="citation" data-cites="daviesbarnard_global_2020">(<a href="references.html#ref-daviesbarnard_global_2020" role="doc-biblioref">Davies-Barnard and Friedlingstein 2020</a>)</span>. Losses of N<sub>r</sub> from the terrestrial biosphere are on a similar magnitude as inputs, reflecting the relatively small storage and fast turnover time of reactive N in terrestrial ecosystems. Yet, a small imbalance may rapidly lead to a large accumulation (or depletion). However, these fluxes are difficult to quantify and global N budget remains poorly constrained. For comparison with the continental upper bound above, <span class="citation" data-cites="galloway04">Galloway et al. (<a href="references.html#ref-galloway04" role="doc-biblioref">2004</a>)</span> estimated early-1990s denitrification at about 67 Tg N yr<sup>-1</sup> in soils and 48 in the stream–river system. Their marine losses were also substantially higher than the later inverse estimate, illustrating the difficulty of closing global budgets.</p>
+<p>Atmospheric transport and deposition redistributes N from lightning, soil emissions, and biomass burning. However, it should be noted that atmospheric deposition does not add newly fixed N, but rather redistributes N that was previously lost through gaseous pathways from land and ocean, or from biomass burning, which primarily mobilises N already present in biomass. Weathering likewise releases stored N, much of it fixed by ancient organisms and buried in sedimentary rocks. <span class="citation" data-cites="houlton2018">Houlton, Morford, and Dahlgren (<a href="references.html#ref-houlton2018" role="doc-biblioref">2018a</a>)</span> distinguished chemical release of 11–18 Tg N yr<sup>-1</sup> from total mobilisation of 19–31 Tg N yr<sup>-1</sup> including physical erosion. Eroded rock N is not necessarily immediately available to organisms.</p>
+</section>
+<section id="sec-nitrogen-history" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="sec-nitrogen-history"><span class="header-section-number">11.1.3</span> Nitrogen cycle in Earth’s history</h3>
+<p>Biological N<sub>2</sub> fixation established at least 3.2 billion years ago and supplied reactive N for biomass production beyond abiotic inputs <span class="citation" data-cites="stueken2015fixation">(<a href="references.html#ref-stueken2015fixation" role="doc-biblioref">Stüeken et al. 2015</a>)</span>. In an initially oxygen-poor atmosphere and ocean, much N cycling involved reduced forms. Oxygenic photosynthesis and the rise of atmospheric oxygen, especially around the Great Oxidation Event, approximately 2.4 billion years ago, expanded nitrification and nitrate-based metabolisms. These developments connected fixation to additional pathways of N loss <span class="citation" data-cites="canfield2010">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010a</a>)</span>.</p>
+<p>Early terrestrial microbial mats probably combined fixation, photosynthesis, and nutrient recycling, supporting organic matter accumulation on land <span class="citation" data-cites="lenton2017matworld">(<a href="references.html#ref-lenton2017matworld" role="doc-biblioref">Lenton and Daines 2017</a>)</span>, but at a much reduced rate compared to the “modern” terrestrial C cycle that established with the advent of land plants around 500 mio. years ago. Over geological time, organic burial and subduction transfer N into the solid Earth, while weathering, metamorphism, and degassing return some of it. The modern N cycle is thus a product of coupled biological and geological evolution, with rapid recycling of N through the interplay of plants and microbes (<a href="#sec-nitrogen-ecosystems" class="quarto-xref"><span>Section 11.2</span></a>), embedded in much slower exchanges among the atmosphere, ocean, crust, and mantle <span class="citation" data-cites="canfield2010 johnsongoldblatt2015">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010a</a>; <a href="references.html#ref-johnsongoldblatt2015" role="doc-biblioref">Johnson and Goldblatt 2015</a>)</span>.</p>
+</section>
+</section>
+<section id="sec-nitrogen-ecosystems" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="sec-nitrogen-ecosystems"><span class="header-section-number">11.2</span> N cycling in terrestrial ecosystems</h2>
+<p>Within terrestrial ecosystems, N moves with biomass production, turnover, litter production, and decomposition. Unlike the large return of assimilated C to the atmosphere through respiration, most of the N required for terrestrial primary production is recycled. Only a smaller fraction is lost through gaseous and hydrological pathways. Unless an ecosystem is accumulating or depleting N, these losses balance external inputs, principally through fixation and deposition.</p>
+<p>Two ecosystem N recycling levles can be distinguished (<a href="#fig-nitrogen-ecosystem" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>). Plants recover N from senescing tissues, store it, and reallocate it to new growth. At the ecosystem scale, decomposers release N from organic matter, and plants re-acquire part of the inorganic N remaining after microbial immobilisation. This second route is associated with <em>net mineralisation</em> (<a href="#sec-nitrogen-mineralisation" class="quarto-xref"><span>Section 11.2.3</span></a>).</p>
+<p>In this section, all components illustrated in <a href="#fig-nitrogen-ecosystem" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> are briefly explained.</p>
+<div id="fig-nitrogen-ecosystem" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Nitrogen pools and transfers in a terrestrial ecosystem.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ncycle_state0_col_180305.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;11.2: Nitrogen pools and transfers in a terrestrial ecosystem. Original schematic based on Fig. 1 of @stocker_terrestrial_2016. Resorption conserves N within the plant. Uptake, litterfall, mineralisation, and immobilisation redistribute it within the ecosystem. Fixation and deposition supply N, while gaseous emissions and leaching remove it. Organic N transfer includes small organic compounds and mycorrhizal mobilisation. Fire and harvest are additional losses not shown."><img src="images/ncycle_state0_col_180305.png" class="img-fluid figure-img" style="width:100.0%" alt="Nitrogen pools and transfers in a terrestrial ecosystem."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Nitrogen pools and transfers in a terrestrial ecosystem. Original schematic based on Fig. 1 of <span class="citation" data-cites="stocker_terrestrial_2016">B. D. Stocker et al. (<a href="references.html#ref-stocker_terrestrial_2016" role="doc-biblioref">2016</a>)</span>. Resorption conserves N within the plant. Uptake, litterfall, mineralisation, and immobilisation redistribute it within the ecosystem. Fixation and deposition supply N, while gaseous emissions and leaching remove it. Organic N transfer includes small organic compounds and mycorrhizal mobilisation. Fire and harvest are additional losses not shown.
+</figcaption>
+</figure>
+</div>
+<section id="sec-nitrogen-demand" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="sec-nitrogen-demand"><span class="header-section-number">11.2.1</span> Nitrogen demand and tissue stoichiometry</h3>
+<p>Biomass production requires N in proportion to tissue composition. Here C:N denotes a mass ratio, in g C per g N. The plant N uptake (<span class="math inline">\(U_N\)</span>), that is the acquisition from outside the plant, can be estimated from the sum biomass production in different plant compartments (<span class="math inline">\(P_i\)</span>) with C:N ratio <span class="math inline">\(R_i\)</span>:</p>
+<p><span id="eq-nitrogen-demand"><span class="math display">\[
+U_N = \sum_i \frac{P_i}{R_i} - F_{\mathrm{resorb}},
+\tag{11.1}\]</span></span></p>
+<p>assuming negligible net change in plant-internal N stores. <span class="math inline">\(F_{\mathrm{resorb}}\)</span> is N recovered (<em>resorbed</em>) from senescing tissues (see <a href="#sec-turnover-resorption" class="quarto-xref"><span>Section 11.2.2</span></a>). With production in g C m<sup>-2</sup> yr<sup>-1</sup>, <span class="math inline">\(U_N\)</span> is in g N m<sup>-2</sup> yr<sup>-1</sup> and includes soil uptake and supply from biological N fixation. At fixed total production, allocating more C to N-rich tissues (e.g.&nbsp;foliage) requires more N than allocating it to N-poor tissues (e.g.&nbsp;wood). Globally, annual plant N uptake has been estimated at about 950 Tg N yr<sup>-1</sup> <span class="citation" data-cites="peng2023">(<a href="references.html#ref-peng2023" role="doc-biblioref">Peng et al. 2023</a>)</span>, far above new natural inputs because the same N is repeatedly used.</p>
+<p><a href="#tbl-nitrogen-cn" class="quarto-xref">Table&nbsp;<span>11.3</span></a> and <a href="#fig-nitrogen-cn-distributions" class="quarto-xref">Figure&nbsp;<span>11.3</span></a> show systematic differences among compartments alongside substantial variation within them. Wood and coarse roots contain less N per unit C than foliage and fine roots. Microbial biomass has lower C:N than most plant substrates, creating a demand for additional N during decomposition (<a href="#sec-nitrogen-mineralisation" class="quarto-xref"><span>Section 11.2.3</span></a>).</p>
+<!-- BEGIN generated C:N table: analysis/plot_nitrogen_cn.R -->
+<div id="tbl-nitrogen-cn" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nitrogen-cn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11.3: C:N by mass (g C per g N), calculated from the cited data. Intervals are empirical percentiles, derived from the data. <span class="math inline">\(n\)</span> counts available records. SOM denotes soil organic matter; OC denotes organic carbon. Selection and conversion details are given below.
+</figcaption>
+<div aria-describedby="tbl-nitrogen-cn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Compartment</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: left;">25th-75th percentile</th>
+<th style="text-align: left;">5th-95th percentile</th>
+<th style="text-align: right;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Green leaves</td>
+<td style="text-align: right;">24.3</td>
+<td style="text-align: left;">19.5–32.0</td>
+<td style="text-align: left;">14.5–46.7</td>
+<td style="text-align: right;">171</td>
+<td style="text-align: left;"><span class="citation" data-cites="vergutz2012data">(<a href="references.html#ref-vergutz2012data" role="doc-biblioref">Vergutz et al. 2012a</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Senesced leaves</td>
+<td style="text-align: right;">44.6</td>
+<td style="text-align: left;">34.7–63.2</td>
+<td style="text-align: left;">25.0–96.8</td>
+<td style="text-align: right;">171</td>
+<td style="text-align: left;"><span class="citation" data-cites="vergutz2012data">(<a href="references.html#ref-vergutz2012data" role="doc-biblioref">Vergutz et al. 2012a</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fine roots</td>
+<td style="text-align: right;">40.5</td>
+<td style="text-align: left;">28.7–56.1</td>
+<td style="text-align: left;">19.8–91.0</td>
+<td style="text-align: right;">2,976</td>
+<td style="text-align: left;"><span class="citation" data-cites="nikitin2026fred4">(<a href="references.html#ref-nikitin2026fred4" role="doc-biblioref">Nikitin et al. 2026</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Coarse roots</td>
+<td style="text-align: right;">93.8</td>
+<td style="text-align: left;">61.8–134.5</td>
+<td style="text-align: left;">29.1–225.2</td>
+<td style="text-align: right;">494</td>
+<td style="text-align: left;"><span class="citation" data-cites="nikitin2026fred4">(<a href="references.html#ref-nikitin2026fred4" role="doc-biblioref">Nikitin et al. 2026</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wood</td>
+<td style="text-align: right;">201.4</td>
+<td style="text-align: left;">130.5–307.7</td>
+<td style="text-align: left;">71.1–495.4</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: left;"><span class="citation" data-cites="wijas2024data wijas2025">(<a href="references.html#ref-wijas2024data" role="doc-biblioref">Wijas et al. 2024</a>, <a href="references.html#ref-wijas2025" role="doc-biblioref">2025</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Leaf litter</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: left;">20.3–58.6</td>
+<td style="text-align: left;">14.5–97.5</td>
+<td style="text-align: right;">381</td>
+<td style="text-align: left;"><span class="citation" data-cites="harmon2016lidet">(<a href="references.html#ref-harmon2016lidet" role="doc-biblioref">Harmon 2016</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fine-root litter</td>
+<td style="text-align: right;">41.7</td>
+<td style="text-align: left;">33.3–53.6</td>
+<td style="text-align: left;">24.6–66.8</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: left;"><span class="citation" data-cites="harmon2016lidet">(<a href="references.html#ref-harmon2016lidet" role="doc-biblioref">Harmon 2016</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bulk SOM (0–30 cm)</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: left;">10.0–17.2</td>
+<td style="text-align: left;">6.8–36.7</td>
+<td style="text-align: right;">78,408</td>
+<td style="text-align: left;"><span class="citation" data-cites="calisto2023wosis batjes2024wosis">(<a href="references.html#ref-calisto2023wosis" role="doc-biblioref">Calisto, de Sousa, and Batjes 2023</a>; <a href="references.html#ref-batjes2024wosis" role="doc-biblioref">Niels H. Batjes, Calisto, and de Sousa 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Microbial biomass</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: left;">5.1–8.6</td>
+<td style="text-align: left;">2.3–13.5</td>
+<td style="text-align: right;">1,225</td>
+<td style="text-align: left;"><span class="citation" data-cites="xu2014microbialdata">(<a href="references.html#ref-xu2014microbialdata" role="doc-biblioref">X. Xu, Thornton, and Post 2014</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fungi</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: left;">9.5–14.5</td>
+<td style="text-align: left;">5.9–37.2</td>
+<td style="text-align: right;">252</td>
+<td style="text-align: left;"><span class="citation" data-cites="zhangelser2017">(<a href="references.html#ref-zhangelser2017" role="doc-biblioref">Zhang and Elser 2017</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<!-- END generated C:N table -->
+<div id="fig-nitrogen-cn-distributions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Horizontal violin plots comparing C:N distributions across ten plant, litter, soil, and microbial compartments. Wood has the highest median ratio, while microbial biomass has the lowest.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-cn-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/cn_distributions.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;11.3: Distributions of mass C:N for the observations in Table&nbsp;tbl-nitrogen-cn. White points mark medians, thick bars the 25th–75th percentiles, and thin bars the 5th–95th percentiles. Violin widths show density in log C:N space, scaled to the same maximum width for each compartment; they do not represent sample size. All retained positive ratios enter the distributions, including extreme archive values that warrant caution. Sources, sampling units, and qualifications are given in the table and accompanying text."><img src="images/nitrogen/cn_distributions.svg" class="img-fluid figure-img" style="width:100.0%" alt="Horizontal violin plots comparing C:N distributions across ten plant, litter, soil, and microbial compartments. Wood has the highest median ratio, while microbial biomass has the lowest."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-cn-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: Distributions of mass C:N for the observations in <a href="#tbl-nitrogen-cn" class="quarto-xref">Table&nbsp;<span>11.3</span></a>. White points mark medians, thick bars the 25th–75th percentiles, and thin bars the 5th–95th percentiles. Violin widths show density in log C:N space, scaled to the same maximum width for each compartment; they do not represent sample size. All retained positive ratios enter the distributions, including extreme archive values that warrant caution. Sources, sampling units, and qualifications are given in the table and accompanying text.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Data selection and comparability">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Data selection and comparability
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The leaf subset comprises 171 records with measured C and N in both green and senesced leaves, from 13 studies. FRED 4 roots were explicitly classified as living fine or coarse roots; mixed classes, flagged duplicates, and identified non-control treatments were excluded. Ratios use paired concentrations where available, otherwise reported mass C:N.</p>
+<p>Wood samples represent two stem sizes from 22 species in one temperate forest near Sydney <span class="citation" data-cites="wijas2025">(<a href="references.html#ref-wijas2025" role="doc-biblioref">Wijas et al. 2025</a>)</span>. LIDET follows identified leaf and fine-root litter through up to nine years of decomposition. WoSIS pairs organic C and total N in horizons wholly within 0–30 cm, including organic surface horizons: 78,408 horizons from 53,352 profiles in 154 countries. This approximates SOM C:N without isolating organic N or SOM fractions.</p>
+<p>Microbial and fungal molar ratios were converted to mass ratios using <span class="math inline">\(12/14\)</span> <span class="citation" data-cites="xu2013microbial zhangelser2017">(<a href="references.html#ref-xu2013microbial" role="doc-biblioref">X. Xu, Thornton, and Post 2013</a>; <a href="references.html#ref-zhangelser2017" role="doc-biblioref">Zhang and Elser 2017</a>)</span>. Fungal values are species means, often based on fruiting bodies; some assume 44% C where C measurements were unavailable. They do not specifically describe soil mycelium. Positive ratios were retained, including unusual archive values that may reflect errors or ecological variation. Reproduction scripts and full selection notes are in <code>analysis/prepare_nitrogen_cn.R</code>, <code>analysis/plot_nitrogen_cn.R</code>, and <code>data/nitrogen_cn/</code>.</p>
+</div>
+</div>
+</div>
+<p>Additional distinctions matter within the soil. Bacterial biomass commonly has mass C:N around 4–6 <span class="citation" data-cites="stricklandrousk2010">(<a href="references.html#ref-stricklandrousk2010" role="doc-biblioref">Strickland and Rousk 2010</a>)</span>. Particulate organic matter retains more plant-residue characteristics, whereas mineral-associated organic matter contains more microbial products. Literature ranges of approximately 10–40 and 8–13, respectively, illustrate this contrast <span class="citation" data-cites="lavallee2020">(<a href="references.html#ref-lavallee2020" role="doc-biblioref">Lavallee, Soong, and Cotrufo 2020</a>)</span>.</p>
+<p>Leaf N supports metabolic, structural, and storage functions. The amount of N invested in metabolic function is primarily in N-rich Rubisco, but also in the machinery required for electron transport and light harvesting <span class="citation" data-cites="xu_toward_2012">(<a href="references.html#ref-xu_toward_2012" role="doc-biblioref">C. Xu et al. 2012</a>)</span>. The amount of N invested in Rubisco is directly linked to maximum carboxylation capacity, <span class="math inline">\(V_{\mathrm{cmax}}\)</span>, at a given temperature and activation state (<a href="gpp.html" class="quarto-xref"><span>Chapter 4</span></a>).</p>
+</section>
+<section id="sec-turnover-resorption" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="sec-turnover-resorption"><span class="header-section-number">11.2.2</span> Turnover and resorption</h3>
+<p>Leaf and root turnover, branch shedding, and plant mortality transfer N to litter. Before leaf abscission, plants degrade proteins and retranslocate N to growing tissues or stores. <em>Resorption efficiency</em>, the fraction of initial leaf N recovered, averages about 62% globally after accounting for mass loss during senescence <span class="citation" data-cites="vergutz2012">(<a href="references.html#ref-vergutz2012" role="doc-biblioref">Vergutz et al. 2012b</a>)</span>. Resorption remains incomplete, and premature leaf loss through drought, frost, or herbivory can interrupt it. Whole-plant mortality bypasses much of this controlled recycling.</p>
+<p>For a leaf cohort, with resorbed N fraction <span class="math inline">\(r_N\)</span> and fraction <span class="math inline">\(f_C\)</span> of initial leaf C retained in litter,</p>
+<p><span id="eq-nitrogen-litter-cn"><span class="math display">\[
+R_{\mathrm{litter}} = R_{\mathrm{green}}\frac{f_C}{1-r_N}.
+\tag{11.2}\]</span></span></p>
+<p>For example, green-leaf C:N = 25, <span class="math inline">\(r_N=0.60\)</span>, and <span class="math inline">\(f_C=0.80\)</span> give litter C:N = 50. Resorption conserves plant N but leaves N-poorer substrates for decomposers. Long leaf lifespan also conserves N by reducing annual replacement of a standing canopy, although its benefits depend on leaf construction costs and C returns.</p>
+</section>
+<section id="sec-nitrogen-mineralisation" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="sec-nitrogen-mineralisation"><span class="header-section-number">11.2.3</span> Mineralisation</h3>
+<p>Decomposing organisms (microbes and fungi) obtain energy and nutrients from organic matter. <em>Gross mineralisation</em> releases inorganic N from organic compounds and depends on the rate at which organic matter decomposes. <em>Gross immobilisation</em> incorporates inorganic N into microbial biomass during their growth and inversely scales with their C:N stoichiometry. Microbial growth rates depend on their carbon use efficiency. The difference between gross mineralisation and immobilisation is the <em>net mineralisation</em>. It determines the rate at which N<sub>r</sub> becomes available from the decomposition of organic matter.</p>
+<p>Fresh litter is relatively N-poor and generally has a much higher C:N ratio than microbial biomass (<a href="#tbl-nitrogen-cn" class="quarto-xref">Table&nbsp;<span>11.3</span></a>). Hence, N tends to be immobilised upon fresh litter decomposition and associated microbes tend to have a low carbon use efficiency <span class="citation" data-cites="manzoni2008">(<a href="references.html#ref-manzoni2008" role="doc-biblioref">Manzoni et al. 2008</a>)</span>. Mineralisation only yields a net N supply once organic matter is at an advanced state of decay, typically containing microbial necromass, and when its C:N ratio becomes sufficiently low. Microbial turnover and SOM decomposition release previously immobilised N. A litter pool can therefore immobilise N while the combined litter–soil system supplies plant uptake <span class="citation" data-cites="stocker_cn-model_2024">(<a href="references.html#ref-stocker_cn-model_2024" role="doc-biblioref">B. D. Stocker and Prentice 2024</a>)</span>. These relations are represented by the N mineralisation model described below and illustrated by <a href="#fig-nitrogen-mineralisation" class="quarto-xref">Figure&nbsp;<span>11.4</span></a> and <a href="#fig-nitrogen-release" class="quarto-xref">Figure&nbsp;<span>11.5</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>N mineralisation model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A stoichiometric balance explains whether decomposition supplies or consumes mineral N. Let <span class="math inline">\(D\)</span> be decomposed litter C per unit area and time, <span class="math inline">\(R_L\)</span> litter C:N, <span class="math inline">\(R_B\)</span> decomposer C:N, and <span class="math inline">\(\varepsilon\)</span> microbial carbon-use efficiency. Decomposition supplies <span class="math inline">\(D/R_L\)</span> N, while producing <span class="math inline">\(\varepsilon D\)</span> microbial C requires <span class="math inline">\(\varepsilon D/R_B\)</span> N. Net release is</p>
+<p><span id="eq-nitrogen-mineralisation"><span class="math display">\[
+M_N = D\left(\frac{1}{R_L}-\frac{\varepsilon}{R_B}\right).
+\tag{11.3}\]</span></span></p>
+<p>Positive <span class="math inline">\(M_N\)</span> denotes net mineralisation and negative <span class="math inline">\(M_N\)</span> net immobilisation. The transition occurs at</p>
+<p><span id="eq-nitrogen-critical-cn"><span class="math display">\[
+R_{L,\mathrm{crit}}=\frac{R_B}{\varepsilon}.
+\tag{11.4}\]</span></span></p>
+<p>With <span class="math inline">\(R_B=8\)</span> and <span class="math inline">\(\varepsilon=0.4\)</span>, the threshold is C:N = 20. Decomposing 100 g C of litter with C:N = 50 supplies 2 g N, but producing 40 g microbial C requires 5 g N. The remaining 3 g N must come from outside that litter pool. If unavailable, growth, efficiency, or substrate use must adjust.</p>
+<div id="fig-nitrogen-mineralisation" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curves of net nitrogen release against litter C:N, crossing from positive mineralisation to negative immobilisation at efficiency-dependent thresholds.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-mineralisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/mineralisation_stoichiometry.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;11.4: Stoichiometric controls on net N mineralisation. Illustrative calculations of Equation&nbsp;eq-nitrogen-mineralisation for a decomposer C:N ratio of 8 and contrasting carbon-use efficiencies. The sign changes where litter C:N equals decomposer C:N divided by efficiency. The conceptual accounting follows Fig. 4 of @stocker_cn-model_2024 and @manzoni2008."><img src="images/nitrogen/mineralisation_stoichiometry.svg" class="img-fluid figure-img" style="width:80.0%" alt="Curves of net nitrogen release against litter C:N, crossing from positive mineralisation to negative immobilisation at efficiency-dependent thresholds."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-mineralisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.4: Stoichiometric controls on net N mineralisation. Illustrative calculations of <a href="#eq-nitrogen-mineralisation" class="quarto-xref">Equation&nbsp;<span>11.3</span></a> for a decomposer C:N ratio of 8 and contrasting carbon-use efficiencies. The sign changes where litter C:N equals decomposer C:N divided by efficiency. The conceptual accounting follows Fig. 4 of <span class="citation" data-cites="stocker_cn-model_2024">B. D. Stocker and Prentice (<a href="references.html#ref-stocker_cn-model_2024" role="doc-biblioref">2024</a>)</span> and <span class="citation" data-cites="manzoni2008">Manzoni et al. (<a href="references.html#ref-manzoni2008" role="doc-biblioref">2008</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<p><em>Nutrient-release curves</em> express the delay between C loss and N release (<a href="#fig-nitrogen-release" class="quarto-xref">Figure&nbsp;<span>11.5</span></a>). N-poor litter may initially accumulate N from its surroundings, then release it as its C:N declines; N-rich litter can release N immediately. Across about 2800 observations, <span class="citation" data-cites="manzoni2008">Manzoni et al. (<a href="references.html#ref-manzoni2008" role="doc-biblioref">2008</a>)</span> linked these patterns to initial litter chemistry and decomposer stoichiometry. Climate strongly affects how quickly decomposition proceeds, while substrate properties help determine N release relative to C loss. Changes in microbial efficiency mean that the critical C:N is not universal.</p>
+<div id="fig-nitrogen-release" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Nitrogen-rich litter releases N immediately; nitrogen-poor litter first accumulates N and later releases it as decomposition progresses.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-release-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/nutrient_release_curves.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;11.5: Illustrative nutrient-release curves calculated from Eq. 1 of @manzoni2008, with decomposer C:N = 8, C-use efficiency = 0.4, and three initial litter C:N ratios. The vertical axis is the fraction of initial N remaining in litter; values above one indicate net accumulation from outside the litter. A declining curve indicates net release even while the remaining amount exceeds the initial amount. The horizontal axis measures C loss, not elapsed time. Parameters are illustrative and the curves are not observations."><img src="images/nitrogen/nutrient_release_curves.svg" class="img-fluid figure-img" style="width:80.0%" alt="Nitrogen-rich litter releases N immediately; nitrogen-poor litter first accumulates N and later releases it as decomposition progresses."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-release-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.5: Illustrative nutrient-release curves calculated from Eq. 1 of <span class="citation" data-cites="manzoni2008">Manzoni et al. (<a href="references.html#ref-manzoni2008" role="doc-biblioref">2008</a>)</span>, with decomposer C:N = 8, C-use efficiency = 0.4, and three initial litter C:N ratios. The vertical axis is the fraction of initial N remaining in litter; values above one indicate net accumulation from outside the litter. A declining curve indicates net release even while the remaining amount exceeds the initial amount. The horizontal axis measures C loss, not elapsed time. Parameters are illustrative and the curves are not observations.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- 
+xxx Lost text xxx
+Nitrate is especially susceptible to leaching because it is generally less strongly retained on soil surfaces than ammonium [@stocker_terrestrial_2016]. -->
+</section>
+<section id="sec-nitrogen-uptake" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="sec-nitrogen-uptake"><span class="header-section-number">11.2.4</span> Plant uptake</h3>
+<p>Roots primarily acquire ammonium, nitrate, but also small organic compounds such as amino acids. N uptake happens where N is mineralised from litter and organic matter decay (<a href="#sec-nitrogen-mineralisation" class="quarto-xref"><span>Section 11.2.3</span></a>), hence mostly in the top soil. Large organic molecules generally require depolymerisation before uptake, and nitrate must be reduced before incorporation into amino acids <span class="citation" data-cites="nasholm2009">(<a href="references.html#ref-nasholm2009" role="doc-biblioref">Näsholm, Kielland, and Ganeteg 2009</a>)</span>. Plant uptake requires both the flow to an absorbing surface and transport across a membrane. <em>Advection</em>, or mass flow, carries dissolved, mostly inorganic N with water moving towards roots during transpiration. <em>Diffusion</em> supplies N down the concentration gradient generated by uptake. Drying slows diffusion as water-filled pathways become less connected. Ammonium sorption and competition from microbes can further restrict the flow towards absorbing surfaces.</p>
+<p>N uptake thus scales with the root surface area per unit soil volume. For a given root mass per soil volume, it is thus advantageous for a plant to “distribute” a given root mass across a large total length of fine roots. This geometric relationship is represented by the root mass and N uptake model in the box below. It explains the tendency for the occurrence of a dense network of very fine roots under nutrient poor conditions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Root mass and N uptake model
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Following the cylindrical-root framework of <span class="citation" data-cites="mcmurtrie2018">McMurtrie and Näsholm (<a href="references.html#ref-mcmurtrie2018" role="doc-biblioref">2018</a>)</span>, consider roots of uniform radius <span class="math inline">\(r_0\)</span>, with total length <span class="math inline">\(L\)</span> in a bulk soil volume <span class="math inline">\(V_s\)</span>. Here bulk volume includes the space occupied by roots. Let <span class="math inline">\(\rho_r\)</span> be root tissue density, expressed as dry mass per unit root volume (kg dry mass m<sup>-3</sup> of root). Neglecting root ends, root volume is <span class="math inline">\(\pi r_0^2L\)</span>, surface area is <span class="math inline">\(2\pi r_0L\)</span>, and dry mass is <span class="math inline">\(M_r=\rho_r\pi r_0^2L\)</span>.</p>
+<p>The corresponding quantities per unit soil volume are root biomass density <span class="math inline">\(B_v=M_r/V_s\)</span> (kg dry mass m<sup>-3</sup> soil), root length density <span class="math inline">\(L_v=L/V_s\)</span> (m root m<sup>-3</sup> soil), and root surface area density <span class="math inline">\(A_v=2\pi r_0L/V_s\)</span> (m<sup>2</sup> root m<sup>-3</sup> soil). They are related by</p>
+<p><span id="eq-nitrogen-root-geometry"><span class="math display">\[
+B_v=\rho_r\pi r_0^2L_v,
+\qquad
+A_v=2\pi r_0L_v.
+\tag{11.5}\]</span></span></p>
+<p>Solving for length and surface area at a given biomass density gives</p>
+<p><span id="eq-nitrogen-root-investment"><span class="math display">\[
+L_v=\frac{B_v}{\rho_r\pi r_0^2},
+\qquad
+A_v=\frac{2B_v}{\rho_r r_0}.
+\tag{11.6}\]</span></span></p>
+<p>Thus, at fixed biomass and tissue density, root length increases as <span class="math inline">\(r_0^{-2}\)</span> and surface area as <span class="math inline">\(r_0^{-1}\)</span>. Halving the radius distributes the same biomass into four times as much root length and twice as much absorbing surface. The <em>specific root length</em>, length per unit dry mass, is <span class="math inline">\(L_v/B_v=1/(\rho_r\pi r_0^2)\)</span>; it increases with both decreasing radius and decreasing tissue density.</p>
+<p>If <span class="math inline">\(j_N\)</span> is N influx per unit absorbing surface (g N m<sup>-2</sup> root d<sup>-1</sup>), uptake per unit soil volume is</p>
+<p><span id="eq-nitrogen-uptake"><span class="math display">\[
+u_N=A_vj_N
+=2\pi r_0L_vj_N
+=\frac{2B_vj_N}{\rho_r r_0},
+\qquad
+\frac{u_N}{B_v}=\frac{2j_N}{\rho_r r_0}.
+\tag{11.7}\]</span></span></p>
+<p>At equal influx per surface area, halving root radius therefore doubles uptake per unit biomass. For an illustrative <span class="math inline">\(B_v=0.1\)</span> kg dry mass m<sup>-3</sup> soil and <span class="math inline">\(\rho_r=100\)</span> kg dry mass m<sup>-3</sup> root:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Root radius</th>
+<th style="text-align: right;">Root length per soil volume</th>
+<th style="text-align: right;">Root surface area per soil volume</th>
+<th style="text-align: right;">Relative uptake at equal <span class="math inline">\(j_N\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.0 mm</td>
+<td style="text-align: right;">318 m m<sup>-3</sup></td>
+<td style="text-align: right;">2 m<sup>2</sup> m<sup>-3</sup></td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0.2 mm</td>
+<td style="text-align: right;">7958 m m<sup>-3</sup></td>
+<td style="text-align: right;">10 m<sup>2</sup> m<sup>-3</sup></td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<p>The same root biomass therefore provides 25 times more length and five times more surface when its radius is reduced fivefold. These are geometric calculations, not observed uptake rates.</p>
+<p>Longer roots can also explore the soil more closely. If evenly distributed, each root can be assigned a cylindrical domain of radius <span class="math inline">\(r_x\)</span>, with <span class="math inline">\(\pi r_x^2L_v=1\)</span>. Defining the root volume fraction <span class="math inline">\(\phi=B_v/\rho_r=\pi r_0^2L_v\)</span>, the characteristic distance from the domain boundary to the root surface is</p>
+<p><span id="eq-nitrogen-root-spacing"><span class="math display">\[
+\ell=r_x-r_0
+=\frac{1}{\sqrt{\pi L_v}}-r_0
+=r_0\left(\phi^{-1/2}-1\right).
+\tag{11.8}\]</span></span></p>
+<p>At fixed biomass and tissue density, <span class="math inline">\(\phi\)</span> is constant, so halving root radius also halves this transport distance. Shorter distances facilitate diffusive delivery; mass flow additionally supplies dissolved N with water moving towards roots. Actual influx <span class="math inline">\(j_N\)</span> depends on these transport processes, membrane capacity, microbial competition, and replenishment of soil N. Finer roots therefore offer greater uptake capacity per unit biomass, but realised uptake need not increase in direct proportion to surface area when N supply is limiting. Root clustering, maintenance costs, lifespan, and hydraulic constraints further modify the benefit.</p>
+</div>
+</div>
+</div>
+<p>Mycorrhizal fungi extend exploration beyond root depletion zones in exchange for plant C. Many <em>ectomycorrhizal fungi</em> can mobilise organic N enzymatically. <em>Arbuscular mycorrhizal fungi</em> mainly obtain mineral nutrients and access organic-source N through interactions with decomposers <span class="citation" data-cites="terrer_mycorrhizal_2016">(<a href="references.html#ref-terrer_mycorrhizal_2016" role="doc-biblioref">Terrer et al. 2016</a>)</span>. Root exudates can also stimulate decomposition, termed <em>rhizosphere priming</em>, releasing N but potentially losing soil C as CO<sub>2</sub> <span class="citation" data-cites="kuzyakov_review_2019">(<a href="references.html#ref-kuzyakov_review_2019" role="doc-biblioref">Kuzyakov et al. 2019</a>)</span>. N supply is thus partly a consequence of how plants allocate C below ground.</p>
+</section>
+<section id="sec-nitrogen-sources" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="sec-nitrogen-sources"><span class="header-section-number">11.2.5</span> Biological nitrogen fixation (BNF)</h3>
+<p>Biological nitrogen fixation (BNF) in terrestrial ecosystems is carried out by a wide variety of organisms, living either in direct symbiosis with plants or as free-living bacteria. Rhizobial and actinorhizal symbioses are mutualistic root-nodule associations where the plant hosts specialized soil bacteria that convert (fix) atmospheric N<sub>2</sub> into reactive N (such as ammonium) in exchange for photosynthetic carbon. This exchange illustrates that the fixation of N consumes energy. For molybdenum nitrogenase, the principal enzyme responsible for BNF, the reaction illustrates the energy requirement:</p>
+<p>For the predominant, molybdenum-dependent nitrogenase, the conventional reaction is</p>
+<p><span id="eq-nitrogen-fixation"><span class="math display">\[
+\mathrm{N_2 + 8H^+ + 8e^- + 16ATP
+\longrightarrow 2NH_3 + H_2 + 16ADP + 16P_i}.
+\tag{11.9}\]</span></span></p>
+<p>Here, <span class="math inline">\(P_i\)</span> denotes inorganic phosphate. ATP hydrolysis, the energy source, and the supply of reducing power, the comsumption of free electrons (<span class="math inline">\(e^{-1}\)</span>) support the conversion. Additional costs include construction and maintenance of nitrogenase, its protection from oxygen, and the acquisition of nutrients required for the construction and maintenance of nitrogenase (mostly phosphorous, sulphur, iron, and molybdenum).</p>
+<p>Due to the high energy demand and the construction and maintenance costs, symbiotic BNF is established only in a small subset of all land plants, mostly in legumes. However, a wide diversity of microbes, not all living in symbiosis with plants, carry out BNF <span class="citation" data-cites="vitousek_biological_2013">(<a href="references.html#ref-vitousek_biological_2013" role="doc-biblioref">Peter M. Vitousek et al. 2013</a>)</span>. Free-living BNF ocurs on the surface of plants, in leaves, in mosses, in decaying litter and dead organic matter, in biological soil crusts and in associations with lichens and mosses. Since plants capable of symbiotic BNF are often absent from the community and even when present, rates of symbiotic BNF may vary strongly. Therefore, free-living BNF can constitute a substantial and often critical ecosystem input of reactive N <span class="citation" data-cites="reed_functional_2011">(<a href="references.html#ref-reed_functional_2011" role="doc-biblioref">Reed, Cleveland, and Townsend 2011</a>)</span>. Fixed ammonia is rapidly incorporated into organic compounds or protonated to ammonium.</p>
+<p>Fixation also occurs in the ocean, through free-living microorganisms and symbioses, including cyanobacteria associated with phytoplankton. Access to light or organic energy sources, phosphorus and iron supply, temperature, and competition for fixed N control locations of where it occurs. Different diazotrophs protect nitrogenase from oxygen by different spatial or temporal arrangements <span class="citation" data-cites="canfield2010">(<a href="references.html#ref-canfield2010" role="doc-biblioref">Canfield, Glazer, and Falkowski 2010a</a>)</span>. Global terrestrial and marine flux estimates are compared in <a href="#sec-nitrogen-global" class="quarto-xref"><span>Section 11.1.2</span></a>.</p>
+</section>
+<section id="sec-nitrogen-deposition" class="level3" data-number="11.2.6">
+<h3 data-number="11.2.6" class="anchored" data-anchor-id="sec-nitrogen-deposition"><span class="header-section-number">11.2.6</span> Atmospheric deposition</h3>
+<p>Emissions from combustion, soils (<a href="#sec-nitrogen-transformations" class="quarto-xref"><span>Section 11.2.7</span></a>), ammonia volatisiation in manure, and other biological sources supply atmospheric reactive N as inputs to terrestial and marine ecosystems. <em>Wet deposition</em> removes gases and particles with precipitation. <em>Dry deposition</em> transfers them directly to vegetation, soil, water, and other surfaces without precipitation. Some NH<sub>3</sub> is redeposited near its source. Longer-range transport connects emission regions with distant ecosystems. Deposition is therefore a source of N for a receiving ecosystem but not an independent global source of newly fixed N <span class="citation" data-cites="fowler_effects_2015">(<a href="references.html#ref-fowler_effects_2015" role="doc-biblioref">D. Fowler et al. 2015</a>)</span>.</p>
+</section>
+<section id="sec-nitrogen-transformations" class="level3" data-number="11.2.7">
+<h3 data-number="11.2.7" class="anchored" data-anchor-id="sec-nitrogen-transformations"><span class="header-section-number">11.2.7</span> Soil inorganic N dynamics and N losses</h3>
+<p>Ammonium, nitrate, and smaller quantities of other inorganic N species occur in soil solution. A major source is the microbial breakdown of organic matter, which releases inorganic N through <em>mineralisation</em> (<a href="#sec-nitrogen-mineralisation" class="quarto-xref"><span>Section 11.2.3</span></a>). Inputs described above (<a href="#sec-nitrogen-sources" class="quarto-xref"><span>Section 11.2.5</span></a>) provide additional substrates. Once in solution, N can be taken up by plants and microbes, retained on soil surfaces, transported with water, or transformed by microorganisms (<a href="#fig-nitrogen-pathways" class="quarto-xref">Figure&nbsp;<span>11.6</span></a>). Plant N uptake is discussed in <a href="#sec-nitrogen-uptake" class="quarto-xref"><span>Section 11.2.4</span></a>.</p>
+<p>The prevailing microbial transformations or N<sub>r</sub> in the soil depend strongly on oxygen availability. Aerated pores favour nitrification, while oxygen-poor microsites favour denitrification. Both can occur simultaneously. Wetness changes both the connectivity of air-filled pores and the supply of dissolved substrates. Temperature affects microbial activity, but the response remains conditional on oxygen, substrate supply and removal <span class="citation" data-cites="butterbachbahl2013">(<a href="references.html#ref-butterbachbahl2013" role="doc-biblioref">Butterbach-Bahl et al. 2013</a>)</span>.</p>
+<div id="fig-nitrogen-pathways" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Diagram of organic nitrogen, ammonium, nitrite, nitrate, nitric oxide, nitrous oxide and dinitrogen connected by microbial transformations and gas escape pathways.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-pathways-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/soil_transformations.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;11.6: Soil nitrogen transformations and gaseous escape. Original schematic following the process organisation of Fig. 1.5 in @stocker2013phd and the pathways in @xu-ri_terrestrial_2008. Nitrification oxidises ammonium to nitrate; denitrification reduces nitrate through gaseous intermediates to N2. Nitrification can also produce NO and N2O. Dashed arrows denote gas transfer to the atmosphere, not additional transformations. The diagram omits some alternative pathways, including anammox and nitrate reduction to ammonium."><img src="images/nitrogen/soil_transformations.svg" class="img-fluid figure-img" style="width:100.0%" alt="Diagram of organic nitrogen, ammonium, nitrite, nitrate, nitric oxide, nitrous oxide and dinitrogen connected by microbial transformations and gas escape pathways."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-pathways-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.6: Soil nitrogen transformations and gaseous escape. Original schematic following the process organisation of Fig. 1.5 in <span class="citation" data-cites="stocker2013phd">B. Stocker (<a href="references.html#ref-stocker2013phd" role="doc-biblioref">2013</a>)</span> and the pathways in <span class="citation" data-cites="xu-ri_terrestrial_2008">Xu-Ri and Prentice (<a href="references.html#ref-xu-ri_terrestrial_2008" role="doc-biblioref">2008</a>)</span>. Nitrification oxidises ammonium to nitrate; denitrification reduces nitrate through gaseous intermediates to N<sub>2</sub>. Nitrification can also produce NO and N<sub>2</sub>O. Dashed arrows denote gas transfer to the atmosphere, not additional transformations. The diagram omits some alternative pathways, including anammox and nitrate reduction to ammonium.
+</figcaption>
+</figure>
+</div>
+<p><em>Nitrification</em> is an oxidation process. Ammonia oxidisers and nitrite oxidisers perform its two steps, while some microorganisms carry out complete ammonia oxidation. Its main product, nitrate, remains reactive and available for uptake. Nitrification does not itself return this main flux to N<sub>2</sub>, but it produces the substrate for denitrification and a mobile form susceptible to leaching. NO and N<sub>2</sub>O are also formed along ammonia-oxidation pathways.</p>
+<p><em>Denitrification</em> reduces nitrate through NO<sub>2</sub><sup>-</sup>, NO, and N<sub>2</sub>O to N<sub>2</sub>, commonly coupled to oxidation of organic substrates when oxygen is scarce. N<sub>2</sub>O can escape before being further reduced. The return to N<sub>2</sub> depends on suitable reactions and organisms: reactive N does not simply revert spontaneously to N<sub>2</sub>.</p>
+<p>Increasing water-filled pore space generally shifts activity from aerobic towards anaerobic pathways. At very low moisture, restricted microbial activity and solute transport can limit both. At high moisture, denitrification increases, but more complete reduction to N<sub>2</sub> can lower the fraction escaping as N<sub>2</sub>O <span class="citation" data-cites="butterbachbahl2013">(<a href="references.html#ref-butterbachbahl2013" role="doc-biblioref">Butterbach-Bahl et al. 2013</a>)</span>. Consequently, the moisture response of N<sub>2</sub>O differs from that of total denitrification (<a href="#fig-nitrogen-moisture" class="quarto-xref">Figure&nbsp;<span>11.7</span></a>).</p>
+<div id="fig-nitrogen-moisture" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Illustrative curves showing nitrification favouring intermediate moisture, denitrification increasing towards saturation, and net nitrous oxide production peaking before saturation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-moisture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/moisture_response.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;11.7: Illustrative responses to water-filled pore space (WFPS). (a) Nitrification and denitrification response functions, each scaled to its own maximum. (b) Net N2O production remaining after reduction, with contributions from both pathways on a common arbitrary scale. These are illustrative curves, not observations or obtained from more complex models. With WFPS fraction w, the chosen functions are n=4w(1-w), d=w^6, and p=0.002n+0.02d(1-w)/(1.2-w). The coefficients are illustrative. The declining high-moisture yield represents more complete reduction to N2. Temperature and substrate supply are held fixed."><img src="images/nitrogen/moisture_response.svg" class="img-fluid figure-img" style="width:100.0%" alt="Illustrative curves showing nitrification favouring intermediate moisture, denitrification increasing towards saturation, and net nitrous oxide production peaking before saturation."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-moisture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.7: Illustrative responses to water-filled pore space (WFPS). (a) Nitrification and denitrification response functions, each scaled to its own maximum. (b) Net N<sub>2</sub>O production remaining after reduction, with contributions from both pathways on a common arbitrary scale. These are illustrative curves, not observations or obtained from more complex models. With WFPS fraction <span class="math inline">\(w\)</span>, the chosen functions are <span class="math inline">\(n=4w(1-w)\)</span>, <span class="math inline">\(d=w^6\)</span>, and <span class="math inline">\(p=0.002n+0.02d(1-w)/(1.2-w)\)</span>. The coefficients are illustrative. The declining high-moisture yield represents more complete reduction to N<sub>2</sub>. Temperature and substrate supply are held fixed.
+</figcaption>
+</figure>
+</div>
+<p><em>Ammonia volatilisation</em> is a further gaseous loss. The equilibrium NH<sub>4</sub><sup>+</sup> ⇌ NH<sub>3</sub> + H<sup>+</sup> shifts towards NH<sub>3</sub> at higher pH. NH<sub>3</sub> is in gaseous form and can escape. Losses through volatilisation can be substantial after manure or urea application.</p>
+<p>The principal gases leaving soils through the three processes described above are N<sub>2</sub>, N<sub>2</sub>O, NO, and NH<sub>3</sub>, with proportions that vary among environments. N<sub>2</sub> is particularly difficult to measure against its large atmospheric background. The total N loss through gaseous pathways is thus not directly measurable.</p>
+<p><em>Leaching</em> exports dissolved N with drainage below the rooting zone. Nitrate is particularly mobile because it is usually less strongly retained on soil surfaces than ammonium. Losses increase when supply exceeds uptake and microbial retention and when sufficient water drains through the soil. Dissolved organic N also leaves in drainage, while erosion exports particulate N. Transfer downslope constitutes a re-distribution within the catchment and not necessarily an export and a direct loss to the atmosphere. Soils in downslope positions and streams can retain or denitrify incoming N <span class="citation" data-cites="seibert2007 lin2015">(<a href="references.html#ref-seibert2007" role="doc-biblioref">Seibert, Stendahl, and Sørensen 2007</a>; <a href="references.html#ref-lin2015" role="doc-biblioref">Lin et al. 2015</a>)</span>.</p>
+<p>Long-term N fertilisation experiments, carried out across (small) river catchments enable the establishment of the ecosystem N budget, given known and estimated inputs through N deposition and fertilisation, uptake by plants through estimated biomass production and tissue C:N stoichiometries, and leaching losses through measured export of N in streams. The budget residual may represent (unmeasured) gaseous losses. In one such experiment in Alptal, Switzerland, the sustained addition of N<sub>r</sub> (22 kg N ha<sup>-1</sup> yr<sup>-1</sup>) for 20 years increased nitrate leaching. Leaching, losses were 6.6–10 kg N ha<sup>-1</sup> yr<sup>-1</sup> in the treatment versus 1.4–2.9 in the control. Dissolved organic N export averaged 6.1 kg N ha<sup>-1</sup> yr<sup>-1</sup> and did not respond. Subsequent suppression of tree growth through girdling and felling caused a further amplification of nitrate losses <span class="citation" data-cites="schleppi2017">(<a href="references.html#ref-schleppi2017" role="doc-biblioref">Schleppi, Curtaz, and Krause 2017</a>)</span>. This illustrates the importance of plant productivity for the ecosystem N balance and losses.</p>
+<p>N losses through fire and harvest bypass internal recycling. Across long-term fire experiments, frequently burned plots had about 38% less N in the upper 20 cm of soil after 64 years than fire-protected plots, with strong differences among vegetation types <span class="citation" data-cites="pellegrini2018">(<a href="references.html#ref-pellegrini2018" role="doc-biblioref">Pellegrini et al. 2018</a>)</span>. Harvest removes N that would otherwise partly return through litter. Past inputs also leave legacies: 12–15% of labelled fertiliser N remained in soil organic matter almost three decades after application in one experiment, continuing to supply uptake and leakage <span class="citation" data-cites="sebilo2013">(<a href="references.html#ref-sebilo2013" role="doc-biblioref">Sebilo et al. 2013</a>)</span>.</p>
+</section>
+<section id="sec-nitrogen-budget" class="level3" data-number="11.2.8">
+<h3 data-number="11.2.8" class="anchored" data-anchor-id="sec-nitrogen-budget"><span class="header-section-number">11.2.8</span> Ecosystem N balance and openness</h3>
+<p>For vegetation, litter, microbes, and soil together, external inputs minus losses determine the ecosystem N balance:</p>
+<p><span id="eq-nitrogen-ecosystem-balance"><span class="math display">\[
+\frac{\mathrm{d}N_{\mathrm{eco}}}{\mathrm{d}t}
+= F_{\mathrm{BNF}}+F_{\mathrm{dep}}+F_{\mathrm{fert}}+F_{\mathrm{weather}}
++F_{\mathrm{lateral,in}}
+-F_{\mathrm{hydro}}-F_{\mathrm{gas}}-F_{\mathrm{harvest}}-F_{\mathrm{fire}}.
+\tag{11.10}\]</span></span> Here, <span class="math inline">\(N_{\mathrm{eco}}\)</span> is the total ecosystem N stock; <span class="math inline">\(F_{\mathrm{BNF}}\)</span>, <span class="math inline">\(F_{\mathrm{dep}}\)</span>, <span class="math inline">\(F_{\mathrm{fert}}\)</span>, <span class="math inline">\(F_{\mathrm{weather}}\)</span>, and <span class="math inline">\(F_{\mathrm{lateral,in}}\)</span> are N inputs through biological fixation, atmospheric deposition, fertiliser application, release from weathering of N-bearing minerals, and lateral transport, respectively; and <span class="math inline">\(F_{\mathrm{hydro}}\)</span>, <span class="math inline">\(F_{\mathrm{gas}}\)</span>, <span class="math inline">\(F_{\mathrm{harvest}}\)</span>, and <span class="math inline">\(F_{\mathrm{fire}}\)</span> are N losses through leaching and runoff, gaseous emissions from soil processes, biomass harvesting, and fire, respectively.Gaseous loss excludes separately counted fire emissions. Fertilisation denotes imported mineral or organic N, whereas locally recycled manure is internal at a farm boundary. Uptake, resorption, mineralisation, and immobilisation cancel because they redistribute N within the ecosystem.</p>
+<p>The <em>openness</em> of N cycling describes external exchange relative to internal use. With total input <span class="math inline">\(I_N\)</span>, total loss <span class="math inline">\(L_N\)</span>, and plant acquisition <span class="math inline">\(U_N\)</span> from <a href="#eq-nitrogen-demand" class="quarto-xref">Equation&nbsp;<span>11.1</span></a>,</p>
+<p><span id="eq-nitrogen-openness"><span class="math display">\[
+O_{\mathrm{in}}=\frac{I_N}{U_N},\qquad
+O_{\mathrm{out}}=\frac{L_N}{U_N}.
+\tag{11.11}\]</span></span></p>
+<p>These ratios are equal when the N stock is stationary. Their difference measures net accumulation relative to uptake. Smaller ratios imply more reuse per unit external exchange, but a declining ratio alone does not demonstrate increasing stocks: inputs must actually exceed losses.</p>
+<p>A global synthesis estimated about 1197 Tg N yr<sup>-1</sup> incorporated into natural terrestrial production, supplied by 371 through resorption, 694 through net mineralisation, and 133 through new inputs <span class="citation" data-cites="cleveland_patterns_2013">(<a href="references.html#ref-cleveland_patterns_2013" role="doc-biblioref">Cory C. Cleveland et al. 2013</a>)</span>. Thus, at the global scale, about 89% of the N in new biomass production was estimated to be recycled: 31% within plants and 58% through soil. New inputs represented 11% of tissue demand, or 16% of acquisition after subtracting resorption.</p>
+</section>
+<section id="soil-development-and-nitrogen" class="level3" data-number="11.2.9">
+<h3 data-number="11.2.9" class="anchored" data-anchor-id="soil-development-and-nitrogen"><span class="header-section-number">11.2.9</span> Soil development and nitrogen</h3>
+<p>The N balance also changes over soil development. Young substrates often contain little organic N, which accumulates gradually through fixation and deposition. Phosphorus is initially supplied by mineral weathering, but prolonged weathering and loss can deplete accessible P or transfer it to less available forms. N limitation is consequently common on young soils and P limitation on old, strongly weathered soils, although rock N, dust, erosion, and disturbance modify this pattern.</p>
+<p>Hawaiian fertilisation experiments illustrate the transition: tree growth responded to N on a 300-year-old substrate and to P on a 4.1-million-year-old substrate, with combined nutrient responses at an intermediate age <span class="citation" data-cites="vitousek_nutrient_1997">(<a href="references.html#ref-vitousek_nutrient_1997" role="doc-biblioref">Peter M. Vitousek and Farrington 1997</a>)</span>. Soil history helps explain frequent N limitation in temperate and boreal ecosystems and P limitation in old tropical landscapes. Young tropical soils can be N-limited, old extra-tropical soils P-limited, and co-limitation is common.</p>
+</section>
+</section>
+<section id="sec-n-perturbation" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sec-n-perturbation"><span class="header-section-number">11.3</span> Anthropogenic perturbation</h2>
+<section id="additional-n-fixation-and-nr-inputs" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="additional-n-fixation-and-nr-inputs"><span class="header-section-number">11.3.1</span> Additional N fixation and N<sub>r</sub> inputs</h3>
+<p>Before synthetic fertiliser, agriculture depended on N inputs from BNF, manure, plant residues, and imported materials such as guano or mined nitrate to compensate for N losses by harvest and export, and leaching, and gaseous losses. At the time, these constraints contributed to concerns about insufficient land productivity and crop yields before the 20th century, failing to keep pace with population growth. The invention of the Haber-Bosch process and the industrial fixation of N<sub>r</sub> from atmospheric N<sub>2</sub> tapped into the vast atmospheric N reservoir and enabled the fertilisation of crops at unprecedented scale during the twentieth century. Today, the industrial fixation of N is at the same scale (120 Tg N yr<sup>-1</sup>, <a href="#tbl-nitrogen-anthropogenic" class="quarto-xref">Table&nbsp;<span>11.4</span></a>) as natural BNF, which illustrates the extent of the anthropogenic N cycle perturbation. The anthropogenic perturbation of the global N cycle is illustrated in <a href="#fig-nitrogen-global" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> by the red portion of arrows and circles.</p>
+<p>While the production of mineral fertilisers drove an unprecedented land productivity and crop yield growth in many regions (but not everywhere), it also caused environmental impacts by cascading effects of N<sub>r</sub> inputs in terrestrial and aquatic ecosystems through a multitude of pathways (<a href="#sec-npollution" class="quarto-xref"><span>Section 11.3.3</span></a>). The development of N<sub>r</sub> inputs through mineral fertilisers on croplands has developed very unevenly across regions globally. While inputs were high in Europe and North America already in around 1959, inputs strongly increased only after that in China and India (<a href="#fig-nitrogen-anthropogenic-inputs" class="quarto-xref">Figure&nbsp;<span>11.8</span></a>).</p>
+<p>Additional BNF by cultivated legumes (<a href="landusechange.html#fig-luc-crop-types" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>, 60 Tg N yr<sup>-1</sup>) and N<sub>r</sub> production by the combustion of fossil fuels and subsequent deposition (40 Tg N yr<sup>-1</sup>) provide additional large inputs of N<sub>r</sub> in terrestrial ecosystems (<a href="#tbl-nitrogen-anthropogenic" class="quarto-xref">Table&nbsp;<span>11.4</span></a>).</p>
+<div id="tbl-nitrogen-anthropogenic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nitrogen-anthropogenic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11.4: Anthropogenic perturbation of the N cycle. Estimates are approximative, based on <span class="citation" data-cites="galloway04">Galloway et al. (<a href="references.html#ref-galloway04" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="fowler13">David Fowler et al. (<a href="references.html#ref-fowler13" role="doc-biblioref">2013</a>)</span>, and <span class="citation" data-cites="tian_hani_2022">Tian et al. (<a href="references.html#ref-tian_hani_2022" role="doc-biblioref">2022b</a>)</span>, and represent levels around year 2010. Fertiliser N is a subset of Haber–Bosch production, and manure is recycled N.
+</figcaption>
+<div aria-describedby="tbl-nitrogen-anthropogenic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Additional source or transfer</th>
+<th style="text-align: right;">Global total (Tg N yr<sup>-1</sup>)</th>
+<th style="text-align: left;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Haber–Bosch production</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: left;">New N<sub>r</sub> prouced is used as fertiliser and other industrial uses</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mineral fertiliser N</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">This is part of N<sub>r</sub> from Haber-Bosch production</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BNF in crops</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">Fixation in agricultural systems, including legumes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manure N applied or deposited by livestock</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Previously fixed N, of which 26 applied to crops and pasture, and 72 deposited during grazing <span class="citation" data-cites="tian_hani_2022">(<a href="references.html#ref-tian_hani_2022" role="doc-biblioref">Tian et al. 2022b</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Combustion-related N<sub>r</sub> supply</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">Broader combustion category in the later assessment</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The <em>Haber–Bosch process</em> combines N<sub>2</sub> and hydrogen to produce ammonia:</p>
+<p><span id="eq-haber-bosch"><span class="math display">\[
+\mathrm{N_2 + 3H_2 \rightleftharpoons 2NH_3}.
+\tag{11.12}\]</span></span></p>
+<p>A catalyst, elevated temperature, and high pressure enable the reaction. The production of hydrogen (H<sub>2</sub>) consumes energy. Ammonia (NH<sub>3</sub>) is commonly converted into fertilisers such as urea and ammonium nitrate.</p>
+<p>Cultivating soybean, other grain legumes, and leguminous forages supplies fixed N directly to crops and soils. Manure and urine recycle N previously assimilated from feed. Urinary urea is part of this recycling, while manufactured urea contains N already counted in Haber–Bosch production. Neither manure application nor conversion of ammonia into urea constitutes additional fixation of N. Imported feed or manure nevertheless adds N across a farm or regional boundary.</p>
+<p>Fossil-fuel combustion produces NO<sub>x</sub> through oxidation of atmospheric N<sub>2</sub> and of N contained in fuels. Biomass burning mainly redistributes previously fixed N. Combustion emissions, together with ammonia from fertilisers and manure, strengthen deposition far beyond agricultural land. In the <span class="citation" data-cites="galloway04">Galloway et al. (<a href="references.html#ref-galloway04" role="doc-biblioref">2004</a>)</span> reconstruction, inorganic deposition to land increased from 17.4 Tg N yr<sup>-1</sup> in 1860 to 63.5 in the early 1990s, while river export to coasts rose from 27 to 47.8. These transfers carry the anthropogenic perturbation of the N cycle into unfertilised ecosystems and coastal waters.</p>
+<div id="fig-nitrogen-anthropogenic-inputs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-anthropogenic-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/anthropogenic_n_inputs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;11.8: Historical evolution of anthropogenic Nr inputs from the HaNi dataset [@tian_hani_2022; @tian_hani_data_2022]. (a) Annual global total inputs by source, following Fig. 4 of @tian_hani_2022. (b, c) Anthropogenic Nr input per square meter, representative per gridcell area, in 1959 and 2019, aggregated to 0.25° spatial resolution for display."><img src="images/nitrogen/anthropogenic_n_inputs.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-anthropogenic-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.8: Historical evolution of anthropogenic N<sub>r</sub> inputs from the HaNi dataset <span class="citation" data-cites="tian_hani_2022 tian_hani_data_2022">(<a href="references.html#ref-tian_hani_2022" role="doc-biblioref">Tian et al. 2022b</a>, <a href="references.html#ref-tian_hani_data_2022" role="doc-biblioref">2022a</a>)</span>. (a) Annual global total inputs by source, following Fig. 4 of <span class="citation" data-cites="tian_hani_2022">Tian et al. (<a href="references.html#ref-tian_hani_2022" role="doc-biblioref">2022b</a>)</span>. (b, c) Anthropogenic N<sub>r</sub> input per square meter, representative per gridcell area, in 1959 and 2019, aggregated to 0.25° spatial resolution for display.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-nitrogen-n2o" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="sec-nitrogen-n2o"><span class="header-section-number">11.3.2</span> N<sub>2</sub>O emissions</h3>
+<p>Additional mineral N supplies substrates for nitrification and denitrification. Global model simulations, coordinated within the Nitrous Oxide Model Intercomparison Project (NMIP), suggest that soil N<sub>2</sub>O emissions increased from 6.3 ± 1.1 Tg N yr<sup>-1</sup> in the 1860s to 10.0 ± 2.0 in 2007–2016 <span class="citation" data-cites="tian_global_2019">(<a href="references.html#ref-tian_global_2019" role="doc-biblioref">Tian et al. 2019</a>)</span>. The full budget, emission factors, and climate effects are discussed in <a href="ghg.html" class="quarto-xref"><span>Chapter 12</span></a>.</p>
+</section>
+<section id="sec-npollution" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="sec-npollution"><span class="header-section-number">11.3.3</span> Pollution and the nitrogen cascade</h3>
+<p>Additional N can stimulate plant growth where supply is limiting, but sustained inputs can exceed the amount of N that plants and microbes can retain. This <em>nitrogen saturation</em> increases the the load of N<sub>r</sub>, potentially prone to leaching and gaseous loss <span class="citation" data-cites="aber_nitrogen_1998">(<a href="references.html#ref-aber_nitrogen_1998" role="doc-biblioref">Aber et al. 1998</a>)</span>. Nitrification generates acidity, and nitrate leaching with calcium, magnesium, and other base cations can drive soil acidification. The ensuing aluminium mobilisation leads to a decline of nutrient availability and soil fertility. Indeed, intensive fertilisation has acidified agricultural soils <span class="citation" data-cites="guo_significant_2010">(<a href="references.html#ref-guo_significant_2010" role="doc-biblioref">Guo et al. 2010</a>)</span>.</p>
+<p>The <em>nitrogen cascade</em> describes successive effects as an N atom moves between environments before returning to atmospheric N<sub>2</sub>. N<sub>r</sub> inputs with fertilisers may support crop growth, but increasing soil inorganic N is prone to gaseous loss, including ammonia volatilisation, which contributes to aerosol formation, deposition, and subsequent leaching into surface waters. Nitrate contaminates groundwater and supports <em>eutrophication</em>. The decomposition of excess aquatic primary production consumes oxygen and can cause hypoxia. NO<sub>x</sub> contributes to tropospheric ozone formation, and N<sub>2</sub>O links the cascade to climate and stratospheric ozone depletion. Hence, a useful input at one location can cause environmental damage downstream or downwind <span class="citation" data-cites="galloway04 fowler_effects_2015">(<a href="references.html#ref-galloway04" role="doc-biblioref">Galloway et al. 2004</a>; <a href="references.html#ref-fowler_effects_2015" role="doc-biblioref">D. Fowler et al. 2015</a>)</span>.</p>
+</section>
+<section id="nitrogen-transfers-through-trade" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="nitrogen-transfers-through-trade"><span class="header-section-number">11.3.4</span> Nitrogen transfers through trade</h3>
+<p>Global excess coexists with insufficient access to mineral N fertiliser in different regions across the globe. Harvest without replenishment depletes soil N availability, making inputs of new N<sub>r</sub> necessary to sustain yields. N<sub>r</sub> inputs are insufficient in many developing countries, particularly those of sub-Saharan Africa <span class="citation" data-cites="vitousek_nutrient_2009">(<a href="references.html#ref-vitousek_nutrient_2009" role="doc-biblioref">P. M. Vitousek et al. 2009</a>)</span>. Yet, N<sub>r</sub> is often applied in excess. Enabling productive cropland cultivation and avoiding environmental damage from excess N<sub>r</sub> inputs are complementary challenges <span class="citation" data-cites="vitousek_nutrient_2009 mueller_closing_2012">(<a href="references.html#ref-vitousek_nutrient_2009" role="doc-biblioref">P. M. Vitousek et al. 2009</a>; <a href="references.html#ref-mueller_closing_2012" role="doc-biblioref">Mueller et al. 2012</a>)</span>.</p>
+<p>Food and feed trade separates N uptake and BNF from N-rich manure and sewage production and related N<sub>r</sub> inputs to the environment. International trade in N contained in products increased from about 3 Tg N yr<sup>-1</sup> in 1961 to 24 in 2010 <span class="citation" data-cites="lassaletta_food_2014">(<a href="references.html#ref-lassaletta_food_2014" role="doc-biblioref">Lassaletta et al. 2014</a>)</span>. Soybean exports transfer biologically fixed N to importing livestock regions, where much N contained in livestook feed becomes manure. Exporting regions lose harvested N while retaining many production-related impacts. In importing regions, N<sub>r</sub> accumulates in the environment, contributing to the N cascade (<a href="#sec-npollution" class="quarto-xref"><span>Section 11.3.3</span></a>). The net trade in product N therefore shapes a region’s N balance and damage from N<sub>r</sub> pollution.</p>
+</section>
+</section>
+<section id="sec-nitrogen-carbon" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="sec-nitrogen-carbon"><span class="header-section-number">11.4</span> C–N interactions and terrestrial biosphere models</h2>
+<p>The terrestrial nitrogen and the carbon cycles are tightly coupled. Their close connection arises from the stoichiometric relationships between C and N, which implies that a certain amount of N is required to synthesise a certain amount of C into biomass. A further connection arises through the positive association of photosynthetic capacity and N content in leaves (<a href="#sec-nitrogen-demand" class="quarto-xref"><span>Section 11.2.1</span></a>). Since N is an essential nutrient for plants, its availability poses a constraint on biomass productivity and photosynthesis. N losses are, to a certain extent, unavoidable as the recycling of N from its mobilisation by (net) mineralisation (<a href="#sec-nitrogen-mineralisation" class="quarto-xref"><span>Section 11.2.3</span></a>) to renewed plant uptake (<a href="#sec-nitrogen-uptake" class="quarto-xref"><span>Section 11.2.4</span></a>) is never complete. As long as inorganic N (mostly ammonium and nitrate) is present in the soil and subject to denitrification, nitrification, and leaching (<a href="#sec-nitrogen-transformations" class="quarto-xref"><span>Section 11.2.7</span></a>), losses persist and have to be compensated by inputs of N<sub>r</sub> through (relatively slow) deposition and fixation.</p>
+<p>Plants exhibit a certain degree of plasticity in the allocation of C for growth of fine roots, but at the expense of aboveground growth. Under poor nutrient availability, the <em>root-to-shoot</em> ratio and the relative growth in roots vs.&nbsp;aboveground biomass tends to be higher than under N-rich soil conditions <span class="citation" data-cites="poorter12newphyt">(<a href="references.html#ref-poorter12newphyt" role="doc-biblioref">Poorter et al. 2012</a>)</span>. Higher root biomass and a denser network of fine roots or the provision of fixed C to mycorrhizal partners can enhance N uptake from the soil (<a href="#sec-nitrogen-uptake" class="quarto-xref"><span>Section 11.2.4</span></a>) and enables a more efficient recycling of N along the growth-turnover-mineralisation-uptake pathway. However, this comes at the cost of reduced shoot growth and a <em>functional balance</em> between above vs.&nbsp;belowground C allocation for the balancing of CO<sub>2</sub> assimilation vs.&nbsp;N uptake establishes <span class="citation" data-cites="bloom85annrev">(<a href="references.html#ref-bloom85annrev" role="doc-biblioref">Bloom, Chapin, and Mooney 1985</a>)</span>. As a reflection of this, experimental fertilisation of ecosystems with N<sub>r</sub> generally triggers a positive response in aboveground growth and leaf area <span class="citation" data-cites="stocker_empirical_2025">(<a href="references.html#ref-stocker_empirical_2025" role="doc-biblioref">B. D. Stocker et al. 2025</a>)</span>, indicating wide-spread <em>nitrogen limitation</em> <span class="citation" data-cites="lebauer_nitrogen_2008">(<a href="references.html#ref-lebauer_nitrogen_2008" role="doc-biblioref">LeBauer and Treseder 2008</a>)</span>.</p>
+<p>Ecosystem N fertilisation drives changes in vegetation function and structure at all levels – from the leaves to the ecosystem. Leaf N content is enhanced and leaf area and biomass increase clearly (<a href="#fig-nitrogen-fertilisation_metaanalysis" class="quarto-xref">Figure&nbsp;<span>11.9</span></a> a). Also at the ecosystem-level (<a href="#fig-nitrogen-fertilisation_metaanalysis" class="quarto-xref">Figure&nbsp;<span>11.9</span></a> b), ecosystem manipulation experiments indicate a shift towards reduced belowground growth and biomass – a reflection of “cheap” N supply, relieving the requirement for “costly” root construction and maintenance.</p>
+<div id="fig-nitrogen-fertilisation_metaanalysis" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nitrogen-fertilisation_metaanalysis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/nitrogen/nfert_metaanalysis.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;11.9: Meta-analysis of responses to N fertilisation in ecosystem experiments, (a) derived from data by @liang20gcb and (b) from @vansundert23gcb and @cleland19ecosys. The log response ratio is calculated as log(x1/x0), where x0 and x1 are the observed values of the different variables in the ambient and manipulated (fertilised) treament plot. Each circle represents one experiment with the size indicating the variance of individual observations within the experiment. The boxes represent meta-analytic 95% confidence interval of the mean and the vertical line in each box’ centre its mean. Asat is the light-saturated photosynthesis rate, Vcmax is the maximum rate of Rubisco carboxylation, Narea is the nitrogen mass per unit leaf area, Nmass is the nitrogen mass per unit leaf mass, LAI is the leaf area index. ANPP is the aboveground net primary productivity (NPP), AGB is the aboveground biomass, BGB is the belowground biomass, RMF is the root mass fraction. Figure re-drawn from @stocker_empirical_2025."><img src="images/nitrogen/nfert_metaanalysis.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nitrogen-fertilisation_metaanalysis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.9: Meta-analysis of responses to N fertilisation in ecosystem experiments, (a) derived from data by <span class="citation" data-cites="liang20gcb">Liang et al. (<a href="references.html#ref-liang20gcb" role="doc-biblioref">2020</a>)</span> and (b) from <span class="citation" data-cites="vansundert23gcb">Van Sundert et al. (<a href="references.html#ref-vansundert23gcb" role="doc-biblioref">2023</a>)</span> and <span class="citation" data-cites="cleland19ecosys">Cleland et al. (<a href="references.html#ref-cleland19ecosys" role="doc-biblioref">2019</a>)</span>. The log response ratio is calculated as log(x<sub>1</sub>/x<sub>0</sub>), where x<sub>0</sub> and x<sub>1</sub> are the observed values of the different variables in the ambient and manipulated (fertilised) treament plot. Each circle represents one experiment with the size indicating the variance of individual observations within the experiment. The boxes represent meta-analytic 95% confidence interval of the mean and the vertical line in each box’ centre its mean. A<sub>sat</sub> is the light-saturated photosynthesis rate, V<sub>cmax</sub> is the maximum rate of Rubisco carboxylation, N<sub>area</sub> is the nitrogen mass per unit leaf area, N<sub>mass</sub> is the nitrogen mass per unit leaf mass, LAI is the leaf area index. ANPP is the aboveground net primary productivity (NPP), AGB is the aboveground biomass, BGB is the belowground biomass, RMF is the root mass fraction. Figure re-drawn from <span class="citation" data-cites="stocker_empirical_2025">B. D. Stocker et al. (<a href="references.html#ref-stocker_empirical_2025" role="doc-biblioref">2025</a>)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Curiously, N limitation persists in many ecosystems despite the potential competitive advantage of N-fixing plant species under such conditions. Why are N-fixing species often not present in established plant communities and why do N-fixing organisms not relieve N limitation? <span class="citation" data-cites="vitousek_nitrogen_1991">Peter M. Vitousek and Howarth (<a href="references.html#ref-vitousek_nitrogen_1991" role="doc-biblioref">1991</a>)</span> showed that no single explanation applies everywhere. Fixation has energetic (carbon) costs, depends on suitable organisms and their ecological success, and can itself be limited by P, micronutrients, temperature, or water. Meanwhile, leaching, gaseous losses, fire, and harvest continually remove N. Accumulation in slowly decomposing organic matter can also restrict its immediate availability. N scarcity can thus persist even when N<sub>2</sub> is abundant and fixation is possible.</p>
+<p>A further expression of the important role of N in controlling the C cycle is the concern about an increasing importance of N limitation in limiting the terrestrial C sink. Rising CO<sub>2</sub> generally fertilises photosynthesis and can enhance biomass production and stocks, but sustaining additional C storage requires additional N to be fixed into biomass. The first generation of terrestrial biosphere models and Earth System Models that represented only a C cycle (not not an interacting N cycle) projected a substantial terrestrial C accumulation without explicitly accounting for the potential role of N limitation on the C sink. <span class="citation" data-cites="hungate2003">Hungate et al. (<a href="references.html#ref-hungate2003" role="doc-biblioref">2003</a>)</span> argued that, at assumed tissue and soil C:N ratios, some projections required implausibly large additional N fixation and conservation that are incompatible with empirical estimates of their magnitude and flexibility. This motivated the explicit representation C–N cycle interactions in more recent model generations. However, variable process representations in these models (e.g.&nbsp;stoichiometric flexiblility, plasticity in allocation, response of photosynthesis to N limitation) imply unresolved shortcomings <span class="citation" data-cites="medlyn_using_2015">(<a href="references.html#ref-medlyn_using_2015" role="doc-biblioref">Medlyn et al. 2015</a>)</span> and diverging simulations of the magnitude and trend in the terrestrial C sink <span class="citation" data-cites="stocker_empirical_2025">(<a href="references.html#ref-stocker_empirical_2025" role="doc-biblioref">B. D. Stocker et al. 2025</a>)</span>.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Exercises">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Explain why atmospheric deposition or imported manure can supply a forest or farm without adding a new global fixation flux.</li>
+<li>For litter C:N = 40, decomposer C:N = 8, and carbon-use efficiency 0.3, calculate net N release when 100 g C decomposes. Repeat for efficiency 0.15.</li>
+<li>Assume that a forest under elevated CO<sub>2</sub> gains wood C without gaining total ecosystem N. Identify changes in allocation, stoichiometry, or redistribution that could explain this observation.</li>
+<li>Distinguish faster N recycling, lower N-cycle openness, and net N accumulation. Which measurements would establish that each has occurred?</li>
+</ol>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-aber_nitrogen_1998" class="csl-entry" role="listitem">
+Aber, John, William McDowell, Knute Nadelhoffer, Alison Magill, Glenn Berntson, Mark Kamakea, Steven McNulty, William Currie, Lindsey Rustad, and Ivan Fernandez. 1998. <span>“Nitrogen <span>Saturation</span> in <span>Temperate</span> <span>Forest</span> <span>Ecosystems</span>.”</span> <em>BioScience</em> 48 (11): 921–34. <a href="https://doi.org/10.2307/1313296">https://doi.org/10.2307/1313296</a>.
+</div>
+<div id="ref-batjes16geoderma" class="csl-entry" role="listitem">
+Batjes, N. H. 2016. <span>“Harmonized Soil Property Values for Broad-Scale Modelling (<span>WISE30sec</span>) with Estimates of Global Soil Carbon Stocks.”</span> <em>Geoderma</em> 269 (May): 61–68. <a href="https://doi.org/10.1016/j.geoderma.2016.01.034">https://doi.org/10.1016/j.geoderma.2016.01.034</a>.
+</div>
+<div id="ref-batjes1996" class="csl-entry" role="listitem">
+Batjes, Niels H. 1996. <span>“Total Carbon and Nitrogen in the Soils of the World.”</span> <em>European Journal of Soil Science</em> 47 (2): 151–63. <a href="https://doi.org/10.1111/j.1365-2389.1996.tb01386.x">https://doi.org/10.1111/j.1365-2389.1996.tb01386.x</a>.
+</div>
+<div id="ref-batjes2024wosis" class="csl-entry" role="listitem">
+Batjes, Niels H., Luis Calisto, and Luis M. de Sousa. 2024. <span>“Providing Quality-Assessed and Standardised Soil Data to Support Global Mapping and Modelling (<span>WoSIS</span> Snapshot 2023).”</span> <em>Earth System Science Data</em> 16: 4735–65. <a href="https://doi.org/10.5194/essd-16-4735-2024">https://doi.org/10.5194/essd-16-4735-2024</a>.
+</div>
+<div id="ref-bloom85annrev" class="csl-entry" role="listitem">
+Bloom, ArnoldJ, F Stuart Chapin, and Harold A Mooney. 1985. <span>“Resource <span>Limitation</span> in <span>Plants</span>–<span>An</span> <span>Economic</span> <span>Analogy</span>”</span> 16 (1): 363–92. <a href="https://doi.org/10.1146/annurev.es.16.110185.002051">https://doi.org/10.1146/annurev.es.16.110185.002051</a>.
+</div>
+<div id="ref-butterbachbahl2013" class="csl-entry" role="listitem">
+Butterbach-Bahl, Klaus, Elizabeth M. Baggs, Michael Dannenmann, Ralf Kiese, and Sophie Zechmeister-Boltenstern. 2013. <span>“Nitrous Oxide Emissions from Soils: How Well Do We Understand the Processes and Their Controls?”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 368 (1621): 20130122. <a href="https://doi.org/10.1098/rstb.2013.0122">https://doi.org/10.1098/rstb.2013.0122</a>.
+</div>
+<div id="ref-calisto2023wosis" class="csl-entry" role="listitem">
+Calisto, Luis, Luis M. de Sousa, and Niels H. Batjes. 2023. <span>“<span>WoSIS</span> Snapshot – December 2023.”</span> ISRIC – World Soil Information. <a href="https://doi.org/10.17027/isric-wdcsoils-20231130">https://doi.org/10.17027/isric-wdcsoils-20231130</a>.
+</div>
+<div id="ref-canfield2010" class="csl-entry" role="listitem">
+Canfield, Donald E., Alexander N. Glazer, and Paul G. Falkowski. 2010a. <span>“The Evolution and Future of Earth’s Nitrogen Cycle.”</span> <em>Science</em> 330 (6001): 192–96. <a href="https://doi.org/10.1126/science.1186120">https://doi.org/10.1126/science.1186120</a>.
+</div>
+<div id="ref-canfield10sci" class="csl-entry" role="listitem">
+———. 2010b. <span>“The <span>Evolution</span> and <span>Future</span> of <span>Earth</span>’s <span>Nitrogen</span> <span>Cycle</span>.”</span> <em>Science</em> 330 (6001): 192–96. <a href="https://doi.org/10.1126/science.1186120">https://doi.org/10.1126/science.1186120</a>.
+</div>
+<div id="ref-cleland19ecosys" class="csl-entry" role="listitem">
+Cleland, Elsa E., Eric M. Lind, Nicole M. DeCrappeo, Elizabeth DeLorenze, Rachel Abbott Wilkins, Peter B. Adler, Jonathan D. Bakker, et al. 2019. <span>“Belowground <span>Biomass</span> <span>Response</span> to <span>Nutrient</span> <span>Enrichment</span> <span>Depends</span> on <span>Light</span> <span>Limitation</span> <span>Across</span> <span>Globally</span> <span>Distributed</span> <span>Grasslands</span>.”</span> <em>Ecosystems</em> 22 (7): 1466–77. <a href="https://www.jstor.org/stable/48701693">https://www.jstor.org/stable/48701693</a>.
+</div>
+<div id="ref-cleveland_global_1999" class="csl-entry" role="listitem">
+Cleveland, C. C., A. R. Townsend, D. S. Schimel, H. Fisher, R. W. Howarth, L. O. Hedin, S. S. Perakis, et al. 1999. <span>“Global Patterns of Terrestrial Biological Nitrogen (<span>N2</span>) Fixation in Natural Ecosystems.”</span> <em>Global Biogeochemical Cycles</em> 13 (2): 623–45. <a href="https://doi.org/10.1029/1999GB900014">https://doi.org/10.1029/1999GB900014</a>.
+</div>
+<div id="ref-cleveland_patterns_2013" class="csl-entry" role="listitem">
+Cleveland, Cory C., Benjamin Z. Houlton, W. Kolby Smith, Alison R. Marklein, Sasha C. Reed, William Parton, Stephen J. Del Grosso, and Steven W. Running. 2013. <span>“Patterns of New Versus Recycled Primary Production in the Terrestrial Biosphere.”</span> <em>Proceedings of the National Academy of Sciences</em> 110 (31): 12733–37. <a href="https://doi.org/10.1073/pnas.1302768110">https://doi.org/10.1073/pnas.1302768110</a>.
+</div>
+<div id="ref-daviesbarnard_global_2020" class="csl-entry" role="listitem">
+Davies-Barnard, T., and P. Friedlingstein. 2020. <span>“The <span>Global</span> <span>Distribution</span> of <span>Biological</span> <span>Nitrogen</span> <span>Fixation</span> in <span>Terrestrial</span> <span>Natural</span> <span>Ecosystems</span>.”</span> <em>Global Biogeochemical Cycles</em> 34 (3). <a href="https://doi.org/10.1029/2019GB006387">https://doi.org/10.1029/2019GB006387</a>.
+</div>
+<div id="ref-fowler13" class="csl-entry" role="listitem">
+Fowler, David, Mhairi Coyle, Ute Skiba, Mark A. Sutton, J. Neil Cape, Stefan Reis, Lucy J. Sheppard, et al. 2013. <span>“The Global Nitrogen Cycle in the Twenty-First Century.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 368 (1621): 20130164. <a href="https://doi.org/10.1098/rstb.2013.0164">https://doi.org/10.1098/rstb.2013.0164</a>.
+</div>
+<div id="ref-fowler_effects_2015" class="csl-entry" role="listitem">
+Fowler, D., C. E. Steadman, D. Stevenson, M. Coyle, R. M. Rees, U. M. Skiba, M. A. Sutton, et al. 2015. <span>“Effects of Global Change During the 21st Century on the Nitrogen Cycle.”</span> <em>Atmospheric Chemistry and Physics</em> 15 (24): 13849–93. <a href="https://doi.org/10.5194/acp-15-13849-2015">https://doi.org/10.5194/acp-15-13849-2015</a>.
+</div>
+<div id="ref-galloway04" class="csl-entry" role="listitem">
+Galloway, J. N., F. J. Dentener, D. G. Capone, E. W. Boyer, R. W. Howarth, S. P. Seitzinger, G. P. Asner, et al. 2004. <span>“Nitrogen <span>Cycles</span>: <span>Past</span>, <span>Present</span>, and <span>Future</span>.”</span> <em>Biogeochemistry</em> 70 (2): 153–226. <a href="https://doi.org/10.1007/s10533-004-0370-0">https://doi.org/10.1007/s10533-004-0370-0</a>.
+</div>
+<div id="ref-garcia24" class="csl-entry" role="listitem">
+Garcia, Hernan E., Courtney Bouchard, Scott L. Cross, Christopher R. Paver, James R. Reagan, Timothy P. Boyer, Ricardo A. Locarnini, et al. 2024. <span>“World Ocean Atlas 2023, Volume 4: Dissolved Inorganic Nutrients (Phosphate, Nitrate, and Silicate).”</span> <a href="https://doi.org/10.25923/39qw-7j08">https://doi.org/10.25923/39qw-7j08</a>.
+</div>
+<div id="ref-gruber_marine_2008" class="csl-entry" role="listitem">
+Gruber, Nicolas. 2008. <span>“The Marine Nitrogen Cycle: Overview and Challenges.”</span> In <em>Nitrogen in the Marine Environment</em>, edited by Douglas G. Capone, Deborah A. Bronk, Margaret R. Mulholland, and Edward J. Carpenter, 2nd ed., 1–50. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-372522-6.00001-3">https://doi.org/10.1016/B978-0-12-372522-6.00001-3</a>.
+</div>
+<div id="ref-gruber2008" class="csl-entry" role="listitem">
+Gruber, Nicolas, and James N. Galloway. 2008. <span>“An Earth-System Perspective of the Global Nitrogen Cycle.”</span> <em>Nature</em> 451 (7176): 293–96. <a href="https://doi.org/10.1038/nature06592">https://doi.org/10.1038/nature06592</a>.
+</div>
+<div id="ref-guo_significant_2010" class="csl-entry" role="listitem">
+Guo, J. H., X. J. Liu, Y. Zhang, J. L. Shen, W. X. Han, W. F. Zhang, P. Christie, K. W. T. Goulding, P. M. Vitousek, and F. S. Zhang. 2010. <span>“Significant Acidification in Major <span>Chinese</span> Croplands.”</span> <em>Science</em> 327 (5968): 1008–10. <a href="https://doi.org/10.1126/science.1182570">https://doi.org/10.1126/science.1182570</a>.
+</div>
+<div id="ref-harmon2016lidet" class="csl-entry" role="listitem">
+Harmon, Mark E. 2016. <span>“<span>LTER</span> Intersite Fine Litter Decomposition Experiment (<span>LIDET</span>), 1990 to 2002.”</span> Environmental Data Initiative. <a href="https://doi.org/10.6073/pasta/f35f56bea52d78b6a1ecf1952b4889c5">https://doi.org/10.6073/pasta/f35f56bea52d78b6a1ecf1952b4889c5</a>.
+</div>
+<div id="ref-houlton2018" class="csl-entry" role="listitem">
+Houlton, B. Z., S. L. Morford, and R. A. Dahlgren. 2018a. <span>“Convergent Evidence for Widespread Rock Nitrogen Sources in Earth’s Surface Environment.”</span> <em>Science</em> 360 (6384): 58–62. <a href="https://doi.org/10.1126/science.aan4399">https://doi.org/10.1126/science.aan4399</a>.
+</div>
+<div id="ref-houlton18sci" class="csl-entry" role="listitem">
+———. 2018b. <span>“Convergent Evidence for Widespread Rock Nitrogen Sources in <span>Earth</span>’s Surface Environment.”</span> <em>Science</em> 360 (6384): 58–62. <a href="https://doi.org/10.1126/science.aan4399">https://doi.org/10.1126/science.aan4399</a>.
+</div>
+<div id="ref-hungate2003" class="csl-entry" role="listitem">
+Hungate, Bruce A., Jeffrey S. Dukes, M. Rebecca Shaw, Yiqi Luo, and Christopher B. Field. 2003. <span>“Nitrogen and Climate Change.”</span> <em>Science</em> 302 (5650): 1512–13. <a href="https://doi.org/10.1126/science.1091390">https://doi.org/10.1126/science.1091390</a>.
+</div>
+<div id="ref-johnsongoldblatt2015" class="csl-entry" role="listitem">
+Johnson, Ben, and Colin Goldblatt. 2015. <span>“The Nitrogen Budget of Earth.”</span> <em>Earth-Science Reviews</em> 148: 150–73. <a href="https://doi.org/10.1016/j.earscirev.2015.05.006">https://doi.org/10.1016/j.earscirev.2015.05.006</a>.
+</div>
+<div id="ref-kuzyakov_review_2019" class="csl-entry" role="listitem">
+Kuzyakov, Yakov, William R. Horwath, Maxim Dorodnikov, and Evgenia Blagodatskaya. 2019. <span>“Review and Synthesis of the Effects of Elevated Atmospheric <span>CO2</span> on Soil Processes: <span>No</span> Changes in Pools, but Increased Fluxes and Accelerated Cycles.”</span> <em>Soil Biology and Biochemistry</em> 128: 66–78. <a href="https://doi.org/10.1016/j.soilbio.2018.10.005">https://doi.org/10.1016/j.soilbio.2018.10.005</a>.
+</div>
+<div id="ref-lassaletta_food_2014" class="csl-entry" role="listitem">
+Lassaletta, Luis, Gilles Billen, Bruna Grizzetti, Josette Garnier, Allison M. Leach, and James N. Galloway. 2014. <span>“Food and Feed Trade as a Driver in the Global Nitrogen Cycle: 50-Year Trends.”</span> <em>Biogeochemistry</em> 118: 225–41. <a href="https://doi.org/10.1007/s10533-013-9923-4">https://doi.org/10.1007/s10533-013-9923-4</a>.
+</div>
+<div id="ref-lavallee2020" class="csl-entry" role="listitem">
+Lavallee, Jocelyn M., Jennifer L. Soong, and M. Francesca Cotrufo. 2020. <span>“Conceptualizing Soil Organic Matter into Particulate and Mineral-Associated Forms to Address Global Change in the 21st Century.”</span> <em>Global Change Biology</em> 26 (1): 261–73. <a href="https://doi.org/10.1111/gcb.14859">https://doi.org/10.1111/gcb.14859</a>.
+</div>
+<div id="ref-lebauer_nitrogen_2008" class="csl-entry" role="listitem">
+LeBauer, David S., and Kathleen K. Treseder. 2008. <span>“Nitrogen Limitation of Net Primary Productivity in Terrestrial Ecosystems Is Globally Distributed.”</span> <em>Ecology</em> 89 (2): 371–79. <a href="https://doi.org/10.1890/06-2057.1">https://doi.org/10.1890/06-2057.1</a>.
+</div>
+<div id="ref-lenton2017matworld" class="csl-entry" role="listitem">
+Lenton, Timothy M., and Stuart J. Daines. 2017. <span>“Matworld – the Biogeochemical Effects of Early Life on Land.”</span> <em>New Phytologist</em> 215 (2): 531–37. <a href="https://doi.org/10.1111/nph.14338">https://doi.org/10.1111/nph.14338</a>.
+</div>
+<div id="ref-liang20gcb" class="csl-entry" role="listitem">
+Liang, Xingyun, Tong Zhang, Xiankai Lu, David S. Ellsworth, Hormoz BassiriRad, Chengming You, Dong Wang, et al. 2020. <span>“Global Response Patterns of Plant Photosynthesis to Nitrogen Addition: <span>A</span> Meta‐analysis.”</span> <em>Global Change Biology</em> 26 (6): 3585–3600. <a href="https://doi.org/10.1111/gcb.15071">https://doi.org/10.1111/gcb.15071</a>.
+</div>
+<div id="ref-lin2015" class="csl-entry" role="listitem">
+Lin, Laurence, Jackson R. Webster, Taehee Hwang, and Lawrence E. Band. 2015. <span>“Effects of Lateral Nitrate Flux and Instream Processes on Dissolved Inorganic Nitrogen Export in a Forested Catchment: A Model Sensitivity Analysis.”</span> <em>Water Resources Research</em> 51 (4): 2680–95. <a href="https://doi.org/10.1002/2014wr015962">https://doi.org/10.1002/2014wr015962</a>.
+</div>
+<div id="ref-manzoni2008" class="csl-entry" role="listitem">
+Manzoni, Stefano, Robert B. Jackson, John A. Trofymow, and Amilcare Porporato. 2008. <span>“The Global Stoichiometry of Litter Nitrogen Mineralization.”</span> <em>Science</em> 321 (5889): 684–86. <a href="https://doi.org/10.1126/science.1159792">https://doi.org/10.1126/science.1159792</a>.
+</div>
+<div id="ref-mcmurtrie2018" class="csl-entry" role="listitem">
+McMurtrie, Ross E., and Torgny Näsholm. 2018. <span>“Quantifying the Contribution of Mass Flow to Nitrogen Acquisition by an Individual Plant Root.”</span> <em>New Phytologist</em> 218 (1): 119–30. <a href="https://doi.org/10.1111/nph.14927">https://doi.org/10.1111/nph.14927</a>.
+</div>
+<div id="ref-medlyn_using_2015" class="csl-entry" role="listitem">
+Medlyn, Belinda E., Sönke Zaehle, Martin G. De Kauwe, Anthony P. Walker, Michael C. Dietze, Paul J. Hanson, Thomas Hickler, et al. 2015. <span>“Using Ecosystem Experiments to Improve Vegetation Models.”</span> <em>Nature Climate Change</em> 5: 528–34. <a href="https://doi.org/10.1038/nclimate2621">https://doi.org/10.1038/nclimate2621</a>.
+</div>
+<div id="ref-mueller_closing_2012" class="csl-entry" role="listitem">
+Mueller, Nathaniel D., James S. Gerber, Matt Johnston, Deepak K. Ray, Navin Ramankutty, and Jonathan A. Foley. 2012. <span>“Closing Yield Gaps Through Nutrient and Water Management.”</span> <em>Nature</em> 490 (7419): 254–57. <a href="https://doi.org/10.1038/nature11420">https://doi.org/10.1038/nature11420</a>.
+</div>
+<div id="ref-nasholm2009" class="csl-entry" role="listitem">
+Näsholm, Torgny, Knut Kielland, and Ulrika Ganeteg. 2009. <span>“Uptake of Organic Nitrogen by Plants.”</span> <em>New Phytologist</em> 182 (1): 31–48. <a href="https://doi.org/10.1111/j.1469-8137.2008.02751.x">https://doi.org/10.1111/j.1469-8137.2008.02751.x</a>.
+</div>
+<div id="ref-nikitin2026fred4" class="csl-entry" role="listitem">
+Nikitin, Teodora, M. Luke McCormack, Colleen M. Iversen, A. Shafer Powell, J. Katie Baer, Kira Borden, Weile Chen, et al. 2026. <span>“Fine-Root Ecology Database (<span>FRED</span>): A Global Collection of Root Trait Data with Coincident Site, Vegetation, Edaphic, and Climatic Data, Version 4.”</span> ORNL Terrestrial Ecosystem Science SFA, ESS-DIVE. <a href="https://doi.org/10.15485/2587359">https://doi.org/10.15485/2587359</a>.
+</div>
+<div id="ref-pellegrini2018" class="csl-entry" role="listitem">
+Pellegrini, Adam F. A., Anders Ahlström, Sarah E. Hobbie, Peter B. Reich, Lars P. Nieradzik, A. Carla Staver, Bryant C. Scharenbroch, et al. 2018. <span>“Fire Frequency Drives Decadal Changes in Soil Carbon and Nitrogen and Ecosystem Productivity.”</span> <em>Nature</em> 553 (7687): 194–98. <a href="https://doi.org/10.1038/nature24668">https://doi.org/10.1038/nature24668</a>.
+</div>
+<div id="ref-peng2023" class="csl-entry" role="listitem">
+Peng, Yunke, Iain Colin Prentice, Keith J. Bloomfield, Matteo Campioli, Zhiwen Guo, Yuanfeng Sun, Di Tian, Xiangping Wang, Sara Vicca, and Benjamin D. Stocker. 2023. <span>“Global Terrestrial Nitrogen Uptake and Nitrogen Use Efficiency.”</span> <em>Journal of Ecology</em> 111 (12): 2676–93. https://doi.org/<a href="https://doi.org/10.1111/1365-2745.14208">https://doi.org/10.1111/1365-2745.14208</a>.
+</div>
+<div id="ref-poorter12newphyt" class="csl-entry" role="listitem">
+Poorter, Hendrik, Karl J. Niklas, Peter B. Reich, Jacek Oleksyn, Pieter Poot, and Liesje Mommer. 2012. <span>“Biomass Allocation to Leaves, Stems and Roots: Meta‐analyses of Interspecific Variation and Environmental Control.”</span> <em>New Phytologist</em> 193 (1): 30–50. <a href="https://doi.org/10.1111/j.1469-8137.2011.03952.x">https://doi.org/10.1111/j.1469-8137.2011.03952.x</a>.
+</div>
+<div id="ref-reed_functional_2011" class="csl-entry" role="listitem">
+Reed, Sasha C., Cory C. Cleveland, and Alan R. Townsend. 2011. <span>“Functional <span>Ecology</span> of <span>Free</span>-<span>Living</span> <span>Nitrogen</span> <span>Fixation</span>: <span>A</span> <span>Contemporary</span> <span>Perspective</span>.”</span> <em>Annual Review of Ecology, Evolution, and Systematics</em> 42 (1): 489–512. <a href="https://doi.org/10.1146/annurev-ecolsys-102710-145034">https://doi.org/10.1146/annurev-ecolsys-102710-145034</a>.
+</div>
+<div id="ref-schleppi2017" class="csl-entry" role="listitem">
+Schleppi, Patrick, Fabienne Curtaz, and Kim Krause. 2017. <span>“Nitrate Leaching from a Sub-Alpine Coniferous Forest Subjected to Experimentally Increased n Deposition for 20&nbsp;Years, and Effects of Tree Girdling and Felling.”</span> <em>Biogeochemistry</em> 134 (3): 319–35. <a href="https://doi.org/10.1007/s10533-017-0364-3">https://doi.org/10.1007/s10533-017-0364-3</a>.
+</div>
+<div id="ref-schulze19" class="csl-entry" role="listitem">
+Schulze, Ernst-Detlef, Beck Erwin, Nina Buchmann, Stephan Clemens, Klaus Müller-Hohenstein, and Michael Scherer-Lorenzen. 2019. <em>Plant <span>Ecology</span></em>. Heidelberg: Springer Berlin. <a href="https://doi.org/10.1007/978-3-662-56233-8">https://doi.org/10.1007/978-3-662-56233-8</a>.
+</div>
+<div id="ref-sebilo2013" class="csl-entry" role="listitem">
+Sebilo, Mathieu, Bernhard Mayer, Bernard Nicolardot, Gilles Pinay, and André Mariotti. 2013. <span>“Long-Term Fate of Nitrate Fertilizer in Agricultural Soils.”</span> <em>Proceedings of the National Academy of Sciences</em> 110 (45): 18185–89. <a href="https://doi.org/10.1073/pnas.1305372110">https://doi.org/10.1073/pnas.1305372110</a>.
+</div>
+<div id="ref-seibert2007" class="csl-entry" role="listitem">
+Seibert, Jan, Johan Stendahl, and Rasmus Sørensen. 2007. <span>“Topographical Influences on Soil Properties in Boreal Forests.”</span> <em>Geoderma</em> 141 (1-2): 139–48. <a href="https://doi.org/10.1016/j.geoderma.2007.05.013">https://doi.org/10.1016/j.geoderma.2007.05.013</a>.
+</div>
+<div id="ref-stocker2013phd" class="csl-entry" role="listitem">
+Stocker, Benjamin. 2013. <span>“Climate Forcings and Feedbacks from the Terrestrial Biosphere: From Greenhouse-Gas Emissions to Anthropogenic Land Use Change.”</span> PhD thesis, University of Bern.
+</div>
+<div id="ref-stocker_empirical_2025" class="csl-entry" role="listitem">
+Stocker, Benjamin D., Ning Dong, Evan A. Perkowski, Pascal D. Schneider, Huiying Xu, Hugo J. de Boer, Karin T. Rebel, et al. 2025. <span>“Empirical Evidence and Theoretical Understanding of Ecosystem Carbon and Nitrogen Cycle Interactions.”</span> <em>New Phytologist</em> 245 (1): 49–68. <a href="https://doi.org/10.1111/nph.20178">https://doi.org/10.1111/nph.20178</a>.
+</div>
+<div id="ref-stocker_terrestrial_2016" class="csl-entry" role="listitem">
+Stocker, Benjamin D., I. Colin Prentice, Sarah E. Cornell, Taraka Davies-Barnard, Adrien C. Finzi, Oskar Franklin, Ivan Janssens, et al. 2016. <span>“Terrestrial Nitrogen Cycling in <span>Earth</span> System Models Revisited.”</span> <em>New Phytologist</em> 210 (4): 1165–68. <a href="https://doi.org/10.1111/nph.13997">https://doi.org/10.1111/nph.13997</a>.
+</div>
+<div id="ref-stocker_cn-model_2024" class="csl-entry" role="listitem">
+Stocker, Benjamin D., and Iain Colin Prentice. 2024. <span>“<span>CN</span>-Model: <span>A</span> Dynamic Model for the Coupled Carbon and Nitrogen Cycles in Terrestrial Ecosystems.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2024.04.25.591063">https://doi.org/10.1101/2024.04.25.591063</a>.
+</div>
+<div id="ref-stricklandrousk2010" class="csl-entry" role="listitem">
+Strickland, Michael S., and Johannes Rousk. 2010. <span>“Considering Fungal:bacterial Dominance in Soils—Methods, Controls, and Ecosystem Implications.”</span> <em>Soil Biology and Biochemistry</em> 42 (9): 1385–95. <a href="https://doi.org/10.1016/j.soilbio.2010.05.007">https://doi.org/10.1016/j.soilbio.2010.05.007</a>.
+</div>
+<div id="ref-stueken2015fixation" class="csl-entry" role="listitem">
+Stüeken, Eva E., Roger Buick, Bradley M. Guy, and Matthew C. Koehler. 2015. <span>“Isotopic Evidence for Biological Nitrogen Fixation by Molybdenum-Nitrogenase from 3.2 <span>Gyr</span>.”</span> <em>Nature</em> 520: 666–69. <a href="https://doi.org/10.1038/nature14180">https://doi.org/10.1038/nature14180</a>.
+</div>
+<div id="ref-terrer_mycorrhizal_2016" class="csl-entry" role="listitem">
+Terrer, César, Sara Vicca, Bruce A. Hungate, Richard P. Phillips, and I. Colin Prentice. 2016. <span>“Mycorrhizal Association as a Primary Control of the <span>CO2</span> Fertilization Effect.”</span> <em>Science</em> 353 (6294): 72–74. <a href="https://doi.org/10.1126/science.aaf4610">https://doi.org/10.1126/science.aaf4610</a>.
+</div>
+<div id="ref-tian_hani_data_2022" class="csl-entry" role="listitem">
+Tian, Hanqin, Zihao Bian, Hao Shi, Xiaoyu Qin, Naiqing Pan, Chaoqun Lu, Shufen Pan, et al. 2022a. <span>“<span>HaNi</span>: A Historical Dataset of Anthropogenic Nitrogen Inputs to the Terrestrial Biosphere (1860–2019).”</span> PANGAEA. <a href="https://doi.org/10.1594/PANGAEA.942069">https://doi.org/10.1594/PANGAEA.942069</a>.
+</div>
+<div id="ref-tian_hani_2022" class="csl-entry" role="listitem">
+———, et al. 2022b. <span>“History of Anthropogenic Nitrogen Inputs (<span>HaNi</span>) to the Terrestrial Biosphere: A 5 Arcmin Resolution Annual Dataset from 1860 to 2019.”</span> <em>Earth System Science Data</em> 14 (10): 4551–68. <a href="https://doi.org/10.5194/essd-14-4551-2022">https://doi.org/10.5194/essd-14-4551-2022</a>.
+</div>
+<div id="ref-tian_global_2019" class="csl-entry" role="listitem">
+Tian, Hanqin, Jia Yang, Rongting Xu, Chaoqun Lu, Josep G. Canadell, Eric A. Davidson, Robert B. Jackson, et al. 2019. <span>“Global Soil Nitrous Oxide Emissions Since the Preindustrial Era Estimated by an Ensemble of Terrestrial Biosphere Models: <span>Magnitude</span>, Attribution, and Uncertainty.”</span> <em>Global Change Biology</em> 25 (2): 640–59. <a href="https://doi.org/10.1111/gcb.14514">https://doi.org/10.1111/gcb.14514</a>.
+</div>
+<div id="ref-vansundert23gcb" class="csl-entry" role="listitem">
+Van Sundert, Kevin, Sebastian Leuzinger, Martin K.-F. Bader, Scott X. Chang, Martin G. De Kauwe, Jeffrey S. Dukes, J. Adam Langley, et al. 2023. <span>“When Things Get <span>MESI</span>: <span>The</span> <span>Manipulation</span> <span>Experiments</span> <span>Synthesis</span> <span>Initiative</span>—<span>A</span> Coordinated Effort to Synthesize Terrestrial Global Change Experiments.”</span> <em>Global Change Biology</em> 29 (7): 1922–38. <a href="https://doi.org/10.1111/gcb.16585">https://doi.org/10.1111/gcb.16585</a>.
+</div>
+<div id="ref-vergutz2012data" class="csl-entry" role="listitem">
+Vergutz, Leonardus, Stefano Manzoni, Amilcare Porporato, Roberto F. Novais, and Robert B. Jackson. 2012a. <span>“A Global Database of Carbon and Nutrient Concentrations of Green and Senesced Leaves.”</span> ORNL DAAC. <a href="https://doi.org/10.3334/ORNLDAAC/1106">https://doi.org/10.3334/ORNLDAAC/1106</a>.
+</div>
+<div id="ref-vergutz2012" class="csl-entry" role="listitem">
+———. 2012b. <span>“Global Resorption Efficiencies and Concentrations of Carbon and Nutrients in Leaves of Terrestrial Plants.”</span> <em>Ecological Monographs</em> 82 (2): 205–20. <a href="https://doi.org/10.1890/11-0416.1">https://doi.org/10.1890/11-0416.1</a>.
+</div>
+<div id="ref-vitousek_nutrient_2009" class="csl-entry" role="listitem">
+Vitousek, P. M., R. Naylor, T. Crews, M. B. David, L. E. Drinkwater, E. Holland, P. J. Johnes, et al. 2009. <span>“Nutrient Imbalances in Agricultural Development.”</span> <em>Science</em> 324 (5934): 1519–20. <a href="https://doi.org/10.1126/science.1170261">https://doi.org/10.1126/science.1170261</a>.
+</div>
+<div id="ref-vitousek_nutrient_1997" class="csl-entry" role="listitem">
+Vitousek, Peter M., and Heraldo Farrington. 1997. <span>“Nutrient Limitation and Soil Development: Experimental Test of a Biogeochemical Theory.”</span> <em>Biogeochemistry</em> 37 (1): 63–75. <a href="https://doi.org/10.1023/A:1005757218475">https://doi.org/10.1023/A:1005757218475</a>.
+</div>
+<div id="ref-vitousek_nitrogen_1991" class="csl-entry" role="listitem">
+Vitousek, Peter M., and Robert W. Howarth. 1991. <span>“Nitrogen Limitation on Land and in the Sea: <span>How</span> Can It Occur?”</span> <em>Biogeochemistry</em> 13 (2): 87–115. <a href="https://doi.org/10.1007/BF00002772">https://doi.org/10.1007/BF00002772</a>.
+</div>
+<div id="ref-vitousek_biological_2013" class="csl-entry" role="listitem">
+Vitousek, Peter M., Duncan N. L. Menge, Sasha C. Reed, and Cory C. Cleveland. 2013. <span>“Biological Nitrogen Fixation: Rates, Patterns and Ecological Controls in Terrestrial Ecosystems.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 368 (1621): 20130119. <a href="https://doi.org/10.1098/rstb.2013.0119">https://doi.org/10.1098/rstb.2013.0119</a>.
+</div>
+<div id="ref-devries09" class="csl-entry" role="listitem">
+Vries, W. de, S. Solberg, M. Dobbertin, H. Sterba, D. Laubhann, M. van Oijen, C. Evans, et al. 2009. <span>“The Impact of Nitrogen Deposition on Carbon Sequestration by <span>European</span> Forests and Heathlands.”</span> <em>Forest Ecology and Management</em>, The relative importance of nitrogen deposition and climate change on the sequestration of carbon by forests in <span>Europe</span>., 258 (8): 1814–23. <a href="https://doi.org/10.1016/j.foreco.2009.02.034">https://doi.org/10.1016/j.foreco.2009.02.034</a>.
+</div>
+<div id="ref-wijas2025" class="csl-entry" role="listitem">
+Wijas, Baptiste, William K. Cornwell, Brad Oberle, and Amy E. Zanne. 2025. <span>“Faster Than Expected: Release of Nitrogen and Phosphorus from Decomposing Woody Litter.”</span> <em>New Phytologist</em> 245 (5): 2214–23. <a href="https://doi.org/10.1111/nph.20362">https://doi.org/10.1111/nph.20362</a>.
+</div>
+<div id="ref-wijas2024data" class="csl-entry" role="listitem">
+Wijas, Baptiste, Will Cornwell, Brad Oberle, and Amy Zanne. 2024. <span>“Data from: Faster Than Expected: Release of Nitrogen and Phosphorus from Decomposing Woody Litter.”</span> Dryad. <a href="https://doi.org/10.5061/dryad.w9ghx3g0g">https://doi.org/10.5061/dryad.w9ghx3g0g</a>.
+</div>
+<div id="ref-schlesingerbernhardt13" class="csl-entry" role="listitem">
+William H. Schlesinger, and Emily S. Bernhardt. 2013. <em>Biogeochemistry - <span>An</span> <span>Analysis</span> of <span>Global</span> <span>Change</span></em>. Boston: Academic Press. <a href="https://doi.org/10.1016/B978-0-12-385874-0.09985-4">https://doi.org/10.1016/B978-0-12-385874-0.09985-4</a>.
+</div>
+<div id="ref-xu_toward_2012" class="csl-entry" role="listitem">
+Xu, Chonggang, Rosie Fisher, Stan D. Wullschleger, Cathy J. Wilson, Michael Cai, and Nate G. McDowell. 2012. <span>“Toward a <span>Mechanistic</span> <span>Modeling</span> of <span>Nitrogen</span> <span>Limitation</span> on <span>Vegetation</span> <span>Dynamics</span>.”</span> <em>PLoS ONE</em> 7 (5): e37914. <a href="https://doi.org/10.1371/journal.pone.0037914">https://doi.org/10.1371/journal.pone.0037914</a>.
+</div>
+<div id="ref-xu2013microbial" class="csl-entry" role="listitem">
+Xu, Xiaofeng, Peter E. Thornton, and Wilfred M. Post. 2013. <span>“A Global Analysis of Soil Microbial Biomass Carbon, Nitrogen and Phosphorus in Terrestrial Ecosystems.”</span> <em>Global Ecology and Biogeography</em> 22 (6): 737–49. <a href="https://doi.org/10.1111/geb.12029">https://doi.org/10.1111/geb.12029</a>.
+</div>
+<div id="ref-xu2014microbialdata" class="csl-entry" role="listitem">
+———. 2014. <span>“A Compilation of Global Soil Microbial Biomass Carbon, Nitrogen, and Phosphorus Data.”</span> ORNL DAAC. <a href="https://doi.org/10.3334/ORNLDAAC/1264">https://doi.org/10.3334/ORNLDAAC/1264</a>.
+</div>
+<div id="ref-xu-ri_terrestrial_2008" class="csl-entry" role="listitem">
+Xu-Ri, and I. C. Prentice. 2008. <span>“Terrestrial Nitrogen Cycle Simulation with a Dynamic Global Vegetation Model.”</span> <em>Global Change Biology</em> 14 (8): 1745–64. <a href="https://doi.org/10.1111/j.1365-2486.2008.01625.x">https://doi.org/10.1111/j.1365-2486.2008.01625.x</a>.
+</div>
+<div id="ref-zhangelser2017" class="csl-entry" role="listitem">
+Zhang, Ji, and James J. Elser. 2017. <span>“<span>Carbon:Nitrogen:Phosphorus</span> Stoichiometry in Fungi: A Meta-Analysis.”</span> <em>Frontiers in Microbiology</em> 8: 1281. <a href="https://doi.org/10.3389/fmicb.2017.01281">https://doi.org/10.3389/fmicb.2017.01281</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -891,6 +1902,38 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
