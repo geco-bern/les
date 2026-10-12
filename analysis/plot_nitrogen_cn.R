@@ -87,10 +87,10 @@ p <- ggplot(observations, aes(x = cn_mass, y = compartment, fill = compartment))
   geom_text(data = summary, aes(x = Inf, label = paste0("n = ",
              format(n, big.mark = ",", trim = TRUE))), hjust = 1, size = 3.3,
              family = "Helvetica", colour = "#222222") +
-  scale_x_continuous(limits = c(0, 600)) +
-  # scale_x_log10(breaks = c(.1, 1, 10, 100, 1000, 10000),
-  #               labels = c("0.1", "1", "10", "100", "1,000", "10,000"),
-  #               expand = expansion(mult = c(.015, .24))) +
+  # scale_x_continuous(limits = c(0, 600)) +
+  scale_x_log10(breaks = c(.1, 1, 10, 100, 1000, 10000),
+                labels = c("0.1", "1", "10", "100", "1,000", "10,000"),
+                expand = expansion(mult = c(.015, .24))) +
   scale_y_discrete(limits = rev(compartments), labels = plot_labels,
                    expand = expansion(add = .55)) +
   scale_fill_manual(values = palette, guide = "none") +
