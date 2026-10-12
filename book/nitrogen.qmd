@@ -406,7 +406,8 @@ Curiously, N limitation persists in many ecosystems despite the potential compet
 A further expression of the important role of N in controlling the C cycle is the concern about an increasing importance of N limitation in limiting the terrestrial C sink. Rising CO~2~ generally fertilises photosynthesis and can enhance biomass production and stocks, but sustaining additional C storage requires additional N to be fixed into biomass. The first generation of terrestrial biosphere models and Earth System Models that represented only a C cycle (not not an interacting N cycle) projected a substantial terrestrial C accumulation without explicitly accounting for the potential role of N limitation on the C sink. @hungate2003 argued that, at assumed tissue and soil C:N ratios, some projections required implausibly large additional N fixation and conservation that are incompatible with empirical estimates of their magnitude and flexibility. This motivated the explicit representation C–N cycle interactions in more recent model generations. However, variable process representations in these models (e.g. stoichiometric flexiblility, plasticity in allocation, response of photosynthesis to N limitation) imply unresolved shortcomings [@medlyn_using_2015] and diverging simulations of the magnitude and trend in the terrestrial C sink [@stocker_empirical_2025].
 
 
-::: {.callout-caution title="Exercises"}
+::: {.callout-caution}
+## Exercise
 1. Explain why atmospheric deposition or imported manure can supply a forest or farm without adding a new global fixation flux.
 2. For litter C:N = 40, decomposer C:N = 8, and carbon-use efficiency 0.3, calculate net N release when 100 g C decomposes. Repeat for efficiency 0.15.
 3. Assume that a forest under elevated CO~2~ gains wood C without gaining total ecosystem N. Identify changes in allocation, stoichiometry, or redistribution that could explain this observation.

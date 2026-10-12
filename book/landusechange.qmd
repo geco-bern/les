@@ -209,7 +209,7 @@ Forest regeneration and afforestation have a significant potential to sequester 
 -	Forest management and protection: Long-term permanency of C in afforestations and regenerated forests is subject to management practices and the long-term protection from logging and other human-induced disturbances. This implies that the economic, political, and legal context is critical for guaranteeing long-term permanency. However, such guarantees may not be given at the time when decisions about compensating C emissions fossil fuels are made.
 -	Delayed benefits: Forests take decades to centuries to reach their full potential C stocks (@fig-forest_regeneration_pugh19pnas). This implies a limited potential as a near-term (within the next 1-3 decades) climate mitigation solution at scale.
 
-::: {.callout-note}
+::: {.callout-caution}
 ## Exercises
 
 1. For a single crop, assume that population increases by 20%, per-capita consumption increases by 10%, and yield increases by 25%. Using $A = P c/Y$, calculate the percentage change in the cropland area required, ignoring trade and stock changes. Explain why higher yields do not necessarily prevent agricultural expansion, and how protecting land in one region could shift conversion elsewhere.
