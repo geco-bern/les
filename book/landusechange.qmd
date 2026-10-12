@@ -208,3 +208,16 @@ Forest regeneration and afforestation have a significant potential to sequester 
 -	Permanence and risk of disturbance: The potential carbon gains from regeneration and afforestation are at risk from natural disturbances such as wildfires, insect outbreaks, [@anderegg20sci]. Limited permanency of C (the turnover time of C in forest biomass is on the order of decades to centuries) indicates that forest regeneration and afforestation should not be used to compensate C released from fossil fuels where C had stored in organic matter for millions of years.
 -	Forest management and protection: Long-term permanency of C in afforestations and regenerated forests is subject to management practices and the long-term protection from logging and other human-induced disturbances. This implies that the economic, political, and legal context is critical for guaranteeing long-term permanency. However, such guarantees may not be given at the time when decisions about compensating C emissions fossil fuels are made.
 -	Delayed benefits: Forests take decades to centuries to reach their full potential C stocks (@fig-forest_regeneration_pugh19pnas). This implies a limited potential as a near-term (within the next 1-3 decades) climate mitigation solution at scale.
+
+::: {.callout-note}
+## Exercises
+
+1. For a single crop, assume that population increases by 20%, per-capita consumption increases by 10%, and yield increases by 25%. Using $A = P c/Y$, calculate the percentage change in the cropland area required, ignoring trade and stock changes. Explain why higher yields do not necessarily prevent agricultural expansion, and how protecting land in one region could shift conversion elsewhere.
+
+2. In one year, a region converts 1,000 ha of mature forest to cropland and abandons 1,000 ha of cropland, allowing forest regrowth. What are the net change in cropland area and the total area undergoing a land-use transition? Sketch the expected carbon-stock trajectories of the two areas over subsequent decades. Explain why zero net change in cropland area does not imply zero net CO~2~ emissions, and why emissions can continue after clearing has stopped.
+
+3. Assume that the land use transitions described in exercise 2. persist each year for several decades and a complete shifting cultivation cycle completed, where forest conversion to cropland affects previously abandoned cropland. What are the annual net CO~2~ emissions (positive, zero, negative)? Are the cumulative CO~2~ emissions from land use change since the advent of cropland use higher/equal/lower compared to a case where cropland cultivation was permanent (1,000 ha converted to cropland only in the first year)?
+
+4. A proposal claims that carbon uptake by a new forest can compensate for an immediate release of fossil-fuel CO~2~. What information would you need to assess this claim? Discuss the timing and permanence of carbon storage, the land's carbon balance without the project, possible displacement of existing land uses, water availability, and biogeophysical effects. Which aspects could a bookkeeping model quantify, and which would require additional evidence or modelling?
+
+:::

@@ -6,7 +6,7 @@ Under natural conditions, new inputs of reactive N to terrestrial ecosystems are
 
 Human activities have greatly increased new N~r~ inputs into the terrestrial biosphere through industrial fixation, cultivation of N-fixing crops, and combustion of biomass. This perturbation has increased N pollution and emissions of the greenhouse gas N~2~O, while additional N~r~ inputs have enabled the rapid growth in crop yields and may have contributed to the sustained C sink in the terrestrial biosphere [@devries09]. The chapter first introduces N species, reservoirs, transformations, and the (re-)cycling of N in terrestrial ecosystems. Then, an overview of global budgets and interactions with the C cycle is given.
 
-## Earth system perspective
+## Earth-level perspective
 
 ### Reservoirs
 
