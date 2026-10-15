@@ -724,7 +724,7 @@ library(ggplot2)
 # data created in analysis/analyse_waterbucketmodel.R
 df_pet <- readRDS(here::here("data/df_pet.rds"))
 
-df_pet |> 
+df_pet |>
   ggplot(
     aes(
       x = pet,
@@ -732,7 +732,7 @@ df_pet |>
       group = prec,
       color = prec
     )
-  ) + 
+  ) +
   geom_line() +
   geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
   theme_classic() +
@@ -825,7 +825,7 @@ library(ggplot2)
 # data created in analysis/analyse_waterbucketmodel.R
 df_s0 <- readRDS(here::here("data/df_s0.rds"))
 
-df_s0 |> 
+df_s0 |>
   ggplot(
     aes(
       x = prec,
@@ -833,7 +833,7 @@ df_s0 |>
       group = s0,
       color = s0
     )
-  ) + 
+  ) +
   geom_line() +
   geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
   geom_hline(yintercept = 2000, linetype = "dotted") +
@@ -847,6 +847,31 @@ df_s0 |>
     x = expression(paste(italic(P), " (mm)")),
     y = "AET (mm)"
   )
+
+# # Budyko plot with S0
+# df_s0 |>
+#   ggplot(
+#     aes(
+#       x = pet / prec,
+#       y = aet / prec,
+#       group = s0,
+#       color = s0
+#     )
+#   ) +
+#   geom_line() +
+#   geom_abline(slope = 1, intercept = 0, linetype = "dotted") +
+#   geom_hline(yintercept = 1, linetype = "dotted") +
+#   theme_classic() +
+#   scale_color_viridis_c(
+#     name = expression(paste(italic("S")[0], " (mm)")),
+#     option = "magma"
+#   ) +
+#   labs(
+#     x = expression(paste("PET/", italic(P))),
+#     y = expression(paste("AET/", italic(P)))
+#   )
+
+# ggsave(here::here("book/images/budyko_s0.pdf"), width = 6, height = 4)
 ```
 
 

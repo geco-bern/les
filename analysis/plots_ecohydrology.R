@@ -9,8 +9,21 @@ library(cowplot)
 library(recipes)
 
 ## Read data ----------------
-df_ton <- read_csv(here("data-raw/FLX_US-Ton_FLUXDATAKIT_FULLSET_DD_2001_2014_2-3.csv")) |>
-  select(TIMESTAMP, P_F, TA_F_MDS, PA_F, LE_F_MDS, SW_IN_F_MDS, LW_IN_F_MDS, NETRAD, LE_CORR)
+df_ton <- read_csv(here(
+  "data-raw/FLX_US-Ton_FLUXDATAKIT_FULLSET_DD_2001_2014_2-3.csv"
+)) |>
+  select(
+    TIMESTAMP,
+    P_F,
+    TA_F_MDS,
+    PA_F,
+    LE_F_MDS,
+    SW_IN_F_MDS,
+    LW_IN_F_MDS,
+    NETRAD,
+    LE_CORR,
+    GPP_DT_VUT_REF
+  )
 
 # df_var <- read_csv(here("data-raw/FLX_US-Var_FLUXDATAKIT_FULLSET_DD_2000_2021_2-3.csv")) |>
 #   select(TIMESTAMP, P_F, TA_F_MDS, PA_F, LE_F_MDS, SW_IN_F_MDS, LW_IN_F_MDS, NETRAD, LE_CORR) |> 
@@ -47,7 +60,7 @@ out_cwd_ton <- cwd::cwd(
   df_ton,
   varname_wbal = "wbal",
   varname_date = "TIMESTAMP",
-  thresh_terminate = 0.0,
+  # thresh_terminate = 0.0,
   thresh_drop = 0.0
 )
 
@@ -62,9 +75,9 @@ out_cwd_ton <- cwd::cwd(
 # retain only data from events with largest deficit per year
 # tonzi
 out_cwd_ton$inst <- out_cwd_ton$inst |>
-  mutate(year = year(date_start)) |> 
-  group_by(year) |> 
-  filter(deficit == max(deficit))
+  mutate(year = year(date_start)) |>
+  group_by(year) |>
+  filter(max_deficit == max(max_deficit))
 
 out_cwd_ton$df <- out_cwd_ton$df |> 
   filter(iinst %in% out_cwd_ton$inst$iinst)
@@ -114,6 +127,29 @@ gg0 <- ggplot() +
     y = expression(paste(italic("E"), " (mm d"^-1, ")"))
   )
 
+gg0_gpp <- ggplot() +
+  geom_rect(
+    data = out_cwd_ton$inst |>
+      filter(year %in% (2009:2013)),
+    aes(xmin = date_start, xmax = date_end, ymin = 0, ymax = 10),
+    fill = rgb(0, 0, 0, 0.3),
+    color = NA
+  ) +
+  geom_line(
+    data = df_ton |>
+      filter(year(TIMESTAMP) %in% (2009:2013)),
+    aes(TIMESTAMP, GPP_DT_VUT_REF),
+    color = "royalblue"
+  ) +
+  theme_classic() +
+  scale_y_continuous(
+    expand = c(0, 0)
+  ) +
+  labs(
+    x = "Date",
+    y = expression(paste("GPP (gC m"^-2, " d"^-1, ")"))
+  )
+
 ### Decay ------------
 gg1 <- ggplot() +
   geom_line(
@@ -159,3 +195,13 @@ bottomrow <- plot_grid(gg1, gg2, labels = c("b", "c"))
 plot_grid(gg0, bottomrow, nrow = 2, labels = c("a", NA, NA), rel_heights = c(0.7, 1))
 
 ggsave(here::here("book/images/etdecay.png"), width = 8, height = 6)
+
+# additional plot (not currently used in book)
+plot_grid(
+  gg0, 
+  gg0_gpp,
+  nrow = 3, 
+  labels = c("a", "b")
+)
+
+ggsave(here::here("book/images/etdecay_with_gpp.png"), width = 8, height = 6)
