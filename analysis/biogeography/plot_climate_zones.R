@@ -88,18 +88,15 @@ plot_beck <- function(r, legend, output_dir) {
   pixels <- palette[codes + 1L]
   pixels[is.na(pixels)] <- "white"
   pixels <- grDevices::as.raster(matrix(pixels, nrow = terra::nrow(r), byrow = TRUE))
-  borders <- rnaturalearth::ne_countries(scale = 110, returnclass = "sf")
 
   # Embed the categorical grid as one bitmap; country boundaries and the
   # legend remain vector graphics in the PDF. No averaging or interpolation.
-  map <- ggplot2::ggplot() +
+  map <- global_map_frame() +
     ggplot2::annotation_raster(pixels, terra::xmin(r), terra::xmax(r),
       terra::ymin(r), terra::ymax(r), interpolate = FALSE) +
-    ggplot2::geom_sf(data = borders, fill = NA, colour = "#7b8279", linewidth = .09) +
-    ggplot2::coord_sf(crs = sf::st_crs(4326), datum = NA,
-      xlim = c(-180, 180), ylim = c(-60, 85), expand = FALSE) +
-    ggplot2::theme_void(base_size = 11) +
-    ggplot2::theme(plot.margin = ggplot2::margin(12, 12, 0, 12))
+    global_map_outlines() +
+    ggplot2::theme(plot.margin = ggplot2::margin(12, 12, 0, 12)) +
+    global_map_extent()
 
   # Keep related classes together in nine columns, as in the original figure:
   # A, B, Cs, Cw, Cf, Ds, Dw, Df, E. All 30 classes are shown, even rare ones.
@@ -117,11 +114,7 @@ plot_beck <- function(r, legend, output_dir) {
     ggplot2::theme_void(base_size = 11) +
     ggplot2::theme(plot.margin = ggplot2::margin(0, 75, 8, 75))
   figure <- cowplot::plot_grid(map, key, ncol = 1, rel_heights = c(1, .21))
-  for (extension in c("png", "pdf")) {
-    ggplot2::ggsave(file.path(output_dir, paste0("koppen_geiger_1980_2016.", extension)),
-      figure, width = 14, height = 7.2, dpi = 300, bg = "white",
-      device = if (extension == "pdf") grDevices::cairo_pdf else "png")
-  }
+  save_global_map(figure, file.path(output_dir, "koppen_geiger_1980_2016"), height = 7.2)
   invisible(figure)
 }
 
@@ -131,6 +124,7 @@ main <- function(mode = "all") {
   missing <- packages[!vapply(packages, requireNamespace, logical(1), quietly = TRUE)]
   if (length(missing)) stop("Install missing packages: ", paste(missing, collapse = ", "))
   here::i_am("analysis/biogeography/plot_climate_zones.R")
+  source(here::here("R/global_map_style.R"))
   options(timeout = max(600, getOption("timeout")))
   data_dir <- here::here("data", "beck_2018")
   output_dir <- here::here("book", "images", "biogeography")

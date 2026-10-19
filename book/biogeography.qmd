@@ -332,81 +332,12 @@ Note that the categorisation of vegetation into biomes is different from a categ
 
 : IGBP vegetation types/land cover classes. Source: [https://fluxnet.org/data/badm-data-templates/igbp-classification/](https://fluxnet.org/data/badm-data-templates/igbp-classification/) {#tbl-vegtype}
 
-```{r warning=FALSE, message=FALSE}
-#| code-fold: true
-library(ggplot2)
-library(terra)
-library(tidyterra)
-library(rnaturalearth)
-library(rnaturalearthdata)
-
-# Most color codes used here are from external data
-# load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda
-
-# load land cover data, raster data
-raster_vegtype <- terra::rast(
-  here::here("data/modis_landcover__LPDAAC__v5.1__0.1deg__2010.nc")
-  ) |> 
-  tidyterra::mutate(Band1 = as.factor(Band1)) |> 
-  tidyterra::rename(landcover = Band1)
-  
-# load coast outline, vector data
-coast <- rnaturalearth::ne_coastline(scale = 110, returnclass = "sf")
-
-# create map
-ggplot() +
-  tidyterra::geom_spatraster(data = raster_vegtype) +
-  geom_sf(data = coast,
-          colour = 'black',
-          linewidth = 0.1) +
-  scale_fill_manual(
-    values = c(
-      "1" = "azure", # worldgrids_pal$IGBP["Water " ] , #"water" ;
-      "2" = "dodgerblue4" , #"evergreen needleleaf forest" ;
-      "3" = "forestgreen" , #"evergreen broadleaf forest" ;
-      "4" = "#9ED003", # worldgrids_pal$IGBP["Deciduous Needleleaf forest "] , #"deciduous needleleaf forest" ;
-      "5" =  "springgreen3" , #"deciduous broadleaf forest" ;
-      "6" =  "#31A278", # worldgrids_pal$IGBP["Mixed forest "] #"mixed forest" ;
-      "7" =  "#A84974", #worldgrids_pal$IGBP["Closed shrublands " ] , #"closed shrublands" ;
-      "8" =  "#FFD3A0" , #"open shrublands" ;
-      "9" =  "#CAFE8F", #worldgrids_pal$IGBP["Woody savannas "] , #"woody savannas" ;
-      "10" = "#F7D600", #worldgrids_pal$IGBP["Savannas " ] , # "savannas" ;
-      "11" = "khaki3" , # "grasslands" ;
-      "12" = "violetred" , # "permanent wetlands" ;
-      "13" = "#FAFE03", # worldgrids_pal$IGBP["Croplands " ] , # "croplands" ;
-      "14" = "#FF2A00", #worldgrids_pal$IGBP["Urban and built-up "] , # "urban and built-up" ;
-      "15" = "#8A9000" , #worldgrids_pal$IGBP["Cropland/Natural vegetation mosaic "] , # "cropland (natural vegetation mosaic)" ;
-      "16" = "#FFFFFF", #worldgrids_pal$IGBP["Snow and ice "] , # "snow and ice" ;
-      "17" = "#AAAAAA", # worldgrids_pal$IGBP["Barren or sparsely vegetated "] , # "barren or sparsely vegetated" ;
-      "18" = "#424242" # worldgrids_pal$IGBP["Unclassified "] # "unclassified or fill values" ;      
-    ),
-    labels = c(
-      "1" = "water",
-      "2" = "evergreen needleleaf forest",
-      "3" = "evergreen broadleaf forest",
-      "4" = "deciduous needleleaf forest",
-      "5" = "deciduous broadleaf forest",
-      "6" = "mixed forest",
-      "7" = "closed shrublands",
-      "8" = "open shrublands",
-      "9" = "woody savannas",
-      "10" = "savannas",
-      "11" = "grasslands",
-      "12" = "permanent wetlands",
-      "13" = "croplands",
-      "14" = "urban and built-up",
-      "15" = "cropland (natural vegetation mosaic)",
-      "16" = "snow and ice",
-      "17" = "barren or sparsely vegetated",
-      "18" = "unclassified or fill values"      
-    )
-  ) + 
-  scale_x_continuous(expand = c(0, 0)) +  # avoid gap between plotting area and axis
-  scale_y_continuous(expand = c(0, 0), limits = c(-60, 85)) +
-  labs(title = "Vegetation types") + 
-  theme(legend.position = "bottom",
-        legend.text = element_text(size = 6),
-        legend.title = element_blank())
+```{r echo=FALSE}
+#| label: fig-vegetation-types
+#| fig-cap: "Vegetation types from the MODIS land-cover product (v5.1), for 2010 on a 0.1° grid. Class definitions follow @tbl-vegtype."
+#| out-width: 100%
+# Created by analysis/biogeography/plot_vegetation_types.R
+knitr::include_graphics("images/biogeography/vegetation_types.png")
 ```
 
 ## Climate zones {#sec-climate-zones}

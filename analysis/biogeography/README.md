@@ -1,5 +1,40 @@
 # Biogeography figures
 
+## Shared map style and regeneration
+
+All seven maps generated for the chapter use `R/global_map_style.R`, matching
+the global maps in the land-use chapter: white oceans, pale grey land where
+data are absent, thin grey country outlines, WGS84 longitude/latitude from
+180° W to 180° E and 60° S to 85° N, no axes or graticules, and bottom legends.
+Titles and source information are in the chapter captions. Maps are exported
+as white-background PNGs at 300 dpi and PDFs, 14 inches wide; categorical
+figures are taller to accommodate their legends. Raster cells are embedded
+without resampling or interpolation, with vector outlines and legend text in PDF.
+
+Run these commands from the repository root with renv enabled:
+
+```sh
+Rscript analysis/plot_map_biomes.R
+Rscript analysis/plot_map_div_vars.R maps
+Rscript analysis/biogeography/plot_vegetation_types.R
+Rscript analysis/biogeography/plot_climate_zones.R plot
+```
+
+The `maps` argument regenerates the four quantitative maps without rewriting
+their separate biome-distribution plots. Their original colour palettes and
+bin boundaries are retained, using the Crameri palettes supplied by `khroma`.
+The biome and vegetation-type class colours and site labels are also retained;
+water is white. Quantitative maps mask ocean cells using the same Natural Earth
+country geometry as the land background. Zero values remain distinct from missing data.
+
+The biome script uses the Olson shapefile in
+`~/data/biomes/olson_harvard_dataverse/` and regenerates its local raster cache.
+The quantitative script uses the existing Simard, Liu, and MODIS NetCDF files
+at the paths listed in `analysis/plot_map_div_vars.R`. Vegetation types use
+`data/modis_landcover__LPDAAC__v5.1__0.1deg__2010.nc`. Climate data are described
+below. Published composite figures, climate diagrams, and biome-distribution
+plots are separate from these seven generated maps.
+
 ## Köppen–Geiger climate zones
 
 Run from the repository root:
@@ -12,7 +47,7 @@ Dependencies: `terra`, `ggplot2`, `sf`, `rnaturalearth`, `cowplot`, and `here`.
 Use the project's renv environment: run `Rscript -e 'renv::restore()'` from the
 repository root when setting up a fresh checkout. Do not pass `--vanilla`, which
 would skip `.Rprofile` and bypass renv. The existing lockfile also includes
-`tidyterra` and `rnaturalearthdata`, needed by the chapter's vegetation map.
+`rnaturalearthdata`, which supplies the country boundaries.
 
 The default `all` mode downloads the published archive if absent, verifies its
 checksum, extracts the selected files, and draws the map. Use `plot` as the final
