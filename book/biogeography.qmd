@@ -424,9 +424,10 @@ Based on the classification scheme described in @fig-table_beck and data of mont
 
 ```{r echo=FALSE}
 #| label: fig-climate_zones
-#| fig-cap: "Köppen-Geiger climate zones for a present-day climate (1980-2016). See @fig-table_beck for a definition of the codes (names). Figure from @beck18scidat."
-#| out-width: 80%
-knitr::include_graphics("images/map_kgclimate.png")
+#| fig-cap: "Köppen-Geiger climate zones for 1980–2016, redrawn from the global raster of @beck18scidat. The displayed 0.0833° grid was aggregated by the authors from their approximately 1 km classification using majority resampling. Colours follow the dataset legend; see @fig-table_beck for definitions of the class codes."
+#| out-width: 100%
+# Created by analysis/biogeography/plot_climate_zones.R
+knitr::include_graphics("images/biogeography/koppen_geiger_1980_2016.png")
 ```
 
 ## Hillslope-scale heterogeneity
