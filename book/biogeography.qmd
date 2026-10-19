@@ -413,18 +413,43 @@ ggplot() +
 
 While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish *climate zones*. The Köppen-Geiger climate classification [@koppen1884] is based on a hierarchical classification that separates climate based on the seasonality of monthly air temperature and precipitation. The climate zones are chosen such that they largely align with the biomes. For this, water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation and are considered for the Köppen-Geiger climate classification.
 
-```{r echo=FALSE}
-#| label: fig-table_beck
-#| fig-cap: "Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from @beck18scidat and adapted from @peel07hess. Variable definitions: MAT = mean annual air temperature (°C); $T_{cold} =$ the air temperature of the coldest month (°C); $T_{hot} =$ the air temperature of the warmest month (°C); $T_{mon10} =$ the number of months with air temperature >10 °C (unitless); MAP = mean annual precipitation (mm y$^{−1}$); $P_{dry} =$ precipitation in the driest month (mm month$^{−1}$); $P_{sdry} =$ precipitation in the driest month in summer (mm month$^{−1}$); Pwdry = precipitation in the driest month in winter (mm month$^{−1}$); $P_{swet} =$ precipitation in the wettest month in summer (mm month$^{−1}$); $P_{wwet} =$ precipitation in the wettest month in winter (mm month$^{−1}$); $P_{threshold}$ = 2×MAT if >70% of precipitation falls in winter, $P_{threshold}$ = 2×MAT+28 if >70% of precipitation falls in summer, otherwise $P_{threshold}$ = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March."
-#| out-width: 100%
-knitr::include_graphics("images/kgclimate_beck.png")
-```
+| 1st | 2nd | 3rd | Description | Criterion |
+|:----|:----|:----|:------------|:-------------|
+| **A** | | | **Tropical** | Not (B) & $T_{cold} \geq 18$ |
+| | f | | - Rainforest | $P_{dry} \geq 60$ |
+| | m | | - Monsoon | Not (Af) & $P_{dry} \geq 100-\text{MAP}/25$ |
+| | w | | - Savannah | Not (Af) & $P_{dry} < 100-\text{MAP}/25$ |
+| **B** | | | **Arid** | $\text{MAP} < 10 \times P_{threshold}$ |
+| | W | | - Desert | $\text{MAP} < 5 \times P_{threshold}$ |
+| | S | | - Steppe | $\text{MAP} \geq 5 \times P_{threshold}$ |
+| | | h | - Hot | $\text{MAT} \geq 18$ |
+| | | k | - Cold | $\text{MAT} < 18$ |
+| **C** | | | **Temperate** | Not (B) & $T_{hot} > 10$ & $0 < T_{cold} < 18$ |
+| | s | | - Dry summer | $P_{sdry} < 40$ & $P_{sdry} < P_{wwet}/3$ |
+| | w | | - Dry winter | $P_{wdry} < P_{swet}/10$ |
+| | f | | - Without dry season | Not (Cs) or (Cw) |
+| | | a | - Hot summer | $T_{hot} \geq 22$ |
+| | | b | - Warm summer | Not (a) & $T_{mon10} \geq 4$ |
+| | | c | - Cold summer | Not (a or b) & $1 \leq T_{mon10} < 4$ |
+| **D** | | | **Cold** | Not (B) & $T_{hot} > 10$ & $T_{cold} \leq 0$ |
+| | s | | - Dry summer | $P_{sdry} < 40$ & $P_{sdry} < P_{wwet}/3$ |
+| | w | | - Dry winter | $P_{wdry} < P_{swet}/10$ |
+| | f | | - Without dry season | Not (Ds) or (Dw) |
+| | | a | - Hot summer | $T_{hot} \geq 22$ |
+| | | b | - Warm summer | Not (a) & $T_{mon10} \geq 4$ |
+| | | c | - Cold summer | Not (a, b, or d) |
+| | | d | - Very cold winter | Not (a or b) & $T_{cold} < -38$ |
+| **E** | | | **Polar** | Not (B) & $T_{hot} \leq 10$ |
+| | T | | - Tundra | $T_{hot} > 0$ |
+| | F | | - Frost | $T_{hot} \leq 0$ |
 
-Based on the classification scheme described in @fig-table_beck and data of monthly climatologies, the climate zones can be mapped across the globe (@fig-climate_zones).
+: Overview of the Köppen-Geiger climate classes including the defining criteria. Based on @beck18scidat and adapted from @peel07hess. Variable definitions: MAT = mean annual air temperature (°C); $T_{cold} =$ the air temperature of the coldest month (°C); $T_{hot} =$ the air temperature of the warmest month (°C); $T_{mon10} =$ the number of months with air temperature >10 °C (unitless); MAP = mean annual precipitation (mm y$^{−1}$); $P_{dry} =$ precipitation in the driest month (mm month$^{−1}$); $P_{sdry} =$ precipitation in the driest month in summer (mm month$^{−1}$); Pwdry = precipitation in the driest month in winter (mm month$^{−1}$); $P_{swet} =$ precipitation in the wettest month in summer (mm month$^{−1}$); $P_{wwet} =$ precipitation in the wettest month in winter (mm month$^{−1}$); $P_{threshold}$ = 2×MAT if >70% of precipitation falls in winter, $P_{threshold}$ = 2×MAT+28 if >70% of precipitation falls in summer, otherwise $P_{threshold}$ = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March. {#tbl-table_beck tbl-colwidths="[5,5,5,30,55]" .striped .hover}
+
+Based on the classification scheme described in @tbl-table_beck and data of monthly climatologies, the climate zones can be mapped across the globe (@fig-climate_zones).
 
 ```{r echo=FALSE}
 #| label: fig-climate_zones
-#| fig-cap: "Köppen-Geiger climate zones for 1980–2016, redrawn from the global raster of @beck18scidat. The displayed 0.0833° grid was aggregated by the authors from their approximately 1 km classification using majority resampling. Colours follow the dataset legend; see @fig-table_beck for definitions of the class codes."
+#| fig-cap: "Köppen-Geiger climate zones for 1980–2016, redrawn from the global raster of @beck18scidat. The displayed 0.0833° grid was aggregated by the authors from their approximately 1 km classification using majority resampling. Colours follow the dataset legend; see @tbl-table_beck for definitions of the class codes."
 #| out-width: 100%
 # Created by analysis/biogeography/plot_climate_zones.R
 knitr::include_graphics("images/biogeography/koppen_geiger_1980_2016.png")

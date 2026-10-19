@@ -455,7 +455,7 @@ As for C fluxes in @sec-global-patterns, we turn to investigating diurnal and se
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| label: fig-site-info
-#| fig-cap: "Site meta information. Vegetation types are described in @tbl-vegtype. Climate zones are described in @fig-table_beck."
+#| fig-cap: "Site meta information. Vegetation types are described in @tbl-vegtype. Climate zones are described in @tbl-table_beck."
 
 df_sites <- read_csv(here::here("data/fdk_site_info.csv"))
 

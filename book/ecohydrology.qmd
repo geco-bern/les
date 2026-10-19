@@ -945,7 +945,7 @@ Water limitation has effects on stomatal conductance through plant hydraulic rel
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| label: fig-site-info-ecohydrology
-#| fig-cap: "Site meta information. Vegetation types are described in @tbl-vegtype. Climate zones are described in @fig-table_beck."
+#| fig-cap: "Site meta information. Vegetation types are described in @tbl-vegtype. Climate zones are described in @tbl-table_beck."
 
 df_sites <- read_csv(here::here("data/fdk_site_info.csv"))
 
