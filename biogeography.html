@@ -1145,86 +1145,15 @@ Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Most color codes used here are from external data</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load(here::here("data/worldgrids_pal.rda")) # obtained from https://github.com/Envirometrix/plotKML/blob/master/data/worldgrids_pal.rda</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># load land cover data, raster data</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>raster_vegtype <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/modis_landcover__LPDAAC__v5.1__0.1deg__2010.nc"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Band1 =</span> <span class="fu">as.factor</span>(Band1)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">rename</span>(<span class="at">landcover =</span> Band1)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># load coast outline, vector data</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>coast <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="dv">110</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># create map</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  tidyterra<span class="sc">::</span><span class="fu">geom_spatraster</span>(<span class="at">data =</span> raster_vegtype) <span class="sc">+</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> coast,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">'black'</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"azure"</span>, <span class="co"># worldgrids_pal$IGBP["Water " ] , #"water" ;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"dodgerblue4"</span> , <span class="co">#"evergreen needleleaf forest" ;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span> , <span class="co">#"evergreen broadleaf forest" ;</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"#9ED003"</span>, <span class="co"># worldgrids_pal$IGBP["Deciduous Needleleaf forest "] , #"deciduous needleleaf forest" ;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span>  <span class="st">"springgreen3"</span> , <span class="co">#"deciduous broadleaf forest" ;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span>  <span class="st">"#31A278"</span>, <span class="co"># worldgrids_pal$IGBP["Mixed forest "] #"mixed forest" ;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span>  <span class="st">"#A84974"</span>, <span class="co">#worldgrids_pal$IGBP["Closed shrublands " ] , #"closed shrublands" ;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span>  <span class="st">"#FFD3A0"</span> , <span class="co">#"open shrublands" ;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span>  <span class="st">"#CAFE8F"</span>, <span class="co">#worldgrids_pal$IGBP["Woody savannas "] , #"woody savannas" ;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"#F7D600"</span>, <span class="co">#worldgrids_pal$IGBP["Savannas " ] , # "savannas" ;</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"khaki3"</span> , <span class="co"># "grasslands" ;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"violetred"</span> , <span class="co"># "permanent wetlands" ;</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"#FAFE03"</span>, <span class="co"># worldgrids_pal$IGBP["Croplands " ] , # "croplands" ;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"#FF2A00"</span>, <span class="co">#worldgrids_pal$IGBP["Urban and built-up "] , # "urban and built-up" ;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"#8A9000"</span> , <span class="co">#worldgrids_pal$IGBP["Cropland/Natural vegetation mosaic "] , # "cropland (natural vegetation mosaic)" ;</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"#FFFFFF"</span>, <span class="co">#worldgrids_pal$IGBP["Snow and ice "] , # "snow and ice" ;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"#AAAAAA"</span>, <span class="co"># worldgrids_pal$IGBP["Barren or sparsely vegetated "] , # "barren or sparsely vegetated" ;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"#424242"</span> <span class="co"># worldgrids_pal$IGBP["Unclassified "] # "unclassified or fill values" ;      </span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"water"</span>,</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"evergreen needleleaf forest"</span>,</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"evergreen broadleaf forest"</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"deciduous needleleaf forest"</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"deciduous broadleaf forest"</span>,</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"mixed forest"</span>,</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"closed shrublands"</span>,</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"open shrublands"</span>,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="st">"9"</span> <span class="ot">=</span> <span class="st">"woody savannas"</span>,</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>      <span class="st">"10"</span> <span class="ot">=</span> <span class="st">"savannas"</span>,</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"11"</span> <span class="ot">=</span> <span class="st">"grasslands"</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="st">"12"</span> <span class="ot">=</span> <span class="st">"permanent wetlands"</span>,</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      <span class="st">"13"</span> <span class="ot">=</span> <span class="st">"croplands"</span>,</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="st">"14"</span> <span class="ot">=</span> <span class="st">"urban and built-up"</span>,</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">"15"</span> <span class="ot">=</span> <span class="st">"cropland (natural vegetation mosaic)"</span>,</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">"16"</span> <span class="ot">=</span> <span class="st">"snow and ice"</span>,</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"17"</span> <span class="ot">=</span> <span class="st">"barren or sparsely vegetated"</span>,</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">"18"</span> <span class="ot">=</span> <span class="st">"unclassified or fill values"</span>      </span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span>  <span class="co"># avoid gap between plotting area and axis</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">60</span>, <span class="dv">85</span>)) <span class="sc">+</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vegetation types"</span>) <span class="sc">+</span> </span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="biogeography_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="biogeography_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+<div id="fig-vegetation-types" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vegetation-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/biogeography/vegetation_types.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure&nbsp;2.22: Vegetation types from the MODIS land-cover product (v5.1), for 2010 on a 0.1° grid. Class definitions follow Table&nbsp;tbl-vegtype."><img src="images/biogeography/vegetation_types.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vegetation-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.22: Vegetation types from the MODIS land-cover product (v5.1), for 2010 on a 0.1° grid. Class definitions follow <a href="#tbl-vegtype" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1233,30 +1162,234 @@ Table&nbsp;2.1: IGBP vegetation types/land cover classes. Source: <a href="https
 <section id="sec-climate-zones" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="sec-climate-zones"><span class="header-section-number">2.7</span> Climate zones</h2>
 <p>While the biome categorisation is based on plant functional types and reflects a mix of vegetation types and climate, the categorisation into vegetation types is independent of climate, but purely based on vegetation and land cover properties that can be sensed from space. In contrast to this approach, we may focus exclusively on the climate and distinguish <em>climate zones</em>. The Köppen-Geiger climate classification <span class="citation" data-cites="koppen1884">(<a href="references.html#ref-koppen1884" role="doc-biblioref">Köppen 1884</a>)</span> is based on a hierarchical classification that separates climate based on the seasonality of monthly air temperature and precipitation. The climate zones are chosen such that they largely align with the biomes. For this, water availability during the main vegetation periods and temperature minima during winter and maxima during summer are recognized to be particularly influential for the composition of the vegetation and are considered for the Köppen-Geiger climate classification.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-table_beck" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/kgclimate_beck.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure&nbsp;2.22: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from @beck18scidat and adapted from @peel07hess. Variable definitions: MAT = mean annual air temperature (°C); T_{cold} = the air temperature of the coldest month (°C); T_{hot} = the air temperature of the warmest month (°C); T_{mon10} = the number of months with air temperature >10 °C (unitless); MAP = mean annual precipitation (mm y^{−1}); P_{dry} = precipitation in the driest month (mm month^{−1}); P_{sdry} = precipitation in the driest month in summer (mm month^{−1}); Pwdry = precipitation in the driest month in winter (mm month^{−1}); P_{swet} = precipitation in the wettest month in summer (mm month^{−1}); P_{wwet} = precipitation in the wettest month in winter (mm month^{−1}); P_{threshold} = 2×MAT if >70% of precipitation falls in winter, P_{threshold} = 2×MAT+28 if >70% of precipitation falls in summer, otherwise P_{threshold} = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March."><img src="images/kgclimate_beck.png" class="img-fluid figure-img" style="width:100.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.22: Overview of the Köppen-Geiger climate classes including the defining criteria. Taken from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.
+<div id="tbl-table_beck" class="striped hover quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[5,5,5,30,55]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: Overview of the Köppen-Geiger climate classes including the defining criteria. Based on <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span> and adapted from <span class="citation" data-cites="peel07hess">Peel, Finlayson, and McMahon (<a href="references.html#ref-peel07hess" role="doc-biblioref">2007</a>)</span>. Variable definitions: MAT = mean annual air temperature (°C); <span class="math inline">\(T_{cold} =\)</span> the air temperature of the coldest month (°C); <span class="math inline">\(T_{hot} =\)</span> the air temperature of the warmest month (°C); <span class="math inline">\(T_{mon10} =\)</span> the number of months with air temperature &gt;10 °C (unitless); MAP = mean annual precipitation (mm y<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{dry} =\)</span> precipitation in the driest month (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{sdry} =\)</span> precipitation in the driest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); Pwdry = precipitation in the driest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{swet} =\)</span> precipitation in the wettest month in summer (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{wwet} =\)</span> precipitation in the wettest month in winter (mm month<span class="math inline">\(^{−1}\)</span>); <span class="math inline">\(P_{threshold}\)</span> = 2×MAT if &gt;70% of precipitation falls in winter, <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+28 if &gt;70% of precipitation falls in summer, otherwise <span class="math inline">\(P_{threshold}\)</span> = 2×MAT+14. Summer (winter) is the six-month period that is warmer (colder) between April-September and October-March.
 </figcaption>
+<div aria-describedby="tbl-table_beck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 30%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">1st</th>
+<th style="text-align: left;">2nd</th>
+<th style="text-align: left;">3rd</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>A</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Tropical</strong></td>
+<td style="text-align: left;">Not (B) &amp; <span class="math inline">\(T_{cold} \geq 18\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Rainforest</td>
+<td style="text-align: left;"><span class="math inline">\(P_{dry} \geq 60\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Monsoon</td>
+<td style="text-align: left;">Not (Af) &amp; <span class="math inline">\(P_{dry} \geq 100-\text{MAP}/25\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Savannah</td>
+<td style="text-align: left;">Not (Af) &amp; <span class="math inline">\(P_{dry} &lt; 100-\text{MAP}/25\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>B</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Arid</strong></td>
+<td style="text-align: left;"><span class="math inline">\(\text{MAP} &lt; 10 \times P_{threshold}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Desert</td>
+<td style="text-align: left;"><span class="math inline">\(\text{MAP} &lt; 5 \times P_{threshold}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Steppe</td>
+<td style="text-align: left;"><span class="math inline">\(\text{MAP} \geq 5 \times P_{threshold}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">- Hot</td>
+<td style="text-align: left;"><span class="math inline">\(\text{MAT} \geq 18\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">- Cold</td>
+<td style="text-align: left;"><span class="math inline">\(\text{MAT} &lt; 18\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Temperate</strong></td>
+<td style="text-align: left;">Not (B) &amp; <span class="math inline">\(T_{hot} &gt; 10\)</span> &amp; <span class="math inline">\(0 &lt; T_{cold} &lt; 18\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Dry summer</td>
+<td style="text-align: left;"><span class="math inline">\(P_{sdry} &lt; 40\)</span> &amp; <span class="math inline">\(P_{sdry} &lt; P_{wwet}/3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Dry winter</td>
+<td style="text-align: left;"><span class="math inline">\(P_{wdry} &lt; P_{swet}/10\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Without dry season</td>
+<td style="text-align: left;">Not (Cs) or (Cw)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">- Hot summer</td>
+<td style="text-align: left;"><span class="math inline">\(T_{hot} \geq 22\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">- Warm summer</td>
+<td style="text-align: left;">Not (a) &amp; <span class="math inline">\(T_{mon10} \geq 4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">- Cold summer</td>
+<td style="text-align: left;">Not (a or b) &amp; <span class="math inline">\(1 \leq T_{mon10} &lt; 4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>D</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Cold</strong></td>
+<td style="text-align: left;">Not (B) &amp; <span class="math inline">\(T_{hot} &gt; 10\)</span> &amp; <span class="math inline">\(T_{cold} \leq 0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Dry summer</td>
+<td style="text-align: left;"><span class="math inline">\(P_{sdry} &lt; 40\)</span> &amp; <span class="math inline">\(P_{sdry} &lt; P_{wwet}/3\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Dry winter</td>
+<td style="text-align: left;"><span class="math inline">\(P_{wdry} &lt; P_{swet}/10\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Without dry season</td>
+<td style="text-align: left;">Not (Ds) or (Dw)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">- Hot summer</td>
+<td style="text-align: left;"><span class="math inline">\(T_{hot} \geq 22\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">- Warm summer</td>
+<td style="text-align: left;">Not (a) &amp; <span class="math inline">\(T_{mon10} \geq 4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">- Cold summer</td>
+<td style="text-align: left;">Not (a, b, or d)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">- Very cold winter</td>
+<td style="text-align: left;">Not (a or b) &amp; <span class="math inline">\(T_{cold} &lt; -38\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>E</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Polar</strong></td>
+<td style="text-align: left;">Not (B) &amp; <span class="math inline">\(T_{hot} \leq 10\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Tundra</td>
+<td style="text-align: left;"><span class="math inline">\(T_{hot} &gt; 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">- Frost</td>
+<td style="text-align: left;"><span class="math inline">\(T_{hot} \leq 0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 </figure>
 </div>
-</div>
-</div>
-<p>Based on the classification scheme described in <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones" class="quarto-xref">Figure&nbsp;<span>2.23</span></a>).</p>
+<p>Based on the classification scheme described in <a href="#tbl-table_beck" class="quarto-xref">Table&nbsp;<span>2.2</span></a> and data of monthly climatologies, the climate zones can be mapped across the globe (<a href="#fig-climate_zones" class="quarto-xref">Figure&nbsp;<span>2.23</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-climate_zones" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-climate_zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/map_kgclimate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure&nbsp;2.23: Köppen-Geiger climate zones for a present-day climate (1980-2016). See Figure&nbsp;fig-table_beck for a definition of the codes (names). Figure from @beck18scidat."><img src="images/map_kgclimate.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="images/biogeography/koppen_geiger_1980_2016.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure&nbsp;2.23: Köppen-Geiger climate zones for 1980–2016, redrawn from the global raster of @beck18scidat. The displayed 0.0833° grid was aggregated by the authors from their approximately 1 km classification using majority resampling. Colours follow the dataset legend; see Table&nbsp;tbl-table_beck for definitions of the class codes."><img src="images/biogeography/koppen_geiger_1980_2016.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-climate_zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.23: Köppen-Geiger climate zones for a present-day climate (1980-2016). See <a href="#fig-table_beck" class="quarto-xref">Figure&nbsp;<span>2.22</span></a> for a definition of the codes (names). Figure from <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>.
+Figure&nbsp;2.23: Köppen-Geiger climate zones for 1980–2016, redrawn from the global raster of <span class="citation" data-cites="beck18scidat">Beck et al. (<a href="references.html#ref-beck18scidat" role="doc-biblioref">2018</a>)</span>. The displayed 0.0833° grid was aggregated by the authors from their approximately 1 km classification using majority resampling. Colours follow the dataset legend; see <a href="#tbl-table_beck" class="quarto-xref">Table&nbsp;<span>2.2</span></a> for definitions of the class codes.
 </figcaption>
 </figure>
 </div>
@@ -1272,7 +1405,7 @@ Figure&nbsp;2.23: Köppen-Geiger climate zones for a present-day climate (1980-2
 <div id="fig-hillslope_photos_fan19" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hillslope_photos_fan19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/hillslope_photos_fan19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure&nbsp;2.24: Hillslope effects on vegetation in different background climate zones. Top-left: Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: wikipedia.org). Top-right: Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: wikimapia.org). Bottom-left: Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: thecommonmilkweed.blogspot.com). Bottom-right: Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from @fan19wrr."><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="images/hillslope_photos_fan19.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure&nbsp;2.24: Hillslope effects on vegetation in different background climate zones. Top-left: Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: wikipedia.org). Top-right: Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: wikimapia.org). Bottom-left: Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: thecommonmilkweed.blogspot.com). Bottom-right: Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from @fan19wrr."><img src="images/hillslope_photos_fan19.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hillslope_photos_fan19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.24: Hillslope effects on vegetation in different background climate zones. <em>Top-left:</em> Hydrology promoting vegetation in valley bottoms in a semi-arid climate in Arizona, USA (Source: <a href="https://en.wikipedia.org/wiki/Desert_riparian#/media/File:Sonoita_Creek_Riparian_Forest_Arizona_2014.jpeg">wikipedia.org</a>). <em>Top-right:</em> Hydrology inhibiting vegetation in topographic depressions in a humid climate due to seasonal waterlogging in the Pantanal region (Source: <a href="https://wikimapia.org/8582923/Pantanal-Mato-Grossense-National-Park#/photo/4626176">wikimapia.org</a>). <em>Bottom-left:</em> Radiation inhibiting vegetation on south-facing (sun-exposed) slopes in Texas, USA (Source: <a href="https://thecommonmilkweed.blogspot.com/2009/10/guadalupe-peak-hike.html">thecommonmilkweed.blogspot.com</a>). <em>Bottom-right:</em> Radiation promoting vegetation on south-facing (sun-exposed) slopes in southwest Yukon, Canada (Source: photo by Ryan Danby, Queen’s University, Canada). Figure extracted from <span class="citation" data-cites="fan19wrr">Fan et al. (<a href="references.html#ref-fan19wrr" role="doc-biblioref">2019</a>)</span>.
@@ -1292,7 +1425,7 @@ Figure&nbsp;2.24: Hillslope effects on vegetation in different background climat
 <div id="fig-sdm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sdm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/sdm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure&nbsp;2.25: Methodological approach to species distribution modelling and predicting to a novel climate. Figure from @svenning11qsr."><img src="images/sdm.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="images/sdm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure&nbsp;2.25: Methodological approach to species distribution modelling and predicting to a novel climate. Figure from @svenning11qsr."><img src="images/sdm.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.25: Methodological approach to species distribution modelling and predicting to a novel climate. Figure from <span class="citation" data-cites="svenning11qsr">Svenning et al. (<a href="references.html#ref-svenning11qsr" role="doc-biblioref">2011</a>)</span>.
@@ -1307,7 +1440,7 @@ Figure&nbsp;2.25: Methodological approach to species distribution modelling and 
 <div id="fig-niche" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-niche-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/niche.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figure&nbsp;2.26: Environmental filtering yields the fundamental niche. Biotic interactions yield the realized niche."><img src="images/niche.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="images/niche.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure&nbsp;2.26: Environmental filtering yields the fundamental niche. Biotic interactions yield the realized niche."><img src="images/niche.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-niche-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.26: Environmental filtering yields the fundamental niche. Biotic interactions yield the realized niche.
@@ -1325,7 +1458,7 @@ Figure&nbsp;2.26: Environmental filtering yields the fundamental niche. Biotic i
 <div id="fig-pollen" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pollen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/pollen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;2.27: Pollen diagram from the Moossee, Switzerland. The diagram shows the percentage of pollen recorded over time (green areas). Cultural indicators and charcoal influx indicate the presence of humans in the region. Parallel variations observed from other data sources are also shown for interpretation: Millennial-scale variations in solar radiation, lake levels, and temperature reconstructions. Figure from @rey20cp."><img src="images/pollen.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="images/pollen.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figure&nbsp;2.27: Pollen diagram from the Moossee, Switzerland. The diagram shows the percentage of pollen recorded over time (green areas). Cultural indicators and charcoal influx indicate the presence of humans in the region. Parallel variations observed from other data sources are also shown for interpretation: Millennial-scale variations in solar radiation, lake levels, and temperature reconstructions. Figure from @rey20cp."><img src="images/pollen.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pollen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.27: Pollen diagram from the Moossee, Switzerland. The diagram shows the percentage of pollen recorded over time (green areas). Cultural indicators and charcoal influx indicate the presence of humans in the region. Parallel variations observed from other data sources are also shown for interpretation: Millennial-scale variations in solar radiation, lake levels, and temperature reconstructions. Figure from <span class="citation" data-cites="rey20cp">Rey et al. (<a href="references.html#ref-rey20cp" role="doc-biblioref">2020</a>)</span>.
@@ -1341,7 +1474,7 @@ Figure&nbsp;2.27: Pollen diagram from the Moossee, Switzerland. The diagram show
 <div id="fig-biomes-midholo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-biomes-midholo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/biomes_midholocene.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;2.28: The global distribution of biomes at the Mid-Holocene (6000 kyr BP). Figure from @prentice00biome"><img src="images/biomes_midholocene.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="images/biomes_midholocene.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;2.28: The global distribution of biomes at the Mid-Holocene (6000 kyr BP). Figure from @prentice00biome"><img src="images/biomes_midholocene.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes-midholo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.28: The global distribution of biomes at the Mid-Holocene (6000 kyr BP). Figure from <span class="citation" data-cites="prentice00biome">I. Colin Prentice, Jolly, and Participants (<a href="references.html#ref-prentice00biome" role="doc-biblioref">2000</a>)</span>
@@ -1355,7 +1488,7 @@ Figure&nbsp;2.28: The global distribution of biomes at the Mid-Holocene (6000 ky
 <div id="fig-biomes-lgm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-biomes-lgm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/biomes-lgm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figure&nbsp;2.29: The global distribution of biomes at the Last Glacial Maximum from a model simulation (top) and from a biome reconstruction based on pollen records. Figure from @prentice11newphyt."><img src="images/biomes-lgm.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="images/biomes-lgm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;2.29: The global distribution of biomes at the Last Glacial Maximum from a model simulation (top) and from a biome reconstruction based on pollen records. Figure from @prentice11newphyt."><img src="images/biomes-lgm.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biomes-lgm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.29: The global distribution of biomes at the Last Glacial Maximum from a model simulation (top) and from a biome reconstruction based on pollen records. Figure from <span class="citation" data-cites="prentice11newphyt">I. C. Prentice, Harrison, and Bartlein (<a href="references.html#ref-prentice11newphyt" role="doc-biblioref">2011</a>)</span>.
