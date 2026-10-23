@@ -1,6 +1,6 @@
 # HYDE 3.5 baseline: cropland and pasture at 0, 1850 and 2025 CE.
-# Run from the repository root: Rscript analysis/plot_hyde_land_use.R
-# Dependencies: dplyr, tidyr, purrr, readr, tibble, terra, ggplot2, here, sf, rnaturalearth, rnaturalearthdata.
+# Run from the repository root: Rscript --vanilla analysis/plot_hyde_land_use.R [all|plot]
+# Dependencies: dplyr, tidyr, purrr, readr, tibble, terra, ggplot2, here, sf, rnaturalearth, cowplot.
 # Latest published release checked 2026-09-24:
 # https://landuse.sites.uu.nl/datasets/
 # https://doi.org/10.24416/UU01-F45D44 (CC BY-NC 4.0)
@@ -103,16 +103,31 @@ prepare_hyde_panel <- function(area, year, land_use, resolution = 0.1) {
   ))
 }
 
-main <- function() {
-  packages <- c("dplyr", "tidyr", "purrr", "readr", "tibble", "terra", "ggplot2", "here", "sf", "rnaturalearth", "rnaturalearthdata")
+main <- function(mode = "all") {
+  stopifnot(mode %in% c("all", "plot"))
+  packages <- c("dplyr", "tidyr", "purrr", "readr", "tibble", "terra", "ggplot2", "here", "sf", "rnaturalearth", "cowplot")
   missing <- purrr::discard(packages, requireNamespace, quietly = TRUE)
   if (length(missing)) stop("Install missing packages: ", paste(missing, collapse = ", "))
   options(timeout = max(1800, getOption("timeout")))
   cache_dir <- here::here("data", "hyde_3.5")
-  output_dir <- here::here("fig", "hyde")
+  output_dir <- here::here("book", "images")
   dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   years <- c(0L, 1850L, 2025L)
+  if (mode == "plot") {
+    jobs <- tidyr::expand_grid(year = years, variable = c("cropland", "pasture"))
+    panels <- purrr::pmap(jobs, function(year, variable) {
+      path <- file.path(cache_dir, paste0(variable, "_", year, "_0.1deg.tif"))
+      if (!file.exists(path)) stop("Run 'all' first to cache HYDE: ", path)
+      terra::as.data.frame(terra::rast(path)[["percent"]], xy = TRUE, na.rm = TRUE) |>
+        tibble::as_tibble() |>
+        dplyr::mutate(year = paste(.env$year, "CE"),
+          land_use = if (variable == "cropland") "Cropland" else "Pasture")
+    })
+    plot_hyde(purrr::list_rbind(panels), output_dir)
+    message("Redrawn HYDE figures from cached rasters in ", output_dir)
+    return(invisible(NULL))
+  }
   sources <- tibble::tibble(year_ce = years) |>
     dplyr::mutate(archive = purrr::map_chr(year_ce, download_hyde, cache_dir = cache_dir))
   manifest <- sources |>
@@ -135,39 +150,52 @@ main <- function() {
     dplyr::mutate(year = factor(year, levels = paste(years, "CE")),
       land_use = factor(land_use, levels = c("Cropland", "Pasture")))
   totals <- purrr::map(panels, "total") |> purrr::list_rbind()
-  readr::write_csv(totals, file.path(output_dir, "hyde_land_use_totals.csv"))
-  readr::write_csv(manifest, file.path(output_dir, "sources.csv"))
+  readr::write_csv(totals, file.path(cache_dir, "hyde_land_use_totals.csv"))
+  readr::write_csv(manifest, file.path(cache_dir, "sources.csv"))
+  plot_hyde(maps, output_dir)
+  print(totals)
+  message("Plots saved in ", output_dir, "; global totals and source manifest in ", cache_dir)
+}
+
+plot_hyde <- function(maps, output_dir) {
   # Match the global Sentinel-2 overview's palette and 0–100% scale exactly.
   colours <- grDevices::colorRampPalette(
     c("#eceee9", "#fff0b7", "#e7af38", "#aa6017", "#542b0e")
   )(101)
   borders <- rnaturalearth::ne_countries(scale = 110, returnclass = "sf")
-  p <- ggplot2::ggplot(maps, ggplot2::aes(x, y, fill = percent)) +
-    ggplot2::geom_raster() +
-    ggplot2::geom_sf(data = borders, inherit.aes = FALSE, fill = NA,
-                     colour = "#7b8279", linewidth = 0.09) +
-    ggplot2::facet_grid(year ~ land_use, switch = "y") +
-    ggplot2::coord_sf(crs = sf::st_crs(4326), datum = NA,
-                      xlim = c(-180, 180), ylim = c(-60, 85), expand = FALSE) +
-    ggplot2::scale_fill_gradientn(colours = colours, limits = c(0, 100),
-                                  oob = scales::squish,
-                                  name = "Grid-cell area (%)", na.value = "white") +
-    ggplot2::labs(x = NULL, y = NULL, title = "Cropland and pasture through time",
-                  subtitle = "HYDE 3.5 baseline | 0.1-degree display of 5-arc-minute data",
-                  caption = paste("Source: Klein Goldewijk, HYDE 3.5 | doi:10.24416/UU01-F45D44",
-                                  "Pasture excludes rangelands. 2025 is extrapolated. Areas are fractions of full grid cells.",
-                                  sep = "\n")) +
-    ggplot2::theme_minimal(base_size = 11) +
-    ggplot2::theme(panel.grid = ggplot2::element_blank(), legend.position = "bottom",
-                   strip.text = ggplot2::element_text(face = "bold"),
-                   strip.placement = "outside",
-                   strip.text.y.left = ggplot2::element_text(angle = 0))
+  # Row-wise order: cropland, pasture for 0, 1850 and 2025 CE. The book caption
+  # supplies these panel keys and the source/methods, keeping the maps untitled.
+  panel_keys <- tidyr::expand_grid(year = paste(c(0, 1850, 2025), "CE"),
+    land_use = c("Cropland", "Pasture"))
+  panels <- purrr::pmap(panel_keys, function(year, land_use) {
+    pixels <- dplyr::filter(maps, .data$year == .env$year,
+      .data$land_use == .env$land_use)
+    ggplot2::ggplot(pixels, ggplot2::aes(x, y, fill = percent)) +
+      ggplot2::geom_raster() +
+      ggplot2::geom_sf(data = borders, inherit.aes = FALSE, fill = NA,
+        colour = "#7b8279", linewidth = 0.09) +
+      ggplot2::coord_sf(crs = sf::st_crs(4326), datum = NA,
+        xlim = c(-180, 180), ylim = c(-60, 85), expand = FALSE) +
+      ggplot2::scale_fill_gradientn(colours = colours, limits = c(0, 100),
+        oob = scales::squish, name = "Grid-cell area (%)", na.value = "white") +
+      ggplot2::labs(x = NULL, y = NULL) +
+      ggplot2::theme_void(base_size = 11) +
+      ggplot2::theme(legend.position = "bottom", plot.margin = ggplot2::margin(8, 4, 4, 4))
+  })
+  legend <- cowplot::get_legend(panels[[1]])
+  panel_grid <- cowplot::plot_grid(
+    plotlist = purrr::map(panels, function(p) p + ggplot2::theme(legend.position = "none")),
+    ncol = 2, labels = letters[1:6], label_size = 14,
+    label_x = .01, label_y = .99, hjust = 0, vjust = 1)
+  p <- cowplot::plot_grid(panel_grid, legend, ncol = 1, rel_heights = c(1, .065))
   purrr::walk(c("png", "pdf"), function(extension) {
     ggplot2::ggsave(file.path(output_dir, paste0("hyde_land_use.", extension)),
-                    p, width = 12, height = 9, dpi = 300, bg = "white")
+      p, width = 12, height = 8, dpi = 300, bg = "white",
+      device = if (extension == "pdf") grDevices::cairo_pdf else "png")
   })
-  print(totals)
-  message("Plots, global totals and source manifest saved in ", output_dir)
 }
 
-if (sys.nframe() == 0L) main()
+if (sys.nframe() == 0L) {
+  args <- commandArgs(trailingOnly = TRUE)
+  main(if (length(args)) args[1] else "all")
+}

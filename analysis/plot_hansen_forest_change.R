@@ -1,7 +1,7 @@
 # Hansen GFC v1.13: native-grid regional loss (2001-2025) and gain (2000-2012).
-# Run from the repository root: Rscript analysis/plot_hansen_forest_change.R
+# Run from the repository root: Rscript --vanilla analysis/plot_hansen_forest_change.R
 # Append 'plot' to redraw cached windows. No Earth Engine account is needed.
-# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, gtable, terra, here.
+# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, cowplot, terra, here.
 # Fig. 2 footprints reconstructed by image registration; see hansen_support/README.md.
 hansen_base <- "https://storage.googleapis.com/earthenginepartners-hansen/GFC-2025-v1.13/"
 hansen_regions <- tibble::tibble(
@@ -114,7 +114,6 @@ draw_hansen_panel <- function(r, region, stats) {
   centre_lat <- (region$ymin + region$ymax) / 2
   width <- (terra::xmax(r) - terra::xmin(r)) * cos(centre_lat * pi / 180) / 1000
   height <- (terra::ymax(r) - terra::ymin(r)) * cos(centre_lat * pi / 180) / 1000
-  overlap <- stats$overlap_km2 / stats$land_km2
   ggplot2::ggplot() +
     ggplot2::annotation_raster(pixels, 0, width, 0, height, interpolate = FALSE) +
     ggplot2::annotate("rect", xmin = width * .025, xmax = width * .025 + 120,
@@ -124,16 +123,8 @@ draw_hansen_panel <- function(r, region, stats) {
     ggplot2::annotate("text", x = width * .025 + 60, y = height * .025 + 17,
       label = "100 km", size = 3) +
     ggplot2::coord_fixed(xlim = c(0, width), ylim = c(0, height), expand = FALSE) +
-    ggplot2::labs(title = paste(region$id, region$name),
-      subtitle = sprintf("%.1f°%s, %.1f°%s | overview of ~30 m source", abs(centre_lat),
-        ifelse(centre_lat < 0, "S", "N"), abs((region$xmin + region$xmax) / 2),
-        ifelse((region$xmin + region$xmax) < 0, "W", "E")),
-      caption = sprintf("Land area: loss only %.1f%% | gain only %.1f%% | both %.1f%%",
-        100 * (stats$loss_fraction - overlap), 100 * (stats$gain_fraction - overlap), 100 * overlap)) +
     ggplot2::theme_void(base_size = 11) +
-    ggplot2::theme(plot.title = ggplot2::element_text(face = "bold", hjust = .5),
-      plot.subtitle = ggplot2::element_text(hjust = .5),
-      plot.caption = ggplot2::element_text(hjust = .5), plot.margin = ggplot2::margin(10, 8, 10, 8))
+    ggplot2::theme(plot.margin = ggplot2::margin(10, 8, 10, 8))
 }
 
 draw_hansen_legend <- function() {
@@ -147,20 +138,16 @@ draw_hansen_legend <- function() {
     ggplot2::geom_text(ggplot2::aes(label = label), nudge_x = .06, hjust = 0, size = 3) +
     ggplot2::scale_colour_identity() +
     ggplot2::coord_cartesian(xlim = c(0, 3.4), ylim = c(-.3, 1.3), clip = "off") +
-    ggplot2::labs(caption = "Hansen/UMD/Google/USGS/NASA | GFC v1.13 | CC BY 4.0\nGain ends in 2012. Different periods: no net change inferred.") +
     ggplot2::theme_void() +
-    ggplot2::theme(plot.caption = ggplot2::element_text(hjust = .5, size = 9),
-      plot.margin = ggplot2::margin(0, 10, 8, 10))
+    ggplot2::theme(plot.margin = ggplot2::margin(0, 10, 8, 10))
 }
 
 assemble_hansen_plots <- function(plots, ncol) {
-  nrow <- ceiling(length(plots) / ncol)
-  panels <- gtable::gtable_matrix("regions",
-    grobs = matrix(purrr::map(plots, ggplot2::ggplotGrob), ncol = ncol, byrow = TRUE),
-    widths = grid::unit(rep(1, ncol), "null"), heights = grid::unit(rep(1, nrow), "null"))
-  panels <- gtable::gtable_add_rows(panels, grid::unit(1.15, "in"))
-  gtable::gtable_add_grob(panels, ggplot2::ggplotGrob(draw_hansen_legend()),
-    t = nrow + 1, l = 1, r = ncol)
+  panels <- cowplot::plot_grid(plotlist = plots, ncol = ncol,
+    labels = if (length(plots) > 1L) letters[seq_along(plots)] else NULL,
+    label_size = 16)
+  cowplot::plot_grid(panels, draw_hansen_legend(), ncol = 1,
+    rel_heights = c(1, if (length(plots) > 1L) .085 else .13))
 }
 
 save_hansen_plots <- function(rasters, stats, output_dir) {
@@ -183,7 +170,7 @@ save_hansen_plots <- function(rasters, stats, output_dir) {
 main_hansen <- function(mode = "all") {
   stopifnot(mode %in% c("all", "plot"))
   data_dir <- here::here("data", "hansen_forest_change_2025", "figure2_native")
-  output_dir <- here::here("fig", "hansen_forest_change_2025")
+  output_dir <- here::here("book", "images")
   dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   if (mode == "plot") {

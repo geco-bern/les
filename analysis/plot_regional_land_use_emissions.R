@@ -1,6 +1,6 @@
 # Regional net land-use-change carbon emissions, GCB 2025 (1850-2024).
-# Run: Rscript analysis/plot_regional_land_use_emissions.R
-# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, readxl, countrycode, here, digest.
+# Run: Rscript --vanilla analysis/plot_regional_land_use_emissions.R
+# Dependencies: dplyr, tidyr, purrr, readr, tibble, ggplot2, cowplot, readxl, countrycode, here, digest.
 # Downloads the pinned CC BY 4.0 workbook once; subsequent runs use the cache.
 
 gcb_models <- c("BLUE", "OSCAR", "LUCE")
@@ -120,36 +120,50 @@ plot_gcb_luc <- function(d, output_dir, global = FALSE) {
       dplyr::filter(region != "Other / disputed territories") |>
       dplyr::mutate(region = factor(region, levels = gcb_regions[1:9]))
   }
-  p <- ggplot2::ggplot(d, ggplot2::aes(year, mean_GtC_yr)) +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = min_GtC_yr, ymax = max_GtC_yr), fill = "#8cb9c5", alpha = 0.5) +
-    ggplot2::geom_hline(yintercept = 0, colour = "#555555", linewidth = 0.35) +
-    ggplot2::geom_line(colour = "#205d73", linewidth = 0.8) +
-    ggplot2::scale_x_continuous(limits = c(1850, 2025), breaks = c(1850, 1900, 1950, 2000, 2025)) +
-    ggplot2::scale_y_continuous(breaks = scales::breaks_pretty(n = 6)) +
-    ggplot2::labs(title = if (global) "Global carbon emissions from land-use change" else "Historical carbon emissions from land-use change",
-      subtitle = "Global Carbon Budget 2025 · 1850–2024 data\nLine: three-model mean; shading: model range. Annual values; no temporal smoothing.",
-      x = "Year", y = expression("Net land-use-change emissions (Gt C " * yr^{-1} * ")"),
-      caption = paste("BLUE, OSCAR and LUCE · Friedlingstein et al. (2026), doi:10.5194/essd-18-3211-2026",
-        "Positive: net emissions. Negative: net removals associated with land use. Shading is not a confidence interval.",
-        if (global) "Global total includes other/disputed territories. Land-use change before 1850 is not shown." else
-          "Other/disputed territories are omitted from these panels but included in the global total.", sep = "\n")) +
-    ggplot2::theme_minimal(base_size = 12) +
-    ggplot2::theme(panel.grid.minor = ggplot2::element_blank(),
-      panel.grid.major.x = ggplot2::element_blank(), strip.text = ggplot2::element_text(face = "bold", hjust = 0),
-      plot.title = ggplot2::element_text(size = 19, face = "bold"),
-      plot.subtitle = ggplot2::element_text(size = 11, margin = ggplot2::margin(b = 14)),
-      plot.caption = ggplot2::element_text(hjust = 0, size = 9, lineheight = 1.2),
-      panel.spacing = grid::unit(1.1, "lines"), plot.margin = ggplot2::margin(16, 20, 14, 14))
-  if (!global) {
-    p <- p +
-      ggplot2::facet_wrap(~region, ncol = 3, nrow = 3, scales = "fixed",
-        axes = "all_x", axis.labels = "all_x") +
-      ggplot2::theme(axis.ticks.x = ggplot2::element_line(colour = "#555555", linewidth = 0.35),
-        axis.ticks.length.x = grid::unit(2, "mm"))
+  # Use the same scale for every regional panel; retain negative removals.
+  y_limits <- range(c(0, d$min_GtC_yr, d$max_GtC_yr))
+  y_breaks <- pretty(y_limits, n = 6)
+  y_label <- expression("Net land-use-change emissions (Gt C " * yr^{-1} * ")")
+  make_panel <- function(panel_data) {
+    ggplot2::ggplot(panel_data, ggplot2::aes(year, mean_GtC_yr)) +
+      ggplot2::geom_ribbon(ggplot2::aes(ymin = min_GtC_yr, ymax = max_GtC_yr),
+        fill = "#8cb9c5", alpha = 0.5) +
+      ggplot2::geom_hline(yintercept = 0, colour = "#555555", linewidth = 0.35) +
+      ggplot2::geom_line(colour = "#205d73", linewidth = 0.8) +
+      ggplot2::scale_x_continuous(limits = c(1850, 2025),
+        breaks = c(1850, 1900, 1950, 2000, 2025)) +
+      ggplot2::scale_y_continuous(limits = y_limits, breaks = y_breaks) +
+      ggplot2::labs(x = if (global) "Year" else NULL,
+        y = if (global) y_label else NULL) +
+      ggplot2::theme_minimal(base_size = 12) +
+      ggplot2::theme(panel.grid.minor = ggplot2::element_blank(),
+        panel.grid.major.x = ggplot2::element_blank(),
+        plot.title = ggplot2::element_blank(),
+        plot.subtitle = ggplot2::element_blank(),
+        axis.text = ggplot2::element_text(size = if (global) 11 else 9),
+        axis.ticks.x = ggplot2::element_line(colour = "#555555", linewidth = 0.35),
+        axis.ticks.length.x = grid::unit(2, "mm"),
+        plot.margin = ggplot2::margin(16, 12, 8, 8))
+  }
+  if (global) {
+    p <- make_panel(d)
+  } else {
+    panels <- purrr::map(gcb_regions[1:9], function(region_name) {
+      make_panel(dplyr::filter(d, region == region_name))
+    })
+    # Region names and model/uncertainty definitions are in the book caption.
+    panel_grid <- cowplot::plot_grid(plotlist = panels, ncol = 3,
+      labels = letters[1:9], label_size = 14, label_fontface = "bold",
+      label_x = 0.02, label_y = 1, hjust = 0, vjust = 1,
+      align = "hv", axis = "tblr")
+    p <- cowplot::ggdraw() +
+      cowplot::draw_plot(panel_grid, x = 0.055, y = 0.045, width = 0.945, height = 0.95) +
+      cowplot::draw_label("Year", x = 0.53, y = 0.015, size = 12) +
+      cowplot::draw_label(y_label, x = 0.014, y = 0.52, angle = 90, size = 12)
   }
   stem <- file.path(output_dir, paste0(if (global) "global" else "regional", "_land_use_emissions_1850_2024"))
   width <- if (global) 11 else 13
-  height <- if (global) 6.5 else 10
+  height <- if (global) 5.5 else 9
   ggplot2::ggsave(paste0(stem, ".png"), p, width = width, height = height, dpi = 300, bg = "white")
   ggplot2::ggsave(paste0(stem, ".pdf"), p, width = width, height = height, device = grDevices::cairo_pdf)
   invisible(p)
@@ -157,7 +171,7 @@ plot_gcb_luc <- function(d, output_dir, global = FALSE) {
 
 main_regional_luc <- function() {
   data_dir <- here::here("data", "gcb_luc_2025")
-  output_dir <- here::here("fig", "gcb_luc_2025")
+  output_dir <- here::here("book", "images")
   dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   path <- download_gcb_luc(data_dir)

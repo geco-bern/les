@@ -52,6 +52,7 @@ bibliography: references.bib
 
 format:
   html:
+    lightbox: true
     theme: 
       light: [cosmo, theme-light.scss]
       dark: [cosmo, theme-dark.scss]

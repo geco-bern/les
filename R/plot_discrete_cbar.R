@@ -127,6 +127,7 @@ plot_discrete_cbar = function(
              label = labels,
              size = font_size,
              hjust = 0,
+             vjust = if (legend_direction == "horizontal") 1 else 0.5,
              color = color_text_legend
     ) +
     # scale_x_continuous(expand = c(expand_size,expand_size)) +

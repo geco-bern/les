@@ -96,7 +96,7 @@ Under `data/satellite_cropland_2025/`:
 - `regions.csv`, `source_metadata.json`, and per-download request/response JSON.
 - `global_tiles/`: cached overview samples and 0.1° aggregates for reproducibility.
 
-Under `fig/satellite_cropland_2025/`, in PNG and PDF:
+Under `book/images/`, in PNG and PDF:
 
 - `cropland_2025_global_and_regions`: combined global map and four regional panels.
 - `cropland_2025_global`: global overview.

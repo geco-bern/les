@@ -3,10 +3,10 @@
 Run from the repository root:
 
 ```sh
-Rscript analysis/plot_regional_land_use_emissions.R
+Rscript --vanilla analysis/plot_regional_land_use_emissions.R
 ```
 
-Dependencies: `readxl`, `countrycode`, `ggplot2`, `here`, and `digest`.
+Dependencies: `readxl`, `countrycode`, `ggplot2`, `cowplot`, `here`, and `digest`.
 The script downloads the source if absent, verifies its SHA-256, processes the
 workbook, validates the regional sums, and writes PNG/PDF figures. Repeated runs
 use the cached workbook and country mapping and require no download. The script
@@ -62,8 +62,11 @@ from the nine regional panels.
    estimates. This is **model spread**, not a confidence interval or a complete
    estimate of uncertainty. Model minima/maxima are computed after regional
    aggregation, not summed across countries.
-4. Use identical axes for the nine regional panels (3 × 3); positive values are net emissions and
-   negative values net removals associated with land use.
+4. Use identical axes for the nine regional panels (3 × 3), arranged and labelled
+   a–i with `cowplot::plot_grid` in the region order above. Positive values are net
+   emissions and negative values net removals associated with land use. Titles and
+   subtitles are omitted; region names, attribution and interpretation are supplied
+   in the book caption.
 
 Net land-use-change emissions include legacy decay and regrowth after earlier
 activities. They are not the complete terrestrial carbon sink or emissions solely
@@ -76,8 +79,8 @@ histories differ substantially; the range makes that disagreement visible.
 
 Figures in PNG and PDF:
 
-- `fig/gcb_luc_2025/regional_land_use_emissions_1850_2024`: nine regions in a 3 × 3 grid.
-- `fig/gcb_luc_2025/global_land_use_emissions_1850_2024`: separate global total,
+- `book/images/regional_land_use_emissions_1850_2024`: nine regions in a 3 × 3 grid.
+- `book/images/global_land_use_emissions_1850_2024`: separate global total,
   based on each model's supplied Global column, including other/disputed territories.
   Its line and ribbon are the mean and range of the three annual global model totals,
   not sums of the regional model minima/maxima.

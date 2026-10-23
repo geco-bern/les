@@ -4,6 +4,20 @@ Introducing global patterns, processes, and underlying principles for how climat
 
 This contains the book that serves as lecture notes for the course *Land in the Earth System 1* and *2*.
 
+The R environment is managed by renv. With R 4.6.1 installed, restore the
+locked packages from the repository root before rendering:
+```sh
+R -q -e 'renv::restore()'
+```
+
+To preview a chapter from the repository root:
+```sh
+quarto preview book/biogeography.qmd
+```
+Previewing from inside `book/` also loads the repository's renv environment
+through `book/.Rprofile`. Restart existing R sessions after restoring or updating
+packages.
+
 To render the book as website, do:
 ```sh
 quarto render book
