@@ -1,5 +1,22 @@
 # Biogeography figures
 
+## Moossee pollen diagram
+
+`fig-pollen` is recreated from the original Rey et al. (2020) data, Neotoma
+dataset 46280. It includes all 514 samples, covering 18,855 cal BP to 2014 CE,
+five broad plant functional groups and ten key pollen types, including tree
+birch, dwarf birch, oak and beech. The original screenshot is no longer used.
+
+```sh
+Rscript analysis/biogeography/plot_pollen.R plot
+```
+
+The bundled archive allows offline regeneration. The script writes
+`book/images/biogeography/moossee_pollen.png` and `.pdf`, plus count and
+percentage CSVs. See [the data README](../../data/moossee_pollen/README.md)
+for provenance, licensing, the calendar-age model, denominator and taxon
+definitions, limitations, and checksum verification.
+
 ## Shared map style and regeneration
 
 All seven maps generated for the chapter use `R/global_map_style.R`, matching
