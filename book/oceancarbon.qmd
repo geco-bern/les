@@ -152,16 +152,6 @@ knitr::include_graphics("images/ocean_dic_speciation.png")
 
 A byproduct of equations @eq-h2co3 and @eq-hco3 is the increase of seawater hydrogen ions (H^+^) concentrations are increased, which is referred to as acidification. Acidification is notable to reduce rates of CO~2~ uptake due to reducing the carbonate buffer of the ocean, and have adverse effects on organisms such as corals.
 
-Generally, the buffering capacity of the ocean through carbonate chemistry is referred to as carbonate alkalinity. While alkalinity in general is the sum of bases minus acids in a solution, carbonate alkalinity (A~c~) can be reduced to: 
-
-$$
-\begin{align}
-A_{c} = HCO_{3}^{-} + CO_{3}^{2-}  + OH^{-} - H^{+}
-\end{align}
-$$ {#eq-ac}
-
-Higher alkalinity means that the ocean can better compensate for an increase of H^+^.
-
 The carbonate system is firstly affected by temperature, which pushes the speciation equilibrium of @fig-dicspeciation to the left, meaning that less CO~2~ can be stored in seawater with higher temperatures. In addition, @fig-dicspeciation also directly shows that a lower pH, meaning higher acidification, the buffer capacity of the ocean is reduced, reducing its potential to take up CO~2~.  
 
 
@@ -182,7 +172,7 @@ Past and future changes in the biological drawdown and storage of carbon in the 
 
 ## Ocean Carbon Sink
 
-The ocean is responsible for around 25 % (2.7 Pg C yr^-1^) of anthropogenic carbon uptake. This carbon sink has steadily increased over time with atmospheric CO~2~ concentrations, the primary driver of this increasing carbon flux to the ocean.  Historical model and inversion data show minor saturation of the carbon sink can be observed over the historical time period (@gruber2022), which could owe to impacts of increasing temperature and acidification on the sink driven by carbonate chemistry. Figure @fig-spatialcarbon  shows areas of the natural CO~2~ flux in different basins of the ocean (blue) and the anthropogenic perturbation of the CO~2~ flux (red).  
+The ocean is responsible for around 25 % of anthropogenic carbon uptake. This carbon sink has steadily increased over time with atmospheric CO~2~ concentrations, the primary driver of this increasing carbon flux to the ocean.  Historical model and inversion data show minor saturation of the carbon sink can be observed over the historical time period (@gruber2022), which could owe to impacts of increasing temperature and acidification on the sink driven by carbonate chemistry. Figure @fig-spatialcarbon  shows areas of the natural CO~2~ flux in different basins of the ocean (blue) and the anthropogenic perturbation of the CO~2~ flux (red).  
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-carbonuptake

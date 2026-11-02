@@ -121,9 +121,9 @@ This N~2~O can however also further react in the complete denitrification proces
 
 ```{r echo=FALSE}
 #| label: fig-nitrousoxidetransformations
-#| fig-cap: "Schematic illustration of the altered nitrogen cycle and nitrous oxide (N~2~O) emissions. Figure from @aryal22envpoll."
+#| fig-cap: "Schematic illustration of the soil nitrogen cycle and nitrous oxide (N~2~O) emissions during nitrification and denitrification processes."
 #| out-width: 100%
-knitr::include_graphics("images/nitrousoxidetransformations.png")
+knitr::include_graphics("images/soil_Ncycle_n2o.png")
 ```
 
 :::
@@ -201,21 +201,16 @@ $$ {#eq-atmospheric_shortlivedghg_steadystate}
 ::: {.callout-note}
 ## Global warming potential 
 
-Differences in atmospheric residence times of difference greenhouse gases have implications for their warming effects over time. Greenhouse gas warming effects are often measured relative to effects of carbon dioxide (CO~2~), thus in terms of the same mass (kilograms of CO~2~ equivalent). This results in a dimensionless factor known as the Global Warming Potential (GWP), which is always relative to CO~2~. The GWP metric quantifies the cumulative warming effect (radiative efficiency) of the emission of 1 kilogram of a greenhouse gas compared to the emission of 1 kilogram of CO~2~ and considers its removal from the atmosphere over a specified time horizon, commonly 20 years (GWP20), 100 years (GWP100), or 500 years (GWP500). Thus, the GWP considers both the radiative efficiency of the GHG and its atmospheric lifetime. 
+Differences in atmospheric residence times of difference greenhouse gases have implications for their warming effects over time. Greenhouse gas warming effects are often measured relative to effects of carbon dioxide (CO~2~), thus in terms of the same mass (kilograms of CO~2~ equivalent). This results in a dimensionless factor known as the **Global Warming Potential (GWP)**, which is always relative to CO~2~. The GWP metric quantifies the cumulative warming effect (radiative efficiency) of the emission of 1 kilogram of a greenhouse gas compared to the emission of 1 kilogram of CO~2~ and considers its removal from the atmosphere over a specified time horizon, commonly 20 years (GWP20), 100 years (GWP100), or 500 years (GWP500). Thus, the GWP considers both the radiative efficiency of the GHG and its atmospheric lifetime. 
 
 It is important to note also that the GWP of the short-lived GHG CH~4~ is much larger at the 20-year time scale, than at longer time scales. This owes to the rapid decay of atmospheric CH~4~, while part of the CO~2~ remains airborne for longer (a considerable fraction remains in the atmosphere for centuries). In contrast to CH~4~, N~2~O has a similar GWP at the 20 and 100 year time scale because its atmospheric concentration decline unfolds at a similar rate than that of CO~2~ over the first 100 years. 
 
 | Species         | Lifetime (Years) | Radiative Efficiency (W m⁻² ppb⁻¹) | GWP-20       | GWP-100       | GWP-500       |
 |---------------  |------------------|------------------------------------|--------------|---------------|---------------|
 | CO~2~           | Multiple         | 1.33 ± 0.16 ×10⁻⁵                  | 1.0          | 1.0           | 1.0           |
-| CH~4~-fossil    | 11.8 ± 1.8       | 5.7 ± 1.4 ×10⁻⁴                    | 82.5 ± 25.8  | 29.8 ± 11     | 10.0 ± 3.8    |
-| CH~4~-non fossil| 11.8 ± 1.8       | 5.7 ± 1.4 ×10⁻⁴                    | 79.7 ± 25.8  | 27.0 ± 11     | 7.2 ± 3.8     |
+| CH~4~| 11.8 ± 1.8       | 5.7 ± 1.4 ×10⁻⁴                    | 79.7 ± 25.8  | 27.0 ± 11     | 7.2 ± 3.8     |
 | N~2~O           | 109 ± 10         | 2.8 ± 1.1 ×10⁻³                    | 273 ± 118    | 273 ± 130     | 130 ± 64      |
-| HFC-32          | 5.4 ± 1.1        | 1.1 ± 0.2 ×10⁻¹                    | 2693 ± 842   | 771 ± 292     | 220 ± 87      |
-| HFC-134a        | 14.0 ± 2.8       | 1.67 ± 0.32 ×10⁻¹                  | 4144 ± 1160  | 1526 ± 577    | 436 ± 173     |
-| CFC-11          | 52.0 ± 10.4      | 2.91 ± 0.65 ×10⁻¹                  | 8321 ± 2419  | 6226 ± 2297   | 2093 ± 865    |
-| PFC-14          | 50,000           | 9.89 ± 0.19 ×10⁻²                  | 5301 ± 1395  | 7380 ± 2430   | 10,587 ± 3692 |
- 
+
 : Emissions metrics for selected species: global warming potential (GWP). Table from @IPCC_2021_WGI_Ch_7. {#tbl-gwp}
 
 :::
