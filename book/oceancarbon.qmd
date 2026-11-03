@@ -4,13 +4,13 @@
 
 ## Role in the Climate System
 
-The ocean constitutes of around 70 % of the Earth’s surface. It plays a vital role in the climate system through its large storage of heat and carbon [@talley2011a], provides a basis for enormous amounts of marine species, and provides important socioeconomic services vital to both regional and global economies, global food supply and human wellbeing. 
+The ocean constitutes around 70 % of the Earth’s surface. It plays a important role in the climate system through its large storage of heat and carbon [@talley2011a], and also provides a basis for enormous amounts of marine species, and as well as important socioeconomic services vital to regional and global economies, global food supply and human wellbeing. 
 
-Since the preindustrial time period, the ocean has taken up and stored over 90 % of excess anthropogenic heat, which arises from the Earth's atmosphere energy imbalance induced by rising greenhouse gas concentrations. It also buffers the atmospheric rise in greenhouse gas concentrations due to human emissions, since it accounts for an uptake of around 30 % of global anthropogenic carbon emissions [@friedlingstein24essd]. Both of its uptake of heat and carbon mean that increasing atmospheric CO~2~ concentrations and climate warming would be substantially more severe without the role of the ocean in the climate system.  
+Since the preindustrial time period, the ocean has taken up and stored over 90 % of excess anthropogenic heat, which arises from the Earth's atmosphere energy imbalance induced by rising greenhouse gas concentrations. In comparison, the remaining atmospheric heat accounts for 1 % of the increase. It also buffers the atmospheric rise in atmospheric greenhouse gas concentrations due to human emissions, since it currently accounts for an uptake of around 30 % of global anthropogenic carbon emissions [@friedlingstein24essd]. Both of its uptake of heat and carbon mean that increasing atmospheric CO~2~ concentrations and climate warming would be substantially more severe without the role of the ocean in the climate system.
 
 The ocean serves as a habitat for numerous marine species, and is important for socioeconomic services, with over 40 % of the global population living within a range of 100 km from the coast. Climate warming and other human-caused disruptions, such as eutrophication, are affecting this vital space on Earth, and endangering its ecosystems, such as corals.
 
-The importance of the ocean in regulating the climate and its multidimensional anthropogenic drivers change, is essential for a closer understanding of how the climate is changing and its impacts. 
+The importance of the ocean for regulating the climate and its multidimensional anthropogenic drivers of change, is essential for a closer understanding of how the climate is changing and as well as the impacts of these changes. 
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-globalocean
@@ -21,7 +21,7 @@ knitr::include_graphics("images/ocean_intro_figure.png")
 
 ## Stratification and Ocean Circulation
 
-Ocean mixing and circulation governs its uptake, transport and storage of heat and carbon between latitudes. It is also important for its transfer from the surface ocean, which is in close exchange with the atmosphere, to the deeper ocean, which consists of the long-term storage component of the ocean. Since the ocean is for the most part well stratified, meaning that waters of low density sit above waters of low density @fig-stratification. In such a case, the exchange between surface and deeper ocean is limited. The amount of heat and carbon that can reach the deeper ocean and be stored in this large deeper volume, is thus strongly limited. However, there are also areas where surface waters are mixed into the deeper ocean, called areas of deep convection, which play a significant role for ocean carbon and heat storage. These areas, where waters can penetrate to over 1000m depth (usually the mixed surface layer is around 100m on average), are found in the North Atlantic and Southern Ocean[@talley2011a]. Here, the cooling of surface waters increase their densities, making them heavier and more likely to sink. Changes in salinity, owing to precipitation, evaporation or sea ice melt/formation, also impact water densities and the rate to which surface waters can enter the ocean. 
+Ocean mixing and circulation plays an important role in the ocean uptake of heat and carbon, its transport, especially between between latitudes, as well as its storage - the amount of time that it can reside it the ocean. For the timescale of heat and carbon removal from exchange from the atmopsherie is its transfer from the surface ocean, to the deeper ocean, which consists of the long-term storage component of the ocean. Since the ocean is for the most part well stratified, meaning that waters of low density sit above heavy waters of high density @fig-stratification. In such a case, the exchange between surface and deeper ocean is limited. The amount of heat and carbon that can reach the deeper ocean and be stored in this large deeper volume, is thus strongly limited. However, there are also areas where surface waters are mixed into the deeper ocean, called areas of deep convection, which play a significant role for ocean carbon and heat storage. These areas, where waters can penetrate to over 1000 m depth (usually the mixed surface layer is around 100 m on average), are found in the North Atlantic and Southern Ocean[@talley2011a]. Here, the cooling of surface waters due to a cold atmosphere increase their densities, making them heavier and more likely to sink. Changes in salinity, owing to precipitation, evaporation or sea ice melt/formation, also impact water densities and the rate to which surface waters can enter the inner/deeper ocean. 
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-stratification
@@ -30,9 +30,9 @@ Ocean mixing and circulation governs its uptake, transport and storage of heat a
 knitr::include_graphics("images/ocean_stratification.png")
 ```
 
-Ocean circulation in the surface ocean is largely driven by winds (@fig-circulation a). For instance, coastal currents off the coast of Portugal are driven by winds, as well as subtropical gyres. An interesting phenomena of wind-driven circulation, is that waters are always transported at an angle of 90° to the wind, owing to combined wind stress and the Earth's rotation. An interesting and biologically-important example of this is found in Eastern Boundary Upwelling Systems (EBUS), where coastal parallel winds drive waters from the coast. To compensate this horizonal flow away from the coast, waters are drawn up from below. Since these waters are not only cold, but also nutrient rich, EBUS areas are zones of highest marine productivity globally. Reconstructions of surface circulation based on satellite retrievals of temperature, heat and salinity fields were performed by [NASA](https://svs.gsfc.nasa.gov/10841/#media_group_350679).
+Ocean circulation at the surface is largely driven by winds (@fig-circulation a). For instance, coastal currents off the coast of Portugal are driven by winds, as well as subtropical gyres. An interesting phenomena of wind-driven circulation, is that waters are always transported at an angle of 45° to the wind at the surface, owing to combined wind stress and the Earth's rotation. Integrated over the entire ocean depth however, the transport takes place at a 90° angle accumulated transport angle of stress and coriolis at depth. This integrated transport is referred to as Ekman transport. An interesting and biologically-important example of this is found in Eastern Boundary Upwelling Systems (EBUS), where coastal parallel winds drive waters away from the coast. To compensate this horizonal flow away from the coast, waters are drawn up from below. Since these waters are not only cold, but also nutrient rich, EBUS areas are zones of highest marine productivity globally. Reconstructions of surface circulation based on satellite retrievals of temperature, heat and salinity fields were performed by [NASA](https://svs.gsfc.nasa.gov/10841/#media_group_350679).
 
-There is also a slower and thorough large-scale circulation driven by density gradients in the ocean, which essentially mixes the entire ocean. This slow circulation with a timescale of over one thousand years is referred to as thermohaline circulation, and it constitutes of both flows at the surface (for instance the Gulf Stream), which convects into the deeper ocean in both Atlantic and Pacific/Southern Ocean (@fig-circulation b). Deep ocean streams end up in the Southern Ocean after hundreds of years, where they eventually resurfaces.   
+There is also a slower and thorough large-scale circulation driven by density gradients in the ocean, which essentially mixes the entire ocean. This slow circulation with a timescale of over one thousand years is referred to as thermohaline circulation, and it constitutes of both flows at the surface (for instance the Gulf Stream), which plunges into the deeper ocean in both Atlantic and Pacific/Southern Ocean (@fig-circulation b). Deep ocean streams end up in the Southern Ocean after hundreds of years, where they eventually resurface. Due to the large exchange with the deeper ocean of the thermohaline stream in the North Atlantic and Southern Ocean, the thermohaline circulation is especially relevant for the climate.
 
 ```{r echo=FALSE, eval=TRUE} 
 #| label: fig-circulation
@@ -43,7 +43,7 @@ knitr::include_graphics("images/ocean_circulation.png")
 
 ## Ocean Heat Uptake
 
-The ocean has taken up hundreds of zetajoules of heat since the preindustrial time period as a result of the increasing Earth energy imbalance caused by greenhouse gas emissions (@fig-heatuptake). The ocean's large role for heat storage is due to the physical characteristics of water, combined with its large-scale circulation and vast storage volume. Its large heat capacity (C~p~ = 4’184 J kg^-1^ °C^-1^) allows for larger storage of heat per volume at a given temperature than all other liquids and solids, with the sole exception of NH~3~. 
+The ocean has taken up hundreds of Zetta Joules of heat since the preindustrial time period as a result of the increasing Earth energy imbalance caused by greenhouse gas emissions (@fig-heatuptake). The ocean's large role for heat storage is due to the physical characteristics of water, combined with its large-scale circulation and vast storage volume. Its large heat capacity (C~p~ = 4’184 J kg^-1^ °C^-1^) allows for larger storage of heat per volume at a given temperature than all other liquids and solids, with the sole exception of NH~3~. 
 
 | Physical Properties  | Air | Seawater |
 |---------------  |------------------|------------------------------------|
@@ -55,10 +55,9 @@ The ocean has taken up hundreds of zetajoules of heat since the preindustrial ti
 : Key ocean water characteristics compared to air, at a 20°C reference temperature and 1 atm reference pressure {#tbl-water_char}
 
 
+Heat is taken up through air-sea exchange at the ocean's surface. The surface ocean is thus logically the largest storage term of anthropogenic heat (excess energy in the Earth system), but part of this heat is also transferred to the voluminous deeper ocean, where it can be stored over the long-term due to very slow circulation in the deep ocean. This heat in the deep ocean remains isolated from any contact with the atmosphere for centuries, making the process very important in the context of climate change. 
 
-Heat is taken up through air-sea exchange at the ocean's surface. The surface ocean is thus the largest storage term of anthropogenic heat, but part of it is also transferred to the voluminous deeper ocean, where it is stored over the long-term due to very slow circulation at greater depths. This heat in the deep ocean remains isolated from any contact with the atmosphere for centuries, making the process very important in the context of climate change. 
-
-Due to the expansion of water with increasing temperature, ocean heat uptake is responsible for around half of historical changes in sea level, with the other half arising from enhanced freshwater inputs to the ocean through glacier runoff, icesheet and sea ice melting. Strong increases in temperature caused by heat uptake also can have adverse effects on marine organisms through thermal stress, for instance causing the bleaching of corals, or by reducing the amount of oxygen available for aerobic species, such as fish. Temperature also influences carbon exchange as shown in the following subsection.  
+Due to the expansion of water with increasing temperature, ocean heat uptake is responsible for around half of historical changes in sea level, with the other half arising from enhanced freshwater inputs to the ocean through glacier runoff, icesheet and sea ice melting. Strong increases in temperature caused by heat uptake also can have adverse effects on marine organisms through thermal stress, for instance causing the bleaching of corals, or by reducing the amount of oxygen available for aerobic species, such as for fish. Temperature also influences carbon exchange as shown in the following subsection.  
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-heatuptake
@@ -69,7 +68,7 @@ knitr::include_graphics("images/ocean_heatuptake.png")
 
 ## Ocean Carbon Fluxes
 
-The ocean is also the largest reservoir of carbon. Its uptake of CO~2~ plays an important role in regulating the Earth's climate, which is relevant to current climate change, as well as paleo climate events. An overview of carbon fluxes is given in figure [@fig-oceancarbon].  
+The ocean is also the largest reservoir of carbon. Its uptake of CO~2~ plays an important role in regulating the Earth's climate, which is relevant to current climate change, as well as paleo climate events such as ice ages. An overview of carbon fluxes is given in figure [@fig-oceancarbon].  
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-oceancarbon
@@ -78,7 +77,7 @@ The ocean is also the largest reservoir of carbon. Its uptake of CO~2~ plays an 
 knitr::include_graphics("images/sciadv.aed2480-f3.jpg")
 ``` 
 
-The uptake of CO~2~ by the ocean occurs through surface exchange between ocean and the atmosphere. Thus the dissolution of atmospheric CO~2~ into seawater is driven by two distinct processes pathways: carbonate chemistry (solubility pump) and biological fluxes (biological pump). The former comprises of the chemical balance of inorganic carbon in seawater, whereas the latter is driven by uptake of carbon via photosynthesis and the degradation (remineralization) of this organic matter in the ocean. Both are greatly important for natural carbon fluxes in the ocean, but the uptake of anthropogenic CO~2~ is thought to be currently dominated by the solubility pump, which is driven by dissolution and carbonate chemistry (Resplandy et al., 2026). 
+The uptake of CO~2~ by the ocean occurs through surface exchange between ocean and the atmosphere. The dissolution of atmospheric CO~2~ into seawater is driven by two distinct processes pathways that create a gradient between ocean and atmosphere: carbonate chemistry (solubility pump) and biological fluxes (biological pump). The former comprises of the chemical balance of inorganic carbon in seawater, whereas the latter is driven by uptake of carbon via photosynthesis and the degradation (remineralization) of this organic matter in the ocean. Both are greatly important for natural carbon fluxes in the ocean, but the uptake of anthropogenic CO~2~ is currently dominated by the solubility pump, driven by dissolution and carbonate chemistry (Resplandy et al., 2026). 
 
 ### Carbonate chemistry (Solubility Pump)
 
@@ -91,7 +90,7 @@ Carbonate chemistry is a major driver of carbon storage in the ocean and the dom
 knitr::include_graphics("images/ocean_carbonate_chemistry.png")
 ```
 
-Firstly, gaseous CO~2~ in the atmosphere can dissolve into seawater. This process is driven through the equilibrium states of gaseous CO~2~ and dissolved CO~2~ concentration in sea water. The equilibrium of gaseous CO~2~ in the atmosphere and dissolved CO~2~ in seawater is dictated by Henry’s law: 
+Firstly, gaseous CO~2~ in the atmosphere can dissolve into seawater. This process is driven by the equilibrium states of gaseous CO~2~ and dissolved CO~2~ concentration in sea water. The equilibrium of gaseous CO~2~ in the atmosphere and dissolved CO~2~ in seawater is dictated by Henry’s law: 
 
 $$
 \begin{align}
@@ -99,7 +98,7 @@ $$
 \end{align}
 $$ {#eq-henry_law}
 
-Applying only Henry’s law with K~H~ = 3.4 × 10^−2^  and pCO~2~ = 400 ppm would however lead to a 100-fold underestimation of carbon storage in the ocean. This is because of the buffer effect caused by the carbonate system. Dissolved $CO_{2}$ and water firstly form $H_{2}CO_{3}$. At sea water pH levels however, the majority of newly formed $H_{2}CO_{3}$ dissociates to bicarbonate $HCO_{3}^{-}$:
+Applying only Henry’s law with K~H~ = 3.4 × 10^−2^  and pCO~2~ = 400 ppm would however lead to a 100-fold underestimation of carbon storage in the ocean. This is because of the buffer effect caused by the carbonate system. Dissolved $CO_{2}$ and water firstly form $H_{2}CO_{3}$ @fig-carbonatechem. At sea water pH levels however, the majority of newly formed $H_{2}CO_{3}$ dissociates to bicarbonate $HCO_{3}^{-}$:
 
 $$
 \begin{align}
@@ -113,7 +112,7 @@ H_{2}CO_{3} \Leftrightarrow HCO_{3}^{-} + H^{+}
 \end{align}
 $$ {#eq-hco3}
 
-The equilibrium of the reaction is thus given by:
+While the first reaction is instanteneous, the equilibrium of the second reaction is given by:
 
 $$
 \begin{align}
@@ -121,7 +120,7 @@ pK_{1} =  \frac{[HCO_{3}^{-}] * [H^{+}]}{CO_{3}^{-2}]} = 3
 \end{align}
 $$ {#eq-hco3}
 
-This reaction is very favorable at oceanic pH levels with a pKa of 3, meaning a much larger fraction of $HCO_{3}^{-}$ than $H_{2}CO_{3}$. 
+This reaction has a pKa of 3 and is very favorable at ocean pH levels of around 8, meaning a much larger fraction of $HCO_{3}^{-}$ is present in seawater than $H_{2}CO_{3}$. 
 
 The $HCO_{3}^{-}$ can further dissociate to $CO_{3}^{-2}$:
 
@@ -139,7 +138,7 @@ pK_{2} =  \frac{[CO_{3}^{2-}] * [H^{+}]}{HCO_{3}^{-}]} = 10.3
 \end{align}
 $$ {#eq-eq_co3}
 
-Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3. The sum of all carbonate species (CO~2(aq)~, H~2~CO~3~, HCO~3~^-^, CO3^2-^) comprises dissolved inorganic carbon (DIC). @fig-dicspeciation shows the fraction of the different DIC species to the total DIC as a function of solute pH. The figure shows that at a pH level typical for seawater (around pH=8.1), the majority of DIC is present under the form of HCO~3~^-^. This means that with higher atmospheric CO~2~, the increased CO2(aq) will quickly react to form HCO~3~^-^, allowing for more atmospheric CO~2~ to be dissolved in the water. The mechanism is referred to as carbonate buffering. 
+Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3, leading to around 10% of dissolved inorganic carbon species (DIC). The total DIC is given by the sum of all dissolved inorganic carbon carbonate species (CO~2(aq)~, H~2~CO~3~, HCO~3~^-^, CO3^2-^). @fig-dicspeciation shows the fractions of the different DIC species to the total DIC as a function of solute pH. The figure confirms that at a pH level typical for seawater (around pH=8.1), the majority of DIC is present under the form of HCO~3~^-^ (around 90 %). This means that with higher atmospheric CO~2~, the increased CO2(aq) will quickly react to form HCO~3~^-^, allowing for more atmospheric CO~2~ to be dissolved in the water to fullfill the Henry's law. This mechanism of "passing on" CO~2~ to other carbonate species is referred to as carbonate buffering. 
 
 
 
@@ -150,14 +149,14 @@ Although this reaction is not favorable at oceanic pH levels at a pKa of 10.3. T
 knitr::include_graphics("images/ocean_dic_speciation.png")
 ```
 
-A byproduct of equations @eq-h2co3 and @eq-hco3 is the increase of seawater hydrogen ions (H^+^) concentrations are increased, which is referred to as acidification. Acidification is notable to reduce rates of CO~2~ uptake due to reducing the carbonate buffer of the ocean, and have adverse effects on organisms such as corals.
+A byproduct of equations @eq-h2co3 and @eq-hco3 is that seawater hydrogen ions (H^+^) concentrations are produced, which is referred to as acidification. Acidification is notable to reduce rates of CO~2~ uptake due to reducing the carbonate buffer of the ocean, and have adverse effects on organisms such as corals.
 
-The carbonate system is firstly affected by temperature, which pushes the speciation equilibrium of @fig-dicspeciation to the left, meaning that less CO~2~ can be stored in seawater with higher temperatures. In addition, @fig-dicspeciation also directly shows that a lower pH, meaning higher acidification, the buffer capacity of the ocean is reduced, reducing its potential to take up CO~2~.  
+The carbonate system CO~2~ uptake is affected by temperature, which pushes the speciation equilibrium of @fig-dicspeciation to the left, meaning that less CO~2~ can be stored in seawater with higher temperatures. In addition, @fig-dicspeciation also directly shows that a lower pH, meaning higher acidification, the buffer capacity of the ocean is reduced, reducing its potential to take up CO~2~.  
 
 
 ### Biological Fluxes (Biological Pump)
 
-Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO~2~ from the sea water. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality, by zooplankton or bacteria, and returned to the ocean as dissolved inorganic carbon (remineralization, @fig-biopump). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer . This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the "biological pump".
+Algae in the ocean takes up dissolved inorganic carbon in the ocean through photosynthesis. In the photosynthesis process, organic carbon is produced by algae, using water and dissolved CO~2~ from the sea water, to produce building material. The produced biomass can in turn be respired during maintenance or autotrophic repiration of the algae, or after excretion or mortality. This respiration takes place through by zooplankton or bacteria, and the respired organic carbon is returned to the ocean as dissolved inorganic carbon (remineralization, @fig-biopump). Carbon stored through the biological production of organic carbon is generally only lost from exchange with the atmosphere once the organic carbon particles sink to deeper depths, where waters are not mixed with the surface any longer. This sinking of the carbon is isolated from exchange with atmosphere over long timescales of thermohaline circulation, and can even be deposited and buried in the sediment. The loss of carbon from the atmosphere through this chain of biological processes is referred to as the "biological pump".
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-biopump
@@ -166,13 +165,13 @@ Algae in the ocean takes up dissolved carbon in the ocean through photosynthesis
 knitr::include_graphics("images/ocean_biological_pump.png")
 ```
 
-Biological productivity in the ocean is strongly limited by light availability and nutrient concentrations. As a result, biological productivity is only found in the euphotic zone of the ocean, which is defined as depths to which light penetrates into the ocean and usually reaches around 100 m depth. [Spatial patterns of productivity](https://svs.gsfc.nasa.gov/vis/a030000/a030700/a030786/modis_chlor_a_perceptual_720p.mp4) in the ocean show a large degree of seasonality due to the light limitation. However, "deserts" of biological productivity can be found in multiple areas of the ocean, which then owes to lack of nutrient supply. For instance, subtropical areas remain extremely low in productivity all year around due to low nutrient availability. In contrast, coastal areas where deeper waters supply vast amounts of nutrients (e.g. Californian coast, around the Canary islands, coast of Peru and Namibia) are some of the most biologically active areas in the ocean.
+Biological productivity in the ocean is strongly limited by light availability and nutrient concentrations. As a result, biological productivity is only found in the euphotic zone of the ocean, which is defined as depths to which light penetrates into the ocean and usually reaches around 100 m depth. [Spatial patterns of productivity](https://svs.gsfc.nasa.gov/vis/a030000/a030700/a030786/modis_chlor_a_perceptual_720p.mp4) in the ocean show a large degree of seasonality due to the light limitation. However, "deserts" of biological productivity can be found in multiple areas of the ocean, such as in the subtropics, which then owes to lack of nutrient supply. For instance, subtropical areas remain extremely low in productivity all year around due to low nutrient availability. In contrast, coastal areas where deeper waters supply vast amounts of nutrients (e.g. Californian coast, around the Canary islands, coast of Peru and Namibia) are some of the most biologically active areas in the ocean.
 
-Past and future changes in the biological drawdown and storage of carbon in the ocean remains strongly uncertain, despite it’s large natural fluxes. While models generally agree that the biological productivity will decrease with additional climate warming, the magnitude of this decrease is strongly variable.
+Past and future changes in the biological drawdown and storage of carbon in the ocean remain strongly uncertain, despite it’s large natural fluxes. While models generally agree that the biological productivity will decrease with additional climate warming, the magnitude of this decrease is strongly variable.
 
 ## Ocean Carbon Sink
 
-The ocean is responsible for around 25 % of anthropogenic carbon uptake. This carbon sink has steadily increased over time with atmospheric CO~2~ concentrations, the primary driver of this increasing carbon flux to the ocean.  Historical model and inversion data show minor saturation of the carbon sink can be observed over the historical time period (@gruber2022), which could owe to impacts of increasing temperature and acidification on the sink driven by carbonate chemistry. Figure @fig-spatialcarbon  shows areas of the natural CO~2~ flux in different basins of the ocean (blue) and the anthropogenic perturbation of the CO~2~ flux (red).  
+The ocean is responsible for around 30 % of anthropogenic carbon uptake. This carbon sink has steadily increased over time with atmospheric CO~2~ concentrations, the primary driver of this increasing carbon flux to the ocean.  Historical model and inversion data show minor saturation of the carbon sink can be observed over the historical time period (@gruber2022), which could owe to impacts of increasing temperature and acidification on the sink driven by carbonate chemistry. Figure @fig-spatialcarbon  shows areas of the natural CO~2~ flux in different basins of the ocean (blue) and the anthropogenic perturbation of the CO~2~ flux (red).  
 
 ```{r echo=FALSE, eval=TRUE}
 #| label: fig-carbonuptake
@@ -208,12 +207,20 @@ $$
 
 2. Compute the heat uptake of the surface ocean since 1960 assuming: a density of 1,025 kg/m^-3^, a volume of 3.6 × 10^16^ m^-3^, and a temperature rise of 0.5 °C. 
 
-3. How much DIC would be dissolved in the ocean following solely Henry's law (@eq-henry_law), thus ignoring further buffering through carbonate chemistry?
+3. How much DIC would be dissolved in the ocean following solely Henry's law (@eq-henry_law), thus ignoring further buffering through carbonate chemistry? Assume an equilibrated preindustrial atmosphere pCO~2~ = 278 * 10^6^ atm and an Henry constant K~H~ as given above. 
 
-4. What is the concentration of DIC (in [mol kg^-1^]) dissolved in the surface ocean in mol kg^−1^ (assuming full carbonate chemistry, and neglecting biological fluxes), assuming an equilibrium state, pCO~2~ = 278 10^-6^ atm and a pH of 8.1. To do this, combine equations @eq-hco3) and @eq-eq_co3). Compare this answer with the answer in 3 without carbonate system buffering. 
+4. What is the concentration of DIC (in [mol kg^-1^]) dissolved in the surface ocean in mol kg^−1^ (assuming full carbonate chemistry, and neglecting biological fluxes), assuming an equilibrium state, pCO~2~ = 278 10^-6^ atm and a pH of 8.1. To do this, we can combine equations @eq-hco3) and @eq-eq_co3):
+
+$$
+DIC = K~H~ * pCO~2~ * (1 + \frac{K_{1}}{[H]^{2}} + \frac{K_{1}K_{2}}{[H^{+}]^{2}})
+$$
+
+with K~1~ = 10^-3.7^ and K~2~ = 10^-8.9^
+
+Compare this answer with the answer in 3 without carbonate system buffering. 
 
 5. How much DIC (in [g C]) is stored in the surface ocean in absolute terms? Assume a surface ocean depth of 100 m, a surface of 3.16 × 10^14^ m^2^, a density of density of seawater ρ0 = 1024.5 kg m^−3^, and a molmass of 12 g C mol^-1^. Use the DIC concentration calculated in 3., or if not solved, use [DIC]= 2000 × 10^−6^ mol kg^−1^.
 
-6. Describe how the oceanic biological carbon pump can respond to climate warming? What are the implications of this change?
+6. Describe how the oceanic biological carbon pump can be affected by climate warming? What are the implications of this change for the climate?
  
 ::: 
