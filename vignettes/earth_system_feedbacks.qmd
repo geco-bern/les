@@ -61,17 +61,24 @@ flux $Q_{\mathrm{SW}}$ already excludes reflected sunlight. CO₂ forcing reduce
 $Q_{\mathrm{LW}}$ at a given $T$; in the second experiment, declining albedo raises
 $Q_{\mathrm{SW}}$ as $T$ increases.
 
-## Start with the radiation balance
+## Model description
 
-We begin with radiative equilibrium: absorbed shortwave radiation equals outgoing longwave radiation,
+### Radiation balance
 
+We begin by considering net downward top-of-atmosphere (TOA) radiation:
+
+$$
+N(T)=Q_{\mathrm{SW}}-Q_{\mathrm{LW}}.
+$$
+Positive $N$ means Earth gains heat.
+
+At equilibrium $N=0$, and we know absorbed shortwave radiation equals outgoing longwave radiation,
 $$
 N(T)=Q_{\mathrm{SW}}-Q_{\mathrm{LW}}=0.
 $$
+We use this balance to calibrate the initial equilibrium state at $T=T_0$ before perturbing it with CO₂ doubling.
 
-We use this balance to calibrate the initial state at $T=T_0$ before perturbing it with CO₂ doubling.
-
-### Incoming sunlight and reflected radiation
+#### Incoming sunlight and reflected radiation
 
 Earth intercepts sunlight over a disk of area $\pi R^2$, but redistributes energy over the sphere's area $A_E=4\pi R^2$. The intercepted power is $S_0\pi R^2$; dividing by $4\pi R^2$ gives the globally averaged incident flux per surface area of the sphere, $S_0/4$, where $S_0$ is the solar constant. With planetary albedo $\alpha$, the absorbed shortwave flux is
 
@@ -81,7 +88,7 @@ $$
 
 Here $S_0=1361\ \mathrm{W\,m^{-2}}$ and $\alpha=0.3$, giving $Q_{\mathrm{SW}}=238.175\ \mathrm{W\,m^{-2}}$. The reflected flux is $\alpha S_0/4=102.075\ \mathrm{W\,m^{-2}}$. Both fluxes are per unit **total Earth area**, including land. We initially keep albedo constant; the second experiment relaxes this assumption.
 
-### Outgoing longwave radiation and the greenhouse effect
+#### Outgoing longwave radiation and the greenhouse effect
 
 Following Stocker's equation 2.1, baseline outgoing longwave radiation is represented by
 
@@ -108,69 +115,9 @@ A black body has 100% emissivity ($\epsilon=1$). Our lower effective planetary e
 
 **Scope of the atmospheric representation.** The model parameterises the net effects of atmospheric radiation on the atmosphere–surface system. It does not calculate separate atmospheric and surface absorption of sunlight, upward/downward longwave streams, an atmospheric emission temperature, or convection. Its two heat reservoirs are ocean reservoirs, not Stocker's two radiating levels in equations 2.3–2.4. Surface air and the mixed layer share a temperature by assumption; atmospheric and land heat capacities are neglected.
 
-### Perturb the system by doubling CO₂
+### Heat capacity of oceans and heat transport
 
-We want to prescribe an instantaneous increase from 280 to 560 ppm at $t=0$, then keep CO₂ fixed. Temperature cannot jump instantaneously because the ocean has finite heat capacity.
-
-To prescribe the forcing we use, Stocker's equations 2.43–2.44 give the logarithmic forcing
-
-$$
-\Delta Q=5.35\ln\left(\frac{[\mathrm{CO_2}]}{[\mathrm{CO_2}]_0}\right)
-\quad\mathrm{W\,m^{-2}}.
-$$
-
-This produces $\Delta Q_{2\times}=5.35\ln2\approx3.708\ \mathrm{W\,m^{-2}}$. 
-
-We implement forcing as a reduction in net outgoing longwave radiation at a given temperature and at our new CO₂ concentration:
-
-$$
-Q_{\mathrm{LW}}=\epsilon\sigma T^4-\Delta Q.
-$$
-This is an additive forcing parameterisation, consistent with Stocker's perturbed energy balance. Note that we refrain from changing our previous baseline $\epsilon$ when CO₂ doubles, which otherwise would count the forcing twice. Rapid atmospheric adjustments are not resolved separately.
-
-The net downward top-of-atmosphere (TOA) radiation is consequently
-
-$$
-N(T)=Q_{\mathrm{SW}}-Q_{\mathrm{LW}}
-     =\Delta Q-\epsilon\sigma(T^4-T_0^4).
-$$ {#eq-toa}
-
-Positive $N$ means Earth gains heat. Immediately after doubling, $T=T_0$, so $N=\Delta Q$. Subsequently, warming slowly increases earths temperature and with it longwave emission and eventually reduces $N$ until it will be zero again in a new equilibrium.
-
-```{r}
-# Inspect the forcing and fluxes at the instant just after CO2 doubles.
-co2_radiative_forcing(560, p)
-earth_system_fluxes(T = p$T0, Td = p$T0, co2 = 560, p = p) |>
-  as_tibble() |>
-  select(forcing, solar_absorbed, longwave_out, net_toa)
-```
-
-## The baseline: Planck response only
-
-To derive the climate feedback parameter, we write $T=T_0+\Delta T$ and linearise @eq-toa about $T_0$. This expresses the radiative response to a small temperature change as a slope:
-
-$$
-N\approx\Delta Q+\lambda_P\Delta T,
-\qquad
-\lambda_P=\left.\frac{\partial N}{\partial T}\right|_{T_0}
-         =-4\epsilon\sigma T_0^3.
-$$ {#eq-linear}
-
-The parameter $\lambda_P$ has units $\mathrm{W\,m^{-2}\,K^{-1}}$. It is negative because warming increases energy loss to space: a **stabilising feedback**. Here $\lambda_P=$ `r round(p$lambda_P, 3)` $\mathrm{W\,m^{-2}\,K^{-1}}$, consistent with Stocker's approximate value of $-3.3$ for this point model (equation 2.34). The simulation retains the full $T^4$ term; linearisation is used only to interpret the response.
-
-In the baseline, there are no temperature-dependent changes in water vapour, lapse rate, clouds, albedo, CO₂, or mixing. The small change in the slope $-4\epsilon\sigma T^3$ as Earth warms is still the Planck response, not a second feedback.
-
-::: {.callout-note}
-## Two sign conventions in the teaching materials
-
-Stocker writes $N=\Delta Q+\lambda\Delta T$, with **negative** $\lambda$ for a stable climate. The LES Book's feedback-formalism box instead writes the radiative restoring response as $H_{\mathrm{rad}}=\lambda_{\mathrm{LES}}\Delta T$ and $N=F-H_{\mathrm{rad}}$. Thus $F=\Delta Q$ and $\lambda_{\mathrm{LES}}=-\lambda_P>0$ in this demonstration. The slope of the TOA radiation–temperature plot remains negative in either convention.
-
-The IPCC diagram uses its own symbol for feedback. In this vignette $\alpha$ always means **planetary albedo**, never the feedback slope. We use $H$ below for **deep-ocean heat exchange**, distinct from the radiative response $H_{\mathrm{rad}}$ in the LES box.
-:::
-
-## Put the ocean's heat capacity into the model
-
-### Partition the global ocean volume
+#### Partition the global ocean volume
 
 We approximate the total ocean volume by $V_o=1.332\times10^{18}\ \mathrm{m^3}$, with seawater density $\rho_w=1025\ \mathrm{kg\,m^{-3}}$ and specific heat $c_w=3990\ \mathrm{J\,kg^{-1}\,K^{-1}}$. These are rounded teaching parameters, added to Stocker's radiation model.
 
@@ -189,7 +136,7 @@ $$
 
 They have units $\mathrm{J\,m^{-2}\,K^{-1}}$. Their sum satisfies $(C_m+C_d)A_E=\rho_wc_wV_o$: every cubic metre of ocean is counted once. The total heat capacity is about $5.45\times10^{24}\ \mathrm{J\,K^{-1}}$.
 
-### Couple the mixed layer to the deep ocean
+#### Couple the mixed layer to the deep ocean
 
 Define a heat transfer flux from the mixed layer into the deep ocean,
 
@@ -231,9 +178,72 @@ tibble(
 )
 ```
 
-## Simulate the readjustment
 
-We start both reservoirs at $T_0$. The function integrates @eq-ocean (a.k.a numerically solves) the underlying  ordinary differential equation (ODE) in its full non-linear form using a Runge-Kutta 6th order method. Thanks to the simple strcture of our energy balance model model, this goes much faster than with a more complete earth system models. In the output, each row contains temperatures, radiation fluxes, heat exchange, and accumulated ocean heat.
+## Experimental setup: Perturb the system by doubling CO₂
+
+We want to prescribe an instantaneous increase from 280 to 560 ppm at $t=0$, then keep CO₂ fixed. Temperature cannot jump instantaneously because the ocean has finite heat capacity.
+
+To prescribe the forcing we use Stocker's equations 2.43–2.44 give the logarithmic forcing
+
+$$
+\Delta Q=5.35\ln\left(\frac{[\mathrm{CO_2}]}{[\mathrm{CO_2}]_0}\right)
+\quad\mathrm{W\,m^{-2}}.
+$$
+
+This produces $\Delta Q_{2\times}=5.35\ln2\approx3.708\ \mathrm{W\,m^{-2}}$. 
+
+We implement forcing as a reduction in net outgoing longwave radiation at a given temperature and at our new CO₂ concentration:
+
+$$
+Q_{\mathrm{LW}}=\epsilon\sigma T^4-\Delta Q.
+$$
+This is an additive forcing parameterisation, consistent with Stocker's perturbed energy balance. Note that we refrain from changing our previous baseline $\epsilon$ when CO₂ doubles, which otherwise would count the forcing twice. Rapid atmospheric adjustments are not resolved separately.
+
+The net downward top-of-atmosphere (TOA) radiation is consequently
+
+$$
+N(T)=Q_{\mathrm{SW}}-Q_{\mathrm{LW}}
+     =\Delta Q-\epsilon\sigma(T^4-T_0^4).
+$$ {#eq-toa}
+
+Again, positive $N$ means Earth gains heat. Immediately after doubling, $T=T_0$, so $N=\Delta Q$. Subsequently, warming slowly increases earths temperature and with it longwave emission and eventually reduces $N$ until it will be zero again in a new equilibrium.
+
+```{r}
+# Inspect the forcing and fluxes at the instant just after CO2 doubles.
+co2_radiative_forcing(560, p)
+earth_system_fluxes(T = p$T0, Td = p$T0, co2 = 560, p = p) |>
+  as_tibble() |>
+  select(forcing, solar_absorbed, longwave_out, net_toa)
+```
+
+## Experiment 1 (baseline): Planck response only
+
+### Climate feedback parameter
+
+To derive the climate feedback parameter, we do not need to nuemrically simulate the time evolution of our simple model. We can consider how it represents the radiation balance: we write $T=T_0+\Delta T$ and linearise @eq-toa about $T_0$. This expresses the radiative response to a small temperature change as a slope:
+
+$$
+N\approx\Delta Q+\lambda_P\Delta T,
+\qquad
+\lambda_P=\left.\frac{\partial N}{\partial T}\right|_{T_0}
+         =-4\epsilon\sigma T_0^3.
+$$ {#eq-linear}
+
+The parameter $\lambda_P$ has units $\mathrm{W\,m^{-2}\,K^{-1}}$. It is negative because warming increases energy loss to space: a **stabilising feedback**. Here $\lambda_P=$ `r round(p$lambda_P, 3)` $\mathrm{W\,m^{-2}\,K^{-1}}$, consistent with Stocker's approximate value of $-3.3$ for this point model (equation 2.34). The simulation retains the full $T^4$ term; linearisation is used only to interpret the response.
+
+In the baseline, there are no temperature-dependent changes in water vapour, lapse rate, clouds, albedo, CO₂, or mixing. The small change in the slope $-4\epsilon\sigma T^3$ as Earth warms is still the Planck response, not a second feedback.
+
+::: {.callout-note}
+### Two sign conventions in the teaching materials
+
+Stocker writes $N=\Delta Q+\lambda\Delta T$, with **negative** $\lambda$ for a stable climate. The LES Book's feedback-formalism box instead writes the radiative restoring response as $H_{\mathrm{rad}}=\lambda_{\mathrm{LES}}\Delta T$ and $N=F-H_{\mathrm{rad}}$. Thus $F=\Delta Q$ and $\lambda_{\mathrm{LES}}=-\lambda_P>0$ in this demonstration. The slope of the TOA radiation–temperature plot remains negative in either convention.
+
+The IPCC diagram uses its own symbol for feedback. In this vignette $\alpha$ always means **planetary albedo**, never the feedback slope. We use $H$ below for **deep-ocean heat exchange**, distinct from the radiative response $H_{\mathrm{rad}}$ in the LES box.
+:::
+
+### Simulate the temporal evolution of temperature readjustment
+
+Now we run our simple model. We start both reservoirs at $T_0$. The function integrates @eq-ocean (a.k.a numerically solves) the underlying  ordinary differential equation (ODE) in its full non-linear form using a Runge-Kutta 6th order method. Thanks to the simple strcture of our energy balance model model, this goes much faster than with a more complete earth system models. In the output, each row contains temperatures, radiation fluxes, heat exchange, and accumulated ocean heat.
 
 ```{r}
 # The forcing is already applied in the t = 0 row, but temperatures are unchanged.
@@ -255,7 +265,7 @@ plot_overview
 
 With the default parameters, surface warming after 100 years is `r round(warming$delta_T[warming$year == 100], 3)` K, while the deep ocean has warmed by only `r round(warming$delta_Td[warming$year == 100], 3)` K. The remaining positive TOA imbalance means further warming is still committed under fixed doubled CO₂. “Constant forcing” does not mean “constant net radiation”: forcing remains positive while the negative Planck response grows.
 
-## Calculate the final equilibrium
+### Calculate the final equilibrium
 
 At equilibrium neither reservoir gains heat, so $H=0$, $T=T_d$, and $N=0$. The exact final temperature is
 
@@ -275,9 +285,9 @@ The exact Planck-only warming is `r round(delta_T_eq, 3)` K; the linearised esti
 
 This is the equilibrium sensitivity of the deliberately restricted Planck-only model. It is not an estimate of Earth's full equilibrium climate sensitivity, which includes other feedbacks.
 
-## Read the TOA radiation–temperature plot
+### Plot simulated TOA radiation-temperature values
 
-With the simulated temperature evolution of our simulatino we can plot the annual output over time. The plot below uses the same axes and forcing–feedback interpretation as LES Figure 9.7, reproduced there from [IPCC AR6 WGI, Box 7.1, Figure 1](https://www.ipcc.ch/report/ar6/wg1/figures/chapter-7/box-7-1-figure-1/). The horizontal axis is **surface-air temperature change relative to the initial equilibrium**, rather than absolute temperature. A 1 K change equals a 1 °C change.
+With the simulated temperature evolution of our simulation we can plot the annual output over time. The plot below uses the same axes and forcing–feedback interpretation as LES Figure 9.7, reproduced there from [IPCC AR6 WGI, Box 7.1, Figure 1](https://www.ipcc.ch/report/ar6/wg1/figures/chapter-7/box-7-1-figure-1/). The horizontal axis is **surface-air temperature change relative to the initial equilibrium**, rather than absolute temperature. A 1 K change equals a 1 °C change.
 
 ```{r}
 #| label: fig-gregory
@@ -300,7 +310,7 @@ Changing only the mixing time leaves $N(T)$ unchanged because $T_d$ and $\kappa$
 Increasing the mixed-layer depth leads to a greater heat capacity and slows the initial warming.
 Neither change alters the final equilibrium for the same radiation parameters.
 
-## Add an ice–albedo feedback
+## Experiment 2: include an ice–albedo feedback
 
 Warming reduces reflective snow and ice cover, exposing darker surfaces. More sunlight is absorbed, which promotes further warming: a **positive feedback**. This mechanism is discussed in [IPCC AR6 WGI, Section 7.4.2.3](https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/). Here we represent its effect on *planetary* albedo with a simple temperature-dependent function, rather than resolving ice cover geographically:
 
@@ -345,15 +355,7 @@ $$
 
 We keep emissivity, CO₂ forcing, heat capacities and ocean mixing identical to the baseline.
 
-```{r}
-# Calibrate the initial albedo response to AR6; keep the same ocean and Planck response.
-p_ice_example <- earth_system_parameters(ice_albedo = TRUE,
-  albedo_amplitude = 4 * 10 * lambda_ice_ar6 / p$S0)
-ice_example <- simulate_earth_system(p = p_ice_example) |> as_tibble()
-ice_example |>
-  filter(year %in% c(0, 100, 1000, 3000)) |>
-  select(year, delta_T, albedo, ice_albedo_response, net_toa)
-```
+### Climate feedback parameter
 
 Again we write $T=T_0+\Delta T$ and linearise @eq-ice-response about $T_0$ to derive the additional feedback parameter. Since $R_{\mathrm{ice}}(T_0)=0$, we obtain $R_{\mathrm{ice}}(T_0+\Delta T)\approx\lambda_{\mathrm{ice}}\Delta T$. Near the initial equilibrium, the ice–albedo contribution to the Gregory slope is
 
@@ -367,6 +369,20 @@ $$
 $$
 
 Here $\lambda_{\mathrm{ice}}=$ `r round(p_ice$lambda_ice, 3)` and $\lambda_{\mathrm{total}}=$ `r round(p_ice$lambda_P + p_ice$lambda_ice, 3)` $\mathrm{W\,m^{-2}\,K^{-1}}$. The total feedback is still negative, so the climate remains stable, but its restoring response is weaker. Positive feedback does not necessarily mean runaway warming.
+
+
+### Simulate the temporal evolution
+
+```{r}
+# Calibrate the initial albedo response to AR6; keep the same ocean and Planck response.
+p_ice_example <- earth_system_parameters(ice_albedo = TRUE,
+  albedo_amplitude = 4 * 10 * lambda_ice_ar6 / p$S0)
+ice_example <- simulate_earth_system(p = p_ice_example) |> as_tibble()
+ice_example |>
+  filter(year %in% c(0, 100, 1000, 3000)) |>
+  select(year, delta_T, albedo, ice_albedo_response, net_toa)
+```
+
 
 ```{r}
 #| label: fig-ice-temperature
